@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface CreateAnomalySubscriptionCommandInput extends CreateAnomalySubs
 export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a subscription to a cost anomaly detection monitor. You can use each subscription to
- *       define subscribers with email or SNS notifications. Email subscribers can set a dollar
- *       threshold and a time frequency for receiving notifications. </p>
+ * <p>Adds an alert subscription to a cost anomaly detection monitor. You can use each
+ *       subscription to define subscribers with email or SNS notifications. Email subscribers can set
+ *       an absolute or percentage threshold and a time frequency for receiving notifications. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class CreateAnomalySubscriptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAnomalySubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class CreateAnomalySubscriptionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAnomalySubscriptionCommandInput, CreateAnomalySubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateAnomalySubscriptionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

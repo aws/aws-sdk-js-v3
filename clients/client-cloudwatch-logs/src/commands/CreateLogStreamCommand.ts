@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -37,7 +38,7 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  *                <p>Log stream names can be between 1 and 512 characters long.</p>
  *             </li>
  *             <li>
- *                <p>The ':' (colon) and '*' (asterisk) characters are not allowed.</p>
+ *                <p>Don't use ':' (colon) or '*' (asterisk) characters.</p>
  *             </li>
  *          </ul>
  * @example
@@ -63,6 +64,15 @@ export class CreateLogStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateLogStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class CreateLogStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLogStreamCommandInput, CreateLogStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLogStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

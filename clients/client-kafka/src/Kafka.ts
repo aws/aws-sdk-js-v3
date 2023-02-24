@@ -168,6 +168,11 @@ import {
   UpdateSecurityCommandInput,
   UpdateSecurityCommandOutput,
 } from "./commands/UpdateSecurityCommand";
+import {
+  UpdateStorageCommand,
+  UpdateStorageCommandInput,
+  UpdateStorageCommandOutput,
+} from "./commands/UpdateStorageCommand";
 import { KafkaClient } from "./KafkaClient";
 
 /**
@@ -1266,6 +1271,38 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: UpdateSecurityCommandOutput) => void
   ): Promise<UpdateSecurityCommandOutput> | void {
     const command = new UpdateSecurityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Updates cluster broker volume size (or) sets cluster storage mode to TIERED.
+   */
+  public updateStorage(
+    args: UpdateStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStorageCommandOutput>;
+  public updateStorage(
+    args: UpdateStorageCommandInput,
+    cb: (err: any, data?: UpdateStorageCommandOutput) => void
+  ): void;
+  public updateStorage(
+    args: UpdateStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStorageCommandOutput) => void
+  ): void;
+  public updateStorage(
+    args: UpdateStorageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStorageCommandOutput) => void),
+    cb?: (err: any, data?: UpdateStorageCommandOutput) => void
+  ): Promise<UpdateStorageCommandOutput> | void {
+    const command = new UpdateStorageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

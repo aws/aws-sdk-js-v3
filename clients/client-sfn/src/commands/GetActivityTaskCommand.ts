@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,6 +35,11 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  *       an execution of a task of this type is needed.) The maximum time the service holds on to the
  *       request before responding is 60 seconds. If no task is available within 60 seconds, the poll
  *       returns a <code>taskToken</code> with a null string.</p>
+ *
+ *          <note>
+ *             <p>This API action isn't logged in CloudTrail.</p>
+ *          </note>
+ *
  *          <important>
  *             <p>Workers should set their client side socket timeout to at least 65 seconds (5 seconds
  *         higher than the maximum time the service may hold the poll request).</p>
@@ -64,6 +70,15 @@ export class GetActivityTaskCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetActivityTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +94,9 @@ export class GetActivityTaskCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetActivityTaskCommandInput, GetActivityTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetActivityTaskCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,6 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  *        This includes objects like flower, tree, and table; events like
  *        wedding, graduation, and birthday party; concepts like landscape, evening, and nature; and activities
  *        like a person getting out of a car or a person skiing.</p>
- *
  *          <p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *        and the filename of the video.
  *         <code>StartLabelDetection</code> returns a job identifier (<code>JobId</code>) which you use to get the
@@ -42,7 +42,18 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  *          <p>To get the results of the label detection operation, first check that the status value published to the Amazon SNS
  *         topic is <code>SUCCEEDED</code>. If so, call  <a>GetLabelDetection</a> and pass the job identifier
  *        (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.</p>
- *         <p></p>
+ *          <p>
+ *             <i>Optional Parameters</i>
+ *          </p>
+ *          <p>
+ *             <code>StartLabelDetection</code> has the <code>GENERAL_LABELS</code> Feature applied by
+ *       default.  This feature allows you to provide filtering criteria to the <code>Settings</code>
+ *       parameter. You can filter with sets of individual labels or with label categories. You can
+ *       specify inclusive filters, exclusive filters, or a combination of inclusive and exclusive
+ *       filters. For more information on filtering, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detecting-labels-video.html">Detecting labels in a
+ *         video</a>.</p>
+ *          <p>You can specify <code>MinConfidence</code> to control the confidence threshold for the
+ *       labels returned. The default is 50.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +77,15 @@ export class StartLabelDetectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartLabelDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +101,9 @@ export class StartLabelDetectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartLabelDetectionCommandInput, StartLabelDetectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartLabelDetectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

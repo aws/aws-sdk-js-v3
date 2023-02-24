@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,9 +30,9 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
 
 /**
  * <p>Cancels a job in an Batch job queue. Jobs that are in the <code>SUBMITTED</code>, <code>PENDING</code>, or
- *     <code>RUNNABLE</code> state are canceled. Jobs that have progressed to <code>STARTING</code> or <code>RUNNING</code>
- *    aren't canceled, but the API operation still succeeds, even if no job is canceled. These jobs must be terminated with
- *    the <a>TerminateJob</a> operation.</p>
+ *    <code>RUNNABLE</code> state are canceled. Jobs that progressed to the <code>STARTING</code> or <code>RUNNING</code>
+ *    state aren't canceled. However, the API operation still succeeds, even if no job is canceled. These jobs must be
+ *    terminated with the <a>TerminateJob</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class CancelJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CancelJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,7 @@ export class CancelJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelJobCommandInput, CancelJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CancelJobCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

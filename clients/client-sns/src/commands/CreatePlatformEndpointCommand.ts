@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -38,10 +39,10 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  *             already owns an endpoint with the same device token and attributes, that endpoint's ARN
  *             is returned without creating a new endpoint. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
  *                 Notifications</a>. </p>
- *         <p>When using <code>CreatePlatformEndpoint</code> with Baidu, two attributes must be
+ *          <p>When using <code>CreatePlatformEndpoint</code> with Baidu, two attributes must be
  *             provided: ChannelId and UserId. The token field must also contain the ChannelId. For
- *             more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html">Creating an Amazon SNS Endpoint
- *                 for Baidu</a>. </p>
+ *             more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html">Creating an Amazon SNS Endpoint for
+ *                 Baidu</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +66,15 @@ export class CreatePlatformEndpointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreatePlatformEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +90,9 @@ export class CreatePlatformEndpointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePlatformEndpointCommandInput, CreatePlatformEndpointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePlatformEndpointCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

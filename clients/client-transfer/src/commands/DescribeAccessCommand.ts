@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,6 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
  *       server, as identified by its <code>ServerId</code> property and its
  *       <code>ExternalId</code>.</p>
- *
  *          <p>The response from this call returns the properties of the access that is associated with
  *       the <code>ServerId</code> value that was specified.</p>
  * @example
@@ -57,6 +57,15 @@ export class DescribeAccessCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +81,9 @@ export class DescribeAccessCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAccessCommandInput, DescribeAccessCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAccessCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

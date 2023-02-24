@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,10 +26,8 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the attribute name and value of the user that you specified in the search. We only
- *          support <code>UserName</code> as a valid filter attribute path currently, and filter is
- *          required. This API returns minimum attributes, including <code>UserId</code> and
- *             <code>UserName</code> in the response.</p>
+ * <p>Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects.
+ *          Filtering for a <code>User</code> by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +51,15 @@ export class ListUsersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +75,7 @@ export class ListUsersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListUsersCommandInput, ListUsersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListUsersCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -17,6 +17,7 @@ import {
   Message as __Message,
   MessageHeaders as __MessageHeaders,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -42,6 +43,7 @@ import {
   DialogAction,
   DisconnectionEvent,
   DTMFInputEvent,
+  ElicitSubSlot,
   HeartbeatEvent,
   ImageResponseCard,
   Intent,
@@ -51,6 +53,7 @@ import {
   Message,
   PlaybackCompletionEvent,
   PlaybackInterruptionEvent,
+  RecognizedBotMember,
   ResourceNotFoundException,
   RuntimeHintDetails,
   RuntimeHints,
@@ -288,7 +291,7 @@ const deserializeAws_restJson1DeleteSessionCommandError = async (
 ): Promise<DeleteSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -353,7 +356,7 @@ const deserializeAws_restJson1GetSessionCommandError = async (
 ): Promise<GetSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -385,7 +388,7 @@ const deserializeAws_restJson1GetSessionCommandError = async (
 
 export const deserializeAws_restJson1PutSessionCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<PutSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSessionCommandError(output, context);
@@ -399,6 +402,7 @@ export const deserializeAws_restJson1PutSessionCommand = async (
     sessionId: [, output.headers["x-amz-lex-session-id"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.audioStream = data;
   return contents;
 };
@@ -409,7 +413,7 @@ const deserializeAws_restJson1PutSessionCommandError = async (
 ): Promise<PutSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -465,6 +469,9 @@ export const deserializeAws_restJson1RecognizeTextCommand = async (
   if (data.messages != null) {
     contents.messages = deserializeAws_restJson1Messages(data.messages, context);
   }
+  if (data.recognizedBotMember != null) {
+    contents.recognizedBotMember = deserializeAws_restJson1RecognizedBotMember(data.recognizedBotMember, context);
+  }
   if (data.requestAttributes != null) {
     contents.requestAttributes = deserializeAws_restJson1StringMap(data.requestAttributes, context);
   }
@@ -483,7 +490,7 @@ const deserializeAws_restJson1RecognizeTextCommandError = async (
 ): Promise<RecognizeTextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -524,7 +531,7 @@ const deserializeAws_restJson1RecognizeTextCommandError = async (
 
 export const deserializeAws_restJson1RecognizeUtteranceCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<RecognizeUtteranceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RecognizeUtteranceCommandError(output, context);
@@ -539,8 +546,10 @@ export const deserializeAws_restJson1RecognizeUtteranceCommand = async (
     requestAttributes: [, output.headers["x-amz-lex-request-attributes"]],
     sessionId: [, output.headers["x-amz-lex-session-id"]],
     inputTranscript: [, output.headers["x-amz-lex-input-transcript"]],
+    recognizedBotMember: [, output.headers["x-amz-lex-recognized-bot-member"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.audioStream = data;
   return contents;
 };
@@ -551,7 +560,7 @@ const deserializeAws_restJson1RecognizeUtteranceCommandError = async (
 ): Promise<RecognizeUtteranceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -611,7 +620,7 @@ const deserializeAws_restJson1StartConversationCommandError = async (
 ): Promise<StartConversationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1117,10 +1126,8 @@ const serializeAws_restJson1ActiveContextParametersMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1188,6 +1195,9 @@ const serializeAws_restJson1DialogAction = (input: DialogAction, context: __Serd
   return {
     ...(input.slotElicitationStyle != null && { slotElicitationStyle: input.slotElicitationStyle }),
     ...(input.slotToElicit != null && { slotToElicit: input.slotToElicit }),
+    ...(input.subSlotToElicit != null && {
+      subSlotToElicit: serializeAws_restJson1ElicitSubSlot(input.subSlotToElicit, context),
+    }),
     ...(input.type != null && { type: input.type }),
   };
 };
@@ -1204,6 +1214,15 @@ const serializeAws_restJson1DTMFInputEvent = (input: DTMFInputEvent, context: __
     ...(input.clientTimestampMillis != null && { clientTimestampMillis: input.clientTimestampMillis }),
     ...(input.eventId != null && { eventId: input.eventId }),
     ...(input.inputCharacter != null && { inputCharacter: input.inputCharacter }),
+  };
+};
+
+const serializeAws_restJson1ElicitSubSlot = (input: ElicitSubSlot, context: __SerdeContext): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.subSlotToElicit != null && {
+      subSlotToElicit: serializeAws_restJson1ElicitSubSlot(input.subSlotToElicit, context),
+    }),
   };
 };
 
@@ -1258,6 +1277,9 @@ const serializeAws_restJson1RuntimeHintDetails = (input: RuntimeHintDetails, con
     ...(input.runtimeHintValues != null && {
       runtimeHintValues: serializeAws_restJson1RuntimeHintValuesList(input.runtimeHintValues, context),
     }),
+    ...(input.subSlotHints != null && {
+      subSlotHints: serializeAws_restJson1SlotHintsSlotMap(input.subSlotHints, context),
+    }),
   };
 };
 
@@ -1303,6 +1325,7 @@ const serializeAws_restJson1SessionState = (input: SessionState, context: __Serd
 const serializeAws_restJson1Slot = (input: Slot, context: __SerdeContext): any => {
   return {
     ...(input.shape != null && { shape: input.shape }),
+    ...(input.subSlots != null && { subSlots: serializeAws_restJson1Slots(input.subSlots, context) }),
     ...(input.value != null && { value: serializeAws_restJson1Value(input.value, context) }),
     ...(input.values != null && { values: serializeAws_restJson1Values(input.values, context) }),
   };
@@ -1316,10 +1339,8 @@ const serializeAws_restJson1SlotHintsIntentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1SlotHintsSlotMap(value, context),
-    };
+    acc[key] = serializeAws_restJson1SlotHintsSlotMap(value, context);
+    return acc;
   }, {});
 };
 
@@ -1331,10 +1352,8 @@ const serializeAws_restJson1SlotHintsSlotMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1RuntimeHintDetails(value, context),
-    };
+    acc[key] = serializeAws_restJson1RuntimeHintDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -1343,10 +1362,8 @@ const serializeAws_restJson1Slots = (input: Record<string, Slot>, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Slot(value, context),
-    };
+    acc[key] = serializeAws_restJson1Slot(value, context);
+    return acc;
   }, {});
 };
 
@@ -1363,10 +1380,8 @@ const serializeAws_restJson1StringMap = (input: Record<string, string>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1418,10 +1433,8 @@ const deserializeAws_restJson1ActiveContextParametersMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1484,7 +1497,21 @@ const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeConte
   return {
     slotElicitationStyle: __expectString(output.slotElicitationStyle),
     slotToElicit: __expectString(output.slotToElicit),
+    subSlotToElicit:
+      output.subSlotToElicit != null
+        ? deserializeAws_restJson1ElicitSubSlot(output.subSlotToElicit, context)
+        : undefined,
     type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1ElicitSubSlot = (output: any, context: __SerdeContext): ElicitSubSlot => {
+  return {
+    name: __expectString(output.name),
+    subSlotToElicit:
+      output.subSlotToElicit != null
+        ? deserializeAws_restJson1ElicitSubSlot(output.subSlotToElicit, context)
+        : undefined,
   } as any;
 };
 
@@ -1519,6 +1546,10 @@ const deserializeAws_restJson1IntentResultEvent = (output: any, context: __Serde
     interpretations:
       output.interpretations != null
         ? deserializeAws_restJson1Interpretations(output.interpretations, context)
+        : undefined,
+    recognizedBotMember:
+      output.recognizedBotMember != null
+        ? deserializeAws_restJson1RecognizedBotMember(output.recognizedBotMember, context)
         : undefined,
     requestAttributes:
       output.requestAttributes != null
@@ -1588,12 +1619,21 @@ const deserializeAws_restJson1PlaybackInterruptionEvent = (
   } as any;
 };
 
+const deserializeAws_restJson1RecognizedBotMember = (output: any, context: __SerdeContext): RecognizedBotMember => {
+  return {
+    botId: __expectString(output.botId),
+    botName: __expectString(output.botName),
+  } as any;
+};
+
 const deserializeAws_restJson1RuntimeHintDetails = (output: any, context: __SerdeContext): RuntimeHintDetails => {
   return {
     runtimeHintValues:
       output.runtimeHintValues != null
         ? deserializeAws_restJson1RuntimeHintValuesList(output.runtimeHintValues, context)
         : undefined,
+    subSlotHints:
+      output.subSlotHints != null ? deserializeAws_restJson1SlotHintsSlotMap(output.subSlotHints, context) : undefined,
   } as any;
 };
 
@@ -1663,6 +1703,7 @@ const deserializeAws_restJson1SessionState = (output: any, context: __SerdeConte
 const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slot => {
   return {
     shape: __expectString(output.shape),
+    subSlots: output.subSlots != null ? deserializeAws_restJson1Slots(output.subSlots, context) : undefined,
     value: output.value != null ? deserializeAws_restJson1Value(output.value, context) : undefined,
     values: output.values != null ? deserializeAws_restJson1Values(output.values, context) : undefined,
   } as any;
@@ -1677,10 +1718,8 @@ const deserializeAws_restJson1SlotHintsIntentMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1SlotHintsSlotMap(value, context),
-      };
+      acc[key] = deserializeAws_restJson1SlotHintsSlotMap(value, context);
+      return acc;
     },
     {}
   );
@@ -1694,10 +1733,8 @@ const deserializeAws_restJson1SlotHintsSlotMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1RuntimeHintDetails(value, context),
-    };
+    acc[key] = deserializeAws_restJson1RuntimeHintDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -1706,10 +1743,8 @@ const deserializeAws_restJson1Slots = (output: any, context: __SerdeContext): Re
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Slot(value, context),
-    };
+    acc[key] = deserializeAws_restJson1Slot(value, context);
+    return acc;
   }, {});
 };
 
@@ -1730,10 +1765,8 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1774,7 +1807,8 @@ const deserializeAws_restJson1Values = (output: any, context: __SerdeContext): S
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1806,6 +1840,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1816,6 +1856,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

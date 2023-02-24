@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,17 +14,22 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteContactFlowRequest, DeleteContactFlowRequestFilterSensitiveLog } from "../models/models_0";
+import {
+  DeleteContactFlowRequest,
+  DeleteContactFlowRequestFilterSensitiveLog,
+  DeleteContactFlowResponse,
+  DeleteContactFlowResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteContactFlowCommand,
   serializeAws_restJson1DeleteContactFlowCommand,
 } from "../protocols/Aws_restJson1";
 
 export interface DeleteContactFlowCommandInput extends DeleteContactFlowRequest {}
-export interface DeleteContactFlowCommandOutput extends __MetadataBearer {}
+export interface DeleteContactFlowCommandOutput extends DeleteContactFlowResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a contact flow for the specified Amazon Connect instance.</p>
+ * <p>Deletes a flow for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +53,15 @@ export class DeleteContactFlowCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteContactFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +77,9 @@ export class DeleteContactFlowCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteContactFlowCommandInput, DeleteContactFlowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteContactFlowCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,7 +91,7 @@ export class DeleteContactFlowCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteContactFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: DeleteContactFlowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -37,9 +37,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *          For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing object keys
  *             programmatically</a>
  *          </p>
- *
  *          <p>To use this operation, you must have READ access to the bucket.</p>
- *
  *          <p>To use this action in an Identity and Access Management (IAM) policy, you must
  *          have permissions to perform the <code>s3:ListBucket</code> action. The bucket owner has
  *          this permission by default and can grant this permission to others. For more information
@@ -50,9 +48,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *             revised API for application development. For backward compatibility, Amazon S3 continues to
  *             support the prior version of this API, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a>.</p>
  *          </important>
- *
  *          <p>To get a list of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.</p>
- *
  *          <p>The following operations are related to <code>ListObjectsV2</code>:</p>
  *          <ul>
  *             <li>
@@ -94,6 +90,21 @@ export class ListObjectsV2Command extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListObjectsV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +120,7 @@ export class ListObjectsV2Command extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListObjectsV2CommandInput, ListObjectsV2CommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListObjectsV2Command.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

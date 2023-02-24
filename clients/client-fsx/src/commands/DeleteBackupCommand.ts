@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,14 +31,12 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
 /**
  * <p>Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
  *             its data is gone.</p>
- *
- *         <p>The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
+ *          <p>The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
  *             later <code>DescribeBackups</code> calls.</p>
- *
- *         <important>
+ *          <important>
  *             <p>The data in a deleted backup is also deleted and can't be recovered by any
  *                 means.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +60,15 @@ export class DeleteBackupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +84,7 @@ export class DeleteBackupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteBackupCommandInput, DeleteBackupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteBackupCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

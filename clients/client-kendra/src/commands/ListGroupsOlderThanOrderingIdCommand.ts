@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
 /**
  * <p>Provides a list of groups that are mapped to users before a
  *             given ordering or timestamp identifier.</p>
- *         <p>
+ *          <p>
  *             <code>ListGroupsOlderThanOrderingId</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
@@ -58,6 +59,15 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListGroupsOlderThanOrderingIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListGroupsOlderThanOrderingIdCommandInput, ListGroupsOlderThanOrderingIdCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListGroupsOlderThanOrderingIdCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

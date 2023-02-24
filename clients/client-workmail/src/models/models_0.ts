@@ -9,7 +9,7 @@ export enum AccessControlRuleEffect {
 }
 
 /**
- * <p>A rule that controls access to an Amazon WorkMail organization.</p>
+ * <p>A rule that controls access to an WorkMail organization.</p>
  */
 export interface AccessControlRule {
   /**
@@ -70,6 +70,21 @@ export interface AccessControlRule {
    * <p>The date that the rule was modified.</p>
    */
   DateModified?: Date;
+
+  /**
+   * <p>Impersonation role IDs to include in the rule.</p>
+   */
+  ImpersonationRoleIds?: string[];
+
+  /**
+   * <p>Impersonation role IDs to exclude from the rule.</p>
+   */
+  NotImpersonationRoleIds?: string[];
+}
+
+export enum AccessEffect {
+  ALLOW = "ALLOW",
+  DENY = "DENY",
 }
 
 export interface AssociateDelegateToResourceRequest {
@@ -282,6 +297,51 @@ export class UnsupportedOperationException extends __BaseException {
   }
 }
 
+export interface AssumeImpersonationRoleRequest {
+  /**
+   * <p>The WorkMail organization under which the impersonation role will be assumed.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The impersonation role ID to assume.</p>
+   */
+  ImpersonationRoleId: string | undefined;
+}
+
+export interface AssumeImpersonationRoleResponse {
+  /**
+   * <p>The authentication token for the impersonation role.</p>
+   */
+  Token?: string;
+
+  /**
+   * <p>The authentication token's validity, in seconds.</p>
+   */
+  ExpiresIn?: number;
+}
+
+/**
+ * <p>The resource cannot be found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 /**
  * <p>Describes an EWS based availability provider when returned from the service. It does not
  *          contain the password of the endpoint.</p>
@@ -330,7 +390,7 @@ export interface AvailabilityConfiguration {
 
   /**
    * <p>If <code>ProviderType</code> is <code>EWS</code>, then this field contains
-   *             <code>RedactedEwsAvailabilityProvider</code>. Otherwise, it is not requried.</p>
+   *             <code>RedactedEwsAvailabilityProvider</code>. Otherwise, it is not required.</p>
    */
   EwsProvider?: RedactedEwsAvailabilityProvider;
 
@@ -524,7 +584,7 @@ export interface CreateAvailabilityConfigurationRequest {
   ClientToken?: string;
 
   /**
-   * <p>The Amazon WorkMail organization for which the <code>AvailabilityConfiguration</code> will be created.</p>
+   * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will be created.</p>
    */
   OrganizationId: string | undefined;
 
@@ -547,7 +607,7 @@ export interface CreateAvailabilityConfigurationRequest {
 export interface CreateAvailabilityConfigurationResponse {}
 
 /**
- * <p>The user, group, or resource name isn't unique in Amazon WorkMail.</p>
+ * <p>The user, group, or resource name isn't unique in WorkMail.</p>
  */
 export class NameAvailabilityException extends __BaseException {
   readonly name: "NameAvailabilityException" = "NameAvailabilityException";
@@ -587,7 +647,7 @@ export interface CreateGroupResponse {
 }
 
 /**
- * <p>This user, group, or resource name is not allowed in Amazon WorkMail.</p>
+ * <p>This user, group, or resource name is not allowed in WorkMail.</p>
  */
 export class ReservedNameException extends __BaseException {
   readonly name: "ReservedNameException" = "ReservedNameException";
@@ -607,6 +667,87 @@ export class ReservedNameException extends __BaseException {
   }
 }
 
+/**
+ * <p>The rules for the given impersonation role.</p>
+ */
+export interface ImpersonationRule {
+  /**
+   * <p>The identifier of the rule.</p>
+   */
+  ImpersonationRuleId: string | undefined;
+
+  /**
+   * <p>The rule name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The rule description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The effect of the rule when it matches the input. Allowed effect values are
+   *             <code>ALLOW</code> or <code>DENY</code>.</p>
+   */
+  Effect: AccessEffect | string | undefined;
+
+  /**
+   * <p>A list of user IDs that match the rule.</p>
+   */
+  TargetUsers?: string[];
+
+  /**
+   * <p>A list of user IDs that don't match the rule.</p>
+   */
+  NotTargetUsers?: string[];
+}
+
+export enum ImpersonationRoleType {
+  FULL_ACCESS = "FULL_ACCESS",
+  READ_ONLY = "READ_ONLY",
+}
+
+export interface CreateImpersonationRoleRequest {
+  /**
+   * <p>The idempotency token for the client request.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The WorkMail organization to create the new impersonation role within.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The name of the new impersonation role.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The impersonation role's type. The available impersonation role types are
+   *             <code>READ_ONLY</code> or <code>FULL_ACCESS</code>.</p>
+   */
+  Type: ImpersonationRoleType | string | undefined;
+
+  /**
+   * <p>The description of the new impersonation role.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The list of rules for the impersonation role.</p>
+   */
+  Rules: ImpersonationRule[] | undefined;
+}
+
+export interface CreateImpersonationRoleResponse {
+  /**
+   * <p>The new impersonation role ID.</p>
+   */
+  ImpersonationRoleId?: string;
+}
+
 export enum MobileDeviceAccessRuleEffect {
   ALLOW = "ALLOW",
   DENY = "DENY",
@@ -614,7 +755,7 @@ export enum MobileDeviceAccessRuleEffect {
 
 export interface CreateMobileDeviceAccessRuleRequest {
   /**
-   * <p>The Amazon WorkMail organization under which the rule will be created.</p>
+   * <p>The WorkMail organization under which the rule will be created.</p>
    */
   OrganizationId: string | undefined;
 
@@ -687,8 +828,8 @@ export interface CreateMobileDeviceAccessRuleResponse {
 }
 
 /**
- * <p>The domain to associate with an Amazon WorkMail organization.</p>
- *          <p>When you configure a domain hosted in Amazon Route 53 (Route 53), all recommended DNS records are added to the organization when you create it. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html">Adding a domain</a> in the <i>Amazon WorkMail Administrator Guide</i>.</p>
+ * <p>The domain to associate with an WorkMail organization.</p>
+ *          <p>When you configure a domain hosted in Amazon Route 53 (Route 53), all recommended DNS records are added to the organization when you create it. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html">Adding a domain</a> in the <i>WorkMail Administrator Guide</i>.</p>
  */
 export interface Domain {
   /**
@@ -724,13 +865,14 @@ export interface CreateOrganizationRequest {
   Domains?: Domain[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a customer managed master key from AWS
-   *          KMS.</p>
+   * <p>The Amazon Resource Name (ARN) of a customer managed key from AWS KMS.</p>
    */
   KmsKeyArn?: string;
 
   /**
-   * <p>When <code>true</code>, allows organization interoperability between Amazon WorkMail and Microsoft Exchange. Can only be set to <code>true</code> if an AD Connector directory ID is included in the request.</p>
+   * <p>When <code>true</code>, allows organization interoperability between WorkMail and
+   *          Microsoft Exchange. If <code>true</code>, you must include a AD Connector directory ID in
+   *          the request.</p>
    */
   EnableInteroperability?: boolean;
 }
@@ -903,7 +1045,7 @@ export interface DeleteAliasResponse {}
 
 export interface DeleteAvailabilityConfigurationRequest {
   /**
-   * <p>The Amazon WorkMail organization for which the <code>AvailabilityConfiguration</code> will be deleted.</p>
+   * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will be deleted.</p>
    */
   OrganizationId: string | undefined;
 
@@ -938,6 +1080,20 @@ export interface DeleteGroupRequest {
 
 export interface DeleteGroupResponse {}
 
+export interface DeleteImpersonationRoleRequest {
+  /**
+   * <p>The WorkMail organization from which to delete the impersonation role.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The ID of the impersonation role to delete.</p>
+   */
+  ImpersonationRoleId: string | undefined;
+}
+
+export interface DeleteImpersonationRoleResponse {}
+
 export interface DeleteMailboxPermissionsRequest {
   /**
    * <p>The identifier of the organization under which the member (user or group)
@@ -961,7 +1117,7 @@ export interface DeleteMailboxPermissionsResponse {}
 
 export interface DeleteMobileDeviceAccessOverrideRequest {
   /**
-   * <p>The Amazon WorkMail organization for which the access override will be deleted.</p>
+   * <p>The WorkMail organization for which the access override will be deleted.</p>
    */
   OrganizationId: string | undefined;
 
@@ -994,7 +1150,7 @@ export interface DeleteMobileDeviceAccessOverrideResponse {}
 
 export interface DeleteMobileDeviceAccessRuleRequest {
   /**
-   * <p>The Amazon WorkMail organization under which the rule will be deleted.</p>
+   * <p>The WorkMail organization under which the rule will be deleted.</p>
    */
   OrganizationId: string | undefined;
 
@@ -1080,7 +1236,7 @@ export interface DeleteUserResponse {}
 
 export interface DeregisterFromWorkMailRequest {
   /**
-   * <p>The identifier for the organization under which the Amazon WorkMail entity exists.</p>
+   * <p>The identifier for the organization under which the WorkMail entity exists.</p>
    */
   OrganizationId: string | undefined;
 
@@ -1094,12 +1250,12 @@ export interface DeregisterFromWorkMailResponse {}
 
 export interface DeregisterMailDomainRequest {
   /**
-   * <p>The Amazon WorkMail organization for which the domain will be deregistered.</p>
+   * <p>The WorkMail organization for which the domain will be deregistered.</p>
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The domain to deregister in WorkMail and SES. </p>
+   * <p>The domain to deregister in WorkMail and SES.</p>
    */
   DomainName: string | undefined;
 }
@@ -1107,7 +1263,7 @@ export interface DeregisterMailDomainRequest {
 export interface DeregisterMailDomainResponse {}
 
 /**
- * <p>You SES configuration has customizations that Amazon WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to
+ * <p>You SES configuration has customizations that WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to
  *          <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html">CreateReceiptRule</a>.</p>
  */
 export class InvalidCustomSesConfigurationException extends __BaseException {
@@ -1168,27 +1324,6 @@ export interface DescribeEmailMonitoringConfigurationResponse {
   LogGroupArn?: string;
 }
 
-/**
- * <p>The resource cannot be found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
 export interface DescribeGroupRequest {
   /**
    * <p>The identifier for the organization under which the group exists.</p>
@@ -1224,7 +1359,7 @@ export interface DescribeGroupResponse {
   Email?: string;
 
   /**
-   * <p>The state of the user: enabled (registered to Amazon WorkMail) or disabled (deregistered or
+   * <p>The state of the user: enabled (registered to WorkMail) or disabled (deregistered or
    *          never registered to WorkMail).</p>
    */
   State?: EntityState | string;
@@ -1364,7 +1499,7 @@ export interface DescribeOrganizationResponse {
   State?: string;
 
   /**
-   * <p>The identifier for the directory associated with an Amazon WorkMail organization.</p>
+   * <p>The identifier for the directory associated with an WorkMail organization.</p>
    */
   DirectoryId?: string;
 
@@ -1436,7 +1571,7 @@ export interface DescribeResourceResponse {
   BookingOptions?: BookingOptions;
 
   /**
-   * <p>The state of the resource: enabled (registered to Amazon WorkMail), disabled (deregistered
+   * <p>The state of the resource: enabled (registered to WorkMail), disabled (deregistered
    *          or never registered to WorkMail), or deleted.</p>
    */
   State?: EntityState | string;
@@ -1494,14 +1629,14 @@ export interface DescribeUserResponse {
   DisplayName?: string;
 
   /**
-   * <p>The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or
+   * <p>The state of a user: enabled (registered to WorkMail) or disabled (deregistered or
    *          never registered to WorkMail).</p>
    */
   State?: EntityState | string;
 
   /**
    * <p>In certain cases, other entities are modeled as users. If interoperability is
-   *          enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail
+   *          enabled, resources are imported into WorkMail as users. Because different WorkMail
    *          organizations rely on different directory types, administrators can distinguish between an
    *          unregistered user (account is disabled and has a user role) and the directory
    *          administrators. The values are USER, RESOURCE, and SYSTEM_USER.</p>
@@ -1509,13 +1644,13 @@ export interface DescribeUserResponse {
   UserRole?: UserRole | string;
 
   /**
-   * <p>The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch
+   * <p>The date and time at which the user was enabled for WorkMailusage, in UNIX epoch
    *          time format.</p>
    */
   EnabledDate?: Date;
 
   /**
-   * <p>The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch
+   * <p>The date and time at which the user was disabled for WorkMail usage, in UNIX epoch
    *          time format.</p>
    */
   DisabledDate?: Date;
@@ -1666,7 +1801,12 @@ export interface GetAccessControlEffectRequest {
   /**
    * <p>The user ID.</p>
    */
-  UserId: string | undefined;
+  UserId?: string;
+
+  /**
+   * <p>The impersonation role ID.</p>
+   */
+  ImpersonationRoleId?: string;
 }
 
 export interface GetAccessControlEffectResponse {
@@ -1710,6 +1850,121 @@ export interface GetDefaultRetentionPolicyResponse {
   FolderConfigurations?: FolderConfiguration[];
 }
 
+export interface GetImpersonationRoleRequest {
+  /**
+   * <p>The WorkMail organization from which to retrieve the impersonation role.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The impersonation role ID to retrieve.</p>
+   */
+  ImpersonationRoleId: string | undefined;
+}
+
+export interface GetImpersonationRoleResponse {
+  /**
+   * <p>The impersonation role ID.</p>
+   */
+  ImpersonationRoleId?: string;
+
+  /**
+   * <p>The impersonation role name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The impersonation role type.</p>
+   */
+  Type?: ImpersonationRoleType | string;
+
+  /**
+   * <p>The impersonation role description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The list of rules for the given impersonation role.</p>
+   */
+  Rules?: ImpersonationRule[];
+
+  /**
+   * <p>The date when the impersonation role was created.</p>
+   */
+  DateCreated?: Date;
+
+  /**
+   * <p>The date when the impersonation role was last modified.</p>
+   */
+  DateModified?: Date;
+}
+
+export interface GetImpersonationRoleEffectRequest {
+  /**
+   * <p>The WorkMail organization where the impersonation role is defined.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The impersonation role ID to test.</p>
+   */
+  ImpersonationRoleId: string | undefined;
+
+  /**
+   * <p>The WorkMail organization user chosen to test the impersonation role. The following identity
+   *          formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: <code>user@domain.tld</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>User name: <code>user</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  TargetUser: string | undefined;
+}
+
+/**
+ * <p>The impersonation rule that matched the input.</p>
+ */
+export interface ImpersonationMatchedRule {
+  /**
+   * <p>The ID of the rule that matched the input</p>
+   */
+  ImpersonationRuleId?: string;
+
+  /**
+   * <p>The name of the rule that matched the input.</p>
+   */
+  Name?: string;
+}
+
+export interface GetImpersonationRoleEffectResponse {
+  /**
+   * <p>The impersonation role type.</p>
+   */
+  Type?: ImpersonationRoleType | string;
+
+  /**
+   * <p>
+   *             <code></code>Effect of the impersonation role on the target user based on its rules. Available
+   *          effects are <code>ALLOW</code> or <code>DENY</code>.</p>
+   */
+  Effect?: AccessEffect | string;
+
+  /**
+   * <p>A list of the rules that match the input and produce the configured effect.</p>
+   */
+  MatchedRules?: ImpersonationMatchedRule[];
+}
+
 export interface GetMailboxDetailsRequest {
   /**
    * <p>The identifier for the organization that contains the user whose mailbox details are
@@ -1737,7 +1992,7 @@ export interface GetMailboxDetailsResponse {
 
 export interface GetMailDomainRequest {
   /**
-   * <p>The Amazon WorkMail organization for which the domain is retrieved.</p>
+   * <p>The WorkMail organization for which the domain is retrieved.</p>
    */
   OrganizationId: string | undefined;
 
@@ -1749,7 +2004,7 @@ export interface GetMailDomainRequest {
 
 export interface GetMailDomainResponse {
   /**
-   * <p>A list of the DNS records that Amazon WorkMail recommends adding in your DNS provider for the best user experience. The records configure your domain with DMARC, SPF, DKIM, and direct incoming
+   * <p>A list of the DNS records that WorkMail recommends adding in your DNS provider for the best user experience. The records configure your domain with DMARC, SPF, DKIM, and direct incoming
    *          email traffic to SES. See admin guide for more details.</p>
    */
   Records?: DnsRecord[];
@@ -1777,7 +2032,7 @@ export interface GetMailDomainResponse {
 
 export interface GetMobileDeviceAccessEffectRequest {
   /**
-   * <p>The Amazon WorkMail organization to simulate the access effect for.</p>
+   * <p>The WorkMail organization to simulate the access effect for.</p>
    */
   OrganizationId: string | undefined;
 
@@ -1819,7 +2074,7 @@ export interface MobileDeviceAccessMatchedRule {
 
 export interface GetMobileDeviceAccessEffectResponse {
   /**
-   * <p>The effect of the simulated access, <code>ALLOW</code> or <code>DENY</code>, after evaluating mobile device access rules in the Amazon WorkMail organization for the simulated
+   * <p>The effect of the simulated access, <code>ALLOW</code> or <code>DENY</code>, after evaluating mobile device access rules in the WorkMail organization for the simulated
    *          user parameters.</p>
    */
   Effect?: MobileDeviceAccessRuleEffect | string;
@@ -1832,7 +2087,7 @@ export interface GetMobileDeviceAccessEffectResponse {
 
 export interface GetMobileDeviceAccessOverrideRequest {
   /**
-   * <p>The Amazon WorkMail organization to which you want to apply the override.</p>
+   * <p>The WorkMail organization to which you want to apply the override.</p>
    */
   OrganizationId: string | undefined;
 
@@ -1894,7 +2149,7 @@ export interface GetMobileDeviceAccessOverrideResponse {
 }
 
 /**
- * <p>The representation of an Amazon WorkMail group.</p>
+ * <p>The representation of an WorkMail group.</p>
  */
 export interface Group {
   /**
@@ -1918,14 +2173,44 @@ export interface Group {
   State?: EntityState | string;
 
   /**
-   * <p>The date indicating when the group was enabled for Amazon WorkMail use.</p>
+   * <p>The date indicating when the group was enabled for WorkMail use.</p>
    */
   EnabledDate?: Date;
 
   /**
-   * <p>The date indicating when the group was disabled from Amazon WorkMail use.</p>
+   * <p>The date indicating when the group was disabled from WorkMail use.</p>
    */
   DisabledDate?: Date;
+}
+
+/**
+ * <p>An impersonation role for the given WorkMail organization.</p>
+ */
+export interface ImpersonationRole {
+  /**
+   * <p>The identifier of the impersonation role.</p>
+   */
+  ImpersonationRoleId?: string;
+
+  /**
+   * <p>The impersonation role name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The impersonation role type.</p>
+   */
+  Type?: ImpersonationRoleType | string;
+
+  /**
+   * <p>The date when the impersonation role was created.</p>
+   */
+  DateCreated?: Date;
+
+  /**
+   * <p>The date when the impersonation role was last modified.</p>
+   */
+  DateModified?: Date;
 }
 
 /**
@@ -2054,7 +2339,7 @@ export interface ListAliasesResponse {
 
 export interface ListAvailabilityConfigurationsRequest {
   /**
-   * <p>The Amazon WorkMail organization for which the <code>AvailabilityConfiguration</code>'s will be
+   * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code>'s will be
    *          listed.</p>
    */
   OrganizationId: string | undefined;
@@ -2072,7 +2357,7 @@ export interface ListAvailabilityConfigurationsRequest {
 
 export interface ListAvailabilityConfigurationsResponse {
   /**
-   * <p>The list of <code>AvailabilityConfiguration</code>'s that exist for the specified Amazon WorkMail organization.</p>
+   * <p>The list of <code>AvailabilityConfiguration</code>'s that exist for the specified WorkMail organization.</p>
    */
   AvailabilityConfigurations?: AvailabilityConfiguration[];
 
@@ -2131,12 +2416,12 @@ export interface Member {
   State?: EntityState | string;
 
   /**
-   * <p>The date indicating when the member was enabled for Amazon WorkMail use.</p>
+   * <p>The date indicating when the member was enabled for WorkMail use.</p>
    */
   EnabledDate?: Date;
 
   /**
-   * <p>The date indicating when the member was disabled from Amazon WorkMail use.</p>
+   * <p>The date indicating when the member was disabled from WorkMail use.</p>
    */
   DisabledDate?: Date;
 }
@@ -2181,6 +2466,37 @@ export interface ListGroupsResponse {
   /**
    * <p>The token to use to retrieve the next page of results. The value is "null" when there
    *          are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListImpersonationRolesRequest {
+  /**
+   * <p>The WorkMail organization to which the listed impersonation roles belong.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The token used to retrieve the next page of results. The first call doesn't require a
+   *          token.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results returned in a single call.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListImpersonationRolesResponse {
+  /**
+   * <p>The list of impersonation roles under the given WorkMail organization.</p>
+   */
+  Roles?: ImpersonationRole[];
+
+  /**
+   * <p>The token to retrieve the next page of results. The value is <code>null</code> when
+   *          there are no results to return.</p>
    */
   NextToken?: string;
 }
@@ -2287,7 +2603,7 @@ export interface ListMailboxPermissionsResponse {
 
 export interface ListMailDomainsRequest {
   /**
-   * <p>The Amazon WorkMail organization for which to list domains.</p>
+   * <p>The WorkMail organization for which to list domains.</p>
    */
   OrganizationId: string | undefined;
 
@@ -2319,7 +2635,7 @@ export interface MailDomainSummary {
 
 export interface ListMailDomainsResponse {
   /**
-   * <p>The list of mail domain summaries, specifying domains that exist in the specified Amazon WorkMail  organization, along with the information about whether the domain is or isn't the default.</p>
+   * <p>The list of mail domain summaries, specifying domains that exist in the specified WorkMail organization, along with the information about whether the domain is or isn't the default.</p>
    */
   MailDomains?: MailDomainSummary[];
 
@@ -2331,7 +2647,7 @@ export interface ListMailDomainsResponse {
 
 export interface ListMobileDeviceAccessOverridesRequest {
   /**
-   * <p>The Amazon WorkMail organization under which to list mobile device access overrides.</p>
+   * <p>The WorkMail organization under which to list mobile device access overrides.</p>
    */
   OrganizationId: string | undefined;
 
@@ -2407,7 +2723,7 @@ export interface MobileDeviceAccessOverride {
 
 export interface ListMobileDeviceAccessOverridesResponse {
   /**
-   * <p>The list of mobile device access overrides that exist for the specified Amazon WorkMail organization and user.</p>
+   * <p>The list of mobile device access overrides that exist for the specified WorkMail organization and user.</p>
    */
   Overrides?: MobileDeviceAccessOverride[];
 
@@ -2419,17 +2735,17 @@ export interface ListMobileDeviceAccessOverridesResponse {
 
 export interface ListMobileDeviceAccessRulesRequest {
   /**
-   * <p>The Amazon WorkMail organization for which to list the rules.</p>
+   * <p>The WorkMail organization for which to list the rules.</p>
    */
   OrganizationId: string | undefined;
 }
 
 /**
- * <p>A rule that controls access to mobile devices for an Amazon WorkMail group.</p>
+ * <p>A rule that controls access to mobile devices for an WorkMail group.</p>
  */
 export interface MobileDeviceAccessRule {
   /**
-   * <p>The ID assigned to a mobile access rule. </p>
+   * <p>The ID assigned to a mobile access rule.</p>
    */
   MobileDeviceAccessRuleId?: string;
 
@@ -2449,7 +2765,7 @@ export interface MobileDeviceAccessRule {
   Effect?: MobileDeviceAccessRuleEffect | string;
 
   /**
-   * <p>Device types that a rule will match. </p>
+   * <p>Device types that a rule will match.</p>
    */
   DeviceTypes?: string[];
 
@@ -2501,7 +2817,7 @@ export interface MobileDeviceAccessRule {
 
 export interface ListMobileDeviceAccessRulesResponse {
   /**
-   * <p>The list of mobile device access rules that exist under the specified Amazon WorkMail organization.</p>
+   * <p>The list of mobile device access rules that exist under the specified WorkMail organization.</p>
    */
   Rules?: MobileDeviceAccessRule[];
 }
@@ -2598,7 +2914,7 @@ export interface ListResourceDelegatesResponse {
   /**
    * <p>The token used to paginate through the delegates associated with a resource. While
    *          results are still available, it has an associated value. When the last page is reached, the
-   *          token is empty. </p>
+   *          token is empty.</p>
    */
   NextToken?: string;
 }
@@ -2651,12 +2967,12 @@ export interface Resource {
   State?: EntityState | string;
 
   /**
-   * <p>The date indicating when the resource was enabled for Amazon WorkMail use.</p>
+   * <p>The date indicating when the resource was enabled for WorkMail use.</p>
    */
   EnabledDate?: Date;
 
   /**
-   * <p>The date indicating when the resource was disabled from Amazon WorkMail use.</p>
+   * <p>The date indicating when the resource was disabled from WorkMail use.</p>
    */
   DisabledDate?: Date;
 }
@@ -2723,7 +3039,7 @@ export interface ListUsersRequest {
 }
 
 /**
- * <p>The representation of an Amazon WorkMail user.</p>
+ * <p>The representation of an WorkMail user.</p>
  */
 export interface User {
   /**
@@ -2757,12 +3073,12 @@ export interface User {
   UserRole?: UserRole | string;
 
   /**
-   * <p>The date indicating when the user was enabled for Amazon WorkMail use.</p>
+   * <p>The date indicating when the user was enabled for WorkMail use.</p>
    */
   EnabledDate?: Date;
 
   /**
-   * <p>The date indicating when the user was disabled from Amazon WorkMail use.</p>
+   * <p>The date indicating when the user was disabled from WorkMail use.</p>
    */
   DisabledDate?: Date;
 }
@@ -2834,6 +3150,16 @@ export interface PutAccessControlRuleRequest {
    * <p>The identifier of the organization.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>Impersonation role IDs to include in the rule.</p>
+   */
+  ImpersonationRoleIds?: string[];
+
+  /**
+   * <p>Impersonation role IDs to exclude from the rule.</p>
+   */
+  NotImpersonationRoleIds?: string[];
 }
 
 export interface PutAccessControlRuleResponse {}
@@ -2859,7 +3185,7 @@ export interface PutEmailMonitoringConfigurationResponse {}
 
 export interface PutInboundDmarcSettingsRequest {
   /**
-   * <p>The ID of the organization that you are applying the DMARC policy to. </p>
+   * <p>The ID of the organization that you are applying the DMARC policy to.</p>
    */
   OrganizationId: string | undefined;
 
@@ -2905,7 +3231,7 @@ export interface PutMailboxPermissionsResponse {}
 
 export interface PutMobileDeviceAccessOverrideRequest {
   /**
-   * <p>Identifies the Amazon WorkMail organization for which you create the override.</p>
+   * <p>Identifies the WorkMail organization for which you create the override.</p>
    */
   OrganizationId: string | undefined;
 
@@ -2982,12 +3308,12 @@ export interface RegisterMailDomainRequest {
   ClientToken?: string;
 
   /**
-   * <p>The Amazon WorkMail organization under which you're creating the domain.</p>
+   * <p>The WorkMail organization under which you're creating the domain.</p>
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The name of the mail domain to create in Amazon WorkMail and SES.</p>
+   * <p>The name of the mail domain to create in WorkMail and SES.</p>
    */
   DomainName: string | undefined;
 }
@@ -3122,7 +3448,7 @@ export class TooManyTagsException extends __BaseException {
 
 export interface TestAvailabilityConfigurationRequest {
   /**
-   * <p>The Amazon WorkMail organization where the availability provider will be tested.</p>
+   * <p>The WorkMail organization where the availability provider will be tested.</p>
    */
   OrganizationId: string | undefined;
 
@@ -3170,7 +3496,7 @@ export interface UntagResourceResponse {}
 
 export interface UpdateAvailabilityConfigurationRequest {
   /**
-   * <p>The Amazon WorkMail organization for which the <code>AvailabilityConfiguration</code> will be
+   * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will be
    *          updated.</p>
    */
   OrganizationId: string | undefined;
@@ -3199,7 +3525,7 @@ export interface UpdateAvailabilityConfigurationResponse {}
 
 export interface UpdateDefaultMailDomainRequest {
   /**
-   * <p>The Amazon WorkMail organization for which to list domains.</p>
+   * <p>The WorkMail organization for which to list domains.</p>
    */
   OrganizationId: string | undefined;
 
@@ -3210,6 +3536,40 @@ export interface UpdateDefaultMailDomainRequest {
 }
 
 export interface UpdateDefaultMailDomainResponse {}
+
+export interface UpdateImpersonationRoleRequest {
+  /**
+   * <p>The WorkMail organization that contains the impersonation role to update.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The ID of the impersonation role to update.</p>
+   */
+  ImpersonationRoleId: string | undefined;
+
+  /**
+   * <p>The updated impersonation role name.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The updated impersonation role type.</p>
+   */
+  Type: ImpersonationRoleType | string | undefined;
+
+  /**
+   * <p>The updated impersonation role description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The updated list of rules.</p>
+   */
+  Rules: ImpersonationRule[] | undefined;
+}
+
+export interface UpdateImpersonationRoleResponse {}
 
 export interface UpdateMailboxQuotaRequest {
   /**
@@ -3233,7 +3593,7 @@ export interface UpdateMailboxQuotaResponse {}
 
 export interface UpdateMobileDeviceAccessRuleRequest {
   /**
-   * <p>The Amazon WorkMail organization under which the rule will be updated.</p>
+   * <p>The WorkMail organization under which the rule will be updated.</p>
    */
   OrganizationId: string | undefined;
 
@@ -3384,6 +3744,20 @@ export const AssociateMemberToGroupResponseFilterSensitiveLog = (obj: AssociateM
 /**
  * @internal
  */
+export const AssumeImpersonationRoleRequestFilterSensitiveLog = (obj: AssumeImpersonationRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssumeImpersonationRoleResponseFilterSensitiveLog = (obj: AssumeImpersonationRoleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RedactedEwsAvailabilityProviderFilterSensitiveLog = (obj: RedactedEwsAvailabilityProvider): any => ({
   ...obj,
 });
@@ -3475,6 +3849,27 @@ export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): a
  * @internal
  */
 export const CreateGroupResponseFilterSensitiveLog = (obj: CreateGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImpersonationRuleFilterSensitiveLog = (obj: ImpersonationRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImpersonationRoleRequestFilterSensitiveLog = (obj: CreateImpersonationRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImpersonationRoleResponseFilterSensitiveLog = (obj: CreateImpersonationRoleResponse): any => ({
   ...obj,
 });
 
@@ -3628,6 +4023,20 @@ export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): a
  * @internal
  */
 export const DeleteGroupResponseFilterSensitiveLog = (obj: DeleteGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImpersonationRoleRequestFilterSensitiveLog = (obj: DeleteImpersonationRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImpersonationRoleResponseFilterSensitiveLog = (obj: DeleteImpersonationRoleResponse): any => ({
   ...obj,
 });
 
@@ -3950,6 +4359,41 @@ export const GetDefaultRetentionPolicyResponseFilterSensitiveLog = (obj: GetDefa
 /**
  * @internal
  */
+export const GetImpersonationRoleRequestFilterSensitiveLog = (obj: GetImpersonationRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImpersonationRoleResponseFilterSensitiveLog = (obj: GetImpersonationRoleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImpersonationRoleEffectRequestFilterSensitiveLog = (obj: GetImpersonationRoleEffectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImpersonationMatchedRuleFilterSensitiveLog = (obj: ImpersonationMatchedRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImpersonationRoleEffectResponseFilterSensitiveLog = (obj: GetImpersonationRoleEffectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetMailboxDetailsRequestFilterSensitiveLog = (obj: GetMailboxDetailsRequest): any => ({
   ...obj,
 });
@@ -4020,6 +4464,13 @@ export const GetMobileDeviceAccessOverrideResponseFilterSensitiveLog = (
  * @internal
  */
 export const GroupFilterSensitiveLog = (obj: Group): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImpersonationRoleFilterSensitiveLog = (obj: ImpersonationRole): any => ({
   ...obj,
 });
 
@@ -4108,6 +4559,20 @@ export const ListGroupsRequestFilterSensitiveLog = (obj: ListGroupsRequest): any
  * @internal
  */
 export const ListGroupsResponseFilterSensitiveLog = (obj: ListGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImpersonationRolesRequestFilterSensitiveLog = (obj: ListImpersonationRolesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImpersonationRolesResponseFilterSensitiveLog = (obj: ListImpersonationRolesResponse): any => ({
   ...obj,
 });
 
@@ -4540,6 +5005,20 @@ export const UpdateDefaultMailDomainRequestFilterSensitiveLog = (obj: UpdateDefa
  * @internal
  */
 export const UpdateDefaultMailDomainResponseFilterSensitiveLog = (obj: UpdateDefaultMailDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImpersonationRoleRequestFilterSensitiveLog = (obj: UpdateImpersonationRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImpersonationRoleResponseFilterSensitiveLog = (obj: UpdateImpersonationRoleResponse): any => ({
   ...obj,
 });
 

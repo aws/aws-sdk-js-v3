@@ -3,29 +3,54 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { EMRServerlessServiceException as __BaseException } from "./EMRServerlessServiceException";
 
+export enum Architecture {
+  ARM64 = "ARM64",
+  X86_64 = "X86_64",
+}
+
 /**
  * <p>The configuration for an application to automatically start on job submission.</p>
  */
 export interface AutoStartConfig {
   /**
-   * <p>Enables the application to automatically start on job submission. Defaults to true.</p>
+   * <p>Enables the application to automatically start on job submission. Defaults to
+   *          true.</p>
    */
   enabled?: boolean;
 }
 
 /**
- * <p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>
+ * <p>The configuration for an application to automatically stop after a certain amount of
+ *          time being idle.</p>
  */
 export interface AutoStopConfig {
   /**
-   * <p>Enables the application to automatically stop after a certain amount of time being idle. Defaults to true.</p>
+   * <p>Enables the application to automatically stop after a certain amount of time being idle.
+   *          Defaults to true.</p>
    */
   enabled?: boolean;
 
   /**
-   * <p>The amount of idle time in minutes after which your application will automatically stop. Defaults to 15 minutes.</p>
+   * <p>The amount of idle time in minutes after which your application will automatically stop.
+   *          Defaults to 15 minutes.</p>
    */
   idleTimeoutMinutes?: number;
+}
+
+/**
+ * <p>The applied image configuration.</p>
+ */
+export interface ImageConfiguration {
+  /**
+   * <p>The image URI.</p>
+   */
+  imageUri: string | undefined;
+
+  /**
+   * <p>The SHA256 digest of the image URI. This indicates which specific image
+   *          the application is configured for. The image digest doesn't exist until an application has started.</p>
+   */
+  resolvedImageDigest?: string;
 }
 
 /**
@@ -111,6 +136,16 @@ export enum ApplicationState {
 }
 
 /**
+ * <p>The specifications for a worker type.</p>
+ */
+export interface WorkerTypeSpecification {
+  /**
+   * <p>The image configuration for a worker type.</p>
+   */
+  imageConfiguration?: ImageConfiguration;
+}
+
+/**
  * <p>Information about an application. EMR Serverless uses applications to run jobs.</p>
  */
 export interface Application {
@@ -130,7 +165,7 @@ export interface Application {
   arn: string | undefined;
 
   /**
-   * <p>The EMR release version associated with the application.</p>
+   * <p>The EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
@@ -182,7 +217,8 @@ export interface Application {
   autoStartConfiguration?: AutoStartConfig;
 
   /**
-   * <p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>
+   * <p>The configuration for an application to automatically stop after a certain amount of
+   *          time being idle.</p>
    */
   autoStopConfiguration?: AutoStopConfig;
 
@@ -190,6 +226,21 @@ export interface Application {
    * <p>The network configuration for customer VPC connectivity for the application.</p>
    */
   networkConfiguration?: NetworkConfiguration;
+
+  /**
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
+
+  /**
+   * <p>The image configuration applied to all worker types.</p>
+   */
+  imageConfiguration?: ImageConfiguration;
+
+  /**
+   * <p>The specification applied to each worker type.</p>
+   */
+  workerTypeSpecifications?: Record<string, WorkerTypeSpecification>;
 }
 
 /**
@@ -212,7 +263,7 @@ export interface ApplicationSummary {
   arn: string | undefined;
 
   /**
-   * <p>The EMR release version associated with the application.</p>
+   * <p>The EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
@@ -240,6 +291,11 @@ export interface ApplicationSummary {
    * <p>The date and time when the application was last updated.</p>
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
 }
 
 /**
@@ -262,6 +318,27 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * <p>The image configuration.</p>
+ */
+export interface ImageConfigurationInput {
+  /**
+   * <p>The URI of an image in the Amazon ECR registry. This field is required when you create a new
+   *          application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.</p>
+   */
+  imageUri?: string;
+}
+
+/**
+ * <p>The specifications for a worker type.</p>
+ */
+export interface WorkerTypeSpecificationInput {
+  /**
+   * <p>The image configuration for a worker type.</p>
+   */
+  imageConfiguration?: ImageConfigurationInput;
+}
+
 export interface CreateApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -269,7 +346,7 @@ export interface CreateApplicationRequest {
   name?: string;
 
   /**
-   * <p>The EMR release version associated with the application.</p>
+   * <p>The EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
@@ -307,7 +384,8 @@ export interface CreateApplicationRequest {
   autoStartConfiguration?: AutoStartConfig;
 
   /**
-   * <p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>
+   * <p>The configuration for an application to automatically stop after a certain amount of
+   *          time being idle.</p>
    */
   autoStopConfiguration?: AutoStopConfig;
 
@@ -315,6 +393,25 @@ export interface CreateApplicationRequest {
    * <p>The network configuration for customer VPC connectivity.</p>
    */
   networkConfiguration?: NetworkConfiguration;
+
+  /**
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
+
+  /**
+   * <p>The image configuration for all worker types. You can either set this parameter or <code>imageConfiguration</code>
+   *          for each worker type in <code>workerTypeSpecifications</code>.</p>
+   */
+  imageConfiguration?: ImageConfigurationInput;
+
+  /**
+   * <p>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid
+   *          worker types for a Spark or Hive application. Valid worker types include <code>Driver</code> and <code>Executor</code> for
+   *          Spark applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications. You can either set
+   *          image details in this parameter for each worker type, or in <code>imageConfiguration</code> for all worker types.</p>
+   */
+  workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 }
 
 export interface CreateApplicationResponse {
@@ -354,6 +451,25 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * <p>The specified resource was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -381,25 +497,6 @@ export interface DeleteApplicationRequest {
 
 export interface DeleteApplicationResponse {}
 
-/**
- * <p>The specified resource was not found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
 export interface GetApplicationRequest {
   /**
    * <p>The ID of the application that will be described.</p>
@@ -426,7 +523,8 @@ export interface ListApplicationsRequest {
   maxResults?: number;
 
   /**
-   * <p>An optional filter for application states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
+   * <p>An optional filter for application states. Note that if this filter contains multiple
+   *          states, the resulting list will be grouped by the state.</p>
    */
   states?: (ApplicationState | string)[];
 }
@@ -511,7 +609,8 @@ export interface UpdateApplicationRequest {
   autoStartConfiguration?: AutoStartConfig;
 
   /**
-   * <p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>
+   * <p>The configuration for an application to automatically stop after a certain amount of
+   *          time being idle.</p>
    */
   autoStopConfiguration?: AutoStopConfig;
 
@@ -519,6 +618,25 @@ export interface UpdateApplicationRequest {
    * <p>The network configuration for customer VPC connectivity.</p>
    */
   networkConfiguration?: NetworkConfiguration;
+
+  /**
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
+
+  /**
+   * <p>The image configuration to be used for all worker types. You can either set this parameter or <code>imageConfiguration</code>
+   *          for each worker type in <code>WorkerTypeSpecificationInput</code>.</p>
+   */
+  imageConfiguration?: ImageConfigurationInput;
+
+  /**
+   * <p>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid
+   *          worker types for a Spark or Hive application. Valid worker types include <code>Driver</code> and <code>Executor</code> for
+   *          Spark applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications. You can either set
+   *          image details in this parameter for each worker type, or in <code>imageConfiguration</code> for all worker types.</p>
+   */
+  workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 }
 
 export interface UpdateApplicationResponse {
@@ -552,6 +670,25 @@ export interface CancelJobRunResponse {
   jobRunId: string | undefined;
 }
 
+export interface GetDashboardForJobRunRequest {
+  /**
+   * <p>The ID of the application.</p>
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the job run.</p>
+   */
+  jobRunId: string | undefined;
+}
+
+export interface GetDashboardForJobRunResponse {
+  /**
+   * <p>The URL to view job run's dashboard.</p>
+   */
+  url?: string;
+}
+
 export interface GetJobRunRequest {
   /**
    * <p>The ID of the application on which the job run is submitted.</p>
@@ -569,7 +706,8 @@ export interface GetJobRunRequest {
  */
 export interface ManagedPersistenceMonitoringConfiguration {
   /**
-   * <p>Enables managed logging and defaults to true. If set to false, managed logging will be turned off.</p>
+   * <p>Enables managed logging and defaults to true. If set to false, managed logging will be
+   *          turned off.</p>
    */
   enabled?: boolean;
 
@@ -705,22 +843,25 @@ export enum JobRunState {
 }
 
 /**
- * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing till the time job is terminated,
- *           rounded up to the nearest second.</p>
+ * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing
+ *          till the time job is terminated, rounded up to the nearest second.</p>
  */
 export interface TotalResourceUtilization {
   /**
-   * <p>The aggregated vCPU used per hour from the time job start executing till the time job is terminated.</p>
+   * <p>The aggregated vCPU used per hour from the time job start executing till the time job is
+   *          terminated.</p>
    */
   vCPUHour?: number;
 
   /**
-   * <p>The aggregated memory used per hour from the time job start executing till the time job is terminated.</p>
+   * <p>The aggregated memory used per hour from the time job start executing till the time job
+   *          is terminated.</p>
    */
   memoryGBHour?: number;
 
   /**
-   * <p>The aggregated storage used per hour from the time job start executing till the time job is terminated.</p>
+   * <p>The aggregated storage used per hour from the time job start executing till the time job
+   *          is terminated.</p>
    */
   storageGBHour?: number;
 }
@@ -752,7 +893,8 @@ export interface ListJobRunsRequest {
   createdAtBefore?: Date;
 
   /**
-   * <p>An optional filter for job run states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
+   * <p>An optional filter for job run states. Note that if this filter contains multiple
+   *          states, the resulting list will be grouped by the state.</p>
    */
   states?: (JobRunState | string)[];
 }
@@ -812,7 +954,7 @@ export interface JobRunSummary {
   stateDetails: string | undefined;
 
   /**
-   * <p>The EMR release version associated with the application your job is running on.</p>
+   * <p>The EMR release associated with the application your job is running on.</p>
    */
   releaseLabel: string | undefined;
 
@@ -854,7 +996,9 @@ export interface StartJobRunResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
+   *          Currently, the supported resources are Amazon EMR Serverless applications and job
+   *          runs.</p>
    */
   resourceArn: string | undefined;
 }
@@ -868,7 +1012,9 @@ export interface ListTagsForResourceResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
+   *          Currently, the supported resources are Amazon EMR Serverless applications and job
+   *          runs.</p>
    */
   resourceArn: string | undefined;
 
@@ -882,7 +1028,9 @@ export interface TagResourceResponse {}
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
+   *          Currently, the supported resources are Amazon EMR Serverless applications and job
+   *          runs.</p>
    */
   resourceArn: string | undefined;
 
@@ -988,7 +1136,7 @@ export interface JobRun {
   stateDetails: string | undefined;
 
   /**
-   * <p>The EMR release version associated with the application your job is running on.</p>
+   * <p>The EMR release associated with the application your job is running on.</p>
    */
   releaseLabel: string | undefined;
 
@@ -1008,8 +1156,8 @@ export interface JobRun {
   tags?: Record<string, string>;
 
   /**
-   * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing till the time job is terminated,
-   *           rounded up to the nearest second.</p>
+   * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing
+   *          till the time job is terminated, rounded up to the nearest second.</p>
    */
   totalResourceUtilization?: TotalResourceUtilization;
 
@@ -1019,7 +1167,9 @@ export interface JobRun {
   networkConfiguration?: NetworkConfiguration;
 
   /**
-   * <p>The job run total execution duration in seconds. This field is only available for job runs in a <code>COMPLETED</code>, <code>FAILED</code>, or <code>CANCELLED</code> state.</p>
+   * <p>The job run total execution duration in seconds. This field is only available for job
+   *          runs in a <code>COMPLETED</code>, <code>FAILED</code>, or <code>CANCELLED</code>
+   *          state.</p>
    */
   totalExecutionDurationSeconds?: number;
 }
@@ -1057,7 +1207,8 @@ export interface StartJobRunRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>The maximum duration for the job run to run. If the job run runs beyond this duration, it will be automatically cancelled.</p>
+   * <p>The maximum duration for the job run to run. If the job run runs beyond this duration,
+   *          it will be automatically cancelled.</p>
    */
   executionTimeoutMinutes?: number;
 
@@ -1085,6 +1236,13 @@ export const AutoStartConfigFilterSensitiveLog = (obj: AutoStartConfig): any => 
  * @internal
  */
 export const AutoStopConfigFilterSensitiveLog = (obj: AutoStopConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageConfigurationFilterSensitiveLog = (obj: ImageConfiguration): any => ({
   ...obj,
 });
 
@@ -1119,6 +1277,13 @@ export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration
 /**
  * @internal
  */
+export const WorkerTypeSpecificationFilterSensitiveLog = (obj: WorkerTypeSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
   ...obj,
 });
@@ -1127,6 +1292,20 @@ export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
  * @internal
  */
 export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageConfigurationInputFilterSensitiveLog = (obj: ImageConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkerTypeSpecificationInputFilterSensitiveLog = (obj: WorkerTypeSpecificationInput): any => ({
   ...obj,
 });
 
@@ -1239,6 +1418,20 @@ export const CancelJobRunRequestFilterSensitiveLog = (obj: CancelJobRunRequest):
  * @internal
  */
 export const CancelJobRunResponseFilterSensitiveLog = (obj: CancelJobRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDashboardForJobRunRequestFilterSensitiveLog = (obj: GetDashboardForJobRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDashboardForJobRunResponseFilterSensitiveLog = (obj: GetDashboardForJobRunResponse): any => ({
   ...obj,
 });
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,10 @@ export interface ImportWorkspaceImageCommandInput extends ImportWorkspaceImageRe
 export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageResult, __MetadataBearer {}
 
 /**
- * <p>Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon
- *          WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL
- *          images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring Your Own Windows
+ * <p>Imports the specified Windows 10 Bring Your Own License (BYOL)
+ *          image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is
+ *          in your Amazon Web Services account, and you must own the image. For more information about
+ *          creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring Your Own Windows
  *             Desktop Licenses</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +57,15 @@ export class ImportWorkspaceImageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ImportWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +81,9 @@ export class ImportWorkspaceImageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ImportWorkspaceImageCommandInput, ImportWorkspaceImageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ImportWorkspaceImageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

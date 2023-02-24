@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,7 +35,7 @@ export interface CreateAccessControlConfigurationCommandOutput
  *             user and group access information for your documents. This is useful
  *             for user context filtering, where search results are filtered based
  *             on the user or their group access to documents.</p>
- *         <p>You can use this to re-configure your existing document level access control without
+ *          <p>You can use this to re-configure your existing document level access control without
  *             indexing all of your documents again. For example, your index contains top-secret
  *             company documents that only certain employees or users should access. One of these users
  *             leaves the company or switches to a team that should be blocked from accessing
@@ -44,7 +45,7 @@ export interface CreateAccessControlConfigurationCommandOutput
  *             access. You can later update the access control configuration to allow access if the
  *             user returns to the company and re-joins the 'top-secret' team. You can re-configure
  *             access control for your documents as circumstances change.</p>
- *         <p>To apply your access control configuration to certain documents, you call
+ *          <p>To apply your access control configuration to certain documents, you call
  *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
  *             API with the <code>AccessControlConfigurationId</code> included in the
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
@@ -76,6 +77,15 @@ export class CreateAccessControlConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAccessControlConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +101,9 @@ export class CreateAccessControlConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAccessControlConfigurationCommandInput, CreateAccessControlConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateAccessControlConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -53,6 +53,7 @@ import {
   DescribeGlobalTableSettingsCommandInput,
   DescribeGlobalTableSettingsCommandOutput,
 } from "../commands/DescribeGlobalTableSettingsCommand";
+import { DescribeImportCommandInput, DescribeImportCommandOutput } from "../commands/DescribeImportCommand";
 import {
   DescribeKinesisStreamingDestinationCommandInput,
   DescribeKinesisStreamingDestinationCommandOutput,
@@ -79,6 +80,7 @@ import {
   ExportTableToPointInTimeCommandOutput,
 } from "../commands/ExportTableToPointInTimeCommand";
 import { GetItemCommandInput, GetItemCommandOutput } from "../commands/GetItemCommand";
+import { ImportTableCommandInput, ImportTableCommandOutput } from "../commands/ImportTableCommand";
 import { ListBackupsCommandInput, ListBackupsCommandOutput } from "../commands/ListBackupsCommand";
 import {
   ListContributorInsightsCommandInput,
@@ -86,6 +88,7 @@ import {
 } from "../commands/ListContributorInsightsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
 import { ListGlobalTablesCommandInput, ListGlobalTablesCommandOutput } from "../commands/ListGlobalTablesCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import { ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput } from "../commands/ListTagsOfResourceCommand";
 import { PutItemCommandInput, PutItemCommandOutput } from "../commands/PutItemCommand";
@@ -168,6 +171,7 @@ import {
   CreateReplicationGroupMemberAction,
   CreateTableInput,
   CreateTableOutput,
+  CsvOptions,
   Delete,
   DeleteBackupInput,
   DeleteBackupOutput,
@@ -193,6 +197,8 @@ import {
   DescribeGlobalTableOutput,
   DescribeGlobalTableSettingsInput,
   DescribeGlobalTableSettingsOutput,
+  DescribeImportInput,
+  DescribeImportOutput,
   DescribeKinesisStreamingDestinationInput,
   DescribeKinesisStreamingDestinationOutput,
   DescribeLimitsInput,
@@ -231,7 +237,14 @@ import {
   GlobalTableGlobalSecondaryIndexSettingsUpdate,
   GlobalTableNotFoundException,
   IdempotentParameterMismatchException,
+  ImportConflictException,
+  ImportNotFoundException,
+  ImportSummary,
+  ImportTableDescription,
+  ImportTableInput,
+  ImportTableOutput,
   IndexNotFoundException,
+  InputFormatOptions,
   InternalServerError,
   InvalidEndpointException,
   InvalidExportTimeException,
@@ -253,6 +266,8 @@ import {
   ListExportsOutput,
   ListGlobalTablesInput,
   ListGlobalTablesOutput,
+  ListImportsInput,
+  ListImportsOutput,
   ListTablesInput,
   ListTablesOutput,
   ListTagsOfResourceInput,
@@ -299,6 +314,7 @@ import {
   RestoreTableFromBackupOutput,
   RestoreTableToPointInTimeInput,
   RestoreTableToPointInTimeOutput,
+  S3BucketSource,
   ScanInput,
   ScanOutput,
   SourceTableDetails,
@@ -309,6 +325,7 @@ import {
   TableAlreadyExistsException,
   TableAutoScalingDescription,
   TableClassSummary,
+  TableCreationParameters,
   TableDescription,
   TableInUseException,
   TableNotFoundException,
@@ -556,6 +573,19 @@ export const serializeAws_json1_0DescribeGlobalTableSettingsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DescribeImportCommand = async (
+  input: DescribeImportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "DynamoDB_20120810.DescribeImport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeImportInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DescribeKinesisStreamingDestinationCommand = async (
   input: DescribeKinesisStreamingDestinationCommandInput,
   context: __SerdeContext
@@ -699,6 +729,19 @@ export const serializeAws_json1_0GetItemCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0ImportTableCommand = async (
+  input: ImportTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "DynamoDB_20120810.ImportTable",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ImportTableInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0ListBackupsCommand = async (
   input: ListBackupsCommandInput,
   context: __SerdeContext
@@ -748,6 +791,19 @@ export const serializeAws_json1_0ListGlobalTablesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListGlobalTablesInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListImportsCommand = async (
+  input: ListImportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "DynamoDB_20120810.ListImports",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListImportsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1021,7 +1077,7 @@ const deserializeAws_json1_0BatchExecuteStatementCommandError = async (
 ): Promise<BatchExecuteStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1065,7 +1121,7 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
 ): Promise<BatchGetItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1118,7 +1174,7 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
 ): Promise<BatchWriteItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1174,7 +1230,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
 ): Promise<CreateBackupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1233,7 +1289,7 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
 ): Promise<CreateGlobalTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1286,7 +1342,7 @@ const deserializeAws_json1_0CreateTableCommandError = async (
 ): Promise<CreateTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1336,7 +1392,7 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
 ): Promise<DeleteBackupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1389,7 +1445,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
 ): Promise<DeleteItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1451,7 +1507,7 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
 ): Promise<DeleteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1504,7 +1560,7 @@ const deserializeAws_json1_0DescribeBackupCommandError = async (
 ): Promise<DescribeBackupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1551,7 +1607,7 @@ const deserializeAws_json1_0DescribeContinuousBackupsCommandError = async (
 ): Promise<DescribeContinuousBackupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1598,7 +1654,7 @@ const deserializeAws_json1_0DescribeContributorInsightsCommandError = async (
 ): Promise<DescribeContributorInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1642,7 +1698,7 @@ const deserializeAws_json1_0DescribeEndpointsCommandError = async (
 ): Promise<DescribeEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1677,7 +1733,7 @@ const deserializeAws_json1_0DescribeExportCommandError = async (
 ): Promise<DescribeExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1724,7 +1780,7 @@ const deserializeAws_json1_0DescribeGlobalTableCommandError = async (
 ): Promise<DescribeGlobalTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1771,7 +1827,7 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsCommandError = async (
 ): Promise<DescribeGlobalTableSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1784,6 +1840,47 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsCommandError = async (
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
       throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DescribeImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeImportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeImportOutput(data, context);
+  const response: DescribeImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeImportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ImportNotFoundException":
+    case "com.amazonaws.dynamodb#ImportNotFoundException":
+      throw await deserializeAws_json1_0ImportNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1818,7 +1915,7 @@ const deserializeAws_json1_0DescribeKinesisStreamingDestinationCommandError = as
 ): Promise<DescribeKinesisStreamingDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1865,7 +1962,7 @@ const deserializeAws_json1_0DescribeLimitsCommandError = async (
 ): Promise<DescribeLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1909,7 +2006,7 @@ const deserializeAws_json1_0DescribeTableCommandError = async (
 ): Promise<DescribeTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1956,7 +2053,7 @@ const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError = async 
 ): Promise<DescribeTableReplicaAutoScalingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2000,7 +2097,7 @@ const deserializeAws_json1_0DescribeTimeToLiveCommandError = async (
 ): Promise<DescribeTimeToLiveCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2047,7 +2144,7 @@ const deserializeAws_json1_0DisableKinesisStreamingDestinationCommandError = asy
 ): Promise<DisableKinesisStreamingDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2100,7 +2197,7 @@ const deserializeAws_json1_0EnableKinesisStreamingDestinationCommandError = asyn
 ): Promise<EnableKinesisStreamingDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2153,7 +2250,7 @@ const deserializeAws_json1_0ExecuteStatementCommandError = async (
 ): Promise<ExecuteStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2215,7 +2312,7 @@ const deserializeAws_json1_0ExecuteTransactionCommandError = async (
 ): Promise<ExecuteTransactionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2274,7 +2371,7 @@ const deserializeAws_json1_0ExportTableToPointInTimeCommandError = async (
 ): Promise<ExportTableToPointInTimeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2330,7 +2427,7 @@ const deserializeAws_json1_0GetItemCommandError = async (
 ): Promise<GetItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2349,6 +2446,53 @@ const deserializeAws_json1_0GetItemCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0ImportTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ImportTableCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ImportTableOutput(data, context);
+  const response: ImportTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ImportTableCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportTableCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ImportConflictException":
+    case "com.amazonaws.dynamodb#ImportConflictException":
+      throw await deserializeAws_json1_0ImportConflictExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2383,7 +2527,7 @@ const deserializeAws_json1_0ListBackupsCommandError = async (
 ): Promise<ListBackupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2427,7 +2571,7 @@ const deserializeAws_json1_0ListContributorInsightsCommandError = async (
 ): Promise<ListContributorInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2471,7 +2615,7 @@ const deserializeAws_json1_0ListExportsCommandError = async (
 ): Promise<ListExportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2515,7 +2659,7 @@ const deserializeAws_json1_0ListGlobalTablesCommandError = async (
 ): Promise<ListGlobalTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2525,6 +2669,47 @@ const deserializeAws_json1_0ListGlobalTablesCommandError = async (
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
       throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0ListImportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListImportsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListImportsOutput(data, context);
+  const response: ListImportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListImportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2559,7 +2744,7 @@ const deserializeAws_json1_0ListTablesCommandError = async (
 ): Promise<ListTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2603,7 +2788,7 @@ const deserializeAws_json1_0ListTagsOfResourceCommandError = async (
 ): Promise<ListTagsOfResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2650,7 +2835,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
 ): Promise<PutItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2712,7 +2897,7 @@ const deserializeAws_json1_0QueryCommandError = async (
 ): Promise<QueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2765,7 +2950,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
 ): Promise<RestoreTableFromBackupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2824,7 +3009,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
 ): Promise<RestoreTableToPointInTimeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2886,7 +3071,7 @@ const deserializeAws_json1_0ScanCommandError = async (
 ): Promise<ScanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2936,7 +3121,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2989,7 +3174,7 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
 ): Promise<TransactGetItemsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3045,7 +3230,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
 ): Promise<TransactWriteItemsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3104,7 +3289,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3157,7 +3342,7 @@ const deserializeAws_json1_0UpdateContinuousBackupsCommandError = async (
 ): Promise<UpdateContinuousBackupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3207,7 +3392,7 @@ const deserializeAws_json1_0UpdateContributorInsightsCommandError = async (
 ): Promise<UpdateContributorInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3251,7 +3436,7 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
 ): Promise<UpdateGlobalTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3307,7 +3492,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
 ): Promise<UpdateGlobalTableSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3366,7 +3551,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
 ): Promise<UpdateItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3428,7 +3613,7 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
 ): Promise<UpdateTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3481,7 +3666,7 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
 ): Promise<UpdateTableReplicaAutoScalingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3531,7 +3716,7 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
 ): Promise<UpdateTimeToLiveCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3685,6 +3870,32 @@ const deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse = async
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0IdempotentParameterMismatchException(body, context);
   const exception = new IdempotentParameterMismatchException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_0ImportConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ImportConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0ImportConflictException(body, context);
+  const exception = new ImportConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_0ImportNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ImportNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0ImportNotFoundException(body, context);
+  const exception = new ImportNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3982,10 +4193,8 @@ const serializeAws_json1_0AttributeUpdates = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0AttributeValueUpdate(value, context),
-    };
+    acc[key] = serializeAws_json1_0AttributeValueUpdate(value, context);
+    return acc;
   }, {});
 };
 
@@ -4087,10 +4296,8 @@ const serializeAws_json1_0BatchGetRequestMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0KeysAndAttributes(value, context),
-    };
+    acc[key] = serializeAws_json1_0KeysAndAttributes(value, context);
+    return acc;
   }, {});
 };
 
@@ -4124,10 +4331,8 @@ const serializeAws_json1_0BatchWriteItemRequestMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0WriteRequests(value, context),
-    };
+    acc[key] = serializeAws_json1_0WriteRequests(value, context);
+    return acc;
   }, {});
 };
 
@@ -4252,6 +4457,21 @@ const serializeAws_json1_0CreateTableInput = (input: CreateTableInput, context: 
     ...(input.TableClass != null && { TableClass: input.TableClass }),
     ...(input.TableName != null && { TableName: input.TableName }),
     ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_0CsvHeaderList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_0CsvOptions = (input: CsvOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Delimiter != null && { Delimiter: input.Delimiter }),
+    ...(input.HeaderList != null && { HeaderList: serializeAws_json1_0CsvHeaderList(input.HeaderList, context) }),
   };
 };
 
@@ -4397,6 +4617,12 @@ const serializeAws_json1_0DescribeGlobalTableSettingsInput = (
   };
 };
 
+const serializeAws_json1_0DescribeImportInput = (input: DescribeImportInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ImportArn != null && { ImportArn: input.ImportArn }),
+  };
+};
+
 const serializeAws_json1_0DescribeKinesisStreamingDestinationInput = (
   input: DescribeKinesisStreamingDestinationInput,
   context: __SerdeContext
@@ -4462,10 +4688,8 @@ const serializeAws_json1_0ExpectedAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0ExpectedAttributeValue(value, context),
-    };
+    acc[key] = serializeAws_json1_0ExpectedAttributeValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -4505,10 +4729,8 @@ const serializeAws_json1_0ExpressionAttributeNameMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4520,10 +4742,8 @@ const serializeAws_json1_0ExpressionAttributeValueMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0AttributeValue(value, context),
-    };
+    acc[key] = serializeAws_json1_0AttributeValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -4532,10 +4752,8 @@ const serializeAws_json1_0FilterConditionMap = (input: Record<string, Condition>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0Condition(value, context),
-    };
+    acc[key] = serializeAws_json1_0Condition(value, context);
+    return acc;
   }, {});
 };
 
@@ -4668,15 +4886,36 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
     });
 };
 
+const serializeAws_json1_0ImportTableInput = (input: ImportTableInput, context: __SerdeContext): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.InputCompressionType != null && { InputCompressionType: input.InputCompressionType }),
+    ...(input.InputFormat != null && { InputFormat: input.InputFormat }),
+    ...(input.InputFormatOptions != null && {
+      InputFormatOptions: serializeAws_json1_0InputFormatOptions(input.InputFormatOptions, context),
+    }),
+    ...(input.S3BucketSource != null && {
+      S3BucketSource: serializeAws_json1_0S3BucketSource(input.S3BucketSource, context),
+    }),
+    ...(input.TableCreationParameters != null && {
+      TableCreationParameters: serializeAws_json1_0TableCreationParameters(input.TableCreationParameters, context),
+    }),
+  };
+};
+
+const serializeAws_json1_0InputFormatOptions = (input: InputFormatOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Csv != null && { Csv: serializeAws_json1_0CsvOptions(input.Csv, context) }),
+  };
+};
+
 const serializeAws_json1_0Key = (input: Record<string, AttributeValue>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0AttributeValue(value, context),
-    };
+    acc[key] = serializeAws_json1_0AttributeValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -4685,10 +4924,8 @@ const serializeAws_json1_0KeyConditions = (input: Record<string, Condition>, con
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0Condition(value, context),
-    };
+    acc[key] = serializeAws_json1_0Condition(value, context);
+    return acc;
   }, {});
 };
 
@@ -4791,6 +5028,14 @@ const serializeAws_json1_0ListGlobalTablesInput = (input: ListGlobalTablesInput,
   };
 };
 
+const serializeAws_json1_0ListImportsInput = (input: ListImportsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.TableArn != null && { TableArn: input.TableArn }),
+  };
+};
+
 const serializeAws_json1_0ListTablesInput = (input: ListTablesInput, context: __SerdeContext): any => {
   return {
     ...(input.ExclusiveStartTableName != null && { ExclusiveStartTableName: input.ExclusiveStartTableName }),
@@ -4826,10 +5071,8 @@ const serializeAws_json1_0MapAttributeValue = (input: Record<string, AttributeVa
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0AttributeValue(value, context),
-    };
+    acc[key] = serializeAws_json1_0AttributeValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -4968,10 +5211,8 @@ const serializeAws_json1_0PutItemInputAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_0AttributeValue(value, context),
-    };
+    acc[key] = serializeAws_json1_0AttributeValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -5285,6 +5526,14 @@ const serializeAws_json1_0RestoreTableToPointInTimeInput = (
   };
 };
 
+const serializeAws_json1_0S3BucketSource = (input: S3BucketSource, context: __SerdeContext): any => {
+  return {
+    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
+    ...(input.S3BucketOwner != null && { S3BucketOwner: input.S3BucketOwner }),
+    ...(input.S3KeyPrefix != null && { S3KeyPrefix: input.S3KeyPrefix }),
+  };
+};
+
 const serializeAws_json1_0ScanInput = (input: ScanInput, context: __SerdeContext): any => {
   return {
     ...(input.AttributesToGet != null && {
@@ -5338,6 +5587,26 @@ const serializeAws_json1_0StringSetAttributeValue = (input: string[], context: _
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_0TableCreationParameters = (input: TableCreationParameters, context: __SerdeContext): any => {
+  return {
+    ...(input.AttributeDefinitions != null && {
+      AttributeDefinitions: serializeAws_json1_0AttributeDefinitions(input.AttributeDefinitions, context),
+    }),
+    ...(input.BillingMode != null && { BillingMode: input.BillingMode }),
+    ...(input.GlobalSecondaryIndexes != null && {
+      GlobalSecondaryIndexes: serializeAws_json1_0GlobalSecondaryIndexList(input.GlobalSecondaryIndexes, context),
+    }),
+    ...(input.KeySchema != null && { KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context) }),
+    ...(input.ProvisionedThroughput != null && {
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(input.ProvisionedThroughput, context),
+    }),
+    ...(input.SSESpecification != null && {
+      SSESpecification: serializeAws_json1_0SSESpecification(input.SSESpecification, context),
+    }),
+    ...(input.TableName != null && { TableName: input.TableName }),
+  };
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
@@ -5701,10 +5970,8 @@ const deserializeAws_json1_0AttributeMap = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_json1_0AttributeValue(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 
@@ -5943,10 +6210,8 @@ const deserializeAws_json1_0BatchGetRequestMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0KeysAndAttributes(value, context),
-    };
+    acc[key] = deserializeAws_json1_0KeysAndAttributes(value, context);
+    return acc;
   }, {});
 };
 
@@ -5959,10 +6224,8 @@ const deserializeAws_json1_0BatchGetResponseMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_0ItemList(value, context),
-      };
+      acc[key] = deserializeAws_json1_0ItemList(value, context);
+      return acc;
     },
     {}
   );
@@ -6008,10 +6271,8 @@ const deserializeAws_json1_0BatchWriteItemRequestMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0WriteRequests(value, context),
-    };
+    acc[key] = deserializeAws_json1_0WriteRequests(value, context);
+    return acc;
   }, {});
 };
 
@@ -6192,6 +6453,25 @@ const deserializeAws_json1_0CreateTableOutput = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_0CsvHeaderList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0CsvOptions = (output: any, context: __SerdeContext): CsvOptions => {
+  return {
+    Delimiter: __expectString(output.Delimiter),
+    HeaderList: output.HeaderList != null ? deserializeAws_json1_0CsvHeaderList(output.HeaderList, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DeleteBackupOutput = (output: any, context: __SerdeContext): DeleteBackupOutput => {
   return {
     BackupDescription:
@@ -6313,6 +6593,15 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsOutput = (
     ReplicaSettings:
       output.ReplicaSettings != null
         ? deserializeAws_json1_0ReplicaSettingsDescriptionList(output.ReplicaSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0DescribeImportOutput = (output: any, context: __SerdeContext): DescribeImportOutput => {
+  return {
+    ImportTableDescription:
+      output.ImportTableDescription != null
+        ? deserializeAws_json1_0ImportTableDescription(output.ImportTableDescription, context)
         : undefined,
   } as any;
 };
@@ -6504,10 +6793,8 @@ const deserializeAws_json1_0ExpressionAttributeNameMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6525,6 +6812,18 @@ const deserializeAws_json1_0GetItemOutput = (output: any, context: __SerdeContex
         ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
         : undefined,
     Item: output.Item != null ? deserializeAws_json1_0AttributeMap(output.Item, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0GlobalSecondaryIndex = (output: any, context: __SerdeContext): GlobalSecondaryIndex => {
+  return {
+    IndexName: __expectString(output.IndexName),
+    KeySchema: output.KeySchema != null ? deserializeAws_json1_0KeySchema(output.KeySchema, context) : undefined,
+    Projection: output.Projection != null ? deserializeAws_json1_0Projection(output.Projection, context) : undefined,
+    ProvisionedThroughput:
+      output.ProvisionedThroughput != null
+        ? deserializeAws_json1_0ProvisionedThroughput(output.ProvisionedThroughput, context)
+        : undefined,
   } as any;
 };
 
@@ -6593,6 +6892,21 @@ const deserializeAws_json1_0GlobalSecondaryIndexInfo = (
   } as any;
 };
 
+const deserializeAws_json1_0GlobalSecondaryIndexList = (
+  output: any,
+  context: __SerdeContext
+): GlobalSecondaryIndex[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0GlobalSecondaryIndex(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_0GlobalTable = (output: any, context: __SerdeContext): GlobalTable => {
   return {
     GlobalTableName: __expectString(output.GlobalTableName),
@@ -6656,9 +6970,103 @@ const deserializeAws_json1_0IdempotentParameterMismatchException = (
   } as any;
 };
 
+const deserializeAws_json1_0ImportConflictException = (
+  output: any,
+  context: __SerdeContext
+): ImportConflictException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_0ImportNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ImportNotFoundException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_0ImportSummary = (output: any, context: __SerdeContext): ImportSummary => {
+  return {
+    CloudWatchLogGroupArn: __expectString(output.CloudWatchLogGroupArn),
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    ImportArn: __expectString(output.ImportArn),
+    ImportStatus: __expectString(output.ImportStatus),
+    InputFormat: __expectString(output.InputFormat),
+    S3BucketSource:
+      output.S3BucketSource != null ? deserializeAws_json1_0S3BucketSource(output.S3BucketSource, context) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+    TableArn: __expectString(output.TableArn),
+  } as any;
+};
+
+const deserializeAws_json1_0ImportSummaryList = (output: any, context: __SerdeContext): ImportSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ImportSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ImportTableDescription = (output: any, context: __SerdeContext): ImportTableDescription => {
+  return {
+    ClientToken: __expectString(output.ClientToken),
+    CloudWatchLogGroupArn: __expectString(output.CloudWatchLogGroupArn),
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    ErrorCount: __expectLong(output.ErrorCount),
+    FailureCode: __expectString(output.FailureCode),
+    FailureMessage: __expectString(output.FailureMessage),
+    ImportArn: __expectString(output.ImportArn),
+    ImportStatus: __expectString(output.ImportStatus),
+    ImportedItemCount: __expectLong(output.ImportedItemCount),
+    InputCompressionType: __expectString(output.InputCompressionType),
+    InputFormat: __expectString(output.InputFormat),
+    InputFormatOptions:
+      output.InputFormatOptions != null
+        ? deserializeAws_json1_0InputFormatOptions(output.InputFormatOptions, context)
+        : undefined,
+    ProcessedItemCount: __expectLong(output.ProcessedItemCount),
+    ProcessedSizeBytes: __expectLong(output.ProcessedSizeBytes),
+    S3BucketSource:
+      output.S3BucketSource != null ? deserializeAws_json1_0S3BucketSource(output.S3BucketSource, context) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+    TableArn: __expectString(output.TableArn),
+    TableCreationParameters:
+      output.TableCreationParameters != null
+        ? deserializeAws_json1_0TableCreationParameters(output.TableCreationParameters, context)
+        : undefined,
+    TableId: __expectString(output.TableId),
+  } as any;
+};
+
+const deserializeAws_json1_0ImportTableOutput = (output: any, context: __SerdeContext): ImportTableOutput => {
+  return {
+    ImportTableDescription:
+      output.ImportTableDescription != null
+        ? deserializeAws_json1_0ImportTableDescription(output.ImportTableDescription, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0IndexNotFoundException = (output: any, context: __SerdeContext): IndexNotFoundException => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_0InputFormatOptions = (output: any, context: __SerdeContext): InputFormatOptions => {
+  return {
+    Csv: output.Csv != null ? deserializeAws_json1_0CsvOptions(output.Csv, context) : undefined,
   } as any;
 };
 
@@ -6703,10 +7111,8 @@ const deserializeAws_json1_0ItemCollectionKeyAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_json1_0AttributeValue(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 
@@ -6746,10 +7152,8 @@ const deserializeAws_json1_0ItemCollectionMetricsPerTable = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0ItemCollectionMetricsMultiple(value, context),
-    };
+    acc[key] = deserializeAws_json1_0ItemCollectionMetricsMultiple(value, context);
+    return acc;
   }, {});
 };
 
@@ -6809,10 +7213,8 @@ const deserializeAws_json1_0Key = (output: any, context: __SerdeContext): Record
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_json1_0AttributeValue(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 
@@ -6959,6 +7361,16 @@ const deserializeAws_json1_0ListGlobalTablesOutput = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_0ListImportsOutput = (output: any, context: __SerdeContext): ListImportsOutput => {
+  return {
+    ImportSummaryList:
+      output.ImportSummaryList != null
+        ? deserializeAws_json1_0ImportSummaryList(output.ImportSummaryList, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_0ListTablesOutput = (output: any, context: __SerdeContext): ListTablesOutput => {
   return {
     LastEvaluatedTableName: __expectString(output.LastEvaluatedTableName),
@@ -7039,10 +7451,8 @@ const deserializeAws_json1_0MapAttributeValue = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_json1_0AttributeValue(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 
@@ -7170,10 +7580,8 @@ const deserializeAws_json1_0PutItemInputAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_json1_0AttributeValue(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 
@@ -7552,6 +7960,14 @@ const deserializeAws_json1_0RestoreTableToPointInTimeOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0S3BucketSource = (output: any, context: __SerdeContext): S3BucketSource => {
+  return {
+    S3Bucket: __expectString(output.S3Bucket),
+    S3BucketOwner: __expectString(output.S3BucketOwner),
+    S3KeyPrefix: __expectString(output.S3KeyPrefix),
+  } as any;
+};
+
 const deserializeAws_json1_0ScanOutput = (output: any, context: __SerdeContext): ScanOutput => {
   return {
     ConsumedCapacity:
@@ -7574,10 +7990,8 @@ const deserializeAws_json1_0SecondaryIndexesCapacityMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0Capacity(value, context),
-    };
+    acc[key] = deserializeAws_json1_0Capacity(value, context);
+    return acc;
   }, {});
 };
 
@@ -7639,6 +8053,14 @@ const deserializeAws_json1_0SSEDescription = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_0SSESpecification = (output: any, context: __SerdeContext): SSESpecification => {
+  return {
+    Enabled: __expectBoolean(output.Enabled),
+    KMSMasterKeyId: __expectString(output.KMSMasterKeyId),
+    SSEType: __expectString(output.SSEType),
+  } as any;
+};
+
 const deserializeAws_json1_0StreamSpecification = (output: any, context: __SerdeContext): StreamSpecification => {
   return {
     StreamEnabled: __expectBoolean(output.StreamEnabled),
@@ -7688,6 +8110,33 @@ const deserializeAws_json1_0TableClassSummary = (output: any, context: __SerdeCo
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateDateTime)))
         : undefined,
     TableClass: __expectString(output.TableClass),
+  } as any;
+};
+
+const deserializeAws_json1_0TableCreationParameters = (
+  output: any,
+  context: __SerdeContext
+): TableCreationParameters => {
+  return {
+    AttributeDefinitions:
+      output.AttributeDefinitions != null
+        ? deserializeAws_json1_0AttributeDefinitions(output.AttributeDefinitions, context)
+        : undefined,
+    BillingMode: __expectString(output.BillingMode),
+    GlobalSecondaryIndexes:
+      output.GlobalSecondaryIndexes != null
+        ? deserializeAws_json1_0GlobalSecondaryIndexList(output.GlobalSecondaryIndexes, context)
+        : undefined,
+    KeySchema: output.KeySchema != null ? deserializeAws_json1_0KeySchema(output.KeySchema, context) : undefined,
+    ProvisionedThroughput:
+      output.ProvisionedThroughput != null
+        ? deserializeAws_json1_0ProvisionedThroughput(output.ProvisionedThroughput, context)
+        : undefined,
+    SSESpecification:
+      output.SSESpecification != null
+        ? deserializeAws_json1_0SSESpecification(output.SSESpecification, context)
+        : undefined,
+    TableName: __expectString(output.TableName),
   } as any;
 };
 
@@ -7979,7 +8428,8 @@ const deserializeAws_json1_0WriteRequests = (output: any, context: __SerdeContex
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -8029,6 +8479,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -8039,6 +8495,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

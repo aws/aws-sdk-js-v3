@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,12 +35,12 @@ export interface PutOrganizationConformancePackCommandOutput
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the Config Developer Guide.</p>
- * 		       <p>Only a master account and a delegated administrator can call this API.
+ * 		       <p>Only a management account and a delegated administrator can call this API.
  * 			When calling this API with a delegated administrator, you must ensure Organizations
  * 			<code>ListDelegatedAdministrator</code> permissions are added. An organization can have up to 3 delegated administrators.</p>
  * 		       <p>This API enables organization service access for <code>config-multiaccountsetup.amazonaws.com</code>
  * 			through the <code>EnableAWSServiceAccess</code> action and creates a
- * 			service-linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master or delegated administrator account of your organization.
+ * 			service-linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the management or delegated administrator account of your organization.
  * 			The service-linked role is created only when the role does not exist in the caller account.
  * 			To use this API with delegated administrator, register a delegated administrator by calling Amazon Web Services Organization
  * 			<code>register-delegate-admin</code> for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
@@ -76,6 +77,15 @@ export class PutOrganizationConformancePackCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutOrganizationConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +101,9 @@ export class PutOrganizationConformancePackCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutOrganizationConformancePackCommandInput, PutOrganizationConformancePackCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutOrganizationConformancePackCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

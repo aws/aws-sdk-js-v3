@@ -19,6 +19,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   BatchExecuteStatementCommandInput,
@@ -223,7 +224,7 @@ const deserializeAws_json1_1BatchExecuteStatementCommandError = async (
 ): Promise<BatchExecuteStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -270,7 +271,7 @@ const deserializeAws_json1_1CancelStatementCommandError = async (
 ): Promise<CancelStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -320,7 +321,7 @@ const deserializeAws_json1_1DescribeStatementCommandError = async (
 ): Promise<DescribeStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -367,7 +368,7 @@ const deserializeAws_json1_1DescribeTableCommandError = async (
 ): Promise<DescribeTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -414,7 +415,7 @@ const deserializeAws_json1_1ExecuteStatementCommandError = async (
 ): Promise<ExecuteStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -461,7 +462,7 @@ const deserializeAws_json1_1GetStatementResultCommandError = async (
 ): Promise<GetStatementResultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -508,7 +509,7 @@ const deserializeAws_json1_1ListDatabasesCommandError = async (
 ): Promise<ListDatabasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -555,7 +556,7 @@ const deserializeAws_json1_1ListSchemasCommandError = async (
 ): Promise<ListSchemasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -602,7 +603,7 @@ const deserializeAws_json1_1ListStatementsCommandError = async (
 ): Promise<ListStatementsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -646,7 +647,7 @@ const deserializeAws_json1_1ListTablesCommandError = async (
 ): Promise<ListTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -766,6 +767,7 @@ const serializeAws_json1_1BatchExecuteStatementInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
     ...(input.Database != null && { Database: input.Database }),
     ...(input.DbUser != null && { DbUser: input.DbUser }),
@@ -809,6 +811,7 @@ const serializeAws_json1_1DescribeTableRequest = (input: DescribeTableRequest, c
 
 const serializeAws_json1_1ExecuteStatementInput = (input: ExecuteStatementInput, context: __SerdeContext): any => {
   return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
     ...(input.Database != null && { Database: input.Database }),
     ...(input.DbUser != null && { DbUser: input.DbUser }),
@@ -1320,7 +1323,8 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1370,6 +1374,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1380,6 +1390,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

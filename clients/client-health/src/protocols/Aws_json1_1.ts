@@ -300,7 +300,7 @@ const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError 
 ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -341,7 +341,7 @@ const deserializeAws_json1_1DescribeAffectedEntitiesCommandError = async (
 ): Promise<DescribeAffectedEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -385,7 +385,7 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError 
 ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -429,7 +429,7 @@ const deserializeAws_json1_1DescribeEntityAggregatesCommandError = async (
 ): Promise<DescribeEntityAggregatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -464,7 +464,7 @@ const deserializeAws_json1_1DescribeEventAggregatesCommandError = async (
 ): Promise<DescribeEventAggregatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -505,7 +505,7 @@ const deserializeAws_json1_1DescribeEventDetailsCommandError = async (
 ): Promise<DescribeEventDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -546,7 +546,7 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError = as
 ): Promise<DescribeEventDetailsForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -587,7 +587,7 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
 ): Promise<DescribeEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -631,7 +631,7 @@ const deserializeAws_json1_1DescribeEventsForOrganizationCommandError = async (
 ): Promise<DescribeEventsForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -675,7 +675,7 @@ const deserializeAws_json1_1DescribeEventTypesCommandError = async (
 ): Promise<DescribeEventTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -719,7 +719,7 @@ const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandErr
 ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -751,7 +751,7 @@ const deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandErro
 ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -789,7 +789,7 @@ const deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError
 ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1230,10 +1230,8 @@ const serializeAws_json1_1tagSet = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1594,10 +1592,8 @@ const deserializeAws_json1_1eventMetadata = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1704,10 +1700,8 @@ const deserializeAws_json1_1tagSet = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1719,7 +1713,8 @@ const deserializeAws_json1_1UnsupportedLocale = (output: any, context: __SerdeCo
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1769,6 +1764,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1779,6 +1780,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

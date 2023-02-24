@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DescribeStateMachineForExecutionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the state machine associated with a specific execution.</p>
+ * <p>Provides information about a state machine's definition, its execution role ARN, and configuration. If an execution was dispatched by a Map Run, the Map Run is returned in the response. Additionally, the state machine returned will be the state machine associated with the Map Run.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
  *          </note>
@@ -58,6 +59,15 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeStateMachineForExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeStateMachineForExecutionCommandInput, DescribeStateMachineForExecutionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeStateMachineForExecutionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

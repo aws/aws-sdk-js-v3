@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,8 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeThemeRequest, DescribeThemeRequestFilterSensitiveLog } from "../models/models_0";
-import { DescribeThemeResponse, DescribeThemeResponseFilterSensitiveLog } from "../models/models_1";
+import {
+  DescribeThemeRequest,
+  DescribeThemeRequestFilterSensitiveLog,
+  DescribeThemeResponse,
+  DescribeThemeResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeThemeCommand,
   serializeAws_restJson1DescribeThemeCommand,
@@ -48,6 +53,15 @@ export class DescribeThemeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeThemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +77,7 @@ export class DescribeThemeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeThemeCommandInput, DescribeThemeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeThemeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

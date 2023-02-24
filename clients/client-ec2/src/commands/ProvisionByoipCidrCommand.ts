@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ProvisionByoipCidrRequestFilterSensitiveLog,
   ProvisionByoipCidrResult,
   ProvisionByoipCidrResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ProvisionByoipCidrCommand,
   serializeAws_ec2ProvisionByoipCidrCommand,
@@ -63,6 +64,15 @@ export class ProvisionByoipCidrCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ProvisionByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class ProvisionByoipCidrCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ProvisionByoipCidrCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

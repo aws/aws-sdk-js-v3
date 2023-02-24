@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,6 +35,11 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
 /**
  * <p>Provides a pre-signed URL for download of a completed attachment. This is an
  *             asynchronous API for use with active contacts.</p>
+ *          <note>
+ *             <p>
+ *                <code>ConnectionToken</code> is used for invoking this API instead of
+ *                     <code>ParticipantToken</code>.</p>
+ *          </note>
  *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
  *                     authentication</a>.</p>
  * @example
@@ -59,6 +65,15 @@ export class GetAttachmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +89,7 @@ export class GetAttachmentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAttachmentCommandInput, GetAttachmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetAttachmentCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -47,6 +47,11 @@ import {
   ListParallelDataCommandOutput,
 } from "./commands/ListParallelDataCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListTerminologiesCommand,
   ListTerminologiesCommandInput,
   ListTerminologiesCommandOutput,
@@ -66,11 +71,17 @@ import {
   StopTextTranslationJobCommandInput,
   StopTextTranslationJobCommandOutput,
 } from "./commands/StopTextTranslationJobCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TranslateTextCommand,
   TranslateTextCommandInput,
   TranslateTextCommandOutput,
 } from "./commands/TranslateTextCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateParallelDataCommand,
   UpdateParallelDataCommandInput,
@@ -79,8 +90,7 @@ import {
 import { TranslateClient } from "./TranslateClient";
 
 /**
- * <p>Provides translation between one source language and another of the same set of
- *       languages.</p>
+ * <p>Provides translation of the input content from the source language to the target language.</p>
  */
 export class Translate extends TranslateClient {
   /**
@@ -383,6 +393,40 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * <p>Lists all tags associated with a given Amazon Translate resource.
+   *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
+   *         Tagging your resources</a>.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides a list of custom terminologies associated with your account.</p>
    */
   public listTerminologies(
@@ -447,14 +491,15 @@ export class Translate extends TranslateClient {
   }
 
   /**
-   * <p>Starts an asynchronous batch translation job. Batch translation jobs can be used to
-   *       translate large volumes of text across multiple documents at once. For more information, see
-   *         <a>async</a>.</p>
+   * <p>Starts an asynchronous batch translation job. Use batch translation jobs to
+   *       translate large volumes of text across multiple documents at once.
+   *       For batch translation, you can input documents with different source languages (specify <code>auto</code>
+   *       as the source language). You can specify one
+   *       or more target languages. Batch translation translates each input document into each of the target languages.
+   *       For more information, see
+   *       <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch processing</a>.</p>
    *
    *          <p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
-   *          <note>
-   *             <p>Amazon Translate does not support batch translation of multiple source languages at once.</p>
-   *          </note>
    */
   public startTextTranslationJob(
     args: StartTextTranslationJobCommandInput,
@@ -524,8 +569,37 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * <p>Associates a specific tag with a resource. A tag is a key-value pair
+   *       that adds as a metadata to a resource.
+   *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
+   *         Tagging your resources</a>.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Translates input text from the source language to the target language. For a list of
-   *       available languages and language codes, see <a>what-is-languages</a>.</p>
+   *       available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
    */
   public translateText(
     args: TranslateTextCommandInput,
@@ -546,6 +620,40 @@ export class Translate extends TranslateClient {
     cb?: (err: any, data?: TranslateTextCommandOutput) => void
   ): Promise<TranslateTextCommandOutput> | void {
     const command = new TranslateTextCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a specific tag associated with an Amazon Translate resource.
+   *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
+   *         Tagging your resources</a>.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

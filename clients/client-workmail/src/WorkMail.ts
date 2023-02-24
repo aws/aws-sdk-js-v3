@@ -12,6 +12,11 @@ import {
   AssociateMemberToGroupCommandOutput,
 } from "./commands/AssociateMemberToGroupCommand";
 import {
+  AssumeImpersonationRoleCommand,
+  AssumeImpersonationRoleCommandInput,
+  AssumeImpersonationRoleCommandOutput,
+} from "./commands/AssumeImpersonationRoleCommand";
+import {
   CancelMailboxExportJobCommand,
   CancelMailboxExportJobCommandInput,
   CancelMailboxExportJobCommandOutput,
@@ -23,6 +28,11 @@ import {
   CreateAvailabilityConfigurationCommandOutput,
 } from "./commands/CreateAvailabilityConfigurationCommand";
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import {
+  CreateImpersonationRoleCommand,
+  CreateImpersonationRoleCommandInput,
+  CreateImpersonationRoleCommandOutput,
+} from "./commands/CreateImpersonationRoleCommand";
 import {
   CreateMobileDeviceAccessRuleCommand,
   CreateMobileDeviceAccessRuleCommandInput,
@@ -56,6 +66,11 @@ import {
   DeleteEmailMonitoringConfigurationCommandOutput,
 } from "./commands/DeleteEmailMonitoringConfigurationCommand";
 import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import {
+  DeleteImpersonationRoleCommand,
+  DeleteImpersonationRoleCommandInput,
+  DeleteImpersonationRoleCommandOutput,
+} from "./commands/DeleteImpersonationRoleCommand";
 import {
   DeleteMailboxPermissionsCommand,
   DeleteMailboxPermissionsCommandInput,
@@ -153,6 +168,16 @@ import {
   GetDefaultRetentionPolicyCommandOutput,
 } from "./commands/GetDefaultRetentionPolicyCommand";
 import {
+  GetImpersonationRoleCommand,
+  GetImpersonationRoleCommandInput,
+  GetImpersonationRoleCommandOutput,
+} from "./commands/GetImpersonationRoleCommand";
+import {
+  GetImpersonationRoleEffectCommand,
+  GetImpersonationRoleEffectCommandInput,
+  GetImpersonationRoleEffectCommandOutput,
+} from "./commands/GetImpersonationRoleEffectCommand";
+import {
   GetMailboxDetailsCommand,
   GetMailboxDetailsCommandInput,
   GetMailboxDetailsCommandOutput,
@@ -189,6 +214,11 @@ import {
   ListGroupMembersCommandOutput,
 } from "./commands/ListGroupMembersCommand";
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import {
+  ListImpersonationRolesCommand,
+  ListImpersonationRolesCommandInput,
+  ListImpersonationRolesCommandOutput,
+} from "./commands/ListImpersonationRolesCommand";
 import {
   ListMailboxExportJobsCommand,
   ListMailboxExportJobsCommandInput,
@@ -307,6 +337,11 @@ import {
   UpdateDefaultMailDomainCommandOutput,
 } from "./commands/UpdateDefaultMailDomainCommand";
 import {
+  UpdateImpersonationRoleCommand,
+  UpdateImpersonationRoleCommandInput,
+  UpdateImpersonationRoleCommandOutput,
+} from "./commands/UpdateImpersonationRoleCommand";
+import {
   UpdateMailboxQuotaCommand,
   UpdateMailboxQuotaCommandInput,
   UpdateMailboxQuotaCommandOutput,
@@ -329,7 +364,7 @@ import {
 import { WorkMailClient } from "./WorkMailClient";
 
 /**
- * <p>Amazon WorkMail is a secure, managed business email and calendaring service with support for
+ * <p>WorkMail is a secure, managed business email and calendaring service with support for
  *          existing desktop and mobile email clients. You can access your email, contacts, and
  *          calendars using Microsoft Outlook, your browser, or other native iOS and Android email
  *          applications. You can integrate WorkMail with your existing corporate directory and control
@@ -432,6 +467,39 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * <p>Assumes an impersonation role for the given WorkMail organization. This method returns an
+   *          authentication token you can use to make impersonated calls.</p>
+   */
+  public assumeImpersonationRole(
+    args: AssumeImpersonationRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssumeImpersonationRoleCommandOutput>;
+  public assumeImpersonationRole(
+    args: AssumeImpersonationRoleCommandInput,
+    cb: (err: any, data?: AssumeImpersonationRoleCommandOutput) => void
+  ): void;
+  public assumeImpersonationRole(
+    args: AssumeImpersonationRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssumeImpersonationRoleCommandOutput) => void
+  ): void;
+  public assumeImpersonationRole(
+    args: AssumeImpersonationRoleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssumeImpersonationRoleCommandOutput) => void),
+    cb?: (err: any, data?: AssumeImpersonationRoleCommandOutput) => void
+  ): Promise<AssumeImpersonationRoleCommandOutput> | void {
+    const command = new AssumeImpersonationRoleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Cancels a mailbox export job.</p>
    *          <note>
    *             <p>If the mailbox export job is near completion, it might not be possible to cancel
@@ -468,7 +536,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Adds an alias to the set of a given member (user or group) of Amazon WorkMail.</p>
+   * <p>Adds an alias to the set of a given member (user or group) of WorkMail.</p>
    */
   public createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
   public createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
@@ -526,7 +594,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Creates a group that can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
+   * <p>Creates a group that can be used in WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
    */
   public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
   public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
@@ -552,7 +620,44 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Creates a new mobile device access rule for the specified Amazon WorkMail organization.</p>
+   * <p>Creates an impersonation role for the given WorkMail organization.</p>
+   *          <p>
+   *             <i>Idempotency</i> ensures that an API request completes no more than one
+   *          time. With an idempotent request, if the original request completes successfully, any
+   *          subsequent retries also complete successfully without performing any further
+   *          actions.</p>
+   */
+  public createImpersonationRole(
+    args: CreateImpersonationRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateImpersonationRoleCommandOutput>;
+  public createImpersonationRole(
+    args: CreateImpersonationRoleCommandInput,
+    cb: (err: any, data?: CreateImpersonationRoleCommandOutput) => void
+  ): void;
+  public createImpersonationRole(
+    args: CreateImpersonationRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateImpersonationRoleCommandOutput) => void
+  ): void;
+  public createImpersonationRole(
+    args: CreateImpersonationRoleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImpersonationRoleCommandOutput) => void),
+    cb?: (err: any, data?: CreateImpersonationRoleCommandOutput) => void
+  ): Promise<CreateImpersonationRoleCommandOutput> | void {
+    const command = new CreateImpersonationRoleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new mobile device access rule for the specified WorkMail organization.</p>
    */
   public createMobileDeviceAccessRule(
     args: CreateMobileDeviceAccessRuleCommandInput,
@@ -584,11 +689,15 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Creates a new Amazon WorkMail organization. Optionally, you can choose to associate an existing AWS Directory Service directory with your organization. If an AWS Directory Service directory ID is specified, the organization alias must match the directory alias. If you choose not to associate an existing directory with your organization, then we create a new Amazon WorkMail directory for you. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html">Adding an organization</a> in the <i>Amazon WorkMail Administrator Guide</i>.</p>
-   *          <p>You can associate multiple email domains with an organization, then set your default email domain from the Amazon WorkMail console. You can also associate a domain that is managed in an Amazon Route 53 public hosted zone. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html">Adding a domain</a> and <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html">Choosing the default domain</a> in the <i>Amazon WorkMail Administrator Guide</i>.</p>
-   *          <p>Optionally, you can use a customer managed master key from AWS Key Management Service
-   *          (AWS KMS) to encrypt email for your organization. If you don't associate an AWS KMS key, Amazon WorkMail creates a
-   *          default AWS managed master key for you.</p>
+   * <p>Creates a new WorkMail organization. Optionally, you can choose to associate an existing AWS Directory Service directory with your organization. If an AWS Directory Service directory ID is specified, the organization alias must match the directory alias. If you choose not to associate an existing directory with your organization, then we create a new WorkMail directory for you. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html">Adding an organization</a> in the <i>WorkMail Administrator Guide</i>.</p>
+   *          <p>You can associate multiple email domains with an organization, then choose your
+   *          default email domain from the WorkMail console. You can also associate a domain that is managed
+   *          in an Amazon Route 53 public hosted zone. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html">Adding a
+   *             domain</a> and <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html">Choosing the default domain</a>
+   *          in the <i>WorkMail Administrator Guide</i>.</p>
+   *          <p>Optionally, you can use a customer managed key from AWS Key Management Service (AWS
+   *          KMS) to encrypt email for your organization. If you don't associate an AWS KMS key, WorkMail
+   *          creates a default, AWS managed key for you.</p>
    */
   public createOrganization(
     args: CreateOrganizationCommandInput,
@@ -620,7 +729,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Creates a new Amazon WorkMail resource. </p>
+   * <p>Creates a new WorkMail resource.</p>
    */
   public createResource(
     args: CreateResourceCommandInput,
@@ -652,7 +761,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Creates a user who can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
+   * <p>Creates a user who can be used in WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
   public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
@@ -804,7 +913,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Deletes a group from Amazon WorkMail.</p>
+   * <p>Deletes a group from WorkMail.</p>
    */
   public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
   public deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
@@ -819,6 +928,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an impersonation role for the given WorkMail organization.</p>
+   */
+  public deleteImpersonationRole(
+    args: DeleteImpersonationRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteImpersonationRoleCommandOutput>;
+  public deleteImpersonationRole(
+    args: DeleteImpersonationRoleCommandInput,
+    cb: (err: any, data?: DeleteImpersonationRoleCommandOutput) => void
+  ): void;
+  public deleteImpersonationRole(
+    args: DeleteImpersonationRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteImpersonationRoleCommandOutput) => void
+  ): void;
+  public deleteImpersonationRole(
+    args: DeleteImpersonationRoleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImpersonationRoleCommandOutput) => void),
+    cb?: (err: any, data?: DeleteImpersonationRoleCommandOutput) => void
+  ): Promise<DeleteImpersonationRoleCommandOutput> | void {
+    const command = new DeleteImpersonationRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -897,7 +1038,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Deletes a mobile device access rule for the specified Amazon WorkMail organization.</p>
+   * <p>Deletes a mobile device access rule for the specified WorkMail organization.</p>
    *          <note>
    *             <p>Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
    *          </note>
@@ -932,7 +1073,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Deletes an Amazon WorkMail organization and all underlying AWS resources managed by Amazon WorkMail as part of the organization. You can choose whether to delete the associated directory. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html">Removing an organization</a> in the <i>Amazon WorkMail Administrator Guide</i>.</p>
+   * <p>Deletes an WorkMail organization and all underlying AWS resources managed by WorkMail as part of the organization. You can choose whether to delete the associated directory. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html">Removing an organization</a> in the <i>WorkMail Administrator Guide</i>.</p>
    */
   public deleteOrganization(
     args: DeleteOrganizationCommandInput,
@@ -964,7 +1105,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Deletes the specified resource. </p>
+   * <p>Deletes the specified resource.</p>
    */
   public deleteResource(
     args: DeleteResourceCommandInput,
@@ -1028,7 +1169,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Deletes a user from Amazon WorkMail and all subsequent systems. Before you can delete a
+   * <p>Deletes a user from WorkMail and all subsequent systems. Before you can delete a
    *          user, the user state must be <code>DISABLED</code>. Use the <a>DescribeUser</a>
    *          action to confirm the user state.</p>
    *          <p>Deleting a user is permanent and cannot be undone. WorkMail archives user mailboxes for
@@ -1058,7 +1199,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Mark a user, group, or resource as no longer used in Amazon WorkMail. This action
+   * <p>Mark a user, group, or resource as no longer used in WorkMail. This action
    *          disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes for 30 days
    *          before they are permanently removed. The functionality in the console is
    *             <i>Disable</i>.</p>
@@ -1093,7 +1234,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Removes a domain from Amazon WorkMail, stops email routing to WorkMail, and removes the authorization allowing WorkMail use. SES keeps the domain because other applications may use it. You must first
+   * <p>Removes a domain from WorkMail, stops email routing to WorkMail, and removes the authorization allowing WorkMail use. SES keeps the domain because other applications may use it. You must first
    *          remove any email address used by WorkMail entities before you remove the domain.</p>
    */
   public deregisterMailDomain(
@@ -1413,7 +1554,7 @@ export class WorkMail extends WorkMailClient {
 
   /**
    * <p>Gets the effects of an organization's access control rules as they apply to a
-   *          specified IPv4 address, access protocol action, or user ID. </p>
+   *          specified IPv4 address, access protocol action, and  user ID or impersonation role ID. You must provide either the user ID or impersonation role ID. Impersonation role ID can only be used with Action EWS.</p>
    */
   public getAccessControlEffect(
     args: GetAccessControlEffectCommandInput,
@@ -1466,6 +1607,70 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: GetDefaultRetentionPolicyCommandOutput) => void
   ): Promise<GetDefaultRetentionPolicyCommandOutput> | void {
     const command = new GetDefaultRetentionPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the impersonation role details for the given WorkMail organization.</p>
+   */
+  public getImpersonationRole(
+    args: GetImpersonationRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImpersonationRoleCommandOutput>;
+  public getImpersonationRole(
+    args: GetImpersonationRoleCommandInput,
+    cb: (err: any, data?: GetImpersonationRoleCommandOutput) => void
+  ): void;
+  public getImpersonationRole(
+    args: GetImpersonationRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImpersonationRoleCommandOutput) => void
+  ): void;
+  public getImpersonationRole(
+    args: GetImpersonationRoleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImpersonationRoleCommandOutput) => void),
+    cb?: (err: any, data?: GetImpersonationRoleCommandOutput) => void
+  ): Promise<GetImpersonationRoleCommandOutput> | void {
+    const command = new GetImpersonationRoleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Tests whether the given impersonation role can impersonate a target user.</p>
+   */
+  public getImpersonationRoleEffect(
+    args: GetImpersonationRoleEffectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImpersonationRoleEffectCommandOutput>;
+  public getImpersonationRoleEffect(
+    args: GetImpersonationRoleEffectCommandInput,
+    cb: (err: any, data?: GetImpersonationRoleEffectCommandOutput) => void
+  ): void;
+  public getImpersonationRoleEffect(
+    args: GetImpersonationRoleEffectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImpersonationRoleEffectCommandOutput) => void
+  ): void;
+  public getImpersonationRoleEffect(
+    args: GetImpersonationRoleEffectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImpersonationRoleEffectCommandOutput) => void),
+    cb?: (err: any, data?: GetImpersonationRoleEffectCommandOutput) => void
+  ): Promise<GetImpersonationRoleEffectCommandOutput> | void {
+    const command = new GetImpersonationRoleEffectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1542,7 +1747,7 @@ export class WorkMail extends WorkMailClient {
 
   /**
    * <p>Simulates the effect of the mobile device access rules for the given attributes of a sample access event. Use this method to test the effects of the current set of mobile device access
-   *          rules for the Amazon WorkMail organization for a particular user's attributes.</p>
+   *          rules for the WorkMail organization for a particular user's attributes.</p>
    */
   public getMobileDeviceAccessEffect(
     args: GetMobileDeviceAccessEffectCommandInput,
@@ -1756,6 +1961,38 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * <p>Lists all the impersonation roles for the given WorkMail organization.</p>
+   */
+  public listImpersonationRoles(
+    args: ListImpersonationRolesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImpersonationRolesCommandOutput>;
+  public listImpersonationRoles(
+    args: ListImpersonationRolesCommandInput,
+    cb: (err: any, data?: ListImpersonationRolesCommandOutput) => void
+  ): void;
+  public listImpersonationRoles(
+    args: ListImpersonationRolesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImpersonationRolesCommandOutput) => void
+  ): void;
+  public listImpersonationRoles(
+    args: ListImpersonationRolesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImpersonationRolesCommandOutput) => void),
+    cb?: (err: any, data?: ListImpersonationRolesCommandOutput) => void
+  ): Promise<ListImpersonationRolesCommandOutput> | void {
+    const command = new ListImpersonationRolesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the mailbox export jobs started for the specified organization within the last
    *          seven days.</p>
    */
@@ -1822,7 +2059,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Lists the mail domains in a given Amazon WorkMail organization.</p>
+   * <p>Lists the mail domains in a given WorkMail organization.</p>
    */
   public listMailDomains(
     args: ListMailDomainsCommandInput,
@@ -1886,7 +2123,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Lists the mobile device access rules for the specified Amazon WorkMail organization.</p>
+   * <p>Lists the mobile device access rules for the specified WorkMail organization.</p>
    */
   public listMobileDeviceAccessRules(
     args: ListMobileDeviceAccessRulesCommandInput,
@@ -2015,7 +2252,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Lists the tags applied to an Amazon WorkMail organization resource.</p>
+   * <p>Lists the tags applied to an WorkMail organization resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2075,7 +2312,7 @@ export class WorkMail extends WorkMailClient {
   /**
    * <p>Adds a new access control rule for the specified organization. The rule allows or
    *          denies access to the organization for the specified IPv4 addresses, access protocol
-   *          actions, and user IDs. Adding a new rule with the same name as an existing rule replaces
+   *          actions, user IDs and impersonation IDs. Adding a new rule with the same name as an existing rule replaces
    *          the older rule.</p>
    */
   public putAccessControlRule(
@@ -2269,7 +2506,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Registers a new domain in Amazon WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has
+   * <p>Registers a new domain in WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has
    *          permanent permission to use the specified domain for sending your users' emails.</p>
    */
   public registerMailDomain(
@@ -2302,11 +2539,11 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Registers an existing and disabled user, group, or resource for Amazon WorkMail use by
+   * <p>Registers an existing and disabled user, group, or resource for WorkMail use by
    *          associating a mailbox and calendaring capabilities. It performs no change if the user,
    *          group, or resource is enabled and fails if the user, group, or resource is deleted. This
    *          operation results in the accumulation of costs. For more information, see <a href="https://aws.amazon.com/workmail/pricing">Pricing</a>. The equivalent console
-   *          functionality for this operation is <i>Enable</i>. </p>
+   *          functionality for this operation is <i>Enable</i>.</p>
    *          <p>Users can either be created by calling the <a>CreateUser</a> API operation
    *          or they can be synchronized from your directory. For more information, see <a>DeregisterFromWorkMail</a>.</p>
    */
@@ -2375,7 +2612,7 @@ export class WorkMail extends WorkMailClient {
    * <p>Starts a mailbox export job to export MIME-format email messages and calendar items
    *          from the specified mailbox to the specified Amazon Simple Storage Service (Amazon S3)
    *          bucket. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html">Exporting mailbox content</a> in
-   *          the <i>Amazon WorkMail Administrator Guide</i>.</p>
+   *          the <i>WorkMail Administrator Guide</i>.</p>
    */
   public startMailboxExportJob(
     args: StartMailboxExportJobCommandInput,
@@ -2407,7 +2644,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Applies the specified tags to the specified Amazon WorkMail organization
+   * <p>Applies the specified tags to the specified WorkMailorganization
    *          resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2440,7 +2677,7 @@ export class WorkMail extends WorkMailClient {
    *             <p>The request must contain either one provider definition (<code>EwsProvider</code> or
    *                <code>LambdaProvider</code>) or the <code>DomainName</code> parameter. If the
    *                <code>DomainName</code> parameter is provided, the configuration stored under the
-   *                <code>DomainName</code> will be tested. </p>
+   *                <code>DomainName</code> will be tested.</p>
    *          </note>
    */
   public testAvailabilityConfiguration(
@@ -2473,7 +2710,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Untags the specified tags from the specified Amazon WorkMail organization
+   * <p>Untags the specified tags from the specified WorkMail organization
    *          resource.</p>
    */
   public untagResource(
@@ -2571,6 +2808,38 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * <p>Updates an impersonation role for the given WorkMail organization.</p>
+   */
+  public updateImpersonationRole(
+    args: UpdateImpersonationRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateImpersonationRoleCommandOutput>;
+  public updateImpersonationRole(
+    args: UpdateImpersonationRoleCommandInput,
+    cb: (err: any, data?: UpdateImpersonationRoleCommandOutput) => void
+  ): void;
+  public updateImpersonationRole(
+    args: UpdateImpersonationRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateImpersonationRoleCommandOutput) => void
+  ): void;
+  public updateImpersonationRole(
+    args: UpdateImpersonationRoleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateImpersonationRoleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateImpersonationRoleCommandOutput) => void
+  ): Promise<UpdateImpersonationRoleCommandOutput> | void {
+    const command = new UpdateImpersonationRoleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates a user's current mailbox quota for a specified organization and
    *          user.</p>
    */
@@ -2604,7 +2873,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
-   * <p>Updates a mobile device access rule for the specified Amazon WorkMail organization.</p>
+   * <p>Updates a mobile device access rule for the specified WorkMail organization.</p>
    */
   public updateMobileDeviceAccessRule(
     args: UpdateMobileDeviceAccessRuleCommandInput,

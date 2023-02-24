@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,11 @@ export interface ListSitesCommandInput extends ListSitesInput {}
 export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Outpost sites for your Amazon Web Services account. Add operating address filters to your request to
- *       return a more specific list of results. Use filters to match site city, country code, or state/region of the
- *       operating address. </p>
- *
- *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only
- *       results that match all of the specified filters.</p>
+ * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific
+ *       results.</p>
+ *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
+ *  all of the specified filters. For a filter where you can specify multiple values, the results include
+ *  items that match any of the values that you specify for the filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +57,15 @@ export class ListSitesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListSitesCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +81,7 @@ export class ListSitesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListSitesCommandInput, ListSitesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListSitesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

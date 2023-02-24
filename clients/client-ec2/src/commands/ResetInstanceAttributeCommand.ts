@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,7 +28,7 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  *                 <code>kernel</code> or <code>ramdisk</code>, the instance must be in a stopped
  *             state. To reset the <code>sourceDestCheck</code>, the instance can be either running or
  *             stopped.</p>
- *         <p>The <code>sourceDestCheck</code> attribute controls whether source/destination
+ *          <p>The <code>sourceDestCheck</code> attribute controls whether source/destination
  *             checking is enabled. The default value is <code>true</code>, which means checking is
  *             enabled. This value must be <code>false</code> for a NAT instance to perform NAT. For
  *             more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT Instances</a> in the
@@ -55,6 +56,15 @@ export class ResetInstanceAttributeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ResetInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class ResetInstanceAttributeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ResetInstanceAttributeCommandInput, ResetInstanceAttributeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ResetInstanceAttributeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

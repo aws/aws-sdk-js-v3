@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   CreateAccountCustomizationRequestFilterSensitiveLog,
   CreateAccountCustomizationResponse,
   CreateAccountCustomizationResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1CreateAccountCustomizationCommand,
   serializeAws_restJson1CreateAccountCustomizationCommand,
@@ -33,11 +34,11 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  *             API operation. To further customize Amazon QuickSight by removing Amazon QuickSight
  *             sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide.</i>
  *          </p>
- *         <p>You can create customizations for your Amazon Web Services account or, if you specify a namespace, for
+ *          <p>You can create customizations for your Amazon Web Services account or, if you specify a namespace, for
  *             a QuickSight namespace instead. Customizations that apply to a namespace always override
  *             customizations that apply to an Amazon Web Services account. To find out which customizations apply, use
  *             the <code>DescribeAccountCustomization</code> API operation.</p>
- *         <p>Before you use the <code>CreateAccountCustomization</code> API operation to add a theme
+ *          <p>Before you use the <code>CreateAccountCustomization</code> API operation to add a theme
  *             as the namespace default, make sure that you first share the theme with the namespace.
  *             If you don't share it with the namespace, the theme isn't visible to your users
  *             even if you make it the default theme.
@@ -74,6 +75,15 @@ export class CreateAccountCustomizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAccountCustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,6 +99,9 @@ export class CreateAccountCustomizationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAccountCustomizationCommandInput, CreateAccountCustomizationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateAccountCustomizationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

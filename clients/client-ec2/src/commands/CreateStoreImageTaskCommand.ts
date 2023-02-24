@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   CreateStoreImageTaskRequestFilterSensitiveLog,
   CreateStoreImageTaskResult,
   CreateStoreImageTaskResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateStoreImageTaskCommand,
   serializeAws_ec2CreateStoreImageTaskCommand,
@@ -30,9 +31,9 @@ export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskR
 /**
  * <p>Stores an AMI as a single object in an Amazon S3 bucket.</p>
  *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
- *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *         <i>Amazon EC2 User Guide</i>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
- *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *     	Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class CreateStoreImageTaskCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateStoreImageTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class CreateStoreImageTaskCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateStoreImageTaskCommandInput, CreateStoreImageTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateStoreImageTaskCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

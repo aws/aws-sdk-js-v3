@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,15 +26,13 @@ export interface AddTagsCommandInput extends AddTagsRequest {}
 export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Adds one or more tags to a trail or event data store, up to a limit of 50. Overwrites an
- *          existing tag's value when a new value is specified for an existing tag key.
- *          Tag key names must be unique for a trail; you cannot have two keys with the same name but
- *          different values.
- *           If you specify a key without a value, the tag will be created with the specified key and a
- *           value of null.
- *           You can tag a trail or event data store that applies to all Amazon Web Services Regions
- *          only from the Region in which the trail or event data store was created (also known as its
- *          home region).</p>
+ * <p>Adds one or more tags to a trail, event data store, or channel, up to a limit of 50. Overwrites an
+ *          existing tag's value when a new value is specified for an existing tag key. Tag key names
+ *          must be unique; you cannot have two keys with the same name but different
+ *          values. If you specify a key without a value, the tag will be created with the specified
+ *          key and a value of null. You can tag a trail or event data store that applies to all
+ *             Amazon Web Services Regions only from the Region in which the trail or event data store
+ *          was created (also known as its home region).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +56,15 @@ export class AddTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +80,7 @@ export class AddTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddTagsCommandInput, AddTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AddTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

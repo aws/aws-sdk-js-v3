@@ -261,7 +261,7 @@ export const serializeAws_restJson1DeleteResourceShareCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteresourceshare";
   const query: any = map({
-    resourceShareArn: [, input.resourceShareArn!],
+    resourceShareArn: [, __expectNonNull(input.resourceShareArn!, `resourceShareArn`)],
     clientToken: [, input.clientToken!],
   });
   let body: any;
@@ -726,7 +726,7 @@ export const serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand 
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/promoteresourcesharecreatedfrompolicy";
   const query: any = map({
-    resourceShareArn: [, input.resourceShareArn!],
+    resourceShareArn: [, __expectNonNull(input.resourceShareArn!, `resourceShareArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -873,7 +873,7 @@ const deserializeAws_restJson1AcceptResourceShareInvitationCommandError = async 
 ): Promise<AcceptResourceShareInvitationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -953,7 +953,7 @@ const deserializeAws_restJson1AssociateResourceShareCommandError = async (
 ): Promise<AssociateResourceShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1027,7 +1027,7 @@ const deserializeAws_restJson1AssociateResourceSharePermissionCommandError = asy
 ): Promise<AssociateResourceSharePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1089,7 +1089,7 @@ const deserializeAws_restJson1CreateResourceShareCommandError = async (
 ): Promise<CreateResourceShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1163,7 +1163,7 @@ const deserializeAws_restJson1DeleteResourceShareCommandError = async (
 ): Promise<DeleteResourceShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1234,7 +1234,7 @@ const deserializeAws_restJson1DisassociateResourceShareCommandError = async (
 ): Promise<DisassociateResourceShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1305,7 +1305,7 @@ const deserializeAws_restJson1DisassociateResourceSharePermissionCommandError = 
 ): Promise<DisassociateResourceSharePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1367,7 +1367,7 @@ const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommandError = asy
 ): Promise<EnableSharingWithAwsOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1414,7 +1414,7 @@ const deserializeAws_restJson1GetPermissionCommandError = async (
 ): Promise<GetPermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1473,7 +1473,7 @@ const deserializeAws_restJson1GetResourcePoliciesCommandError = async (
 ): Promise<GetResourcePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1535,7 +1535,7 @@ const deserializeAws_restJson1GetResourceShareAssociationsCommandError = async (
 ): Promise<GetResourceShareAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1600,7 +1600,7 @@ const deserializeAws_restJson1GetResourceShareInvitationsCommandError = async (
 ): Promise<GetResourceShareInvitationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1665,7 +1665,7 @@ const deserializeAws_restJson1GetResourceSharesCommandError = async (
 ): Promise<GetResourceSharesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1724,7 +1724,7 @@ const deserializeAws_restJson1ListPendingInvitationResourcesCommandError = async
 ): Promise<ListPendingInvitationResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1795,7 +1795,7 @@ const deserializeAws_restJson1ListPermissionsCommandError = async (
 ): Promise<ListPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1851,7 +1851,7 @@ const deserializeAws_restJson1ListPermissionVersionsCommandError = async (
 ): Promise<ListPermissionVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1913,7 +1913,7 @@ const deserializeAws_restJson1ListPrincipalsCommandError = async (
 ): Promise<ListPrincipalsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1972,7 +1972,7 @@ const deserializeAws_restJson1ListResourcesCommandError = async (
 ): Promise<ListResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2034,7 +2034,7 @@ const deserializeAws_restJson1ListResourceSharePermissionsCommandError = async (
 ): Promise<ListResourceSharePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2096,7 +2096,7 @@ const deserializeAws_restJson1ListResourceTypesCommandError = async (
 ): Promise<ListResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2146,7 +2146,7 @@ const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommandError 
 ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2214,7 +2214,7 @@ const deserializeAws_restJson1RejectResourceShareInvitationCommandError = async 
 ): Promise<RejectResourceShareInvitationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2285,7 +2285,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2344,7 +2344,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2394,7 +2394,7 @@ const deserializeAws_restJson1UpdateResourceShareCommandError = async (
 ): Promise<UpdateResourceShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3164,7 +3164,8 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3196,6 +3197,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3206,6 +3213,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

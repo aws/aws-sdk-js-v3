@@ -101,6 +101,10 @@ import {
   ListCostCategoryDefinitionsCommandOutput,
 } from "../commands/ListCostCategoryDefinitionsCommand";
 import {
+  ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  ListSavingsPlansPurchaseRecommendationGenerationCommandOutput,
+} from "../commands/ListSavingsPlansPurchaseRecommendationGenerationCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -108,6 +112,10 @@ import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "../commands/ProvideAnomalyFeedbackCommand";
+import {
+  StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  StartSavingsPlansPurchaseRecommendationGenerationCommandOutput,
+} from "../commands/StartSavingsPlansPurchaseRecommendationGenerationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -179,6 +187,8 @@ import {
   Expression,
   FindingReasonCode,
   ForecastResult,
+  GenerationExistsException,
+  GenerationSummary,
   GetAnomaliesRequest,
   GetAnomaliesResponse,
   GetAnomalyMonitorsRequest,
@@ -225,6 +235,8 @@ import {
   ListCostAllocationTagsResponse,
   ListCostCategoryDefinitionsRequest,
   ListCostCategoryDefinitionsResponse,
+  ListSavingsPlansPurchaseRecommendationGenerationRequest,
+  ListSavingsPlansPurchaseRecommendationGenerationResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   MatchOption,
@@ -271,6 +283,8 @@ import {
   ServiceQuotaExceededException,
   ServiceSpecification,
   SortDefinition,
+  StartSavingsPlansPurchaseRecommendationGenerationRequest,
+  StartSavingsPlansPurchaseRecommendationGenerationResponse,
   Subscriber,
   TagResourceRequest,
   TagResourceResponse,
@@ -647,6 +661,19 @@ export const serializeAws_json1_1ListCostCategoryDefinitionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand = async (
+  input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSInsightsIndexService.ListSavingsPlansPurchaseRecommendationGeneration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -670,6 +697,19 @@ export const serializeAws_json1_1ProvideAnomalyFeedbackCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ProvideAnomalyFeedbackRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommand = async (
+  input: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSInsightsIndexService.StartSavingsPlansPurchaseRecommendationGeneration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -774,7 +814,7 @@ const deserializeAws_json1_1CreateAnomalyMonitorCommandError = async (
 ): Promise<CreateAnomalyMonitorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -815,7 +855,7 @@ const deserializeAws_json1_1CreateAnomalySubscriptionCommandError = async (
 ): Promise<CreateAnomalySubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -859,7 +899,7 @@ const deserializeAws_json1_1CreateCostCategoryDefinitionCommandError = async (
 ): Promise<CreateCostCategoryDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -903,7 +943,7 @@ const deserializeAws_json1_1DeleteAnomalyMonitorCommandError = async (
 ): Promise<DeleteAnomalyMonitorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -947,7 +987,7 @@ const deserializeAws_json1_1DeleteAnomalySubscriptionCommandError = async (
 ): Promise<DeleteAnomalySubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -991,7 +1031,7 @@ const deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError = async (
 ): Promise<DeleteCostCategoryDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1035,7 +1075,7 @@ const deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError = async (
 ): Promise<DescribeCostCategoryDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1079,7 +1119,7 @@ const deserializeAws_json1_1GetAnomaliesCommandError = async (
 ): Promise<GetAnomaliesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1123,7 +1163,7 @@ const deserializeAws_json1_1GetAnomalyMonitorsCommandError = async (
 ): Promise<GetAnomalyMonitorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1170,7 +1210,7 @@ const deserializeAws_json1_1GetAnomalySubscriptionsCommandError = async (
 ): Promise<GetAnomalySubscriptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1217,7 +1257,7 @@ const deserializeAws_json1_1GetCostAndUsageCommandError = async (
 ): Promise<GetCostAndUsageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1270,7 +1310,7 @@ const deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError = async (
 ): Promise<GetCostAndUsageWithResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1323,7 +1363,7 @@ const deserializeAws_json1_1GetCostCategoriesCommandError = async (
 ): Promise<GetCostCategoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1376,7 +1416,7 @@ const deserializeAws_json1_1GetCostForecastCommandError = async (
 ): Promise<GetCostForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1420,7 +1460,7 @@ const deserializeAws_json1_1GetDimensionValuesCommandError = async (
 ): Promise<GetDimensionValuesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1473,7 +1513,7 @@ const deserializeAws_json1_1GetReservationCoverageCommandError = async (
 ): Promise<GetReservationCoverageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1520,7 +1560,7 @@ const deserializeAws_json1_1GetReservationPurchaseRecommendationCommandError = a
 ): Promise<GetReservationPurchaseRecommendationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1567,7 +1607,7 @@ const deserializeAws_json1_1GetReservationUtilizationCommandError = async (
 ): Promise<GetReservationUtilizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1614,7 +1654,7 @@ const deserializeAws_json1_1GetRightsizingRecommendationCommandError = async (
 ): Promise<GetRightsizingRecommendationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1658,7 +1698,7 @@ const deserializeAws_json1_1GetSavingsPlansCoverageCommandError = async (
 ): Promise<GetSavingsPlansCoverageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1705,7 +1745,7 @@ const deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommandError = 
 ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1749,7 +1789,7 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationCommandError = async (
 ): Promise<GetSavingsPlansUtilizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1793,7 +1833,7 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandError = asyn
 ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1840,7 +1880,7 @@ const deserializeAws_json1_1GetTagsCommandError = async (
 ): Promise<GetTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1893,7 +1933,7 @@ const deserializeAws_json1_1GetUsageForecastCommandError = async (
 ): Promise<GetUsageForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1940,7 +1980,7 @@ const deserializeAws_json1_1ListCostAllocationTagsCommandError = async (
 ): Promise<ListCostAllocationTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1984,10 +2024,54 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsCommandError = async (
 ): Promise<ListCostCategoryDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationResponse(data, context);
+  const response: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.costexplorer#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
@@ -2025,7 +2109,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2069,13 +2153,60 @@ const deserializeAws_json1_1ProvideAnomalyFeedbackCommandError = async (
 ): Promise<ProvideAnomalyFeedbackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.costexplorer#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationResponse(data, context);
+  const response: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "GenerationExistsException":
+    case "com.amazonaws.costexplorer#GenerationExistsException":
+      throw await deserializeAws_json1_1GenerationExistsExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.costexplorer#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2110,7 +2241,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2157,7 +2288,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2201,7 +2332,7 @@ const deserializeAws_json1_1UpdateAnomalyMonitorCommandError = async (
 ): Promise<UpdateAnomalyMonitorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2245,7 +2376,7 @@ const deserializeAws_json1_1UpdateAnomalySubscriptionCommandError = async (
 ): Promise<UpdateAnomalySubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2292,7 +2423,7 @@ const deserializeAws_json1_1UpdateCostAllocationTagsStatusCommandError = async (
 ): Promise<UpdateCostAllocationTagsStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2333,7 +2464,7 @@ const deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError = async (
 ): Promise<UpdateCostCategoryDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2377,6 +2508,19 @@ const deserializeAws_json1_1DataUnavailableExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DataUnavailableException(body, context);
   const exception = new DataUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1GenerationExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GenerationExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1GenerationExistsException(body, context);
+  const exception = new GenerationExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2534,6 +2678,9 @@ const serializeAws_json1_1AnomalySubscription = (input: AnomalySubscription, con
     ...(input.SubscriptionArn != null && { SubscriptionArn: input.SubscriptionArn }),
     ...(input.SubscriptionName != null && { SubscriptionName: input.SubscriptionName }),
     ...(input.Threshold != null && { Threshold: __serializeFloat(input.Threshold) }),
+    ...(input.ThresholdExpression != null && {
+      ThresholdExpression: serializeAws_json1_1Expression(input.ThresholdExpression, context),
+    }),
   };
 };
 
@@ -2706,6 +2853,7 @@ const serializeAws_json1_1CreateCostCategoryDefinitionRequest = (
 ): any => {
   return {
     ...(input.DefaultValue != null && { DefaultValue: input.DefaultValue }),
+    ...(input.EffectiveStart != null && { EffectiveStart: input.EffectiveStart }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResourceTags != null && {
       ResourceTags: serializeAws_json1_1ResourceTagList(input.ResourceTags, context),
@@ -3088,6 +3236,20 @@ const serializeAws_json1_1ListCostCategoryDefinitionsRequest = (
   };
 };
 
+const serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationRequest = (
+  input: ListSavingsPlansPurchaseRecommendationGenerationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GenerationStatus != null && { GenerationStatus: input.GenerationStatus }),
+    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.RecommendationIds != null && {
+      RecommendationIds: serializeAws_json1_1RecommendationIdList(input.RecommendationIds, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
@@ -3129,6 +3291,14 @@ const serializeAws_json1_1ProvideAnomalyFeedbackRequest = (
     ...(input.AnomalyId != null && { AnomalyId: input.AnomalyId }),
     ...(input.Feedback != null && { Feedback: input.Feedback }),
   };
+};
+
+const serializeAws_json1_1RecommendationIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
@@ -3196,6 +3366,13 @@ const serializeAws_json1_1SortDefinitions = (input: SortDefinition[], context: _
     .map((entry) => {
       return serializeAws_json1_1SortDefinition(entry, context);
     });
+};
+
+const serializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationRequest = (
+  input: StartSavingsPlansPurchaseRecommendationGenerationRequest,
+  context: __SerdeContext
+): any => {
+  return {};
 };
 
 const serializeAws_json1_1Subscriber = (input: Subscriber, context: __SerdeContext): any => {
@@ -3271,6 +3448,9 @@ const serializeAws_json1_1UpdateAnomalySubscriptionRequest = (
     ...(input.SubscriptionArn != null && { SubscriptionArn: input.SubscriptionArn }),
     ...(input.SubscriptionName != null && { SubscriptionName: input.SubscriptionName }),
     ...(input.Threshold != null && { Threshold: __serializeFloat(input.Threshold) }),
+    ...(input.ThresholdExpression != null && {
+      ThresholdExpression: serializeAws_json1_1Expression(input.ThresholdExpression, context),
+    }),
   };
 };
 
@@ -3295,6 +3475,7 @@ const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
   return {
     ...(input.CostCategoryArn != null && { CostCategoryArn: input.CostCategoryArn }),
     ...(input.DefaultValue != null && { DefaultValue: input.DefaultValue }),
+    ...(input.EffectiveStart != null && { EffectiveStart: input.EffectiveStart }),
     ...(input.RuleVersion != null && { RuleVersion: input.RuleVersion }),
     ...(input.Rules != null && { Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context) }),
     ...(input.SplitChargeRules != null && {
@@ -3385,6 +3566,10 @@ const deserializeAws_json1_1AnomalySubscription = (output: any, context: __Serde
     SubscriptionArn: __expectString(output.SubscriptionArn),
     SubscriptionName: __expectString(output.SubscriptionName),
     Threshold: __limitedParseDouble(output.Threshold),
+    ThresholdExpression:
+      output.ThresholdExpression != null
+        ? deserializeAws_json1_1Expression(output.ThresholdExpression, context)
+        : undefined,
   } as any;
 };
 
@@ -3405,10 +3590,8 @@ const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4030,6 +4213,37 @@ const deserializeAws_json1_1ForecastResultsByTime = (output: any, context: __Ser
   return retVal;
 };
 
+const deserializeAws_json1_1GenerationExistsException = (
+  output: any,
+  context: __SerdeContext
+): GenerationExistsException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1GenerationSummary = (output: any, context: __SerdeContext): GenerationSummary => {
+  return {
+    EstimatedCompletionTime: __expectString(output.EstimatedCompletionTime),
+    GenerationCompletionTime: __expectString(output.GenerationCompletionTime),
+    GenerationStartedTime: __expectString(output.GenerationStartedTime),
+    GenerationStatus: __expectString(output.GenerationStatus),
+    RecommendationId: __expectString(output.RecommendationId),
+  } as any;
+};
+
+const deserializeAws_json1_1GenerationSummaryList = (output: any, context: __SerdeContext): GenerationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1GenerationSummary(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1GetAnomaliesResponse = (output: any, context: __SerdeContext): GetAnomaliesResponse => {
   return {
     Anomalies: output.Anomalies != null ? deserializeAws_json1_1Anomalies(output.Anomalies, context) : undefined,
@@ -4341,7 +4555,10 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Gro
 const deserializeAws_json1_1Impact = (output: any, context: __SerdeContext): Impact => {
   return {
     MaxImpact: __limitedParseDouble(output.MaxImpact),
+    TotalActualSpend: __limitedParseDouble(output.TotalActualSpend),
+    TotalExpectedSpend: __limitedParseDouble(output.TotalExpectedSpend),
     TotalImpact: __limitedParseDouble(output.TotalImpact),
+    TotalImpactPercentage: __limitedParseDouble(output.TotalImpactPercentage),
   } as any;
 };
 
@@ -4423,6 +4640,19 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationResponse = (
+  output: any,
+  context: __SerdeContext
+): ListSavingsPlansPurchaseRecommendationGenerationResponse => {
+  return {
+    GenerationSummaryList:
+      output.GenerationSummaryList != null
+        ? deserializeAws_json1_1GenerationSummaryList(output.GenerationSummaryList, context)
+        : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
@@ -4450,10 +4680,8 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Re
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1MetricValue(value, context),
-    };
+    acc[key] = deserializeAws_json1_1MetricValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -4886,6 +5114,7 @@ const deserializeAws_json1_1RightsizingRecommendationSummary = (
 const deserializeAws_json1_1RootCause = (output: any, context: __SerdeContext): RootCause => {
   return {
     LinkedAccount: __expectString(output.LinkedAccount),
+    LinkedAccountName: __expectString(output.LinkedAccountName),
     Region: __expectString(output.Region),
     Service: __expectString(output.Service),
     UsageType: __expectString(output.UsageType),
@@ -5176,6 +5405,17 @@ const deserializeAws_json1_1ServiceSpecification = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationResponse = (
+  output: any,
+  context: __SerdeContext
+): StartSavingsPlansPurchaseRecommendationGenerationResponse => {
+  return {
+    EstimatedCompletionTime: __expectString(output.EstimatedCompletionTime),
+    GenerationStartedTime: __expectString(output.GenerationStartedTime),
+    RecommendationId: __expectString(output.RecommendationId),
+  } as any;
+};
+
 const deserializeAws_json1_1Subscriber = (output: any, context: __SerdeContext): Subscriber => {
   return {
     Address: __expectString(output.Address),
@@ -5415,7 +5655,8 @@ const deserializeAws_json1_1Values = (output: any, context: __SerdeContext): str
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -5465,6 +5706,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -5475,6 +5722,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

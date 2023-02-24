@@ -1,5 +1,5 @@
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
-import { Credentials, Profile } from "@aws-sdk/types";
+import { AwsCredentialIdentity, Profile } from "@aws-sdk/types";
 
 import { FromIniInit } from "./fromIni";
 
@@ -19,7 +19,7 @@ export const isWebIdentityProfile = (arg: any): arg is WebIdentityProfile =>
 export const resolveWebIdentityCredentials = async (
   profile: WebIdentityProfile,
   options: FromIniInit
-): Promise<Credentials> =>
+): Promise<AwsCredentialIdentity> =>
   fromTokenFile({
     webIdentityTokenFile: profile.web_identity_token_file,
     roleArn: profile.role_arn,

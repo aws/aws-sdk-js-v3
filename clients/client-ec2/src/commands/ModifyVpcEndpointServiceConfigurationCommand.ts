@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyVpcEndpointServiceConfigurationRequestFilterSensitiveLog,
   ModifyVpcEndpointServiceConfigurationResult,
   ModifyVpcEndpointServiceConfigurationResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand,
   serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand,
@@ -35,7 +36,7 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  *             Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is
  *             required for requests to connect to your endpoint service through an interface VPC
  *             endpoint.</p>
- * 	        <p>If you set or modify the private DNS name, you must prove that you own the private DNS
+ *          <p>If you set or modify the private DNS name, you must prove that you own the private DNS
  *             domain name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +61,15 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyVpcEndpointServiceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyVpcEndpointServiceConfigurationCommandInput, ModifyVpcEndpointServiceConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyVpcEndpointServiceConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

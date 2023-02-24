@@ -16,20 +16,24 @@ export interface AcceptResourceShareInvitationRequest {
    *              later call to an operation requires that you also pass the same value for all other
    *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
    *              value.</a>.</p>
-   *              <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    */
   clientToken?: string;
 }
 
-export type ResourceShareAssociationType = "PRINCIPAL" | "RESOURCE";
+export enum ResourceShareAssociationType {
+  PRINCIPAL = "PRINCIPAL",
+  RESOURCE = "RESOURCE",
+}
 
-export type ResourceShareAssociationStatus =
-  | "ASSOCIATED"
-  | "ASSOCIATING"
-  | "DISASSOCIATED"
-  | "DISASSOCIATING"
-  | "FAILED";
+export enum ResourceShareAssociationStatus {
+  ASSOCIATED = "ASSOCIATED",
+  ASSOCIATING = "ASSOCIATING",
+  DISASSOCIATED = "DISASSOCIATED",
+  DISASSOCIATING = "DISASSOCIATING",
+  FAILED = "FAILED",
+}
 
 /**
  * <p>Describes an association with a resource share and either a principal or a resource.</p>
@@ -47,28 +51,28 @@ export interface ResourceShareAssociation {
 
   /**
    * <p>The associated entity. This can be either of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For a resource association, this is the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource.</p>
+   *                <p>For a resource association, this is the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource.</p>
    *             </li>
    *             <li>
-   *                 <p>For principal associations, this is one of the following:</p>
-   *                 <ul>
+   *                <p>For principal associations, this is one of the following:</p>
+   *                <ul>
    *                   <li>
-   *                         <p>The ID of an Amazon Web Services account</p>
-   *                     </li>
+   *                      <p>The ID of an Amazon Web Services account</p>
+   *                   </li>
    *                   <li>
-   *                         <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an organization in Organizations</p>
-   *                     </li>
+   *                      <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an organization in Organizations</p>
+   *                   </li>
    *                   <li>
-   *                         <p>The ARN of an organizational unit (OU) in Organizations</p>
-   *                     </li>
+   *                      <p>The ARN of an organizational unit (OU) in Organizations</p>
+   *                   </li>
    *                   <li>
-   *                         <p>The ARN of an IAM role</p>
-   *                     </li>
+   *                      <p>The ARN of an IAM role</p>
+   *                   </li>
    *                   <li>
-   *                         <p>The ARN of an IAM user</p>
-   *                     </li>
+   *                      <p>The ARN of an IAM user</p>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
@@ -107,7 +111,12 @@ export interface ResourceShareAssociation {
   external?: boolean;
 }
 
-export type ResourceShareInvitationStatus = "ACCEPTED" | "EXPIRED" | "PENDING" | "REJECTED";
+export enum ResourceShareInvitationStatus {
+  ACCEPTED = "ACCEPTED",
+  EXPIRED = "EXPIRED",
+  PENDING = "PENDING",
+  REJECTED = "REJECTED",
+}
 
 /**
  * <p>Describes an invitation for an Amazon Web Services account to join a resource share.</p>
@@ -384,36 +393,36 @@ export interface AssociateResourceShareRequest {
   /**
    * <p>Specifies a list of principals to whom you want to the resource share. This can be
    *                 <code>null</code> if you want to add only resources.</p>
-   *         <p>What the principals can do with the resources in the share is determined by the RAM
+   *          <p>What the principals can do with the resources in the share is determined by the RAM
    *             permissions that you associate with the resource share. See <a>AssociateResourceSharePermission</a>.</p>
-   *         <p>You can include the following values:</p>
-   *         <ul>
+   *          <p>You can include the following values:</p>
+   *          <ul>
    *             <li>
-   *                 <p>An Amazon Web Services account ID, for example: <code>123456789012</code>
+   *                <p>An Amazon Web Services account ID, for example: <code>123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an organization in Organizations, for example:
+   *                <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an organization in Organizations, for example:
    *                         <code>organizations::123456789012:organization/o-exampleorgid</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an organizational unit (OU) in Organizations, for example:
+   *                <p>An ARN of an organizational unit (OU) in Organizations, for example:
    *                         <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an IAM role, for example:
+   *                <p>An ARN of an IAM role, for example:
    *                         <code>iam::123456789012:role/rolename</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an IAM user, for example:
+   *                <p>An ARN of an IAM user, for example:
    *                         <code>iam::123456789012user/username</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>Not all resource types can be shared with IAM roles and users.
    *              For more information, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing with IAM roles and users</a> in the <i>Resource Access Manager User
    *                     Guide</i>.</p>
@@ -428,7 +437,7 @@ export interface AssociateResourceShareRequest {
    *              later call to an operation requires that you also pass the same value for all other
    *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
    *              value.</a>.</p>
-   *              <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    */
   clientToken?: string;
@@ -564,12 +573,12 @@ export interface AssociateResourceSharePermissionRequest {
    *             permission associated with the resource share. Use <code>true</code> to replace the current
    *             permissions. Use <code>false</code> to add the permission to the current permission. The
    *             default value is <code>false</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>A resource share can have only one permission per resource type. If a resource share already has a
    *                 permission for the specified resource type and you don't set <code>replace</code> to
    *                     <code>true</code> then the operation returns an error. This helps prevent
    *                 accidental overwriting of a permission.</p>
-   *         </note>
+   *          </note>
    */
   replace?: boolean;
 
@@ -580,7 +589,7 @@ export interface AssociateResourceSharePermissionRequest {
    *              later call to an operation requires that you also pass the same value for all other
    *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
    *              value.</a>.</p>
-   *              <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    */
   clientToken?: string;
@@ -615,7 +624,7 @@ export interface AssociateResourceSharePermissionResponse {
  *             to help organize and categorize them. You can also use them to help you secure your
  *             resources. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources
  *                 using tags</a>.</p>
- *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the
+ *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the
  *                 <i>Amazon Web Services General Reference Guide</i>.</p>
  */
 export interface Tag {
@@ -646,34 +655,34 @@ export interface CreateResourceShareRequest {
 
   /**
    * <p>Specifies a list of one or more principals to associate with the resource share.</p>
-   *         <p>You can include the following values:</p>
-   *         <ul>
+   *          <p>You can include the following values:</p>
+   *          <ul>
    *             <li>
-   *                 <p>An Amazon Web Services account ID, for example: <code>123456789012</code>
+   *                <p>An Amazon Web Services account ID, for example: <code>123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an organization in Organizations, for example:
+   *                <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an organization in Organizations, for example:
    *                         <code>organizations::123456789012:organization/o-exampleorgid</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an organizational unit (OU) in Organizations, for example:
+   *                <p>An ARN of an organizational unit (OU) in Organizations, for example:
    *                         <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an IAM role, for example:
+   *                <p>An ARN of an IAM role, for example:
    *                         <code>iam::123456789012:role/rolename</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an IAM user, for example:
+   *                <p>An ARN of an IAM user, for example:
    *                         <code>iam::123456789012user/username</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>Not all resource types can be shared with IAM roles and users.
    *              For more information, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing with IAM roles and users</a> in the <i>Resource Access Manager User
    *                     Guide</i>.</p>
@@ -703,7 +712,7 @@ export interface CreateResourceShareRequest {
    *              later call to an operation requires that you also pass the same value for all other
    *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
    *              value.</a>.</p>
-   *              <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    */
   clientToken?: string;
@@ -717,9 +726,19 @@ export interface CreateResourceShareRequest {
   permissionArns?: string[];
 }
 
-export type ResourceShareFeatureSet = "CREATED_FROM_POLICY" | "PROMOTING_TO_STANDARD" | "STANDARD";
+export enum ResourceShareFeatureSet {
+  CREATED_FROM_POLICY = "CREATED_FROM_POLICY",
+  PROMOTING_TO_STANDARD = "PROMOTING_TO_STANDARD",
+  STANDARD = "STANDARD",
+}
 
-export type ResourceShareStatus = "ACTIVE" | "DELETED" | "DELETING" | "FAILED" | "PENDING";
+export enum ResourceShareStatus {
+  ACTIVE = "ACTIVE",
+  DELETED = "DELETED",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+}
 
 /**
  * <p>Describes a resource share in RAM.</p>
@@ -773,21 +792,21 @@ export interface ResourceShare {
 
   /**
    * <p>Indicates how the resource share was created. Possible values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATED_FROM_POLICY</code> - Indicates that the resource share was created from an
    *                     Identity and Access Management (IAM) resource-based permission policy attached to the resource.
    *                     This type of resource share is visible only to the Amazon Web Services account that created it. You
    *                     can't modify it in RAM unless you promote it. For more information, see <a>PromoteResourceShareCreatedFromPolicy</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PROMOTING_TO_STANDARD</code> - The resource share is in the process of being
    *                     promoted. For more information, see <a>PromoteResourceShareCreatedFromPolicy</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STANDARD</code> - Indicates that the resource share was created in RAM using the
    *                     console or APIs. These resource shares are visible to all principals you share the resource share
    *                     with. You can modify these resource shares in RAM using the console or APIs.</p>
@@ -844,7 +863,7 @@ export interface DeleteResourceShareRequest {
    *              later call to an operation requires that you also pass the same value for all other
    *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
    *              value.</a>.</p>
-   *              <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    */
   clientToken?: string;
@@ -882,34 +901,34 @@ export interface DisassociateResourceShareRequest {
   /**
    * <p>Specifies a list of one or more principals that no longer are to have access to the
    *             resources in this resource share.</p>
-   *         <p>You can include the following values:</p>
-   *         <ul>
+   *          <p>You can include the following values:</p>
+   *          <ul>
    *             <li>
-   *                 <p>An Amazon Web Services account ID, for example: <code>123456789012</code>
+   *                <p>An Amazon Web Services account ID, for example: <code>123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an organization in Organizations, for example:
+   *                <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an organization in Organizations, for example:
    *                         <code>organizations::123456789012:organization/o-exampleorgid</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an organizational unit (OU) in Organizations, for example:
+   *                <p>An ARN of an organizational unit (OU) in Organizations, for example:
    *                         <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an IAM role, for example:
+   *                <p>An ARN of an IAM role, for example:
    *                         <code>iam::123456789012:role/rolename</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an IAM user, for example:
+   *                <p>An ARN of an IAM user, for example:
    *                         <code>iam::123456789012user/username</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>Not all resource types can be shared with IAM roles and users.
    *              For more information, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing with IAM roles and users</a> in the <i>Resource Access Manager User
    *                     Guide</i>.</p>
@@ -924,7 +943,7 @@ export interface DisassociateResourceShareRequest {
    *              later call to an operation requires that you also pass the same value for all other
    *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
    *              value.</a>.</p>
-   *              <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    */
   clientToken?: string;
@@ -965,7 +984,7 @@ export interface DisassociateResourceSharePermissionRequest {
    *              later call to an operation requires that you also pass the same value for all other
    *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
    *              value.</a>.</p>
-   *              <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    */
   clientToken?: string;
@@ -1165,14 +1184,14 @@ export interface GetResourceShareAssociationsRequest {
   /**
    * <p>Specifies whether you want to retrieve the associations that involve a specified
    *             resource or principal.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PRINCIPAL</code> – list the principals that are associated with
    *                     the specified resource share.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RESOURCE</code> – list the resources that are associated with the
    *                     specified resource share.</p>
    *             </li>
@@ -1188,7 +1207,7 @@ export interface GetResourceShareAssociationsRequest {
 
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource whose resource shares you want to retrieve.</p>
-   *         <p>You cannot specify this parameter if the association type is
+   *          <p>You cannot specify this parameter if the association type is
    *             <code>PRINCIPAL</code>.</p>
    */
   resourceArn?: string;
@@ -1197,7 +1216,7 @@ export interface GetResourceShareAssociationsRequest {
    * <p>Specifies the ID of the principal whose resource shares you want to retrieve. This can be an
    *             Amazon Web Services account ID, an organization ID, an organizational unit ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an
    *             individual IAM user or role.</p>
-   *         <p>You cannot specify this parameter if the association type is
+   *          <p>You cannot specify this parameter if the association type is
    *             <code>RESOURCE</code>.</p>
    */
   principal?: string;
@@ -1354,16 +1373,16 @@ export interface GetResourceSharesRequest {
   /**
    * <p>Specifies that you want to retrieve details of only those resource shares that match the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>
    *                      <code>SELF</code>
    *                   </b> – resource shares that your
    *                     account shares with other accounts</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>
    *                      <code>OTHER-ACCOUNTS</code>
    *                   </b> – resource shares
@@ -1467,7 +1486,7 @@ export interface ListPendingInvitationResourcesRequest {
   /**
    * <p>Specifies that you want the results to include only
    *             resources that have the specified scope.</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ALL</code> – the results include both global and
@@ -1484,7 +1503,7 @@ export interface ListPendingInvitationResourcesRequest {
    *                     resources or resource types.</p>
    *             </li>
    *          </ul>
-   *             <p>The default value is <code>ALL</code>.</p>
+   *          <p>The default value is <code>ALL</code>.</p>
    */
   resourceRegionScope?: ResourceRegionScopeFilter | string;
 }
@@ -1494,7 +1513,13 @@ export enum ResourceRegionScope {
   REGIONAL = "REGIONAL",
 }
 
-export type ResourceStatus = "AVAILABLE" | "LIMIT_EXCEEDED" | "PENDING" | "UNAVAILABLE" | "ZONAL_RESOURCE_INACCESSIBLE";
+export enum ResourceStatus {
+  AVAILABLE = "AVAILABLE",
+  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
+  PENDING = "PENDING",
+  UNAVAILABLE = "UNAVAILABLE",
+  ZONAL_RESOURCE_INACCESSIBLE = "ZONAL_RESOURCE_INACCESSIBLE",
+}
 
 /**
  * <p>Describes a resource associated with a resource share in RAM.</p>
@@ -1545,15 +1570,15 @@ export interface Resource {
 
   /**
    * <p>Specifies the scope of visibility of this resource:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>REGIONAL</b> – The resource can be
    *                     accessed only by using requests that target the Amazon Web Services Region in which the
    *                     resource exists.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>GLOBAL</b> – The resource can be accessed
    *                     from any Amazon Web Services Region.</p>
    *             </li>
@@ -1750,16 +1775,16 @@ export interface ListPrincipalsRequest {
   /**
    * <p>Specifies that you want to list information for only resource shares that match the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>
    *                      <code>SELF</code>
    *                   </b> – principals that
    *                     your account is sharing resources with</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>
    *                      <code>OTHER-ACCOUNTS</code>
    *                   </b> –
@@ -1777,34 +1802,34 @@ export interface ListPrincipalsRequest {
 
   /**
    * <p>Specifies that you want to list information for only the listed principals.</p>
-   *         <p>You can include the following values:</p>
-   *         <ul>
+   *          <p>You can include the following values:</p>
+   *          <ul>
    *             <li>
-   *                 <p>An Amazon Web Services account ID, for example: <code>123456789012</code>
+   *                <p>An Amazon Web Services account ID, for example: <code>123456789012</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an organization in Organizations, for example:
+   *                <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of an organization in Organizations, for example:
    *                         <code>organizations::123456789012:organization/o-exampleorgid</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an organizational unit (OU) in Organizations, for example:
+   *                <p>An ARN of an organizational unit (OU) in Organizations, for example:
    *                         <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an IAM role, for example:
+   *                <p>An ARN of an IAM role, for example:
    *                         <code>iam::123456789012:role/rolename</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>An ARN of an IAM user, for example:
+   *                <p>An ARN of an IAM user, for example:
    *                         <code>iam::123456789012user/username</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>Not all resource types can be shared with IAM roles and users.
    *              For more information, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing with IAM roles and users</a> in the <i>Resource Access Manager User
    *                     Guide</i>.</p>
@@ -1815,7 +1840,7 @@ export interface ListPrincipalsRequest {
   /**
    * <p>Specifies that you want to list information for only principals associated with resource shares
    *             that include the specified resource type.</p>
-   *         <p>For a list of valid values, query the <a>ListResourceTypes</a>
+   *          <p>For a list of valid values, query the <a>ListResourceTypes</a>
    *             operation.</p>
    */
   resourceType?: string;
@@ -1918,16 +1943,16 @@ export class InvalidResourceTypeException extends __BaseException {
 export interface ListResourcesRequest {
   /**
    * <p>Specifies that you want to list only the resource shares that match the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>
    *                      <code>SELF</code>
    *                   </b> – resources that
    *                     your account shares with other accounts</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>
    *                      <code>OTHER-ACCOUNTS</code>
    *                   </b> –
@@ -1946,7 +1971,7 @@ export interface ListResourcesRequest {
   /**
    * <p>Specifies that you want to list only the resource shares that include resources of the specified
    *             resource type.</p>
-   *         <p>For valid values, query the <a>ListResourceTypes</a> operation.</p>
+   *          <p>For valid values, query the <a>ListResourceTypes</a> operation.</p>
    */
   resourceType?: string;
 
@@ -1987,7 +2012,7 @@ export interface ListResourcesRequest {
   /**
    * <p>Specifies that you want the results to include only
    *             resources that have the specified scope.</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ALL</code> – the results include both global and
@@ -2004,7 +2029,7 @@ export interface ListResourcesRequest {
    *                     resources or resource types.</p>
    *             </li>
    *          </ul>
-   *             <p>The default value is <code>ALL</code>.</p>
+   *          <p>The default value is <code>ALL</code>.</p>
    */
   resourceRegionScope?: ResourceRegionScopeFilter | string;
 }
@@ -2097,7 +2122,7 @@ export interface ListResourceTypesRequest {
   /**
    * <p>Specifies that you want the results to include only
    *             resources that have the specified scope.</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ALL</code> – the results include both global and
@@ -2114,7 +2139,7 @@ export interface ListResourceTypesRequest {
    *                     resources or resource types.</p>
    *             </li>
    *          </ul>
-   *             <p>The default value is <code>ALL</code>.</p>
+   *          <p>The default value is <code>ALL</code>.</p>
    */
   resourceRegionScope?: ResourceRegionScopeFilter | string;
 }
@@ -2136,15 +2161,15 @@ export interface ServiceNameAndResourceType {
 
   /**
    * <p>Specifies the scope of visibility of resources of this type:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>REGIONAL</b> – The resource can be
    *                     accessed only by using requests that target the Amazon Web Services Region in which the
    *                     resource exists.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>GLOBAL</b> – The resource can be accessed
    *                     from any Amazon Web Services Region.</p>
    *             </li>
@@ -2198,7 +2223,7 @@ export interface RejectResourceShareInvitationRequest {
    *              later call to an operation requires that you also pass the same value for all other
    *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
    *              value.</a>.</p>
-   *              <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    */
   clientToken?: string;
@@ -2292,7 +2317,7 @@ export interface UpdateResourceShareRequest {
    *              later call to an operation requires that you also pass the same value for all other
    *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
    *              value.</a>.</p>
-   *              <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    */
   clientToken?: string;

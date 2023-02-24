@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,7 @@ export interface CreateProfileCommandInput extends CreateProfileRequest {}
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Creates the profile for the AS2 process. The agreement is between the partner and the AS2
- *       process.</p>
+ * <p>Creates the local or partner profile to use for AS2 transfers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +53,15 @@ export class CreateProfileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +77,7 @@ export class CreateProfileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateProfileCommandInput, CreateProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateProfileCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

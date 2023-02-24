@@ -13,8 +13,14 @@ import {
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
+import {
+  EndpointParameterInstructionsSupplier,
+  getEndpointFromInstructions,
+  toEndpointV1,
+} from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
+import { Endpoint } from "@aws-sdk/types";
 import { EventEmitter } from "events";
 
 import { byteLength } from "./bytelength";
@@ -77,7 +83,7 @@ export class Upload extends EventEmitter {
     // set progress defaults
     this.totalBytes = byteLength(this.params.Body);
     this.bytesUploadedSoFar = 0;
-    this.abortController = new AbortController();
+    this.abortController = options.abortController ?? new AbortController();
   }
 
   async abort(): Promise<void> {
@@ -101,7 +107,8 @@ export class Upload extends EventEmitter {
     this.isMultiPart = false;
     const params = { ...this.params, Body: dataPart.data };
 
-    const requestHandler = this.client.config.requestHandler;
+    const clientConfig = this.client.config;
+    const requestHandler = clientConfig.requestHandler;
     const eventEmitter: EventEmitter | null = requestHandler instanceof EventEmitter ? requestHandler : null;
     const uploadEventListener = (event: ProgressEvent) => {
       this.bytesUploadedSoFar = event.loaded;
@@ -120,10 +127,21 @@ export class Upload extends EventEmitter {
       eventEmitter.on("xhr.upload.progress", uploadEventListener);
     }
 
-    const [putResult, endpoint] = await Promise.all([
-      this.client.send(new PutObjectCommand(params)),
-      this.client.config.endpoint(),
-    ]);
+    const resolved = await Promise.all([this.client.send(new PutObjectCommand(params)), clientConfig?.endpoint?.()]);
+    const putResult = resolved[0];
+    let endpoint: Endpoint | undefined = resolved[1];
+
+    if (!endpoint) {
+      endpoint = toEndpointV1(
+        await getEndpointFromInstructions(params, PutObjectCommand as EndpointParameterInstructionsSupplier, {
+          ...clientConfig,
+        })
+      );
+    }
+
+    if (!endpoint) {
+      throw new Error('Could not resolve endpoint from S3 "client.config.endpoint()" nor EndpointsV2.');
+    }
 
     if (eventEmitter !== null) {
       eventEmitter.off("xhr.upload.progress", uploadEventListener);
@@ -135,9 +153,17 @@ export class Upload extends EventEmitter {
       .join("/");
     const locationBucket = extendedEncodeURIComponent(this.params.Bucket!);
 
-    const Location: string = this.client.config.forcePathStyle
-      ? `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`
-      : `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
+    const Location: string = (() => {
+      const endpointHostnameIncludesBucket = endpoint.hostname.startsWith(`${locationBucket}.`);
+      const forcePathStyle = this.client.config.forcePathStyle;
+      if (forcePathStyle) {
+        return `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`;
+      }
+      if (endpointHostnameIncludesBucket) {
+        return `${endpoint.protocol}//${endpoint.hostname}/${locationKey}`;
+      }
+      return `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
+    })();
 
     this.singleUploadResult = {
       ...putResult,

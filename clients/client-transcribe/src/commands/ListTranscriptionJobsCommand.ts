@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,10 +29,9 @@ export interface ListTranscriptionJobsCommandInput extends ListTranscriptionJobs
 export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a list of transcription jobs that match the specified criteria. If no criteria are
- *             specified, all transcription jobs are returned.</p>
- *         <p>To get detailed information about a specific transcription job, use the
- *              operation.</p>
+ * <p>Provides a list of transcription jobs that match the specified criteria. If no
+ *             criteria are specified, all transcription jobs are returned.</p>
+ *          <p>To get detailed information about a specific transcription job, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,15 @@ export class ListTranscriptionJobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListTranscriptionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +79,9 @@ export class ListTranscriptionJobsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTranscriptionJobsCommandInput, ListTranscriptionJobsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTranscriptionJobsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

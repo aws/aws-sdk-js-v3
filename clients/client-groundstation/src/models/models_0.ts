@@ -3,6 +3,275 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { GroundStationServiceException as __BaseException } from "./GroundStationServiceException";
 
+/**
+ * <p>Dependency encountered an error.</p>
+ */
+export class DependencyException extends __BaseException {
+  readonly name: "DependencyException" = "DependencyException";
+  readonly $fault: "server" = "server";
+  /**
+   * <p/>
+   */
+  parameterName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyException, __BaseException>) {
+    super({
+      name: "DependencyException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyException.prototype);
+    this.parameterName = opts.parameterName;
+  }
+}
+
+export interface GetAgentConfigurationRequest {
+  /**
+   * <p>UUID of agent to get configuration information for.</p>
+   */
+  agentId: string | undefined;
+}
+
+export interface GetAgentConfigurationResponse {
+  /**
+   * <p>UUID of agent.</p>
+   */
+  agentId?: string;
+
+  /**
+   * <p>Tasking document for agent.</p>
+   */
+  taskingDocument?: string;
+}
+
+/**
+ * <p>One or more parameters are not valid.</p>
+ */
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p/>
+   */
+  parameterName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.parameterName = opts.parameterName;
+  }
+}
+
+/**
+ * <p>Resource was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+export enum ComponentType {
+  DIGITIZER = "DIGITIZER",
+  LAMINAR_FLOW = "LAMINAR_FLOW",
+  PRISM = "PRISM",
+}
+
+/**
+ * <p>Version information for agent components.</p>
+ */
+export interface ComponentVersion {
+  /**
+   * <p>Component type.</p>
+   */
+  componentType: ComponentType | string | undefined;
+
+  /**
+   * <p>List of versions.</p>
+   */
+  versions: string[] | undefined;
+}
+
+/**
+ * <p>Detailed information about the agent.</p>
+ */
+export interface AgentDetails {
+  /**
+   * <p>Current agent version.</p>
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>ID of EC2 instance agent is running on.</p>
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>Type of EC2 instance agent is running on.</p>
+   */
+  instanceType: string | undefined;
+
+  /**
+   * <p>Number of Cpu cores reserved for agent.</p>
+   */
+  reservedCpuCores: number[] | undefined;
+
+  /**
+   * <p>List of versions being used by agent components.</p>
+   */
+  componentVersions: ComponentVersion[] | undefined;
+}
+
+/**
+ * <p>Data for agent discovery.</p>
+ */
+export interface DiscoveryData {
+  /**
+   * <p>List of public IP addresses to associate with agent.</p>
+   */
+  publicIpAddresses: string[] | undefined;
+
+  /**
+   * <p>List of private IP addresses to associate with agent.</p>
+   */
+  privateIpAddresses: string[] | undefined;
+
+  /**
+   * <p>List of capabilities to associate with agent.</p>
+   */
+  capabilityArns: string[] | undefined;
+}
+
+export interface RegisterAgentRequest {
+  /**
+   * <p>Data for associating and agent with the capabilities it is managing.</p>
+   */
+  discoveryData: DiscoveryData | undefined;
+
+  /**
+   * <p>Detailed information about the agent being registered.</p>
+   */
+  agentDetails: AgentDetails | undefined;
+}
+
+export interface RegisterAgentResponse {
+  /**
+   * <p>UUID of registered agent.</p>
+   */
+  agentId?: string;
+}
+
+export enum AgentStatus {
+  ACTIVE = "ACTIVE",
+  FAILED = "FAILED",
+  INACTIVE = "INACTIVE",
+  SUCCESS = "SUCCESS",
+}
+
+/**
+ * <p>Aggregate status of Agent components.</p>
+ */
+export interface AggregateStatus {
+  /**
+   * <p>Aggregate status.</p>
+   */
+  status: AgentStatus | string | undefined;
+
+  /**
+   * <p>Sparse map of failure signatures.</p>
+   */
+  signatureMap?: Record<string, boolean>;
+}
+
+/**
+ * <p>Data on the status of agent components.</p>
+ */
+export interface ComponentStatusData {
+  /**
+   * <p>The Component type.</p>
+   */
+  componentType: ComponentType | string | undefined;
+
+  /**
+   * <p>Capability ARN of the component.</p>
+   */
+  capabilityArn: string | undefined;
+
+  /**
+   * <p>Component status.</p>
+   */
+  status: AgentStatus | string | undefined;
+
+  /**
+   * <p>Bytes sent by the component.</p>
+   */
+  bytesSent?: number;
+
+  /**
+   * <p>Bytes received by the component.</p>
+   */
+  bytesReceived?: number;
+
+  /**
+   * <p>Packets dropped by component.</p>
+   */
+  packetsDropped?: number;
+
+  /**
+   * <p>Dataflow UUID associated with the component.</p>
+   */
+  dataflowId: string | undefined;
+}
+
+export interface UpdateAgentStatusRequest {
+  /**
+   * <p>UUID of agent to update.</p>
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>GUID of agent task.</p>
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>Aggregate status for agent.</p>
+   */
+  aggregateStatus: AggregateStatus | undefined;
+
+  /**
+   * <p>List of component statuses for agent.</p>
+   */
+  componentStatuses: ComponentStatusData[] | undefined;
+}
+
+export interface UpdateAgentStatusResponse {
+  /**
+   * <p>UUID of updated agent.</p>
+   */
+  agentId: string | undefined;
+}
+
 export enum AngleUnits {
   DEGREE_ANGLE = "DEGREE_ANGLE",
   RADIAN = "RADIAN",
@@ -30,7 +299,7 @@ export enum BandwidthUnits {
 export interface FrequencyBandwidth {
   /**
    * <p>Frequency bandwidth value. AWS Ground Station currently has the following bandwidth limitations:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>
    *             </li>
@@ -88,7 +357,7 @@ export interface SpectrumConfig {
 
   /**
    * <p>Bandwidth of a spectral <code>Config</code>. AWS Ground Station currently has the following bandwidth limitations:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>
    *             </li>
@@ -213,6 +482,116 @@ export interface AntennaUplinkConfig {
   targetEirp: Eirp | undefined;
 }
 
+export enum AuditResults {
+  HEALTHY = "HEALTHY",
+  UNHEALTHY = "UNHEALTHY",
+}
+
+/**
+ * <p>Information about the socket address.</p>
+ */
+export interface SocketAddress {
+  /**
+   * <p>Name of a socket address.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Port of a socket address.</p>
+   */
+  port: number | undefined;
+}
+
+/**
+ * <p>Egress address of AgentEndpoint with an optional mtu.</p>
+ */
+export interface ConnectionDetails {
+  /**
+   * <p>A socket address.</p>
+   */
+  socketAddress: SocketAddress | undefined;
+
+  /**
+   * <p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>
+   */
+  mtu?: number;
+}
+
+/**
+ * <p>An integer range that has a minimum and maximum value.</p>
+ */
+export interface IntegerRange {
+  /**
+   * <p>A minimum value.</p>
+   */
+  minimum: number | undefined;
+
+  /**
+   * <p>A maximum value.</p>
+   */
+  maximum: number | undefined;
+}
+
+/**
+ * <p>A socket address with a port range.</p>
+ */
+export interface RangedSocketAddress {
+  /**
+   * <p>IPv4 socket address.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Port range of a socket address.</p>
+   */
+  portRange: IntegerRange | undefined;
+}
+
+/**
+ * <p>Ingress address of AgentEndpoint with a port range and an optional mtu.</p>
+ */
+export interface RangedConnectionDetails {
+  /**
+   * <p>A ranged socket address.</p>
+   */
+  socketAddress: RangedSocketAddress | undefined;
+
+  /**
+   * <p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>
+   */
+  mtu?: number;
+}
+
+/**
+ * <p>Information about AwsGroundStationAgentEndpoint.</p>
+ */
+export interface AwsGroundStationAgentEndpoint {
+  /**
+   * <p>Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The egress address of AgentEndpoint.</p>
+   */
+  egressAddress: ConnectionDetails | undefined;
+
+  /**
+   * <p>The ingress address of AgentEndpoint.</p>
+   */
+  ingressAddress: RangedConnectionDetails | undefined;
+
+  /**
+   * <p>The status of AgentEndpoint.</p>
+   */
+  agentStatus?: AgentStatus | string;
+
+  /**
+   * <p>The results of the audit.</p>
+   */
+  auditResults?: AuditResults | string;
+}
+
 /**
  * <p/>
  */
@@ -231,75 +610,6 @@ export interface ContactIdResponse {
    * <p>UUID of a contact.</p>
    */
   contactId?: string;
-}
-
-/**
- * <p>Dependency encountered an error.</p>
- */
-export class DependencyException extends __BaseException {
-  readonly name: "DependencyException" = "DependencyException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p/>
-   */
-  parameterName?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependencyException, __BaseException>) {
-    super({
-      name: "DependencyException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependencyException.prototype);
-    this.parameterName = opts.parameterName;
-  }
-}
-
-/**
- * <p>One or more parameters are not valid.</p>
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p/>
-   */
-  parameterName?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.parameterName = opts.parameterName;
-  }
-}
-
-/**
- * <p>Resource was not found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 export enum ConfigCapabilityType {
@@ -742,21 +1052,6 @@ export interface UpdateConfigRequest {
   configData: ConfigTypeData | undefined;
 }
 
-/**
- * <p>Information about the socket address.</p>
- */
-export interface SocketAddress {
-  /**
-   * <p>Name of a socket address.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Port of a socket address.</p>
-   */
-  port: number | undefined;
-}
-
 export enum EndpointStatus {
   created = "created",
   creating = "creating",
@@ -815,7 +1110,7 @@ export interface SecurityDetails {
  */
 export interface EndpointDetails {
   /**
-   * <p>Endpoint security details.</p>
+   * <p>Endpoint security details including a list of subnets, a list of security groups and a role to connect streams to instances.</p>
    */
   securityDetails?: SecurityDetails;
 
@@ -823,6 +1118,11 @@ export interface EndpointDetails {
    * <p>A dataflow endpoint.</p>
    */
   endpoint?: DataflowEndpoint;
+
+  /**
+   * <p>An agent endpoint.</p>
+   */
+  awsGroundStationAgentEndpoint?: AwsGroundStationAgentEndpoint;
 }
 
 /**
@@ -835,7 +1135,7 @@ export interface S3RecordingDetails {
   bucketArn?: string;
 
   /**
-   * <p>Template of the S3 key used.</p>
+   * <p>Key template used for the S3 Recording Configuration</p>
    */
   keyTemplate?: string;
 }
@@ -969,7 +1269,8 @@ export interface Source {
   configId?: string;
 
   /**
-   * <p>Additional details for a <code>Config</code>, if type is dataflow endpoint or antenna demod decode.</p>
+   * <p>Additional details for a <code>Config</code>, if type is <code>dataflow-endpoint</code> or <code>antenna-downlink-demod-decode</code>
+   *          </p>
    */
   configDetails?: ConfigDetails;
 
@@ -1034,12 +1335,12 @@ export interface DescribeContactResponse {
   satelliteArn?: string;
 
   /**
-   * <p>Start time of a contact.</p>
+   * <p>Start time of a contact in UTC.</p>
    */
   startTime?: Date;
 
   /**
-   * <p>End time of a contact.</p>
+   * <p>End time of a contact in UTC.</p>
    */
   endTime?: Date;
 
@@ -1109,12 +1410,12 @@ export interface ListContactsRequest {
   statusList: (ContactStatus | string)[] | undefined;
 
   /**
-   * <p>Start time of a contact.</p>
+   * <p>Start time of a contact in UTC.</p>
    */
   startTime: Date | undefined;
 
   /**
-   * <p>End time of a contact.</p>
+   * <p>End time of a contact in UTC.</p>
    */
   endTime: Date | undefined;
 
@@ -1154,12 +1455,12 @@ export interface ContactData {
   satelliteArn?: string;
 
   /**
-   * <p>Start time of a contact.</p>
+   * <p>Start time of a contact in UTC.</p>
    */
   startTime?: Date;
 
   /**
-   * <p>End time of a contact.</p>
+   * <p>End time of a contact in UTC.</p>
    */
   endTime?: Date;
 
@@ -1234,12 +1535,12 @@ export interface ReserveContactRequest {
   satelliteArn: string | undefined;
 
   /**
-   * <p>Start time of a contact.</p>
+   * <p>Start time of a contact in UTC.</p>
    */
   startTime: Date | undefined;
 
   /**
-   * <p>End time of a contact.</p>
+   * <p>End time of a contact in UTC.</p>
    */
   endTime: Date | undefined;
 
@@ -1267,6 +1568,16 @@ export interface CreateDataflowEndpointGroupRequest {
    * <p>Tags of a dataflow endpoint group.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Amount of time, in seconds, prior to contact start for the contact to remain in a <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>PREPASS</code> state.</p>
+   */
+  contactPrePassDurationSeconds?: number;
+
+  /**
+   * <p>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code> state.</p>
+   */
+  contactPostPassDurationSeconds?: number;
 }
 
 /**
@@ -1277,6 +1588,229 @@ export interface DataflowEndpointGroupIdResponse {
    * <p>UUID of a dataflow endpoint group.</p>
    */
   dataflowEndpointGroupId?: string;
+}
+
+/**
+ * <p>Object stored in S3 containing ephemeris data.</p>
+ */
+export interface S3Object {
+  /**
+   * <p>An Amazon S3 Bucket name.</p>
+   */
+  bucket?: string;
+
+  /**
+   * <p>An Amazon S3 key for the ephemeris.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>For versioned S3 objects, the version to use for the ephemeris.</p>
+   */
+  version?: string;
+}
+
+/**
+ * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p>
+ */
+export interface OEMEphemeris {
+  /**
+   * <p>Identifies the S3 object to be used as the ephemeris.</p>
+   */
+  s3Object?: S3Object;
+
+  /**
+   * <p>The data for an OEM ephemeris, supplied directly in the request rather than through an S3 object.</p>
+   */
+  oemData?: string;
+}
+
+/**
+ * <p>A time range with a start and end time.</p>
+ */
+export interface TimeRange {
+  /**
+   * <p>Time in UTC at which the time range starts.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>Time in UTC at which the time range ends.</p>
+   */
+  endTime: Date | undefined;
+}
+
+/**
+ * <p>Two-line element set (TLE) data.</p>
+ */
+export interface TLEData {
+  /**
+   * <p>First line of two-line element set (TLE) data.</p>
+   */
+  tleLine1: string | undefined;
+
+  /**
+   * <p>Second line of two-line element set (TLE) data.</p>
+   */
+  tleLine2: string | undefined;
+
+  /**
+   * <p>The valid time range for the TLE. Gaps or overlap are not permitted.</p>
+   */
+  validTimeRange: TimeRange | undefined;
+}
+
+/**
+ * <p>Two-line element set (TLE) ephemeris.</p>
+ */
+export interface TLEEphemeris {
+  /**
+   * <p>Identifies the S3 object to be used as the ephemeris.</p>
+   */
+  s3Object?: S3Object;
+
+  /**
+   * <p>The data for a TLE ephemeris, supplied directly in the request rather than through an S3 object.</p>
+   */
+  tleData?: TLEData[];
+}
+
+/**
+ * <p>Ephemeris data.</p>
+ */
+export type EphemerisData = EphemerisData.OemMember | EphemerisData.TleMember | EphemerisData.$UnknownMember;
+
+export namespace EphemerisData {
+  /**
+   * <p>Two-line element set (TLE) ephemeris.</p>
+   */
+  export interface TleMember {
+    tle: TLEEphemeris;
+    oem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p>
+   */
+  export interface OemMember {
+    tle?: never;
+    oem: OEMEphemeris;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    tle?: never;
+    oem?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    tle: (value: TLEEphemeris) => T;
+    oem: (value: OEMEphemeris) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EphemerisData, visitor: Visitor<T>): T => {
+    if (value.tle !== undefined) return visitor.tle(value.tle);
+    if (value.oem !== undefined) return visitor.oem(value.oem);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export interface CreateEphemerisRequest {
+  /**
+   * <p>AWS Ground Station satellite ID for this ephemeris.</p>
+   */
+  satelliteId: string | undefined;
+
+  /**
+   * <p>Whether to set the ephemeris status to <code>ENABLED</code> after validation.</p>
+   *          <p>Setting this to false will set the ephemeris status to <code>DISABLED</code> after validation.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
+   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *          <p>Priority must be 1 or greater</p>
+   */
+  priority?: number;
+
+  /**
+   * <p>An overall expiration time for the ephemeris in UTC, after which it will become <code>EXPIRED</code>.</p>
+   */
+  expirationTime?: Date;
+
+  /**
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of a KMS key used to encrypt the ephemeris in Ground Station.</p>
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * <p>Ephemeris data.</p>
+   */
+  ephemeris?: EphemerisData;
+
+  /**
+   * <p>Tags assigned to an ephemeris.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export interface EphemerisIdResponse {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId?: string;
+}
+
+/**
+ * <p>AWS Key Management Service (KMS) Key.</p>
+ */
+export type KmsKey = KmsKey.KmsAliasArnMember | KmsKey.KmsKeyArnMember | KmsKey.$UnknownMember;
+
+export namespace KmsKey {
+  /**
+   * <p>KMS Key Arn.</p>
+   */
+  export interface KmsKeyArnMember {
+    kmsKeyArn: string;
+    kmsAliasArn?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>KMS Alias Arn.</p>
+   */
+  export interface KmsAliasArnMember {
+    kmsKeyArn?: never;
+    kmsAliasArn: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    kmsKeyArn?: never;
+    kmsAliasArn?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    kmsKeyArn: (value: string) => T;
+    kmsAliasArn: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: KmsKey, visitor: Visitor<T>): T => {
+    if (value.kmsKeyArn !== undefined) return visitor.kmsKeyArn(value.kmsKeyArn);
+    if (value.kmsAliasArn !== undefined) return visitor.kmsAliasArn(value.kmsAliasArn);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
@@ -1319,6 +1853,16 @@ export interface CreateMissionProfileRequest {
    * <p>Tags assigned to a mission profile.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>KMS key to use for encrypting streams.</p>
+   */
+  streamsKmsKey?: KmsKey;
+
+  /**
+   * <p>Role to use for encrypting streams with KMS key.</p>
+   */
+  streamsKmsRole?: string;
 }
 
 /**
@@ -1374,6 +1918,16 @@ export interface GetDataflowEndpointGroupResponse {
    * <p>Tags assigned to a dataflow endpoint group.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Amount of time, in seconds, prior to contact start for the contact to remain in a <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>PREPASS</code> state.</p>
+   */
+  contactPrePassDurationSeconds?: number;
+
+  /**
+   * <p>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code> state.</p>
+   */
+  contactPostPassDurationSeconds?: number;
 }
 
 /**
@@ -1421,6 +1975,13 @@ export interface ListDataflowEndpointGroupsResponse {
   dataflowEndpointGroupList?: DataflowEndpointListItem[];
 }
 
+export interface DeleteEphemerisRequest {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId: string | undefined;
+}
+
 /**
  * <p/>
  */
@@ -1429,6 +1990,303 @@ export interface DeleteMissionProfileRequest {
    * <p>UUID of a mission profile.</p>
    */
   missionProfileId: string | undefined;
+}
+
+export interface DescribeEphemerisRequest {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId: string | undefined;
+}
+
+export enum EphemerisInvalidReason {
+  /**
+   * Provided KMS key is invalid
+   */
+  KMS_KEY_INVALID = "KMS_KEY_INVALID",
+  /**
+   * Provided spacecraft identifiers such as spacecraft NORAD Id are invalid
+   */
+  METADATA_INVALID = "METADATA_INVALID",
+  /**
+   * Start, end, or expiration time(s) are invalid for the provided ephemeris
+   */
+  TIME_RANGE_INVALID = "TIME_RANGE_INVALID",
+  /**
+   * Provided ephemeris defines invalid spacecraft trajectory
+   */
+  TRAJECTORY_INVALID = "TRAJECTORY_INVALID",
+  /**
+   * Internal Service Error occurred while processing ephemeris
+   */
+  VALIDATION_ERROR = "VALIDATION_ERROR",
+}
+
+export enum EphemerisStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  ERROR = "ERROR",
+  EXPIRED = "EXPIRED",
+  INVALID = "INVALID",
+  VALIDATING = "VALIDATING",
+}
+
+/**
+ * <p>Description of ephemeris.</p>
+ */
+export interface EphemerisDescription {
+  /**
+   * <p>Source S3 object used for the ephemeris.</p>
+   */
+  sourceS3Object?: S3Object;
+
+  /**
+   * <p>Supplied ephemeris data.</p>
+   */
+  ephemerisData?: string;
+}
+
+/**
+ * <p/>
+ */
+export type EphemerisTypeDescription =
+  | EphemerisTypeDescription.OemMember
+  | EphemerisTypeDescription.TleMember
+  | EphemerisTypeDescription.$UnknownMember;
+
+export namespace EphemerisTypeDescription {
+  /**
+   * <p>Description of ephemeris.</p>
+   */
+  export interface TleMember {
+    tle: EphemerisDescription;
+    oem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Description of ephemeris.</p>
+   */
+  export interface OemMember {
+    tle?: never;
+    oem: EphemerisDescription;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    tle?: never;
+    oem?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    tle: (value: EphemerisDescription) => T;
+    oem: (value: EphemerisDescription) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EphemerisTypeDescription, visitor: Visitor<T>): T => {
+    if (value.tle !== undefined) return visitor.tle(value.tle);
+    if (value.oem !== undefined) return visitor.oem(value.oem);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export interface DescribeEphemerisResponse {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId?: string;
+
+  /**
+   * <p>The AWS Ground Station satellite ID associated with ephemeris.</p>
+   */
+  satelliteId?: string;
+
+  /**
+   * <p>The status of the ephemeris.</p>
+   */
+  status?: EphemerisStatus | string;
+
+  /**
+   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
+   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *          <p>Priority must be 1 or greater</p>
+   */
+  priority?: number;
+
+  /**
+   * <p>The time the ephemeris was uploaded in UTC.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>Whether or not the ephemeris is enabled.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Tags assigned to an ephemeris.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Supplied ephemeris data.</p>
+   */
+  suppliedData?: EphemerisTypeDescription;
+
+  /**
+   * <p>Reason that an ephemeris failed validation. Only provided for ephemerides with <code>INVALID</code> status.</p>
+   */
+  invalidReason?: EphemerisInvalidReason | string;
+}
+
+/**
+ * <p>Ephemeris item.</p>
+ */
+export interface EphemerisItem {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId?: string;
+
+  /**
+   * <p>The status of the ephemeris.</p>
+   */
+  status?: EphemerisStatus | string;
+
+  /**
+   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
+   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *          <p>Priority must be 1 or greater</p>
+   */
+  priority?: number;
+
+  /**
+   * <p>Whether or not the ephemeris is enabled.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>The time the ephemeris was uploaded in UTC.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Source S3 object used for the ephemeris.</p>
+   */
+  sourceS3Object?: S3Object;
+}
+
+export interface ListEphemeridesRequest {
+  /**
+   * <p>The AWS Ground Station satellite ID to list ephemeris for.</p>
+   */
+  satelliteId: string | undefined;
+
+  /**
+   * <p>The start time to list in UTC. The operation will return an ephemeris if its expiration time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end time to list in UTC. The operation will return an ephemeris if its expiration time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The list of ephemeris status to return.</p>
+   */
+  statusList?: (EphemerisStatus | string)[];
+
+  /**
+   * <p>Maximum number of ephemerides to return.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListEphemeridesResponse {
+  /**
+   * <p>Pagination token.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>List of ephemerides.</p>
+   */
+  ephemerides?: EphemerisItem[];
+}
+
+export interface UpdateEphemerisRequest {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId: string | undefined;
+
+  /**
+   * <p>Whether the ephemeris is enabled or not. Changing this value will not require the ephemeris to be re-validated.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
+   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *          <p>Priority must be 1 or greater</p>
+   */
+  priority?: number;
+}
+
+export enum EphemerisSource {
+  CUSTOMER_PROVIDED = "CUSTOMER_PROVIDED",
+  SPACE_TRACK = "SPACE_TRACK",
+}
+
+/**
+ * <p>Metadata describing a particular ephemeris.</p>
+ */
+export interface EphemerisMetaData {
+  /**
+   * <p>The <code>EphemerisSource</code> that generated a given ephemeris.</p>
+   */
+  source: EphemerisSource | string | undefined;
+
+  /**
+   * <p>UUID of a customer-provided ephemeris.</p>
+   *          <p>This field is not populated for default ephemerides from Space Track.</p>
+   */
+  ephemerisId?: string;
+
+  /**
+   * <p>The epoch of a default, ephemeris from Space Track in UTC.</p>
+   *          <p>This field is not populated for customer-provided ephemerides.</p>
+   */
+  epoch?: Date;
+
+  /**
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   *          <p>A name is only returned for customer-provider ephemerides that have a name associated.</p>
+   */
+  name?: string;
 }
 
 /**
@@ -1541,6 +2399,16 @@ export interface GetMissionProfileResponse {
    * <p>Tags assigned to a mission profile.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>KMS key to use for encrypting streams.</p>
+   */
+  streamsKmsKey?: KmsKey;
+
+  /**
+   * <p>Role to use for encrypting streams with KMS key.</p>
+   */
+  streamsKmsRole?: string;
 }
 
 /**
@@ -1576,6 +2444,11 @@ export interface GetSatelliteResponse {
    * <p>A list of ground stations to which the satellite is on-boarded.</p>
    */
   groundStations?: string[];
+
+  /**
+   * <p>The current ephemeris being used to compute the trajectory of the satellite.</p>
+   */
+  currentEphemeris?: EphemerisMetaData;
 }
 
 /**
@@ -1748,6 +2621,16 @@ export interface UpdateMissionProfileRequest {
    * <p>ARN of a tracking <code>Config</code>.</p>
    */
   trackingConfigArn?: string;
+
+  /**
+   * <p>KMS key to use for encrypting streams.</p>
+   */
+  streamsKmsKey?: KmsKey;
+
+  /**
+   * <p>Role to use for encrypting streams with KMS key.</p>
+   */
+  streamsKmsRole?: string;
 }
 
 /**
@@ -1788,6 +2671,11 @@ export interface SatelliteListItem {
    * <p>A list of ground stations to which the satellite is on-boarded.</p>
    */
   groundStations?: string[];
+
+  /**
+   * <p>The current ephemeris being used to compute the trajectory of the satellite.</p>
+   */
+  currentEphemeris?: EphemerisMetaData;
 }
 
 /**
@@ -1844,6 +2732,83 @@ export interface UntagResourceRequest {
  * <p/>
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @internal
+ */
+export const GetAgentConfigurationRequestFilterSensitiveLog = (obj: GetAgentConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAgentConfigurationResponseFilterSensitiveLog = (obj: GetAgentConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentVersionFilterSensitiveLog = (obj: ComponentVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentDetailsFilterSensitiveLog = (obj: AgentDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiscoveryDataFilterSensitiveLog = (obj: DiscoveryData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterAgentRequestFilterSensitiveLog = (obj: RegisterAgentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterAgentResponseFilterSensitiveLog = (obj: RegisterAgentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateStatusFilterSensitiveLog = (obj: AggregateStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentStatusDataFilterSensitiveLog = (obj: ComponentStatusData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAgentStatusRequestFilterSensitiveLog = (obj: UpdateAgentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAgentStatusResponseFilterSensitiveLog = (obj: UpdateAgentStatusResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -1919,6 +2884,48 @@ export const EirpFilterSensitiveLog = (obj: Eirp): any => ({
  * @internal
  */
 export const AntennaUplinkConfigFilterSensitiveLog = (obj: AntennaUplinkConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SocketAddressFilterSensitiveLog = (obj: SocketAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionDetailsFilterSensitiveLog = (obj: ConnectionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegerRangeFilterSensitiveLog = (obj: IntegerRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RangedSocketAddressFilterSensitiveLog = (obj: RangedSocketAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RangedConnectionDetailsFilterSensitiveLog = (obj: RangedConnectionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsGroundStationAgentEndpointFilterSensitiveLog = (obj: AwsGroundStationAgentEndpoint): any => ({
   ...obj,
 });
 
@@ -2057,13 +3064,6 @@ export const UpdateConfigRequestFilterSensitiveLog = (obj: UpdateConfigRequest):
 /**
  * @internal
  */
-export const SocketAddressFilterSensitiveLog = (obj: SocketAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DataflowEndpointFilterSensitiveLog = (obj: DataflowEndpoint): any => ({
   ...obj,
 });
@@ -2194,8 +3194,77 @@ export const DataflowEndpointGroupIdResponseFilterSensitiveLog = (obj: DataflowE
 /**
  * @internal
  */
+export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OEMEphemerisFilterSensitiveLog = (obj: OEMEphemeris): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TLEDataFilterSensitiveLog = (obj: TLEData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TLEEphemerisFilterSensitiveLog = (obj: TLEEphemeris): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EphemerisDataFilterSensitiveLog = (obj: EphemerisData): any => {
+  if (obj.tle !== undefined) return { tle: TLEEphemerisFilterSensitiveLog(obj.tle) };
+  if (obj.oem !== undefined) return { oem: OEMEphemerisFilterSensitiveLog(obj.oem) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateEphemerisRequestFilterSensitiveLog = (obj: CreateEphemerisRequest): any => ({
+  ...obj,
+  ...(obj.ephemeris && { ephemeris: EphemerisDataFilterSensitiveLog(obj.ephemeris) }),
+});
+
+/**
+ * @internal
+ */
+export const EphemerisIdResponseFilterSensitiveLog = (obj: EphemerisIdResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KmsKeyFilterSensitiveLog = (obj: KmsKey): any => {
+  if (obj.kmsKeyArn !== undefined) return { kmsKeyArn: obj.kmsKeyArn };
+  if (obj.kmsAliasArn !== undefined) return { kmsAliasArn: obj.kmsAliasArn };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const CreateMissionProfileRequestFilterSensitiveLog = (obj: CreateMissionProfileRequest): any => ({
   ...obj,
+  ...(obj.streamsKmsKey && { streamsKmsKey: KmsKeyFilterSensitiveLog(obj.streamsKmsKey) }),
 });
 
 /**
@@ -2250,7 +3319,80 @@ export const ListDataflowEndpointGroupsResponseFilterSensitiveLog = (obj: ListDa
 /**
  * @internal
  */
+export const DeleteEphemerisRequestFilterSensitiveLog = (obj: DeleteEphemerisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteMissionProfileRequestFilterSensitiveLog = (obj: DeleteMissionProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEphemerisRequestFilterSensitiveLog = (obj: DescribeEphemerisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EphemerisDescriptionFilterSensitiveLog = (obj: EphemerisDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EphemerisTypeDescriptionFilterSensitiveLog = (obj: EphemerisTypeDescription): any => {
+  if (obj.tle !== undefined) return { tle: EphemerisDescriptionFilterSensitiveLog(obj.tle) };
+  if (obj.oem !== undefined) return { oem: EphemerisDescriptionFilterSensitiveLog(obj.oem) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const DescribeEphemerisResponseFilterSensitiveLog = (obj: DescribeEphemerisResponse): any => ({
+  ...obj,
+  ...(obj.suppliedData && { suppliedData: EphemerisTypeDescriptionFilterSensitiveLog(obj.suppliedData) }),
+});
+
+/**
+ * @internal
+ */
+export const EphemerisItemFilterSensitiveLog = (obj: EphemerisItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEphemeridesRequestFilterSensitiveLog = (obj: ListEphemeridesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEphemeridesResponseFilterSensitiveLog = (obj: ListEphemeridesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEphemerisRequestFilterSensitiveLog = (obj: UpdateEphemerisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EphemerisMetaDataFilterSensitiveLog = (obj: EphemerisMetaData): any => ({
   ...obj,
 });
 
@@ -2280,6 +3422,7 @@ export const GetMissionProfileRequestFilterSensitiveLog = (obj: GetMissionProfil
  */
 export const GetMissionProfileResponseFilterSensitiveLog = (obj: GetMissionProfileResponse): any => ({
   ...obj,
+  ...(obj.streamsKmsKey && { streamsKmsKey: KmsKeyFilterSensitiveLog(obj.streamsKmsKey) }),
 });
 
 /**
@@ -2357,6 +3500,7 @@ export const ListMissionProfilesResponseFilterSensitiveLog = (obj: ListMissionPr
  */
 export const UpdateMissionProfileRequestFilterSensitiveLog = (obj: UpdateMissionProfileRequest): any => ({
   ...obj,
+  ...(obj.streamsKmsKey && { streamsKmsKey: KmsKeyFilterSensitiveLog(obj.streamsKmsKey) }),
 });
 
 /**

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,6 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
 /**
  * <p>Ends the specified contact. This call does not work for the following initiation
  *    methods:</p>
- *
  *          <ul>
  *             <li>
  *                <p>DISCONNECT</p>
@@ -65,6 +65,15 @@ export class StopContactCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +89,7 @@ export class StopContactCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopContactCommandInput, StopContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StopContactCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

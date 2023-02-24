@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,18 +34,12 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  *       the image location, assigned labels, and object location bounding boxes.  For more information,
  *       see Image-Level labels in manifest files and Object localization in manifest files in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
  *      </p>
- *
- *
- *
  *          <p>If the <code>source-ref</code> field in the JSON line references an existing image, the existing image in the dataset
  *       is updated.
  *       If <code>source-ref</code> field doesn't reference an existing image, the image is added as a new image to the dataset. </p>
- *
  *          <p>You specify the changes that you want to make in the <code>Changes</code> input parameter.
  *     There isn't a limit to the number JSON Lines that you can change, but the size of <code>Changes</code> must be less
  * than 5MB.</p>
- *
- *
  *          <p>
  *             <code>UpdateDatasetEntries</code> returns immediatly, but the dataset update might take a while to complete.
  *       Use <a>DescribeDataset</a> to check the
@@ -79,6 +74,15 @@ export class UpdateDatasetEntriesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateDatasetEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,6 +98,9 @@ export class UpdateDatasetEntriesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDatasetEntriesCommandInput, UpdateDatasetEntriesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateDatasetEntriesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

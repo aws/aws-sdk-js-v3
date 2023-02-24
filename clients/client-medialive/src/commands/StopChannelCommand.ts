@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   StopChannelRequestFilterSensitiveLog,
   StopChannelResponse,
   StopChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1StopChannelCommand,
   serializeAws_restJson1StopChannelCommand,
@@ -52,6 +53,15 @@ export class StopChannelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,7 @@ export class StopChannelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopChannelCommandInput, StopChannelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StopChannelCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

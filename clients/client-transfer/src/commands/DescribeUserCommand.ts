@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,6 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
 /**
  * <p>Describes the user assigned to the specific file transfer protocol-enabled server, as
  *       identified by its <code>ServerId</code> property.</p>
- *
  *          <p>The response from this call returns the properties of the user associated with the
  *         <code>ServerId</code> value that was specified.</p>
  * @example
@@ -56,6 +56,15 @@ export class DescribeUserCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +80,7 @@ export class DescribeUserCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeUserCommandInput, DescribeUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeUserCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

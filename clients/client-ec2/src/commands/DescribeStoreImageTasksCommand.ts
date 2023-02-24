@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -37,9 +38,9 @@ export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImage
  *          <p>Tasks are listed in reverse chronological order. Currently, only tasks from the past 31
  *       days can be viewed.</p>
  *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
- *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *         <i>Amazon EC2 User Guide</i>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
- *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *     	Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +64,15 @@ export class DescribeStoreImageTasksCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeStoreImageTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class DescribeStoreImageTasksCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeStoreImageTasksCommandInput, DescribeStoreImageTasksCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeStoreImageTasksCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -330,6 +330,11 @@ export interface CreateApplicationRequest {
    *          handles deleting the clientToken after it expires. </p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The identifier of a customer managed key.</p>
+   */
+  kmsKeyId?: string;
 }
 
 export interface CreateApplicationResponse {
@@ -546,8 +551,7 @@ export interface DataSet {
   datasetName: string | undefined;
 
   /**
-   * <p>The type of dataset. Possible values include VSAM, IS, PS, GDG, PO, PS, UNKNOWN
-   *          etc.</p>
+   * <p>The type of dataset. The only supported value is VSAM.</p>
    */
   datasetOrg: DatasetOrgAttributes | undefined;
 
@@ -683,7 +687,7 @@ export interface CreateDataSetImportTaskResponse {
 
 export interface CreateDeploymentRequest {
   /**
-   * <p>The identifier of the environment where this application will be deployed.</p>
+   * <p>The identifier of the runtime environment where you want to deploy this application.</p>
    */
   environmentId: string | undefined;
 
@@ -803,7 +807,7 @@ export interface ApplicationVersionSummary {
 }
 
 /**
- * <p>A subset of the attributes about a log group. In CloudWatch a log group is a group of log
+ * <p>A subset of the attributes that describe a log group. In CloudWatch a log group is a group of log
  *          streams that share the same retention, monitoring, and access control settings.</p>
  */
 export interface LogGroupSummary {
@@ -823,6 +827,7 @@ export enum ApplicationLifecycle {
   CREATED = "Created",
   CREATING = "Creating",
   DELETING = "Deleting",
+  DELETING_FROM_ENVIRONMENT = "Deleting From Environment",
   FAILED = "Failed",
   READY = "Ready",
   RUNNING = "Running",
@@ -874,7 +879,7 @@ export interface GetApplicationResponse {
 
   /**
    * <p>The list of log summaries. Each log summary includes the log type as well as the log
-   *          group identifier. These are CloudWatch logs. The Amazon Web Services Mainframe Modernization application log is pushed to CloudWatch
+   *          group identifier. These are CloudWatch logs. Amazon Web Services Mainframe Modernization pushes the application log to CloudWatch
    *          under the customer's account.</p>
    */
   logGroups?: LogGroupSummary[];
@@ -885,8 +890,7 @@ export interface GetApplicationResponse {
   creationTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the application was last started. Null until the application has
-   *          started running for the first time.</p>
+   * <p>The timestamp when you last started the application. Null until the application runs for the first time.</p>
    */
   lastStartTime?: Date;
 
@@ -896,7 +900,7 @@ export interface GetApplicationResponse {
   tags?: Record<string, string>;
 
   /**
-   * <p>The identifier of the environment where the application will be deployed.</p>
+   * <p>The identifier of the runtime environment where you want to deploy the application.</p>
    */
   environmentId?: string;
 
@@ -908,7 +912,7 @@ export interface GetApplicationResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the network load balancer listener created in your
-   *          Amazon Web Services account. Amazon Web Services Mainframe Modernization creates this listener on your behalf the first time you deploy an
+   *          Amazon Web Services account. Amazon Web Services Mainframe Modernization creates this listener for you the first time you deploy an
    *          application.</p>
    */
   listenerArns?: string[];
@@ -928,6 +932,11 @@ export interface GetApplicationResponse {
    * <p>The reason for the reported status.</p>
    */
   statusReason?: string;
+
+  /**
+   * <p>The identifier of a customer managed key.</p>
+   */
+  kmsKeyId?: string;
 }
 
 export interface GetApplicationVersionRequest {
@@ -960,7 +969,7 @@ export interface GetApplicationVersionResponse {
 
   /**
    * <p>The content of the application definition. This is a JSON object that contains the
-   *          resource configuration/definitions that identify an application.</p>
+   *          resource configuration and definitions that identify an application.</p>
    */
   definitionContent: string | undefined;
 
@@ -990,6 +999,80 @@ export interface GetBatchJobExecutionRequest {
    * <p>The unique identifier of the batch job execution.</p>
    */
   executionId: string | undefined;
+}
+
+/**
+ * <p>A batch job identifier in which the batch job to run is identified by the file name and
+ *          the relative path to the file name.</p>
+ */
+export interface FileBatchJobIdentifier {
+  /**
+   * <p>The file name for the batch job identifier.</p>
+   */
+  fileName: string | undefined;
+
+  /**
+   * <p>The relative path to the file name for the batch job identifier.</p>
+   */
+  folderPath?: string;
+}
+
+/**
+ * <p>A batch job identifier in which the batch job to run is identified by the script
+ *          name.</p>
+ */
+export interface ScriptBatchJobIdentifier {
+  /**
+   * <p>The name of the script containing the batch job definition.</p>
+   */
+  scriptName: string | undefined;
+}
+
+/**
+ * <p>Identifies a specific batch job.</p>
+ */
+export type BatchJobIdentifier =
+  | BatchJobIdentifier.FileBatchJobIdentifierMember
+  | BatchJobIdentifier.ScriptBatchJobIdentifierMember
+  | BatchJobIdentifier.$UnknownMember;
+
+export namespace BatchJobIdentifier {
+  /**
+   * <p>Specifies a file associated with a specific batch job.</p>
+   */
+  export interface FileBatchJobIdentifierMember {
+    fileBatchJobIdentifier: FileBatchJobIdentifier;
+    scriptBatchJobIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A batch job identifier in which the batch job to run is identified by the script name.</p>
+   */
+  export interface ScriptBatchJobIdentifierMember {
+    fileBatchJobIdentifier?: never;
+    scriptBatchJobIdentifier: ScriptBatchJobIdentifier;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    fileBatchJobIdentifier?: never;
+    scriptBatchJobIdentifier?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    fileBatchJobIdentifier: (value: FileBatchJobIdentifier) => T;
+    scriptBatchJobIdentifier: (value: ScriptBatchJobIdentifier) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: BatchJobIdentifier, visitor: Visitor<T>): T => {
+    if (value.fileBatchJobIdentifier !== undefined) return visitor.fileBatchJobIdentifier(value.fileBatchJobIdentifier);
+    if (value.scriptBatchJobIdentifier !== undefined)
+      return visitor.scriptBatchJobIdentifier(value.scriptBatchJobIdentifier);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 export enum BatchJobType {
@@ -1060,6 +1143,16 @@ export interface GetBatchJobExecutionResponse {
    * <p>The reason for the reported status.</p>
    */
   statusReason?: string;
+
+  /**
+   * <p/>
+   */
+  returnCode?: string;
+
+  /**
+   * <p>Identifies a specific batch job.</p>
+   */
+  batchJobIdentifier?: BatchJobIdentifier;
 }
 
 export interface GetDataSetDetailsRequest {
@@ -1187,8 +1280,7 @@ export interface GetDataSetDetailsResponse {
   dataSetName: string | undefined;
 
   /**
-   * <p>The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS, or
-   *          unknown.</p>
+   * <p>The type of data set. The only supported value is VSAM.</p>
    */
   dataSetOrg?: DatasetDetailOrgAttributes;
 
@@ -1198,7 +1290,7 @@ export interface GetDataSetDetailsResponse {
   recordLength?: number;
 
   /**
-   * <p>The locaion where the data set is stored.</p>
+   * <p>The location where the data set is stored.</p>
    */
   location?: string;
 
@@ -1416,8 +1508,7 @@ export interface ApplicationSummary {
   environmentId?: string;
 
   /**
-   * <p>The timestamp when the application was last started. Null until the application has
-   *          started running for the first time.</p>
+   * <p>The timestamp when you last started the application. Null until the application runs for the first time.</p>
    */
   lastStartTime?: Date;
 
@@ -1427,7 +1518,7 @@ export interface ApplicationSummary {
   versionStatus?: ApplicationVersionLifecycle | string;
 
   /**
-   * <p>Indicates whether there is an ongoing deployment or if the application has ever deployed
+   * <p>Indicates either an ongoing deployment or if the application has ever deployed
    *          successfully.</p>
    */
   deploymentStatus?: ApplicationDeploymentLifecycle | string;
@@ -1435,7 +1526,7 @@ export interface ApplicationSummary {
 
 export interface ListApplicationsResponse {
   /**
-   * <p>Returns a list of summary details for all the applications in an environment.</p>
+   * <p>Returns a list of summary details for all the applications in a runtime environment.</p>
    */
   applications: ApplicationSummary[] | undefined;
 
@@ -1674,6 +1765,16 @@ export interface BatchJobExecutionSummary {
    * <p>The timestamp when this batch job execution ended.</p>
    */
   endTime?: Date;
+
+  /**
+   * <p/>
+   */
+  returnCode?: string;
+
+  /**
+   * <p>Identifies a specific batch job.</p>
+   */
+  batchJobIdentifier?: BatchJobIdentifier;
 }
 
 export interface ListBatchJobExecutionsResponse {
@@ -1777,8 +1878,7 @@ export interface DataSetSummary {
   dataSetName: string | undefined;
 
   /**
-   * <p>The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS, or
-   *          unknown.</p>
+   * <p>The type of data set. The only supported value is VSAM.</p>
    */
   dataSetOrg?: string;
 
@@ -1805,7 +1905,7 @@ export interface DataSetSummary {
 
 export interface ListDataSetsResponse {
   /**
-   * <p>The list of data sets, containing ionformation including the creating time, the data set
+   * <p>The list of data sets, containing information including the creation time, the data set
    *          name, the data set organization, the data set format, and the last time the data set was
    *          referenced or updated.</p>
    */
@@ -1852,7 +1952,7 @@ export interface DeploymentSummary {
   applicationId: string | undefined;
 
   /**
-   * <p>The unique identifier of the environment.</p>
+   * <p>The unique identifier of the runtime environment.</p>
    */
   environmentId: string | undefined;
 
@@ -1898,80 +1998,6 @@ export interface StartApplicationRequest {
 }
 
 export interface StartApplicationResponse {}
-
-/**
- * <p>A batch job identifier in which the batch job to run is identified by the file name and
- *          the relative path to the file name.</p>
- */
-export interface FileBatchJobIdentifier {
-  /**
-   * <p>The file name for the batch job identifier.</p>
-   */
-  fileName: string | undefined;
-
-  /**
-   * <p>The relative path to the file name for the batch job identifier.</p>
-   */
-  folderPath?: string;
-}
-
-/**
- * <p>A batch job identifier in which the batch job to run is identified by the script
- *          name.</p>
- */
-export interface ScriptBatchJobIdentifier {
-  /**
-   * <p>The name of the script containing the batch job definition.</p>
-   */
-  scriptName: string | undefined;
-}
-
-/**
- * <p>Identifies a specific batch job.</p>
- */
-export type BatchJobIdentifier =
-  | BatchJobIdentifier.FileBatchJobIdentifierMember
-  | BatchJobIdentifier.ScriptBatchJobIdentifierMember
-  | BatchJobIdentifier.$UnknownMember;
-
-export namespace BatchJobIdentifier {
-  /**
-   * <p>Specifies a file associated with a specific batch job.</p>
-   */
-  export interface FileBatchJobIdentifierMember {
-    fileBatchJobIdentifier: FileBatchJobIdentifier;
-    scriptBatchJobIdentifier?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A batch job identifier in which the batch job to run is identified by the script name.</p>
-   */
-  export interface ScriptBatchJobIdentifierMember {
-    fileBatchJobIdentifier?: never;
-    scriptBatchJobIdentifier: ScriptBatchJobIdentifier;
-    $unknown?: never;
-  }
-
-  export interface $UnknownMember {
-    fileBatchJobIdentifier?: never;
-    scriptBatchJobIdentifier?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    fileBatchJobIdentifier: (value: FileBatchJobIdentifier) => T;
-    scriptBatchJobIdentifier: (value: ScriptBatchJobIdentifier) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: BatchJobIdentifier, visitor: Visitor<T>): T => {
-    if (value.fileBatchJobIdentifier !== undefined) return visitor.fileBatchJobIdentifier(value.fileBatchJobIdentifier);
-    if (value.scriptBatchJobIdentifier !== undefined)
-      return visitor.scriptBatchJobIdentifier(value.scriptBatchJobIdentifier);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
 
 export interface StartBatchJobRequest {
   /**
@@ -2085,7 +2111,7 @@ export interface FsxStorageConfiguration {
 }
 
 /**
- * <p>Defines the storage configuration for an environment.</p>
+ * <p>Defines the storage configuration for a runtime environment.</p>
  */
 export type StorageConfiguration =
   | StorageConfiguration.EfsMember
@@ -2132,47 +2158,47 @@ export namespace StorageConfiguration {
 
 export interface CreateEnvironmentRequest {
   /**
-   * <p>The unique identifier of the environment.</p>
+   * <p>The name of the runtime environment. Must be unique within the account.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The type of instance for the environment.</p>
+   * <p>The type of instance for the runtime environment.</p>
    */
   instanceType: string | undefined;
 
   /**
-   * <p>The description of the environment.</p>
+   * <p>The description of the runtime environment.</p>
    */
   description?: string;
 
   /**
-   * <p>The engine type for the environment.</p>
+   * <p>The engine type for the runtime environment.</p>
    */
   engineType: EngineType | string | undefined;
 
   /**
-   * <p>The version of the engine type for the environment.</p>
+   * <p>The version of the engine type for the runtime environment.</p>
    */
   engineVersion?: string;
 
   /**
-   * <p>The list of subnets associated with the VPC for this environment.</p>
+   * <p>The list of subnets associated with the VPC for this runtime environment.</p>
    */
   subnetIds?: string[];
 
   /**
-   * <p>The list of security groups for the VPC associated with this environment.</p>
+   * <p>The list of security groups for the VPC associated with this runtime environment.</p>
    */
   securityGroupIds?: string[];
 
   /**
-   * <p>Optional. The storage configurations for this environment.</p>
+   * <p>Optional. The storage configurations for this runtime environment.</p>
    */
   storageConfigurations?: StorageConfiguration[];
 
   /**
-   * <p>Specifies whether the environment is publicly accessible.</p>
+   * <p>Specifies whether the runtime environment is publicly accessible.</p>
    */
   publiclyAccessible?: boolean;
 
@@ -2182,12 +2208,12 @@ export interface CreateEnvironmentRequest {
   highAvailabilityConfig?: HighAvailabilityConfig;
 
   /**
-   * <p>The tags for the environment.</p>
+   * <p>The tags for the runtime environment.</p>
    */
   tags?: Record<string, string>;
 
   /**
-   * <p>Configures a desired maintenance window for the environment. If you do not provide a
+   * <p>Configures the maintenance window you want for the runtime environment. If you do not provide a
    *          value, a random system-generated value will be assigned.</p>
    */
   preferredMaintenanceWindow?: string;
@@ -2200,11 +2226,16 @@ export interface CreateEnvironmentRequest {
    *          deleting the clientToken after it expires. </p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The identifier of a customer managed key.</p>
+   */
+  kmsKeyId?: string;
 }
 
 export interface CreateEnvironmentResponse {
   /**
-   * <p>The identifier of this environment.</p>
+   * <p>The unique identifier of the runtime environment.</p>
    */
   environmentId: string | undefined;
 }
@@ -2245,7 +2276,7 @@ export interface MaintenanceSchedule {
  */
 export interface PendingMaintenance {
   /**
-   * <p>The maintenance schedule for the engine version.</p>
+   * <p>The maintenance schedule for the runtime engine version.</p>
    */
   schedule?: MaintenanceSchedule;
 
@@ -2260,11 +2291,12 @@ export enum EnvironmentLifecycle {
   CREATING = "Creating",
   DELETING = "Deleting",
   FAILED = "Failed",
+  UPDATING = "Updating",
 }
 
 export interface GetEnvironmentResponse {
   /**
-   * <p>The name of the runtime environment. </p>
+   * <p>The name of the runtime environment. Must be unique within the account.</p>
    */
   name: string | undefined;
 
@@ -2365,7 +2397,7 @@ export interface GetEnvironmentResponse {
   statusReason?: string;
 
   /**
-   * <p>Configures a desired maintenance window for the environment. If you do not provide a
+   * <p>Configures the maintenance window you want for the runtime environment. If you do not provide a
    *          value, a random system-generated value will be assigned.</p>
    */
   preferredMaintenanceWindow?: string;
@@ -2374,37 +2406,42 @@ export interface GetEnvironmentResponse {
    * <p>Indicates the pending maintenance scheduled on this environment.</p>
    */
   pendingMaintenance?: PendingMaintenance;
+
+  /**
+   * <p>The identifier of a customer managed key.</p>
+   */
+  kmsKeyId?: string;
 }
 
 export interface ListEnvironmentsRequest {
   /**
-   * <p>A pagination token to control the number of environments displayed in the list.</p>
+   * <p>A pagination token to control the number of runtime environments displayed in the list.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum number of environments to return.</p>
+   * <p>The maximum number of runtime environments to return.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>The name of the environment.</p>
+   * <p>The names of the runtime environments. Must be unique within the account.</p>
    */
   names?: string[];
 
   /**
-   * <p>The engine type for the environment.</p>
+   * <p>The engine type for the runtime environment.</p>
    */
   engineType?: EngineType | string;
 }
 
 /**
- * <p>Contains a subset of the possible environment attributes. Used in the environment
+ * <p>Contains a subset of the possible runtime environment attributes. Used in the environment
  *          list.</p>
  */
 export interface EnvironmentSummary {
   /**
-   * <p>The name of the environment.</p>
+   * <p>The name of the runtime environment.</p>
    */
   name: string | undefined;
 
@@ -2419,17 +2456,17 @@ export interface EnvironmentSummary {
   environmentId: string | undefined;
 
   /**
-   * <p>The instance type of the environment.</p>
+   * <p>The instance type of the runtime environment.</p>
    */
   instanceType: string | undefined;
 
   /**
-   * <p>The status of the environment</p>
+   * <p>The status of the runtime environment</p>
    */
   status: EnvironmentLifecycle | string | undefined;
 
   /**
-   * <p>The target platform for the environment.</p>
+   * <p>The target platform for the runtime environment.</p>
    */
   engineType: EngineType | string | undefined;
 
@@ -2439,20 +2476,20 @@ export interface EnvironmentSummary {
   engineVersion: string | undefined;
 
   /**
-   * <p>The timestamp when the environment was created.</p>
+   * <p>The timestamp when the runtime environment was created.</p>
    */
   creationTime: Date | undefined;
 }
 
 export interface ListEnvironmentsResponse {
   /**
-   * <p>Returns a list of summary details for all the environments in your account. </p>
+   * <p>Returns a list of summary details for all the runtime environments in your account. </p>
    */
   environments: EnvironmentSummary[] | undefined;
 
   /**
    * <p>A pagination token that's returned when the response doesn't contain all the
-   *          environments.</p>
+   *          runtime environments.</p>
    */
   nextToken?: string;
 }
@@ -2464,28 +2501,28 @@ export interface UpdateEnvironmentRequest {
   environmentId: string | undefined;
 
   /**
-   * <p>The desired capacity for the environment to update.</p>
+   * <p>The desired capacity for the runtime environment to update.</p>
    */
   desiredCapacity?: number;
 
   /**
-   * <p>The instance type for the environment to update.</p>
+   * <p>The instance type for the runtime environment to update.</p>
    */
   instanceType?: string;
 
   /**
-   * <p>The version of the runtime engine for the environment.</p>
+   * <p>The version of the runtime engine for the runtime environment.</p>
    */
   engineVersion?: string;
 
   /**
-   * <p>Configures a desired maintenance window for the environment. If you do not provide a
+   * <p>Configures the maintenance window you want for the runtime environment. If you do not provide a
    *          value, a random system-generated value will be assigned.</p>
    */
   preferredMaintenanceWindow?: string;
 
   /**
-   * <p>Indicates whether to update the environment during the maintenance window. The default
+   * <p>Indicates whether to update the runtime environment during the maintenance window. The default
    *          is false. Currently, Amazon Web Services Mainframe Modernization accepts the <code>engineVersion</code> parameter only if
    *             <code>applyDuringMaintenanceWindow</code> is true. If any parameter other than
    *             <code>engineVersion</code> is provided in <code>UpdateEnvironmentRequest</code>, it will
@@ -2834,8 +2871,34 @@ export const GetBatchJobExecutionRequestFilterSensitiveLog = (obj: GetBatchJobEx
 /**
  * @internal
  */
+export const FileBatchJobIdentifierFilterSensitiveLog = (obj: FileBatchJobIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScriptBatchJobIdentifierFilterSensitiveLog = (obj: ScriptBatchJobIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchJobIdentifierFilterSensitiveLog = (obj: BatchJobIdentifier): any => {
+  if (obj.fileBatchJobIdentifier !== undefined)
+    return { fileBatchJobIdentifier: FileBatchJobIdentifierFilterSensitiveLog(obj.fileBatchJobIdentifier) };
+  if (obj.scriptBatchJobIdentifier !== undefined)
+    return { scriptBatchJobIdentifier: ScriptBatchJobIdentifierFilterSensitiveLog(obj.scriptBatchJobIdentifier) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const GetBatchJobExecutionResponseFilterSensitiveLog = (obj: GetBatchJobExecutionResponse): any => ({
   ...obj,
+  ...(obj.batchJobIdentifier && { batchJobIdentifier: BatchJobIdentifierFilterSensitiveLog(obj.batchJobIdentifier) }),
 });
 
 /**
@@ -3000,6 +3063,7 @@ export const ListBatchJobExecutionsRequestFilterSensitiveLog = (obj: ListBatchJo
  */
 export const BatchJobExecutionSummaryFilterSensitiveLog = (obj: BatchJobExecutionSummary): any => ({
   ...obj,
+  ...(obj.batchJobIdentifier && { batchJobIdentifier: BatchJobIdentifierFilterSensitiveLog(obj.batchJobIdentifier) }),
 });
 
 /**
@@ -3007,6 +3071,9 @@ export const BatchJobExecutionSummaryFilterSensitiveLog = (obj: BatchJobExecutio
  */
 export const ListBatchJobExecutionsResponseFilterSensitiveLog = (obj: ListBatchJobExecutionsResponse): any => ({
   ...obj,
+  ...(obj.batchJobExecutions && {
+    batchJobExecutions: obj.batchJobExecutions.map((item) => BatchJobExecutionSummaryFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -3085,31 +3152,6 @@ export const StartApplicationRequestFilterSensitiveLog = (obj: StartApplicationR
 export const StartApplicationResponseFilterSensitiveLog = (obj: StartApplicationResponse): any => ({
   ...obj,
 });
-
-/**
- * @internal
- */
-export const FileBatchJobIdentifierFilterSensitiveLog = (obj: FileBatchJobIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScriptBatchJobIdentifierFilterSensitiveLog = (obj: ScriptBatchJobIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchJobIdentifierFilterSensitiveLog = (obj: BatchJobIdentifier): any => {
-  if (obj.fileBatchJobIdentifier !== undefined)
-    return { fileBatchJobIdentifier: FileBatchJobIdentifierFilterSensitiveLog(obj.fileBatchJobIdentifier) };
-  if (obj.scriptBatchJobIdentifier !== undefined)
-    return { scriptBatchJobIdentifier: ScriptBatchJobIdentifierFilterSensitiveLog(obj.scriptBatchJobIdentifier) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
 /**
  * @internal

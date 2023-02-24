@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,10 +29,10 @@ export interface DeleteRouteCalculatorCommandInput extends DeleteRouteCalculator
 export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculatorResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a route calculator resource from your AWS account.</p>
- *         <note>
+ * <p>Deletes a route calculator resource from your Amazon Web Services account.</p>
+ *          <note>
  *             <p>This operation deletes the resource permanently.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class DeleteRouteCalculatorCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteRouteCalculatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class DeleteRouteCalculatorCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteRouteCalculatorCommandInput, DeleteRouteCalculatorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteRouteCalculatorCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,6 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
 
 /**
  * <p>Returns the existing access key IDs for the specified Amazon Lightsail bucket.</p>
- *
  *          <important>
  *             <p>This action does not return the secret access key value of an access key. You can get a
  *         secret access key only when you create it from the response of the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action. If you lose the secret access key, you must create
@@ -58,6 +58,15 @@ export class GetBucketAccessKeysCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetBucketAccessKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +82,9 @@ export class GetBucketAccessKeysCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetBucketAccessKeysCommandInput, GetBucketAccessKeysCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetBucketAccessKeysCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

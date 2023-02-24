@@ -1,13 +1,7 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -32,31 +26,44 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { ArchiveApplicationCommandInput, ArchiveApplicationCommandOutput } from "./commands/ArchiveApplicationCommand";
+import { ArchiveWaveCommandInput, ArchiveWaveCommandOutput } from "./commands/ArchiveWaveCommand";
+import {
+  AssociateApplicationsCommandInput,
+  AssociateApplicationsCommandOutput,
+} from "./commands/AssociateApplicationsCommand";
+import {
+  AssociateSourceServersCommandInput,
+  AssociateSourceServersCommandOutput,
+} from "./commands/AssociateSourceServersCommand";
 import {
   ChangeServerLifeCycleStateCommandInput,
   ChangeServerLifeCycleStateCommandOutput,
 } from "./commands/ChangeServerLifeCycleStateCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
   CreateLaunchConfigurationTemplateCommandInput,
   CreateLaunchConfigurationTemplateCommandOutput,
@@ -65,6 +72,8 @@ import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
+import { CreateWaveCommandInput, CreateWaveCommandOutput } from "./commands/CreateWaveCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteLaunchConfigurationTemplateCommandInput,
@@ -79,6 +88,7 @@ import {
   DeleteVcenterClientCommandInput,
   DeleteVcenterClientCommandOutput,
 } from "./commands/DeleteVcenterClientCommand";
+import { DeleteWaveCommandInput, DeleteWaveCommandOutput } from "./commands/DeleteWaveCommand";
 import {
   DescribeJobLogItemsCommandInput,
   DescribeJobLogItemsCommandOutput,
@@ -101,6 +111,14 @@ import {
   DescribeVcenterClientsCommandOutput,
 } from "./commands/DescribeVcenterClientsCommand";
 import {
+  DisassociateApplicationsCommandInput,
+  DisassociateApplicationsCommandOutput,
+} from "./commands/DisassociateApplicationsCommand";
+import {
+  DisassociateSourceServersCommandInput,
+  DisassociateSourceServersCommandOutput,
+} from "./commands/DisassociateSourceServersCommand";
+import {
   DisconnectFromServiceCommandInput,
   DisconnectFromServiceCommandOutput,
 } from "./commands/DisconnectFromServiceCommand";
@@ -114,11 +132,34 @@ import {
   GetReplicationConfigurationCommandOutput,
 } from "./commands/GetReplicationConfigurationCommand";
 import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "./commands/InitializeServiceCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import {
+  ListSourceServerActionsCommandInput,
+  ListSourceServerActionsCommandOutput,
+} from "./commands/ListSourceServerActionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTemplateActionsCommandInput,
+  ListTemplateActionsCommandOutput,
+} from "./commands/ListTemplateActionsCommand";
+import { ListWavesCommandInput, ListWavesCommandOutput } from "./commands/ListWavesCommand";
 import { MarkAsArchivedCommandInput, MarkAsArchivedCommandOutput } from "./commands/MarkAsArchivedCommand";
+import {
+  PutSourceServerActionCommandInput,
+  PutSourceServerActionCommandOutput,
+} from "./commands/PutSourceServerActionCommand";
+import { PutTemplateActionCommandInput, PutTemplateActionCommandOutput } from "./commands/PutTemplateActionCommand";
+import {
+  RemoveSourceServerActionCommandInput,
+  RemoveSourceServerActionCommandOutput,
+} from "./commands/RemoveSourceServerActionCommand";
+import {
+  RemoveTemplateActionCommandInput,
+  RemoveTemplateActionCommandOutput,
+} from "./commands/RemoveTemplateActionCommand";
 import {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
@@ -131,7 +172,13 @@ import {
   TerminateTargetInstancesCommandInput,
   TerminateTargetInstancesCommandOutput,
 } from "./commands/TerminateTargetInstancesCommand";
+import {
+  UnarchiveApplicationCommandInput,
+  UnarchiveApplicationCommandOutput,
+} from "./commands/UnarchiveApplicationCommand";
+import { UnarchiveWaveCommandInput, UnarchiveWaveCommandOutput } from "./commands/UnarchiveWaveCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateLaunchConfigurationCommandInput,
   UpdateLaunchConfigurationCommandOutput,
@@ -152,77 +199,128 @@ import {
   UpdateSourceServerReplicationTypeCommandInput,
   UpdateSourceServerReplicationTypeCommandOutput,
 } from "./commands/UpdateSourceServerReplicationTypeCommand";
+import { UpdateWaveCommandInput, UpdateWaveCommandOutput } from "./commands/UpdateWaveCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | ArchiveApplicationCommandInput
+  | ArchiveWaveCommandInput
+  | AssociateApplicationsCommandInput
+  | AssociateSourceServersCommandInput
   | ChangeServerLifeCycleStateCommandInput
+  | CreateApplicationCommandInput
   | CreateLaunchConfigurationTemplateCommandInput
   | CreateReplicationConfigurationTemplateCommandInput
+  | CreateWaveCommandInput
+  | DeleteApplicationCommandInput
   | DeleteJobCommandInput
   | DeleteLaunchConfigurationTemplateCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
   | DeleteSourceServerCommandInput
   | DeleteVcenterClientCommandInput
+  | DeleteWaveCommandInput
   | DescribeJobLogItemsCommandInput
   | DescribeJobsCommandInput
   | DescribeLaunchConfigurationTemplatesCommandInput
   | DescribeReplicationConfigurationTemplatesCommandInput
   | DescribeSourceServersCommandInput
   | DescribeVcenterClientsCommandInput
+  | DisassociateApplicationsCommandInput
+  | DisassociateSourceServersCommandInput
   | DisconnectFromServiceCommandInput
   | FinalizeCutoverCommandInput
   | GetLaunchConfigurationCommandInput
   | GetReplicationConfigurationCommandInput
   | InitializeServiceCommandInput
+  | ListApplicationsCommandInput
+  | ListSourceServerActionsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTemplateActionsCommandInput
+  | ListWavesCommandInput
   | MarkAsArchivedCommandInput
+  | PutSourceServerActionCommandInput
+  | PutTemplateActionCommandInput
+  | RemoveSourceServerActionCommandInput
+  | RemoveTemplateActionCommandInput
   | RetryDataReplicationCommandInput
   | StartCutoverCommandInput
   | StartReplicationCommandInput
   | StartTestCommandInput
   | TagResourceCommandInput
   | TerminateTargetInstancesCommandInput
+  | UnarchiveApplicationCommandInput
+  | UnarchiveWaveCommandInput
   | UntagResourceCommandInput
+  | UpdateApplicationCommandInput
   | UpdateLaunchConfigurationCommandInput
   | UpdateLaunchConfigurationTemplateCommandInput
   | UpdateReplicationConfigurationCommandInput
   | UpdateReplicationConfigurationTemplateCommandInput
-  | UpdateSourceServerReplicationTypeCommandInput;
+  | UpdateSourceServerReplicationTypeCommandInput
+  | UpdateWaveCommandInput;
 
 export type ServiceOutputTypes =
+  | ArchiveApplicationCommandOutput
+  | ArchiveWaveCommandOutput
+  | AssociateApplicationsCommandOutput
+  | AssociateSourceServersCommandOutput
   | ChangeServerLifeCycleStateCommandOutput
+  | CreateApplicationCommandOutput
   | CreateLaunchConfigurationTemplateCommandOutput
   | CreateReplicationConfigurationTemplateCommandOutput
+  | CreateWaveCommandOutput
+  | DeleteApplicationCommandOutput
   | DeleteJobCommandOutput
   | DeleteLaunchConfigurationTemplateCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
   | DeleteSourceServerCommandOutput
   | DeleteVcenterClientCommandOutput
+  | DeleteWaveCommandOutput
   | DescribeJobLogItemsCommandOutput
   | DescribeJobsCommandOutput
   | DescribeLaunchConfigurationTemplatesCommandOutput
   | DescribeReplicationConfigurationTemplatesCommandOutput
   | DescribeSourceServersCommandOutput
   | DescribeVcenterClientsCommandOutput
+  | DisassociateApplicationsCommandOutput
+  | DisassociateSourceServersCommandOutput
   | DisconnectFromServiceCommandOutput
   | FinalizeCutoverCommandOutput
   | GetLaunchConfigurationCommandOutput
   | GetReplicationConfigurationCommandOutput
   | InitializeServiceCommandOutput
+  | ListApplicationsCommandOutput
+  | ListSourceServerActionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTemplateActionsCommandOutput
+  | ListWavesCommandOutput
   | MarkAsArchivedCommandOutput
+  | PutSourceServerActionCommandOutput
+  | PutTemplateActionCommandOutput
+  | RemoveSourceServerActionCommandOutput
+  | RemoveTemplateActionCommandOutput
   | RetryDataReplicationCommandOutput
   | StartCutoverCommandOutput
   | StartReplicationCommandOutput
   | StartTestCommandOutput
   | TagResourceCommandOutput
   | TerminateTargetInstancesCommandOutput
+  | UnarchiveApplicationCommandOutput
+  | UnarchiveWaveCommandOutput
   | UntagResourceCommandOutput
+  | UpdateApplicationCommandOutput
   | UpdateLaunchConfigurationCommandOutput
   | UpdateLaunchConfigurationTemplateCommandOutput
   | UpdateReplicationConfigurationCommandOutput
   | UpdateReplicationConfigurationTemplateCommandOutput
-  | UpdateSourceServerReplicationTypeCommandOutput;
+  | UpdateSourceServerReplicationTypeCommandOutput
+  | UpdateWaveCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -231,11 +329,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -292,6 +390,39 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -307,58 +438,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type MgnClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of MgnClient class constructor that set the region, credentials and other options.
  */
@@ -367,11 +460,12 @@ export interface MgnClientConfig extends MgnClientConfigType {}
 type MgnClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of MgnClient class. This is resolved and normalized from the {@link MgnClientConfig | constructor configuration interface}.
  */
@@ -393,14 +487,15 @@ export class MgnClient extends __Client<
 
   constructor(configuration: MgnClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

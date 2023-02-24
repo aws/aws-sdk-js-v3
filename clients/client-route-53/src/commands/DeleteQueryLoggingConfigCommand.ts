@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -32,7 +33,7 @@ export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggin
  * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon
  * 			Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't delete any logs
  * 			that are already in CloudWatch Logs.</p>
- * 		       <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>.</p>
+ *          <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteQueryLoggingConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteQueryLoggingConfigCommandInput, DeleteQueryLoggingConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteQueryLoggingConfigCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,7 +35,7 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * <p>Returns the recommendation preferences that are in effect for a given resource, such
  *             as enhanced infrastructure metrics. Considers all applicable preferences that you might
  *             have set at the resource, account, and organization level.</p>
- *         <p>When you create a recommendation preference, you can set its status to
+ *          <p>When you create a recommendation preference, you can set its status to
  *                 <code>Active</code> or <code>Inactive</code>. Use this action to view the
  *             recommendation preferences that are in effect, or <code>Active</code>.</p>
  * @example
@@ -60,6 +61,15 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetEffectiveRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetEffectiveRecommendationPreferencesCommandInput, GetEffectiveRecommendationPreferencesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetEffectiveRecommendationPreferencesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

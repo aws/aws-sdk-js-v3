@@ -97,6 +97,7 @@ import {
   CreateRoutingProfileCommandInput,
   CreateRoutingProfileCommandOutput,
 } from "./commands/CreateRoutingProfileCommand";
+import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateSecurityProfileCommand,
   CreateSecurityProfileCommandInput,
@@ -107,6 +108,11 @@ import {
   CreateTaskTemplateCommandInput,
   CreateTaskTemplateCommandOutput,
 } from "./commands/CreateTaskTemplateCommand";
+import {
+  CreateTrafficDistributionGroupCommand,
+  CreateTrafficDistributionGroupCommandInput,
+  CreateTrafficDistributionGroupCommandOutput,
+} from "./commands/CreateTrafficDistributionGroupCommand";
 import {
   CreateUseCaseCommand,
   CreateUseCaseCommandInput,
@@ -153,6 +159,7 @@ import {
   DeleteQuickConnectCommandInput,
   DeleteQuickConnectCommandOutput,
 } from "./commands/DeleteQuickConnectCommand";
+import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteSecurityProfileCommand,
   DeleteSecurityProfileCommandInput,
@@ -163,6 +170,11 @@ import {
   DeleteTaskTemplateCommandInput,
   DeleteTaskTemplateCommandOutput,
 } from "./commands/DeleteTaskTemplateCommand";
+import {
+  DeleteTrafficDistributionGroupCommand,
+  DeleteTrafficDistributionGroupCommandInput,
+  DeleteTrafficDistributionGroupCommandOutput,
+} from "./commands/DeleteTrafficDistributionGroupCommand";
 import {
   DeleteUseCaseCommand,
   DeleteUseCaseCommandInput,
@@ -240,10 +252,20 @@ import {
   DescribeRoutingProfileCommandOutput,
 } from "./commands/DescribeRoutingProfileCommand";
 import {
+  DescribeRuleCommand,
+  DescribeRuleCommandInput,
+  DescribeRuleCommandOutput,
+} from "./commands/DescribeRuleCommand";
+import {
   DescribeSecurityProfileCommand,
   DescribeSecurityProfileCommandInput,
   DescribeSecurityProfileCommandOutput,
 } from "./commands/DescribeSecurityProfileCommand";
+import {
+  DescribeTrafficDistributionGroupCommand,
+  DescribeTrafficDistributionGroupCommandInput,
+  DescribeTrafficDistributionGroupCommandOutput,
+} from "./commands/DescribeTrafficDistributionGroupCommand";
 import {
   DescribeUserCommand,
   DescribeUserCommandInput,
@@ -310,6 +332,11 @@ import {
   DisassociateSecurityKeyCommandOutput,
 } from "./commands/DisassociateSecurityKeyCommand";
 import {
+  DismissUserContactCommand,
+  DismissUserContactCommandInput,
+  DismissUserContactCommandOutput,
+} from "./commands/DismissUserContactCommand";
+import {
   GetContactAttributesCommand,
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
@@ -339,6 +366,11 @@ import {
   GetTaskTemplateCommandInput,
   GetTaskTemplateCommandOutput,
 } from "./commands/GetTaskTemplateCommand";
+import {
+  GetTrafficDistributionCommand,
+  GetTrafficDistributionCommandInput,
+  GetTrafficDistributionCommandOutput,
+} from "./commands/GetTrafficDistributionCommand";
 import {
   ListAgentStatusesCommand,
   ListAgentStatusesCommandInput,
@@ -433,6 +465,7 @@ import {
   ListRoutingProfilesCommandInput,
   ListRoutingProfilesCommandOutput,
 } from "./commands/ListRoutingProfilesCommand";
+import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
   ListSecurityKeysCommand,
   ListSecurityKeysCommandInput,
@@ -459,6 +492,11 @@ import {
   ListTaskTemplatesCommandOutput,
 } from "./commands/ListTaskTemplatesCommand";
 import {
+  ListTrafficDistributionGroupsCommand,
+  ListTrafficDistributionGroupsCommandInput,
+  ListTrafficDistributionGroupsCommandOutput,
+} from "./commands/ListTrafficDistributionGroupsCommand";
+import {
   ListUseCasesCommand,
   ListUseCasesCommandInput,
   ListUseCasesCommandOutput,
@@ -470,6 +508,11 @@ import {
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
+  MonitorContactCommand,
+  MonitorContactCommandInput,
+  MonitorContactCommandOutput,
+} from "./commands/MonitorContactCommand";
+import {
   PutUserStatusCommand,
   PutUserStatusCommandInput,
   PutUserStatusCommandOutput,
@@ -480,6 +523,11 @@ import {
   ReleasePhoneNumberCommandOutput,
 } from "./commands/ReleasePhoneNumberCommand";
 import {
+  ReplicateInstanceCommand,
+  ReplicateInstanceCommandInput,
+  ReplicateInstanceCommandOutput,
+} from "./commands/ReplicateInstanceCommand";
+import {
   ResumeContactRecordingCommand,
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
@@ -489,6 +537,21 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SearchQueuesCommand,
+  SearchQueuesCommandInput,
+  SearchQueuesCommandOutput,
+} from "./commands/SearchQueuesCommand";
+import {
+  SearchRoutingProfilesCommand,
+  SearchRoutingProfilesCommandInput,
+  SearchRoutingProfilesCommandOutput,
+} from "./commands/SearchRoutingProfilesCommand";
+import {
+  SearchSecurityProfilesCommand,
+  SearchSecurityProfilesCommandInput,
+  SearchSecurityProfilesCommandOutput,
+} from "./commands/SearchSecurityProfilesCommand";
 import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import {
   SearchVocabulariesCommand,
@@ -608,6 +671,11 @@ import {
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
 import {
+  UpdateParticipantRoleConfigCommand,
+  UpdateParticipantRoleConfigCommandInput,
+  UpdateParticipantRoleConfigCommandOutput,
+} from "./commands/UpdateParticipantRoleConfigCommand";
+import {
   UpdatePhoneNumberCommand,
   UpdatePhoneNumberCommandInput,
   UpdatePhoneNumberCommandOutput,
@@ -667,6 +735,7 @@ import {
   UpdateRoutingProfileQueuesCommandInput,
   UpdateRoutingProfileQueuesCommandOutput,
 } from "./commands/UpdateRoutingProfileQueuesCommand";
+import { UpdateRuleCommand, UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateSecurityProfileCommand,
   UpdateSecurityProfileCommandInput,
@@ -677,6 +746,11 @@ import {
   UpdateTaskTemplateCommandInput,
   UpdateTaskTemplateCommandOutput,
 } from "./commands/UpdateTaskTemplateCommand";
+import {
+  UpdateTrafficDistributionCommand,
+  UpdateTrafficDistributionCommandInput,
+  UpdateTrafficDistributionCommandOutput,
+} from "./commands/UpdateTrafficDistributionCommand";
 import {
   UpdateUserHierarchyCommand,
   UpdateUserHierarchyCommandInput,
@@ -715,19 +789,17 @@ import {
 import { ConnectClient } from "./ConnectClient";
 
 /**
- * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer
- *    contact center and provide reliable customer engagement at any scale.</p>
- *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing.
- *    You can also resolve customer issues more efficiently by getting customers in touch with the
- *    appropriate agents.</p>
- *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits
- *    to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
- *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
+ *    manage a customer contact center and provide reliable customer engagement at any scale.</p>
+ *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize
+ *    contact routing. You can also resolve customer issues more efficiently by getting customers in
+ *    touch with the appropriate agents.</p>
+ *          <p>There are limits to the number of Amazon Connect resources that you can create. There
+ *    are also limits to the number of requests that you can make per second. For more information, see
+ *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
+ *     Guide</i>.</p>
  *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
  *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
- *          <note>
- *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
- *          </note>
  */
 export class Connect extends ConnectClient {
   /**
@@ -765,7 +837,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2 bot.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
+   *    or Amazon Lex V2 bot.</p>
    */
   public associateBot(
     args: AssociateBotCommandInput,
@@ -866,7 +939,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Allows the specified Amazon Connect instance to access the specified Lambda function.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Lambda
+   *    function.</p>
    */
   public associateLambdaFunction(
     args: AssociateLambdaFunctionCommandInput,
@@ -899,7 +973,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
+   *    V1 bot. This API only supports the association of Amazon Lex V1 bots.</p>
    */
   public associateLexBot(
     args: AssociateLexBotCommandInput,
@@ -931,7 +1006,18 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Associates a contact flow with a phone number claimed to your Amazon Connect instance.</p>
+   * <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>
+   *          <important>
+   *             <p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the
+   *      Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number
+   *     ARN or UUID value for the <code>PhoneNumberId</code> URI request parameter. However, if the
+   *     number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate
+   *      Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN.
+   *     If a UUID is provided
+   *     in
+   *     this scenario, you will receive a
+   *     <code>ResourceNotFoundException</code>.</p>
+   *          </important>
    */
   public associatePhoneNumberContactFlow(
     args: AssociatePhoneNumberContactFlowCommandInput,
@@ -1061,7 +1147,17 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Claims an available phone number to your Amazon Connect instance.</p>
+   * <p>Claims an available phone number to your Amazon Connect instance or traffic distribution
+   *    group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p>
+   *          <p>For more information about how to use this operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html">Claim a phone number in your
+   *     country</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html">Claim phone
+   *     numbers to traffic distribution groups</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>. </p>
+   *          <important>
+   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call
+   *     the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
+   *     operation.</p>
+   *          </important>
    */
   public claimPhoneNumber(
     args: ClaimPhoneNumberCommandInput,
@@ -1126,8 +1222,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates a contact flow for the specified Amazon Connect instance.</p>
-   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   * <p>Creates a flow for the specified Amazon Connect instance.</p>
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public createContactFlow(
@@ -1160,7 +1256,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates a contact flow module for the specified Amazon Connect instance. </p>
+   * <p>Creates a flow module for the specified Amazon Connect instance. </p>
    */
   public createContactFlowModule(
     args: CreateContactFlowModuleCommandInput,
@@ -1226,9 +1322,9 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
-   *    storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not
-   *    allow for any configurations on features, such as Contact Lens for Amazon Connect. </p>
+   *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does
+   *    not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It
+   *    also does not allow for any configurations on features, such as Contact Lens for Amazon Connect. </p>
    *          <p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
    * If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances.
    * You must wait 30 days before you can restart creating and deleting instances in your account.</p>
@@ -1263,7 +1359,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
+   * <p>Creates an Amazon Web Services resource association with an Amazon Connect
+   *    instance.</p>
    */
   public createIntegrationAssociation(
     args: CreateIntegrationAssociationCommandInput,
@@ -1297,6 +1394,17 @@ export class Connect extends ConnectClient {
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Creates a new queue for the specified Amazon Connect instance.</p>
+   *          <important>
+   *             <p>If the number being used in the input is claimed to a traffic distribution group, and you are calling this API
+   *     using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use
+   *     either a full phone number ARN or UUID value for the <code>OutboundCallerIdNumberId</code> value
+   *     of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig">OutboundCallerConfig</a> request body parameter. However, if the number is claimed to a
+   *     traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region
+   *     associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided
+   *     in
+   *     this scenario, you will receive a
+   *     <code>ResourceNotFoundException</code>.</p>
+   *          </important>
    */
   public createQueue(args: CreateQueueCommandInput, options?: __HttpHandlerOptions): Promise<CreateQueueCommandOutput>;
   public createQueue(args: CreateQueueCommandInput, cb: (err: any, data?: CreateQueueCommandOutput) => void): void;
@@ -1386,6 +1494,34 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Creates a rule for the specified Amazon Connect instance.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
+   *    code conditions for the rule. </p>
+   */
+  public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
+  public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
+  public createRule(
+    args: CreateRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRuleCommandOutput) => void
+  ): void;
+  public createRule(
+    args: CreateRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
+    cb?: (err: any, data?: CreateRuleCommandOutput) => void
+  ): Promise<CreateRuleCommandOutput> | void {
+    const command = new CreateRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Creates a security profile.</p>
    */
@@ -1451,6 +1587,40 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p>
+   *          <p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in
+   *    the <i>Amazon Connect Administrator Guide</i>. </p>
+   */
+  public createTrafficDistributionGroup(
+    args: CreateTrafficDistributionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTrafficDistributionGroupCommandOutput>;
+  public createTrafficDistributionGroup(
+    args: CreateTrafficDistributionGroupCommandInput,
+    cb: (err: any, data?: CreateTrafficDistributionGroupCommandOutput) => void
+  ): void;
+  public createTrafficDistributionGroup(
+    args: CreateTrafficDistributionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTrafficDistributionGroupCommandOutput) => void
+  ): void;
+  public createTrafficDistributionGroup(
+    args: CreateTrafficDistributionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficDistributionGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateTrafficDistributionGroupCommandOutput) => void
+  ): Promise<CreateTrafficDistributionGroupCommandOutput> | void {
+    const command = new CreateTrafficDistributionGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a use case for an integration association.</p>
    */
   public createUseCase(
@@ -1484,8 +1654,9 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Creates a user account for the specified Amazon Connect instance.</p>
-   *          <p>For information about how to create user accounts using the Amazon Connect console, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add Users</a> in
-   *    the <i>Amazon Connect Administrator Guide</i>.</p>
+   *          <p>For information about how to create user accounts using the Amazon Connect console, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add
+   *     Users</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
   public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
@@ -1543,8 +1714,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a custom
-   *    vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default
+   * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a
+   *    custom vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default
    *    vocabulary in post-call and real-time contact analysis sessions for that language.</p>
    */
   public createVocabulary(
@@ -1577,7 +1748,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes a contact flow for the specified Amazon Connect instance.</p>
+   * <p>Deletes a flow for the specified Amazon Connect instance.</p>
    */
   public deleteContactFlow(
     args: DeleteContactFlowCommandInput,
@@ -1609,7 +1780,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes the specified contact flow module.</p>
+   * <p>Deletes the specified flow module.</p>
    */
   public deleteContactFlowModule(
     args: DeleteContactFlowModuleCommandInput,
@@ -1710,8 +1881,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association
-   *    must not have any use cases associated with it.</p>
+   * <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The
+   *    association must not have any use cases associated with it.</p>
    */
   public deleteIntegrationAssociation(
     args: DeleteIntegrationAssociationCommandInput,
@@ -1764,6 +1935,32 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DeleteQuickConnectCommandOutput) => void
   ): Promise<DeleteQuickConnectCommandOutput> | void {
     const command = new DeleteQuickConnectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a rule for the specified Amazon Connect instance.</p>
+   */
+  public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
+  public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
+  public deleteRule(
+    args: DeleteRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRuleCommandOutput) => void
+  ): void;
+  public deleteRule(
+    args: DeleteRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRuleCommandOutput) => void
+  ): Promise<DeleteRuleCommandOutput> | void {
+    const command = new DeleteRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1840,6 +2037,41 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is
+   *    created.</p>
+   *          <p>For more information about deleting traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html">Delete traffic distribution groups</a> in
+   *    the <i>Amazon Connect Administrator Guide</i>.</p>
+   */
+  public deleteTrafficDistributionGroup(
+    args: DeleteTrafficDistributionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTrafficDistributionGroupCommandOutput>;
+  public deleteTrafficDistributionGroup(
+    args: DeleteTrafficDistributionGroupCommandInput,
+    cb: (err: any, data?: DeleteTrafficDistributionGroupCommandOutput) => void
+  ): void;
+  public deleteTrafficDistributionGroup(
+    args: DeleteTrafficDistributionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTrafficDistributionGroupCommandOutput) => void
+  ): void;
+  public deleteTrafficDistributionGroup(
+    args: DeleteTrafficDistributionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrafficDistributionGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTrafficDistributionGroupCommandOutput) => void
+  ): Promise<DeleteTrafficDistributionGroupCommandOutput> | void {
+    const command = new DeleteTrafficDistributionGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a use case from an integration association.</p>
    */
   public deleteUseCase(
@@ -1875,7 +2107,8 @@ export class Connect extends ConnectClient {
    * <p>Deletes a user account from the specified Amazon Connect instance.</p>
    *          <p>For information about what happens to a user's data when their account is deleted, see
    *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from
-   *     Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
    */
   public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
   public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
@@ -2004,6 +2237,8 @@ export class Connect extends ConnectClient {
    *          <important>
    *             <p>Contact information remains available in Amazon Connect for 24 months, and then it is
    *     deleted.</p>
+   *             <p>Only data from November 12, 2021, and later is returned by this
+   *     API.</p>
    *          </important>
    */
   public describeContact(
@@ -2036,8 +2271,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Describes the specified contact flow.</p>
-   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   * <p>Describes the specified flow.</p>
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public describeContactFlow(
@@ -2070,7 +2305,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Describes the specified contact flow module.</p>
+   * <p>Describes the specified flow module.</p>
    */
   public describeContactFlowModule(
     args: DescribeContactFlowModuleCommandInput,
@@ -2239,7 +2474,18 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance</p>
+   * <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance
+   *    or traffic distribution group.</p>
+   *          <important>
+   *             <p>If the number is claimed to a traffic distribution group, and you are calling in the Amazon Web Services Region
+   *     where the traffic distribution group was created, you can use either a phone number ARN or UUID value for the
+   *      <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group
+   *     and you are calling this API in the alternate Amazon Web Services Region associated with the
+   *     traffic distribution group, you must provide a full phone number ARN. If a UUID is provided
+   *     in
+   *     this scenario, you will receive a
+   *     <code>ResourceNotFoundException</code>.</p>
+   *          </important>
    */
   public describePhoneNumber(
     args: DescribePhoneNumberCommandInput,
@@ -2368,6 +2614,35 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Describes a rule for the specified Amazon Connect instance.</p>
+   */
+  public describeRule(
+    args: DescribeRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRuleCommandOutput>;
+  public describeRule(args: DescribeRuleCommandInput, cb: (err: any, data?: DescribeRuleCommandOutput) => void): void;
+  public describeRule(
+    args: DescribeRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRuleCommandOutput) => void
+  ): void;
+  public describeRule(
+    args: DescribeRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRuleCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRuleCommandOutput) => void
+  ): Promise<DescribeRuleCommandOutput> | void {
+    const command = new DescribeRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Gets basic information about the security profle.</p>
    */
@@ -2401,9 +2676,40 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Describes the specified user account. You can find the instance ID in the console (it’s the
-   *    final part of the ARN). The console does not display the user IDs. Instead, list the users and
-   *    note the IDs provided in the output.</p>
+   * <p>Gets details and status of a traffic distribution group.</p>
+   */
+  public describeTrafficDistributionGroup(
+    args: DescribeTrafficDistributionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrafficDistributionGroupCommandOutput>;
+  public describeTrafficDistributionGroup(
+    args: DescribeTrafficDistributionGroupCommandInput,
+    cb: (err: any, data?: DescribeTrafficDistributionGroupCommandOutput) => void
+  ): void;
+  public describeTrafficDistributionGroup(
+    args: DescribeTrafficDistributionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrafficDistributionGroupCommandOutput) => void
+  ): void;
+  public describeTrafficDistributionGroup(
+    args: DescribeTrafficDistributionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrafficDistributionGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTrafficDistributionGroupCommandOutput) => void
+  ): Promise<DescribeTrafficDistributionGroupCommandOutput> | void {
+    const command = new DescribeTrafficDistributionGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the specified user account. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN). The console does not display the
+   *    user IDs. Instead, list the users and note the IDs provided in the output.</p>
    */
   public describeUser(
     args: DescribeUserCommandInput,
@@ -2562,8 +2868,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2
-   *    bot. </p>
+   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex
+   *    or Amazon Lex V2 bot. </p>
    */
   public disassociateBot(
     args: DisassociateBotCommandInput,
@@ -2630,8 +2936,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Remove the Lambda function from the dropdown options available in the relevant contact flow
-   *    blocks.</p>
+   *          <p>Remove the Lambda function from the dropdown options available in the relevant
+   *    flow blocks.</p>
    */
   public disassociateLambdaFunction(
     args: DisassociateLambdaFunctionCommandInput,
@@ -2664,7 +2970,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>
+   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex
+   *    bot.</p>
    */
   public disassociateLexBot(
     args: DisassociateLexBotCommandInput,
@@ -2696,8 +3003,17 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if
-   *    a contact flow association exists.</p>
+   * <p>Removes the flow association from a phone number claimed to your Amazon Connect
+   *    instance.</p>
+   *          <important>
+   *             <p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the
+   *      Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number
+   *     ARN or UUID value for the <code>PhoneNumberId</code> URI request parameter. However, if the
+   *     number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate
+   *      Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN.
+   *     If a UUID is provided in this scenario, you will receive a
+   *      <code>ResourceNotFoundException</code>.</p>
+   *          </important>
    */
   public disassociatePhoneNumberContactFlow(
     args: DisassociatePhoneNumberContactFlowCommandInput,
@@ -2827,6 +3143,42 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
+   *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
+   *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
+   *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent
+   *     Event Stream</a>.</p>
+   */
+  public dismissUserContact(
+    args: DismissUserContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DismissUserContactCommandOutput>;
+  public dismissUserContact(
+    args: DismissUserContactCommandInput,
+    cb: (err: any, data?: DismissUserContactCommandOutput) => void
+  ): void;
+  public dismissUserContact(
+    args: DismissUserContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DismissUserContactCommandOutput) => void
+  ): void;
+  public dismissUserContact(
+    args: DismissUserContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DismissUserContactCommandOutput) => void),
+    cb?: (err: any, data?: DismissUserContactCommandOutput) => void
+  ): Promise<DismissUserContactCommandOutput> | void {
+    const command = new DismissUserContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the contact attributes for the specified contact.</p>
    */
   public getContactAttributes(
@@ -2931,7 +3283,7 @@ export class Connect extends ConnectClient {
    *     credentials, an error message similar to the following one appears: </p>
    *             <p>
    *                <code>Provided identity: Principal: .... User: .... cannot be used for federation with
-   *      Amazon Connect</code>
+   *       Amazon Connect</code>
    *             </p>
    *          </note>
    */
@@ -2966,7 +3318,6 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
-   *
    *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
    *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -3000,7 +3351,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Gets details about a specific task template in the specified Amazon Connect instance.</p>
+   * <p>Gets details about a specific task template in the specified Amazon Connect
+   *    instance.</p>
    */
   public getTaskTemplate(
     args: GetTaskTemplateCommandInput,
@@ -3021,6 +3373,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: GetTaskTemplateCommandOutput) => void
   ): Promise<GetTaskTemplateCommandOutput> | void {
     const command = new GetTaskTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the current traffic distribution for a given traffic distribution group.</p>
+   */
+  public getTrafficDistribution(
+    args: GetTrafficDistributionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTrafficDistributionCommandOutput>;
+  public getTrafficDistribution(
+    args: GetTrafficDistributionCommandInput,
+    cb: (err: any, data?: GetTrafficDistributionCommandOutput) => void
+  ): void;
+  public getTrafficDistribution(
+    args: GetTrafficDistributionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTrafficDistributionCommandOutput) => void
+  ): void;
+  public getTrafficDistribution(
+    args: GetTrafficDistributionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrafficDistributionCommandOutput) => void),
+    cb?: (err: any, data?: GetTrafficDistributionCommandOutput) => void
+  ): Promise<GetTrafficDistributionCommandOutput> | void {
+    const command = new GetTrafficDistributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3099,8 +3483,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently
-   *    associated with the instance. </p>
+   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.</p>
    */
   public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
   public listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
@@ -3126,7 +3509,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides information about the contact flow modules for the specified Amazon Connect instance.</p>
+   * <p>Provides information about the flow modules for the specified Amazon Connect
+   *    instance.</p>
    */
   public listContactFlowModules(
     args: ListContactFlowModulesCommandInput,
@@ -3158,11 +3542,11 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
-   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   * <p>Provides information about the flows for the specified Amazon Connect instance.</p>
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
-   *          <p>For more information about contact flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Contact Flows</a> in the
-   *     <i>Amazon Connect Administrator Guide</i>.</p>
+   *          <p>For more information about flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Flows</a> in the
+   *      <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listContactFlows(
     args: ListContactFlowsCommandInput,
@@ -3260,7 +3644,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
+   * <p>Provides information about the hours of operation for the specified Amazon Connect
+   *    instance.</p>
    *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a
    *     Queue</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -3363,7 +3748,6 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *
    *          <p>Returns a paginated list of storage configs for the identified instance and resource
    *    type.</p>
    */
@@ -3432,7 +3816,7 @@ export class Connect extends ConnectClient {
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the
-   *    relevant contact flow blocks.</p>
+   *    relevant flow blocks.</p>
    */
   public listLambdaFunctions(
     args: ListLambdaFunctionsCommandInput,
@@ -3465,8 +3849,9 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Returns a paginated list of all the Amazon Lex bots currently associated with the
-   *    instance.</p>
+   *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the
+   *    instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
+   *    </p>
    */
   public listLexBots(args: ListLexBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListLexBotsCommandOutput>;
   public listLexBots(args: ListLexBotsCommandInput, cb: (err: any, data?: ListLexBotsCommandOutput) => void): void;
@@ -3494,7 +3879,14 @@ export class Connect extends ConnectClient {
   /**
    * <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p>
    *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
-   *     Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     Contact Center</a> in the <i>Amazon Connect Administrator
+   *    Guide</i>.</p>
+   *          <important>
+   *             <p>The phone number <code>Arn</code> value that is returned from each of the items in the
+   *      <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList">PhoneNumberSummaryList</a> cannot be used to tag phone number resources. It will fail with
+   *     a <code>ResourceNotFoundException</code>. Instead, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> API.
+   *     It returns the new phone number ARN that can be used to tag phone number resources.</p>
+   *          </important>
    */
   public listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
@@ -3526,9 +3918,12 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Lists phone numbers claimed to your Amazon Connect instance. </p>
+   * <p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided
+   *     <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions
+   *    associated with traffic distribution group.</p>
    *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
-   *     Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     Contact Center</a> in the <i>Amazon Connect Administrator
+   *    Guide</i>.</p>
    */
   public listPhoneNumbersV2(
     args: ListPhoneNumbersV2CommandInput,
@@ -3651,7 +4046,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
+   * <p>Provides information about the quick connects for the specified Amazon Connect instance.
+   *   </p>
    */
   public listQuickConnects(
     args: ListQuickConnectsCommandInput,
@@ -3750,6 +4146,32 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>List all rules for the specified Amazon Connect instance.</p>
+   */
+  public listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
+  public listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
+  public listRules(
+    args: ListRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRulesCommandOutput) => void
+  ): void;
+  public listRules(
+    args: ListRulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRulesCommandOutput) => void),
+    cb?: (err: any, data?: ListRulesCommandOutput) => void
+  ): Promise<ListRulesCommandOutput> | void {
+    const command = new ListRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Returns a paginated list of all security keys associated with the instance.</p>
    */
@@ -3816,10 +4238,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides summary information about the security profiles for the specified Amazon Connect
-   *    instance.</p>
+   * <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p>
    *          <p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
-   *     <i>Amazon Connect Administrator Guide</i>.</p>
+   *      <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
@@ -3852,8 +4273,9 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Lists the tags for the specified resource.</p>
-   *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
-   *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect
+   *     Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -3917,6 +4339,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Lists traffic distribution groups.</p>
+   */
+  public listTrafficDistributionGroups(
+    args: ListTrafficDistributionGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTrafficDistributionGroupsCommandOutput>;
+  public listTrafficDistributionGroups(
+    args: ListTrafficDistributionGroupsCommandInput,
+    cb: (err: any, data?: ListTrafficDistributionGroupsCommandOutput) => void
+  ): void;
+  public listTrafficDistributionGroups(
+    args: ListTrafficDistributionGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTrafficDistributionGroupsCommandOutput) => void
+  ): void;
+  public listTrafficDistributionGroups(
+    args: ListTrafficDistributionGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrafficDistributionGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListTrafficDistributionGroupsCommandOutput) => void
+  ): Promise<ListTrafficDistributionGroupsCommandOutput> | void {
+    const command = new ListTrafficDistributionGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the use cases for the integration association. </p>
    */
   public listUseCases(
@@ -3949,7 +4403,7 @@ export class Connect extends ConnectClient {
    * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect
    *    instance.</p>
    *          <p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
-   *     <i>Amazon Connect Administrator Guide</i>.</p>
+   *      <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listUserHierarchyGroups(
     args: ListUserHierarchyGroupsCommandInput,
@@ -3981,7 +4435,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides summary information about the users for the specified Amazon Connect instance.</p>
+   * <p>Provides summary information about the users for the specified Amazon Connect
+   *    instance.</p>
    */
   public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
   public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
@@ -4007,8 +4462,42 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Changes the current status of a user or agent in Amazon Connect. If the agent is currently handling a
-   *    contact, this sets the agent's next status.</p>
+   * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
+   *    specified by <i>userId</i> will be set to silent monitoring mode on the
+   *    contact.</p>
+   */
+  public monitorContact(
+    args: MonitorContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MonitorContactCommandOutput>;
+  public monitorContact(
+    args: MonitorContactCommandInput,
+    cb: (err: any, data?: MonitorContactCommandOutput) => void
+  ): void;
+  public monitorContact(
+    args: MonitorContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MonitorContactCommandOutput) => void
+  ): void;
+  public monitorContact(
+    args: MonitorContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MonitorContactCommandOutput) => void),
+    cb?: (err: any, data?: MonitorContactCommandOutput) => void
+  ): Promise<MonitorContactCommandOutput> | void {
+    const command = new MonitorContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Changes the current status of a user or agent in Amazon Connect. If the agent is
+   *    currently handling a contact, this sets the agent's next status.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next
    *     status</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -4042,7 +4531,15 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Releases a phone number previously claimed to an Amazon Connect instance.</p>
+   * <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You
+   *    can call this API only in the Amazon Web Services Region where the number was claimed.</p>
+   *          <important>
+   *             <p>To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code> API, not the
+   *      Amazon Connect console.</p>
+   *             <p>After releasing a phone number, the phone number enters into a cooldown period of 30 days.
+   *     It cannot be searched for or claimed again until the period has ended. If you accidentally
+   *     release a phone number, contact Amazon Web Services Support.</p>
+   *          </important>
    */
   public releasePhoneNumber(
     args: ReleasePhoneNumberCommandInput,
@@ -4074,9 +4571,43 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Replicates an Amazon Connect instance in the specified Amazon Web Services Region.</p>
+   *          <p>For more information about replicating an Amazon Connect instance, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create
+   *     a replica of your existing Amazon Connect instance</a> in the <i>Amazon Connect
+   *     Administrator Guide</i>.</p>
+   */
+  public replicateInstance(
+    args: ReplicateInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReplicateInstanceCommandOutput>;
+  public replicateInstance(
+    args: ReplicateInstanceCommandInput,
+    cb: (err: any, data?: ReplicateInstanceCommandOutput) => void
+  ): void;
+  public replicateInstance(
+    args: ReplicateInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReplicateInstanceCommandOutput) => void
+  ): void;
+  public replicateInstance(
+    args: ReplicateInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplicateInstanceCommandOutput) => void),
+    cb?: (err: any, data?: ReplicateInstanceCommandOutput) => void
+  ): Promise<ReplicateInstanceCommandOutput> | void {
+    const command = new ReplicateInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>When a contact is being recorded, and the recording has been suspended using
    *    SuspendContactRecording, this API resumes recording the call.</p>
-   *
    *          <p>Only voice recordings are supported at this time.</p>
    */
   public resumeContactRecording(
@@ -4109,7 +4640,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance.</p>
+   * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance
+   *    or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both
+   *     Amazon Web Services Regions associated with the traffic distribution group.</p>
    */
   public searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
@@ -4141,7 +4674,108 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Searches queues in an Amazon Connect instance, with optional filtering.</p>
+   */
+  public searchQueues(
+    args: SearchQueuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchQueuesCommandOutput>;
+  public searchQueues(args: SearchQueuesCommandInput, cb: (err: any, data?: SearchQueuesCommandOutput) => void): void;
+  public searchQueues(
+    args: SearchQueuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchQueuesCommandOutput) => void
+  ): void;
+  public searchQueues(
+    args: SearchQueuesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchQueuesCommandOutput) => void),
+    cb?: (err: any, data?: SearchQueuesCommandOutput) => void
+  ): Promise<SearchQueuesCommandOutput> | void {
+    const command = new SearchQueuesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
+   */
+  public searchRoutingProfiles(
+    args: SearchRoutingProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchRoutingProfilesCommandOutput>;
+  public searchRoutingProfiles(
+    args: SearchRoutingProfilesCommandInput,
+    cb: (err: any, data?: SearchRoutingProfilesCommandOutput) => void
+  ): void;
+  public searchRoutingProfiles(
+    args: SearchRoutingProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchRoutingProfilesCommandOutput) => void
+  ): void;
+  public searchRoutingProfiles(
+    args: SearchRoutingProfilesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchRoutingProfilesCommandOutput) => void),
+    cb?: (err: any, data?: SearchRoutingProfilesCommandOutput) => void
+  ): Promise<SearchRoutingProfilesCommandOutput> | void {
+    const command = new SearchRoutingProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Searches security profiles in an Amazon Connect instance, with optional
+   *    filtering.</p>
+   */
+  public searchSecurityProfiles(
+    args: SearchSecurityProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchSecurityProfilesCommandOutput>;
+  public searchSecurityProfiles(
+    args: SearchSecurityProfilesCommandInput,
+    cb: (err: any, data?: SearchSecurityProfilesCommandOutput) => void
+  ): void;
+  public searchSecurityProfiles(
+    args: SearchSecurityProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchSecurityProfilesCommandOutput) => void
+  ): void;
+  public searchSecurityProfiles(
+    args: SearchSecurityProfilesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchSecurityProfilesCommandOutput) => void),
+    cb?: (err: any, data?: SearchSecurityProfilesCommandOutput) => void
+  ): Promise<SearchSecurityProfilesCommandOutput> | void {
+    const command = new SearchSecurityProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
+   *          <note>
+   *             <p>
+   *                <code>AfterContactWorkTimeLimit</code> is returned in milliseconds. </p>
+   *          </note>
    */
   public searchUsers(args: SearchUsersCommandInput, options?: __HttpHandlerOptions): Promise<SearchUsersCommandOutput>;
   public searchUsers(args: SearchUsersCommandInput, cb: (err: any, data?: SearchUsersCommandOutput) => void): void;
@@ -4167,8 +4801,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>,
-   *     <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
+   * <p>Searches for vocabularies within a specific Amazon Connect instance using
+   *     <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
    */
   public searchVocabularies(
     args: SearchVocabulariesCommandInput,
@@ -4200,12 +4834,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides
-   *    a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
-   *
+   * <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token
+   *    required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
    *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
    *    connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
-   *
    *          <p>A 429 error occurs in the following situations:</p>
    *          <ul>
    *             <li>
@@ -4221,9 +4853,8 @@ export class Connect extends ConnectClient {
    *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your
    *    account may not support the ability to configure custom chat durations. For more information,
    *    contact Amazon Web Services Support. </p>
-   *
-   *          <p>For more information about chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
+   *          <p>For more information about chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect
+   *     Administrator Guide</i>.</p>
    */
   public startChatContact(
     args: StartChatContactCommandInput,
@@ -4266,7 +4897,6 @@ export class Connect extends ConnectClient {
    *      at the time of the API call.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to
    *    stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios
    *    where the recording has started and you want to suspend and resume it, such as when collecting
@@ -4340,25 +4970,23 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Places an outbound call to a contact, and then initiates the contact flow. It performs the
-   *    actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p>
-   *
+   * <p>Places an outbound call to a contact, and then initiates the flow. It performs the actions
+   *    in the flow that's specified (in <code>ContactFlowId</code>).</p>
    *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
-   *    the contact flow places an outbound call to a contact, and then puts the contact in queue, the
-   *    call is then routed to the agent, like any other inbound case.</p>
-   *
+   *    the flow places an outbound call to a contact, and then puts the contact in queue, the call is
+   *    then routed to the agent, like any other inbound case.</p>
    *          <p>There is a 60-second dialing timeout for this operation. If the call is not connected after
    *    60 seconds, it fails.</p>
    *          <note>
    *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK
    *     mobile numbers, you must submit a service quota increase request. For more information, see
-   *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
+   *      Guide</i>. </p>
    *          </note>
    *          <note>
    *             <p>Campaign calls are not allowed by default. Before you can make a call with
    *      <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase
-   *     request. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a>
-   *     in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *     request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon Connect campaigns</a>. </p>
    *          </note>
    */
   public startOutboundVoiceContact(
@@ -4391,7 +5019,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Initiates a contact flow to start a new task.</p>
+   * <p>Initiates a flow to start a new task.</p>
    */
   public startTaskContact(
     args: StartTaskContactCommandInput,
@@ -4425,7 +5053,6 @@ export class Connect extends ConnectClient {
   /**
    * <p>Ends the specified contact. This call does not work for the following initiation
    *    methods:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>DISCONNECT</p>
@@ -4467,7 +5094,6 @@ export class Connect extends ConnectClient {
    *    StartContactRecording to restart it. For scenarios where the recording has started and you want
    *    to suspend it for sensitive information (for example, to collect a credit card number), and then
    *    restart it, use SuspendContactRecording and ResumeContactRecording.</p>
-   *
    *          <p>Only voice recordings are supported at this time.</p>
    */
   public stopContactRecording(
@@ -4572,11 +5198,12 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Adds the specified tags to the specified resource.</p>
-   *          <p>The supported resource types are users, routing profiles, queues, quick connects, contact
-   *    flows, agent status, hours of operation, phone number, security profiles, and task
-   *    templates.</p>
-   *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
-   *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects,
+   *    contact flows, agent statuses, hours of operation, phone numbers, security profiles, and task
+   *    templates. For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging resources in Amazon Connect</a>.</p>
+   *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect
+   *     Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -4603,8 +5230,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Transfers contacts from one agent or queue to another agent or queue at any point after a
-   *    contact is created. You can transfer a contact to another queue by providing the contact flow
-   *    which orchestrates the contact to the destination queue. This gives you more control over contact
+   *    contact is created. You can transfer a contact to another queue by providing the flow which
+   *    orchestrates the contact to the destination queue. This gives you more control over contact
    *    handling and helps you adhere to the service level agreement (SLA) guaranteed to your
    *    customers.</p>
    *          <p>Note the following requirements:</p>
@@ -4616,8 +5243,8 @@ export class Connect extends ConnectClient {
    *                <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p>
    *             </li>
    *             <li>
-   *                <p>The following contact flow types are supported: Inbound contact flow, Transfer to agent
-   *      flow, and Transfer to queue flow.</p>
+   *                <p>The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer
+   *      to queue flow.</p>
    *             </li>
    *             <li>
    *                <p>The <code>TransferContact</code> API can be called only on active contacts.</p>
@@ -4767,19 +5394,13 @@ export class Connect extends ConnectClient {
    *    For example, while the call is active, you can update the customer's name or the reason the
    *    customer called. You can add notes about steps that the agent took during the call that display
    *    to the next agent that takes the call. You can also update attributes for a contact using data
-   *    from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls
-   *    for additional analysis, such as legal review or to identify abusive callers.</p>
-   *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For
-   *    information about CTR retention and the maximum size of the CTR attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+   *    from your CRM application and save the data with the contact in Amazon Connect. You could
+   *    also flag calls for additional analysis, such as legal review or to identify abusive
+   *    callers.</p>
+   *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.
+   *    For information about contact record retention and the maximum size of the contact record
+   *    attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
    *     specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
-   *
-   *          <p>
-   *             <b>Important:</b> You cannot use the operation to update
-   *    attributes for contacts that occurred prior to the release of the API, which was September 12,
-   *    2018. You can update attributes only for contacts that started after the release of the API. If
-   *    you attempt to update attributes for a contact that occurred prior to the release of the API, a
-   *    400 error is returned. This applies also to queued callbacks that were initiated prior to the
-   *    release of the API but are still active in your instance.</p>
    */
   public updateContactAttributes(
     args: UpdateContactAttributesCommandInput,
@@ -4811,8 +5432,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates the specified contact flow.</p>
-   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   * <p>Updates the specified flow.</p>
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public updateContactFlowContent(
@@ -4845,7 +5466,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates metadata about specified contact flow.</p>
+   * <p>Updates metadata about specified flow.</p>
    */
   public updateContactFlowMetadata(
     args: UpdateContactFlowMetadataCommandInput,
@@ -4877,7 +5498,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates specified contact flow module for the specified Amazon Connect instance. </p>
+   * <p>Updates specified flow module for the specified Amazon Connect instance. </p>
    */
   public updateContactFlowModuleContent(
     args: UpdateContactFlowModuleContentCommandInput,
@@ -4909,7 +5530,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates metadata about specified contact flow module.</p>
+   * <p>Updates metadata about specified flow module.</p>
    */
   public updateContactFlowModuleMetadata(
     args: UpdateContactFlowModuleMetadataCommandInput,
@@ -4941,8 +5562,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>The name of the contact flow.</p>
-   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   * <p>The name of the flow.</p>
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public updateContactFlowName(
@@ -5106,8 +5727,62 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance
-   *    in the same Region.</p>
+   * <p>Updates timeouts for when human chat participants are to be considered idle, and when agents
+   *    are automatically disconnected from a chat due to idleness. You can set four timers:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Customer idle timeout</p>
+   *             </li>
+   *             <li>
+   *                <p>Customer auto-disconnect timeout</p>
+   *             </li>
+   *             <li>
+   *                <p>Agent idle timeout</p>
+   *             </li>
+   *             <li>
+   *                <p>Agent auto-disconnect timeout</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about how chat timeouts work, see
+   *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+   */
+  public updateParticipantRoleConfig(
+    args: UpdateParticipantRoleConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateParticipantRoleConfigCommandOutput>;
+  public updateParticipantRoleConfig(
+    args: UpdateParticipantRoleConfigCommandInput,
+    cb: (err: any, data?: UpdateParticipantRoleConfigCommandOutput) => void
+  ): void;
+  public updateParticipantRoleConfig(
+    args: UpdateParticipantRoleConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateParticipantRoleConfigCommandOutput) => void
+  ): void;
+  public updateParticipantRoleConfig(
+    args: UpdateParticipantRoleConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateParticipantRoleConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateParticipantRoleConfigCommandOutput) => void
+  ): Promise<UpdateParticipantRoleConfigCommandOutput> | void {
+    const command = new UpdateParticipantRoleConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to
+   *    another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p>
+   *          <important>
+   *             <p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
+   *     to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a>
+   *     operation.</p>
+   *          </important>
    */
   public updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
@@ -5242,6 +5917,17 @@ export class Connect extends ConnectClient {
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified
    *    queue.</p>
+   *          <important>
+   *             <p>If the number being used in the input is claimed to a traffic distribution group, and you are calling this API
+   *     using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use
+   *     either a full phone number ARN or UUID value for the <code>OutboundCallerIdNumberId</code> value
+   *     of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig">OutboundCallerConfig</a> request body parameter. However, if the number is claimed to a
+   *     traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region
+   *     associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided
+   *     in
+   *     this scenario, you will receive a
+   *     <code>ResourceNotFoundException</code>.</p>
+   *          </important>
    */
   public updateQueueOutboundCallerConfig(
     args: UpdateQueueOutboundCallerConfigCommandInput,
@@ -5502,6 +6188,34 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Updates a rule for the specified Amazon Connect instance.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
+   *    code conditions for the rule. </p>
+   */
+  public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
+  public updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
+  public updateRule(
+    args: UpdateRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRuleCommandOutput) => void
+  ): void;
+  public updateRule(
+    args: UpdateRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRuleCommandOutput) => void
+  ): Promise<UpdateRuleCommandOutput> | void {
+    const command = new UpdateRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates a security profile.</p>
    */
@@ -5535,8 +6249,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates details about a specific task template in the specified Amazon Connect instance. This
-   *    operation does not support partial updates. Instead it does a full update of template
+   * <p>Updates details about a specific task template in the specified Amazon Connect instance.
+   *    This operation does not support partial updates. Instead it does a full update of template
    *    content.</p>
    */
   public updateTaskTemplate(
@@ -5558,6 +6272,41 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateTaskTemplateCommandOutput) => void
   ): Promise<UpdateTaskTemplateCommandOutput> | void {
     const command = new UpdateTaskTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the traffic distribution for a given traffic distribution group. </p>
+   *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony
+   *     traffic distribution across Amazon Web Services Regions
+   *    </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   */
+  public updateTrafficDistribution(
+    args: UpdateTrafficDistributionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTrafficDistributionCommandOutput>;
+  public updateTrafficDistribution(
+    args: UpdateTrafficDistributionCommandInput,
+    cb: (err: any, data?: UpdateTrafficDistributionCommandOutput) => void
+  ): void;
+  public updateTrafficDistribution(
+    args: UpdateTrafficDistributionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTrafficDistributionCommandOutput) => void
+  ): void;
+  public updateTrafficDistribution(
+    args: UpdateTrafficDistributionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrafficDistributionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTrafficDistributionCommandOutput) => void
+  ): Promise<UpdateTrafficDistributionCommandOutput> | void {
+    const command = new UpdateTrafficDistributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5672,7 +6421,8 @@ export class Connect extends ConnectClient {
    *     of other users by changing their email address. This poses a security risk to your organization.
    *     They can change the email address of a user to the attacker's email address, and then reset the
    *     password through email. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html">Best Practices for
-   *      Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *      Security Profiles</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
    *          </important>
    */
   public updateUserIdentityInfo(

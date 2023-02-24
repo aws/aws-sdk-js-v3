@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   DescribeVpcEndpointServicesRequestFilterSensitiveLog,
   DescribeVpcEndpointServicesResult,
   DescribeVpcEndpointServicesResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DescribeVpcEndpointServicesCommand,
   serializeAws_ec2DescribeVpcEndpointServicesCommand,
@@ -29,7 +30,7 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
 
 /**
  * <p>Describes available services to which you can create a VPC endpoint.</p>
- *         <p>When the service provider and the consumer have different accounts in multiple
+ *          <p>When the service provider and the consumer have different accounts in multiple
  *             Availability Zones, and the consumer views the VPC endpoint service information, the
  *             response only includes the common Availability Zones. For example, when the service
  *             provider account uses <code>us-east-1a</code> and <code>us-east-1c</code> and the
@@ -59,6 +60,15 @@ export class DescribeVpcEndpointServicesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeVpcEndpointServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class DescribeVpcEndpointServicesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeVpcEndpointServicesCommandInput, DescribeVpcEndpointServicesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeVpcEndpointServicesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   CreateIngestionRequestFilterSensitiveLog,
   CreateIngestionResponse,
   CreateIngestionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateIngestionCommand,
   serializeAws_restJson1CreateIngestionCommand,
@@ -32,8 +33,7 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * 			an Enterprise edition account 32 times in a 24-hour period. You can manually refresh
  * 			datasets in a Standard edition account 8 times in a 24-hour period. Each 24-hour period
  * 			is measured starting 24 hours before the current date and time.</p>
- *
- * 		       <p>Any ingestions operating on tagged datasets inherit the same tags automatically for use in
+ *          <p>Any ingestions operating on tagged datasets inherit the same tags automatically for use in
  * 			access control. For an example, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/">How do I create an IAM policy to control access to Amazon EC2 resources using
  * 				tags?</a> in the Amazon Web Services Knowledge Center. Tags are visible on the tagged dataset, but not on the ingestion resource.</p>
  * @example
@@ -59,6 +59,15 @@ export class CreateIngestionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateIngestionCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +83,9 @@ export class CreateIngestionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateIngestionCommandInput, CreateIngestionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateIngestionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,8 +31,13 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
 /**
  * <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's
  *       status to <code>DELETING</code> and begins the deletion process. </p>
+ *
+ *          <p>If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>
+ *
+ *          <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>
+ *
  *          <note>
- *             <p>For <code>EXPRESS</code>state machines, the deletion will happen eventually (usually
+ *             <p>For <code>EXPRESS</code> state machines, the deletion will happen eventually (usually
  *         less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>
  *         API is called.</p>
  *          </note>
@@ -58,6 +64,15 @@ export class DeleteStateMachineCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteStateMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +88,9 @@ export class DeleteStateMachineCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteStateMachineCommandInput, DeleteStateMachineCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteStateMachineCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

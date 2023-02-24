@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,10 +31,10 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  *             application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new
  *             desired capacity. For more information and example configurations, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *         <p>This operation must be called from the Region in which the Auto Scaling group was created.
+ *          <p>This operation must be called from the Region in which the Auto Scaling group was created.
  *             This operation cannot be called on an Auto Scaling group that has a mixed instances policy or a
  *             launch template or launch configuration that requests Spot Instances.</p>
- *         <p>You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the
+ *          <p>You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the
  *                 <a>DeleteWarmPool</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +59,15 @@ export class PutWarmPoolCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutWarmPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,7 @@ export class PutWarmPoolCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutWarmPoolCommandInput, PutWarmPoolCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutWarmPoolCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

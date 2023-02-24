@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,17 +29,11 @@ export interface CreateBulkImportJobCommandInput extends CreateBulkImportJobRequ
 export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This API operation is in preview release for IoT SiteWise and is subject to change.
- *       We recommend that you use this operation only with test data, and not in production environments.</p>
- *          </note>
- *          <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information,
- *   see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a bulk import job (CLI)</a>
- *   in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a
+ *         bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          <important>
- *             <p>You must enable IoT SiteWise to export data to Amazon S3 before you create a bulk import job.
- *       For more information about how to configure storage settings,
- *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
+ *             <p>You must enable IoT SiteWise to export data to Amazon S3 before you create a bulk import job. For
+ *         more information about how to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +58,15 @@ export class CreateBulkImportJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateBulkImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +82,9 @@ export class CreateBulkImportJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateBulkImportJobCommandInput, CreateBulkImportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateBulkImportJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

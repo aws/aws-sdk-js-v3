@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,13 +30,13 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
 
 /**
  * <p>Deletes the specified capacity provider.</p>
- * 		       <note>
- * 			         <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
+ *          <note>
+ *             <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
  * 				reserved and can't be deleted. You can disassociate them from a cluster using either
  * 				the <a>PutClusterCapacityProviders</a> API or by deleting the
  * 				cluster.</p>
- * 		       </note>
- * 		       <p>Prior to a capacity provider being deleted, the capacity provider must be removed from
+ *          </note>
+ *          <p>Prior to a capacity provider being deleted, the capacity provider must be removed from
  * 			the capacity provider strategy from all services. The <a>UpdateService</a>
  * 			API can be used to remove a capacity provider from a service's capacity provider
  * 			strategy. When updating a service, the <code>forceNewDeployment</code> option can be
@@ -66,6 +67,15 @@ export class DeleteCapacityProviderCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteCapacityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +91,9 @@ export class DeleteCapacityProviderCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteCapacityProviderCommandInput, DeleteCapacityProviderCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteCapacityProviderCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,8 @@ export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a lens share.</p>
- *         <p>After the lens share is deleted,  Amazon Web Services accounts and IAM users
+ *         <p>After the lens share is deleted,  Amazon Web Services accounts, IAM users, organizations,
+ *             and organizational units (OUs)
  *             that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.</p>
  *         <note>
  *             <p>
@@ -60,6 +62,15 @@ export class DeleteLensShareCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteLensShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +86,9 @@ export class DeleteLensShareCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLensShareCommandInput, DeleteLensShareCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteLensShareCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

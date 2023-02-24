@@ -72,14 +72,63 @@ export interface AccessPoint {
    * <p>The name or alias of the access point.</p>
    */
   Alias?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p>
+   */
+  BucketAccountId?: string;
 }
 
 /**
- * <p>A container for the activity metrics.</p>
+ * <p>The container element for Amazon S3 Storage Lens activity metrics. Activity metrics show details about
+ *          how your storage is requested, such as requests (for example, All requests, Get requests,
+ *          Put requests), bytes uploaded or downloaded, and errors.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface ActivityMetrics {
   /**
-   * <p>A container for whether the activity metrics are enabled.</p>
+   * <p>A container that indicates whether activity metrics are enabled.</p>
+   */
+  IsEnabled?: boolean;
+}
+
+/**
+ * <p>The container element for Amazon S3 Storage Lens advanced cost-optimization metrics. Advanced
+ *          cost-optimization metrics provide insights that you can use to manage and optimize your
+ *          storage costs, for example, lifecycle rule counts for transitions, expirations, and
+ *          incomplete multipart uploads.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
+ */
+export interface AdvancedCostOptimizationMetrics {
+  /**
+   * <p>A container that indicates whether advanced cost-optimization metrics are
+   *          enabled.</p>
+   */
+  IsEnabled?: boolean;
+}
+
+/**
+ * <p>The container element for Amazon S3 Storage Lens advanced data-protection metrics. Advanced
+ *          data-protection metrics provide insights that you can use to perform audits and protect
+ *          your data, for example replication rule counts within and across Regions.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
+ */
+export interface AdvancedDataProtectionMetrics {
+  /**
+   * <p>A container that indicates whether advanced data-protection metrics are enabled.</p>
+   */
+  IsEnabled?: boolean;
+}
+
+/**
+ * <p>The container element for Amazon S3 Storage Lens detailed status code metrics. Detailed status
+ *          code metrics generate metrics for HTTP status codes, such as <code>200 OK</code>, <code>403
+ *             Forbidden</code>, <code>503 Service Unavailable</code> and others. </p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
+ */
+export interface DetailedStatusCodesMetrics {
+  /**
+   * <p>A container that indicates whether detailed status code metrics are enabled.</p>
    */
   IsEnabled?: boolean;
 }
@@ -133,26 +182,43 @@ export interface PrefixLevel {
 }
 
 /**
- * <p>A container for the bucket-level configuration.</p>
+ * <p>A container for the bucket-level configuration for Amazon S3 Storage Lens.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface BucketLevel {
   /**
-   * <p>A container for the bucket-level activity metrics for Amazon S3 Storage Lens</p>
+   * <p>A container for the bucket-level activity metrics for S3 Storage Lens.</p>
    */
   ActivityMetrics?: ActivityMetrics;
 
   /**
-   * <p>A container for the bucket-level prefix-level metrics for S3 Storage Lens</p>
+   * <p>A container for the prefix-level metrics for S3 Storage Lens. </p>
    */
   PrefixLevel?: PrefixLevel;
+
+  /**
+   * <p>A container for bucket-level advanced cost-optimization metrics for S3 Storage Lens.</p>
+   */
+  AdvancedCostOptimizationMetrics?: AdvancedCostOptimizationMetrics;
+
+  /**
+   * <p>A container for bucket-level advanced data-protection metrics for S3 Storage Lens.</p>
+   */
+  AdvancedDataProtectionMetrics?: AdvancedDataProtectionMetrics;
+
+  /**
+   * <p>A container for bucket-level detailed status code metrics for S3 Storage Lens.</p>
+   */
+  DetailedStatusCodesMetrics?: DetailedStatusCodesMetrics;
 }
 
 /**
- * <p>A container for the account level Amazon S3 Storage Lens configuration.</p>
+ * <p>A container for the account-level Amazon S3 Storage Lens configuration.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface AccountLevel {
   /**
-   * <p>A container for the S3 Storage Lens activity metrics.</p>
+   * <p>A container for S3 Storage Lens activity metrics.</p>
    */
   ActivityMetrics?: ActivityMetrics;
 
@@ -160,6 +226,21 @@ export interface AccountLevel {
    * <p>A container for the S3 Storage Lens bucket-level configuration.</p>
    */
   BucketLevel: BucketLevel | undefined;
+
+  /**
+   * <p>A container for S3 Storage Lens advanced cost-optimization metrics.</p>
+   */
+  AdvancedCostOptimizationMetrics?: AdvancedCostOptimizationMetrics;
+
+  /**
+   * <p>A container for S3 Storage Lens advanced data-protection metrics.</p>
+   */
+  AdvancedDataProtectionMetrics?: AdvancedDataProtectionMetrics;
+
+  /**
+   * <p>A container for detailed status code metrics. </p>
+   */
+  DetailedStatusCodesMetrics?: DetailedStatusCodesMetrics;
 }
 
 /**
@@ -172,7 +253,7 @@ export interface AsyncErrorDetails {
   Code?: string;
 
   /**
-   * <p>A generic descritpion of the error condition in English.</p>
+   * <p>A generic description of the error condition in English.</p>
    */
   Message?: string;
 
@@ -197,17 +278,18 @@ export enum AsyncOperationName {
  * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
  *          account. You can enable the configuration options in any combination. For more information
  *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>This is not supported for Amazon S3 on Outposts.</p>
+ *          <p>This data type is not supported for Amazon S3 on Outposts.</p>
  */
 export interface PublicAccessBlockConfiguration {
   /**
-   * <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets
-   *          in this account. Setting this element to <code>TRUE</code> causes the following
+   * <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in
+   *          this account. Setting this element to <code>TRUE</code> causes the following
    *          behavior:</p>
    *          <ul>
    *             <li>
-   *                <p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is
-   *                public.</p>
+   *                <p>
+   *                   <code>PutBucketAcl</code> and <code>PutObjectAcl</code> calls fail if the
+   *                specified ACL is public.</p>
    *             </li>
    *             <li>
    *                <p>PUT Object calls fail if the request includes a public ACL.</p>
@@ -217,26 +299,26 @@ export interface PublicAccessBlockConfiguration {
    *             </li>
    *          </ul>
    *          <p>Enabling this setting doesn't affect existing policies or ACLs.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This property is not supported for Amazon S3 on Outposts.</p>
    */
   BlockPublicAcls?: boolean;
 
   /**
    * <p>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting
-   *          this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in
-   *          this account and any objects that they contain. </p>
+   *          this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in this
+   *          account and any objects that they contain. </p>
    *          <p>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't
    *          prevent new public ACLs from being set.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This property is not supported for Amazon S3 on Outposts.</p>
    */
   IgnorePublicAcls?: boolean;
 
   /**
    * <p>Specifies whether Amazon S3 should block public bucket policies for buckets in this account.
-   *          Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket
-   *          policy if the specified bucket policy allows public access. </p>
+   *          Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket policy
+   *          if the specified bucket policy allows public access. </p>
    *          <p>Enabling this setting doesn't affect existing bucket policies.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This property is not supported for Amazon S3 on Outposts.</p>
    */
   BlockPublicPolicy?: boolean;
 
@@ -248,7 +330,7 @@ export interface PublicAccessBlockConfiguration {
    *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that
    *          public and cross-account access within any public bucket policy, including non-public
    *          delegation to specific accounts, is blocked.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This property is not supported for Amazon S3 on Outposts.</p>
    */
   RestrictPublicBuckets?: boolean;
 }
@@ -276,7 +358,7 @@ export interface CreateMultiRegionAccessPointInput {
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
    *          account. You can enable the configuration options in any combination. For more information
    *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This data type is not supported for Amazon S3 on Outposts.</p>
    */
   PublicAccessBlock?: PublicAccessBlockConfiguration;
 
@@ -426,8 +508,7 @@ export interface AwsLambdaTransformation {
 
 export interface CreateAccessPointRequest {
   /**
-   * <p>The Amazon Web Services account ID for the owner of the bucket for which you want to create an
-   *          access point.</p>
+   * <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
    */
   AccountId?: string;
 
@@ -457,6 +538,11 @@ export interface CreateAccessPointRequest {
    *       </p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p>
+   */
+  BucketAccountId?: string;
 }
 
 export interface CreateAccessPointResult {
@@ -477,10 +563,15 @@ export interface CreateAccessPointResult {
 export enum ObjectLambdaAllowedFeature {
   GetObjectPartNumber = "GetObject-PartNumber",
   GetObjectRange = "GetObject-Range",
+  HeadObjectPartNumber = "HeadObject-PartNumber",
+  HeadObjectRange = "HeadObject-Range",
 }
 
 export enum ObjectLambdaTransformationConfigurationAction {
   GetObject = "GetObject",
+  HeadObject = "HeadObject",
+  ListObjects = "ListObjects",
+  ListObjectsV2 = "ListObjectsV2",
 }
 
 /**
@@ -520,8 +611,9 @@ export namespace ObjectLambdaContentTransformation {
  */
 export interface ObjectLambdaTransformationConfiguration {
   /**
-   * <p>A container for the action of an Object Lambda Access Point configuration. Valid input is
-   *             <code>GetObject</code>.</p>
+   * <p>A container for the action of an Object Lambda Access Point configuration. Valid inputs are
+   *             <code>GetObject</code>, <code>ListObjects</code>, <code>HeadObject</code>, and
+   *             <code>ListObjectsV2</code>.</p>
    */
   Actions: (ObjectLambdaTransformationConfigurationAction | string)[] | undefined;
 
@@ -546,8 +638,9 @@ export interface ObjectLambdaConfiguration {
   CloudWatchMetricsEnabled?: boolean;
 
   /**
-   * <p>A container for allowed features. Valid inputs are <code>GetObject-Range</code> and
-   *             <code>GetObject-PartNumber</code>.</p>
+   * <p>A container for allowed features. Valid inputs are <code>GetObject-Range</code>,
+   *             <code>GetObject-PartNumber</code>, <code>HeadObject-Range</code>, and
+   *             <code>HeadObject-PartNumber</code>.</p>
    */
   AllowedFeatures?: (ObjectLambdaAllowedFeature | string)[];
 
@@ -621,20 +714,26 @@ export class BucketAlreadyOwnedByYou extends __BaseException {
   }
 }
 
-export type BucketCannedACL = "authenticated-read" | "private" | "public-read" | "public-read-write";
+export enum BucketCannedACL {
+  authenticated_read = "authenticated-read",
+  private = "private",
+  public_read = "public-read",
+  public_read_write = "public-read-write",
+}
 
-export type BucketLocationConstraint =
-  | "EU"
-  | "ap-northeast-1"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "cn-north-1"
-  | "eu-central-1"
-  | "eu-west-1"
-  | "sa-east-1"
-  | "us-west-1"
-  | "us-west-2";
+export enum BucketLocationConstraint {
+  EU = "EU",
+  ap_northeast_1 = "ap-northeast-1",
+  ap_south_1 = "ap-south-1",
+  ap_southeast_1 = "ap-southeast-1",
+  ap_southeast_2 = "ap-southeast-2",
+  cn_north_1 = "cn-north-1",
+  eu_central_1 = "eu-central-1",
+  eu_west_1 = "eu-west-1",
+  sa_east_1 = "sa-east-1",
+  us_west_1 = "us-west-1",
+  us_west_2 = "us-west-2",
+}
 
 /**
  * <p>The container for the bucket configuration.</p>
@@ -727,7 +826,7 @@ export interface CreateBucketRequest {
   /**
    * <p>The ID of the Outposts where the bucket is being created.</p>
    *          <note>
-   *             <p>This is required by Amazon S3 on Outposts buckets.</p>
+   *             <p>This ID is required by Amazon S3 on Outposts buckets.</p>
    *          </note>
    */
   OutpostId?: string;
@@ -879,8 +978,8 @@ export interface JobManifestGeneratorFilter {
  */
 export interface SSEKMSEncryption {
   /**
-   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed
-   *          key to use for encrypting generated manifest objects.</p>
+   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric encryption
+   *          customer managed key to use for encrypting generated manifest objects.</p>
    */
   KeyId: string | undefined;
 }
@@ -1163,8 +1262,10 @@ export interface S3AccessControlPolicy {
 
 /**
  * <p>Contains the configuration parameters for a Set Object ACL operation. S3 Batch Operations
- *          passes every object to the underlying PUT Object acl API. For more information about the
- *          parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html">PUT Object acl</a>.</p>
+ *          passes every object to the underlying <code>PutObjectAcl</code> API. For more information
+ *          about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html">
+ *                <code>PutObjectAcl</code>
+ *             </a>.</p>
  */
 export interface S3SetObjectAclOperation {
   /**
@@ -1251,16 +1352,16 @@ export interface S3ObjectMetadata {
 }
 
 /**
- * <p></p>
+ * <p>A container for a key-value name pair.</p>
  */
 export interface S3Tag {
   /**
-   * <p></p>
+   * <p>Key of the tag</p>
    */
   Key: string | undefined;
 
   /**
-   * <p></p>
+   * <p>Value of the tag</p>
    */
   Value: string | undefined;
 }
@@ -1293,8 +1394,9 @@ export enum S3StorageClass {
 export interface S3CopyObjectOperation {
   /**
    * <p>Specifies the destination bucket ARN for the batch copy operation. For example, to copy
-   *          objects to a bucket named "destinationBucket", set the TargetResource to
-   *          "arn:aws:s3:::destinationBucket".</p>
+   *          objects to a bucket named <code>destinationBucket</code>, set the
+   *             <code>TargetResource</code> property to
+   *          <code>arn:aws:s3:::destinationBucket</code>.</p>
    */
   TargetResource?: string;
 
@@ -1359,8 +1461,8 @@ export interface S3CopyObjectOperation {
 
   /**
    * <p>Specifies the folder prefix into which you would like the objects to be copied. For
-   *          example, to copy objects into a folder named <code>Folder1</code> in the destination bucket, set the
-   *          TargetKeyPrefix to <code>Folder1</code>.</p>
+   *          example, to copy objects into a folder named <code>Folder1</code> in the destination
+   *          bucket, set the TargetKeyPrefix to <code>Folder1</code>.</p>
    */
   TargetKeyPrefix?: string;
 
@@ -1390,9 +1492,9 @@ export interface S3CopyObjectOperation {
   BucketKeyEnabled?: boolean;
 
   /**
-   * <p>Indicates the algorithm you want Amazon S3 to use to create the checksum. For more information
-   *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml">
-   *                 Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Indicates the algorithm you want Amazon S3 to use to create the checksum. For more
+   *          information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml"> Checking object
+   *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   ChecksumAlgorithm?: S3ChecksumAlgorithm | string;
 }
@@ -1484,8 +1586,8 @@ export interface S3SetObjectTaggingOperation {
 }
 
 /**
- * <p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the job's
- *          manifest.</p>
+ * <p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the
+ *          job's manifest.</p>
  */
 export interface S3ReplicateObjectOperation {}
 
@@ -1508,7 +1610,7 @@ export interface JobOperation {
   S3PutObjectCopy?: S3CopyObjectOperation;
 
   /**
-   * <p>Directs the specified job to run a PUT Object acl call on every object in the
+   * <p>Directs the specified job to run a <code>PutObjectAcl</code> call on every object in the
    *          manifest.</p>
    */
   S3PutObjectAcl?: S3SetObjectAclOperation;
@@ -1763,7 +1865,7 @@ export interface CreateMultiRegionAccessPointResult {
 
 export interface DeleteAccessPointRequest {
   /**
-   * <p>The account ID for the account that owns the specified access point.</p>
+   * <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
    */
   AccountId?: string;
 
@@ -2204,7 +2306,7 @@ export interface DescribeMultiRegionAccessPointOperationResult {
 
 export interface GetAccessPointRequest {
   /**
-   * <p>The account ID for the account that owns the specified access point.</p>
+   * <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
    */
   AccountId?: string;
 
@@ -2251,7 +2353,7 @@ export interface GetAccessPointResult {
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
    *          account. You can enable the configuration options in any combination. For more information
    *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This data type is not supported for Amazon S3 on Outposts.</p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
 
@@ -2274,6 +2376,11 @@ export interface GetAccessPointResult {
    * <p>The VPC endpoint for the access point.</p>
    */
   Endpoints?: Record<string, string>;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p>
+   */
+  BucketAccountId?: string;
 }
 
 export interface GetAccessPointConfigurationForObjectLambdaRequest {
@@ -2498,6 +2605,16 @@ export interface LifecycleRuleAndOperator {
    *          apply.</p>
    */
   Tags?: S3Tag[];
+
+  /**
+   * <p>Minimum object size to which the rule applies.</p>
+   */
+  ObjectSizeGreaterThan?: number;
+
+  /**
+   * <p>Maximum object size to which the rule applies.</p>
+   */
+  ObjectSizeLessThan?: number;
 }
 
 /**
@@ -2515,7 +2632,7 @@ export interface LifecycleRuleFilter {
   Prefix?: string;
 
   /**
-   * <p></p>
+   * <p>A container for a key-value name pair.</p>
    */
   Tag?: S3Tag;
 
@@ -2523,6 +2640,16 @@ export interface LifecycleRuleFilter {
    * <p>The container for the <code>AND</code> condition for the lifecycle rule.</p>
    */
   And?: LifecycleRuleAndOperator;
+
+  /**
+   * <p>Minimum object size to which the rule applies.</p>
+   */
+  ObjectSizeGreaterThan?: number;
+
+  /**
+   * <p>Maximum object size to which the rule applies.</p>
+   */
+  ObjectSizeLessThan?: number;
 }
 
 /**
@@ -2536,9 +2663,23 @@ export interface NoncurrentVersionExpiration {
    *             <i>Amazon S3 User Guide</i>.</p>
    */
   NoncurrentDays?: number;
+
+  /**
+   * <p>Specifies how many noncurrent versions S3 on Outposts will retain. If there are this many more
+   *          recent noncurrent versions, S3 on Outposts will take the associated action. For more information
+   *          about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
+   *             elements</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  NewerNoncurrentVersions?: number;
 }
 
-export type TransitionStorageClass = "DEEP_ARCHIVE" | "GLACIER" | "INTELLIGENT_TIERING" | "ONEZONE_IA" | "STANDARD_IA";
+export enum TransitionStorageClass {
+  DEEP_ARCHIVE = "DEEP_ARCHIVE",
+  GLACIER = "GLACIER",
+  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
+  ONEZONE_IA = "ONEZONE_IA",
+  STANDARD_IA = "STANDARD_IA",
+}
 
 /**
  * <p>The container for the noncurrent version transition.</p>
@@ -2558,7 +2699,10 @@ export interface NoncurrentVersionTransition {
   StorageClass?: TransitionStorageClass | string;
 }
 
-export type ExpirationStatus = "Disabled" | "Enabled";
+export enum ExpirationStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>Specifies when an object transitions to a specified storage class. For more information
@@ -2633,9 +2777,6 @@ export interface LifecycleRule {
 
   /**
    * <p>The noncurrent version expiration of the lifecycle rule.</p>
-   *          <note>
-   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
-   *          </note>
    */
   NoncurrentVersionExpiration?: NoncurrentVersionExpiration;
 
@@ -2695,6 +2836,42 @@ export interface GetBucketTaggingResult {
    * <p>The tags set of the Outposts bucket.</p>
    */
   TagSet: S3Tag[] | undefined;
+}
+
+export interface GetBucketVersioningRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the S3 on Outposts bucket.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The S3 on Outposts bucket to return the versioning state for.</p>
+   */
+  Bucket: string | undefined;
+}
+
+export enum MFADeleteStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+export enum BucketVersioningStatus {
+  Enabled = "Enabled",
+  Suspended = "Suspended",
+}
+
+export interface GetBucketVersioningResult {
+  /**
+   * <p>The versioning state of the S3 on Outposts bucket.</p>
+   */
+  Status?: BucketVersioningStatus | string;
+
+  /**
+   * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This
+   *          element is returned only if the bucket has been configured with MFA delete. If MFA delete
+   *          has never been configured for the bucket, this element is not returned.</p>
+   */
+  MFADelete?: MFADeleteStatus | string;
 }
 
 export interface GetJobTaggingRequest {
@@ -2779,7 +2956,7 @@ export interface MultiRegionAccessPointReport {
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
    *          account. You can enable the configuration options in any combination. For more information
    *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This data type is not supported for Amazon S3 on Outposts.</p>
    */
   PublicAccessBlock?: PublicAccessBlockConfiguration;
 
@@ -2787,7 +2964,7 @@ export interface MultiRegionAccessPointReport {
    * <p>The current status of the Multi-Region Access Point.</p>
    *          <p>
    *             <code>CREATING</code> and <code>DELETING</code> are temporary states that exist while
-   *          the request is propogating and being completed. If a Multi-Region Access Point has a status of
+   *          the request is propagating and being completed. If a Multi-Region Access Point has a status of
    *             <code>PARTIALLY_CREATED</code>, you can retry creation or send a request to delete the
    *          Multi-Region Access Point. If a Multi-Region Access Point has a status of <code>PARTIALLY_DELETED</code>, you can retry a delete
    *          request to finish the deletion of the Multi-Region Access Point.</p>
@@ -2895,6 +3072,72 @@ export interface GetMultiRegionAccessPointPolicyStatusResult {
    *          evaluates policies to determine whether they are public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
    */
   Established?: PolicyStatus;
+}
+
+export interface GetMultiRegionAccessPointRoutesRequest {
+  /**
+   * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The Multi-Region Access Point ARN.</p>
+   */
+  Mrap: string | undefined;
+}
+
+/**
+ * <p>A structure for a Multi-Region Access Point that indicates where Amazon S3 traffic can be routed. Routes can be
+ *          either active or passive. Active routes can process Amazon S3 requests through the Multi-Region Access Point, but
+ *          passive routes are not eligible to process Amazon S3 requests. </p>
+ *          <p>Each route contains the Amazon S3 bucket name and the Amazon Web Services Region that the bucket is located
+ *          in. The route also includes the <code>TrafficDialPercentage</code> value, which shows
+ *          whether the bucket and Region are active (indicated by a value of <code>100</code>) or
+ *          passive (indicated by a value of <code>0</code>).</p>
+ */
+export interface MultiRegionAccessPointRoute {
+  /**
+   * <p>The name of the Amazon S3 bucket for which you'll submit a routing configuration change.
+   *          Either the <code>Bucket</code> or the <code>Region</code> value must be provided. If both
+   *          are provided, the bucket must be in the specified Region.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The Amazon Web Services Region to which you'll be submitting a routing configuration change. Either
+   *          the <code>Bucket</code> or the <code>Region</code> value must be provided. If both are
+   *          provided, the bucket must be in the specified Region.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The traffic state for the specified bucket or Amazon Web Services Region. </p>
+   *          <p>A value of <code>0</code> indicates a passive state, which means that no new traffic
+   *          will be routed to the
+   *          Region. </p>
+   *          <p>A value of <code>100</code> indicates an active state, which means that traffic will be
+   *          routed to the specified Region. </p>
+   *          <p>When
+   *          the routing configuration for a Region is changed from active to passive, any in-progress
+   *          operations (uploads, copies, deletes, and so on) to the formerly active Region will
+   *          continue to run to until a final success or failure status is reached.</p>
+   *          <p>If all Regions in the routing configuration are designated as passive, you'll receive an
+   *             <code>InvalidRequest</code> error. </p>
+   */
+  TrafficDialPercentage: number | undefined;
+}
+
+export interface GetMultiRegionAccessPointRoutesResult {
+  /**
+   * <p>The Multi-Region Access Point ARN.</p>
+   */
+  Mrap?: string;
+
+  /**
+   * <p>The different routes that make up the route configuration. Active routes return a value
+   *          of <code>100</code>, and passive routes return a value of <code>0</code>.</p>
+   */
+  Routes?: MultiRegionAccessPointRoute[];
 }
 
 export interface GetPublicAccessBlockOutput {
@@ -3010,9 +3253,14 @@ export interface StorageLensDataExportEncryption {
   SSEKMS?: SSEKMS;
 }
 
-export type Format = "CSV" | "Parquet";
+export enum Format {
+  CSV = "CSV",
+  Parquet = "Parquet",
+}
 
-export type OutputSchemaVersion = "V_1";
+export enum OutputSchemaVersion {
+  V_1 = "V_1",
+}
 
 /**
  * <p>A container for the bucket where the Amazon S3 Storage Lens metrics export files are
@@ -3200,7 +3448,7 @@ export interface GetStorageLensConfigurationTaggingResult {
 
 export interface ListAccessPointsRequest {
   /**
-   * <p>The Amazon Web Services account ID for owner of the bucket whose access points you want to list.</p>
+   * <p>The Amazon Web Services account ID for the account that owns the specified access points.</p>
    */
   AccountId?: string;
 
@@ -3488,9 +3736,9 @@ export interface ListRegionalBucketsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The ID of the Outposts.</p>
+   * <p>The ID of the Outposts resource.</p>
    *          <note>
-   *             <p>This is required by Amazon S3 on Outposts buckets.</p>
+   *             <p>This ID is required by Amazon S3 on Outposts buckets.</p>
    *          </note>
    */
   OutpostId?: string;
@@ -3736,6 +3984,51 @@ export interface PutBucketTaggingRequest {
   Tagging: Tagging | undefined;
 }
 
+export enum MFADelete {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>Describes the versioning state of an Amazon S3 on Outposts bucket. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html">PutBucketVersioning</a>.</p>
+ */
+export interface VersioningConfiguration {
+  /**
+   * <p>Specifies whether MFA delete is enabled or disabled in the bucket versioning
+   *          configuration for the S3 on Outposts bucket.</p>
+   */
+  MFADelete?: MFADelete | string;
+
+  /**
+   * <p>Sets the versioning state of the S3 on Outposts bucket.</p>
+   */
+  Status?: BucketVersioningStatus | string;
+}
+
+export interface PutBucketVersioningRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the S3 on Outposts bucket.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The S3 on Outposts bucket to set the versioning state for.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The concatenation of the authentication device's serial number, a space, and the value
+   *          that is displayed on your authentication device.</p>
+   */
+  MFA?: string;
+
+  /**
+   * <p>The root-level tag for the <code>VersioningConfiguration</code> parameters.</p>
+   */
+  VersioningConfiguration: VersioningConfiguration | undefined;
+}
+
 export interface PutJobTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -3863,6 +4156,26 @@ export interface PutStorageLensConfigurationTaggingRequest {
 
 export interface PutStorageLensConfigurationTaggingResult {}
 
+export interface SubmitMultiRegionAccessPointRoutesRequest {
+  /**
+   * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The Multi-Region Access Point ARN.</p>
+   */
+  Mrap: string | undefined;
+
+  /**
+   * <p>The different routes that make up the new route configuration. Active routes return a
+   *          value of <code>100</code>, and passive routes return a value of <code>0</code>.</p>
+   */
+  RouteUpdates: MultiRegionAccessPointRoute[] | undefined;
+}
+
+export interface SubmitMultiRegionAccessPointRoutesResult {}
+
 export interface UpdateJobPriorityRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -3983,6 +4296,27 @@ export const AccessPointFilterSensitiveLog = (obj: AccessPoint): any => ({
  * @internal
  */
 export const ActivityMetricsFilterSensitiveLog = (obj: ActivityMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdvancedCostOptimizationMetricsFilterSensitiveLog = (obj: AdvancedCostOptimizationMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdvancedDataProtectionMetricsFilterSensitiveLog = (obj: AdvancedDataProtectionMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetailedStatusCodesMetricsFilterSensitiveLog = (obj: DetailedStatusCodesMetrics): any => ({
   ...obj,
 });
 
@@ -4869,6 +5203,20 @@ export const GetBucketTaggingResultFilterSensitiveLog = (obj: GetBucketTaggingRe
 /**
  * @internal
  */
+export const GetBucketVersioningRequestFilterSensitiveLog = (obj: GetBucketVersioningRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketVersioningResultFilterSensitiveLog = (obj: GetBucketVersioningResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetJobTaggingRequestFilterSensitiveLog = (obj: GetJobTaggingRequest): any => ({
   ...obj,
 });
@@ -4967,6 +5315,31 @@ export const GetMultiRegionAccessPointPolicyStatusRequestFilterSensitiveLog = (
  */
 export const GetMultiRegionAccessPointPolicyStatusResultFilterSensitiveLog = (
   obj: GetMultiRegionAccessPointPolicyStatusResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMultiRegionAccessPointRoutesRequestFilterSensitiveLog = (
+  obj: GetMultiRegionAccessPointRoutesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiRegionAccessPointRouteFilterSensitiveLog = (obj: MultiRegionAccessPointRoute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMultiRegionAccessPointRoutesResultFilterSensitiveLog = (
+  obj: GetMultiRegionAccessPointRoutesResult
 ): any => ({
   ...obj,
 });
@@ -5280,6 +5653,20 @@ export const PutBucketTaggingRequestFilterSensitiveLog = (obj: PutBucketTaggingR
 /**
  * @internal
  */
+export const VersioningConfigurationFilterSensitiveLog = (obj: VersioningConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketVersioningRequestFilterSensitiveLog = (obj: PutBucketVersioningRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const PutJobTaggingRequestFilterSensitiveLog = (obj: PutJobTaggingRequest): any => ({
   ...obj,
 });
@@ -5337,6 +5724,24 @@ export const PutStorageLensConfigurationTaggingRequestFilterSensitiveLog = (
  */
 export const PutStorageLensConfigurationTaggingResultFilterSensitiveLog = (
   obj: PutStorageLensConfigurationTaggingResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitMultiRegionAccessPointRoutesRequestFilterSensitiveLog = (
+  obj: SubmitMultiRegionAccessPointRoutesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitMultiRegionAccessPointRoutesResultFilterSensitiveLog = (
+  obj: SubmitMultiRegionAccessPointRoutesResult
 ): any => ({
   ...obj,
 });

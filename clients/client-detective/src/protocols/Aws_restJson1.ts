@@ -10,7 +10,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -82,6 +82,7 @@ import {
 } from "../commands/UpdateOrganizationConfigurationCommand";
 import { DetectiveServiceException as __BaseException } from "../models/DetectiveServiceException";
 import {
+  AccessDeniedException,
   Account,
   Administrator,
   ConflictException,
@@ -633,7 +634,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -722,10 +726,13 @@ const deserializeAws_restJson1AcceptInvitationCommandError = async (
 ): Promise<AcceptInvitationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
@@ -775,10 +782,13 @@ const deserializeAws_restJson1BatchGetGraphMemberDatasourcesCommandError = async
 ): Promise<BatchGetGraphMemberDatasourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -828,10 +838,13 @@ const deserializeAws_restJson1BatchGetMembershipDatasourcesCommandError = async 
 ): Promise<BatchGetMembershipDatasourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -875,10 +888,13 @@ const deserializeAws_restJson1CreateGraphCommandError = async (
 ): Promise<CreateGraphCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
@@ -925,10 +941,13 @@ const deserializeAws_restJson1CreateMembersCommandError = async (
 ): Promise<CreateMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -972,10 +991,13 @@ const deserializeAws_restJson1DeleteGraphCommandError = async (
 ): Promise<DeleteGraphCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1022,10 +1044,13 @@ const deserializeAws_restJson1DeleteMembersCommandError = async (
 ): Promise<DeleteMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
@@ -1072,10 +1097,13 @@ const deserializeAws_restJson1DescribeOrganizationConfigurationCommandError = as
 ): Promise<DescribeOrganizationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1116,10 +1144,13 @@ const deserializeAws_restJson1DisableOrganizationAdminAccountCommandError = asyn
 ): Promise<DisableOrganizationAdminAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1160,10 +1191,13 @@ const deserializeAws_restJson1DisassociateMembershipCommandError = async (
 ): Promise<DisassociateMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
@@ -1207,10 +1241,13 @@ const deserializeAws_restJson1EnableOrganizationAdminAccountCommandError = async
 ): Promise<EnableOrganizationAdminAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1257,10 +1294,13 @@ const deserializeAws_restJson1GetMembersCommandError = async (
 ): Promise<GetMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1310,10 +1350,13 @@ const deserializeAws_restJson1ListDatasourcePackagesCommandError = async (
 ): Promise<ListDatasourcePackagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1360,10 +1403,13 @@ const deserializeAws_restJson1ListGraphsCommandError = async (
 ): Promise<ListGraphsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1407,10 +1453,13 @@ const deserializeAws_restJson1ListInvitationsCommandError = async (
 ): Promise<ListInvitationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1454,10 +1503,13 @@ const deserializeAws_restJson1ListMembersCommandError = async (
 ): Promise<ListMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1504,10 +1556,13 @@ const deserializeAws_restJson1ListOrganizationAdminAccountsCommandError = async 
 ): Promise<ListOrganizationAdminAccountsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1551,10 +1606,13 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1595,10 +1653,13 @@ const deserializeAws_restJson1RejectInvitationCommandError = async (
 ): Promise<RejectInvitationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
@@ -1642,10 +1703,13 @@ const deserializeAws_restJson1StartMonitoringMemberCommandError = async (
 ): Promise<StartMonitoringMemberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
@@ -1692,10 +1756,13 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1736,10 +1803,13 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1780,10 +1850,13 @@ const deserializeAws_restJson1UpdateDatasourcePackagesCommandError = async (
 ): Promise<UpdateDatasourcePackagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1827,10 +1900,13 @@ const deserializeAws_restJson1UpdateOrganizationConfigurationCommandError = asyn
 ): Promise<UpdateOrganizationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1852,6 +1928,34 @@ const deserializeAws_restJson1UpdateOrganizationConfigurationCommandError = asyn
 };
 
 const map = __map;
+const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.ErrorCode != null) {
+    contents.ErrorCode = __expectString(data.ErrorCode);
+  }
+  if (data.ErrorCodeReason != null) {
+    contents.ErrorCodeReason = __expectString(data.ErrorCodeReason);
+  }
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.SubErrorCode != null) {
+    contents.SubErrorCode = __expectString(data.SubErrorCode);
+  }
+  if (data.SubErrorCodeReason != null) {
+    contents.SubErrorCodeReason = __expectString(data.SubErrorCodeReason);
+  }
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1ConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2012,10 +2116,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2035,7 +2137,9 @@ const deserializeAws_restJson1Administrator = (output: any, context: __SerdeCont
   return {
     AccountId: __expectString(output.AccountId),
     DelegationTime:
-      output.DelegationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.DelegationTime)) : undefined,
+      output.DelegationTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.DelegationTime))
+        : undefined,
     GraphArn: __expectString(output.GraphArn),
   } as any;
 };
@@ -2074,10 +2178,8 @@ const deserializeAws_restJson1DatasourcePackageIngestDetails = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1DatasourcePackageIngestDetail(value, context),
-      };
+      acc[key] = deserializeAws_restJson1DatasourcePackageIngestDetail(value, context);
+      return acc;
     },
     {}
   );
@@ -2092,10 +2194,8 @@ const deserializeAws_restJson1DatasourcePackageIngestHistory = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1LastIngestStateChangeDates(value, context),
-      };
+      acc[key] = deserializeAws_restJson1LastIngestStateChangeDates(value, context);
+      return acc;
     },
     {}
   );
@@ -2110,10 +2210,8 @@ const deserializeAws_restJson1DatasourcePackageIngestStates = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -2127,7 +2225,7 @@ const deserializeAws_restJson1DatasourcePackageUsageInfo = (
     VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
     VolumeUsageUpdateTime:
       output.VolumeUsageUpdateTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.VolumeUsageUpdateTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.VolumeUsageUpdateTime))
         : undefined,
   } as any;
 };
@@ -2135,7 +2233,8 @@ const deserializeAws_restJson1DatasourcePackageUsageInfo = (
 const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Graph => {
   return {
     Arn: __expectString(output.Arn),
-    CreatedTime: output.CreatedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTime)) : undefined,
+    CreatedTime:
+      output.CreatedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTime)) : undefined,
   } as any;
 };
 
@@ -2160,10 +2259,8 @@ const deserializeAws_restJson1LastIngestStateChangeDates = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1TimestampForCollection(value, context),
-      };
+      acc[key] = deserializeAws_restJson1TimestampForCollection(value, context);
+      return acc;
     },
     {}
   );
@@ -2181,15 +2278,17 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     EmailAddress: __expectString(output.EmailAddress),
     GraphArn: __expectString(output.GraphArn),
     InvitationType: __expectString(output.InvitationType),
-    InvitedTime: output.InvitedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.InvitedTime)) : undefined,
+    InvitedTime:
+      output.InvitedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.InvitedTime)) : undefined,
     MasterId: __expectString(output.MasterId),
     PercentOfGraphUtilization: __limitedParseDouble(output.PercentOfGraphUtilization),
     PercentOfGraphUtilizationUpdatedTime:
       output.PercentOfGraphUtilizationUpdatedTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.PercentOfGraphUtilizationUpdatedTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.PercentOfGraphUtilizationUpdatedTime))
         : undefined,
     Status: __expectString(output.Status),
-    UpdatedTime: output.UpdatedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTime)) : undefined,
+    UpdatedTime:
+      output.UpdatedTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTime)) : undefined,
     VolumeUsageByDatasourcePackage:
       output.VolumeUsageByDatasourcePackage != null
         ? deserializeAws_restJson1VolumeUsageByDatasourcePackage(output.VolumeUsageByDatasourcePackage, context)
@@ -2197,7 +2296,7 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
     VolumeUsageUpdatedTime:
       output.VolumeUsageUpdatedTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.VolumeUsageUpdatedTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.VolumeUsageUpdatedTime))
         : undefined,
   } as any;
 };
@@ -2257,10 +2356,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2269,7 +2366,8 @@ const deserializeAws_restJson1TimestampForCollection = (
   context: __SerdeContext
 ): TimestampForCollection => {
   return {
-    Timestamp: output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.Timestamp)) : undefined,
+    Timestamp:
+      output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Timestamp)) : undefined,
   } as any;
 };
 
@@ -2320,10 +2418,8 @@ const deserializeAws_restJson1VolumeUsageByDatasourcePackage = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1DatasourcePackageUsageInfo(value, context),
-      };
+      acc[key] = deserializeAws_restJson1DatasourcePackageUsageInfo(value, context);
+      return acc;
     },
     {}
   );
@@ -2331,7 +2427,8 @@ const deserializeAws_restJson1VolumeUsageByDatasourcePackage = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2363,6 +2460,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2373,6 +2476,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

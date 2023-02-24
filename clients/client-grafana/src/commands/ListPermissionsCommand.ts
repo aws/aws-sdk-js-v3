@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,11 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
 
 /**
  * <p>Lists the users and groups who have the Grafana <code>Admin</code> and
- *          <code>Editor</code> roles in this workspace. If you use this
- *       operation without specifying <code>userId</code> or <code>groupId</code>, the operation returns
- *          the roles of all users
- *          and groups. If you specify a <code>userId</code> or a <code>groupId</code>, only the roles
- *          for that user or group are returned. If you do this, you can specify only one <code>userId</code> or
- *          one <code>groupId</code>.</p>
+ *                 <code>Editor</code> roles in this workspace. If you use this operation without
+ *             specifying <code>userId</code> or <code>groupId</code>, the operation returns the roles
+ *             of all users and groups. If you specify a <code>userId</code> or a <code>groupId</code>,
+ *             only the roles for that user or group are returned. If you do this, you can specify only
+ *             one <code>userId</code> or one <code>groupId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +58,15 @@ export class ListPermissionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +82,9 @@ export class ListPermissionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListPermissionsCommandInput, ListPermissionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListPermissionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

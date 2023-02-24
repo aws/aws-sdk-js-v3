@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,16 +26,16 @@ export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {
 /**
  * <p>Updates the name and/or the path of the specified server certificate stored in
  *             IAM.</p>
- *         <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+ *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
  *             topic also includes a list of Amazon Web Services services that can use the server certificates that
  *             you manage with IAM.</p>
- *         <important>
+ *          <important>
  *             <p>You should understand the implications of changing a server certificate's path or
  *                 name. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts">Renaming a server certificate</a> in the
  *                     <i>IAM User Guide</i>.</p>
- *         </important>
- *         <note>
+ *          </important>
+ *          <note>
  *             <p>The person making the request (the principal), must have permission to change the
  *                 server certificate with the old name and the new name. For example, to change the
  *                 certificate named <code>ProductionCert</code> to <code>ProdCert</code>, the
@@ -42,7 +43,7 @@ export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {
  *                 principal has permission to update the <code>ProductionCert</code> group, but not
  *                 the <code>ProdCert</code> certificate, then the update fails. For more information
  *                 about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide</i>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +67,15 @@ export class UpdateServerCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +91,9 @@ export class UpdateServerCertificateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateServerCertificateCommandInput, UpdateServerCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateServerCertificateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

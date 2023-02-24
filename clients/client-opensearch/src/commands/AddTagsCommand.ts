@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,11 +24,9 @@ export interface AddTagsCommandInput extends AddTagsRequest {}
 export interface AddTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Attaches tags to an existing domain. Tags are a set of case-sensitive key value pairs. An
- *       domain can have up to 10 tags. See
- *       <a href="http://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging" target="_blank">
- *         Tagging Amazon OpenSearch Service domains</a> for more information.
- *     </p>
+ * <p>Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of
+ *    case-sensitive key-value pairs. A domain can have up to 10 tags. For more information, see
+ *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +50,15 @@ export class AddTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +74,7 @@ export class AddTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddTagsCommandInput, AddTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AddTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

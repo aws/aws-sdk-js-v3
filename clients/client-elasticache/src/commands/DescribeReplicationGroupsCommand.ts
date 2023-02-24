@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  * <p>Returns information about a particular
  *             replication group. If no identifier is specified, <code>DescribeReplicationGroups</code>
  *             returns information about all replication groups.</p>
- *         <note>
+ *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
  * @example
@@ -57,6 +58,15 @@ export class DescribeReplicationGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeReplicationGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class DescribeReplicationGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeReplicationGroupsCommandInput, DescribeReplicationGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeReplicationGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

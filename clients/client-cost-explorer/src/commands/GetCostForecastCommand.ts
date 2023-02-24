@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,8 @@ export interface GetCostForecastCommandInput extends GetCostForecastRequest {}
 export interface GetCostForecastCommandOutput extends GetCostForecastResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will spend over the forecast time period that you select, based on your past costs. </p>
+ * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will spend over
+ *       the forecast time period that you select, based on your past costs. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +54,15 @@ export class GetCostForecastCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetCostForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +78,9 @@ export class GetCostForecastCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetCostForecastCommandInput, GetCostForecastCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetCostForecastCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,15 +29,14 @@ export interface DetectModerationLabelsCommandInput extends DetectModerationLabe
 export interface DetectModerationLabelsCommandOutput extends DetectModerationLabelsResponse, __MetadataBearer {}
 
 /**
- * <p>Detects unsafe content in a specified JPEG or PNG format image.
- *      Use <code>DetectModerationLabels</code> to moderate images depending on your requirements.
- *      For example, you might want to filter images that contain nudity, but not images containing
- *      suggestive content.</p>
- *          <p>To filter images, use the labels returned by <code>DetectModerationLabels</code>
- *      to determine which types of content are appropriate.</p>
- *
- *          <p>For information about moderation labels,
- *       see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
+ * <p>Detects unsafe content in a specified JPEG or PNG format image. Use
+ *         <code>DetectModerationLabels</code> to moderate images depending on your requirements. For
+ *       example, you might want to filter images that contain nudity, but not images containing
+ *       suggestive content.</p>
+ *          <p>To filter images, use the labels returned by <code>DetectModerationLabels</code> to
+ *       determine which types of content are appropriate.</p>
+ *          <p>For information about moderation labels, see Detecting Unsafe Content in the
+ *       Amazon Rekognition Developer Guide.</p>
  *          <p>You pass the input image either as base64-encoded image bytes or as a reference to an
  *       image in an Amazon S3 bucket. If you use the
  *       AWS
@@ -65,6 +65,15 @@ export class DetectModerationLabelsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetectModerationLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +89,9 @@ export class DetectModerationLabelsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetectModerationLabelsCommandInput, DetectModerationLabelsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetectModerationLabelsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

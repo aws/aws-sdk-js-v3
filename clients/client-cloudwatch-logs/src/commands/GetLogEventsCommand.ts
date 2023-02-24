@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,10 +31,15 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
 /**
  * <p>Lists log events from the specified log stream. You can list all of the log events or
  *       filter using a time range.</p>
- *
  *          <p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events).
  *       You can get additional log events by specifying one of the tokens in a subsequent call.
  *       This operation can return empty results while there are more log events available through the token.</p>
+ *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
+ *       view data from the linked source accounts. For more information, see
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
+ *          <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>.
+ *       You must include one of these two parameters, but you can't include both.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +63,15 @@ export class GetLogEventsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetLogEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +87,7 @@ export class GetLogEventsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetLogEventsCommandInput, GetLogEventsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetLogEventsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

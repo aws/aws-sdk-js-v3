@@ -88,6 +88,11 @@ import {
 } from "./commands/GetResourcePolicyCommand";
 import { GetSnapshotCommand, GetSnapshotCommandInput, GetSnapshotCommandOutput } from "./commands/GetSnapshotCommand";
 import {
+  GetTableRestoreStatusCommand,
+  GetTableRestoreStatusCommandInput,
+  GetTableRestoreStatusCommandOutput,
+} from "./commands/GetTableRestoreStatusCommand";
+import {
   GetUsageLimitCommand,
   GetUsageLimitCommandInput,
   GetUsageLimitCommandOutput,
@@ -118,6 +123,11 @@ import {
   ListSnapshotsCommandOutput,
 } from "./commands/ListSnapshotsCommand";
 import {
+  ListTableRestoreStatusCommand,
+  ListTableRestoreStatusCommandInput,
+  ListTableRestoreStatusCommandOutput,
+} from "./commands/ListTableRestoreStatusCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -147,6 +157,11 @@ import {
   RestoreFromSnapshotCommandInput,
   RestoreFromSnapshotCommandOutput,
 } from "./commands/RestoreFromSnapshotCommand";
+import {
+  RestoreTableFromSnapshotCommand,
+  RestoreTableFromSnapshotCommandInput,
+  RestoreTableFromSnapshotCommandOutput,
+} from "./commands/RestoreTableFromSnapshotCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -591,15 +606,12 @@ export class RedshiftServerless extends RedshiftServerlessClient {
    *          <p>By default, the temporary credentials expire in 900 seconds.
    *          You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes).</p>
    *
-   *          <p>
-   *          The Identity and Access Management (IAM) user or role that runs
-   *          GetCredentials must have an IAM policy attached that allows access to all
-   *          necessary actions and resources.
-   *          </p>
+   *          <p>The Identity and Access Management (IAM) user or role that runs
+   *       GetCredentials must have an IAM policy attached that allows access to all
+   *       necessary actions and resources.</p>
    *
-   *          <p>
-   *          If the <code>DbName</code> parameter is specified, the IAM policy must
-   *          allow access to the resource dbname for the specified database name.</p>
+   *          <p>If the <code>DbName</code> parameter is specified, the IAM policy must
+   *       allow access to the resource dbname for the specified database name.</p>
    */
   public getCredentials(
     args: GetCredentialsCommandInput,
@@ -771,6 +783,38 @@ export class RedshiftServerless extends RedshiftServerlessClient {
     cb?: (err: any, data?: GetSnapshotCommandOutput) => void
   ): Promise<GetSnapshotCommandOutput> | void {
     const command = new GetSnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a <code>TableRestoreStatus</code> object.</p>
+   */
+  public getTableRestoreStatus(
+    args: GetTableRestoreStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableRestoreStatusCommandOutput>;
+  public getTableRestoreStatus(
+    args: GetTableRestoreStatusCommandInput,
+    cb: (err: any, data?: GetTableRestoreStatusCommandOutput) => void
+  ): void;
+  public getTableRestoreStatus(
+    args: GetTableRestoreStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableRestoreStatusCommandOutput) => void
+  ): void;
+  public getTableRestoreStatus(
+    args: GetTableRestoreStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTableRestoreStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetTableRestoreStatusCommandOutput) => void
+  ): Promise<GetTableRestoreStatusCommandOutput> | void {
+    const command = new GetTableRestoreStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -960,6 +1004,38 @@ export class RedshiftServerless extends RedshiftServerlessClient {
     cb?: (err: any, data?: ListSnapshotsCommandOutput) => void
   ): Promise<ListSnapshotsCommandOutput> | void {
     const command = new ListSnapshotsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about an array of <code>TableRestoreStatus</code> objects.</p>
+   */
+  public listTableRestoreStatus(
+    args: ListTableRestoreStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTableRestoreStatusCommandOutput>;
+  public listTableRestoreStatus(
+    args: ListTableRestoreStatusCommandInput,
+    cb: (err: any, data?: ListTableRestoreStatusCommandOutput) => void
+  ): void;
+  public listTableRestoreStatus(
+    args: ListTableRestoreStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTableRestoreStatusCommandOutput) => void
+  ): void;
+  public listTableRestoreStatus(
+    args: ListTableRestoreStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTableRestoreStatusCommandOutput) => void),
+    cb?: (err: any, data?: ListTableRestoreStatusCommandOutput) => void
+  ): Promise<ListTableRestoreStatusCommandOutput> | void {
+    const command = new ListTableRestoreStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1163,6 +1239,39 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * <p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to
+   *          restore tables with <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved sort keys</a>.</p>
+   */
+  public restoreTableFromSnapshot(
+    args: RestoreTableFromSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreTableFromSnapshotCommandOutput>;
+  public restoreTableFromSnapshot(
+    args: RestoreTableFromSnapshotCommandInput,
+    cb: (err: any, data?: RestoreTableFromSnapshotCommandOutput) => void
+  ): void;
+  public restoreTableFromSnapshot(
+    args: RestoreTableFromSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreTableFromSnapshotCommandOutput) => void
+  ): void;
+  public restoreTableFromSnapshot(
+    args: RestoreTableFromSnapshotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreTableFromSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: RestoreTableFromSnapshotCommandOutput) => void
+  ): Promise<RestoreTableFromSnapshotCommandOutput> | void {
+    const command = new RestoreTableFromSnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Assigns one or more tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1253,7 +1362,9 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
-   * <p>Updates a namespace with the specified settings.</p>
+   * <p>Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example,
+   *       you must specify both <code>adminUsername</code> and <code>adminUserPassword</code> to update either field, but you can't update both <code>kmsKeyId</code>
+   *       and <code>logExports</code> in a single request.</p>
    */
   public updateNamespace(
     args: UpdateNamespaceCommandInput,
@@ -1349,7 +1460,8 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
-   * <p>Updates a workgroup with the specified configuration settings.</p>
+   * <p>Updates a workgroup with the specified configuration settings. You can't update multiple parameters in one request. For example,
+   *       you can update <code>baseCapacity</code> or <code>port</code> in a single request, but you can't update both in the same request.</p>
    */
   public updateWorkgroup(
     args: UpdateWorkgroupCommandInput,

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  * <p>Starts a mailbox export job to export MIME-format email messages and calendar items
  *          from the specified mailbox to the specified Amazon Simple Storage Service (Amazon S3)
  *          bucket. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html">Exporting mailbox content</a> in
- *          the <i>Amazon WorkMail Administrator Guide</i>.</p>
+ *          the <i>WorkMail Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class StartMailboxExportJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartMailboxExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class StartMailboxExportJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartMailboxExportJobCommandInput, StartMailboxExportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartMailboxExportJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

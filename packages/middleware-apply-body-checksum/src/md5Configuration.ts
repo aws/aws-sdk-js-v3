@@ -1,8 +1,8 @@
-import { Encoder, HashConstructor, StreamHasher } from "@aws-sdk/types";
+import { ChecksumConstructor, Encoder, HashConstructor, StreamHasher } from "@aws-sdk/types";
 
 export interface Md5BodyChecksumInputConfig {}
 interface PreviouslyResolved {
-  md5: HashConstructor;
+  md5: ChecksumConstructor | HashConstructor;
   base64Encoder: Encoder;
   streamHasher: StreamHasher<any>;
 }
@@ -12,7 +12,7 @@ export interface Md5BodyChecksumResolvedConfig {
    * A constructor for a class implementing the @aws-sdk/types.Hash interface that computes MD5 hashes.
    * @internal
    */
-  md5: HashConstructor;
+  md5: ChecksumConstructor | HashConstructor;
   /**
    * The function that will be used to convert binary data to a base64-encoded string.
    * @internal

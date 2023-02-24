@@ -1,9 +1,10 @@
 import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity, STSClientConfig } from "@aws-sdk/client-sts";
 import { fromIni as _fromIni, FromIniInit as _FromIniInit } from "@aws-sdk/credential-provider-ini";
-import { CredentialProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider, Pluggable } from "@aws-sdk/types";
 
 export interface FromIniInit extends _FromIniInit {
   clientConfig?: STSClientConfig;
+  clientPlugins?: Pluggable<any, any>[];
 }
 
 /**
@@ -38,14 +39,17 @@ export interface FromIniInit extends _FromIniInit {
  *     },
  *     // Optional. Custom STS client configurations overriding the default ones.
  *     clientConfig: { region },
+ *     // Optional. Custom STS client middleware plugin to modify the client default behavior.
+ *     // e.g. adding custom headers.
+ *     clientPlugins: [addFooHeadersPlugin],
  *   }),
  * });
  * ```
  */
-export const fromIni = (init: FromIniInit = {}): CredentialProvider =>
+export const fromIni = (init: FromIniInit = {}): AwsCredentialIdentityProvider =>
   _fromIni({
     ...init,
-    roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.clientConfig),
+    roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.clientConfig, init.clientPlugins),
     roleAssumerWithWebIdentity:
-      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig),
+      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig, init.clientPlugins),
   });

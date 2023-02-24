@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface GetSensitiveDataOccurrencesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves (reveals) occurrences of sensitive data reported by a finding.</p>
+ * <p>Retrieves occurrences of sensitive data reported by a finding.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class GetSensitiveDataOccurrencesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetSensitiveDataOccurrencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class GetSensitiveDataOccurrencesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetSensitiveDataOccurrencesCommandInput, GetSensitiveDataOccurrencesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetSensitiveDataOccurrencesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

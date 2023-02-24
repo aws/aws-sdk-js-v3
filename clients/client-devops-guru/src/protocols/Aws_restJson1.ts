@@ -153,6 +153,7 @@ import {
   InsightStatus,
   InsightTimeRange,
   InternalServerException,
+  ListAnomaliesForInsightFilters,
   ListEventsFilters,
   ListInsightsAnyStatusFilter,
   ListInsightsClosedStatusFilter,
@@ -166,6 +167,8 @@ import {
   MonitoredResourceIdentifier,
   NotificationChannel,
   NotificationChannelConfig,
+  NotificationFilterConfig,
+  NotificationMessageType,
   OpsCenterIntegration,
   OpsCenterIntegrationConfig,
   PerformanceInsightsMetricDimensionGroup,
@@ -622,6 +625,9 @@ export const serializeAws_restJson1ListAnomaliesForInsightCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.Filters != null && {
+      Filters: serializeAws_restJson1ListAnomaliesForInsightFilters(input.Filters, context),
+    }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.StartTimeRange != null && {
@@ -1080,7 +1086,7 @@ const deserializeAws_restJson1AddNotificationChannelCommandError = async (
 ): Promise<AddNotificationChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1136,7 +1142,7 @@ const deserializeAws_restJson1DeleteInsightCommandError = async (
 ): Promise<DeleteInsightCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1180,6 +1186,9 @@ export const deserializeAws_restJson1DescribeAccountHealthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AnalyzedResourceCount != null) {
+    contents.AnalyzedResourceCount = __expectLong(data.AnalyzedResourceCount);
+  }
   if (data.MetricsAnalyzed != null) {
     contents.MetricsAnalyzed = __expectInt32(data.MetricsAnalyzed);
   }
@@ -1201,7 +1210,7 @@ const deserializeAws_restJson1DescribeAccountHealthCommandError = async (
 ): Promise<DescribeAccountHealthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1257,7 +1266,7 @@ const deserializeAws_restJson1DescribeAccountOverviewCommandError = async (
 ): Promise<DescribeAccountOverviewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1310,7 +1319,7 @@ const deserializeAws_restJson1DescribeAnomalyCommandError = async (
 ): Promise<DescribeAnomalyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1363,7 +1372,7 @@ const deserializeAws_restJson1DescribeEventSourcesConfigCommandError = async (
 ): Promise<DescribeEventSourcesConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1413,7 +1422,7 @@ const deserializeAws_restJson1DescribeFeedbackCommandError = async (
 ): Promise<DescribeFeedbackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1469,7 +1478,7 @@ const deserializeAws_restJson1DescribeInsightCommandError = async (
 ): Promise<DescribeInsightCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1531,7 +1540,7 @@ const deserializeAws_restJson1DescribeOrganizationHealthCommandError = async (
 ): Promise<DescribeOrganizationHealthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1584,7 +1593,7 @@ const deserializeAws_restJson1DescribeOrganizationOverviewCommandError = async (
 ): Promise<DescribeOrganizationOverviewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1646,7 +1655,7 @@ const deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthComman
 ): Promise<DescribeOrganizationResourceCollectionHealthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1705,7 +1714,7 @@ const deserializeAws_restJson1DescribeResourceCollectionHealthCommandError = asy
 ): Promise<DescribeResourceCollectionHealthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1755,7 +1764,7 @@ const deserializeAws_restJson1DescribeServiceIntegrationCommandError = async (
 ): Promise<DescribeServiceIntegrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1826,7 +1835,7 @@ const deserializeAws_restJson1GetCostEstimationCommandError = async (
 ): Promise<GetCostEstimationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1882,7 +1891,7 @@ const deserializeAws_restJson1GetResourceCollectionCommandError = async (
 ): Promise<GetResourceCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1941,7 +1950,7 @@ const deserializeAws_restJson1ListAnomaliesForInsightCommandError = async (
 ): Promise<ListAnomaliesForInsightCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2000,7 +2009,7 @@ const deserializeAws_restJson1ListAnomalousLogGroupsCommandError = async (
 ): Promise<ListAnomalousLogGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2056,7 +2065,7 @@ const deserializeAws_restJson1ListEventsCommandError = async (
 ): Promise<ListEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2115,7 +2124,7 @@ const deserializeAws_restJson1ListInsightsCommandError = async (
 ): Promise<ListInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2171,7 +2180,7 @@ const deserializeAws_restJson1ListMonitoredResourcesCommandError = async (
 ): Promise<ListMonitoredResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2224,7 +2233,7 @@ const deserializeAws_restJson1ListNotificationChannelsCommandError = async (
 ): Promise<ListNotificationChannelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2280,7 +2289,7 @@ const deserializeAws_restJson1ListOrganizationInsightsCommandError = async (
 ): Promise<ListOrganizationInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2333,7 +2342,7 @@ const deserializeAws_restJson1ListRecommendationsCommandError = async (
 ): Promise<ListRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2383,7 +2392,7 @@ const deserializeAws_restJson1PutFeedbackCommandError = async (
 ): Promise<PutFeedbackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2436,7 +2445,7 @@ const deserializeAws_restJson1RemoveNotificationChannelCommandError = async (
 ): Promise<RemoveNotificationChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2498,7 +2507,7 @@ const deserializeAws_restJson1SearchInsightsCommandError = async (
 ): Promise<SearchInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2554,7 +2563,7 @@ const deserializeAws_restJson1SearchOrganizationInsightsCommandError = async (
 ): Promise<SearchOrganizationInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2601,7 +2610,7 @@ const deserializeAws_restJson1StartCostEstimationCommandError = async (
 ): Promise<StartCostEstimationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2654,7 +2663,7 @@ const deserializeAws_restJson1UpdateEventSourcesConfigCommandError = async (
 ): Promise<UpdateEventSourcesConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2701,7 +2710,7 @@ const deserializeAws_restJson1UpdateResourceCollectionCommandError = async (
 ): Promise<UpdateResourceCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2751,7 +2760,7 @@ const deserializeAws_restJson1UpdateServiceIntegrationCommandError = async (
 ): Promise<UpdateServiceIntegrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3046,6 +3055,17 @@ const serializeAws_restJson1InsightStatuses = (input: (InsightStatus | string)[]
     });
 };
 
+const serializeAws_restJson1ListAnomaliesForInsightFilters = (
+  input: ListAnomaliesForInsightFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ServiceCollection != null && {
+      ServiceCollection: serializeAws_restJson1ServiceCollection(input.ServiceCollection, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1ListEventsFilters = (input: ListEventsFilters, context: __SerdeContext): any => {
   return {
     ...(input.DataSource != null && { DataSource: input.DataSource }),
@@ -3151,8 +3171,32 @@ const serializeAws_restJson1NotificationChannelConfig = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Filters != null && { Filters: serializeAws_restJson1NotificationFilterConfig(input.Filters, context) }),
     ...(input.Sns != null && { Sns: serializeAws_restJson1SnsChannelConfig(input.Sns, context) }),
   };
+};
+
+const serializeAws_restJson1NotificationFilterConfig = (
+  input: NotificationFilterConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MessageTypes != null && {
+      MessageTypes: serializeAws_restJson1NotificationMessageTypes(input.MessageTypes, context),
+    }),
+    ...(input.Severities != null && { Severities: serializeAws_restJson1InsightSeverities(input.Severities, context) }),
+  };
+};
+
+const serializeAws_restJson1NotificationMessageTypes = (
+  input: (NotificationMessageType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_restJson1OpsCenterIntegrationConfig = (
@@ -3570,6 +3614,7 @@ const deserializeAws_restJson1CloudFormationCostEstimationResourceCollectionFilt
 
 const deserializeAws_restJson1CloudFormationHealth = (output: any, context: __SerdeContext): CloudFormationHealth => {
   return {
+    AnalyzedResourceCount: __expectLong(output.AnalyzedResourceCount),
     Insight: output.Insight != null ? deserializeAws_restJson1InsightHealth(output.Insight, context) : undefined,
     StackName: __expectString(output.StackName),
   } as any;
@@ -3788,6 +3833,21 @@ const deserializeAws_restJson1InsightHealth = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1InsightSeverities = (
+  output: any,
+  context: __SerdeContext
+): (InsightSeverity | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1InsightTimeRange = (output: any, context: __SerdeContext): InsightTimeRange => {
   return {
     EndTime:
@@ -3859,7 +3919,15 @@ const deserializeAws_restJson1MonitoredResourceIdentifier = (
   context: __SerdeContext
 ): MonitoredResourceIdentifier => {
   return {
+    LastUpdated:
+      output.LastUpdated != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
+        : undefined,
     MonitoredResourceName: __expectString(output.MonitoredResourceName),
+    ResourceCollection:
+      output.ResourceCollection != null
+        ? deserializeAws_restJson1ResourceCollection(output.ResourceCollection, context)
+        : undefined,
     ResourcePermission: __expectString(output.ResourcePermission),
     Type: __expectString(output.Type),
   } as any;
@@ -3893,8 +3961,39 @@ const deserializeAws_restJson1NotificationChannelConfig = (
   context: __SerdeContext
 ): NotificationChannelConfig => {
   return {
+    Filters:
+      output.Filters != null ? deserializeAws_restJson1NotificationFilterConfig(output.Filters, context) : undefined,
     Sns: output.Sns != null ? deserializeAws_restJson1SnsChannelConfig(output.Sns, context) : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1NotificationFilterConfig = (
+  output: any,
+  context: __SerdeContext
+): NotificationFilterConfig => {
+  return {
+    MessageTypes:
+      output.MessageTypes != null
+        ? deserializeAws_restJson1NotificationMessageTypes(output.MessageTypes, context)
+        : undefined,
+    Severities:
+      output.Severities != null ? deserializeAws_restJson1InsightSeverities(output.Severities, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NotificationMessageTypes = (
+  output: any,
+  context: __SerdeContext
+): (NotificationMessageType | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1OpsCenterIntegration = (output: any, context: __SerdeContext): OpsCenterIntegration => {
@@ -3940,10 +4039,8 @@ const deserializeAws_restJson1PerformanceInsightsMetricFilterMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4719,6 +4816,7 @@ const deserializeAws_restJson1ServiceCollection = (output: any, context: __Serde
 
 const deserializeAws_restJson1ServiceHealth = (output: any, context: __SerdeContext): ServiceHealth => {
   return {
+    AnalyzedResourceCount: __expectLong(output.AnalyzedResourceCount),
     Insight: output.Insight != null ? deserializeAws_restJson1ServiceInsightHealth(output.Insight, context) : undefined,
     ServiceName: __expectString(output.ServiceName),
   } as any;
@@ -4875,6 +4973,7 @@ const deserializeAws_restJson1TagCostEstimationResourceCollectionFilters = (
 
 const deserializeAws_restJson1TagHealth = (output: any, context: __SerdeContext): TagHealth => {
   return {
+    AnalyzedResourceCount: __expectLong(output.AnalyzedResourceCount),
     AppBoundaryKey: __expectString(output.AppBoundaryKey),
     Insight: output.Insight != null ? deserializeAws_restJson1InsightHealth(output.Insight, context) : undefined,
     TagValue: __expectString(output.TagValue),
@@ -4958,7 +5057,8 @@ const deserializeAws_restJson1ValidationExceptionFields = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -4990,6 +5090,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -5000,6 +5106,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

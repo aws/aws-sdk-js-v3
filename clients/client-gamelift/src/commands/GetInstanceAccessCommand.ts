@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -39,9 +40,7 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  *             as part of the <code>GetInstanceAccess</code> request, as shown in one of the examples
  *             for this operation. </p>
  *         <p>To request access to a specific instance, specify the IDs of both the instance and the
- *             fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a>DescribeInstances</a>. If successful, an <a>InstanceAccess</a>
- *             object is returned that contains the instance's IP address and a set of
- *             credentials.</p>
+ *             fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html">DescribeInstances</a>. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
@@ -53,14 +52,10 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet
  *                 Issues</a>
  *          </p>
- *
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>DescribeInstances</a> |
- *                     <a>GetInstanceAccess</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -86,6 +81,15 @@ export class GetInstanceAccessCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetInstanceAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,6 +105,9 @@ export class GetInstanceAccessCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetInstanceAccessCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,16 +30,16 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
 
 /**
  * <p>Creates a CloudFront function.</p>
- * 		       <p>To create a function, you provide the function code and some configuration information
+ *          <p>To create a function, you provide the function code and some configuration information
  * 			about the function. The response contains an Amazon Resource Name (ARN) that uniquely
  * 			identifies the function.</p>
- * 		       <p>When you create a function, it’s in the <code>DEVELOPMENT</code> stage. In this stage, you
- * 			can test the function with <code>TestFunction</code>, and update it with
- * 			<code>UpdateFunction</code>.</p>
- * 		       <p>When you’re ready to use your function with a CloudFront distribution, use
- * 			<code>PublishFunction</code> to copy the function from the <code>DEVELOPMENT</code>
- * 			stage to <code>LIVE</code>. When it’s live, you can attach the function to a
- * 			distribution’s cache behavior, using the function’s ARN.</p>
+ *          <p>When you create a function, it's in the <code>DEVELOPMENT</code> stage. In this stage,
+ * 			you can test the function with <code>TestFunction</code>, and update it with
+ * 				<code>UpdateFunction</code>.</p>
+ *          <p>When you're ready to use your function with a CloudFront distribution, use
+ * 				<code>PublishFunction</code> to copy the function from the <code>DEVELOPMENT</code>
+ * 			stage to <code>LIVE</code>. When it's live, you can attach the function to a
+ * 			distribution's cache behavior, using the function's ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +63,15 @@ export class CreateFunctionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +87,9 @@ export class CreateFunctionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateFunctionCommandInput, CreateFunctionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateFunctionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

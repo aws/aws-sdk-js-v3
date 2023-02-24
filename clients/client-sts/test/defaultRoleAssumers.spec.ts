@@ -1,7 +1,12 @@
 // Please do not touch this file. It's generated from template in:
 // https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultRoleAssumers.spec.ts
+import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { HttpResponse } from "@aws-sdk/protocol-http";
 import { Readable } from "stream";
+
+import type { AssumeRoleCommandInput } from "../src/commands/AssumeRoleCommand";
+import { AssumeRoleWithWebIdentityCommandInput } from "../src/commands/AssumeRoleWithWebIdentityCommand";
+import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "../src/defaultRoleAssumers";
 
 const mockHandle = jest.fn().mockResolvedValue({
   response: new HttpResponse({
@@ -17,11 +22,6 @@ jest.mock("@aws-sdk/node-http-handler", () => ({
   streamCollector: jest.fn(),
 }));
 
-import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
-
-import type { AssumeRoleCommandInput } from "../src/commands/AssumeRoleCommand";
-import { AssumeRoleWithWebIdentityCommandInput } from "../src/commands/AssumeRoleWithWebIdentityCommand";
-import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "../src/defaultRoleAssumers";
 const mockConstructorInput = jest.fn();
 jest.mock("../src/STSClient", () => ({
   STSClient: function (params: any) {
@@ -102,6 +102,29 @@ describe("getDefaultRoleAssumer", () => {
       region,
     });
   });
+
+  it("should use the STS client middleware", async () => {
+    const customMiddlewareFunction = jest.fn();
+    const roleAssumer = getDefaultRoleAssumer({}, [
+      {
+        applyToStack: (stack) => {
+          stack.add((next) => (args) => {
+            customMiddlewareFunction(args);
+            return next(args);
+          });
+        },
+      },
+    ]);
+    const params: AssumeRoleCommandInput = {
+      RoleArn: "arn:aws:foo",
+      RoleSessionName: "session",
+    };
+    const sourceCred = { accessKeyId: "key", secretAccessKey: "secrete" };
+    await Promise.all([roleAssumer(sourceCred, params), roleAssumer(sourceCred, params)]);
+    expect(customMiddlewareFunction).toHaveBeenCalledTimes(2); // make sure the middleware is not added to stack multiple times.
+    expect(customMiddlewareFunction).toHaveBeenNthCalledWith(1, expect.objectContaining({ input: params }));
+    expect(customMiddlewareFunction).toHaveBeenNthCalledWith(2, expect.objectContaining({ input: params }));
+  });
 });
 
 describe("getDefaultRoleAssumerWithWebIdentity", () => {
@@ -145,5 +168,28 @@ describe("getDefaultRoleAssumerWithWebIdentity", () => {
       requestHandler: handler,
       region,
     });
+  });
+
+  it("should use the STS client middleware", async () => {
+    const customMiddlewareFunction = jest.fn();
+    const roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity({}, [
+      {
+        applyToStack: (stack) => {
+          stack.add((next) => (args) => {
+            customMiddlewareFunction(args);
+            return next(args);
+          });
+        },
+      },
+    ]);
+    const params: AssumeRoleWithWebIdentityCommandInput = {
+      RoleArn: "arn:aws:foo",
+      RoleSessionName: "session",
+      WebIdentityToken: "token",
+    };
+    await Promise.all([roleAssumerWithWebIdentity(params), roleAssumerWithWebIdentity(params)]);
+    expect(customMiddlewareFunction).toHaveBeenCalledTimes(2); // make sure the middleware is not added to stack multiple times.
+    expect(customMiddlewareFunction).toHaveBeenNthCalledWith(1, expect.objectContaining({ input: params }));
+    expect(customMiddlewareFunction).toHaveBeenNthCalledWith(2, expect.objectContaining({ input: params }));
   });
 });

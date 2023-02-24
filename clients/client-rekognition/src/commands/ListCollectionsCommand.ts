@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,13 @@ export interface ListCollectionsCommandInput extends ListCollectionsRequest {}
 export interface ListCollectionsCommandOutput extends ListCollectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns list of collection IDs in your account.
- *     If the result is truncated, the response also provides a <code>NextToken</code>
- *     that you can use in the subsequent request to fetch the next set of collection IDs.</p>
- *
- *          <p>For an example, see Listing collections in the Amazon Rekognition Developer Guide.</p>
- *          <p>This operation requires permissions to perform the <code>rekognition:ListCollections</code> action.</p>
+ * <p>Returns list of collection IDs in your account. If the result is truncated, the
+ *       response also provides a <code>NextToken</code> that you can use in the subsequent request to
+ *       fetch the next set of collection IDs.</p>
+ *          <p>For an example, see Listing collections in the Amazon Rekognition Developer
+ *       Guide.</p>
+ *          <p>This operation requires permissions to perform the
+ *         <code>rekognition:ListCollections</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +59,15 @@ export class ListCollectionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListCollectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +83,9 @@ export class ListCollectionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListCollectionsCommandInput, ListCollectionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListCollectionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

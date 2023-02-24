@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,16 +30,17 @@ export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobRes
 
 /**
  * <p>Provides information about the specified Call Analytics job.</p>
- *         <p>To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status is
- *             <code>COMPLETED</code>, the job is finished. You can find your completed transcript at
- *             the URI specified in <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>,
- *             <code>FailureReason</code> provides details on why your transcription job failed.</p>
- *         <p>If you enabled personally identifiable information (PII) redaction, the redacted transcript
- *             appears at the location specified in <code>RedactedTranscriptFileUri</code>.</p>
- *          <p>If you chose to redact the audio in your media file, you can find your redacted media file
- *            at the location specified in <code>RedactedMediaFileUri</code>.</p>
- *         <p>To get a list of your Call Analytics jobs, use the
- *             operation.</p>
+ *          <p>To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status
+ *             is <code>COMPLETED</code>, the job is finished. You can find your completed transcript
+ *             at the URI specified in <code>TranscriptFileUri</code>. If the status is
+ *                 <code>FAILED</code>, <code>FailureReason</code> provides details on why your
+ *             transcription job failed.</p>
+ *          <p>If you enabled personally identifiable information (PII) redaction, the redacted
+ *             transcript appears at the location specified in
+ *             <code>RedactedTranscriptFileUri</code>.</p>
+ *          <p>If you chose to redact the audio in your media file, you can find your redacted media
+ *             file at the location specified in <code>RedactedMediaFileUri</code>.</p>
+ *          <p>To get a list of your Call Analytics jobs, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +64,15 @@ export class GetCallAnalyticsJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetCallAnalyticsJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +88,9 @@ export class GetCallAnalyticsJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetCallAnalyticsJobCommandInput, GetCallAnalyticsJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetCallAnalyticsJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

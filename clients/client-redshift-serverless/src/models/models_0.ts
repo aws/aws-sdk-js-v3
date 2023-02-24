@@ -30,8 +30,10 @@ export class AccessDeniedException extends __BaseException {
 export interface ConfigParameter {
   /**
    * <p>The key of the parameter. The
-   *          options are <code>datestyle</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, and <code>max_query_execution_time</code>.</p>
+   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *          <code>query_group</code>, <code>search_path</code>, and query monitoring metrics that let
+   *          you define performance boundaries. For more information about query monitoring rules and available metrics, see
+   *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    */
   parameterKey?: string;
 
@@ -60,6 +62,21 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * <p>A map of key-value pairs.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The key to use in the tag.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the tag.</p>
+   */
+  value: string | undefined;
+}
+
 export interface ConvertRecoveryPointToSnapshotRequest {
   /**
    * <p>The unique identifier of the recovery point.</p>
@@ -75,6 +92,12 @@ export interface ConvertRecoveryPointToSnapshotRequest {
    * <p>How long to retain the snapshot.</p>
    */
   retentionPeriod?: number;
+
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html">Tag objects</a>
+   *          to associate with the created snapshot.</p>
+   */
+  tags?: Tag[];
 }
 
 export enum SnapshotStatus {
@@ -264,6 +287,31 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * <p>The request exceeded the number of tags allowed for a resource.</p>
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The name of the resource that exceeded the number of tags allowed for a resource.</p>
+   */
+  resourceName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.resourceName = opts.resourceName;
+  }
+}
+
+/**
  * <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -439,21 +487,6 @@ export enum LogExport {
   USER_LOG = "userlog",
 }
 
-/**
- * <p>A map of key-value pairs.</p>
- */
-export interface Tag {
-  /**
-   * <p>The key to use in the tag.</p>
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The value of the tag.</p>
-   */
-  value: string | undefined;
-}
-
 export interface CreateNamespaceRequest {
   /**
    * <p>The name of the namespace.</p>
@@ -578,31 +611,6 @@ export interface CreateNamespaceResponse {
   namespace?: Namespace;
 }
 
-/**
- * <p>The request exceeded the number of tags allowed for a resource.</p>
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the resource that exceeded the number of tags allowed for a resource.</p>
-   */
-  resourceName?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
 export interface CreateSnapshotRequest {
   /**
    * <p>The namespace to create a snapshot for.</p>
@@ -618,6 +626,11 @@ export interface CreateSnapshotRequest {
    * <p>How long to retain the created snapshot.</p>
    */
   retentionPeriod?: number;
+
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html">Tag objects</a> to associate with the snapshot.</p>
+   */
+  tags?: Tag[];
 }
 
 export interface CreateSnapshotResponse {
@@ -742,9 +755,11 @@ export interface CreateWorkgroupRequest {
   enhancedVpcRouting?: boolean;
 
   /**
-   * <p>An array of parameters to set for more control over a serverless database. The
-   *          options are <code>datestyle</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, and <code>max_query_execution_time</code>.</p>
+   * <p>An array of parameters to set for advanced control over a database. The
+   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *          <code>query_group</code>, <code>search_path</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see
+   *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">
+   *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    */
   configParameters?: ConfigParameter[];
 
@@ -767,6 +782,11 @@ export interface CreateWorkgroupRequest {
    * <p>A array of tag instances.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>
+   */
+  port?: number;
 }
 
 /**
@@ -832,9 +852,10 @@ export interface Workgroup {
   enhancedVpcRouting?: boolean;
 
   /**
-   * <p>An array of parameters to set for finer control over a database. The
-   *       options are <code>datestyle</code>, <code>enable_user_activity_logging</code>,
-   *       <code>query_group</code>, <code>search_path</code>, and <code>max_query_execution_time</code>.</p>
+   * <p>An array of parameters to set for advanced control over a database. The
+   *         options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *         <code>query_group</code>, , <code>search_path</code>, and query monitoring metrics that let you define performance boundaries.
+   *         For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    */
   configParameters?: ConfigParameter[];
 
@@ -868,6 +889,11 @@ export interface Workgroup {
    * <p>The creation date of the workgroup.</p>
    */
   creationDate?: Date;
+
+  /**
+   * <p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>
+   */
+  port?: number;
 }
 
 export interface CreateWorkgroupResponse {
@@ -928,14 +954,14 @@ export interface GetEndpointAccessResponse {
 export interface ListEndpointAccessRequest {
   /**
    * <p>If your initial <code>ListEndpointAccess</code> operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in subsequent <code>ListEndpointAccess</code> operations,
+   *          you can include the returned <code>nextToken</code> in following <code>ListEndpointAccess</code> operations,
    *          which returns results in the next page.</p>
    */
   nextToken?: string;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to get the next page of results.</p>
+   *          You can use <code>nextToken</code> to display the next page of results.</p>
    */
   maxResults?: number;
 
@@ -1072,7 +1098,7 @@ export interface GetCredentialsRequest {
    *                <p>Must be 1 to 64 alphanumeric characters or hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p>
+   *                <p>Must contain only uppercase or lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p>
    *             </li>
    *             <li>
    *                <p>The first character must be a letter.</p>
@@ -1173,6 +1199,11 @@ export interface RecoveryPoint {
    * <p>The name of the workgroup the recovery point is associated with.</p>
    */
   workgroupName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the namespace the recovery point is associated with.</p>
+   */
+  namespaceArn?: string;
 }
 
 export interface GetRecoveryPointResponse {
@@ -1235,6 +1266,104 @@ export interface GetSnapshotResponse {
   snapshot?: Snapshot;
 }
 
+export interface GetTableRestoreStatusRequest {
+  /**
+   * <p>The ID of the <code>RestoreTableFromSnapshot</code> request to return status for.</p>
+   */
+  tableRestoreRequestId: string | undefined;
+}
+
+/**
+ * <p>Contains information about a table restore request.</p>
+ */
+export interface TableRestoreStatus {
+  /**
+   * <p>The ID of the RestoreTableFromSnapshot request.</p>
+   */
+  tableRestoreRequestId?: string;
+
+  /**
+   * <p>A value that describes the current state of the table restore request.
+   *          Possible values include <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>, <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>A description of the status of the table restore request.
+   *          Status values include <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>, <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>The time that the table restore request was made,
+   *          in Universal Coordinated Time (UTC).</p>
+   */
+  requestTime?: Date;
+
+  /**
+   * <p>The namespace of the table being restored from.</p>
+   */
+  namespaceName?: string;
+
+  /**
+   * <p>The name of the workgroup being restored from.</p>
+   */
+  workgroupName?: string;
+
+  /**
+   * <p>The name of the snapshot being restored from.</p>
+   */
+  snapshotName?: string;
+
+  /**
+   * <p>The amount of data restored to the new table so far, in megabytes (MB).</p>
+   */
+  progressInMegaBytes?: number;
+
+  /**
+   * <p>The total amount of data to restore to the new table, in megabytes (MB).</p>
+   */
+  totalDataInMegaBytes?: number;
+
+  /**
+   * <p>The name of the source database being restored from.</p>
+   */
+  sourceDatabaseName?: string;
+
+  /**
+   * <p>The name of the source schema being restored from.</p>
+   */
+  sourceSchemaName?: string;
+
+  /**
+   * <p>The name of the source table being restored from.</p>
+   */
+  sourceTableName?: string;
+
+  /**
+   * <p>The name of the database to restore to.</p>
+   */
+  targetDatabaseName?: string;
+
+  /**
+   * <p>The name of the schema to restore to.</p>
+   */
+  targetSchemaName?: string;
+
+  /**
+   * <p>The name of the table to create from the restore operation.</p>
+   */
+  newTableName?: string;
+}
+
+export interface GetTableRestoreStatusResponse {
+  /**
+   * <p>The returned <code>TableRestoreStatus</code> object that contains information about
+   *          the status of your <code>RestoreTableFromSnapshot</code> request.</p>
+   */
+  tableRestoreStatus?: TableRestoreStatus;
+}
+
 export interface GetUsageLimitRequest {
   /**
    * <p>The unique identifier of the usage limit to return information for.</p>
@@ -1285,14 +1414,14 @@ export class InvalidPaginationException extends __BaseException {
 export interface ListNamespacesRequest {
   /**
    * <p>If your initial <code>ListNamespaces</code> operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in subsequent <code>ListNamespaces</code> operations,
+   *          you can include the returned <code>nextToken</code> in following <code>ListNamespaces</code> operations,
    *          which returns results in the next page.</p>
    */
   nextToken?: string;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to get the next page of results.</p>
+   *          You can use <code>nextToken</code> to display the next page of results.</p>
    */
   maxResults?: number;
 }
@@ -1314,14 +1443,14 @@ export interface ListNamespacesResponse {
 export interface ListRecoveryPointsRequest {
   /**
    * <p>If your initial <code>ListRecoveryPoints</code> operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in subsequent <code>ListRecoveryPoints</code> operations,
+   *          you can include the returned <code>nextToken</code> in following <code>ListRecoveryPoints</code> operations,
    *          which returns results in the next page.</p>
    */
   nextToken?: string;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to get the next page of results.</p>
+   *          You can use <code>nextToken</code> to display the next page of results.</p>
    */
   maxResults?: number;
 
@@ -1339,6 +1468,11 @@ export interface ListRecoveryPointsRequest {
    * <p>The name of the namespace to list recovery points for.</p>
    */
   namespaceName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the namespace from which to list recovery points.</p>
+   */
+  namespaceArn?: string;
 }
 
 export interface ListRecoveryPointsResponse {
@@ -1365,7 +1499,7 @@ export interface ListSnapshotsRequest {
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to get the next page of results.</p>
+   *          You can use <code>nextToken</code> to display the next page of results.</p>
    */
   maxResults?: number;
 
@@ -1407,6 +1541,45 @@ export interface ListSnapshotsResponse {
    * <p>All of the returned snapshot objects.</p>
    */
   snapshots?: Snapshot[];
+}
+
+export interface ListTableRestoreStatusRequest {
+  /**
+   * <p>If your initial <code>ListTableRestoreStatus</code> operation returns a nextToken,
+   *          you can include the returned <code>nextToken</code> in following <code>ListTableRestoreStatus</code>
+   *          operations. This will return results on the next page.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to
+   *          return. You can use nextToken to display the next page of results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The namespace from which to list all of the statuses of <code>RestoreTableFromSnapshot</code> operations .</p>
+   */
+  namespaceName?: string;
+
+  /**
+   * <p>The workgroup from which to list all of the statuses of <code>RestoreTableFromSnapshot</code> operations.</p>
+   */
+  workgroupName?: string;
+}
+
+export interface ListTableRestoreStatusResponse {
+  /**
+   * <p>If your initial <code>ListTableRestoreStatus</code> operation returns a <code>nextToken</code>,
+   *          you can include the returned <code>nextToken</code> in following <code>ListTableRestoreStatus</code>
+   *          operations. This will returns results on the next page.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The array of returned <code>TableRestoreStatus</code> objects.</p>
+   */
+  tableRestoreStatuses?: TableRestoreStatus[];
 }
 
 export interface ListTagsForResourceRequest {
@@ -1458,7 +1631,7 @@ export interface ListUsageLimitsRequest {
 
   /**
    * <p>If your initial <code>ListUsageLimits</code> operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in subsequent <code>ListUsageLimits</code> operations,
+   *          you can include the returned <code>nextToken</code> in following <code>ListUsageLimits</code> operations,
    *          which returns results in the next page.
    *       </p>
    */
@@ -1488,14 +1661,14 @@ export interface ListUsageLimitsResponse {
 export interface ListWorkgroupsRequest {
   /**
    * <p>If your initial ListWorkgroups operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in subsequent ListNamespaces operations,
+   *          you can include the returned <code>nextToken</code> in following ListNamespaces operations,
    *          which returns results in the next page.</p>
    */
   nextToken?: string;
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to get the next page of results.</p>
+   *          You can use <code>nextToken</code> to display the next page of results.</p>
    */
   maxResults?: number;
 }
@@ -1517,17 +1690,19 @@ export interface ListWorkgroupsResponse {
 
 export interface UpdateNamespaceRequest {
   /**
-   * <p>The name of the namespace.</p>
+   * <p>The name of the namespace to update. You can't update the name of a namespace once it is created.</p>
    */
   namespaceName: string | undefined;
 
   /**
-   * <p>The password of the administrator for the first database created in the namespace.</p>
+   * <p>The password of the administrator for the first database created in the namespace. This parameter must be updated together
+   *       with <code>adminUsername</code>.</p>
    */
   adminUserPassword?: string;
 
   /**
-   * <p>The username of the administrator for the first database created in the namespace.</p>
+   * <p>The username of the administrator for the first database created in the namespace. This parameter must be updated
+   *       together with <code>adminUserPassword</code>.</p>
    */
   adminUsername?: string;
 
@@ -1537,12 +1712,13 @@ export interface UpdateNamespaceRequest {
   kmsKeyId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. This parameter must be updated together
+   *       with <code>iamRoles</code>.</p>
    */
   defaultIamRoleArn?: string;
 
   /**
-   * <p>A list of IAM roles to associate with the namespace.</p>
+   * <p>A list of IAM roles to associate with the namespace. This parameter must be updated together with <code>defaultIamRoleArn</code>.</p>
    */
   iamRoles?: string[];
 
@@ -1625,12 +1801,14 @@ export interface RestoreFromSnapshotRequest {
   workgroupName: string | undefined;
 
   /**
-   * <p>The name of the snapshot to restore from.</p>
+   * <p>The name of the snapshot to restore from. Must not be specified at the same time as <code>snapshotArn</code>.</p>
    */
   snapshotName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot to restore from.</p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring from Amazon Redshift Serverless to a provisioned cluster.
+   *       Must not be specified at the same time as <code>snapshotName</code>.</p>
+   *          <p>The format of the ARN is arn:aws:redshift:&lt;region&gt;:&lt;account_id&gt;:snapshot:&lt;cluster_identifier&gt;/&lt;snapshot_identifier&gt;.</p>
    */
   snapshotArn?: string;
 
@@ -1655,6 +1833,67 @@ export interface RestoreFromSnapshotResponse {
    * <p>A collection of database objects and users.</p>
    */
   namespace?: Namespace;
+}
+
+export interface RestoreTableFromSnapshotRequest {
+  /**
+   * <p>The namespace of the snapshot to restore from.</p>
+   */
+  namespaceName: string | undefined;
+
+  /**
+   * <p>The workgroup to restore the table to.</p>
+   */
+  workgroupName: string | undefined;
+
+  /**
+   * <p>The name of the snapshot to restore the table from.</p>
+   */
+  snapshotName: string | undefined;
+
+  /**
+   * <p>The name of the source database that contains the table being restored.</p>
+   */
+  sourceDatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the source schema that contains the table being restored.</p>
+   */
+  sourceSchemaName?: string;
+
+  /**
+   * <p>The name of the source table being restored.</p>
+   */
+  sourceTableName: string | undefined;
+
+  /**
+   * <p>The name of the database to restore the table to.</p>
+   */
+  targetDatabaseName?: string;
+
+  /**
+   * <p>The name of the schema to restore the table to.</p>
+   */
+  targetSchemaName?: string;
+
+  /**
+   * <p>The name of the table to create from the restore operation.</p>
+   */
+  newTableName: string | undefined;
+
+  /**
+   * <p>Indicates whether name identifiers for database, schema, and table
+   *          are case sensitive. If true, the names are case sensitive. If
+   *          false, the names are not case sensitive. The default is false.</p>
+   */
+  activateCaseSensitiveIdentifier?: boolean;
+}
+
+export interface RestoreTableFromSnapshotResponse {
+  /**
+   * <p>The TableRestoreStatus object that contains the status of the restore operation.</p>
+   */
+  tableRestoreStatus?: TableRestoreStatus;
 }
 
 export interface UpdateSnapshotRequest {
@@ -1711,7 +1950,9 @@ export interface UpdateUsageLimitRequest {
   usageLimitId: string | undefined;
 
   /**
-   * <p>The new limit amount. For more information about this parameter.</p>
+   * <p>The new limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour.
+   *          If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing.
+   *          The value must be a positive number.</p>
    */
   amount?: number;
 
@@ -1730,7 +1971,7 @@ export interface UpdateUsageLimitResponse {
 
 export interface UpdateWorkgroupRequest {
   /**
-   * <p>The name of the workgroup to update.</p>
+   * <p>The name of the workgroup to update. You can't update the name of a workgroup once it is created.</p>
    */
   workgroupName: string | undefined;
 
@@ -1747,8 +1988,11 @@ export interface UpdateWorkgroupRequest {
 
   /**
    * <p>An array of parameters to set for advanced control over a database. The
-   *          options are <code>datestyle</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, and <code>max_query_execution_time</code>.</p>
+   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>,
+   *          <code>query_group</code>, <code>search_path</code>, and query monitoring metrics that let you
+   *          define performance boundaries. For more information about query monitoring rules and available metrics, see
+   *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">
+   *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    */
   configParameters?: ConfigParameter[];
 
@@ -1766,6 +2010,11 @@ export interface UpdateWorkgroupRequest {
    * <p>An array of security group IDs to associate with the workgroup.</p>
    */
   securityGroupIds?: string[];
+
+  /**
+   * <p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>
+   */
+  port?: number;
 }
 
 export interface UpdateWorkgroupResponse {
@@ -1779,6 +2028,13 @@ export interface UpdateWorkgroupResponse {
  * @internal
  */
 export const ConfigParameterFilterSensitiveLog = (obj: ConfigParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
   ...obj,
 });
 
@@ -1846,13 +2102,6 @@ export const EndpointAccessFilterSensitiveLog = (obj: EndpointAccess): any => ({
  * @internal
  */
 export const CreateEndpointAccessResponseFilterSensitiveLog = (obj: CreateEndpointAccessResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
   ...obj,
 });
 
@@ -2161,6 +2410,27 @@ export const GetSnapshotResponseFilterSensitiveLog = (obj: GetSnapshotResponse):
 /**
  * @internal
  */
+export const GetTableRestoreStatusRequestFilterSensitiveLog = (obj: GetTableRestoreStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableRestoreStatusFilterSensitiveLog = (obj: TableRestoreStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTableRestoreStatusResponseFilterSensitiveLog = (obj: GetTableRestoreStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetUsageLimitRequestFilterSensitiveLog = (obj: GetUsageLimitRequest): any => ({
   ...obj,
 });
@@ -2226,6 +2496,20 @@ export const ListSnapshotsRequestFilterSensitiveLog = (obj: ListSnapshotsRequest
  * @internal
  */
 export const ListSnapshotsResponseFilterSensitiveLog = (obj: ListSnapshotsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTableRestoreStatusRequestFilterSensitiveLog = (obj: ListTableRestoreStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTableRestoreStatusResponseFilterSensitiveLog = (obj: ListTableRestoreStatusResponse): any => ({
   ...obj,
 });
 
@@ -2330,6 +2614,20 @@ export const RestoreFromSnapshotRequestFilterSensitiveLog = (obj: RestoreFromSna
 export const RestoreFromSnapshotResponseFilterSensitiveLog = (obj: RestoreFromSnapshotResponse): any => ({
   ...obj,
   ...(obj.namespace && { namespace: NamespaceFilterSensitiveLog(obj.namespace) }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreTableFromSnapshotRequestFilterSensitiveLog = (obj: RestoreTableFromSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreTableFromSnapshotResponseFilterSensitiveLog = (obj: RestoreTableFromSnapshotResponse): any => ({
+  ...obj,
 });
 
 /**

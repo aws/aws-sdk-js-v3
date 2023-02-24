@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,18 +32,18 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
 
 /**
  * <p>Creates a block list to exlcude certain queries from suggestions.</p>
- *         <p>Any query that contains words or phrases specified in the block
+ *          <p>Any query that contains words or phrases specified in the block
  *             list is blocked or filtered out from being shown as a suggestion.</p>
- *         <p>You need to provide the file location of your block list text file
+ *          <p>You need to provide the file location of your block list text file
  *             in your S3 bucket. In your text file, enter each block word or phrase
  *             on a separate line.</p>
- *         <p>For information on the current quota limits for block lists, see
+ *          <p>For information on the current quota limits for block lists, see
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
  *                 for Amazon Kendra</a>.</p>
- *         <p>
+ *          <p>
  *             <code>CreateQuerySuggestionsBlockList</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
- *         <p>For an example of creating a block list for query suggestions using the
+ *          <p>For an example of creating a block list for query suggestions using the
  *             Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list">Query
  *                 suggestions block list</a>.</p>
  * @example
@@ -68,6 +69,15 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateQuerySuggestionsBlockListCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +93,9 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateQuerySuggestionsBlockListCommandInput, CreateQuerySuggestionsBlockListCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateQuerySuggestionsBlockListCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

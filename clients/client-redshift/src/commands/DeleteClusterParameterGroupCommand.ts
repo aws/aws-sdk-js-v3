@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,10 +28,10 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
 
 /**
  * <p>Deletes a specified Amazon Redshift parameter group.</p>
- *         <note>
+ *          <note>
  *             <p>You cannot delete a parameter group if it is associated with a
  *                 cluster.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class DeleteClusterParameterGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class DeleteClusterParameterGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteClusterParameterGroupCommandInput, DeleteClusterParameterGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteClusterParameterGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

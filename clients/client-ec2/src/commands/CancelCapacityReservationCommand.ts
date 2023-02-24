@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
 /**
  * <p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to
  * 			<code>cancelled</code>.</p>
- * 		       <p>Instances running in the reserved capacity continue running until you stop them. Stopped
+ *          <p>Instances running in the reserved capacity continue running until you stop them. Stopped
  * 			instances that target the Capacity Reservation can no longer launch. Modify these instances to either
  * 			target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation
  * 			that has matching attributes and sufficient capacity.</p>
@@ -57,6 +58,15 @@ export class CancelCapacityReservationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CancelCapacityReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class CancelCapacityReservationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelCapacityReservationCommandInput, CancelCapacityReservationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CancelCapacityReservationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,13 +29,13 @@ export interface GetReservationCoverageCommandInput extends GetReservationCovera
 export interface GetReservationCoverageCommandOutput extends GetReservationCoverageResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the reservation coverage for your account, which you can use to see how much of
- *       your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or
- *       Amazon Redshift usage is covered by a reservation. An organization's management account can
+ * <p>Retrieves the reservation coverage for your account, which you can use to see how much
+ *       of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service,
+ *       or Amazon Redshift usage is covered by a reservation. An organization's management account can
  *       see the coverage of the associated member accounts. This supports dimensions, Cost Categories,
  *       and nested expressions. For any time period, you can filter data about reservation usage by
  *       the following dimensions:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>AZ</p>
  *             </li>
@@ -72,7 +73,8 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  *                <p>TENANCY</p>
  *             </li>
  *          </ul>
- * 		       <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code> operation. </p>
+ *          <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code>
+ *       operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,6 +98,15 @@ export class GetReservationCoverageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetReservationCoverageCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +122,9 @@ export class GetReservationCoverageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetReservationCoverageCommandInput, GetReservationCoverageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetReservationCoverageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

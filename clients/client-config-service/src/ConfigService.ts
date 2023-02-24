@@ -302,6 +302,11 @@ import {
   GetResourceConfigHistoryCommandOutput,
 } from "./commands/GetResourceConfigHistoryCommand";
 import {
+  GetResourceEvaluationSummaryCommand,
+  GetResourceEvaluationSummaryCommandInput,
+  GetResourceEvaluationSummaryCommandOutput,
+} from "./commands/GetResourceEvaluationSummaryCommand";
+import {
   GetStoredQueryCommand,
   GetStoredQueryCommandInput,
   GetStoredQueryCommandOutput,
@@ -321,6 +326,11 @@ import {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
+import {
+  ListResourceEvaluationsCommand,
+  ListResourceEvaluationsCommandInput,
+  ListResourceEvaluationsCommandOutput,
+} from "./commands/ListResourceEvaluationsCommand";
 import {
   ListStoredQueriesCommand,
   ListStoredQueriesCommandInput,
@@ -431,6 +441,11 @@ import {
   StartRemediationExecutionCommandInput,
   StartRemediationExecutionCommandOutput,
 } from "./commands/StartRemediationExecutionCommand";
+import {
+  StartResourceEvaluationCommand,
+  StartResourceEvaluationCommandInput,
+  StartResourceEvaluationCommandOutput,
+} from "./commands/StartResourceEvaluationCommand";
 import {
   StopConfigurationRecorderCommand,
   StopConfigurationRecorderCommandInput,
@@ -817,7 +832,7 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Deletes the specified organization Config rule and all of its evaluation results from all member accounts in that organization. </p>
-   * 	        <p>Only a master account and a delegated administrator account can delete an organization Config rule.
+   * 	        <p>Only a management account and a delegated administrator account can delete an organization Config rule.
    * 		When calling this API with a delegated administrator, you must ensure Organizations
    * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 		       <p>Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
@@ -855,7 +870,7 @@ export class ConfigService extends ConfigServiceClient {
   /**
    * <p>Deletes the specified organization conformance pack and all of the Config rules and remediation actions from
    * 			all member accounts in that organization. </p>
-   *          <p> Only a master account or a delegated administrator account can delete an organization conformance pack.
+   *          <p> Only a management account or a delegated administrator account can delete an organization conformance pack.
    * 	When calling this API with a delegated administrator, you must ensure Organizations
    * 		<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 			      <p>Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
@@ -1178,8 +1193,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each conformance pack.
-   * 			Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
+   * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each
+   * 			conformance pack. Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
    * 		       <note>
    *             <p>The results can return an empty result page, but if you have a <code>nextToken</code>, the results are displayed on the next page.</p>
    *          </note>
@@ -2354,7 +2369,7 @@ export class ConfigService extends ConfigServiceClient {
   /**
    * <p>Returns the evaluation results for the specified Amazon Web Services resource.
    * 			The results indicate which Config rules were used to evaluate
-   * 			the resource, when each rule was last used, and whether the resource
+   * 			the resource, when each rule was last invoked, and whether the resource
    * 			complies with each rule.</p>
    */
   public getComplianceDetailsByResource(
@@ -2797,6 +2812,40 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * <p>Returns a summary of resource evaluation for the specified resource evaluation ID from the proactive rules that were run.
+   * 			The results indicate which evaluation context was used to evaluate the rules, which resource details were evaluated,
+   * 			the evaluation mode that was run, and whether the resource details comply with the configuration of the proactive rules. </p>
+   */
+  public getResourceEvaluationSummary(
+    args: GetResourceEvaluationSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceEvaluationSummaryCommandOutput>;
+  public getResourceEvaluationSummary(
+    args: GetResourceEvaluationSummaryCommandInput,
+    cb: (err: any, data?: GetResourceEvaluationSummaryCommandOutput) => void
+  ): void;
+  public getResourceEvaluationSummary(
+    args: GetResourceEvaluationSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceEvaluationSummaryCommandOutput) => void
+  ): void;
+  public getResourceEvaluationSummary(
+    args: GetResourceEvaluationSummaryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceEvaluationSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetResourceEvaluationSummaryCommandOutput) => void
+  ): Promise<GetResourceEvaluationSummaryCommandOutput> | void {
+    const command = new GetResourceEvaluationSummaryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the details of a specific stored query.</p>
    */
   public getStoredQuery(
@@ -2866,7 +2915,7 @@ export class ConfigService extends ConfigServiceClient {
   /**
    * <p>Returns a list of conformance pack compliance scores.
    * 			A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
-   * 			This metric provides you with a high-level view of the compliance state of your conformance packs, and can be used to identify, investigate, and understand
+   * 			This metric provides you with a high-level view of the compliance state of your conformance packs. You can use it to identify, investigate, and understand
    * 			the level of compliance in your conformance packs.</p>
    * 		       <note>
    *             <p>Conformance packs with no evaluation results will have a compliance score of <code>INSUFFICIENT_DATA</code>.</p>
@@ -2939,6 +2988,38 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: ListDiscoveredResourcesCommandOutput) => void
   ): Promise<ListDiscoveredResourcesCommandOutput> | void {
     const command = new ListDiscoveredResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of proactive resource evaluations.</p>
+   */
+  public listResourceEvaluations(
+    args: ListResourceEvaluationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceEvaluationsCommandOutput>;
+  public listResourceEvaluations(
+    args: ListResourceEvaluationsCommandInput,
+    cb: (err: any, data?: ListResourceEvaluationsCommandOutput) => void
+  ): void;
+  public listResourceEvaluations(
+    args: ListResourceEvaluationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceEvaluationsCommandOutput) => void
+  ): void;
+  public listResourceEvaluations(
+    args: ListResourceEvaluationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceEvaluationsCommandOutput) => void),
+    cb?: (err: any, data?: ListResourceEvaluationsCommandOutput) => void
+  ): Promise<ListResourceEvaluationsCommandOutput> | void {
+    const command = new ListResourceEvaluationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3210,7 +3291,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across Amazon Web Services Organization.
+   * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across an organization.
    * 			For information on how many conformance packs you can have per account,
    * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
    *                <b>Service Limits</b>
@@ -3218,8 +3299,7 @@ export class ConfigService extends ConfigServiceClient {
    * 		       <p>This API creates a service-linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
    * 		The service-linked role is created only when the role does not exist in your account. </p>
    * 		       <note>
-   *             <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
-   * 			If you provide both Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
+   *             <p>You must specify only one of the follow parameters: <code>TemplateS3Uri</code>, <code>TemplateBody</code> or <code>TemplateSSMDocumentDetails</code>.</p>
    *          </note>
    */
   public putConformancePack(
@@ -3372,11 +3452,11 @@ export class ConfigService extends ConfigServiceClient {
    * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
    *                <b>Service Limits</b>
    *             </a> in the <i>Config Developer Guide</i>.</p>
-   * 	        <p> Only a master account and a delegated administrator can create or update an organization Config rule.
+   * 	        <p> Only a management account and a delegated administrator can create or update an organization Config rule.
    * 		When calling this API with a delegated administrator, you must ensure Organizations
    * 		<code>ListDelegatedAdministrator</code> permissions are added. An organization can have up to 3 delegated administrators.</p>
    * 		       <p>This API enables organization service access through the <code>EnableAWSServiceAccess</code> action and creates a service-linked
-   * 			role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master or delegated administrator account of your organization.
+   * 			role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the management or delegated administrator account of your organization.
    * 			The service-linked role is created only when the role does not exist in the caller account.
    * 			Config verifies the existence of role with <code>GetRole</code> action.</p>
    * 		       <p>To use this API with delegated administrator, register a delegated administrator by calling Amazon Web Services Organization
@@ -3389,7 +3469,7 @@ export class ConfigService extends ConfigServiceClient {
    * 			Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
    * 				Repository</a>) is a policy-as-code language that allows you to write policies that
    * 			are enforced by Config Custom Policy rules. Lambda uses custom code that you upload to
-   * 			evaluate a custom rule. If you are adding a new Custom Lambda rule, you first need to create an Lambda function in the master account or a delegated
+   * 			evaluate a custom rule. If you are adding a new Custom Lambda rule, you first need to create an Lambda function in the management account or a delegated
    * 		administrator that the rule invokes to evaluate your resources. You also need to create an IAM role in the managed account that can be assumed by the Lambda function.
    * 		When you use <code>PutOrganizationConfigRule</code> to add a Custom Lambda rule to Config, you must
    * 			specify the Amazon Resource Name (ARN) that Lambda assigns to the function.</p>
@@ -3439,12 +3519,12 @@ export class ConfigService extends ConfigServiceClient {
    * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
    *                <b>Service Limits</b>
    *             </a> in the Config Developer Guide.</p>
-   * 		       <p>Only a master account and a delegated administrator can call this API.
+   * 		       <p>Only a management account and a delegated administrator can call this API.
    * 			When calling this API with a delegated administrator, you must ensure Organizations
    * 			<code>ListDelegatedAdministrator</code> permissions are added. An organization can have up to 3 delegated administrators.</p>
    * 		       <p>This API enables organization service access for <code>config-multiaccountsetup.amazonaws.com</code>
    * 			through the <code>EnableAWSServiceAccess</code> action and creates a
-   * 			service-linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master or delegated administrator account of your organization.
+   * 			service-linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the management or delegated administrator account of your organization.
    * 			The service-linked role is created only when the role does not exist in the caller account.
    * 			To use this API with delegated administrator, register a delegated administrator by calling Amazon Web Services Organization
    * 			<code>register-delegate-admin</code> for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
@@ -3540,6 +3620,9 @@ export class ConfigService extends ConfigServiceClient {
    * 		       <note>
    *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
    * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
+   *          </note>
+   * 		       <note>
+   *             <p>To place an exception on an Amazon Web Services resource, ensure remediation is set as manual remediation.</p>
    *          </note>
    */
   public putRemediationExceptions(
@@ -3905,6 +3988,45 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: StartRemediationExecutionCommandOutput) => void
   ): Promise<StartRemediationExecutionCommandOutput> | void {
     const command = new StartRemediationExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Runs an on-demand evaluation for the specified resource to determine whether the resource details will comply with configured Config rules.
+   * 			You can also use it for evaluation purposes. Config recommends using an evaluation context. It runs an execution against the resource details with all
+   * 			of the Config rules in your account that match with the specified proactive mode and resource type.</p>
+   *
+   * 		       <note>
+   *             <p>Ensure you have the <code>cloudformation:DescribeType</code> role setup to validate the resource type schema.
+   * 		</p>
+   *          </note>
+   */
+  public startResourceEvaluation(
+    args: StartResourceEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartResourceEvaluationCommandOutput>;
+  public startResourceEvaluation(
+    args: StartResourceEvaluationCommandInput,
+    cb: (err: any, data?: StartResourceEvaluationCommandOutput) => void
+  ): void;
+  public startResourceEvaluation(
+    args: StartResourceEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartResourceEvaluationCommandOutput) => void
+  ): void;
+  public startResourceEvaluation(
+    args: StartResourceEvaluationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartResourceEvaluationCommandOutput) => void),
+    cb?: (err: any, data?: StartResourceEvaluationCommandOutput) => void
+  ): Promise<StartResourceEvaluationCommandOutput> | void {
+    const command = new StartResourceEvaluationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

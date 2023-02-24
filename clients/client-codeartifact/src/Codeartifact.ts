@@ -33,6 +33,11 @@ import {
   DeleteDomainPermissionsPolicyCommandOutput,
 } from "./commands/DeleteDomainPermissionsPolicyCommand";
 import {
+  DeletePackageCommand,
+  DeletePackageCommandInput,
+  DeletePackageCommandOutput,
+} from "./commands/DeletePackageCommand";
+import {
   DeletePackageVersionsCommand,
   DeletePackageVersionsCommandInput,
   DeletePackageVersionsCommandOutput,
@@ -182,12 +187,10 @@ import {
  *       public and CodeArtifact repositories. You can also create an upstream relationship between a CodeArtifact
  *       repository and another repository, which effectively merges their contents from the point of
  *       view of a package manager client. </p>
- *
  *          <p>
  *             <b>CodeArtifact Components</b>
  *          </p>
  *          <p>Use the information in this guide to help you work with the following CodeArtifact components:</p>
- *
  *          <ul>
  *             <li>
  *                <p>
@@ -263,7 +266,6 @@ import {
  *             <code>.tgz</code> file or Maven POM and JAR files.</p>
  *             </li>
  *          </ul>
- *
  *          <p>CodeArtifact supports these operations:</p>
  *          <ul>
  *             <li>
@@ -529,7 +531,6 @@ export class Codeartifact extends CodeartifactClient {
    *         repositories owned by different Amazon Web Services accounts. An asset is stored only once
    *         in a domain, even if it's in multiple repositories.
    *     </p>
-   *
    *          <p>Although you can have multiple domains, we recommend a single production domain that contains all
    *         published artifacts so that your development teams can find and share packages. You can use a second
    *         pre-production domain to test changes to the production domain configuration.
@@ -651,6 +652,39 @@ export class Codeartifact extends CodeartifactClient {
     cb?: (err: any, data?: DeleteDomainPermissionsPolicyCommandOutput) => void
   ): Promise<DeleteDomainPermissionsPolicyCommandOutput> | void {
     const command = new DeleteDomainPermissionsPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the
+   *      <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html">DeletePackageVersions</a> API.</p>
+   */
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePackageCommandOutput>;
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePackageCommandOutput) => void),
+    cb?: (err: any, data?: DeletePackageCommandOutput) => void
+  ): Promise<DeletePackageCommandOutput> | void {
+    const command = new DeletePackageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -952,13 +986,11 @@ export class Codeartifact extends CodeartifactClient {
    *       Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
    *       A disposed package version cannot be restored in your repository because its assets are deleted.
    *     </p>
-   *
    *          <p>
    *       To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a> and set the
    *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a> parameter
    *       to <code>Disposed</code>.
    *     </p>
-   *
    *          <p>
    *       To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">DescribePackageVersion</a>.
    *     </p>
@@ -1123,9 +1155,7 @@ export class Codeartifact extends CodeartifactClient {
 
   /**
    * <p>
-   *          Gets the readme file or descriptive text for a package version. For packages that do not contain a readme file, CodeArtifact
-   *          extracts a description from a metadata file. For example, from the <code><description></code> element in the
-   *         <code>pom.xml</code> file of a Maven package.
+   *          Gets the readme file or descriptive text for a package version.
    *       </p>
    *          <p>
    *        The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText.
@@ -1390,7 +1420,7 @@ export class Codeartifact extends CodeartifactClient {
    * <p>
    *         Returns a list of
    *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
-   *         objects for package versions in a repository that match the request parameters.
+   *         objects for package versions in a repository that match the request parameters. Package versions of all statuses will be returned by default when calling <code>list-package-versions</code> with no  <code>--status</code> parameter.
    *       </p>
    */
   public listPackageVersions(

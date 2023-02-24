@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,9 +24,11 @@ export interface DisassociateKmsKeyCommandInput extends DisassociateKmsKeyReques
 export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates the associated Key Management Service customer master key (CMK) from the specified log group.</p>
- *          <p>After the KMS CMK is disassociated from the log group, CloudWatch Logs stops encrypting newly ingested data for the log group.
- *       All previously ingested data remains encrypted, and CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.</p>
+ * <p>Disassociates the associated KMS key from the specified log
+ *       group.</p>
+ *          <p>After the KMS key is disassociated from the log group, CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data
+ *       remains encrypted, and CloudWatch Logs requires permissions for the KMS key
+ *       whenever the encrypted data is requested.</p>
  *          <p>Note that it can take up to 5 minutes for this operation to take effect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +53,15 @@ export class DisassociateKmsKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisassociateKmsKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +77,9 @@ export class DisassociateKmsKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateKmsKeyCommandInput, DisassociateKmsKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateKmsKeyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

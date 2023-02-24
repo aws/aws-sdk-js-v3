@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,15 +29,26 @@ export interface UpdatePortfolioShareCommandInput extends UpdatePortfolioShareIn
 export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified portfolio share. You can use this API to enable or disable TagOptions sharing for an existing portfolio share. </p>
+ * <p>Updates the specified portfolio share. You can use this API to enable or disable <code>TagOptions</code> sharing
+ *          or Principal sharing for an existing portfolio share. </p>
  *
- *          <p>The portfolio share cannot be updated if the <code> CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities. In this case, you must wait for the portfolio share to be COMPLETED.</p>
+ *          <p>The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities. In this case, you must wait for the portfolio share to be COMPLETED.</p>
  *
  *          <p>You must provide the <code>accountId</code> or organization node in the input, but not both.</p>
  *
  *          <p>If the portfolio is shared to both an external account and an organization node, and both shares need to be updated, you must invoke <code>UpdatePortfolioShare</code> separately for each share type. </p>
  *
  *          <p>This API cannot be used for removing the portfolio share. You must use <code>DeletePortfolioShare</code> API for that action. </p>
+ *
+ *          <note>
+ *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
+ *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,
+ *          but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal
+ *          name association for the portfolio. Although this user may not know which principal names are associated through
+ *          Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then
+ *          Service Catalog recommends using <code>PrincipalType</code> as <code>IAM</code>. With this configuration,
+ *          the <code>PrincipalARN</code> must already exist in the recipient account before it can be associated. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +72,15 @@ export class UpdatePortfolioShareCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdatePortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +96,9 @@ export class UpdatePortfolioShareCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdatePortfolioShareCommandInput, UpdatePortfolioShareCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdatePortfolioShareCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

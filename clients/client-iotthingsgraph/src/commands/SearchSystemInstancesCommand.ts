@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,6 +29,8 @@ export interface SearchSystemInstancesCommandInput extends SearchSystemInstances
 export interface SearchSystemInstancesCommandOutput extends SearchSystemInstancesResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Searches for system instances in the user's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +55,15 @@ export class SearchSystemInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchSystemInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +79,9 @@ export class SearchSystemInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchSystemInstancesCommandInput, SearchSystemInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchSystemInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

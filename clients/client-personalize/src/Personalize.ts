@@ -47,6 +47,11 @@ import {
   CreateFilterCommandOutput,
 } from "./commands/CreateFilterCommand";
 import {
+  CreateMetricAttributionCommand,
+  CreateMetricAttributionCommandInput,
+  CreateMetricAttributionCommandOutput,
+} from "./commands/CreateMetricAttributionCommand";
+import {
   CreateRecommenderCommand,
   CreateRecommenderCommandInput,
   CreateRecommenderCommandOutput,
@@ -91,6 +96,11 @@ import {
   DeleteFilterCommandInput,
   DeleteFilterCommandOutput,
 } from "./commands/DeleteFilterCommand";
+import {
+  DeleteMetricAttributionCommand,
+  DeleteMetricAttributionCommandInput,
+  DeleteMetricAttributionCommandOutput,
+} from "./commands/DeleteMetricAttributionCommand";
 import {
   DeleteRecommenderCommand,
   DeleteRecommenderCommandInput,
@@ -162,6 +172,11 @@ import {
   DescribeFilterCommandOutput,
 } from "./commands/DescribeFilterCommand";
 import {
+  DescribeMetricAttributionCommand,
+  DescribeMetricAttributionCommandInput,
+  DescribeMetricAttributionCommandOutput,
+} from "./commands/DescribeMetricAttributionCommand";
+import {
   DescribeRecipeCommand,
   DescribeRecipeCommandInput,
   DescribeRecipeCommandOutput,
@@ -232,6 +247,16 @@ import {
   ListEventTrackersCommandOutput,
 } from "./commands/ListEventTrackersCommand";
 import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
+import {
+  ListMetricAttributionMetricsCommand,
+  ListMetricAttributionMetricsCommandInput,
+  ListMetricAttributionMetricsCommandOutput,
+} from "./commands/ListMetricAttributionMetricsCommand";
+import {
+  ListMetricAttributionsCommand,
+  ListMetricAttributionsCommandInput,
+  ListMetricAttributionsCommandOutput,
+} from "./commands/ListMetricAttributionsCommand";
 import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
 import {
   ListRecommendersCommand,
@@ -280,6 +305,11 @@ import {
   UpdateCampaignCommandInput,
   UpdateCampaignCommandOutput,
 } from "./commands/UpdateCampaignCommand";
+import {
+  UpdateMetricAttributionCommand,
+  UpdateMetricAttributionCommandInput,
+  UpdateMetricAttributionCommandOutput,
+} from "./commands/UpdateMetricAttributionCommand";
 import {
   UpdateRecommenderCommand,
   UpdateRecommenderCommandInput,
@@ -896,6 +926,40 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Creates a metric attribution.
+   *       A metric attribution creates reports on the data that you import into Amazon Personalize. Depending on how you imported the data, you can view reports in Amazon CloudWatch or Amazon S3.
+   *       For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
+   */
+  public createMetricAttribution(
+    args: CreateMetricAttributionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMetricAttributionCommandOutput>;
+  public createMetricAttribution(
+    args: CreateMetricAttributionCommandInput,
+    cb: (err: any, data?: CreateMetricAttributionCommandOutput) => void
+  ): void;
+  public createMetricAttribution(
+    args: CreateMetricAttributionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMetricAttributionCommandOutput) => void
+  ): void;
+  public createMetricAttribution(
+    args: CreateMetricAttributionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMetricAttributionCommandOutput) => void),
+    cb?: (err: any, data?: CreateMetricAttributionCommandOutput) => void
+  ): Promise<CreateMetricAttributionCommandOutput> | void {
+    const command = new CreateMetricAttributionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a recommender with the recipe (a Domain dataset group use case) you specify.
    *       You create recommenders for a Domain dataset group and specify the recommender's Amazon Resource Name (ARN) when you make a
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
@@ -1439,6 +1503,38 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Deletes a metric attribution.</p>
+   */
+  public deleteMetricAttribution(
+    args: DeleteMetricAttributionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMetricAttributionCommandOutput>;
+  public deleteMetricAttribution(
+    args: DeleteMetricAttributionCommandInput,
+    cb: (err: any, data?: DeleteMetricAttributionCommandOutput) => void
+  ): void;
+  public deleteMetricAttribution(
+    args: DeleteMetricAttributionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMetricAttributionCommandOutput) => void
+  ): void;
+  public deleteMetricAttribution(
+    args: DeleteMetricAttributionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMetricAttributionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMetricAttributionCommandOutput) => void
+  ): Promise<DeleteMetricAttributionCommandOutput> | void {
+    const command = new DeleteMetricAttributionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deactivates and removes a recommender. A deleted recommender can no longer be specified in a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
    *     request.</p>
    */
@@ -1902,6 +1998,38 @@ export class Personalize extends PersonalizeClient {
     cb?: (err: any, data?: DescribeFilterCommandOutput) => void
   ): Promise<DescribeFilterCommandOutput> | void {
     const command = new DescribeFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a metric attribution.</p>
+   */
+  public describeMetricAttribution(
+    args: DescribeMetricAttributionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetricAttributionCommandOutput>;
+  public describeMetricAttribution(
+    args: DescribeMetricAttributionCommandInput,
+    cb: (err: any, data?: DescribeMetricAttributionCommandOutput) => void
+  ): void;
+  public describeMetricAttribution(
+    args: DescribeMetricAttributionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetricAttributionCommandOutput) => void
+  ): void;
+  public describeMetricAttribution(
+    args: DescribeMetricAttributionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMetricAttributionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMetricAttributionCommandOutput) => void
+  ): Promise<DescribeMetricAttributionCommandOutput> | void {
+    const command = new DescribeMetricAttributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2444,6 +2572,70 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Lists the metrics for the metric attribution.</p>
+   */
+  public listMetricAttributionMetrics(
+    args: ListMetricAttributionMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMetricAttributionMetricsCommandOutput>;
+  public listMetricAttributionMetrics(
+    args: ListMetricAttributionMetricsCommandInput,
+    cb: (err: any, data?: ListMetricAttributionMetricsCommandOutput) => void
+  ): void;
+  public listMetricAttributionMetrics(
+    args: ListMetricAttributionMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMetricAttributionMetricsCommandOutput) => void
+  ): void;
+  public listMetricAttributionMetrics(
+    args: ListMetricAttributionMetricsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMetricAttributionMetricsCommandOutput) => void),
+    cb?: (err: any, data?: ListMetricAttributionMetricsCommandOutput) => void
+  ): Promise<ListMetricAttributionMetricsCommandOutput> | void {
+    const command = new ListMetricAttributionMetricsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists metric attributions.</p>
+   */
+  public listMetricAttributions(
+    args: ListMetricAttributionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMetricAttributionsCommandOutput>;
+  public listMetricAttributions(
+    args: ListMetricAttributionsCommandInput,
+    cb: (err: any, data?: ListMetricAttributionsCommandOutput) => void
+  ): void;
+  public listMetricAttributions(
+    args: ListMetricAttributionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMetricAttributionsCommandOutput) => void
+  ): void;
+  public listMetricAttributions(
+    args: ListMetricAttributionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMetricAttributionsCommandOutput) => void),
+    cb?: (err: any, data?: ListMetricAttributionsCommandOutput) => void
+  ): Promise<ListMetricAttributionsCommandOutput> | void {
+    const command = new ListMetricAttributionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of available recipes. The response provides the properties
    *        for each recipe, including the recipe's Amazon Resource Name (ARN).</p>
    */
@@ -2835,6 +3027,38 @@ export class Personalize extends PersonalizeClient {
     cb?: (err: any, data?: UpdateCampaignCommandOutput) => void
   ): Promise<UpdateCampaignCommandOutput> | void {
     const command = new UpdateCampaignCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a metric attribution.</p>
+   */
+  public updateMetricAttribution(
+    args: UpdateMetricAttributionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMetricAttributionCommandOutput>;
+  public updateMetricAttribution(
+    args: UpdateMetricAttributionCommandInput,
+    cb: (err: any, data?: UpdateMetricAttributionCommandOutput) => void
+  ): void;
+  public updateMetricAttribution(
+    args: UpdateMetricAttributionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMetricAttributionCommandOutput) => void
+  ): void;
+  public updateMetricAttribution(
+    args: UpdateMetricAttributionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMetricAttributionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMetricAttributionCommandOutput) => void
+  ): Promise<UpdateMetricAttributionCommandOutput> | void {
+    const command = new UpdateMetricAttributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -1,4 +1,5 @@
-import { MAXIMUM_RETRY_DELAY } from "./constants";
+import { MAXIMUM_RETRY_DELAY } from "@aws-sdk/util-retry";
+
 import { defaultDelayDecider } from "./delayDecider";
 
 describe("defaultDelayDecider", () => {

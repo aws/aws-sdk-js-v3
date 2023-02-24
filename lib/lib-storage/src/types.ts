@@ -1,4 +1,5 @@
 import { PutObjectCommandInput, S3Client, Tag } from "@aws-sdk/client-s3";
+import { AbortController } from "@aws-sdk/abort-controller";
 
 export interface Progress {
   loaded?: number;
@@ -40,6 +41,11 @@ export interface Configuration {
    * The tags to apply to the object.
    */
   tags: Tag[];
+
+  /**
+   * Optional abort controller for controlling this upload's abort signal externally.
+   */
+  abortController?: AbortController;
 }
 
 export interface Options extends Partial<Configuration> {

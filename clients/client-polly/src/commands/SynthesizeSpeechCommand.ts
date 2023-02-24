@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -9,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -25,7 +29,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface SynthesizeSpeechCommandInput extends SynthesizeSpeechInput {}
-export interface SynthesizeSpeechCommandOutput extends SynthesizeSpeechOutput, __MetadataBearer {}
+export interface SynthesizeSpeechCommandOutput
+  extends __WithSdkStreamMixin<SynthesizeSpeechOutput, "AudioStream">,
+    __MetadataBearer {}
 
 /**
  * <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
@@ -56,6 +62,15 @@ export class SynthesizeSpeechCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SynthesizeSpeechCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +86,9 @@ export class SynthesizeSpeechCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SynthesizeSpeechCommandInput, SynthesizeSpeechCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SynthesizeSpeechCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -96,7 +114,10 @@ export class SynthesizeSpeechCommand extends $Command<
     return serializeAws_restJson1SynthesizeSpeechCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SynthesizeSpeechCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<SynthesizeSpeechCommandOutput> {
     return deserializeAws_restJson1SynthesizeSpeechCommand(output, context);
   }
 

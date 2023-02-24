@@ -17,6 +17,11 @@ import {
   AssociateTrustStoreCommandOutput,
 } from "./commands/AssociateTrustStoreCommand";
 import {
+  AssociateUserAccessLoggingSettingsCommand,
+  AssociateUserAccessLoggingSettingsCommandInput,
+  AssociateUserAccessLoggingSettingsCommandOutput,
+} from "./commands/AssociateUserAccessLoggingSettingsCommand";
+import {
   AssociateUserSettingsCommand,
   AssociateUserSettingsCommandInput,
   AssociateUserSettingsCommandOutput,
@@ -46,6 +51,11 @@ import {
   CreateTrustStoreCommandInput,
   CreateTrustStoreCommandOutput,
 } from "./commands/CreateTrustStoreCommand";
+import {
+  CreateUserAccessLoggingSettingsCommand,
+  CreateUserAccessLoggingSettingsCommandInput,
+  CreateUserAccessLoggingSettingsCommandOutput,
+} from "./commands/CreateUserAccessLoggingSettingsCommand";
 import {
   CreateUserSettingsCommand,
   CreateUserSettingsCommandInput,
@@ -77,6 +87,11 @@ import {
   DeleteTrustStoreCommandOutput,
 } from "./commands/DeleteTrustStoreCommand";
 import {
+  DeleteUserAccessLoggingSettingsCommand,
+  DeleteUserAccessLoggingSettingsCommandInput,
+  DeleteUserAccessLoggingSettingsCommandOutput,
+} from "./commands/DeleteUserAccessLoggingSettingsCommand";
+import {
   DeleteUserSettingsCommand,
   DeleteUserSettingsCommandInput,
   DeleteUserSettingsCommandOutput,
@@ -96,6 +111,11 @@ import {
   DisassociateTrustStoreCommandInput,
   DisassociateTrustStoreCommandOutput,
 } from "./commands/DisassociateTrustStoreCommand";
+import {
+  DisassociateUserAccessLoggingSettingsCommand,
+  DisassociateUserAccessLoggingSettingsCommandInput,
+  DisassociateUserAccessLoggingSettingsCommandOutput,
+} from "./commands/DisassociateUserAccessLoggingSettingsCommand";
 import {
   DisassociateUserSettingsCommand,
   DisassociateUserSettingsCommandInput,
@@ -133,6 +153,11 @@ import {
   GetTrustStoreCommandOutput,
 } from "./commands/GetTrustStoreCommand";
 import {
+  GetUserAccessLoggingSettingsCommand,
+  GetUserAccessLoggingSettingsCommandInput,
+  GetUserAccessLoggingSettingsCommandOutput,
+} from "./commands/GetUserAccessLoggingSettingsCommand";
+import {
   GetUserSettingsCommand,
   GetUserSettingsCommandInput,
   GetUserSettingsCommandOutput,
@@ -169,6 +194,11 @@ import {
   ListTrustStoresCommandOutput,
 } from "./commands/ListTrustStoresCommand";
 import {
+  ListUserAccessLoggingSettingsCommand,
+  ListUserAccessLoggingSettingsCommandInput,
+  ListUserAccessLoggingSettingsCommandOutput,
+} from "./commands/ListUserAccessLoggingSettingsCommand";
+import {
   ListUserSettingsCommand,
   ListUserSettingsCommandInput,
   ListUserSettingsCommandOutput,
@@ -204,6 +234,11 @@ import {
   UpdateTrustStoreCommandInput,
   UpdateTrustStoreCommandOutput,
 } from "./commands/UpdateTrustStoreCommand";
+import {
+  UpdateUserAccessLoggingSettingsCommand,
+  UpdateUserAccessLoggingSettingsCommandInput,
+  UpdateUserAccessLoggingSettingsCommandOutput,
+} from "./commands/UpdateUserAccessLoggingSettingsCommand";
 import {
   UpdateUserSettingsCommand,
   UpdateUserSettingsCommandInput,
@@ -306,6 +341,38 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
     cb?: (err: any, data?: AssociateTrustStoreCommandOutput) => void
   ): Promise<AssociateTrustStoreCommandOutput> | void {
     const command = new AssociateTrustStoreCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a user access logging settings resource with a web portal.</p>
+   */
+  public associateUserAccessLoggingSettings(
+    args: AssociateUserAccessLoggingSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateUserAccessLoggingSettingsCommandOutput>;
+  public associateUserAccessLoggingSettings(
+    args: AssociateUserAccessLoggingSettingsCommandInput,
+    cb: (err: any, data?: AssociateUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public associateUserAccessLoggingSettings(
+    args: AssociateUserAccessLoggingSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public associateUserAccessLoggingSettings(
+    args: AssociateUserAccessLoggingSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateUserAccessLoggingSettingsCommandOutput) => void),
+    cb?: (err: any, data?: AssociateUserAccessLoggingSettingsCommandOutput) => void
+  ): Promise<AssociateUserAccessLoggingSettingsCommandOutput> | void {
+    const command = new AssociateUserAccessLoggingSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -514,6 +581,38 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * <p>Creates a user access logging settings resource that can be associated with a web portal.</p>
+   */
+  public createUserAccessLoggingSettings(
+    args: CreateUserAccessLoggingSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserAccessLoggingSettingsCommandOutput>;
+  public createUserAccessLoggingSettings(
+    args: CreateUserAccessLoggingSettingsCommandInput,
+    cb: (err: any, data?: CreateUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public createUserAccessLoggingSettings(
+    args: CreateUserAccessLoggingSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public createUserAccessLoggingSettings(
+    args: CreateUserAccessLoggingSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserAccessLoggingSettingsCommandOutput) => void),
+    cb?: (err: any, data?: CreateUserAccessLoggingSettingsCommandOutput) => void
+  ): Promise<CreateUserAccessLoggingSettingsCommandOutput> | void {
+    const command = new CreateUserAccessLoggingSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a user settings resource that can be associated with a web portal. Once
    *          associated with a web portal, user settings control how users can transfer data between a
    *          streaming session and the their local devices. </p>
@@ -705,6 +804,38 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * <p>Deletes user access logging settings.</p>
+   */
+  public deleteUserAccessLoggingSettings(
+    args: DeleteUserAccessLoggingSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserAccessLoggingSettingsCommandOutput>;
+  public deleteUserAccessLoggingSettings(
+    args: DeleteUserAccessLoggingSettingsCommandInput,
+    cb: (err: any, data?: DeleteUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public deleteUserAccessLoggingSettings(
+    args: DeleteUserAccessLoggingSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public deleteUserAccessLoggingSettings(
+    args: DeleteUserAccessLoggingSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserAccessLoggingSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUserAccessLoggingSettingsCommandOutput) => void
+  ): Promise<DeleteUserAccessLoggingSettingsCommandOutput> | void {
+    const command = new DeleteUserAccessLoggingSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes user settings.</p>
    */
   public deleteUserSettings(
@@ -822,6 +953,40 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
     cb?: (err: any, data?: DisassociateTrustStoreCommandOutput) => void
   ): Promise<DisassociateTrustStoreCommandOutput> | void {
     const command = new DisassociateTrustStoreCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates user access logging settings from a web portal.</p>
+   */
+  public disassociateUserAccessLoggingSettings(
+    args: DisassociateUserAccessLoggingSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateUserAccessLoggingSettingsCommandOutput>;
+  public disassociateUserAccessLoggingSettings(
+    args: DisassociateUserAccessLoggingSettingsCommandInput,
+    cb: (err: any, data?: DisassociateUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public disassociateUserAccessLoggingSettings(
+    args: DisassociateUserAccessLoggingSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public disassociateUserAccessLoggingSettings(
+    args: DisassociateUserAccessLoggingSettingsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateUserAccessLoggingSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateUserAccessLoggingSettingsCommandOutput) => void
+  ): Promise<DisassociateUserAccessLoggingSettingsCommandOutput> | void {
+    const command = new DisassociateUserAccessLoggingSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1083,6 +1248,38 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * <p>Gets user access logging settings.</p>
+   */
+  public getUserAccessLoggingSettings(
+    args: GetUserAccessLoggingSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUserAccessLoggingSettingsCommandOutput>;
+  public getUserAccessLoggingSettings(
+    args: GetUserAccessLoggingSettingsCommandInput,
+    cb: (err: any, data?: GetUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public getUserAccessLoggingSettings(
+    args: GetUserAccessLoggingSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public getUserAccessLoggingSettings(
+    args: GetUserAccessLoggingSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserAccessLoggingSettingsCommandOutput) => void),
+    cb?: (err: any, data?: GetUserAccessLoggingSettingsCommandOutput) => void
+  ): Promise<GetUserAccessLoggingSettingsCommandOutput> | void {
+    const command = new GetUserAccessLoggingSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets user settings.</p>
    */
   public getUserSettings(
@@ -1333,6 +1530,38 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * <p>Retrieves a list of user access logging settings.</p>
+   */
+  public listUserAccessLoggingSettings(
+    args: ListUserAccessLoggingSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUserAccessLoggingSettingsCommandOutput>;
+  public listUserAccessLoggingSettings(
+    args: ListUserAccessLoggingSettingsCommandInput,
+    cb: (err: any, data?: ListUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public listUserAccessLoggingSettings(
+    args: ListUserAccessLoggingSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public listUserAccessLoggingSettings(
+    args: ListUserAccessLoggingSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserAccessLoggingSettingsCommandOutput) => void),
+    cb?: (err: any, data?: ListUserAccessLoggingSettingsCommandOutput) => void
+  ): Promise<ListUserAccessLoggingSettingsCommandOutput> | void {
+    const command = new ListUserAccessLoggingSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves a list of user settings.</p>
    */
   public listUserSettings(
@@ -1569,6 +1798,38 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
     cb?: (err: any, data?: UpdateTrustStoreCommandOutput) => void
   ): Promise<UpdateTrustStoreCommandOutput> | void {
     const command = new UpdateTrustStoreCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the user access logging settings.</p>
+   */
+  public updateUserAccessLoggingSettings(
+    args: UpdateUserAccessLoggingSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserAccessLoggingSettingsCommandOutput>;
+  public updateUserAccessLoggingSettings(
+    args: UpdateUserAccessLoggingSettingsCommandInput,
+    cb: (err: any, data?: UpdateUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public updateUserAccessLoggingSettings(
+    args: UpdateUserAccessLoggingSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserAccessLoggingSettingsCommandOutput) => void
+  ): void;
+  public updateUserAccessLoggingSettings(
+    args: UpdateUserAccessLoggingSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserAccessLoggingSettingsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateUserAccessLoggingSettingsCommandOutput) => void
+  ): Promise<UpdateUserAccessLoggingSettingsCommandOutput> | void {
+    const command = new UpdateUserAccessLoggingSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

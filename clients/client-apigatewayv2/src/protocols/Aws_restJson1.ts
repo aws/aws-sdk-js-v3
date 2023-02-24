@@ -10,7 +10,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -1041,7 +1041,7 @@ export const serializeAws_restJson1ExportApiCommand = async (
   const query: any = map({
     exportVersion: [, input.ExportVersion!],
     includeExtensions: [() => input.IncludeExtensions !== void 0, () => input.IncludeExtensions!.toString()],
-    outputType: [, input.OutputType!],
+    outputType: [, __expectNonNull(input.OutputType!, `OutputType`)],
     stageName: [, input.StageName!],
   });
   let body: any;
@@ -1846,7 +1846,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -2382,7 +2385,7 @@ export const deserializeAws_restJson1CreateApiCommand = async (
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -2423,7 +2426,7 @@ const deserializeAws_restJson1CreateApiCommandError = async (
 ): Promise<CreateApiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2482,7 +2485,7 @@ const deserializeAws_restJson1CreateApiMappingCommandError = async (
 ): Promise<CreateApiMappingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2562,7 +2565,7 @@ const deserializeAws_restJson1CreateAuthorizerCommandError = async (
 ): Promise<CreateAuthorizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2604,7 +2607,7 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
     contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.deploymentId != null) {
     contents.DeploymentId = __expectString(data.deploymentId);
@@ -2627,7 +2630,7 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
 ): Promise<CreateDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2695,7 +2698,7 @@ const deserializeAws_restJson1CreateDomainNameCommandError = async (
 ): Promise<CreateDomainNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2805,7 +2808,7 @@ const deserializeAws_restJson1CreateIntegrationCommandError = async (
 ): Promise<CreateIntegrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2870,7 +2873,7 @@ const deserializeAws_restJson1CreateIntegrationResponseCommandError = async (
 ): Promise<CreateIntegrationResponseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2932,7 +2935,7 @@ const deserializeAws_restJson1CreateModelCommandError = async (
 ): Promise<CreateModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3018,7 +3021,7 @@ const deserializeAws_restJson1CreateRouteCommandError = async (
 ): Promise<CreateRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3080,7 +3083,7 @@ const deserializeAws_restJson1CreateRouteResponseCommandError = async (
 ): Promise<CreateRouteResponseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3131,7 +3134,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.ClientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.defaultRouteSettings != null) {
     contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
@@ -3146,7 +3149,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.LastDeploymentStatusMessage = __expectString(data.lastDeploymentStatusMessage);
   }
   if (data.lastUpdatedDate != null) {
-    contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTime(data.lastUpdatedDate));
+    contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdatedDate));
   }
   if (data.routeSettings != null) {
     contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
@@ -3169,7 +3172,7 @@ const deserializeAws_restJson1CreateStageCommandError = async (
 ): Promise<CreateStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3208,7 +3211,7 @@ export const deserializeAws_restJson1CreateVpcLinkCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -3243,7 +3246,7 @@ const deserializeAws_restJson1CreateVpcLinkCommandError = async (
 ): Promise<CreateVpcLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3284,7 +3287,7 @@ const deserializeAws_restJson1DeleteAccessLogSettingsCommandError = async (
 ): Promise<DeleteAccessLogSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3325,7 +3328,7 @@ const deserializeAws_restJson1DeleteApiCommandError = async (
 ): Promise<DeleteApiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3366,7 +3369,7 @@ const deserializeAws_restJson1DeleteApiMappingCommandError = async (
 ): Promise<DeleteApiMappingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3410,7 +3413,7 @@ const deserializeAws_restJson1DeleteAuthorizerCommandError = async (
 ): Promise<DeleteAuthorizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3451,7 +3454,7 @@ const deserializeAws_restJson1DeleteCorsConfigurationCommandError = async (
 ): Promise<DeleteCorsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3492,7 +3495,7 @@ const deserializeAws_restJson1DeleteDeploymentCommandError = async (
 ): Promise<DeleteDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3533,7 +3536,7 @@ const deserializeAws_restJson1DeleteDomainNameCommandError = async (
 ): Promise<DeleteDomainNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3574,7 +3577,7 @@ const deserializeAws_restJson1DeleteIntegrationCommandError = async (
 ): Promise<DeleteIntegrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3615,7 +3618,7 @@ const deserializeAws_restJson1DeleteIntegrationResponseCommandError = async (
 ): Promise<DeleteIntegrationResponseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3656,7 +3659,7 @@ const deserializeAws_restJson1DeleteModelCommandError = async (
 ): Promise<DeleteModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3697,7 +3700,7 @@ const deserializeAws_restJson1DeleteRouteCommandError = async (
 ): Promise<DeleteRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3738,7 +3741,7 @@ const deserializeAws_restJson1DeleteRouteRequestParameterCommandError = async (
 ): Promise<DeleteRouteRequestParameterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3779,7 +3782,7 @@ const deserializeAws_restJson1DeleteRouteResponseCommandError = async (
 ): Promise<DeleteRouteResponseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3820,7 +3823,7 @@ const deserializeAws_restJson1DeleteRouteSettingsCommandError = async (
 ): Promise<DeleteRouteSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3861,7 +3864,7 @@ const deserializeAws_restJson1DeleteStageCommandError = async (
 ): Promise<DeleteStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3902,7 +3905,7 @@ const deserializeAws_restJson1DeleteVpcLinkCommandError = async (
 ): Promise<DeleteVpcLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3944,7 +3947,7 @@ const deserializeAws_restJson1ExportApiCommandError = async (
 ): Promise<ExportApiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3995,7 +3998,7 @@ export const deserializeAws_restJson1GetApiCommand = async (
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -4036,7 +4039,7 @@ const deserializeAws_restJson1GetApiCommandError = async (
 ): Promise<GetApiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4089,7 +4092,7 @@ const deserializeAws_restJson1GetApiMappingCommandError = async (
 ): Promise<GetApiMappingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4139,7 +4142,7 @@ const deserializeAws_restJson1GetApiMappingsCommandError = async (
 ): Promise<GetApiMappingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4189,7 +4192,7 @@ const deserializeAws_restJson1GetApisCommandError = async (
 ): Promise<GetApisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4266,7 +4269,7 @@ const deserializeAws_restJson1GetAuthorizerCommandError = async (
 ): Promise<GetAuthorizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4313,7 +4316,7 @@ const deserializeAws_restJson1GetAuthorizersCommandError = async (
 ): Promise<GetAuthorizersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4352,7 +4355,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.deploymentId != null) {
     contents.DeploymentId = __expectString(data.deploymentId);
@@ -4375,7 +4378,7 @@ const deserializeAws_restJson1GetDeploymentCommandError = async (
 ): Promise<GetDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4422,7 +4425,7 @@ const deserializeAws_restJson1GetDeploymentsCommandError = async (
 ): Promise<GetDeploymentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4487,7 +4490,7 @@ const deserializeAws_restJson1GetDomainNameCommandError = async (
 ): Promise<GetDomainNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4534,7 +4537,7 @@ const deserializeAws_restJson1GetDomainNamesCommandError = async (
 ): Promise<GetDomainNamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4638,7 +4641,7 @@ const deserializeAws_restJson1GetIntegrationCommandError = async (
 ): Promise<GetIntegrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4697,7 +4700,7 @@ const deserializeAws_restJson1GetIntegrationResponseCommandError = async (
 ): Promise<GetIntegrationResponseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4744,7 +4747,7 @@ const deserializeAws_restJson1GetIntegrationResponsesCommandError = async (
 ): Promise<GetIntegrationResponsesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4794,7 +4797,7 @@ const deserializeAws_restJson1GetIntegrationsCommandError = async (
 ): Promise<GetIntegrationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4853,7 +4856,7 @@ const deserializeAws_restJson1GetModelCommandError = async (
 ): Promise<GetModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4900,7 +4903,7 @@ const deserializeAws_restJson1GetModelsCommandError = async (
 ): Promise<GetModelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4947,7 +4950,7 @@ const deserializeAws_restJson1GetModelTemplateCommandError = async (
 ): Promise<GetModelTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5027,7 +5030,7 @@ const deserializeAws_restJson1GetRouteCommandError = async (
 ): Promise<GetRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5083,7 +5086,7 @@ const deserializeAws_restJson1GetRouteResponseCommandError = async (
 ): Promise<GetRouteResponseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5130,7 +5133,7 @@ const deserializeAws_restJson1GetRouteResponsesCommandError = async (
 ): Promise<GetRouteResponsesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5180,7 +5183,7 @@ const deserializeAws_restJson1GetRoutesCommandError = async (
 ): Promise<GetRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5228,7 +5231,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.ClientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.defaultRouteSettings != null) {
     contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
@@ -5243,7 +5246,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.LastDeploymentStatusMessage = __expectString(data.lastDeploymentStatusMessage);
   }
   if (data.lastUpdatedDate != null) {
-    contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTime(data.lastUpdatedDate));
+    contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdatedDate));
   }
   if (data.routeSettings != null) {
     contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
@@ -5266,7 +5269,7 @@ const deserializeAws_restJson1GetStageCommandError = async (
 ): Promise<GetStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5313,7 +5316,7 @@ const deserializeAws_restJson1GetStagesCommandError = async (
 ): Promise<GetStagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5360,7 +5363,7 @@ const deserializeAws_restJson1GetTagsCommandError = async (
 ): Promise<GetTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5399,7 +5402,7 @@ export const deserializeAws_restJson1GetVpcLinkCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -5434,7 +5437,7 @@ const deserializeAws_restJson1GetVpcLinkCommandError = async (
 ): Promise<GetVpcLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5481,7 +5484,7 @@ const deserializeAws_restJson1GetVpcLinksCommandError = async (
 ): Promise<GetVpcLinksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5529,7 +5532,7 @@ export const deserializeAws_restJson1ImportApiCommand = async (
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -5570,7 +5573,7 @@ const deserializeAws_restJson1ImportApiCommandError = async (
 ): Promise<ImportApiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5624,7 +5627,7 @@ export const deserializeAws_restJson1ReimportApiCommand = async (
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -5665,7 +5668,7 @@ const deserializeAws_restJson1ReimportApiCommandError = async (
 ): Promise<ReimportApiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5712,7 +5715,7 @@ const deserializeAws_restJson1ResetAuthorizersCacheCommandError = async (
 ): Promise<ResetAuthorizersCacheCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5753,7 +5756,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5800,7 +5803,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5854,7 +5857,7 @@ export const deserializeAws_restJson1UpdateApiCommand = async (
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -5895,7 +5898,7 @@ const deserializeAws_restJson1UpdateApiCommandError = async (
 ): Promise<UpdateApiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5954,7 +5957,7 @@ const deserializeAws_restJson1UpdateApiMappingCommandError = async (
 ): Promise<UpdateApiMappingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6034,7 +6037,7 @@ const deserializeAws_restJson1UpdateAuthorizerCommandError = async (
 ): Promise<UpdateAuthorizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6076,7 +6079,7 @@ export const deserializeAws_restJson1UpdateDeploymentCommand = async (
     contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.deploymentId != null) {
     contents.DeploymentId = __expectString(data.deploymentId);
@@ -6099,7 +6102,7 @@ const deserializeAws_restJson1UpdateDeploymentCommandError = async (
 ): Promise<UpdateDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6167,7 +6170,7 @@ const deserializeAws_restJson1UpdateDomainNameCommandError = async (
 ): Promise<UpdateDomainNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6274,7 +6277,7 @@ const deserializeAws_restJson1UpdateIntegrationCommandError = async (
 ): Promise<UpdateIntegrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6339,7 +6342,7 @@ const deserializeAws_restJson1UpdateIntegrationResponseCommandError = async (
 ): Promise<UpdateIntegrationResponseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6401,7 +6404,7 @@ const deserializeAws_restJson1UpdateModelCommandError = async (
 ): Promise<UpdateModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6487,7 +6490,7 @@ const deserializeAws_restJson1UpdateRouteCommandError = async (
 ): Promise<UpdateRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6549,7 +6552,7 @@ const deserializeAws_restJson1UpdateRouteResponseCommandError = async (
 ): Promise<UpdateRouteResponseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6600,7 +6603,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.ClientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.defaultRouteSettings != null) {
     contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
@@ -6615,7 +6618,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.LastDeploymentStatusMessage = __expectString(data.lastDeploymentStatusMessage);
   }
   if (data.lastUpdatedDate != null) {
-    contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTime(data.lastUpdatedDate));
+    contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdatedDate));
   }
   if (data.routeSettings != null) {
     contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
@@ -6638,7 +6641,7 @@ const deserializeAws_restJson1UpdateStageCommandError = async (
 ): Promise<UpdateStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6677,7 +6680,7 @@ export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate != null) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -6712,7 +6715,7 @@ const deserializeAws_restJson1UpdateVpcLinkCommandError = async (
 ): Promise<UpdateVpcLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6935,10 +6938,8 @@ const serializeAws_restJson1IntegrationParameters = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6973,10 +6974,8 @@ const serializeAws_restJson1ResponseParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1IntegrationParameters(value, context),
-    };
+    acc[key] = serializeAws_restJson1IntegrationParameters(value, context);
+    return acc;
   }, {});
 };
 
@@ -6985,10 +6984,8 @@ const serializeAws_restJson1RouteModels = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7000,10 +6997,8 @@ const serializeAws_restJson1RouteParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ParameterConstraints(value, context),
-    };
+    acc[key] = serializeAws_restJson1ParameterConstraints(value, context);
+    return acc;
   }, {});
 };
 
@@ -7022,10 +7017,8 @@ const serializeAws_restJson1RouteSettingsMap = (input: Record<string, RouteSetti
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1RouteSettings(value, context),
-    };
+    acc[key] = serializeAws_restJson1RouteSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -7042,10 +7035,8 @@ const serializeAws_restJson1StageVariablesMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7062,10 +7053,8 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7074,10 +7063,8 @@ const serializeAws_restJson1TemplateMap = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7261,7 +7248,8 @@ const deserializeAws_restJson1Api = (output: any, context: __SerdeContext): Api 
     ApiKeySelectionExpression: __expectString(output.apiKeySelectionExpression),
     CorsConfiguration:
       output.corsConfiguration != null ? deserializeAws_restJson1Cors(output.corsConfiguration, context) : undefined,
-    CreatedDate: output.createdDate != null ? __expectNonNull(__parseRfc3339DateTime(output.createdDate)) : undefined,
+    CreatedDate:
+      output.createdDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdDate)) : undefined,
     Description: __expectString(output.description),
     DisableExecuteApiEndpoint: __expectBoolean(output.disableExecuteApiEndpoint),
     DisableSchemaValidation: __expectBoolean(output.disableSchemaValidation),
@@ -7373,7 +7361,8 @@ const deserializeAws_restJson1CorsOriginList = (output: any, context: __SerdeCon
 const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext): Deployment => {
   return {
     AutoDeployed: __expectBoolean(output.autoDeployed),
-    CreatedDate: output.createdDate != null ? __expectNonNull(__parseRfc3339DateTime(output.createdDate)) : undefined,
+    CreatedDate:
+      output.createdDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdDate)) : undefined,
     DeploymentId: __expectString(output.deploymentId),
     DeploymentStatus: __expectString(output.deploymentStatus),
     DeploymentStatusMessage: __expectString(output.deploymentStatusMessage),
@@ -7407,7 +7396,7 @@ const deserializeAws_restJson1DomainNameConfiguration = (
     CertificateName: __expectString(output.certificateName),
     CertificateUploadDate:
       output.certificateUploadDate != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.certificateUploadDate))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.certificateUploadDate))
         : undefined,
     DomainNameStatus: __expectString(output.domainNameStatus),
     DomainNameStatusMessage: __expectString(output.domainNameStatusMessage),
@@ -7487,10 +7476,8 @@ const deserializeAws_restJson1IntegrationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7556,10 +7543,8 @@ const deserializeAws_restJson1ResponseParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1IntegrationParameters(value, context),
-    };
+    acc[key] = deserializeAws_restJson1IntegrationParameters(value, context);
+    return acc;
   }, {});
 };
 
@@ -7593,10 +7578,8 @@ const deserializeAws_restJson1RouteModels = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7608,10 +7591,8 @@ const deserializeAws_restJson1RouteParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ParameterConstraints(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ParameterConstraints(value, context);
+    return acc;
   }, {});
 };
 
@@ -7647,10 +7628,8 @@ const deserializeAws_restJson1RouteSettingsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1RouteSettings(value, context),
-    };
+    acc[key] = deserializeAws_restJson1RouteSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -7675,7 +7654,8 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
     ApiGatewayManaged: __expectBoolean(output.apiGatewayManaged),
     AutoDeploy: __expectBoolean(output.autoDeploy),
     ClientCertificateId: __expectString(output.clientCertificateId),
-    CreatedDate: output.createdDate != null ? __expectNonNull(__parseRfc3339DateTime(output.createdDate)) : undefined,
+    CreatedDate:
+      output.createdDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdDate)) : undefined,
     DefaultRouteSettings:
       output.defaultRouteSettings != null
         ? deserializeAws_restJson1RouteSettings(output.defaultRouteSettings, context)
@@ -7684,7 +7664,9 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
     Description: __expectString(output.description),
     LastDeploymentStatusMessage: __expectString(output.lastDeploymentStatusMessage),
     LastUpdatedDate:
-      output.lastUpdatedDate != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdatedDate)) : undefined,
+      output.lastUpdatedDate != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdatedDate))
+        : undefined,
     RouteSettings:
       output.routeSettings != null
         ? deserializeAws_restJson1RouteSettingsMap(output.routeSettings, context)
@@ -7703,10 +7685,8 @@ const deserializeAws_restJson1StageVariablesMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7727,10 +7707,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7739,10 +7717,8 @@ const deserializeAws_restJson1TemplateMap = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7754,7 +7730,8 @@ const deserializeAws_restJson1TlsConfig = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1VpcLink = (output: any, context: __SerdeContext): VpcLink => {
   return {
-    CreatedDate: output.createdDate != null ? __expectNonNull(__parseRfc3339DateTime(output.createdDate)) : undefined,
+    CreatedDate:
+      output.createdDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdDate)) : undefined,
     Name: __expectString(output.name),
     SecurityGroupIds:
       output.securityGroupIds != null
@@ -7771,7 +7748,8 @@ const deserializeAws_restJson1VpcLink = (output: any, context: __SerdeContext): 
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -7803,6 +7781,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -7813,6 +7797,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

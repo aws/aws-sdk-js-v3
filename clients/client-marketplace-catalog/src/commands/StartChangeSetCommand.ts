@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,19 +33,17 @@ export interface StartChangeSetCommandInput extends StartChangeSetRequest {}
 export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __MetadataBearer {}
 
 /**
- * <p>This operation allows you to request changes for your entities. Within a single
- *             ChangeSet, you cannot start the same change type against the same entity multiple times.
- *             Additionally, when a ChangeSet is running, all the entities targeted by the different
- *             changes are locked until the ChangeSet has completed (either succeeded, cancelled, or failed). If
- *             you try to start a ChangeSet containing a change against an entity that is already
- *             locked, you will receive a <code>ResourceInUseException</code>.</p>
- *
- *         <p>For example, you cannot start the ChangeSet described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a> later in this topic, because it contains two changes to execute the same change
- *             type (<code>AddRevisions</code>) against the same entity
- *             (<code>entity-id@1)</code>.</p>
- *
- *         <p>For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">
- *             Working with change sets</a>.</p>
+ * <p>Allows you to request changes for your entities. Within a single
+ *                 <code>ChangeSet</code>, you can't start the same change type against the same entity
+ *             multiple times. Additionally, when a <code>ChangeSet</code> is running, all the entities
+ *             targeted by the different changes are locked until the change set has completed (either
+ *             succeeded, cancelled, or failed). If you try to start a change set containing a change
+ *             against an entity that is already locked, you will receive a
+ *                 <code>ResourceInUseException</code> error.</p>
+ *         <p>For example, you can't start the <code>ChangeSet</code> described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a> later in this topic because it contains two changes to run the same
+ *             change type (<code>AddRevisions</code>) against the same entity
+ *                 (<code>entity-id@1</code>).</p>
+ *         <p>For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets"> Working with change sets</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +67,15 @@ export class StartChangeSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +91,9 @@ export class StartChangeSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartChangeSetCommandInput, StartChangeSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartChangeSetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,26 +30,27 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
 /**
  * <p>Replaces the existing list of server certificate thumbprints associated with an OpenID
  *             Connect (OIDC) provider resource object with a new list of thumbprints.</p>
- *         <p>The list that you pass with this operation completely replaces the existing list of
+ *          <p>The list that you pass with this operation completely replaces the existing list of
  *             thumbprints. (The lists are not merged.)</p>
- *         <p>Typically, you need to update a thumbprint only when the identity provider certificate
+ *          <p>Typically, you need to update a thumbprint only when the identity provider certificate
  *             changes, which occurs rarely. However, if the provider's certificate
  *                 <i>does</i> change, any attempt to assume an IAM role that specifies
  *             the OIDC provider as a principal fails until the certificate thumbprint is
  *             updated.</p>
- *         <note>
+ *          <note>
  *             <p>Amazon Web Services secures communication with some OIDC identity providers (IdPs) through our
  *             library of trusted certificate authorities (CAs) instead of using a certificate
- *             thumbprint to verify your IdP server certificate. These OIDC IdPs include Google, and
- *             those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint. In these
- *             cases, your legacy thumbprint remains in your configuration, but is no longer used for validation.</p>
+ *             thumbprint to verify your IdP server certificate. These OIDC IdPs include Google, Auth0,
+ *             and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint. In these
+ *             cases, your legacy thumbprint remains in your configuration, but is no longer used for
+ *             validation.</p>
  *          </note>
- *         <note>
+ *          <note>
  *             <p>Trust for the OIDC provider is derived from the provider certificate and is
  *                 validated by the thumbprint. Therefore, it is best to limit access to the
  *                     <code>UpdateOpenIDConnectProviderThumbprint</code> operation to highly
  *                 privileged users.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +74,15 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateOpenIDConnectProviderThumbprintCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +98,9 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateOpenIDConnectProviderThumbprintCommandInput, UpdateOpenIDConnectProviderThumbprintCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateOpenIDConnectProviderThumbprintCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

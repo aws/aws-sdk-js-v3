@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,12 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
 
 /**
  * <p>Remove the specified thing from the specified group.</p>
- * 		       <p>You must specify either a <code>thingGroupArn</code> or a
+ *          <p>You must specify either a <code>thingGroupArn</code> or a
  * 			<code>thingGroupName</code> to identify the thing group and
  * 			either a <code>thingArn</code> or a <code>thingName</code> to
  * 			identify the thing to remove from the thing group.
  * 		</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromThingGroup</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromThingGroup</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class RemoveThingFromThingGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RemoveThingFromThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class RemoveThingFromThingGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RemoveThingFromThingGroupCommandInput, RemoveThingFromThingGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RemoveThingFromThingGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

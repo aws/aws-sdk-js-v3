@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,8 @@ export interface DescribeReservedInstanceOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists available reserved OpenSearch instance offerings.</p>
+ * <p>Describes the available Amazon OpenSearch Service Reserved Instance offerings for a given
+ *    Region. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +56,15 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeReservedInstanceOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +80,9 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeReservedInstanceOfferingsCommandInput, DescribeReservedInstanceOfferingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeReservedInstanceOfferingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

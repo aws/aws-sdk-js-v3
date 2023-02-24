@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,28 +31,28 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
 /**
  * <p>Returns a list of ARNs of the resources that are members of a specified resource
  *             group.</p>
- *         <p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:ListGroupResources</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>cloudformation:DescribeStacks</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>cloudformation:ListStackResources</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>tag:GetResources</code>
  *                </p>
  *             </li>
@@ -79,6 +80,15 @@ export class ListGroupResourcesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListGroupResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,6 +104,9 @@ export class ListGroupResourcesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListGroupResourcesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

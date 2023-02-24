@@ -22,6 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CompareFacesCommandInput, CompareFacesCommandOutput } from "../commands/CompareFacesCommand";
+import { CopyProjectVersionCommandInput, CopyProjectVersionCommandOutput } from "../commands/CopyProjectVersionCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "../commands/CreateCollectionCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
@@ -37,6 +38,10 @@ import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "../
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand";
 import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "../commands/DeleteFacesCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
+import {
+  DeleteProjectPolicyCommandInput,
+  DeleteProjectPolicyCommandOutput,
+} from "../commands/DeleteProjectPolicyCommand";
 import {
   DeleteProjectVersionCommandInput,
   DeleteProjectVersionCommandOutput,
@@ -96,6 +101,10 @@ import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from 
 import { ListDatasetLabelsCommandInput, ListDatasetLabelsCommandOutput } from "../commands/ListDatasetLabelsCommand";
 import { ListFacesCommandInput, ListFacesCommandOutput } from "../commands/ListFacesCommand";
 import {
+  ListProjectPoliciesCommandInput,
+  ListProjectPoliciesCommandOutput,
+} from "../commands/ListProjectPoliciesCommand";
+import {
   ListStreamProcessorsCommandInput,
   ListStreamProcessorsCommandOutput,
 } from "../commands/ListStreamProcessorsCommand";
@@ -103,6 +112,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutProjectPolicyCommandInput, PutProjectPolicyCommandOutput } from "../commands/PutProjectPolicyCommand";
 import {
   RecognizeCelebritiesCommandInput,
   RecognizeCelebritiesCommandOutput,
@@ -176,6 +186,8 @@ import {
   ConnectedHomeSettingsForUpdate,
   ContentClassifier,
   ContentModerationDetection,
+  CopyProjectVersionRequest,
+  CopyProjectVersionResponse,
   CoversBodyPart,
   CreateCollectionRequest,
   CreateCollectionResponse,
@@ -201,6 +213,8 @@ import {
   DeleteDatasetResponse,
   DeleteFacesRequest,
   DeleteFacesResponse,
+  DeleteProjectPolicyRequest,
+  DeleteProjectPolicyResponse,
   DeleteProjectRequest,
   DeleteProjectResponse,
   DeleteProjectVersionRequest,
@@ -222,8 +236,15 @@ import {
   DetectFacesRequest,
   DetectFacesResponse,
   DetectionFilter,
+  DetectLabelsFeatureName,
+  DetectLabelsImageBackground,
+  DetectLabelsImageForeground,
+  DetectLabelsImageProperties,
+  DetectLabelsImagePropertiesSettings,
+  DetectLabelsImageQuality,
   DetectLabelsRequest,
   DetectLabelsResponse,
+  DetectLabelsSettings,
   DetectModerationLabelsRequest,
   DetectModerationLabelsResponse,
   DetectProtectiveEquipmentRequest,
@@ -234,6 +255,7 @@ import {
   DistributeDataset,
   DistributeDatasetEntriesRequest,
   DistributeDatasetEntriesResponse,
+  DominantColor,
   Emotion,
   EquipmentDetection,
   EvaluationResult,
@@ -246,6 +268,7 @@ import {
   FaceRecord,
   FaceSearchSettings,
   Gender,
+  GeneralLabelsSettings,
   Geometry,
   GetCelebrityInfoRequest,
   GetCelebrityInfoResponse,
@@ -281,13 +304,18 @@ import {
   InvalidImageFormatException,
   InvalidPaginationTokenException,
   InvalidParameterException,
+  InvalidPolicyRevisionIdException,
   InvalidS3ObjectException,
   KinesisDataStream,
   KinesisVideoStream,
   KinesisVideoStreamStartSelector,
   KnownGender,
   Label,
+  LabelAlias,
+  LabelCategory,
   LabelDetection,
+  LabelDetectionFeatureName,
+  LabelDetectionSettings,
   Landmark,
   LimitExceededException,
   ListCollectionsRequest,
@@ -298,10 +326,13 @@ import {
   ListDatasetLabelsResponse,
   ListFacesRequest,
   ListFacesResponse,
+  ListProjectPoliciesRequest,
+  ListProjectPoliciesResponse,
   ListStreamProcessorsRequest,
   ListStreamProcessorsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  MalformedPolicyDocumentException,
   ModerationLabel,
   MouthOpen,
   Mustache,
@@ -314,6 +345,7 @@ import {
   Point,
   Pose,
   ProjectDescription,
+  ProjectPolicy,
   ProjectVersionDescription,
   ProtectiveEquipmentBodyPart,
   ProtectiveEquipmentPerson,
@@ -321,6 +353,8 @@ import {
   ProtectiveEquipmentSummary,
   ProtectiveEquipmentType,
   ProvisionedThroughputExceededException,
+  PutProjectPolicyRequest,
+  PutProjectPolicyResponse,
   Reason,
   RecognizeCelebritiesRequest,
   RecognizeCelebritiesResponse,
@@ -415,6 +449,19 @@ export const serializeAws_json1_1CompareFacesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CompareFacesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CopyProjectVersionCommand = async (
+  input: CopyProjectVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.CopyProjectVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CopyProjectVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -532,6 +579,19 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProjectRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteProjectPolicyCommand = async (
+  input: DeleteProjectPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.DeleteProjectPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteProjectPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -899,6 +959,19 @@ export const serializeAws_json1_1ListFacesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListProjectPoliciesCommand = async (
+  input: ListProjectPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.ListProjectPolicies",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListProjectPoliciesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListStreamProcessorsCommand = async (
   input: ListStreamProcessorsCommandInput,
   context: __SerdeContext
@@ -922,6 +995,19 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutProjectPolicyCommand = async (
+  input: PutProjectPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.PutProjectPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutProjectPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1195,7 +1281,7 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
 ): Promise<CompareFacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1234,6 +1320,71 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1CopyProjectVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyProjectVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CopyProjectVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CopyProjectVersionResponse(data, context);
+  const response: CopyProjectVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CopyProjectVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyProjectVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1CreateCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1257,7 +1408,7 @@ const deserializeAws_json1_1CreateCollectionCommandError = async (
 ): Promise<CreateCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1316,7 +1467,7 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
 ): Promise<CreateDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1381,7 +1532,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
 ): Promise<CreateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1440,7 +1591,7 @@ const deserializeAws_json1_1CreateProjectVersionCommandError = async (
 ): Promise<CreateProjectVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1505,7 +1656,7 @@ const deserializeAws_json1_1CreateStreamProcessorCommandError = async (
 ): Promise<CreateStreamProcessorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1567,7 +1718,7 @@ const deserializeAws_json1_1DeleteCollectionCommandError = async (
 ): Promise<DeleteCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1623,7 +1774,7 @@ const deserializeAws_json1_1DeleteDatasetCommandError = async (
 ): Promise<DeleteDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1685,7 +1836,7 @@ const deserializeAws_json1_1DeleteFacesCommandError = async (
 ): Promise<DeleteFacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1741,7 +1892,7 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
 ): Promise<DeleteProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1760,6 +1911,65 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.rekognition#ResourceInUseException":
       throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteProjectPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProjectPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteProjectPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteProjectPolicyResponse(data, context);
+  const response: DeleteProjectPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteProjectPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProjectPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.rekognition#InvalidPolicyRevisionIdException":
+      throw await deserializeAws_json1_1InvalidPolicyRevisionIdExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rekognition#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1800,7 +2010,7 @@ const deserializeAws_json1_1DeleteProjectVersionCommandError = async (
 ): Promise<DeleteProjectVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1859,7 +2069,7 @@ const deserializeAws_json1_1DeleteStreamProcessorCommandError = async (
 ): Promise<DeleteStreamProcessorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1918,7 +2128,7 @@ const deserializeAws_json1_1DescribeCollectionCommandError = async (
 ): Promise<DescribeCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1974,7 +2184,7 @@ const deserializeAws_json1_1DescribeDatasetCommandError = async (
 ): Promise<DescribeDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2030,7 +2240,7 @@ const deserializeAws_json1_1DescribeProjectsCommandError = async (
 ): Promise<DescribeProjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2086,7 +2296,7 @@ const deserializeAws_json1_1DescribeProjectVersionsCommandError = async (
 ): Promise<DescribeProjectVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2145,7 +2355,7 @@ const deserializeAws_json1_1DescribeStreamProcessorCommandError = async (
 ): Promise<DescribeStreamProcessorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2201,7 +2411,7 @@ const deserializeAws_json1_1DetectCustomLabelsCommandError = async (
 ): Promise<DetectCustomLabelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2272,7 +2482,7 @@ const deserializeAws_json1_1DetectFacesCommandError = async (
 ): Promise<DetectFacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2334,7 +2544,7 @@ const deserializeAws_json1_1DetectLabelsCommandError = async (
 ): Promise<DetectLabelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2396,7 +2606,7 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
 ): Promise<DetectModerationLabelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2461,7 +2671,7 @@ const deserializeAws_json1_1DetectProtectiveEquipmentCommandError = async (
 ): Promise<DetectProtectiveEquipmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2523,7 +2733,7 @@ const deserializeAws_json1_1DetectTextCommandError = async (
 ): Promise<DetectTextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2585,7 +2795,7 @@ const deserializeAws_json1_1DistributeDatasetEntriesCommandError = async (
 ): Promise<DistributeDatasetEntriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2644,7 +2854,7 @@ const deserializeAws_json1_1GetCelebrityInfoCommandError = async (
 ): Promise<GetCelebrityInfoCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2700,7 +2910,7 @@ const deserializeAws_json1_1GetCelebrityRecognitionCommandError = async (
 ): Promise<GetCelebrityRecognitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2759,7 +2969,7 @@ const deserializeAws_json1_1GetContentModerationCommandError = async (
 ): Promise<GetContentModerationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2818,7 +3028,7 @@ const deserializeAws_json1_1GetFaceDetectionCommandError = async (
 ): Promise<GetFaceDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2877,7 +3087,7 @@ const deserializeAws_json1_1GetFaceSearchCommandError = async (
 ): Promise<GetFaceSearchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2936,7 +3146,7 @@ const deserializeAws_json1_1GetLabelDetectionCommandError = async (
 ): Promise<GetLabelDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2995,7 +3205,7 @@ const deserializeAws_json1_1GetPersonTrackingCommandError = async (
 ): Promise<GetPersonTrackingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3054,7 +3264,7 @@ const deserializeAws_json1_1GetSegmentDetectionCommandError = async (
 ): Promise<GetSegmentDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3113,7 +3323,7 @@ const deserializeAws_json1_1GetTextDetectionCommandError = async (
 ): Promise<GetTextDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3172,7 +3382,7 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
 ): Promise<IndexFacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3240,7 +3450,7 @@ const deserializeAws_json1_1ListCollectionsCommandError = async (
 ): Promise<ListCollectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3299,7 +3509,7 @@ const deserializeAws_json1_1ListDatasetEntriesCommandError = async (
 ): Promise<ListDatasetEntriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3364,7 +3574,7 @@ const deserializeAws_json1_1ListDatasetLabelsCommandError = async (
 ): Promise<ListDatasetLabelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3429,7 +3639,66 @@ const deserializeAws_json1_1ListFacesCommandError = async (
 ): Promise<ListFacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
+      throw await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListProjectPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProjectPoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListProjectPoliciesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListProjectPoliciesResponse(data, context);
+  const response: ListProjectPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListProjectPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProjectPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3488,7 +3757,7 @@ const deserializeAws_json1_1ListStreamProcessorsCommandError = async (
 ): Promise<ListStreamProcessorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3544,7 +3813,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3563,6 +3832,77 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.rekognition#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1PutProjectPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutProjectPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutProjectPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutProjectPolicyResponse(data, context);
+  const response: PutProjectPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutProjectPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutProjectPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.rekognition#InvalidPolicyRevisionIdException":
+      throw await deserializeAws_json1_1InvalidPolicyRevisionIdExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.rekognition#MalformedPolicyDocumentException":
+      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.rekognition#ResourceAlreadyExistsException":
+      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rekognition#ThrottlingException":
       throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
@@ -3600,7 +3940,7 @@ const deserializeAws_json1_1RecognizeCelebritiesCommandError = async (
 ): Promise<RecognizeCelebritiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3662,7 +4002,7 @@ const deserializeAws_json1_1SearchFacesCommandError = async (
 ): Promise<SearchFacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3718,7 +4058,7 @@ const deserializeAws_json1_1SearchFacesByImageCommandError = async (
 ): Promise<SearchFacesByImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3783,7 +4123,7 @@ const deserializeAws_json1_1StartCelebrityRecognitionCommandError = async (
 ): Promise<StartCelebrityRecognitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3848,7 +4188,7 @@ const deserializeAws_json1_1StartContentModerationCommandError = async (
 ): Promise<StartContentModerationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3913,7 +4253,7 @@ const deserializeAws_json1_1StartFaceDetectionCommandError = async (
 ): Promise<StartFaceDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3978,7 +4318,7 @@ const deserializeAws_json1_1StartFaceSearchCommandError = async (
 ): Promise<StartFaceSearchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4046,7 +4386,7 @@ const deserializeAws_json1_1StartLabelDetectionCommandError = async (
 ): Promise<StartLabelDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4111,7 +4451,7 @@ const deserializeAws_json1_1StartPersonTrackingCommandError = async (
 ): Promise<StartPersonTrackingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4176,7 +4516,7 @@ const deserializeAws_json1_1StartProjectVersionCommandError = async (
 ): Promise<StartProjectVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4238,7 +4578,7 @@ const deserializeAws_json1_1StartSegmentDetectionCommandError = async (
 ): Promise<StartSegmentDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4303,7 +4643,7 @@ const deserializeAws_json1_1StartStreamProcessorCommandError = async (
 ): Promise<StartStreamProcessorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4362,7 +4702,7 @@ const deserializeAws_json1_1StartTextDetectionCommandError = async (
 ): Promise<StartTextDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4427,7 +4767,7 @@ const deserializeAws_json1_1StopProjectVersionCommandError = async (
 ): Promise<StopProjectVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4486,7 +4826,7 @@ const deserializeAws_json1_1StopStreamProcessorCommandError = async (
 ): Promise<StopStreamProcessorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4545,7 +4885,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4604,7 +4944,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4660,7 +5000,7 @@ const deserializeAws_json1_1UpdateDatasetEntriesCommandError = async (
 ): Promise<UpdateDatasetEntriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4722,7 +5062,7 @@ const deserializeAws_json1_1UpdateStreamProcessorCommandError = async (
 ): Promise<UpdateStreamProcessorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4859,6 +5199,19 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1InvalidPolicyRevisionIdExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidPolicyRevisionIdException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidPolicyRevisionIdException(body, context);
+  const exception = new InvalidPolicyRevisionIdException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1InvalidS3ObjectExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4879,6 +5232,19 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const exception = new LimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MalformedPolicyDocumentException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1MalformedPolicyDocumentException(body, context);
+  const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5076,6 +5442,21 @@ const serializeAws_json1_1ContentClassifiers = (
     });
 };
 
+const serializeAws_json1_1CopyProjectVersionRequest = (
+  input: CopyProjectVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationProjectArn != null && { DestinationProjectArn: input.DestinationProjectArn }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.OutputConfig != null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
+    ...(input.SourceProjectArn != null && { SourceProjectArn: input.SourceProjectArn }),
+    ...(input.SourceProjectVersionArn != null && { SourceProjectVersionArn: input.SourceProjectVersionArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
+    ...(input.VersionName != null && { VersionName: input.VersionName }),
+  };
+};
+
 const serializeAws_json1_1CreateCollectionRequest = (input: CreateCollectionRequest, context: __SerdeContext): any => {
   return {
     ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
@@ -5183,6 +5564,17 @@ const serializeAws_json1_1DeleteFacesRequest = (input: DeleteFacesRequest, conte
   };
 };
 
+const serializeAws_json1_1DeleteProjectPolicyRequest = (
+  input: DeleteProjectPolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
+    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
+    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
+  };
+};
+
 const serializeAws_json1_1DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
   return {
     ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
@@ -5278,11 +5670,44 @@ const serializeAws_json1_1DetectionFilter = (input: DetectionFilter, context: __
   };
 };
 
+const serializeAws_json1_1DetectLabelsFeatureList = (
+  input: (DetectLabelsFeatureName | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1DetectLabelsImagePropertiesSettings = (
+  input: DetectLabelsImagePropertiesSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxDominantColors != null && { MaxDominantColors: input.MaxDominantColors }),
+  };
+};
+
 const serializeAws_json1_1DetectLabelsRequest = (input: DetectLabelsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Features != null && { Features: serializeAws_json1_1DetectLabelsFeatureList(input.Features, context) }),
     ...(input.Image != null && { Image: serializeAws_json1_1Image(input.Image, context) }),
     ...(input.MaxLabels != null && { MaxLabels: input.MaxLabels }),
     ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
+    ...(input.Settings != null && { Settings: serializeAws_json1_1DetectLabelsSettings(input.Settings, context) }),
+  };
+};
+
+const serializeAws_json1_1DetectLabelsSettings = (input: DetectLabelsSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.GeneralLabels != null && {
+      GeneralLabels: serializeAws_json1_1GeneralLabelsSettings(input.GeneralLabels, context),
+    }),
+    ...(input.ImageProperties != null && {
+      ImageProperties: serializeAws_json1_1DetectLabelsImagePropertiesSettings(input.ImageProperties, context),
+    }),
   };
 };
 
@@ -5373,6 +5798,37 @@ const serializeAws_json1_1FaceSearchSettings = (input: FaceSearchSettings, conte
   };
 };
 
+const serializeAws_json1_1GeneralLabelsFilterList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1GeneralLabelsSettings = (input: GeneralLabelsSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.LabelCategoryExclusionFilters != null && {
+      LabelCategoryExclusionFilters: serializeAws_json1_1GeneralLabelsFilterList(
+        input.LabelCategoryExclusionFilters,
+        context
+      ),
+    }),
+    ...(input.LabelCategoryInclusionFilters != null && {
+      LabelCategoryInclusionFilters: serializeAws_json1_1GeneralLabelsFilterList(
+        input.LabelCategoryInclusionFilters,
+        context
+      ),
+    }),
+    ...(input.LabelExclusionFilters != null && {
+      LabelExclusionFilters: serializeAws_json1_1GeneralLabelsFilterList(input.LabelExclusionFilters, context),
+    }),
+    ...(input.LabelInclusionFilters != null && {
+      LabelInclusionFilters: serializeAws_json1_1GeneralLabelsFilterList(input.LabelInclusionFilters, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1GetCelebrityInfoRequest = (input: GetCelebrityInfoRequest, context: __SerdeContext): any => {
   return {
     ...(input.Id != null && { Id: input.Id }),
@@ -5425,6 +5881,7 @@ const serializeAws_json1_1GetLabelDetectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AggregateBy != null && { AggregateBy: input.AggregateBy }),
     ...(input.JobId != null && { JobId: input.JobId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -5529,6 +5986,25 @@ const serializeAws_json1_1KinesisVideoStreamStartSelector = (
   };
 };
 
+const serializeAws_json1_1LabelDetectionFeatureList = (
+  input: (LabelDetectionFeatureName | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1LabelDetectionSettings = (input: LabelDetectionSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.GeneralLabels != null && {
+      GeneralLabels: serializeAws_json1_1GeneralLabelsSettings(input.GeneralLabels, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1ListCollectionsRequest = (input: ListCollectionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -5569,6 +6045,17 @@ const serializeAws_json1_1ListFacesRequest = (input: ListFacesRequest, context: 
     ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListProjectPoliciesRequest = (
+  input: ListProjectPoliciesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
   };
 };
 
@@ -5649,6 +6136,15 @@ const serializeAws_json1_1ProtectiveEquipmentTypes = (
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_1PutProjectPolicyRequest = (input: PutProjectPolicyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.PolicyDocument != null && { PolicyDocument: input.PolicyDocument }),
+    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
+    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
+    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
+  };
 };
 
 const serializeAws_json1_1RecognizeCelebritiesRequest = (
@@ -5783,11 +6279,13 @@ const serializeAws_json1_1StartLabelDetectionRequest = (
 ): any => {
   return {
     ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.Features != null && { Features: serializeAws_json1_1LabelDetectionFeatureList(input.Features, context) }),
     ...(input.JobTag != null && { JobTag: input.JobTag }),
     ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
     ...(input.NotificationChannel != null && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
+    ...(input.Settings != null && { Settings: serializeAws_json1_1LabelDetectionSettings(input.Settings, context) }),
     ...(input.Video != null && { Video: serializeAws_json1_1Video(input.Video, context) }),
   };
 };
@@ -6030,10 +6528,8 @@ const serializeAws_json1_1TagMap = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6397,6 +6893,15 @@ const deserializeAws_json1_1ContentModerationDetections = (
   return retVal;
 };
 
+const deserializeAws_json1_1CopyProjectVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): CopyProjectVersionResponse => {
+  return {
+    ProjectVersionArn: __expectString(output.ProjectVersionArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CoversBodyPart = (output: any, context: __SerdeContext): CoversBodyPart => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
@@ -6583,6 +7088,13 @@ const deserializeAws_json1_1DeleteFacesResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1DeleteProjectPolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteProjectPolicyResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteProjectResponse = (output: any, context: __SerdeContext): DeleteProjectResponse => {
   return {
     Status: __expectString(output.Status),
@@ -6714,8 +7226,67 @@ const deserializeAws_json1_1DetectFacesResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1DetectLabelsImageBackground = (
+  output: any,
+  context: __SerdeContext
+): DetectLabelsImageBackground => {
+  return {
+    DominantColors:
+      output.DominantColors != null ? deserializeAws_json1_1DominantColors(output.DominantColors, context) : undefined,
+    Quality:
+      output.Quality != null ? deserializeAws_json1_1DetectLabelsImageQuality(output.Quality, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DetectLabelsImageForeground = (
+  output: any,
+  context: __SerdeContext
+): DetectLabelsImageForeground => {
+  return {
+    DominantColors:
+      output.DominantColors != null ? deserializeAws_json1_1DominantColors(output.DominantColors, context) : undefined,
+    Quality:
+      output.Quality != null ? deserializeAws_json1_1DetectLabelsImageQuality(output.Quality, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DetectLabelsImageProperties = (
+  output: any,
+  context: __SerdeContext
+): DetectLabelsImageProperties => {
+  return {
+    Background:
+      output.Background != null
+        ? deserializeAws_json1_1DetectLabelsImageBackground(output.Background, context)
+        : undefined,
+    DominantColors:
+      output.DominantColors != null ? deserializeAws_json1_1DominantColors(output.DominantColors, context) : undefined,
+    Foreground:
+      output.Foreground != null
+        ? deserializeAws_json1_1DetectLabelsImageForeground(output.Foreground, context)
+        : undefined,
+    Quality:
+      output.Quality != null ? deserializeAws_json1_1DetectLabelsImageQuality(output.Quality, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DetectLabelsImageQuality = (
+  output: any,
+  context: __SerdeContext
+): DetectLabelsImageQuality => {
+  return {
+    Brightness: __limitedParseFloat32(output.Brightness),
+    Contrast: __limitedParseFloat32(output.Contrast),
+    Sharpness: __limitedParseFloat32(output.Sharpness),
+  } as any;
+};
+
 const deserializeAws_json1_1DetectLabelsResponse = (output: any, context: __SerdeContext): DetectLabelsResponse => {
   return {
+    ImageProperties:
+      output.ImageProperties != null
+        ? deserializeAws_json1_1DetectLabelsImageProperties(output.ImageProperties, context)
+        : undefined,
     LabelModelVersion: __expectString(output.LabelModelVersion),
     Labels: output.Labels != null ? deserializeAws_json1_1Labels(output.Labels, context) : undefined,
     OrientationCorrection: __expectString(output.OrientationCorrection),
@@ -6767,6 +7338,30 @@ const deserializeAws_json1_1DistributeDatasetEntriesResponse = (
   context: __SerdeContext
 ): DistributeDatasetEntriesResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DominantColor = (output: any, context: __SerdeContext): DominantColor => {
+  return {
+    Blue: __expectInt32(output.Blue),
+    CSSColor: __expectString(output.CSSColor),
+    Green: __expectInt32(output.Green),
+    HexCode: __expectString(output.HexCode),
+    PixelPercent: __limitedParseFloat32(output.PixelPercent),
+    Red: __expectInt32(output.Red),
+    SimplifiedColor: __expectString(output.SimplifiedColor),
+  } as any;
+};
+
+const deserializeAws_json1_1DominantColors = (output: any, context: __SerdeContext): DominantColor[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DominantColor(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1Emotion = (output: any, context: __SerdeContext): Emotion => {
@@ -7220,6 +7815,8 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
     BoundingBox:
       output.BoundingBox != null ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context) : undefined,
     Confidence: __limitedParseFloat32(output.Confidence),
+    DominantColors:
+      output.DominantColors != null ? deserializeAws_json1_1DominantColors(output.DominantColors, context) : undefined,
   } as any;
 };
 
@@ -7276,6 +7873,17 @@ const deserializeAws_json1_1InvalidParameterException = (
   } as any;
 };
 
+const deserializeAws_json1_1InvalidPolicyRevisionIdException = (
+  output: any,
+  context: __SerdeContext
+): InvalidPolicyRevisionIdException => {
+  return {
+    Code: __expectString(output.Code),
+    Logref: __expectString(output.Logref),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidS3ObjectException = (
   output: any,
   context: __SerdeContext
@@ -7307,6 +7915,9 @@ const deserializeAws_json1_1KnownGender = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1Label = (output: any, context: __SerdeContext): Label => {
   return {
+    Aliases: output.Aliases != null ? deserializeAws_json1_1LabelAliases(output.Aliases, context) : undefined,
+    Categories:
+      output.Categories != null ? deserializeAws_json1_1LabelCategories(output.Categories, context) : undefined,
     Confidence: __limitedParseFloat32(output.Confidence),
     Instances: output.Instances != null ? deserializeAws_json1_1Instances(output.Instances, context) : undefined,
     Name: __expectString(output.Name),
@@ -7314,9 +7925,48 @@ const deserializeAws_json1_1Label = (output: any, context: __SerdeContext): Labe
   } as any;
 };
 
+const deserializeAws_json1_1LabelAlias = (output: any, context: __SerdeContext): LabelAlias => {
+  return {
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1LabelAliases = (output: any, context: __SerdeContext): LabelAlias[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LabelAlias(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LabelCategories = (output: any, context: __SerdeContext): LabelCategory[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LabelCategory(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LabelCategory = (output: any, context: __SerdeContext): LabelCategory => {
+  return {
+    Name: __expectString(output.Name),
+  } as any;
+};
+
 const deserializeAws_json1_1LabelDetection = (output: any, context: __SerdeContext): LabelDetection => {
   return {
+    DurationMillis: __expectLong(output.DurationMillis),
+    EndTimestampMillis: __expectLong(output.EndTimestampMillis),
     Label: output.Label != null ? deserializeAws_json1_1Label(output.Label, context) : undefined,
+    StartTimestampMillis: __expectLong(output.StartTimestampMillis),
     Timestamp: __expectLong(output.Timestamp),
   } as any;
 };
@@ -7420,6 +8070,19 @@ const deserializeAws_json1_1ListFacesResponse = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1ListProjectPoliciesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListProjectPoliciesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    ProjectPolicies:
+      output.ProjectPolicies != null
+        ? deserializeAws_json1_1ProjectPolicies(output.ProjectPolicies, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListStreamProcessorsResponse = (
   output: any,
   context: __SerdeContext
@@ -7439,6 +8102,17 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     Tags: output.Tags != null ? deserializeAws_json1_1TagMap(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MalformedPolicyDocumentException = (
+  output: any,
+  context: __SerdeContext
+): MalformedPolicyDocumentException => {
+  return {
+    Code: __expectString(output.Code),
+    Logref: __expectString(output.Logref),
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7601,6 +8275,35 @@ const deserializeAws_json1_1ProjectDescriptions = (output: any, context: __Serde
   return retVal;
 };
 
+const deserializeAws_json1_1ProjectPolicies = (output: any, context: __SerdeContext): ProjectPolicy[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ProjectPolicy(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ProjectPolicy = (output: any, context: __SerdeContext): ProjectPolicy => {
+  return {
+    CreationTimestamp:
+      output.CreationTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
+        : undefined,
+    LastUpdatedTimestamp:
+      output.LastUpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
+        : undefined,
+    PolicyDocument: __expectString(output.PolicyDocument),
+    PolicyName: __expectString(output.PolicyName),
+    PolicyRevisionId: __expectString(output.PolicyRevisionId),
+    ProjectArn: __expectString(output.ProjectArn),
+  } as any;
+};
+
 const deserializeAws_json1_1ProjectVersionDescription = (
   output: any,
   context: __SerdeContext
@@ -7625,6 +8328,7 @@ const deserializeAws_json1_1ProjectVersionDescription = (
     OutputConfig:
       output.OutputConfig != null ? deserializeAws_json1_1OutputConfig(output.OutputConfig, context) : undefined,
     ProjectVersionArn: __expectString(output.ProjectVersionArn),
+    SourceProjectVersionArn: __expectString(output.SourceProjectVersionArn),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
     TestingDataResult:
@@ -7739,6 +8443,15 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
     Code: __expectString(output.Code),
     Logref: __expectString(output.Logref),
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1PutProjectPolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): PutProjectPolicyResponse => {
+  return {
+    PolicyRevisionId: __expectString(output.PolicyRevisionId),
   } as any;
 };
 
@@ -8142,10 +8855,8 @@ const deserializeAws_json1_1TagMap = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8331,7 +9042,8 @@ const deserializeAws_json1_1VideoTooLargeException = (output: any, context: __Se
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -8381,6 +9093,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -8391,6 +9109,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,6 +29,8 @@ export interface CreateFlowTemplateCommandInput extends CreateFlowTemplateReques
 export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only
  *          entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the
  *       latest version of the user's namespace unless another namespace version is specified in the request.</p>
@@ -54,6 +57,15 @@ export class CreateFlowTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateFlowTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +81,9 @@ export class CreateFlowTemplateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateFlowTemplateCommandInput, CreateFlowTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateFlowTemplateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

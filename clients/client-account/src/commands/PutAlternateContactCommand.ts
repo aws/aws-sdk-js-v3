@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,9 +25,9 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p>
- *         <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
+ *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
  *                 updating the alternate contacts</a>.</p>
- *         <note>
+ *          <note>
  *             <p>Before you can update the alternate contact information for an
  *      Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management
  *      and Organizations.  For more information, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html">Enabling trusted access for
@@ -55,6 +56,15 @@ export class PutAlternateContactCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutAlternateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class PutAlternateContactCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutAlternateContactCommandInput, PutAlternateContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutAlternateContactCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

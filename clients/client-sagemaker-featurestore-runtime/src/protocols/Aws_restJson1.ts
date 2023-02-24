@@ -29,6 +29,7 @@ import {
   InternalFailure,
   ResourceNotFound,
   ServiceUnavailable,
+  TargetStore,
   ValidationError,
 } from "../models/models_0";
 import { SageMakerFeatureStoreRuntimeServiceException as __BaseException } from "../models/SageMakerFeatureStoreRuntimeServiceException";
@@ -76,8 +77,15 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
     false
   );
   const query: any = map({
-    RecordIdentifierValueAsString: [, input.RecordIdentifierValueAsString!],
-    EventTime: [, input.EventTime!],
+    RecordIdentifierValueAsString: [
+      ,
+      __expectNonNull(input.RecordIdentifierValueAsString!, `RecordIdentifierValueAsString`),
+    ],
+    EventTime: [, __expectNonNull(input.EventTime!, `EventTime`)],
+    TargetStores: [
+      () => input.TargetStores !== void 0,
+      () => (input.TargetStores! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -109,7 +117,10 @@ export const serializeAws_restJson1GetRecordCommand = async (
     false
   );
   const query: any = map({
-    RecordIdentifierValueAsString: [, input.RecordIdentifierValueAsString!],
+    RecordIdentifierValueAsString: [
+      ,
+      __expectNonNull(input.RecordIdentifierValueAsString!, `RecordIdentifierValueAsString`),
+    ],
     FeatureName: [
       () => input.FeatureNames !== void 0,
       () => (input.FeatureNames! || []).map((_entry) => _entry as any),
@@ -149,6 +160,9 @@ export const serializeAws_restJson1PutRecordCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Record != null && { Record: serializeAws_restJson1Record(input.Record, context) }),
+    ...(input.TargetStores != null && {
+      TargetStores: serializeAws_restJson1TargetStores(input.TargetStores, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -193,7 +207,7 @@ const deserializeAws_restJson1BatchGetRecordCommandError = async (
 ): Promise<BatchGetRecordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -240,7 +254,7 @@ const deserializeAws_restJson1DeleteRecordCommandError = async (
 ): Promise<DeleteRecordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -290,7 +304,7 @@ const deserializeAws_restJson1GetRecordCommandError = async (
 ): Promise<GetRecordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -340,7 +354,7 @@ const deserializeAws_restJson1PutRecordCommandError = async (
 ): Promise<PutRecordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -508,6 +522,14 @@ const serializeAws_restJson1RecordIdentifiers = (input: string[], context: __Ser
     });
 };
 
+const serializeAws_restJson1TargetStores = (input: (TargetStore | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const deserializeAws_restJson1BatchGetRecordError = (output: any, context: __SerdeContext): BatchGetRecordError => {
   return {
     ErrorCode: __expectString(output.ErrorCode),
@@ -630,7 +652,8 @@ const deserializeAws_restJson1UnprocessedIdentifiers = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -662,6 +685,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -672,6 +701,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

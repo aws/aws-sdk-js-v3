@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,6 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
 /**
  * <p>Returns the container images that are registered to your Amazon Lightsail container
  *       service.</p>
- *
  *          <note>
  *             <p>If you created a deployment on your Lightsail container service that uses container
  *         images from a public registry like Docker Hub, those images are not returned as part of this
@@ -59,6 +59,15 @@ export class GetContainerImagesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetContainerImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +83,9 @@ export class GetContainerImagesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetContainerImagesCommandInput, GetContainerImagesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetContainerImagesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

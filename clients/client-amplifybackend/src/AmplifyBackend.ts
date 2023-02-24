@@ -606,7 +606,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Generates a model schema for existing backend API resource.</p>
+   * <p>Gets a model introspection schema for an existing backend API resource.</p>
    */
   public getBackendAPIModels(
     args: GetBackendAPIModelsCommandInput,

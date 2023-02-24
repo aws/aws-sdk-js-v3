@@ -21,13 +21,14 @@ const putObjectTaggingMock = jest.fn().mockResolvedValue({
   Success: "Tags have been applied!",
 });
 
-const endpointMock = jest.fn().mockResolvedValue({
-  hostname: "s3.region.amazonaws.com",
+let hostname = "s3.region.amazonaws.com";
+const endpointMock = jest.fn().mockImplementation(() => ({
+  hostname,
   port: undefined,
   protocol: "https:",
   path: "/",
   query: undefined,
-});
+}));
 
 import { EventEmitter, Readable } from "stream";
 
@@ -64,6 +65,7 @@ jest.mock("@aws-sdk/client-s3", () => ({
   PutObjectCommand: putObjectMock,
 }));
 
+import { AbortController } from "@aws-sdk/abort-controller";
 import { CompleteMultipartUploadCommandOutput, S3, S3Client } from "@aws-sdk/client-s3";
 import { createHash } from "crypto";
 
@@ -242,6 +244,42 @@ describe(Upload.name, () => {
     expect(result.Key).toEqual("example-key");
     expect(result.Bucket).toEqual("example-bucket");
     expect(result.Location).toEqual("https://example-bucket.s3.region.amazonaws.com/example-key");
+  });
+
+  describe("bucket hostname deduplication", () => {
+    afterEach(() => {
+      hostname = "s3.region.amazonaws.com";
+    });
+    it("should dedupe bucket in endpoint hostname when forcePathStyle = false", async () => {
+      hostname = "example-bucket.example-host.com";
+      const buffer = Buffer.from("");
+      const actionParams = { ...params, Body: buffer };
+      const upload = new Upload({
+        params: actionParams,
+        client: new S3({
+          forcePathStyle: false,
+        }),
+      });
+      const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+      expect(result.Key).toEqual("example-key");
+      expect(result.Bucket).toEqual("example-bucket");
+      expect(result.Location).toEqual("https://example-bucket.example-host.com/example-key");
+    });
+    it("should prepend bucket in endpoint hostname when it does not already contain it and forcePathStyle = false", async () => {
+      hostname = "example-host.com";
+      const buffer = Buffer.from("");
+      const actionParams = { ...params, Body: buffer };
+      const upload = new Upload({
+        params: actionParams,
+        client: new S3({
+          forcePathStyle: false,
+        }),
+      });
+      const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+      expect(result.Key).toEqual("example-key");
+      expect(result.Bucket).toEqual("example-bucket");
+      expect(result.Location).toEqual("https://example-bucket.example-host.com/example-key");
+    });
   });
 
   it("should return a Location field formatted in path style when forcePathStyle is true", async () => {
@@ -637,5 +675,23 @@ describe(Upload.name, () => {
     expect(received.length).toBe(2);
     expect(mockAddListener).toHaveBeenCalledWith("xhr.upload.progress", expect.any(Function));
     expect(mockRemoveListener).toHaveBeenCalledWith("xhr.upload.progress", expect.any(Function));
+  });
+
+  it("should respect external abort signal", async () => {
+    const abortController = new AbortController();
+
+    try {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+        abortController,
+      });
+
+      abortController.abort();
+
+      await upload.done();
+    } catch (error) {
+      expect(error).toBeDefined();
+    }
   });
 });

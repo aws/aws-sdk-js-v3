@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyVpnConnectionOptionsRequestFilterSensitiveLog,
   ModifyVpnConnectionOptionsResult,
   ModifyVpnConnectionOptionsResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpnConnectionOptionsCommand,
   serializeAws_ec2ModifyVpnConnectionOptionsCommand,
@@ -29,7 +30,7 @@ export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnec
 
 /**
  * <p>Modifies the connection options for your Site-to-Site VPN connection.</p>
- *         <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the
+ *          <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the
  *                 Amazon Web Services side do not change, and the tunnel options do not change. Your
  *             VPN connection will be temporarily unavailable for a brief period while the VPN
  *             connection is updated.</p>
@@ -56,6 +57,15 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyVpnConnectionOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyVpnConnectionOptionsCommandInput, ModifyVpnConnectionOptionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyVpnConnectionOptionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

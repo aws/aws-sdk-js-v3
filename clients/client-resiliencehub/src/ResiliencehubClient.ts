@@ -1,13 +1,7 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -32,22 +26,24 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -58,6 +54,14 @@ import {
   AddDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/AddDraftAppVersionResourceMappingsCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
+import {
+  CreateAppVersionAppComponentCommandInput,
+  CreateAppVersionAppComponentCommandOutput,
+} from "./commands/CreateAppVersionAppComponentCommand";
+import {
+  CreateAppVersionResourceCommandInput,
+  CreateAppVersionResourceCommandOutput,
+} from "./commands/CreateAppVersionResourceCommand";
 import {
   CreateRecommendationTemplateCommandInput,
   CreateRecommendationTemplateCommandOutput,
@@ -72,6 +76,18 @@ import {
 } from "./commands/DeleteAppAssessmentCommand";
 import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
+  DeleteAppInputSourceCommandInput,
+  DeleteAppInputSourceCommandOutput,
+} from "./commands/DeleteAppInputSourceCommand";
+import {
+  DeleteAppVersionAppComponentCommandInput,
+  DeleteAppVersionAppComponentCommandOutput,
+} from "./commands/DeleteAppVersionAppComponentCommand";
+import {
+  DeleteAppVersionResourceCommandInput,
+  DeleteAppVersionResourceCommandOutput,
+} from "./commands/DeleteAppVersionResourceCommand";
+import {
   DeleteRecommendationTemplateCommandInput,
   DeleteRecommendationTemplateCommandOutput,
 } from "./commands/DeleteRecommendationTemplateCommand";
@@ -84,6 +100,15 @@ import {
   DescribeAppAssessmentCommandOutput,
 } from "./commands/DescribeAppAssessmentCommand";
 import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
+import {
+  DescribeAppVersionAppComponentCommandInput,
+  DescribeAppVersionAppComponentCommandOutput,
+} from "./commands/DescribeAppVersionAppComponentCommand";
+import { DescribeAppVersionCommandInput, DescribeAppVersionCommandOutput } from "./commands/DescribeAppVersionCommand";
+import {
+  DescribeAppVersionResourceCommandInput,
+  DescribeAppVersionResourceCommandOutput,
+} from "./commands/DescribeAppVersionResourceCommand";
 import {
   DescribeAppVersionResourcesResolutionStatusCommandInput,
   DescribeAppVersionResourcesResolutionStatusCommandOutput,
@@ -117,7 +142,15 @@ import {
   ListAppComponentRecommendationsCommandInput,
   ListAppComponentRecommendationsCommandOutput,
 } from "./commands/ListAppComponentRecommendationsCommand";
+import {
+  ListAppInputSourcesCommandInput,
+  ListAppInputSourcesCommandOutput,
+} from "./commands/ListAppInputSourcesCommand";
 import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import {
+  ListAppVersionAppComponentsCommandInput,
+  ListAppVersionAppComponentsCommandOutput,
+} from "./commands/ListAppVersionAppComponentsCommand";
 import {
   ListAppVersionResourceMappingsCommandInput,
   ListAppVersionResourceMappingsCommandOutput,
@@ -173,22 +206,45 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
 import {
+  UpdateAppVersionAppComponentCommandInput,
+  UpdateAppVersionAppComponentCommandOutput,
+} from "./commands/UpdateAppVersionAppComponentCommand";
+import { UpdateAppVersionCommandInput, UpdateAppVersionCommandOutput } from "./commands/UpdateAppVersionCommand";
+import {
+  UpdateAppVersionResourceCommandInput,
+  UpdateAppVersionResourceCommandOutput,
+} from "./commands/UpdateAppVersionResourceCommand";
+import {
   UpdateResiliencyPolicyCommandInput,
   UpdateResiliencyPolicyCommandOutput,
 } from "./commands/UpdateResiliencyPolicyCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AddDraftAppVersionResourceMappingsCommandInput
   | CreateAppCommandInput
+  | CreateAppVersionAppComponentCommandInput
+  | CreateAppVersionResourceCommandInput
   | CreateRecommendationTemplateCommandInput
   | CreateResiliencyPolicyCommandInput
   | DeleteAppAssessmentCommandInput
   | DeleteAppCommandInput
+  | DeleteAppInputSourceCommandInput
+  | DeleteAppVersionAppComponentCommandInput
+  | DeleteAppVersionResourceCommandInput
   | DeleteRecommendationTemplateCommandInput
   | DeleteResiliencyPolicyCommandInput
   | DescribeAppAssessmentCommandInput
   | DescribeAppCommandInput
+  | DescribeAppVersionAppComponentCommandInput
+  | DescribeAppVersionCommandInput
+  | DescribeAppVersionResourceCommandInput
   | DescribeAppVersionResourcesResolutionStatusCommandInput
   | DescribeAppVersionTemplateCommandInput
   | DescribeDraftAppVersionResourcesImportStatusCommandInput
@@ -198,6 +254,8 @@ export type ServiceInputTypes =
   | ListAppAssessmentsCommandInput
   | ListAppComponentCompliancesCommandInput
   | ListAppComponentRecommendationsCommandInput
+  | ListAppInputSourcesCommandInput
+  | ListAppVersionAppComponentsCommandInput
   | ListAppVersionResourceMappingsCommandInput
   | ListAppVersionResourcesCommandInput
   | ListAppVersionsCommandInput
@@ -217,19 +275,30 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAppCommandInput
+  | UpdateAppVersionAppComponentCommandInput
+  | UpdateAppVersionCommandInput
+  | UpdateAppVersionResourceCommandInput
   | UpdateResiliencyPolicyCommandInput;
 
 export type ServiceOutputTypes =
   | AddDraftAppVersionResourceMappingsCommandOutput
   | CreateAppCommandOutput
+  | CreateAppVersionAppComponentCommandOutput
+  | CreateAppVersionResourceCommandOutput
   | CreateRecommendationTemplateCommandOutput
   | CreateResiliencyPolicyCommandOutput
   | DeleteAppAssessmentCommandOutput
   | DeleteAppCommandOutput
+  | DeleteAppInputSourceCommandOutput
+  | DeleteAppVersionAppComponentCommandOutput
+  | DeleteAppVersionResourceCommandOutput
   | DeleteRecommendationTemplateCommandOutput
   | DeleteResiliencyPolicyCommandOutput
   | DescribeAppAssessmentCommandOutput
   | DescribeAppCommandOutput
+  | DescribeAppVersionAppComponentCommandOutput
+  | DescribeAppVersionCommandOutput
+  | DescribeAppVersionResourceCommandOutput
   | DescribeAppVersionResourcesResolutionStatusCommandOutput
   | DescribeAppVersionTemplateCommandOutput
   | DescribeDraftAppVersionResourcesImportStatusCommandOutput
@@ -239,6 +308,8 @@ export type ServiceOutputTypes =
   | ListAppAssessmentsCommandOutput
   | ListAppComponentCompliancesCommandOutput
   | ListAppComponentRecommendationsCommandOutput
+  | ListAppInputSourcesCommandOutput
+  | ListAppVersionAppComponentsCommandOutput
   | ListAppVersionResourceMappingsCommandOutput
   | ListAppVersionResourcesCommandOutput
   | ListAppVersionsCommandOutput
@@ -258,6 +329,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAppCommandOutput
+  | UpdateAppVersionAppComponentCommandOutput
+  | UpdateAppVersionCommandOutput
+  | UpdateAppVersionResourceCommandOutput
   | UpdateResiliencyPolicyCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -267,11 +341,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -328,6 +402,39 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -343,58 +450,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type ResiliencehubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of ResiliencehubClient class constructor that set the region, credentials and other options.
  */
@@ -403,11 +472,12 @@ export interface ResiliencehubClientConfig extends ResiliencehubClientConfigType
 type ResiliencehubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of ResiliencehubClient class. This is resolved and normalized from the {@link ResiliencehubClientConfig | constructor configuration interface}.
  */
@@ -433,14 +503,15 @@ export class ResiliencehubClient extends __Client<
 
   constructor(configuration: ResiliencehubClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

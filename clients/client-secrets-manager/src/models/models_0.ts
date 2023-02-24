@@ -102,6 +102,10 @@ export class InvalidParameterException extends __BaseException {
  *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
  *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
  *             </li>
+ *             <li>
+ *                <p>The secret is managed by another service, and you must use that service to update it.
+ *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
+ *             </li>
  *          </ul>
  */
 export class InvalidRequestException extends __BaseException {
@@ -163,7 +167,6 @@ export interface CreateSecretRequest {
    * <p>The name of the new secret.</p>
    *          <p>The secret name can contain ASCII letters, numbers, and the following characters:
    *       /_+=.@-</p>
-   *
    *          <p>Do not end your secret name with a hyphen followed by six characters. If you do so, you
    *         risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager
    *         automatically adds a hyphen and six random characters after the secret name at the end of the ARN.</p>
@@ -214,7 +217,8 @@ export interface CreateSecretRequest {
 
   /**
    * <p>The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
-   *       encrypt the secret value in the secret.</p>
+   *       encrypt the secret value in the secret. An alias is always prefixed by <code>alias/</code>,
+   *       for example <code>alias/aws/secretsmanager</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html">About aliases</a>.</p>
    *          <p>To use a KMS key in a different account, use the key ARN or the alias ARN.</p>
    *          <p>If you don't specify this value, then Secrets Manager uses the key <code>aws/secretsmanager</code>.
    *       If that key doesn't yet exist, then Secrets Manager creates it for you automatically the first time it
@@ -264,8 +268,8 @@ export interface CreateSecretRequest {
    *       JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
    *         Parameters</a>. If your command-line tool or SDK requires quotation marks around the parameter, you should
    *       use single quotes to avoid confusion with the double quotes required in the JSON text.</p>
-   *             <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
    *                <p>Maximum number of tags per secret: 50</p>
    *             </li>
@@ -337,7 +341,7 @@ export interface ReplicationStatusType {
   StatusMessage?: string;
 
   /**
-   * <p>The date that you last accessed the secret in the Region. </p>
+   * <p>The date that the secret was last accessed in the Region. This field is omitted if the secret has never been retrieved in the Region.</p>
    */
   LastAccessedDate?: Date;
 }
@@ -556,7 +560,7 @@ export interface DeleteSecretRequest {
    *             <p>Use this parameter with caution. This parameter causes the operation to skip the normal
    *         recovery window before the permanent deletion that Secrets Manager would normally impose with the
    *           <code>RecoveryWindowInDays</code> parameter. If you delete a secret with the
-   *           <code>ForceDeleteWithouRecovery</code> parameter, then you have no opportunity to recover
+   *           <code>ForceDeleteWithoutRecovery</code> parameter, then you have no opportunity to recover
    *         the secret. You lose the secret permanently.</p>
    *          </important>
    */
@@ -596,43 +600,50 @@ export interface DescribeSecretRequest {
  */
 export interface RotationRulesType {
   /**
-   * <p>The number of days between automatic scheduled rotations of the secret. You can use this
+   * <p>The number of days between rotations of the secret. You can use this
    *       value to check that your secret meets your compliance guidelines for how often secrets must
-   *       be rotated.</p>
+   *       be rotated. If you use this field to set the rotation schedule, Secrets Manager calculates the next rotation
+   *       date based on the previous rotation. Manually updating the secret value by calling
+   *       <code>PutSecretValue</code> or <code>UpdateSecret</code> is considered a valid rotation.</p>
    *          <p>In <code>DescribeSecret</code> and <code>ListSecrets</code>, this value is calculated from
    *       the rotation schedule after every successful rotation. In <code>RotateSecret</code>, you can
    *       set the rotation schedule in <code>RotationRules</code> with <code>AutomaticallyAfterDays</code>
-   *       or <code>ScheduleExpression</code>, but not both.</p>
+   *       or <code>ScheduleExpression</code>, but not both. To set a rotation schedule in hours, use
+   *       <code>ScheduleExpression</code>.</p>
    */
   AutomaticallyAfterDays?: number;
 
   /**
-   * <p>The length of the rotation window in hours, for example <code>3h</code> for a three hour window. Secrets Manager
-   *       rotates your secret at any time during this window. The window must not go into the next UTC
-   *       day. If you don't specify this value, the window automatically ends at the end of
-   *       the UTC day. The window begins according to the <code>ScheduleExpression</code>. For more
-   *       information, including examples, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule expressions
-   *         in Secrets Manager rotation</a>.</p>
+   * <p>The length of the rotation window in hours, for example <code>3h</code> for a three
+   *       hour window. Secrets Manager rotates your secret at any time during this window. The window must not
+   *       extend into the next rotation window or the next UTC day. The window starts according to the <code>ScheduleExpression</code>. If you don't specify a <code>Duration</code>,
+   *       for a <code>ScheduleExpression</code> in hours, the window automatically closes after one
+   *       hour. For a <code>ScheduleExpression</code> in days, the window automatically closes at the
+   *       end of the UTC day. For
+   *       more information, including examples, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule expressions
+   *       in Secrets Manager rotation</a> in the <i>Secrets Manager Users Guide</i>.</p>
    */
   Duration?: string;
 
   /**
    * <p>A <code>cron()</code> or <code>rate()</code> expression that defines the schedule for
-   *       rotating your secret. Secrets Manager rotation schedules use UTC time zone. </p>
-   *          <p>Secrets Manager <code>rate()</code> expressions
-   *       represent the interval in days that you want to rotate your secret, for example
-   *       <code>rate(10 days)</code>. If you use a <code>rate()</code> expression, the rotation
-   *       window opens at midnight, and Secrets Manager rotates your secret any time that day after midnight.
-   *       You can set a <code>Duration</code> to shorten the rotation window.</p>
-   *          <p>You can use a <code>cron()</code> expression to create rotation schedules that are
+   *       rotating your secret. Secrets Manager rotation schedules use UTC time zone. Secrets Manager rotates your secret any time during a rotation window.</p>
+   *          <p>Secrets Manager <code>rate()</code> expressions represent the interval in hours or days that you
+   *       want to rotate your secret, for example <code>rate(12 hours)</code> or
+   *       <code>rate(10 days)</code>. You can rotate a secret as often as every four hours. If you
+   *       use a <code>rate()</code> expression, the rotation
+   *       window starts at midnight. For a rate in hours, the default rotation window closes after one
+   *       hour. For a rate in days, the default rotation window closes at the end of the day. You can
+   *       set the <code>Duration</code> to change the rotation window. The rotation window must not
+   *       extend into the next UTC day or into the next rotation window.</p>
+   *          <p>You can use a <code>cron()</code> expression to create a rotation schedule that is
    *       more detailed than a rotation interval. For more information, including examples, see
-   *       <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule expressions
-   *         in Secrets Manager rotation</a>. If you use a <code>cron()</code> expression, Secrets Manager rotates
-   *       your secret any time during that day after the window opens. For example,
-   *       <code>cron(0 8 1 * ? *)</code> represents a rotation window that occurs on the first
-   *       day of every month beginning at 8:00 AM UTC. Secrets Manager rotates the secret any time that day
-   *       after 8:00 AM. You can set a <code>Duration</code> to shorten
-   *       the rotation window.</p>
+   *       <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule expressions in
+   *       Secrets Manager rotation</a> in the <i>Secrets Manager Users Guide</i>. For a cron expression
+   *       that represents a schedule in hours, the default rotation window closes after one hour. For
+   *       a cron expression that represents a schedule in days, the default rotation window closes at
+   *       the end of the day. You can set the <code>Duration</code> to change the rotation window. The
+   *       rotation window must not extend into the next UTC day or into the next rotation window.</p>
    */
   ScheduleExpression?: string;
 }
@@ -654,8 +665,9 @@ export interface DescribeSecretResponse {
   Description?: string;
 
   /**
-   * <p>The ARN of the KMS key that Secrets Manager uses to encrypt the secret value. If the secret is encrypted with
-   *       the Amazon Web Services managed key <code>aws/secretsmanager</code>, this field is omitted.</p>
+   * <p>The key ID or alias ARN of the KMS key that Secrets Manager uses to encrypt the secret value.
+   *       If the secret is encrypted with the Amazon Web Services managed key <code>aws/secretsmanager</code>,
+   *       this field is omitted. Secrets created using the console use an KMS key ID.</p>
    */
   KmsKeyId?: string;
 
@@ -691,7 +703,7 @@ export interface DescribeSecretResponse {
   LastChangedDate?: Date;
 
   /**
-   * <p>The last date that the secret value was retrieved. This value does not include the time. This field is omitted if the secret has never been retrieved.</p>
+   * <p>The date that the secret was last accessed in the Region. This field is omitted if the secret has never been retrieved in the Region.</p>
    */
   LastAccessedDate?: Date;
 
@@ -704,6 +716,11 @@ export interface DescribeSecretResponse {
    *       value, is not accessible. To cancel a scheduled deletion and restore access to the secret, use <a>RestoreSecret</a>.</p>
    */
   DeletedDate?: Date;
+
+  /**
+   * <p>The next date and time that Secrets Manager will rotate the secret, rounded to the nearest hour. If the secret isn't configured for rotation, Secrets Manager returns null.</p>
+   */
+  NextRotationDate?: Date;
 
   /**
    * <p>The list of tags attached to the secret. To add tags to a
@@ -741,7 +758,7 @@ export interface DescribeSecretResponse {
   VersionIdsToStages?: Record<string, string[]>;
 
   /**
-   * <p>The name of the service that created this secret.</p>
+   * <p>The ID of the service that created this secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
    */
   OwningService?: string;
 
@@ -775,7 +792,15 @@ export interface DescribeSecretResponse {
   ReplicationStatus?: ReplicationStatusType[];
 }
 
-export type FilterNameStringType = "all" | "description" | "name" | "primary-region" | "tag-key" | "tag-value";
+export enum FilterNameStringType {
+  all = "all",
+  description = "description",
+  name = "name",
+  owning_service = "owning-service",
+  primary_region = "primary-region",
+  tag_key = "tag-key",
+  tag_value = "tag-value",
+}
 
 /**
  * <p>Allows you to add filters when you use the search function in Secrets Manager. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html">Find secrets in Secrets Manager</a>.</p>
@@ -803,6 +828,10 @@ export interface Filter {
    *             <li>
    *                <p>
    *                   <b>primary-region</b>: Prefix match, case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>owning-service</b>: Prefix match, case-sensitive.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1009,6 +1038,11 @@ export enum SortOrderType {
 
 export interface ListSecretsRequest {
   /**
+   * <p>Specifies whether to include secrets scheduled for deletion.</p>
+   */
+  IncludePlannedDeletion?: boolean;
+
+  /**
    * <p>The number of results to include in the response.</p>
    *          <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>.
    *       To get the next results, call <code>ListSecrets</code> again with the value from
@@ -1029,7 +1063,7 @@ export interface ListSecretsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Lists secrets in the requested order. </p>
+   * <p>Secrets are listed by <code>CreatedDate</code>. </p>
    */
   SortOrder?: SortOrderType | string;
 }
@@ -1094,8 +1128,7 @@ export interface SecretListEntry {
   LastChangedDate?: Date;
 
   /**
-   * <p>The last date that this secret was accessed. This value is truncated to midnight of the
-   *       date and therefore shows only the date, not the time.</p>
+   * <p>The date that the secret was last accessed in the Region. This field is omitted if the secret has never been retrieved in the Region.</p>
    */
   LastAccessedDate?: Date;
 
@@ -1107,6 +1140,11 @@ export interface SecretListEntry {
    *             </a> operation.</p>
    */
   DeletedDate?: Date;
+
+  /**
+   * <p>The next date and time that Secrets Manager will attempt to rotate the secret, rounded to the nearest hour. This value is null if the secret is not set up for rotation.</p>
+   */
+  NextRotationDate?: Date;
 
   /**
    * <p>The list of user-defined tags associated with the secret. To add tags to a
@@ -1502,7 +1540,8 @@ export interface RotateSecretRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The ARN of the Lambda rotation function that can rotate the secret.</p>
+   * <p>For secrets that use a Lambda rotation function to rotate, the ARN of the Lambda rotation function. </p>
+   *          <p>For secrets that use <i>managed rotation</i>, omit this field. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_managed.html">Managed rotation</a> in the <i>Secrets Manager User Guide</i>.</p>
    */
   RotationLambdaARN?: string;
 
@@ -1514,7 +1553,7 @@ export interface RotateSecretRequest {
   /**
    * <p>Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
    *     The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</p>
-   *          <p>If you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the
+   *          <p>For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the
    *     <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">
    *                <code>testSecret</code>
    *       step</a> of the Lambda rotation function. The test creates an <code>AWSPENDING</code> version of the secret and then removes it.</p>
@@ -1566,7 +1605,6 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to attach to the secret as a JSON text string argument. Each element in the list consists of a <code>Key</code>
    *       and a <code>Value</code>.</p>
-   *
    *          <p>For storing multiple values, we recommend that you use a JSON text
    *     string argument and specify key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html">Specifying parameter values for the Amazon Web Services CLI</a>
    *     in the Amazon Web Services CLI User Guide.</p>
@@ -1624,9 +1662,16 @@ export interface UpdateSecretRequest {
 
   /**
    * <p>The ARN, key ID, or alias of the KMS key that Secrets Manager
-   *       uses to encrypt new secret versions as well as any existing versions the staging labels
+   *       uses to encrypt new secret versions as well as any existing versions with the staging labels
    *       <code>AWSCURRENT</code>, <code>AWSPENDING</code>, or <code>AWSPREVIOUS</code>.
    *       For more information about versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts: Version</a>.</p>
+   *          <p>A key alias is always prefixed by <code>alias/</code>, for example <code>alias/aws/secretsmanager</code>.
+   *           For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html">About aliases</a>.</p>
+   *          <p>If you set this to an empty string, Secrets Manager uses the Amazon Web Services managed key
+   *           <code>aws/secretsmanager</code>. If this key doesn't already exist in your account, then Secrets Manager
+   *           creates it for you automatically. All users and roles in the Amazon Web Services account automatically have access
+   *           to use <code>aws/secretsmanager</code>. Creating <code>aws/secretsmanager</code> can result in a one-time
+   *           significant delay in returning the result.  </p>
    *          <important>
    *             <p>You can only use the Amazon Web Services managed key <code>aws/secretsmanager</code> if you call this
    *         operation using credentials from the same Amazon Web Services account that owns the secret. If the secret is in

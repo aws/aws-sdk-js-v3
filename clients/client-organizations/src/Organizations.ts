@@ -67,6 +67,11 @@ import {
   DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeregisterDelegatedAdministratorCommand,
   DeregisterDelegatedAdministratorCommandInput,
   DeregisterDelegatedAdministratorCommandOutput,
@@ -106,6 +111,11 @@ import {
   DescribePolicyCommandInput,
   DescribePolicyCommandOutput,
 } from "./commands/DescribePolicyCommand";
+import {
+  DescribeResourcePolicyCommand,
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand";
 import {
   DetachPolicyCommand,
   DetachPolicyCommandInput,
@@ -220,6 +230,11 @@ import {
 } from "./commands/ListTargetsForPolicyCommand";
 import { MoveAccountCommand, MoveAccountCommandInput, MoveAccountCommandOutput } from "./commands/MoveAccountCommand";
 import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import {
   RegisterDelegatedAdministratorCommand,
   RegisterDelegatedAdministratorCommandInput,
   RegisterDelegatedAdministratorCommandOutput,
@@ -325,7 +340,7 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Sends a response to the originator of a handshake agreeing to the action proposed by
    *             the handshake request.</p>
-   *         <p>This operation can be called only by the following principals when they also have the
+   *         <p>You can only call this operation by the following principals when they also have the
    *             relevant IAM permissions:</p>
    *         <ul>
    *             <li>
@@ -512,9 +527,9 @@ export class Organizations extends OrganizationsClient {
    *                         grace period while the account is in SUSPENDED status. </p>
    *                 </li>
    *                <li>
-   *                     <p>If the Amazon Web Services account you attempt to close is linked to an Amazon Web Services GovCloud (US)
-   *                         account, the <code>CloseAccount</code> request will close both accounts. To
-   *                         learn important pre-closure details, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/Closing-govcloud-account.html">
+   *                     <p>If the Amazon Web Services account you attempt to close is linked to an Amazon Web Services GovCloud
+   *                         (US) account, the <code>CloseAccount</code> request will close both
+   *                         accounts. To learn important pre-closure details, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/Closing-govcloud-account.html">
    *                             Closing an Amazon Web Services GovCloud (US) account</a> in the <i>
    *                             Amazon Web Services GovCloud User Guide</i>.</p>
    *                 </li>
@@ -559,8 +574,8 @@ export class Organizations extends OrganizationsClient {
    *             account. To check the status of the request, do one of the following:</p>
    *         <ul>
    *             <li>
-   *                 <p>Use the <code>Id</code> member of the <code>CreateAccountStatus</code>
-   *                     response element from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a> operation.</p>
+   *                 <p>Use the <code>Id</code> value of the <code>CreateAccountStatus</code> response
+   *                     element from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a> operation.</p>
    *             </li>
    *             <li>
    *                 <p>Check the CloudTrail log for the <code>CreateAccountResult</code> event. For
@@ -1077,6 +1092,39 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * <p>Deletes the resource policy from your organization.</p>
+   *         <p>You can only call this operation from the organization's management account.</p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes the specified member Amazon Web Services account as a delegated administrator for the
    *             specified Amazon Web Services service.</p>
    *         <important>
@@ -1376,6 +1424,39 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * <p>Retrieves information about a resource policy.</p>
+   *         <p>You can only call this operation from the organization's management account or by a member account that is a delegated administrator for an AWS service.</p>
+   */
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeResourcePolicyCommandOutput>;
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): void;
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): void;
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): Promise<DescribeResourcePolicyCommandOutput> | void {
+    const command = new DescribeResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Detaches a policy from a target root, organizational unit (OU), or account.</p>
    *         <important>
    *             <p>If the policy being detached is a service control policy (SCP), the changes to
@@ -1622,7 +1703,7 @@ export class Organizations extends OrganizationsClient {
    *                 Organizations with Other Amazon Web Services Services</a> in the
    *                 <i>Organizations User Guide.</i>
    *          </p>
-   *         <p>This operation can be called only from the organization's management account and only
+   *         <p>You can only call this operation from the organization's management account and only
    *             if the organization has <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled all
    *                 features</a>.</p>
    */
@@ -2544,6 +2625,39 @@ export class Organizations extends OrganizationsClient {
     cb?: (err: any, data?: MoveAccountCommandOutput) => void
   ): Promise<MoveAccountCommandOutput> | void {
     const command = new MoveAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates a resource policy.</p>
+   *         <p>You can only call this operation from the organization's management account.</p>
+   */
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): Promise<PutResourcePolicyCommandOutput> | void {
+    const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

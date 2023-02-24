@@ -54,7 +54,9 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The criteria to use in the filter that defines the archive rule.</p>
+ * <p>The criteria to use in the filter that defines the archive rule. For more information on
+ *          available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer
+ *             filter keys</a>.</p>
  */
 export interface Criterion {
   /**
@@ -649,6 +651,132 @@ export interface CancelPolicyGenerationRequest {
 export interface CancelPolicyGenerationResponse {}
 
 /**
+ * <p>The proposed access control configuration for an Amazon EBS volume snapshot. You can propose
+ *          a configuration for a new Amazon EBS volume snapshot or an Amazon EBS volume snapshot that you own by
+ *          specifying the user IDs, groups, and optional KMS encryption key. For more information,
+ *          see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySnapshotAttribute.html">ModifySnapshotAttribute</a>.</p>
+ */
+export interface EbsSnapshotConfiguration {
+  /**
+   * <p>The IDs of the Amazon Web Services accounts that have access to the Amazon EBS volume snapshot.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not
+   *                specify the <code>userIds</code>, then the access preview uses the existing shared
+   *                   <code>userIds</code> for the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the access preview is for a new resource and you do not specify the
+   *                   <code>userIds</code>, then the access preview considers the snapshot without any
+   *                   <code>userIds</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To propose deletion of existing shared <code>accountIds</code>, you can specify an
+   *                empty list for <code>userIds</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  userIds?: string[];
+
+  /**
+   * <p>The groups that have access to the Amazon EBS volume snapshot. If the value <code>all</code>
+   *          is specified, then the Amazon EBS volume snapshot is public.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not
+   *                specify the <code>groups</code>, then the access preview uses the existing shared
+   *                   <code>groups</code> for the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the access preview is for a new resource and you do not specify the
+   *                   <code>groups</code>, then the access preview considers the snapshot without any
+   *                   <code>groups</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To propose deletion of existing shared <code>groups</code>, you can specify an
+   *                empty list for <code>groups</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  groups?: string[];
+
+  /**
+   * <p>The KMS key identifier for an encrypted Amazon EBS volume snapshot. The KMS key
+   *          identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not
+   *                specify the <code>kmsKeyId</code>, or you specify an empty string, then the access
+   *                preview uses the existing <code>kmsKeyId</code> of the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the access preview is for a new resource and you do not specify the
+   *                   <code>kmsKeyId</code>, the access preview considers the snapshot as
+   *                unencrypted.</p>
+   *             </li>
+   *          </ul>
+   */
+  kmsKeyId?: string;
+}
+
+/**
+ * <p>The proposed access control configuration for an Amazon ECR repository. You can propose a
+ *          configuration for a new Amazon ECR repository or an existing Amazon ECR repository that you own by
+ *          specifying the Amazon ECR policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_Repository.html">Repository</a>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the configuration is for an existing Amazon ECR repository and you do not specify
+ *                the Amazon ECR policy, then the access preview uses the existing Amazon ECR policy for the
+ *                repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the access preview is for a new resource and you do not specify the policy,
+ *                then the access preview assumes an Amazon ECR repository without a policy.</p>
+ *             </li>
+ *             <li>
+ *                <p>To propose deletion of an existing Amazon ECR repository policy, you can specify an
+ *                empty string for the Amazon ECR policy.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface EcrRepositoryConfiguration {
+  /**
+   * <p>The JSON repository policy text to apply to the Amazon ECR repository. For more information,
+   *          see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html">Private repository
+   *             policy examples</a> in the <i>Amazon ECR User Guide</i>.</p>
+   */
+  repositoryPolicy?: string;
+}
+
+/**
+ * <p>The proposed access control configuration for an Amazon EFS file system. You can propose a
+ *          configuration for a new Amazon EFS file system or an existing Amazon EFS file system that you own by
+ *          specifying the Amazon EFS policy. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-fs.html">Using file systems in Amazon EFS</a>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the configuration is for an existing Amazon EFS file system and you do not specify
+ *                the Amazon EFS policy, then the access preview uses the existing Amazon EFS policy for the file
+ *                system.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the access preview is for a new resource and you do not specify the policy,
+ *                then the access preview assumes an Amazon EFS file system without a policy.</p>
+ *             </li>
+ *             <li>
+ *                <p>To propose deletion of an existing Amazon EFS file system policy, you can specify an
+ *                empty string for the Amazon EFS policy.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface EfsFileSystemConfiguration {
+  /**
+   * <p>The JSON policy definition to apply to the Amazon EFS file system. For more information on
+   *          the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">Amazon EFS Resource-based policies</a>.</p>
+   */
+  fileSystemPolicy?: string;
+}
+
+/**
  * <p>The proposed access control configuration for an IAM role. You can propose a
  *          configuration for a new IAM role or an existing IAM role that you own by specifying the
  *          trust policy. If the configuration is for a new IAM role, you must specify the trust
@@ -772,6 +900,180 @@ export interface KmsKeyConfiguration {
 }
 
 /**
+ * <p>The values for a manual Amazon RDS DB cluster snapshot attribute.</p>
+ */
+export type RdsDbClusterSnapshotAttributeValue =
+  | RdsDbClusterSnapshotAttributeValue.AccountIdsMember
+  | RdsDbClusterSnapshotAttributeValue.$UnknownMember;
+
+export namespace RdsDbClusterSnapshotAttributeValue {
+  /**
+   * <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB cluster snapshot. If the
+   *          value <code>all</code> is specified, then the Amazon RDS DB cluster snapshot is public and can
+   *          be copied or restored by all Amazon Web Services accounts.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the configuration is for an existing Amazon RDS DB cluster snapshot and you do not
+   *                specify the <code>accountIds</code> in
+   *                   <code>RdsDbClusterSnapshotAttributeValue</code>, then the access preview uses the
+   *                existing shared <code>accountIds</code> for the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the access preview is for a new resource and you do not specify the specify the
+   *                   <code>accountIds</code> in <code>RdsDbClusterSnapshotAttributeValue</code>, then
+   *                the access preview considers the snapshot without any attributes.</p>
+   *             </li>
+   *             <li>
+   *                <p>To propose deletion of existing shared <code>accountIds</code>, you can specify an
+   *                empty list for <code>accountIds</code> in the
+   *                   <code>RdsDbClusterSnapshotAttributeValue</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  export interface AccountIdsMember {
+    accountIds: string[];
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    accountIds?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    accountIds: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RdsDbClusterSnapshotAttributeValue, visitor: Visitor<T>): T => {
+    if (value.accountIds !== undefined) return visitor.accountIds(value.accountIds);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The proposed access control configuration for an Amazon RDS DB cluster snapshot. You can
+ *          propose a configuration for a new Amazon RDS DB cluster snapshot or an Amazon RDS DB cluster snapshot
+ *          that you own by specifying the <code>RdsDbClusterSnapshotAttributeValue</code> and optional
+ *          KMS encryption key. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBClusterSnapshotAttribute.html">ModifyDBClusterSnapshotAttribute</a>.</p>
+ */
+export interface RdsDbClusterSnapshotConfiguration {
+  /**
+   * <p>The names and values of manual DB cluster snapshot attributes. Manual DB cluster
+   *          snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual DB
+   *          cluster snapshot. The only valid value for <code>AttributeName</code> for the attribute map
+   *          is <code>restore</code>
+   *          </p>
+   */
+  attributes?: Record<string, RdsDbClusterSnapshotAttributeValue>;
+
+  /**
+   * <p>The KMS key identifier for an encrypted Amazon RDS DB cluster snapshot. The KMS key
+   *          identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the configuration is for an existing Amazon RDS DB cluster snapshot and you do not
+   *                specify the <code>kmsKeyId</code>, or you specify an empty string, then the access
+   *                preview uses the existing <code>kmsKeyId</code> of the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the access preview is for a new resource and you do not specify the specify the
+   *                   <code>kmsKeyId</code>, then the access preview considers the snapshot as
+   *                unencrypted.</p>
+   *             </li>
+   *          </ul>
+   */
+  kmsKeyId?: string;
+}
+
+/**
+ * <p>The name and values of a manual Amazon RDS DB snapshot attribute. Manual DB snapshot
+ *          attributes are used to authorize other Amazon Web Services accounts to restore a manual DB
+ *          snapshot.</p>
+ */
+export type RdsDbSnapshotAttributeValue =
+  | RdsDbSnapshotAttributeValue.AccountIdsMember
+  | RdsDbSnapshotAttributeValue.$UnknownMember;
+
+export namespace RdsDbSnapshotAttributeValue {
+  /**
+   * <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB snapshot. If the value
+   *             <code>all</code> is specified, then the Amazon RDS DB snapshot is public and can be copied or
+   *          restored by all Amazon Web Services accounts.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the configuration is for an existing Amazon RDS DB snapshot and you do not specify
+   *                the <code>accountIds</code> in <code>RdsDbSnapshotAttributeValue</code>, then the
+   *                access preview uses the existing shared <code>accountIds</code> for the
+   *                snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the access preview is for a new resource and you do not specify the specify the
+   *                   <code>accountIds</code> in <code>RdsDbSnapshotAttributeValue</code>, then the
+   *                access preview considers the snapshot without any attributes.</p>
+   *             </li>
+   *             <li>
+   *                <p>To propose deletion of an existing shared <code>accountIds</code>, you can specify
+   *                an empty list for <code>accountIds</code> in the
+   *                   <code>RdsDbSnapshotAttributeValue</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  export interface AccountIdsMember {
+    accountIds: string[];
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    accountIds?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    accountIds: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RdsDbSnapshotAttributeValue, visitor: Visitor<T>): T => {
+    if (value.accountIds !== undefined) return visitor.accountIds(value.accountIds);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The proposed access control configuration for an Amazon RDS DB snapshot. You can propose a
+ *          configuration for a new Amazon RDS DB snapshot or an Amazon RDS DB snapshot that you own by
+ *          specifying the <code>RdsDbSnapshotAttributeValue</code> and optional KMS encryption key.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSnapshotAttribute.html">ModifyDBSnapshotAttribute</a>.</p>
+ */
+export interface RdsDbSnapshotConfiguration {
+  /**
+   * <p>The names and values of manual DB snapshot attributes. Manual DB snapshot attributes are
+   *          used to authorize other Amazon Web Services accounts to restore a manual DB snapshot. The only valid
+   *          value for <code>attributeName</code> for the attribute map is restore.</p>
+   */
+  attributes?: Record<string, RdsDbSnapshotAttributeValue>;
+
+  /**
+   * <p>The KMS key identifier for an encrypted Amazon RDS DB snapshot. The KMS key identifier is
+   *          the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the configuration is for an existing Amazon RDS DB snapshot and you do not specify
+   *                the <code>kmsKeyId</code>, or you specify an empty string, then the access preview
+   *                uses the existing <code>kmsKeyId</code> of the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the access preview is for a new resource and you do not specify the specify the
+   *                   <code>kmsKeyId</code>, then the access preview considers the snapshot as
+   *                unencrypted.</p>
+   *             </li>
+   *          </ul>
+   */
+  kmsKeyId?: string;
+}
+
+/**
  * <p>This configuration sets the network origin for the Amazon S3 access point or multi-region
  *          access point to <code>Internet</code>.</p>
  */
@@ -873,8 +1175,8 @@ export interface S3PublicAccessBlockConfiguration {
  *          proposed Amazon S3 access point configuration is for an existing bucket, the access preview uses
  *          the proposed access point configuration in place of the existing access points. To propose
  *          an access point without a policy, you can provide an empty string as the access point
- *          policy. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>. For more information about access point policy limits,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points-restrictions-limitations.html">Access points
+ *          policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>.
+ *          For more information about access point policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points-restrictions-limitations.html">Access points
  *             restrictions and limitations</a>.</p>
  */
 export interface S3AccessPointConfiguration {
@@ -1017,9 +1319,9 @@ export interface S3BucketConfiguration {
  *          deletion of an existing policy, you can specify an empty string. If the proposed
  *          configuration is for a new secret and you do not specify the KMS key ID, the access
  *          preview uses the Amazon Web Services managed key <code>aws/secretsmanager</code>. If you specify an empty
- *          string for the KMS key ID, the access preview uses the Amazon Web Services managed key of the Amazon Web Services
- *          account. For more information about secret policy limits, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html">Quotas for
- *             Secrets Manager.</a>.</p>
+ *          string for the KMS key ID, the access preview uses the Amazon Web Services managed key of the
+ *          Amazon Web Services account. For more information about secret policy limits, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html">Quotas
+ *             for Secrets Manager.</a>.</p>
  */
 export interface SecretsManagerSecretConfiguration {
   /**
@@ -1031,6 +1333,25 @@ export interface SecretsManagerSecretConfiguration {
    * <p>The proposed resource policy defining who can access or manage the secret.</p>
    */
   secretPolicy?: string;
+}
+
+/**
+ * <p>The proposed access control configuration for an Amazon SNS topic. You can propose a
+ *          configuration for a new Amazon SNS topic or an existing Amazon SNS topic that you own by specifying
+ *          the policy. If the configuration is for an existing Amazon SNS topic and you do not specify the
+ *          Amazon SNS policy, then the access preview uses the existing Amazon SNS policy for the topic. If the
+ *          access preview is for a new resource and you do not specify the policy, then the access
+ *          preview assumes an Amazon SNS topic without a policy. To propose deletion of an existing Amazon SNS
+ *          topic policy, you can specify an empty string for the Amazon SNS policy. For more information,
+ *          see <a href="https://docs.aws.amazon.com/sns/latest/api/API_Topic.html">Topic</a>.</p>
+ */
+export interface SnsTopicConfiguration {
+  /**
+   * <p>The JSON policy text that defines who can access an Amazon SNS topic. For more information,
+   *          see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html">Example cases for Amazon SNS access control</a> in the <i>Amazon SNS Developer
+   *             Guide</i>.</p>
+   */
+  topicPolicy?: string;
 }
 
 /**
@@ -1056,22 +1377,88 @@ export interface SqsQueueConfiguration {
  *          as a type-value pair. You can specify only one type of access control configuration.</p>
  */
 export type Configuration =
+  | Configuration.EbsSnapshotMember
+  | Configuration.EcrRepositoryMember
+  | Configuration.EfsFileSystemMember
   | Configuration.IamRoleMember
   | Configuration.KmsKeyMember
+  | Configuration.RdsDbClusterSnapshotMember
+  | Configuration.RdsDbSnapshotMember
   | Configuration.S3BucketMember
   | Configuration.SecretsManagerSecretMember
+  | Configuration.SnsTopicMember
   | Configuration.SqsQueueMember
   | Configuration.$UnknownMember;
 
 export namespace Configuration {
   /**
+   * <p>The access control configuration is for an Amazon EBS volume snapshot.</p>
+   */
+  export interface EbsSnapshotMember {
+    ebsSnapshot: EbsSnapshotConfiguration;
+    ecrRepository?: never;
+    iamRole?: never;
+    efsFileSystem?: never;
+    kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
+    secretsManagerSecret?: never;
+    s3Bucket?: never;
+    snsTopic?: never;
+    sqsQueue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The access control configuration is for an Amazon ECR repository.</p>
+   */
+  export interface EcrRepositoryMember {
+    ebsSnapshot?: never;
+    ecrRepository: EcrRepositoryConfiguration;
+    iamRole?: never;
+    efsFileSystem?: never;
+    kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
+    secretsManagerSecret?: never;
+    s3Bucket?: never;
+    snsTopic?: never;
+    sqsQueue?: never;
+    $unknown?: never;
+  }
+
+  /**
    * <p>The access control configuration is for an IAM role. </p>
    */
   export interface IamRoleMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
     iamRole: IamRoleConfiguration;
+    efsFileSystem?: never;
     kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
     secretsManagerSecret?: never;
     s3Bucket?: never;
+    snsTopic?: never;
+    sqsQueue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The access control configuration is for an Amazon EFS file system.</p>
+   */
+  export interface EfsFileSystemMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
+    iamRole?: never;
+    efsFileSystem: EfsFileSystemConfiguration;
+    kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
+    secretsManagerSecret?: never;
+    s3Bucket?: never;
+    snsTopic?: never;
     sqsQueue?: never;
     $unknown?: never;
   }
@@ -1080,10 +1467,52 @@ export namespace Configuration {
    * <p>The access control configuration is for a KMS key. </p>
    */
   export interface KmsKeyMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
     iamRole?: never;
+    efsFileSystem?: never;
     kmsKey: KmsKeyConfiguration;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
     secretsManagerSecret?: never;
     s3Bucket?: never;
+    snsTopic?: never;
+    sqsQueue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The access control configuration is for an Amazon RDS DB cluster snapshot.</p>
+   */
+  export interface RdsDbClusterSnapshotMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
+    iamRole?: never;
+    efsFileSystem?: never;
+    kmsKey?: never;
+    rdsDbClusterSnapshot: RdsDbClusterSnapshotConfiguration;
+    rdsDbSnapshot?: never;
+    secretsManagerSecret?: never;
+    s3Bucket?: never;
+    snsTopic?: never;
+    sqsQueue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The access control configuration is for an Amazon RDS DB snapshot.</p>
+   */
+  export interface RdsDbSnapshotMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
+    iamRole?: never;
+    efsFileSystem?: never;
+    kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot: RdsDbSnapshotConfiguration;
+    secretsManagerSecret?: never;
+    s3Bucket?: never;
+    snsTopic?: never;
     sqsQueue?: never;
     $unknown?: never;
   }
@@ -1092,10 +1521,16 @@ export namespace Configuration {
    * <p>The access control configuration is for a Secrets Manager secret.</p>
    */
   export interface SecretsManagerSecretMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
     iamRole?: never;
+    efsFileSystem?: never;
     kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
     secretsManagerSecret: SecretsManagerSecretConfiguration;
     s3Bucket?: never;
+    snsTopic?: never;
     sqsQueue?: never;
     $unknown?: never;
   }
@@ -1104,10 +1539,34 @@ export namespace Configuration {
    * <p>The access control configuration is for an Amazon S3 Bucket. </p>
    */
   export interface S3BucketMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
     iamRole?: never;
+    efsFileSystem?: never;
     kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
     secretsManagerSecret?: never;
     s3Bucket: S3BucketConfiguration;
+    snsTopic?: never;
+    sqsQueue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The access control configuration is for an Amazon SNS topic</p>
+   */
+  export interface SnsTopicMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
+    iamRole?: never;
+    efsFileSystem?: never;
+    kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
+    secretsManagerSecret?: never;
+    s3Bucket?: never;
+    snsTopic: SnsTopicConfiguration;
     sqsQueue?: never;
     $unknown?: never;
   }
@@ -1116,37 +1575,61 @@ export namespace Configuration {
    * <p>The access control configuration is for an Amazon SQS queue. </p>
    */
   export interface SqsQueueMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
     iamRole?: never;
+    efsFileSystem?: never;
     kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
     secretsManagerSecret?: never;
     s3Bucket?: never;
+    snsTopic?: never;
     sqsQueue: SqsQueueConfiguration;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
     iamRole?: never;
+    efsFileSystem?: never;
     kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
     secretsManagerSecret?: never;
     s3Bucket?: never;
+    snsTopic?: never;
     sqsQueue?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
+    ebsSnapshot: (value: EbsSnapshotConfiguration) => T;
+    ecrRepository: (value: EcrRepositoryConfiguration) => T;
     iamRole: (value: IamRoleConfiguration) => T;
+    efsFileSystem: (value: EfsFileSystemConfiguration) => T;
     kmsKey: (value: KmsKeyConfiguration) => T;
+    rdsDbClusterSnapshot: (value: RdsDbClusterSnapshotConfiguration) => T;
+    rdsDbSnapshot: (value: RdsDbSnapshotConfiguration) => T;
     secretsManagerSecret: (value: SecretsManagerSecretConfiguration) => T;
     s3Bucket: (value: S3BucketConfiguration) => T;
+    snsTopic: (value: SnsTopicConfiguration) => T;
     sqsQueue: (value: SqsQueueConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: Configuration, visitor: Visitor<T>): T => {
+    if (value.ebsSnapshot !== undefined) return visitor.ebsSnapshot(value.ebsSnapshot);
+    if (value.ecrRepository !== undefined) return visitor.ecrRepository(value.ecrRepository);
     if (value.iamRole !== undefined) return visitor.iamRole(value.iamRole);
+    if (value.efsFileSystem !== undefined) return visitor.efsFileSystem(value.efsFileSystem);
     if (value.kmsKey !== undefined) return visitor.kmsKey(value.kmsKey);
+    if (value.rdsDbClusterSnapshot !== undefined) return visitor.rdsDbClusterSnapshot(value.rdsDbClusterSnapshot);
+    if (value.rdsDbSnapshot !== undefined) return visitor.rdsDbSnapshot(value.rdsDbSnapshot);
     if (value.secretsManagerSecret !== undefined) return visitor.secretsManagerSecret(value.secretsManagerSecret);
     if (value.s3Bucket !== undefined) return visitor.s3Bucket(value.s3Bucket);
+    if (value.snsTopic !== undefined) return visitor.snsTopic(value.snsTopic);
     if (value.sqsQueue !== undefined) return visitor.sqsQueue(value.sqsQueue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -1296,11 +1779,17 @@ export interface GetAnalyzedResourceRequest {
 }
 
 export type ResourceType =
+  | "AWS::EC2::Snapshot"
+  | "AWS::ECR::Repository"
+  | "AWS::EFS::FileSystem"
   | "AWS::IAM::Role"
   | "AWS::KMS::Key"
   | "AWS::Lambda::Function"
   | "AWS::Lambda::LayerVersion"
+  | "AWS::RDS::DBClusterSnapshot"
+  | "AWS::RDS::DBSnapshot"
   | "AWS::S3::Bucket"
+  | "AWS::SNS::Topic"
   | "AWS::SQS::Queue"
   | "AWS::SecretsManager::Secret";
 
@@ -1406,9 +1895,14 @@ export interface FindingSourceDetail {
    *          whether the ARN represents an access point or a multi-region access point.</p>
    */
   accessPointArn?: string;
+
+  /**
+   * <p>The account of the cross-account access point that generated the finding.</p>
+   */
+  accessPointAccount?: string;
 }
 
-export type FindingSourceType = "BUCKET_ACL" | "POLICY" | "S3_ACCESS_POINT";
+export type FindingSourceType = "BUCKET_ACL" | "POLICY" | "S3_ACCESS_POINT" | "S3_ACCESS_POINT_ACCOUNT";
 
 /**
  * <p>The source of the finding. This indicates how the access that generated the finding is
@@ -2354,6 +2848,12 @@ export interface StartResourceScanRequest {
    * <p>The ARN of the resource to scan.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning
+   *          account is the account in which the resource was created.</p>
+   */
+  resourceOwnerAccount?: string;
 }
 
 /**
@@ -2451,6 +2951,7 @@ export enum PolicyType {
 }
 
 export enum ValidatePolicyResourceType {
+  ROLE_TRUST = "AWS::IAM::AssumeRolePolicyDocument",
   S3_ACCESS_POINT = "AWS::S3::AccessPoint",
   S3_BUCKET = "AWS::S3::Bucket",
   S3_MULTI_REGION_ACCESS_POINT = "AWS::S3::MultiRegionAccessPoint",
@@ -2874,6 +3375,27 @@ export const CancelPolicyGenerationResponseFilterSensitiveLog = (obj: CancelPoli
 /**
  * @internal
  */
+export const EbsSnapshotConfigurationFilterSensitiveLog = (obj: EbsSnapshotConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EcrRepositoryConfigurationFilterSensitiveLog = (obj: EcrRepositoryConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EfsFileSystemConfigurationFilterSensitiveLog = (obj: EfsFileSystemConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const IamRoleConfigurationFilterSensitiveLog = (obj: IamRoleConfiguration): any => ({
   ...obj,
 });
@@ -2897,6 +3419,52 @@ export const KmsGrantConfigurationFilterSensitiveLog = (obj: KmsGrantConfigurati
  */
 export const KmsKeyConfigurationFilterSensitiveLog = (obj: KmsKeyConfiguration): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RdsDbClusterSnapshotAttributeValueFilterSensitiveLog = (obj: RdsDbClusterSnapshotAttributeValue): any => {
+  if (obj.accountIds !== undefined) return { accountIds: obj.accountIds };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RdsDbClusterSnapshotConfigurationFilterSensitiveLog = (obj: RdsDbClusterSnapshotConfiguration): any => ({
+  ...obj,
+  ...(obj.attributes && {
+    attributes: Object.entries(obj.attributes).reduce(
+      (acc: any, [key, value]: [string, RdsDbClusterSnapshotAttributeValue]) => (
+        (acc[key] = RdsDbClusterSnapshotAttributeValueFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RdsDbSnapshotAttributeValueFilterSensitiveLog = (obj: RdsDbSnapshotAttributeValue): any => {
+  if (obj.accountIds !== undefined) return { accountIds: obj.accountIds };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RdsDbSnapshotConfigurationFilterSensitiveLog = (obj: RdsDbSnapshotConfiguration): any => ({
+  ...obj,
+  ...(obj.attributes && {
+    attributes: Object.entries(obj.attributes).reduce(
+      (acc: any, [key, value]: [string, RdsDbSnapshotAttributeValue]) => (
+        (acc[key] = RdsDbSnapshotAttributeValueFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
 });
 
 /**
@@ -2966,10 +3534,9 @@ export const S3BucketConfigurationFilterSensitiveLog = (obj: S3BucketConfigurati
   }),
   ...(obj.accessPoints && {
     accessPoints: Object.entries(obj.accessPoints).reduce(
-      (acc: any, [key, value]: [string, S3AccessPointConfiguration]) => ({
-        ...acc,
-        [key]: S3AccessPointConfigurationFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, S3AccessPointConfiguration]) => (
+        (acc[key] = S3AccessPointConfigurationFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -2985,6 +3552,13 @@ export const SecretsManagerSecretConfigurationFilterSensitiveLog = (obj: Secrets
 /**
  * @internal
  */
+export const SnsTopicConfigurationFilterSensitiveLog = (obj: SnsTopicConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SqsQueueConfigurationFilterSensitiveLog = (obj: SqsQueueConfiguration): any => ({
   ...obj,
 });
@@ -2993,11 +3567,22 @@ export const SqsQueueConfigurationFilterSensitiveLog = (obj: SqsQueueConfigurati
  * @internal
  */
 export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => {
+  if (obj.ebsSnapshot !== undefined)
+    return { ebsSnapshot: EbsSnapshotConfigurationFilterSensitiveLog(obj.ebsSnapshot) };
+  if (obj.ecrRepository !== undefined)
+    return { ecrRepository: EcrRepositoryConfigurationFilterSensitiveLog(obj.ecrRepository) };
   if (obj.iamRole !== undefined) return { iamRole: IamRoleConfigurationFilterSensitiveLog(obj.iamRole) };
+  if (obj.efsFileSystem !== undefined)
+    return { efsFileSystem: EfsFileSystemConfigurationFilterSensitiveLog(obj.efsFileSystem) };
   if (obj.kmsKey !== undefined) return { kmsKey: KmsKeyConfigurationFilterSensitiveLog(obj.kmsKey) };
+  if (obj.rdsDbClusterSnapshot !== undefined)
+    return { rdsDbClusterSnapshot: RdsDbClusterSnapshotConfigurationFilterSensitiveLog(obj.rdsDbClusterSnapshot) };
+  if (obj.rdsDbSnapshot !== undefined)
+    return { rdsDbSnapshot: RdsDbSnapshotConfigurationFilterSensitiveLog(obj.rdsDbSnapshot) };
   if (obj.secretsManagerSecret !== undefined)
     return { secretsManagerSecret: SecretsManagerSecretConfigurationFilterSensitiveLog(obj.secretsManagerSecret) };
   if (obj.s3Bucket !== undefined) return { s3Bucket: S3BucketConfigurationFilterSensitiveLog(obj.s3Bucket) };
+  if (obj.snsTopic !== undefined) return { snsTopic: SnsTopicConfigurationFilterSensitiveLog(obj.snsTopic) };
   if (obj.sqsQueue !== undefined) return { sqsQueue: SqsQueueConfigurationFilterSensitiveLog(obj.sqsQueue) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
@@ -3009,10 +3594,7 @@ export const CreateAccessPreviewRequestFilterSensitiveLog = (obj: CreateAccessPr
   ...obj,
   ...(obj.configurations && {
     configurations: Object.entries(obj.configurations).reduce(
-      (acc: any, [key, value]: [string, Configuration]) => ({
-        ...acc,
-        [key]: ConfigurationFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Configuration]) => ((acc[key] = ConfigurationFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -3046,10 +3628,7 @@ export const AccessPreviewFilterSensitiveLog = (obj: AccessPreview): any => ({
   ...obj,
   ...(obj.configurations && {
     configurations: Object.entries(obj.configurations).reduce(
-      (acc: any, [key, value]: [string, Configuration]) => ({
-        ...acc,
-        [key]: ConfigurationFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Configuration]) => ((acc[key] = ConfigurationFilterSensitiveLog(value)), acc),
       {}
     ),
   }),

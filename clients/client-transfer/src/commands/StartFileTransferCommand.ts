@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface StartFileTransferCommandInput extends StartFileTransferRequest 
 export interface StartFileTransferCommandOutput extends StartFileTransferResponse, __MetadataBearer {}
 
 /**
- * <p>Begins an outbound file transfer. You specify the <code>ConnectorId</code> and the file
+ * <p>Begins an outbound file transfer to a remote AS2 server. You specify the <code>ConnectorId</code> and the file
  *       paths for where to send the files. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +54,15 @@ export class StartFileTransferCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartFileTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class StartFileTransferCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartFileTransferCommandInput, StartFileTransferCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartFileTransferCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

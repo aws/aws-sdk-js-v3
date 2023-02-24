@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeInstancesRequest,
-  DescribeInstancesRequestFilterSensitiveLog,
-  DescribeInstancesResult,
-  DescribeInstancesResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeInstancesRequest, DescribeInstancesRequestFilterSensitiveLog } from "../models/models_3";
+import { DescribeInstancesResult, DescribeInstancesResultFilterSensitiveLog } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeInstancesCommand,
   serializeAws_ec2DescribeInstancesCommand,
@@ -29,24 +26,21 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
 
 /**
  * <p>Describes the specified instances or all instances.</p>
- *         <p>If you specify instance IDs, the output includes information for only the specified
+ *          <p>If you specify instance IDs, the output includes information for only the specified
  *             instances. If you specify filters, the output includes information for only those
  *             instances that meet the filter criteria. If you do not specify instance IDs or filters,
  *             the output includes information for all instances, which can affect performance. We
  *             recommend that you use pagination to ensure that the operation returns quickly and
  *             successfully.</p>
- *         <p>If you specify an instance ID that is not valid, an error is returned. If you specify
+ *          <p>If you specify an instance ID that is not valid, an error is returned. If you specify
  *             an instance that you do not own, it is not included in the output.</p>
- *         <p>Recently terminated instances might appear in the returned results. This interval is
+ *          <p>Recently terminated instances might appear in the returned results. This interval is
  *             usually less than one hour.</p>
- *         <p>If you describe instances in the rare case where an Availability Zone is experiencing
+ *          <p>If you describe instances in the rare case where an Availability Zone is experiencing
  *             a service disruption and you specify instance IDs that are in the affected zone, or do
  *             not specify any instance IDs at all, the call fails. If you describe instances and
  *             specify only instance IDs that are in an unaffected zone, the call works
  *             normally.</p>
- *         <note>
- *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +64,15 @@ export class DescribeInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +88,9 @@ export class DescribeInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeInstancesCommandInput, DescribeInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

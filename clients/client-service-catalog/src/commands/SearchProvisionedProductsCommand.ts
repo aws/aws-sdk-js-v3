@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,6 +30,16 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
 
 /**
  * <p>Gets information about the provisioned products that meet the specified criteria.</p>
+ *
+ *          <note>
+ *             <p>To ensure a complete list of provisioned products and remove duplicate products, use
+ *                <code>sort-by createdTime</code>. </p>
+ *             <p>Here is a CLI example: <code> </code>
+ *             </p>
+ *             <p>
+ *                <code>aws servicecatalog search-provisioned-products --sort-by createdTime </code>
+ *             </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +63,15 @@ export class SearchProvisionedProductsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchProvisionedProductsCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +87,9 @@ export class SearchProvisionedProductsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchProvisionedProductsCommandInput, SearchProvisionedProductsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchProvisionedProductsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

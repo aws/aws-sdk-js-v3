@@ -3,12 +3,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -110,7 +109,7 @@ export const serializeAws_restJson1ListHumanLoopsCommand = async (
       () => input.CreationTimeBefore !== void 0,
       () => (input.CreationTimeBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    FlowDefinitionArn: [, input.FlowDefinitionArn!],
+    FlowDefinitionArn: [, __expectNonNull(input.FlowDefinitionArn!, `FlowDefinitionArn`)],
     SortOrder: [, input.SortOrder!],
     NextToken: [, input.NextToken!],
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
@@ -203,7 +202,7 @@ const deserializeAws_restJson1DeleteHumanLoopCommandError = async (
 ): Promise<DeleteHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -242,7 +241,7 @@ export const deserializeAws_restJson1DescribeHumanLoopCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
   }
   if (data.FailureCode != null) {
     contents.FailureCode = __expectString(data.FailureCode);
@@ -274,7 +273,7 @@ const deserializeAws_restJson1DescribeHumanLoopCommandError = async (
 ): Promise<DescribeHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -327,7 +326,7 @@ const deserializeAws_restJson1ListHumanLoopsCommandError = async (
 ): Promise<ListHumanLoopsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -377,7 +376,7 @@ const deserializeAws_restJson1StartHumanLoopCommandError = async (
 ): Promise<StartHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -427,7 +426,7 @@ const deserializeAws_restJson1StopHumanLoopCommandError = async (
 ): Promise<StopHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -600,9 +599,7 @@ const deserializeAws_restJson1HumanLoopSummaries = (output: any, context: __Serd
 const deserializeAws_restJson1HumanLoopSummary = (output: any, context: __SerdeContext): HumanLoopSummary => {
   return {
     CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
+      output.CreationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationTime)) : undefined,
     FailureReason: __expectString(output.FailureReason),
     FlowDefinitionArn: __expectString(output.FlowDefinitionArn),
     HumanLoopName: __expectString(output.HumanLoopName),
@@ -612,7 +609,8 @@ const deserializeAws_restJson1HumanLoopSummary = (output: any, context: __SerdeC
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -644,6 +642,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -654,6 +658,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

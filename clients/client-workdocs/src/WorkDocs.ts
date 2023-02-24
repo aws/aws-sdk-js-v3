@@ -63,6 +63,11 @@ import {
   DeleteDocumentCommandOutput,
 } from "./commands/DeleteDocumentCommand";
 import {
+  DeleteDocumentVersionCommand,
+  DeleteDocumentVersionCommandInput,
+  DeleteDocumentVersionCommandOutput,
+} from "./commands/DeleteDocumentVersionCommand";
+import {
   DeleteFolderCommand,
   DeleteFolderCommandInput,
   DeleteFolderCommandOutput,
@@ -171,6 +176,11 @@ import {
   RemoveResourcePermissionCommandOutput,
 } from "./commands/RemoveResourcePermissionCommand";
 import {
+  RestoreDocumentVersionsCommand,
+  RestoreDocumentVersionsCommandInput,
+  RestoreDocumentVersionsCommandOutput,
+} from "./commands/RestoreDocumentVersionsCommand";
+import {
   UpdateDocumentCommand,
   UpdateDocumentCommandInput,
   UpdateDocumentCommandOutput,
@@ -189,39 +199,65 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { WorkDocsClient } from "./WorkDocsClient";
 
 /**
- * <p>The WorkDocs API is designed for the following use cases:</p>
- *         <ul>
+ * <p>The Amazon WorkDocs API is designed for the following use cases:</p>
+ *          <ul>
  *             <li>
- *                 <p>File Migration: File migration applications are supported for users who
+ *                <p>File Migration: File migration applications are supported for users who
  *                     want to migrate their files from an on-premises or off-premises file system or
  *                     service. Users can insert files into a user directory structure, as well as
  *                     allow for basic metadata changes, such as modifications to the permissions of
  *                     files.</p>
  *             </li>
  *             <li>
- *                 <p>Security: Support security applications are supported for users who have
+ *                <p>Security: Support security applications are supported for users who have
  *                     additional security needs, such as antivirus or data loss prevention. The API
- *                     actions, along with AWS CloudTrail, allow these applications to detect when
+ *                     actions, along with CloudTrail, allow these applications to detect when
  *                     changes occur in Amazon WorkDocs. Then, the application can take the necessary
  *                     actions and replace the target file. If the target file violates the policy, the
  *                     application can also choose to email the user.</p>
  *             </li>
  *             <li>
- *                 <p>eDiscovery/Analytics: General administrative applications are supported,
+ *                <p>eDiscovery/Analytics: General administrative applications are supported,
  *                     such as eDiscovery and analytics. These applications can choose to mimic or
- *                     record the actions in an Amazon WorkDocs site, along with AWS CloudTrail, to
+ *                     record the actions in an Amazon WorkDocs site, along with CloudTrail, to
  *                     replicate data for eDiscovery, backup, or analytical applications.</p>
  *             </li>
  *          </ul>
- *         <p>All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed.
- *             They not only require the use of the AWS SDK, but also allow for the exclusive use of
+ *          <p>All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed.
+ *             They not only require the use of the Amazon Web Services SDK, but also allow for the exclusive use of
  *             IAM users and roles to help facilitate access, trust, and permission policies. By
- *             creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM
- *             user gains full administrative visibility into the entire Amazon WorkDocs site (or as
+ *             creating a role and allowing an IAM user to access the Amazon WorkDocs site, the
+ *             IAM user gains full administrative visibility into the entire Amazon WorkDocs site (or as
  *             set in the IAM policy). This includes, but is not limited to, the ability to modify file
  *             permissions and upload any file to any user. This allows developers to perform the three
  *             use cases above, as well as give users the ability to grant access on a selective basis
  *             using the IAM model.</p>
+ *          <note>
+ *             <p>The pricing for Amazon WorkDocs APIs varies depending on the API call type for these actions:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>READ  (Get*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>LIST (Describe*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>DELETE*, CANCEL</code>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *             <p>For information about Amazon WorkDocs API pricing, see <a href="https://aws.amazon.com/workdocs/pricing/">Amazon WorkDocs Pricing</a>.</p>
+ *          </note>
  */
 export class WorkDocs extends WorkDocsClient {
   /**
@@ -450,8 +486,7 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
    *             confirmation message, and must confirm the subscription.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html">Subscribe to
-   *                 Notifications</a> in the <i>Amazon WorkDocs Developer
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer
    *             Guide</i>.</p>
    */
   public createNotificationSubscription(
@@ -640,6 +675,38 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * <p>Deletes a specific version of a document.</p>
+   */
+  public deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDocumentVersionCommandOutput>;
+  public deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    cb: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
+  ): void;
+  public deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
+  ): void;
+  public deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentVersionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
+  ): Promise<DeleteDocumentVersionCommandOutput> | void {
+    const command = new DeleteDocumentVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Permanently deletes the specified folder and its contents.</p>
    */
   public deleteFolder(
@@ -763,6 +830,9 @@ export class WorkDocs extends WorkDocsClient {
 
   /**
    * <p>Deletes the specified user from a Simple AD or Microsoft AD directory.</p>
+   *          <important>
+   *             <p>Deleting a user immediately and permanently deletes all content in that user's folder structure. Site retention policies do NOT apply to this type of deletion.</p>
+   *          </important>
    */
   public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
   public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
@@ -853,7 +923,7 @@ export class WorkDocs extends WorkDocsClient {
 
   /**
    * <p>Retrieves the document versions for the specified document.</p>
-   *         <p>By default, only active versions are returned.</p>
+   *          <p>By default, only active versions are returned.</p>
    */
   public describeDocumentVersions(
     args: DescribeDocumentVersionsCommandInput,
@@ -887,7 +957,7 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Describes the contents of the specified folder, including its documents and
    *             subfolders.</p>
-   *         <p>By default, Amazon WorkDocs returns the first 100 active document and folder
+   *          <p>By default, Amazon WorkDocs returns the first 100 active document and folder
    *             metadata items. If there are more results, the response includes a marker that you can
    *             use to request the next set of results. You can also request initialized
    *             documents.</p>
@@ -1023,7 +1093,7 @@ export class WorkDocs extends WorkDocsClient {
    *                 <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and
    *             folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid
    *             action for SigV4 (administrative API) clients.</p>
-   *         <p>This action requires an authentication token. To get an authentication token,
+   *          <p>This action requires an authentication token. To get an authentication token,
    *             register an application with Amazon WorkDocs. For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html">Authentication and Access
    *                 Control for User Applications</a> in the
    *             <i>Amazon
@@ -1061,7 +1131,7 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Describes the specified users. You can describe all users or filter the results
    *             (for example, by status or organization).</p>
-   *         <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there
+   *          <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there
    *             are more results, the response includes a marker that you can use to request the next
    *             set of results.</p>
    */
@@ -1097,7 +1167,7 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Retrieves details of the current user for whom the authentication token was
    *             generated. This is not a valid action for SigV4 (administrative API) clients.</p>
-   *         <p>This action requires an authentication token. To get an authentication token,
+   *          <p>This action requires an authentication token. To get an authentication token,
    *             register an application with Amazon WorkDocs. For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html">Authentication and Access
    *                 Control for User Applications</a> in the
    *             <i>Amazon
@@ -1161,7 +1231,7 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Retrieves the path information (the hierarchy from the root folder) for the
    *             requested document.</p>
-   *         <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
+   *          <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
    *             requested document and only includes the IDs of the parent folders in the path. You can
    *             limit the maximum number of levels. You can also request the names of the parent
    *             folders.</p>
@@ -1256,7 +1326,7 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Retrieves the path information (the hierarchy from the root folder) for the
    *             specified folder.</p>
-   *         <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
+   *          <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
    *             requested folder and only includes the IDs of the parent folders in the path. You can
    *             limit the maximum number of levels. You can also request the parent folder
    *             names.</p>
@@ -1322,11 +1392,11 @@ export class WorkDocs extends WorkDocsClient {
 
   /**
    * <p>Creates a new document object and version object.</p>
-   *         <p>The client specifies the parent folder ID and name of the document to upload. The
+   *          <p>The client specifies the parent folder ID and name of the document to upload. The
    *             ID is optionally specified when creating a new version of an existing document. This is
    *             the first step to upload a document. Next, upload the document to the URL returned from
    *             the call, and then call <a>UpdateDocumentVersion</a>.</p>
-   *         <p>To cancel the document upload, call <a>AbortDocumentVersionUpload</a>.</p>
+   *          <p>To cancel the document upload, call <a>AbortDocumentVersionUpload</a>.</p>
    */
   public initiateDocumentVersionUpload(
     args: InitiateDocumentVersionUploadCommandInput,
@@ -1423,6 +1493,38 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * <p>Recovers a deleted version of an Amazon WorkDocs document.</p>
+   */
+  public restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreDocumentVersionsCommandOutput>;
+  public restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    cb: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
+  ): void;
+  public restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
+  ): void;
+  public restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDocumentVersionsCommandOutput) => void),
+    cb?: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
+  ): Promise<RestoreDocumentVersionsCommandOutput> | void {
+    const command = new RestoreDocumentVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the specified attributes of a document. The user must have access to both
    *             the document and its parent folder, if applicable.</p>
    */
@@ -1457,7 +1559,7 @@ export class WorkDocs extends WorkDocsClient {
 
   /**
    * <p>Changes the status of the document version to ACTIVE. </p>
-   *         <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step
+   *          <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step
    *             in a document upload, after the client uploads the document to an S3-presigned URL
    *             returned by <a>InitiateDocumentVersionUpload</a>. </p>
    */

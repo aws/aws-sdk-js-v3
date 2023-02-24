@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,9 +30,9 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
 
 /**
  * <p>Adds additional objects to customer profiles of a given ObjectType.</p>
- *          <p>When adding a specific profile object, like a Contact Trace Record (CTR), an inferred
- *          profile can get created if it is not mapped to an existing profile. The resulting profile
- *          will only have a phone number populated in the standard ProfileObject. Any additional CTRs
+ *          <p>When adding a specific profile object, like a Contact Record, an inferred profile can
+ *          get created if it is not mapped to an existing profile. The resulting profile will only
+ *          have a phone number populated in the standard ProfileObject. Any additional Contact Records
  *          with the same phone number will be mapped to the same inferred profile.</p>
  *          <p>When a ProfileObject is created and if a ProfileObjectType already exists for the
  *          ProfileObject, it will provide data to a standard profile depending on the
@@ -61,6 +62,15 @@ export class PutProfileObjectCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutProfileObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class PutProfileObjectCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutProfileObjectCommandInput, PutProfileObjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutProfileObjectCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

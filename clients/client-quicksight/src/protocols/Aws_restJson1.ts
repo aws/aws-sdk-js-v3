@@ -11,6 +11,7 @@ import {
   expectString as __expectString,
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseDouble as __limitedParseDouble,
   map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
@@ -63,6 +64,10 @@ import {
   DeleteAccountCustomizationCommandInput,
   DeleteAccountCustomizationCommandOutput,
 } from "../commands/DeleteAccountCustomizationCommand";
+import {
+  DeleteAccountSubscriptionCommandInput,
+  DeleteAccountSubscriptionCommandOutput,
+} from "../commands/DeleteAccountSubscriptionCommand";
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "../commands/DeleteAnalysisCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "../commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "../commands/DeleteDataSetCommand";
@@ -108,10 +113,18 @@ import {
 } from "../commands/DescribeAccountSubscriptionCommand";
 import { DescribeAnalysisCommandInput, DescribeAnalysisCommandOutput } from "../commands/DescribeAnalysisCommand";
 import {
+  DescribeAnalysisDefinitionCommandInput,
+  DescribeAnalysisDefinitionCommandOutput,
+} from "../commands/DescribeAnalysisDefinitionCommand";
+import {
   DescribeAnalysisPermissionsCommandInput,
   DescribeAnalysisPermissionsCommandOutput,
 } from "../commands/DescribeAnalysisPermissionsCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "../commands/DescribeDashboardCommand";
+import {
+  DescribeDashboardDefinitionCommandInput,
+  DescribeDashboardDefinitionCommandOutput,
+} from "../commands/DescribeDashboardDefinitionCommand";
 import {
   DescribeDashboardPermissionsCommandInput,
   DescribeDashboardPermissionsCommandOutput,
@@ -155,6 +168,10 @@ import {
   DescribeTemplateAliasCommandOutput,
 } from "../commands/DescribeTemplateAliasCommand";
 import { DescribeTemplateCommandInput, DescribeTemplateCommandOutput } from "../commands/DescribeTemplateCommand";
+import {
+  DescribeTemplateDefinitionCommandInput,
+  DescribeTemplateDefinitionCommandOutput,
+} from "../commands/DescribeTemplateDefinitionCommand";
 import {
   DescribeTemplatePermissionsCommandInput,
   DescribeTemplatePermissionsCommandOutput,
@@ -226,6 +243,8 @@ import { RegisterUserCommandInput, RegisterUserCommandOutput } from "../commands
 import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "../commands/RestoreAnalysisCommand";
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "../commands/SearchAnalysesCommand";
 import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "../commands/SearchDashboardsCommand";
+import { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "../commands/SearchDataSetsCommand";
+import { SearchDataSourcesCommandInput, SearchDataSourcesCommandOutput } from "../commands/SearchDataSourcesCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "../commands/SearchFoldersCommand";
 import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "../commands/SearchGroupsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -297,30 +316,272 @@ import {
 } from "../commands/UpdateThemePermissionsCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
-  _Parameters,
   AccessDeniedException,
   AccountCustomization,
   AccountInfo,
   AccountSettings,
   ActiveIAMPolicyAssignment,
   AdHocFilteringOption,
+  AggregationFunction,
+  AggregationSortConfiguration,
   AmazonElasticsearchParameters,
   AmazonOpenSearchParameters,
   Analysis,
+  AnalysisDefaults,
   AnalysisError,
+  AnchorDateConfiguration,
+  AxisDataOptions,
+  AxisDisplayDataDrivenRange,
+  AxisDisplayMinMaxRange,
+  AxisDisplayOptions,
+  AxisDisplayRange,
+  AxisLabelOptions,
+  AxisLabelReferenceOptions,
+  AxisLinearScale,
+  AxisLogarithmicScale,
+  AxisScale,
+  AxisTickLabelOptions,
+  BarChartAggregatedFieldWells,
+  BarChartConfiguration,
+  BarChartFieldWells,
+  BarChartSortConfiguration,
+  BarChartVisual,
+  BodySectionConfiguration,
+  BodySectionContent,
+  BoxPlotAggregatedFieldWells,
+  BoxPlotChartConfiguration,
+  BoxPlotFieldWells,
+  BoxPlotOptions,
+  BoxPlotSortConfiguration,
+  BoxPlotStyleOptions,
+  BoxPlotVisual,
+  CalculatedField,
+  CalculatedMeasureField,
+  CascadingControlConfiguration,
+  CascadingControlSource,
+  CategoricalDimensionField,
+  CategoricalMeasureField,
+  CategoryDrillDownFilter,
+  CategoryFilter,
+  CategoryFilterConfiguration,
+  ChartAxisLabelOptions,
+  ColumnConfiguration,
+  ColumnHierarchy,
+  ColumnIdentifier,
+  ColumnSort,
+  ColumnTooltipItem,
+  ComboChartAggregatedFieldWells,
+  ComboChartConfiguration,
+  ComboChartFieldWells,
+  ComboChartSortConfiguration,
+  ContributionAnalysisDefault,
+  CurrencyDisplayFormatConfiguration,
+  CustomActionFilterOperation,
+  CustomActionNavigationOperation,
+  CustomActionSetParametersOperation,
+  CustomActionURLOperation,
+  CustomFilterConfiguration,
+  CustomFilterListConfiguration,
+  CustomParameterValues,
+  CustomValuesConfiguration,
+  DataLabelOptions,
+  DataLabelType,
+  DataPathColor,
+  DataPathLabelType,
+  DataPathValue,
+  DataSetIdentifierDeclaration,
+  DateAxisOptions,
+  DateDimensionField,
+  DateMeasureField,
+  DateTimeDefaultValues,
+  DateTimeFormatConfiguration,
+  DateTimeHierarchy,
+  DateTimeParameterDeclaration,
+  DateTimePickerControlDisplayOptions,
+  DateTimeValueWhenUnsetConfiguration,
+  DecimalDefaultValues,
+  DecimalParameterDeclaration,
+  DecimalPlacesConfiguration,
+  DecimalValueWhenUnsetConfiguration,
+  DefaultFreeFormLayoutConfiguration,
+  DefaultGridLayoutConfiguration,
+  DefaultInteractiveLayoutConfiguration,
+  DefaultNewSheetConfiguration,
+  DefaultPaginatedLayoutConfiguration,
+  DefaultSectionBasedLayoutConfiguration,
+  DestinationParameterValueConfiguration,
+  DimensionField,
+  DrillDownFilter,
+  DropDownControlDisplayOptions,
+  DynamicDefaultValue,
+  Entity,
+  ExcludePeriodConfiguration,
+  ExplicitHierarchy,
+  FieldBasedTooltip,
+  FieldLabelType,
+  FieldSort,
+  FieldSortOptions,
+  FieldTooltipItem,
+  Filter,
+  FilterControl,
+  FilterDateTimePickerControl,
+  FilterDropDownControl,
+  FilterGroup,
+  FilterListConfiguration,
+  FilterListControl,
+  FilterOperationSelectedFieldsConfiguration,
+  FilterOperationTargetVisualsConfiguration,
+  FilterRelativeDateTimeControl,
+  FilterScopeConfiguration,
+  FilterSelectableValues,
+  FilterSliderControl,
+  FilterTextAreaControl,
+  FilterTextFieldControl,
+  FontConfiguration,
+  FontSize,
+  FontWeight,
+  FormatConfiguration,
+  FreeFormLayoutCanvasSizeOptions,
+  FreeFormLayoutConfiguration,
+  FreeFormLayoutElement,
+  FreeFormLayoutElementBackgroundStyle,
+  FreeFormLayoutElementBorderStyle,
+  FreeFormLayoutScreenCanvasSizeOptions,
+  FreeFormSectionLayoutConfiguration,
+  GridLayoutCanvasSizeOptions,
+  GridLayoutConfiguration,
+  GridLayoutElement,
+  GridLayoutScreenCanvasSizeOptions,
+  HeaderFooterSectionConfiguration,
+  IntegerDefaultValues,
+  IntegerParameterDeclaration,
+  IntegerValueWhenUnsetConfiguration,
+  ItemsLimitConfiguration,
+  LabelOptions,
+  Layout,
+  LayoutConfiguration,
+  LegendOptions,
+  ListControlDisplayOptions,
+  ListControlSearchOptions,
+  ListControlSelectAllOptions,
+  LoadingAnimation,
+  LocalNavigationConfiguration,
+  LongFormatText,
+  MaximumLabelType,
+  MeasureField,
+  MinimumLabelType,
+  NegativeValueConfiguration,
+  NullValueFormatConfiguration,
+  NumberDisplayFormatConfiguration,
+  NumberFormatConfiguration,
+  NumericalAggregationFunction,
+  NumericalDimensionField,
+  NumericalMeasureField,
+  NumericAxisOptions,
+  NumericEqualityDrillDownFilter,
+  NumericEqualityFilter,
+  NumericFormatConfiguration,
+  NumericRangeFilter,
+  NumericRangeFilterValue,
+  NumericSeparatorConfiguration,
+  PaginationConfiguration,
+  PanelConfiguration,
+  PanelTitleOptions,
+  ParameterControl,
+  ParameterDateTimePickerControl,
+  ParameterDeclaration,
+  ParameterDropDownControl,
+  ParameterListControl,
+  ParameterSelectableValues,
+  ParameterSliderControl,
+  ParameterTextAreaControl,
+  ParameterTextFieldControl,
+  PercentageDisplayFormatConfiguration,
+  PercentileAggregation,
+  PercentVisibleRange,
+  PredefinedHierarchy,
+  RangeEndsLabelType,
+  ReferenceLine,
+  ReferenceLineCustomLabelConfiguration,
+  ReferenceLineDataConfiguration,
+  ReferenceLineDynamicDataConfiguration,
+  ReferenceLineLabelConfiguration,
+  ReferenceLineStaticDataConfiguration,
+  ReferenceLineStyleConfiguration,
+  ReferenceLineValueLabelConfiguration,
+  RelativeDatesFilter,
+  RelativeDateTimeControlDisplayOptions,
+  RollingDateConfiguration,
+  SameSheetTargetVisualConfiguration,
+  ScrollBarOptions,
+  SectionAfterPageBreak,
+  SectionBasedLayoutCanvasSizeOptions,
+  SectionBasedLayoutConfiguration,
+  SectionBasedLayoutPaperCanvasSizeOptions,
+  SectionLayoutConfiguration,
+  SectionPageBreakConfiguration,
+  SectionStyle,
+  SelectedSheetsFilterScopeConfiguration,
+  SetParameterValueConfiguration,
+  Sheet,
+  SheetControlLayout,
+  SheetControlLayoutConfiguration,
+  SheetElementConfigurationOverrides,
+  SheetElementRenderingRule,
+  SheetTextBox,
+  SheetVisualScopingConfiguration,
+  ShortFormatText,
+  SliderControlDisplayOptions,
+  SmallMultiplesOptions,
+  Spacing,
+  StringDefaultValues,
+  StringFormatConfiguration,
+  StringParameterDeclaration,
+  StringValueWhenUnsetConfiguration,
+  TextAreaControlDisplayOptions,
+  TextControlPlaceholderOptions,
+  TextFieldControlDisplayOptions,
+  ThousandSeparatorOptions,
+  TimeEqualityFilter,
+  TimeRangeDrillDownFilter,
+  TimeRangeFilter,
+  TimeRangeFilterValue,
+  TooltipItem,
+  TooltipOptions,
+  TopBottomFilter,
+  VisibleRangeOptions,
+  VisualCustomAction,
+  VisualCustomActionOperation,
+  VisualPalette,
+  VisualSubtitleLabelOptions,
+  VisualTitleLabelOptions,
+} from "../models/models_0";
+import {
+  AnalysisDefinition,
   AnalysisSearchFilter,
   AnalysisSourceEntity,
   AnalysisSourceTemplate,
   AnalysisSummary,
   AnonymousUserDashboardEmbeddingConfiguration,
+  AnonymousUserDashboardVisualEmbeddingConfiguration,
   AnonymousUserEmbeddingExperienceConfiguration,
+  AnonymousUserQSearchBarEmbeddingConfiguration,
+  ArcAxisConfiguration,
+  ArcAxisDisplayRange,
+  ArcConfiguration,
+  ArcOptions,
   AthenaParameters,
   AuroraParameters,
   AuroraPostgreSqlParameters,
   AwsIotAnalyticsParameters,
+  BinCountOptions,
+  BinWidthOptions,
   BorderStyle,
   CalculatedColumn,
   CastColumnTypeOperation,
+  ClusterMarker,
+  ClusterMarkerConfiguration,
+  ColorScale,
   ColumnDescription,
   ColumnGroup,
   ColumnGroupColumnSchema,
@@ -329,8 +590,221 @@ import {
   ColumnSchema,
   ColumnTag,
   ColumnTagName,
+  ComboChartVisual,
+  ComparisonConfiguration,
+  ComparisonFormatConfiguration,
+  Computation,
   ConcurrentUpdatingException,
+  ConditionalFormattingColor,
+  ConditionalFormattingCustomIconCondition,
+  ConditionalFormattingCustomIconOptions,
+  ConditionalFormattingGradientColor,
+  ConditionalFormattingIcon,
+  ConditionalFormattingIconDisplayConfiguration,
+  ConditionalFormattingIconSet,
+  ConditionalFormattingSolidColor,
   ConflictException,
+  CustomContentConfiguration,
+  CustomContentVisual,
+  CustomNarrativeOptions,
+  DashboardVisualId,
+  DataBarsOptions,
+  DataColor,
+  DataFieldSeriesItem,
+  DataPathSort,
+  DataSetReference,
+  DonutCenterOptions,
+  DonutOptions,
+  EmptyVisual,
+  FieldSeriesItem,
+  FilledMapAggregatedFieldWells,
+  FilledMapConditionalFormatting,
+  FilledMapConditionalFormattingOption,
+  FilledMapConfiguration,
+  FilledMapFieldWells,
+  FilledMapShapeConditionalFormatting,
+  FilledMapSortConfiguration,
+  FilledMapVisual,
+  ForecastComputation,
+  ForecastConfiguration,
+  ForecastScenario,
+  FunnelChartAggregatedFieldWells,
+  FunnelChartConfiguration,
+  FunnelChartDataLabelOptions,
+  FunnelChartFieldWells,
+  FunnelChartSortConfiguration,
+  FunnelChartVisual,
+  GaugeChartArcConditionalFormatting,
+  GaugeChartConditionalFormatting,
+  GaugeChartConditionalFormattingOption,
+  GaugeChartConfiguration,
+  GaugeChartFieldWells,
+  GaugeChartOptions,
+  GaugeChartPrimaryValueConditionalFormatting,
+  GaugeChartVisual,
+  GeoSpatialColumnGroup,
+  GeospatialCoordinateBounds,
+  GeospatialMapAggregatedFieldWells,
+  GeospatialMapConfiguration,
+  GeospatialMapFieldWells,
+  GeospatialMapStyleOptions,
+  GeospatialMapVisual,
+  GeospatialPointStyleOptions,
+  GeospatialWindowOptions,
+  GlobalTableBorderOptions,
+  GradientColor,
+  GradientStop,
+  GrowthRateComputation,
+  HeatMapAggregatedFieldWells,
+  HeatMapConfiguration,
+  HeatMapFieldWells,
+  HeatMapSortConfiguration,
+  HeatMapVisual,
+  HistogramAggregatedFieldWells,
+  HistogramBinOptions,
+  HistogramConfiguration,
+  HistogramFieldWells,
+  HistogramVisual,
+  InsightConfiguration,
+  InsightVisual,
+  InternalFailureException,
+  InvalidParameterValueException,
+  KPIConditionalFormatting,
+  KPIConditionalFormattingOption,
+  KPIConfiguration,
+  KPIFieldWells,
+  KPIOptions,
+  KPIPrimaryValueConditionalFormatting,
+  KPIProgressBarConditionalFormatting,
+  KPISortConfiguration,
+  KPIVisual,
+  LineChartAggregatedFieldWells,
+  LineChartConfiguration,
+  LineChartDefaultSeriesSettings,
+  LineChartFieldWells,
+  LineChartLineStyleSettings,
+  LineChartMarkerStyleSettings,
+  LineChartSeriesSettings,
+  LineChartSortConfiguration,
+  LineChartVisual,
+  LineSeriesAxisDisplayOptions,
+  MaximumMinimumComputation,
+  MetricComparisonComputation,
+  MissingDataConfiguration,
+  PeriodOverPeriodComputation,
+  PeriodToDateComputation,
+  PieChartAggregatedFieldWells,
+  PieChartConfiguration,
+  PieChartFieldWells,
+  PieChartSortConfiguration,
+  PieChartVisual,
+  PivotFieldSortOptions,
+  PivotTableAggregatedFieldWells,
+  PivotTableCellConditionalFormatting,
+  PivotTableConditionalFormatting,
+  PivotTableConditionalFormattingOption,
+  PivotTableConditionalFormattingScope,
+  PivotTableConfiguration,
+  PivotTableDataPathOption,
+  PivotTableFieldOption,
+  PivotTableFieldOptions,
+  PivotTableFieldSubtotalOptions,
+  PivotTableFieldWells,
+  PivotTableOptions,
+  PivotTablePaginatedReportOptions,
+  PivotTableSortBy,
+  PivotTableSortConfiguration,
+  PivotTableTotalOptions,
+  PivotTableVisual,
+  PivotTotalOptions,
+  ProgressBarOptions,
+  RadarChartAggregatedFieldWells,
+  RadarChartAreaStyleSettings,
+  RadarChartConfiguration,
+  RadarChartFieldWells,
+  RadarChartSeriesSettings,
+  RadarChartSortConfiguration,
+  RadarChartVisual,
+  ResourceExistsException,
+  ResourceNotFoundException,
+  ResourceUnavailableException,
+  RowAlternateColorOptions,
+  SankeyDiagramAggregatedFieldWells,
+  SankeyDiagramChartConfiguration,
+  SankeyDiagramFieldWells,
+  SankeyDiagramSortConfiguration,
+  SankeyDiagramVisual,
+  ScatterPlotCategoricallyAggregatedFieldWells,
+  ScatterPlotConfiguration,
+  ScatterPlotFieldWells,
+  ScatterPlotUnaggregatedFieldWells,
+  ScatterPlotVisual,
+  SecondaryValueOptions,
+  SeriesItem,
+  ShapeConditionalFormat,
+  SheetDefinition,
+  SignupResponse,
+  SimpleClusterMarker,
+  SubtotalOptions,
+  TableAggregatedFieldWells,
+  TableBorderOptions,
+  TableCellConditionalFormatting,
+  TableCellImageSizingConfiguration,
+  TableCellStyle,
+  TableConditionalFormatting,
+  TableConditionalFormattingOption,
+  TableConfiguration,
+  TableFieldCustomIconContent,
+  TableFieldCustomTextContent,
+  TableFieldImageConfiguration,
+  TableFieldLinkConfiguration,
+  TableFieldLinkContentConfiguration,
+  TableFieldOption,
+  TableFieldOptions,
+  TableFieldURLConfiguration,
+  TableFieldWells,
+  TableInlineVisualization,
+  TableOptions,
+  TablePaginatedReportOptions,
+  TableRowConditionalFormatting,
+  TableSideBorderOptions,
+  TableSortConfiguration,
+  TableUnaggregatedFieldWells,
+  TableVisual,
+  Tag,
+  TextConditionalFormat,
+  ThrottlingException,
+  TimeBasedForecastProperties,
+  TopBottomMoversComputation,
+  TopBottomRankedComputation,
+  TotalAggregationComputation,
+  TotalOptions,
+  TreeMapAggregatedFieldWells,
+  TreeMapConfiguration,
+  TreeMapFieldWells,
+  TreeMapSortConfiguration,
+  TreeMapVisual,
+  TrendArrowOptions,
+  UnaggregatedField,
+  UniqueValuesComputation,
+  Visual,
+  WaterfallChartAggregatedFieldWells,
+  WaterfallChartConfiguration,
+  WaterfallChartFieldWells,
+  WaterfallChartOptions,
+  WaterfallChartSortConfiguration,
+  WaterfallVisual,
+  WhatIfPointScenario,
+  WhatIfRangeScenario,
+  WordCloudAggregatedFieldWells,
+  WordCloudChartConfiguration,
+  WordCloudFieldWells,
+  WordCloudOptions,
+  WordCloudSortConfiguration,
+  WordCloudVisual,
+} from "../models/models_1";
+import {
+  _Parameters,
   CreateColumnsOperation,
   CredentialPair,
   CustomSql,
@@ -342,38 +816,50 @@ import {
   DashboardSourceTemplate,
   DashboardSummary,
   DashboardVersion,
+  DashboardVersionDefinition,
   DashboardVersionSummary,
+  DashboardVisualPublishOptions,
+  DatabricksParameters,
   DataColorPalette,
+  DataPointDrillUpDownOption,
+  DataPointMenuLabelOption,
+  DataPointTooltipOption,
   DataSet,
   DataSetConfiguration,
-  DataSetReference,
   DataSetSchema,
+  DataSetSearchFilter,
   DataSetSummary,
   DataSetUsageConfiguration,
   DataSource,
   DataSourceCredentials,
   DataSourceErrorInfo,
   DataSourceParameters,
+  DataSourceSearchFilter,
+  DataSourceSummary,
   DateTimeParameter,
   DecimalParameter,
+  DomainNotWhitelistedException,
   ErrorInfo,
   ExasolParameters,
+  ExportHiddenFieldsOption,
   ExportToCSVOption,
+  ExportWithHiddenFieldsOption,
   FieldFolder,
   FilterOperation,
   Folder,
   FolderMember,
-  GeoSpatialColumnGroup,
+  FolderSearchFilter,
+  FolderSummary,
+  Font,
   Group,
   GroupMember,
   GutterStyle,
   IAMPolicyAssignment,
+  IdentityTypeNotSupportedException,
   Ingestion,
   InputColumn,
   IntegerParameter,
-  InternalFailureException,
   InvalidNextTokenException,
-  InvalidParameterValueException,
   JiraParameters,
   JoinInstruction,
   JoinKeyProperties,
@@ -384,6 +870,7 @@ import {
   ManifestFileLocation,
   MarginStyle,
   MariaDbParameters,
+  MemberIdArnPair,
   MySqlParameters,
   NamespaceError,
   NamespaceInfoV2,
@@ -395,14 +882,17 @@ import {
   PrestoParameters,
   ProjectOperation,
   QueueInfo,
+  QuickSightUserNotFoundException,
   RdsParameters,
   RedshiftParameters,
+  RegisteredUserDashboardEmbeddingConfiguration,
+  RegisteredUserDashboardVisualEmbeddingConfiguration,
+  RegisteredUserEmbeddingExperienceConfiguration,
+  RegisteredUserQSearchBarEmbeddingConfiguration,
+  RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   RelationalTable,
   RenameColumnOperation,
-  ResourceExistsException,
-  ResourceNotFoundException,
   ResourcePermission,
-  ResourceUnavailableException,
   RowInfo,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
@@ -410,16 +900,16 @@ import {
   S3Parameters,
   S3Source,
   ServiceNowParameters,
-  Sheet,
+  SessionLifetimeInMinutesInvalidException,
+  SessionTag,
   SheetControlsOption,
+  SheetLayoutElementMaximizationOption,
   SheetStyle,
-  SignupResponse,
   SnowflakeParameters,
   SparkParameters,
   SqlServerParameters,
   SslProperties,
   StringParameter,
-  Tag,
   TagColumnOperation,
   Template,
   TemplateAlias,
@@ -428,45 +918,37 @@ import {
   TemplateSourceEntity,
   TemplateSourceTemplate,
   TemplateVersion,
+  TemplateVersionDefinition,
   TeradataParameters,
+  Theme,
   ThemeAlias,
   ThemeConfiguration,
   ThemeError,
-  ThrottlingException,
+  ThemeVersion,
   TileLayoutStyle,
   TileStyle,
   TransformOperation,
   TwitterParameters,
+  Typography,
   UIColorPalette,
+  UnsupportedPricingPlanException,
   UnsupportedUserEditionException,
   UntagColumnOperation,
   UploadSettings,
+  User,
+  VisualAxisSortOption,
+  VisualMenuOption,
   VpcConnectionProperties,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
-  DomainNotWhitelistedException,
-  FolderSearchFilter,
-  FolderSummary,
   GroupSearchFilter,
   IAMPolicyAssignmentSummary,
-  IdentityTypeNotSupportedException,
-  MemberIdArnPair,
-  QuickSightUserNotFoundException,
-  RegisteredUserDashboardEmbeddingConfiguration,
-  RegisteredUserEmbeddingExperienceConfiguration,
-  RegisteredUserQSearchBarEmbeddingConfiguration,
-  RegisteredUserQuickSightConsoleEmbeddingConfiguration,
-  SessionLifetimeInMinutesInvalidException,
-  SessionTag,
+  InvalidRequestException,
   TemplateSummary,
   TemplateVersionSummary,
-  Theme,
   ThemeSummary,
-  ThemeVersion,
   ThemeVersionSummary,
-  UnsupportedPricingPlanException,
-  User,
-} from "../models/models_1";
+} from "../models/models_3";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
 
 export const serializeAws_restJson1CancelIngestionCommand = async (
@@ -607,6 +1089,9 @@ export const serializeAws_restJson1CreateAnalysisCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.Definition != null && {
+      Definition: serializeAws_restJson1AnalysisDefinition(input.Definition, context),
+    }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Parameters != null && { Parameters: serializeAws_restJson1_Parameters(input.Parameters, context) }),
     ...(input.Permissions != null && {
@@ -653,6 +1138,9 @@ export const serializeAws_restJson1CreateDashboardCommand = async (
   body = JSON.stringify({
     ...(input.DashboardPublishOptions != null && {
       DashboardPublishOptions: serializeAws_restJson1DashboardPublishOptions(input.DashboardPublishOptions, context),
+    }),
+    ...(input.Definition != null && {
+      Definition: serializeAws_restJson1DashboardVersionDefinition(input.Definition, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Parameters != null && { Parameters: serializeAws_restJson1_Parameters(input.Parameters, context) }),
@@ -1074,6 +1562,9 @@ export const serializeAws_restJson1CreateTemplateCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.Definition != null && {
+      Definition: serializeAws_restJson1TemplateVersionDefinition(input.Definition, context),
+    }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Permissions != null && {
       Permissions: serializeAws_restJson1ResourcePermissionList(input.Permissions, context),
@@ -1238,6 +1729,33 @@ export const serializeAws_restJson1DeleteAccountCustomizationCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteAccountSubscriptionCommand = async (
+  input: DeleteAccountSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/{AwsAccountId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1886,6 +2404,36 @@ export const serializeAws_restJson1DescribeAnalysisCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeAnalysisDefinitionCommand = async (
+  input: DescribeAnalysisDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/analyses/{AnalysisId}/definition";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeAnalysisPermissionsCommand = async (
   input: DescribeAnalysisPermissionsCommandInput,
   context: __SerdeContext
@@ -1925,6 +2473,41 @@ export const serializeAws_restJson1DescribeDashboardCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  const query: any = map({
+    "version-number": [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
+    "alias-name": [, input.AliasName!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeDashboardDefinitionCommand = async (
+  input: DescribeDashboardDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/definition";
   resolvedPath = __resolvedPath(
     resolvedPath,
     input,
@@ -2461,6 +3044,41 @@ export const serializeAws_restJson1DescribeTemplateAliasCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeTemplateDefinitionCommand = async (
+  input: DescribeTemplateDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/templates/{TemplateId}/definition";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  const query: any = map({
+    "version-number": [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
+    "alias-name": [, input.AliasName!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeTemplatePermissionsCommand = async (
   input: DescribeTemplatePermissionsCommandInput,
   context: __SerdeContext
@@ -2728,7 +3346,7 @@ export const serializeAws_restJson1GetDashboardEmbedUrlCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   const query: any = map({
-    "creds-type": [, input.IdentityType!],
+    "creds-type": [, __expectNonNull(input.IdentityType!, `IdentityType`)],
     "session-lifetime": [
       () => input.SessionLifetimeInMinutes !== void 0,
       () => input.SessionLifetimeInMinutes!.toString(),
@@ -3695,6 +4313,77 @@ export const serializeAws_restJson1SearchDashboardsCommand = async (
   });
 };
 
+export const serializeAws_restJson1SearchDataSetsCommand = async (
+  input: SearchDataSetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/search/data-sets";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters != null && { Filters: serializeAws_restJson1DataSetSearchFilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchDataSourcesCommand = async (
+  input: SearchDataSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/search/data-sources";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters != null && { Filters: serializeAws_restJson1DataSourceSearchFilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1SearchFoldersCommand = async (
   input: SearchFoldersCommandInput,
   context: __SerdeContext
@@ -3806,7 +4495,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{ResourceArn}/tags";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    keys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    keys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -3882,6 +4574,9 @@ export const serializeAws_restJson1UpdateAccountSettingsCommand = async (
   body = JSON.stringify({
     ...(input.DefaultNamespace != null && { DefaultNamespace: input.DefaultNamespace }),
     ...(input.NotificationEmail != null && { NotificationEmail: input.NotificationEmail }),
+    ...(input.TerminationProtectionEnabled != null && {
+      TerminationProtectionEnabled: input.TerminationProtectionEnabled,
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -3916,6 +4611,9 @@ export const serializeAws_restJson1UpdateAnalysisCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.Definition != null && {
+      Definition: serializeAws_restJson1AnalysisDefinition(input.Definition, context),
+    }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Parameters != null && { Parameters: serializeAws_restJson1_Parameters(input.Parameters, context) }),
     ...(input.SourceEntity != null && {
@@ -3998,6 +4696,9 @@ export const serializeAws_restJson1UpdateDashboardCommand = async (
   body = JSON.stringify({
     ...(input.DashboardPublishOptions != null && {
       DashboardPublishOptions: serializeAws_restJson1DashboardPublishOptions(input.DashboardPublishOptions, context),
+    }),
+    ...(input.Definition != null && {
+      Definition: serializeAws_restJson1DashboardVersionDefinition(input.Definition, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Parameters != null && { Parameters: serializeAws_restJson1_Parameters(input.Parameters, context) }),
@@ -4563,6 +5264,9 @@ export const serializeAws_restJson1UpdateTemplateCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.Definition != null && {
+      Definition: serializeAws_restJson1TemplateVersionDefinition(input.Definition, context),
+    }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.SourceEntity != null && {
       SourceEntity: serializeAws_restJson1TemplateSourceEntity(input.SourceEntity, context),
@@ -4849,7 +5553,7 @@ const deserializeAws_restJson1CancelIngestionCommandError = async (
 ): Promise<CancelIngestionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4920,7 +5624,7 @@ const deserializeAws_restJson1CreateAccountCustomizationCommandError = async (
 ): Promise<CreateAccountCustomizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4988,7 +5692,7 @@ const deserializeAws_restJson1CreateAccountSubscriptionCommandError = async (
 ): Promise<CreateAccountSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5065,7 +5769,7 @@ const deserializeAws_restJson1CreateAnalysisCommandError = async (
 ): Promise<CreateAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5078,6 +5782,9 @@ const deserializeAws_restJson1CreateAnalysisCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.quicksight#ResourceExistsException":
       throw await deserializeAws_restJson1ResourceExistsExceptionResponse(parsedOutput, context);
@@ -5139,7 +5846,7 @@ const deserializeAws_restJson1CreateDashboardCommandError = async (
 ): Promise<CreateDashboardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5152,6 +5859,9 @@ const deserializeAws_restJson1CreateDashboardCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.quicksight#ResourceExistsException":
       throw await deserializeAws_restJson1ResourceExistsExceptionResponse(parsedOutput, context);
@@ -5213,7 +5923,7 @@ const deserializeAws_restJson1CreateDataSetCommandError = async (
 ): Promise<CreateDataSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5290,7 +6000,7 @@ const deserializeAws_restJson1CreateDataSourceCommandError = async (
 ): Promise<CreateDataSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5361,7 +6071,7 @@ const deserializeAws_restJson1CreateFolderCommandError = async (
 ): Promise<CreateFolderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5432,7 +6142,7 @@ const deserializeAws_restJson1CreateFolderMembershipCommandError = async (
 ): Promise<CreateFolderMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5500,7 +6210,7 @@ const deserializeAws_restJson1CreateGroupCommandError = async (
 ): Promise<CreateGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5571,7 +6281,7 @@ const deserializeAws_restJson1CreateGroupMembershipCommandError = async (
 ): Promise<CreateGroupMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5648,7 +6358,7 @@ const deserializeAws_restJson1CreateIAMPolicyAssignmentCommandError = async (
 ): Promise<CreateIAMPolicyAssignmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5719,7 +6429,7 @@ const deserializeAws_restJson1CreateIngestionCommandError = async (
 ): Promise<CreateIngestionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5796,7 +6506,7 @@ const deserializeAws_restJson1CreateNamespaceCommandError = async (
 ): Promise<CreateNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5879,7 +6589,7 @@ const deserializeAws_restJson1CreateTemplateCommandError = async (
 ): Promise<CreateTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5950,7 +6660,7 @@ const deserializeAws_restJson1CreateTemplateAliasCommandError = async (
 ): Promise<CreateTemplateAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6024,7 +6734,7 @@ const deserializeAws_restJson1CreateThemeCommandError = async (
 ): Promise<CreateThemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6092,7 +6802,7 @@ const deserializeAws_restJson1CreateThemeAliasCommandError = async (
 ): Promise<CreateThemeAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6157,7 +6867,7 @@ const deserializeAws_restJson1DeleteAccountCustomizationCommandError = async (
 ): Promise<DeleteAccountCustomizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6173,6 +6883,68 @@ const deserializeAws_restJson1DeleteAccountCustomizationCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await deserializeAws_restJson1ResourceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteAccountSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccountSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAccountSubscriptionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteAccountSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccountSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await deserializeAws_restJson1PreconditionNotMetExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -6228,7 +7000,7 @@ const deserializeAws_restJson1DeleteAnalysisCommandError = async (
 ): Promise<DeleteAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6293,7 +7065,7 @@ const deserializeAws_restJson1DeleteDashboardCommandError = async (
 ): Promise<DeleteDashboardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6358,7 +7130,7 @@ const deserializeAws_restJson1DeleteDataSetCommandError = async (
 ): Promise<DeleteDataSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6420,7 +7192,7 @@ const deserializeAws_restJson1DeleteDataSourceCommandError = async (
 ): Promise<DeleteDataSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6482,7 +7254,7 @@ const deserializeAws_restJson1DeleteFolderCommandError = async (
 ): Promise<DeleteFolderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6547,7 +7319,7 @@ const deserializeAws_restJson1DeleteFolderMembershipCommandError = async (
 ): Promise<DeleteFolderMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6606,7 +7378,7 @@ const deserializeAws_restJson1DeleteGroupCommandError = async (
 ): Promise<DeleteGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6668,7 +7440,7 @@ const deserializeAws_restJson1DeleteGroupMembershipCommandError = async (
 ): Promise<DeleteGroupMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6733,7 +7505,7 @@ const deserializeAws_restJson1DeleteIAMPolicyAssignmentCommandError = async (
 ): Promise<DeleteIAMPolicyAssignmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6795,7 +7567,7 @@ const deserializeAws_restJson1DeleteNamespaceCommandError = async (
 ): Promise<DeleteNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6863,7 +7635,7 @@ const deserializeAws_restJson1DeleteTemplateCommandError = async (
 ): Promise<DeleteTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6934,7 +7706,7 @@ const deserializeAws_restJson1DeleteTemplateAliasCommandError = async (
 ): Promise<DeleteTemplateAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6996,7 +7768,7 @@ const deserializeAws_restJson1DeleteThemeCommandError = async (
 ): Promise<DeleteThemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7067,7 +7839,7 @@ const deserializeAws_restJson1DeleteThemeAliasCommandError = async (
 ): Promise<DeleteThemeAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7126,7 +7898,7 @@ const deserializeAws_restJson1DeleteUserCommandError = async (
 ): Promise<DeleteUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7188,7 +7960,7 @@ const deserializeAws_restJson1DeleteUserByPrincipalIdCommandError = async (
 ): Promise<DeleteUserByPrincipalIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7262,7 +8034,7 @@ const deserializeAws_restJson1DescribeAccountCustomizationCommandError = async (
 ): Promise<DescribeAccountCustomizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7324,7 +8096,7 @@ const deserializeAws_restJson1DescribeAccountSettingsCommandError = async (
 ): Promise<DescribeAccountSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7386,7 +8158,7 @@ const deserializeAws_restJson1DescribeAccountSubscriptionCommandError = async (
 ): Promise<DescribeAccountSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7448,7 +8220,7 @@ const deserializeAws_restJson1DescribeAnalysisCommandError = async (
 ): Promise<DescribeAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7461,6 +8233,89 @@ const deserializeAws_restJson1DescribeAnalysisCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeAnalysisDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAnalysisDefinitionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAnalysisDefinitionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AnalysisId != null) {
+    contents.AnalysisId = __expectString(data.AnalysisId);
+  }
+  if (data.Definition != null) {
+    contents.Definition = deserializeAws_restJson1AnalysisDefinition(data.Definition, context);
+  }
+  if (data.Errors != null) {
+    contents.Errors = deserializeAws_restJson1AnalysisErrorList(data.Errors, context);
+  }
+  if (data.Name != null) {
+    contents.Name = __expectString(data.Name);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.ResourceStatus != null) {
+    contents.ResourceStatus = __expectString(data.ResourceStatus);
+  }
+  if (data.ThemeArn != null) {
+    contents.ThemeArn = __expectString(data.ThemeArn);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeAnalysisDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAnalysisDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await deserializeAws_restJson1ResourceExistsExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -7516,7 +8371,7 @@ const deserializeAws_restJson1DescribeAnalysisPermissionsCommandError = async (
 ): Promise<DescribeAnalysisPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7575,7 +8430,7 @@ const deserializeAws_restJson1DescribeDashboardCommandError = async (
 ): Promise<DescribeDashboardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7588,6 +8443,95 @@ const deserializeAws_restJson1DescribeDashboardCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeDashboardDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDashboardDefinitionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeDashboardDefinitionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DashboardId != null) {
+    contents.DashboardId = __expectString(data.DashboardId);
+  }
+  if (data.DashboardPublishOptions != null) {
+    contents.DashboardPublishOptions = deserializeAws_restJson1DashboardPublishOptions(
+      data.DashboardPublishOptions,
+      context
+    );
+  }
+  if (data.Definition != null) {
+    contents.Definition = deserializeAws_restJson1DashboardVersionDefinition(data.Definition, context);
+  }
+  if (data.Errors != null) {
+    contents.Errors = deserializeAws_restJson1DashboardErrorList(data.Errors, context);
+  }
+  if (data.Name != null) {
+    contents.Name = __expectString(data.Name);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.ResourceStatus != null) {
+    contents.ResourceStatus = __expectString(data.ResourceStatus);
+  }
+  if (data.ThemeArn != null) {
+    contents.ThemeArn = __expectString(data.ThemeArn);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeDashboardDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDashboardDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await deserializeAws_restJson1ResourceExistsExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -7649,7 +8593,7 @@ const deserializeAws_restJson1DescribeDashboardPermissionsCommandError = async (
 ): Promise<DescribeDashboardPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7708,7 +8652,7 @@ const deserializeAws_restJson1DescribeDataSetCommandError = async (
 ): Promise<DescribeDataSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7773,7 +8717,7 @@ const deserializeAws_restJson1DescribeDataSetPermissionsCommandError = async (
 ): Promise<DescribeDataSetPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7832,7 +8776,7 @@ const deserializeAws_restJson1DescribeDataSourceCommandError = async (
 ): Promise<DescribeDataSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7897,7 +8841,7 @@ const deserializeAws_restJson1DescribeDataSourcePermissionsCommandError = async 
 ): Promise<DescribeDataSourcePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7956,7 +8900,7 @@ const deserializeAws_restJson1DescribeFolderCommandError = async (
 ): Promise<DescribeFolderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8024,7 +8968,7 @@ const deserializeAws_restJson1DescribeFolderPermissionsCommandError = async (
 ): Promise<DescribeFolderPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8092,7 +9036,7 @@ const deserializeAws_restJson1DescribeFolderResolvedPermissionsCommandError = as
 ): Promise<DescribeFolderResolvedPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8154,7 +9098,7 @@ const deserializeAws_restJson1DescribeGroupCommandError = async (
 ): Promise<DescribeGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8219,7 +9163,7 @@ const deserializeAws_restJson1DescribeGroupMembershipCommandError = async (
 ): Promise<DescribeGroupMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8284,7 +9228,7 @@ const deserializeAws_restJson1DescribeIAMPolicyAssignmentCommandError = async (
 ): Promise<DescribeIAMPolicyAssignmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8346,7 +9290,7 @@ const deserializeAws_restJson1DescribeIngestionCommandError = async (
 ): Promise<DescribeIngestionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8414,7 +9358,7 @@ const deserializeAws_restJson1DescribeIpRestrictionCommandError = async (
 ): Promise<DescribeIpRestrictionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8473,7 +9417,7 @@ const deserializeAws_restJson1DescribeNamespaceCommandError = async (
 ): Promise<DescribeNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8535,7 +9479,7 @@ const deserializeAws_restJson1DescribeTemplateCommandError = async (
 ): Promise<DescribeTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8603,13 +9547,96 @@ const deserializeAws_restJson1DescribeTemplateAliasCommandError = async (
 ): Promise<DescribeTemplateAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.quicksight#InternalFailureException":
       throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeTemplateDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTemplateDefinitionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeTemplateDefinitionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Definition != null) {
+    contents.Definition = deserializeAws_restJson1TemplateVersionDefinition(data.Definition, context);
+  }
+  if (data.Errors != null) {
+    contents.Errors = deserializeAws_restJson1TemplateErrorList(data.Errors, context);
+  }
+  if (data.Name != null) {
+    contents.Name = __expectString(data.Name);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.ResourceStatus != null) {
+    contents.ResourceStatus = __expectString(data.ResourceStatus);
+  }
+  if (data.TemplateId != null) {
+    contents.TemplateId = __expectString(data.TemplateId);
+  }
+  if (data.ThemeArn != null) {
+    contents.ThemeArn = __expectString(data.ThemeArn);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeTemplateDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTemplateDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await deserializeAws_restJson1ResourceExistsExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -8665,7 +9692,7 @@ const deserializeAws_restJson1DescribeTemplatePermissionsCommandError = async (
 ): Promise<DescribeTemplatePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8727,7 +9754,7 @@ const deserializeAws_restJson1DescribeThemeCommandError = async (
 ): Promise<DescribeThemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8792,7 +9819,7 @@ const deserializeAws_restJson1DescribeThemeAliasCommandError = async (
 ): Promise<DescribeThemeAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8860,7 +9887,7 @@ const deserializeAws_restJson1DescribeThemePermissionsCommandError = async (
 ): Promise<DescribeThemePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8922,7 +9949,7 @@ const deserializeAws_restJson1DescribeUserCommandError = async (
 ): Promise<DescribeUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8969,6 +9996,9 @@ export const deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand = a
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AnonymousUserArn != null) {
+    contents.AnonymousUserArn = __expectString(data.AnonymousUserArn);
+  }
   if (data.EmbedUrl != null) {
     contents.EmbedUrl = __expectString(data.EmbedUrl);
   }
@@ -8987,7 +10017,7 @@ const deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommandError = asy
 ): Promise<GenerateEmbedUrlForAnonymousUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9055,7 +10085,7 @@ const deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommandError = as
 ): Promise<GenerateEmbedUrlForRegisteredUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9126,7 +10156,7 @@ const deserializeAws_restJson1GetDashboardEmbedUrlCommandError = async (
 ): Promise<GetDashboardEmbedUrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9206,7 +10236,7 @@ const deserializeAws_restJson1GetSessionEmbedUrlCommandError = async (
 ): Promise<GetSessionEmbedUrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9280,7 +10310,7 @@ const deserializeAws_restJson1ListAnalysesCommandError = async (
 ): Promise<ListAnalysesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9339,7 +10369,7 @@ const deserializeAws_restJson1ListDashboardsCommandError = async (
 ): Promise<ListDashboardsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9401,7 +10431,7 @@ const deserializeAws_restJson1ListDashboardVersionsCommandError = async (
 ): Promise<ListDashboardVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9466,7 +10496,7 @@ const deserializeAws_restJson1ListDataSetsCommandError = async (
 ): Promise<ListDataSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9528,7 +10558,7 @@ const deserializeAws_restJson1ListDataSourcesCommandError = async (
 ): Promise<ListDataSourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9590,7 +10620,7 @@ const deserializeAws_restJson1ListFolderMembersCommandError = async (
 ): Promise<ListFolderMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9658,7 +10688,7 @@ const deserializeAws_restJson1ListFoldersCommandError = async (
 ): Promise<ListFoldersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9726,7 +10756,7 @@ const deserializeAws_restJson1ListGroupMembershipsCommandError = async (
 ): Promise<ListGroupMembershipsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9797,7 +10827,7 @@ const deserializeAws_restJson1ListGroupsCommandError = async (
 ): Promise<ListGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9871,7 +10901,7 @@ const deserializeAws_restJson1ListIAMPolicyAssignmentsCommandError = async (
 ): Promise<ListIAMPolicyAssignmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9936,7 +10966,7 @@ const deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommandError = asyn
 ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10004,7 +11034,7 @@ const deserializeAws_restJson1ListIngestionsCommandError = async (
 ): Promise<ListIngestionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10072,7 +11102,7 @@ const deserializeAws_restJson1ListNamespacesCommandError = async (
 ): Promise<ListNamespacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10140,7 +11170,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10202,7 +11232,7 @@ const deserializeAws_restJson1ListTemplateAliasesCommandError = async (
 ): Promise<ListTemplateAliasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10264,7 +11294,7 @@ const deserializeAws_restJson1ListTemplatesCommandError = async (
 ): Promise<ListTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10332,7 +11362,7 @@ const deserializeAws_restJson1ListTemplateVersionsCommandError = async (
 ): Promise<ListTemplateVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10397,7 +11427,7 @@ const deserializeAws_restJson1ListThemeAliasesCommandError = async (
 ): Promise<ListThemeAliasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10465,7 +11495,7 @@ const deserializeAws_restJson1ListThemesCommandError = async (
 ): Promise<ListThemesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10536,7 +11566,7 @@ const deserializeAws_restJson1ListThemeVersionsCommandError = async (
 ): Promise<ListThemeVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10604,7 +11634,7 @@ const deserializeAws_restJson1ListUserGroupsCommandError = async (
 ): Promise<ListUserGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10672,7 +11702,7 @@ const deserializeAws_restJson1ListUsersCommandError = async (
 ): Promise<ListUsersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10743,7 +11773,7 @@ const deserializeAws_restJson1RegisterUserCommandError = async (
 ): Promise<RegisterUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10817,7 +11847,7 @@ const deserializeAws_restJson1RestoreAnalysisCommandError = async (
 ): Promise<RestoreAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10882,7 +11912,7 @@ const deserializeAws_restJson1SearchAnalysesCommandError = async (
 ): Promise<SearchAnalysesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10947,7 +11977,7 @@ const deserializeAws_restJson1SearchDashboardsCommandError = async (
 ): Promise<SearchDashboardsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10969,6 +11999,136 @@ const deserializeAws_restJson1SearchDashboardsCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.quicksight#UnsupportedUserEditionException":
       throw await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1SearchDataSetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchDataSetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchDataSetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DataSetSummaries != null) {
+    contents.DataSetSummaries = deserializeAws_restJson1DataSetSummaryList(data.DataSetSummaries, context);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+const deserializeAws_restJson1SearchDataSetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchDataSetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1SearchDataSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchDataSourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchDataSourcesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DataSourceSummaries != null) {
+    contents.DataSourceSummaries = deserializeAws_restJson1DataSourceSummaryList(data.DataSourceSummaries, context);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+const deserializeAws_restJson1SearchDataSourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchDataSourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -11012,7 +12172,7 @@ const deserializeAws_restJson1SearchFoldersCommandError = async (
 ): Promise<SearchFoldersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11028,6 +12188,9 @@ const deserializeAws_restJson1SearchFoldersCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.quicksight#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -11080,7 +12243,7 @@ const deserializeAws_restJson1SearchGroupsCommandError = async (
 ): Promise<SearchGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11145,7 +12308,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11204,7 +12367,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11272,7 +12435,7 @@ const deserializeAws_restJson1UpdateAccountCustomizationCommandError = async (
 ): Promise<UpdateAccountCustomizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11334,7 +12497,7 @@ const deserializeAws_restJson1UpdateAccountSettingsCommandError = async (
 ): Promise<UpdateAccountSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11402,7 +12565,7 @@ const deserializeAws_restJson1UpdateAnalysisCommandError = async (
 ): Promise<UpdateAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11473,7 +12636,7 @@ const deserializeAws_restJson1UpdateAnalysisPermissionsCommandError = async (
 ): Promise<UpdateAnalysisPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11486,6 +12649,9 @@ const deserializeAws_restJson1UpdateAnalysisPermissionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -11544,7 +12710,7 @@ const deserializeAws_restJson1UpdateDashboardCommandError = async (
 ): Promise<UpdateDashboardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11621,7 +12787,7 @@ const deserializeAws_restJson1UpdateDashboardPermissionsCommandError = async (
 ): Promise<UpdateDashboardPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11634,6 +12800,9 @@ const deserializeAws_restJson1UpdateDashboardPermissionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -11686,7 +12855,7 @@ const deserializeAws_restJson1UpdateDashboardPublishedVersionCommandError = asyn
 ): Promise<UpdateDashboardPublishedVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11757,7 +12926,7 @@ const deserializeAws_restJson1UpdateDataSetCommandError = async (
 ): Promise<UpdateDataSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11828,7 +12997,7 @@ const deserializeAws_restJson1UpdateDataSetPermissionsCommandError = async (
 ): Promise<UpdateDataSetPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11896,7 +13065,7 @@ const deserializeAws_restJson1UpdateDataSourceCommandError = async (
 ): Promise<UpdateDataSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11961,7 +13130,7 @@ const deserializeAws_restJson1UpdateDataSourcePermissionsCommandError = async (
 ): Promise<UpdateDataSourcePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12026,7 +13195,7 @@ const deserializeAws_restJson1UpdateFolderCommandError = async (
 ): Promise<UpdateFolderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12100,7 +13269,7 @@ const deserializeAws_restJson1UpdateFolderPermissionsCommandError = async (
 ): Promise<UpdateFolderPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12165,7 +13334,7 @@ const deserializeAws_restJson1UpdateGroupCommandError = async (
 ): Promise<UpdateGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12242,7 +13411,7 @@ const deserializeAws_restJson1UpdateIAMPolicyAssignmentCommandError = async (
 ): Promise<UpdateIAMPolicyAssignmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12307,7 +13476,7 @@ const deserializeAws_restJson1UpdateIpRestrictionCommandError = async (
 ): Promise<UpdateIpRestrictionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12366,7 +13535,7 @@ const deserializeAws_restJson1UpdatePublicSharingSettingsCommandError = async (
 ): Promise<UpdatePublicSharingSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12437,7 +13606,7 @@ const deserializeAws_restJson1UpdateTemplateCommandError = async (
 ): Promise<UpdateTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12505,7 +13674,7 @@ const deserializeAws_restJson1UpdateTemplateAliasCommandError = async (
 ): Promise<UpdateTemplateAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12570,7 +13739,7 @@ const deserializeAws_restJson1UpdateTemplatePermissionsCommandError = async (
 ): Promise<UpdateTemplatePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12583,6 +13752,9 @@ const deserializeAws_restJson1UpdateTemplatePermissionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -12641,7 +13813,7 @@ const deserializeAws_restJson1UpdateThemeCommandError = async (
 ): Promise<UpdateThemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12709,7 +13881,7 @@ const deserializeAws_restJson1UpdateThemeAliasCommandError = async (
 ): Promise<UpdateThemeAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12780,7 +13952,7 @@ const deserializeAws_restJson1UpdateThemePermissionsCommandError = async (
 ): Promise<UpdateThemePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12793,6 +13965,9 @@ const deserializeAws_restJson1UpdateThemePermissionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -12842,7 +14017,7 @@ const deserializeAws_restJson1UpdateUserCommandError = async (
 ): Promise<UpdateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13025,6 +14200,25 @@ const deserializeAws_restJson1InvalidParameterValueExceptionResponse = async (
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new InvalidParameterValueException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidRequestException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -13256,6 +14450,45 @@ const serializeAws_restJson1AdHocFilteringOption = (input: AdHocFilteringOption,
   };
 };
 
+const serializeAws_restJson1AggregationFunction = (input: AggregationFunction, context: __SerdeContext): any => {
+  return {
+    ...(input.CategoricalAggregationFunction != null && {
+      CategoricalAggregationFunction: input.CategoricalAggregationFunction,
+    }),
+    ...(input.DateAggregationFunction != null && { DateAggregationFunction: input.DateAggregationFunction }),
+    ...(input.NumericalAggregationFunction != null && {
+      NumericalAggregationFunction: serializeAws_restJson1NumericalAggregationFunction(
+        input.NumericalAggregationFunction,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1AggregationSortConfiguration = (
+  input: AggregationSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AggregationFunction != null && {
+      AggregationFunction: serializeAws_restJson1AggregationFunction(input.AggregationFunction, context),
+    }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.SortDirection != null && { SortDirection: input.SortDirection }),
+  };
+};
+
+const serializeAws_restJson1AggregationSortConfigurationList = (
+  input: AggregationSortConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1AggregationSortConfiguration(entry, context);
+    });
+};
+
 const serializeAws_restJson1AmazonElasticsearchParameters = (
   input: AmazonElasticsearchParameters,
   context: __SerdeContext
@@ -13271,6 +14504,44 @@ const serializeAws_restJson1AmazonOpenSearchParameters = (
 ): any => {
   return {
     ...(input.Domain != null && { Domain: input.Domain }),
+  };
+};
+
+const serializeAws_restJson1AnalysisDefaults = (input: AnalysisDefaults, context: __SerdeContext): any => {
+  return {
+    ...(input.DefaultNewSheetConfiguration != null && {
+      DefaultNewSheetConfiguration: serializeAws_restJson1DefaultNewSheetConfiguration(
+        input.DefaultNewSheetConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContext): any => {
+  return {
+    ...(input.AnalysisDefaults != null && {
+      AnalysisDefaults: serializeAws_restJson1AnalysisDefaults(input.AnalysisDefaults, context),
+    }),
+    ...(input.CalculatedFields != null && {
+      CalculatedFields: serializeAws_restJson1CalculatedFields(input.CalculatedFields, context),
+    }),
+    ...(input.ColumnConfigurations != null && {
+      ColumnConfigurations: serializeAws_restJson1ColumnConfigurationList(input.ColumnConfigurations, context),
+    }),
+    ...(input.DataSetIdentifierDeclarations != null && {
+      DataSetIdentifierDeclarations: serializeAws_restJson1DataSetIdentifierDeclarationList(
+        input.DataSetIdentifierDeclarations,
+        context
+      ),
+    }),
+    ...(input.FilterGroups != null && {
+      FilterGroups: serializeAws_restJson1FilterGroupList(input.FilterGroups, context),
+    }),
+    ...(input.ParameterDeclarations != null && {
+      ParameterDeclarations: serializeAws_restJson1ParameterDeclarationList(input.ParameterDeclarations, context),
+    }),
+    ...(input.Sheets != null && { Sheets: serializeAws_restJson1SheetDefinitionList(input.Sheets, context) }),
   };
 };
 
@@ -13310,12 +14581,33 @@ const serializeAws_restJson1AnalysisSourceTemplate = (input: AnalysisSourceTempl
   };
 };
 
+const serializeAws_restJson1AnchorDateConfiguration = (
+  input: AnchorDateConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AnchorOption != null && { AnchorOption: input.AnchorOption }),
+    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
+  };
+};
+
 const serializeAws_restJson1AnonymousUserDashboardEmbeddingConfiguration = (
   input: AnonymousUserDashboardEmbeddingConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.InitialDashboardId != null && { InitialDashboardId: input.InitialDashboardId }),
+  };
+};
+
+const serializeAws_restJson1AnonymousUserDashboardVisualEmbeddingConfiguration = (
+  input: AnonymousUserDashboardVisualEmbeddingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InitialDashboardVisualId != null && {
+      InitialDashboardVisualId: serializeAws_restJson1DashboardVisualId(input.InitialDashboardVisualId, context),
+    }),
   };
 };
 
@@ -13327,6 +14619,51 @@ const serializeAws_restJson1AnonymousUserEmbeddingExperienceConfiguration = (
     ...(input.Dashboard != null && {
       Dashboard: serializeAws_restJson1AnonymousUserDashboardEmbeddingConfiguration(input.Dashboard, context),
     }),
+    ...(input.DashboardVisual != null && {
+      DashboardVisual: serializeAws_restJson1AnonymousUserDashboardVisualEmbeddingConfiguration(
+        input.DashboardVisual,
+        context
+      ),
+    }),
+    ...(input.QSearchBar != null && {
+      QSearchBar: serializeAws_restJson1AnonymousUserQSearchBarEmbeddingConfiguration(input.QSearchBar, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AnonymousUserQSearchBarEmbeddingConfiguration = (
+  input: AnonymousUserQSearchBarEmbeddingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InitialTopicId != null && { InitialTopicId: input.InitialTopicId }),
+  };
+};
+
+const serializeAws_restJson1ArcAxisConfiguration = (input: ArcAxisConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Range != null && { Range: serializeAws_restJson1ArcAxisDisplayRange(input.Range, context) }),
+    ...(input.ReserveRange != null && { ReserveRange: input.ReserveRange }),
+  };
+};
+
+const serializeAws_restJson1ArcAxisDisplayRange = (input: ArcAxisDisplayRange, context: __SerdeContext): any => {
+  return {
+    ...(input.Max != null && { Max: __serializeFloat(input.Max) }),
+    ...(input.Min != null && { Min: __serializeFloat(input.Min) }),
+  };
+};
+
+const serializeAws_restJson1ArcConfiguration = (input: ArcConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ArcAngle != null && { ArcAngle: __serializeFloat(input.ArcAngle) }),
+    ...(input.ArcThickness != null && { ArcThickness: input.ArcThickness }),
+  };
+};
+
+const serializeAws_restJson1ArcOptions = (input: ArcOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.ArcThickness != null && { ArcThickness: input.ArcThickness }),
   };
 };
 
@@ -13340,6 +14677,7 @@ const serializeAws_restJson1ArnList = (input: string[], context: __SerdeContext)
 
 const serializeAws_restJson1AthenaParameters = (input: AthenaParameters, context: __SerdeContext): any => {
   return {
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
     ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
   };
 };
@@ -13372,9 +14710,398 @@ const serializeAws_restJson1AwsIotAnalyticsParameters = (
   };
 };
 
+const serializeAws_restJson1AxisDataOptions = (input: AxisDataOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.DateAxisOptions != null && {
+      DateAxisOptions: serializeAws_restJson1DateAxisOptions(input.DateAxisOptions, context),
+    }),
+    ...(input.NumericAxisOptions != null && {
+      NumericAxisOptions: serializeAws_restJson1NumericAxisOptions(input.NumericAxisOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AxisDisplayDataDrivenRange = (
+  input: AxisDisplayDataDrivenRange,
+  context: __SerdeContext
+): any => {
+  return {};
+};
+
+const serializeAws_restJson1AxisDisplayMinMaxRange = (input: AxisDisplayMinMaxRange, context: __SerdeContext): any => {
+  return {
+    ...(input.Maximum != null && { Maximum: __serializeFloat(input.Maximum) }),
+    ...(input.Minimum != null && { Minimum: __serializeFloat(input.Minimum) }),
+  };
+};
+
+const serializeAws_restJson1AxisDisplayOptions = (input: AxisDisplayOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.AxisLineVisibility != null && { AxisLineVisibility: input.AxisLineVisibility }),
+    ...(input.AxisOffset != null && { AxisOffset: input.AxisOffset }),
+    ...(input.DataOptions != null && {
+      DataOptions: serializeAws_restJson1AxisDataOptions(input.DataOptions, context),
+    }),
+    ...(input.GridLineVisibility != null && { GridLineVisibility: input.GridLineVisibility }),
+    ...(input.ScrollbarOptions != null && {
+      ScrollbarOptions: serializeAws_restJson1ScrollBarOptions(input.ScrollbarOptions, context),
+    }),
+    ...(input.TickLabelOptions != null && {
+      TickLabelOptions: serializeAws_restJson1AxisTickLabelOptions(input.TickLabelOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AxisDisplayRange = (input: AxisDisplayRange, context: __SerdeContext): any => {
+  return {
+    ...(input.DataDriven != null && {
+      DataDriven: serializeAws_restJson1AxisDisplayDataDrivenRange(input.DataDriven, context),
+    }),
+    ...(input.MinMax != null && { MinMax: serializeAws_restJson1AxisDisplayMinMaxRange(input.MinMax, context) }),
+  };
+};
+
+const serializeAws_restJson1AxisLabelOptions = (input: AxisLabelOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.ApplyTo != null && { ApplyTo: serializeAws_restJson1AxisLabelReferenceOptions(input.ApplyTo, context) }),
+    ...(input.CustomLabel != null && { CustomLabel: input.CustomLabel }),
+    ...(input.FontConfiguration != null && {
+      FontConfiguration: serializeAws_restJson1FontConfiguration(input.FontConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AxisLabelOptionsList = (input: AxisLabelOptions[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1AxisLabelOptions(entry, context);
+    });
+};
+
+const serializeAws_restJson1AxisLabelReferenceOptions = (
+  input: AxisLabelReferenceOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+  };
+};
+
+const serializeAws_restJson1AxisLinearScale = (input: AxisLinearScale, context: __SerdeContext): any => {
+  return {
+    ...(input.StepCount != null && { StepCount: input.StepCount }),
+    ...(input.StepSize != null && { StepSize: __serializeFloat(input.StepSize) }),
+  };
+};
+
+const serializeAws_restJson1AxisLogarithmicScale = (input: AxisLogarithmicScale, context: __SerdeContext): any => {
+  return {
+    ...(input.Base != null && { Base: __serializeFloat(input.Base) }),
+  };
+};
+
+const serializeAws_restJson1AxisScale = (input: AxisScale, context: __SerdeContext): any => {
+  return {
+    ...(input.Linear != null && { Linear: serializeAws_restJson1AxisLinearScale(input.Linear, context) }),
+    ...(input.Logarithmic != null && {
+      Logarithmic: serializeAws_restJson1AxisLogarithmicScale(input.Logarithmic, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AxisTickLabelOptions = (input: AxisTickLabelOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.LabelOptions != null && {
+      LabelOptions: serializeAws_restJson1LabelOptions(input.LabelOptions, context),
+    }),
+    ...(input.RotationAngle != null && { RotationAngle: __serializeFloat(input.RotationAngle) }),
+  };
+};
+
+const serializeAws_restJson1BarChartAggregatedFieldWells = (
+  input: BarChartAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Category != null && { Category: serializeAws_restJson1DimensionFieldList(input.Category, context) }),
+    ...(input.Colors != null && { Colors: serializeAws_restJson1DimensionFieldList(input.Colors, context) }),
+    ...(input.SmallMultiples != null && {
+      SmallMultiples: serializeAws_restJson1SmallMultiplesDimensionFieldList(input.SmallMultiples, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_restJson1MeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1BarChartConfiguration = (input: BarChartConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.BarsArrangement != null && { BarsArrangement: input.BarsArrangement }),
+    ...(input.CategoryAxis != null && {
+      CategoryAxis: serializeAws_restJson1AxisDisplayOptions(input.CategoryAxis, context),
+    }),
+    ...(input.CategoryLabelOptions != null && {
+      CategoryLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.CategoryLabelOptions, context),
+    }),
+    ...(input.ColorLabelOptions != null && {
+      ColorLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.ColorLabelOptions, context),
+    }),
+    ...(input.ContributionAnalysisDefaults != null && {
+      ContributionAnalysisDefaults: serializeAws_restJson1ContributionAnalysisDefaultList(
+        input.ContributionAnalysisDefaults,
+        context
+      ),
+    }),
+    ...(input.DataLabels != null && { DataLabels: serializeAws_restJson1DataLabelOptions(input.DataLabels, context) }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1BarChartFieldWells(input.FieldWells, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.Orientation != null && { Orientation: input.Orientation }),
+    ...(input.ReferenceLines != null && {
+      ReferenceLines: serializeAws_restJson1ReferenceLineList(input.ReferenceLines, context),
+    }),
+    ...(input.SmallMultiplesOptions != null && {
+      SmallMultiplesOptions: serializeAws_restJson1SmallMultiplesOptions(input.SmallMultiplesOptions, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1BarChartSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+    ...(input.ValueAxis != null && { ValueAxis: serializeAws_restJson1AxisDisplayOptions(input.ValueAxis, context) }),
+    ...(input.ValueLabelOptions != null && {
+      ValueLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.ValueLabelOptions, context),
+    }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1BarChartFieldWells = (input: BarChartFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.BarChartAggregatedFieldWells != null && {
+      BarChartAggregatedFieldWells: serializeAws_restJson1BarChartAggregatedFieldWells(
+        input.BarChartAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1BarChartSortConfiguration = (
+  input: BarChartSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryItemsLimit != null && {
+      CategoryItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.CategoryItemsLimit, context),
+    }),
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+    ...(input.ColorItemsLimit != null && {
+      ColorItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.ColorItemsLimit, context),
+    }),
+    ...(input.ColorSort != null && { ColorSort: serializeAws_restJson1FieldSortOptionsList(input.ColorSort, context) }),
+    ...(input.SmallMultiplesLimitConfiguration != null && {
+      SmallMultiplesLimitConfiguration: serializeAws_restJson1ItemsLimitConfiguration(
+        input.SmallMultiplesLimitConfiguration,
+        context
+      ),
+    }),
+    ...(input.SmallMultiplesSort != null && {
+      SmallMultiplesSort: serializeAws_restJson1FieldSortOptionsList(input.SmallMultiplesSort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1BarChartVisual = (input: BarChartVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1BarChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1BinCountOptions = (input: BinCountOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1BinWidthOptions = (input: BinWidthOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.BinCountLimit != null && { BinCountLimit: input.BinCountLimit }),
+    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
+  };
+};
+
+const serializeAws_restJson1BodySectionConfiguration = (
+  input: BodySectionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Content != null && { Content: serializeAws_restJson1BodySectionContent(input.Content, context) }),
+    ...(input.PageBreakConfiguration != null && {
+      PageBreakConfiguration: serializeAws_restJson1SectionPageBreakConfiguration(
+        input.PageBreakConfiguration,
+        context
+      ),
+    }),
+    ...(input.SectionId != null && { SectionId: input.SectionId }),
+    ...(input.Style != null && { Style: serializeAws_restJson1SectionStyle(input.Style, context) }),
+  };
+};
+
+const serializeAws_restJson1BodySectionConfigurationList = (
+  input: BodySectionConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1BodySectionConfiguration(entry, context);
+    });
+};
+
+const serializeAws_restJson1BodySectionContent = (input: BodySectionContent, context: __SerdeContext): any => {
+  return {
+    ...(input.Layout != null && { Layout: serializeAws_restJson1SectionLayoutConfiguration(input.Layout, context) }),
+  };
+};
+
 const serializeAws_restJson1BorderStyle = (input: BorderStyle, context: __SerdeContext): any => {
   return {
     ...(input.Show != null && { Show: input.Show }),
+  };
+};
+
+const serializeAws_restJson1BoxPlotAggregatedFieldWells = (
+  input: BoxPlotAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GroupBy != null && { GroupBy: serializeAws_restJson1BoxPlotDimensionFieldList(input.GroupBy, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1BoxPlotMeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1BoxPlotChartConfiguration = (
+  input: BoxPlotChartConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BoxPlotOptions != null && {
+      BoxPlotOptions: serializeAws_restJson1BoxPlotOptions(input.BoxPlotOptions, context),
+    }),
+    ...(input.CategoryAxis != null && {
+      CategoryAxis: serializeAws_restJson1AxisDisplayOptions(input.CategoryAxis, context),
+    }),
+    ...(input.CategoryLabelOptions != null && {
+      CategoryLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.CategoryLabelOptions, context),
+    }),
+    ...(input.FieldWells != null && { FieldWells: serializeAws_restJson1BoxPlotFieldWells(input.FieldWells, context) }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.PrimaryYAxisDisplayOptions != null && {
+      PrimaryYAxisDisplayOptions: serializeAws_restJson1AxisDisplayOptions(input.PrimaryYAxisDisplayOptions, context),
+    }),
+    ...(input.PrimaryYAxisLabelOptions != null && {
+      PrimaryYAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.PrimaryYAxisLabelOptions, context),
+    }),
+    ...(input.ReferenceLines != null && {
+      ReferenceLines: serializeAws_restJson1ReferenceLineList(input.ReferenceLines, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1BoxPlotSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1BoxPlotDimensionFieldList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1BoxPlotFieldWells = (input: BoxPlotFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.BoxPlotAggregatedFieldWells != null && {
+      BoxPlotAggregatedFieldWells: serializeAws_restJson1BoxPlotAggregatedFieldWells(
+        input.BoxPlotAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1BoxPlotMeasureFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1BoxPlotOptions = (input: BoxPlotOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.AllDataPointsVisibility != null && { AllDataPointsVisibility: input.AllDataPointsVisibility }),
+    ...(input.OutlierVisibility != null && { OutlierVisibility: input.OutlierVisibility }),
+    ...(input.StyleOptions != null && {
+      StyleOptions: serializeAws_restJson1BoxPlotStyleOptions(input.StyleOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1BoxPlotSortConfiguration = (
+  input: BoxPlotSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+    ...(input.PaginationConfiguration != null && {
+      PaginationConfiguration: serializeAws_restJson1PaginationConfiguration(input.PaginationConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1BoxPlotStyleOptions = (input: BoxPlotStyleOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.FillStyle != null && { FillStyle: input.FillStyle }),
+  };
+};
+
+const serializeAws_restJson1BoxPlotVisual = (input: BoxPlotVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1BoxPlotChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
   };
 };
 
@@ -13394,6 +15121,60 @@ const serializeAws_restJson1CalculatedColumnList = (input: CalculatedColumn[], c
     });
 };
 
+const serializeAws_restJson1CalculatedField = (input: CalculatedField, context: __SerdeContext): any => {
+  return {
+    ...(input.DataSetIdentifier != null && { DataSetIdentifier: input.DataSetIdentifier }),
+    ...(input.Expression != null && { Expression: input.Expression }),
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1CalculatedFields = (input: CalculatedField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1CalculatedField(entry, context);
+    });
+};
+
+const serializeAws_restJson1CalculatedMeasureField = (input: CalculatedMeasureField, context: __SerdeContext): any => {
+  return {
+    ...(input.Expression != null && { Expression: input.Expression }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+  };
+};
+
+const serializeAws_restJson1CascadingControlConfiguration = (
+  input: CascadingControlConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SourceControls != null && {
+      SourceControls: serializeAws_restJson1CascadingControlSourceList(input.SourceControls, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1CascadingControlSource = (input: CascadingControlSource, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnToMatch != null && {
+      ColumnToMatch: serializeAws_restJson1ColumnIdentifier(input.ColumnToMatch, context),
+    }),
+    ...(input.SourceSheetControlId != null && { SourceSheetControlId: input.SourceSheetControlId }),
+  };
+};
+
+const serializeAws_restJson1CascadingControlSourceList = (
+  input: CascadingControlSource[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1CascadingControlSource(entry, context);
+    });
+};
+
 const serializeAws_restJson1CastColumnTypeOperation = (
   input: CastColumnTypeOperation,
   context: __SerdeContext
@@ -13405,11 +15186,157 @@ const serializeAws_restJson1CastColumnTypeOperation = (
   };
 };
 
+const serializeAws_restJson1CategoricalDimensionField = (
+  input: CategoricalDimensionField,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.FormatConfiguration != null && {
+      FormatConfiguration: serializeAws_restJson1StringFormatConfiguration(input.FormatConfiguration, context),
+    }),
+    ...(input.HierarchyId != null && { HierarchyId: input.HierarchyId }),
+  };
+};
+
+const serializeAws_restJson1CategoricalMeasureField = (
+  input: CategoricalMeasureField,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AggregationFunction != null && { AggregationFunction: input.AggregationFunction }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.FormatConfiguration != null && {
+      FormatConfiguration: serializeAws_restJson1StringFormatConfiguration(input.FormatConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1CategoryDrillDownFilter = (
+  input: CategoryDrillDownFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryValues != null && {
+      CategoryValues: serializeAws_restJson1CategoryValueList(input.CategoryValues, context),
+    }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+  };
+};
+
+const serializeAws_restJson1CategoryFilter = (input: CategoryFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.Configuration != null && {
+      Configuration: serializeAws_restJson1CategoryFilterConfiguration(input.Configuration, context),
+    }),
+    ...(input.FilterId != null && { FilterId: input.FilterId }),
+  };
+};
+
+const serializeAws_restJson1CategoryFilterConfiguration = (
+  input: CategoryFilterConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomFilterConfiguration != null && {
+      CustomFilterConfiguration: serializeAws_restJson1CustomFilterConfiguration(
+        input.CustomFilterConfiguration,
+        context
+      ),
+    }),
+    ...(input.CustomFilterListConfiguration != null && {
+      CustomFilterListConfiguration: serializeAws_restJson1CustomFilterListConfiguration(
+        input.CustomFilterListConfiguration,
+        context
+      ),
+    }),
+    ...(input.FilterListConfiguration != null && {
+      FilterListConfiguration: serializeAws_restJson1FilterListConfiguration(input.FilterListConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1CategoryValueList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ChartAxisLabelOptions = (input: ChartAxisLabelOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.AxisLabelOptions != null && {
+      AxisLabelOptions: serializeAws_restJson1AxisLabelOptionsList(input.AxisLabelOptions, context),
+    }),
+    ...(input.SortIconVisibility != null && { SortIconVisibility: input.SortIconVisibility }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1ClusterMarker = (input: ClusterMarker, context: __SerdeContext): any => {
+  return {
+    ...(input.SimpleClusterMarker != null && {
+      SimpleClusterMarker: serializeAws_restJson1SimpleClusterMarker(input.SimpleClusterMarker, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ClusterMarkerConfiguration = (
+  input: ClusterMarkerConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterMarker != null && {
+      ClusterMarker: serializeAws_restJson1ClusterMarker(input.ClusterMarker, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1ColorList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
+    });
+};
+
+const serializeAws_restJson1ColorScale = (input: ColorScale, context: __SerdeContext): any => {
+  return {
+    ...(input.ColorFillType != null && { ColorFillType: input.ColorFillType }),
+    ...(input.Colors != null && { Colors: serializeAws_restJson1ColorScaleColorList(input.Colors, context) }),
+    ...(input.NullValueColor != null && {
+      NullValueColor: serializeAws_restJson1DataColor(input.NullValueColor, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ColorScaleColorList = (input: DataColor[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DataColor(entry, context);
+    });
+};
+
+const serializeAws_restJson1ColumnConfiguration = (input: ColumnConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FormatConfiguration != null && {
+      FormatConfiguration: serializeAws_restJson1FormatConfiguration(input.FormatConfiguration, context),
+    }),
+    ...(input.Role != null && { Role: input.Role }),
+  };
+};
+
+const serializeAws_restJson1ColumnConfigurationList = (input: ColumnConfiguration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ColumnConfiguration(entry, context);
     });
 };
 
@@ -13427,12 +15354,81 @@ const serializeAws_restJson1ColumnGroup = (input: ColumnGroup, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1ColumnGroupColumnSchema = (
+  input: ColumnGroupColumnSchema,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1ColumnGroupColumnSchemaList = (
+  input: ColumnGroupColumnSchema[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ColumnGroupColumnSchema(entry, context);
+    });
+};
+
 const serializeAws_restJson1ColumnGroupList = (input: ColumnGroup[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1ColumnGroup(entry, context);
     });
+};
+
+const serializeAws_restJson1ColumnGroupSchema = (input: ColumnGroupSchema, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnGroupColumnSchemaList != null && {
+      ColumnGroupColumnSchemaList: serializeAws_restJson1ColumnGroupColumnSchemaList(
+        input.ColumnGroupColumnSchemaList,
+        context
+      ),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1ColumnGroupSchemaList = (input: ColumnGroupSchema[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ColumnGroupSchema(entry, context);
+    });
+};
+
+const serializeAws_restJson1ColumnHierarchy = (input: ColumnHierarchy, context: __SerdeContext): any => {
+  return {
+    ...(input.DateTimeHierarchy != null && {
+      DateTimeHierarchy: serializeAws_restJson1DateTimeHierarchy(input.DateTimeHierarchy, context),
+    }),
+    ...(input.ExplicitHierarchy != null && {
+      ExplicitHierarchy: serializeAws_restJson1ExplicitHierarchy(input.ExplicitHierarchy, context),
+    }),
+    ...(input.PredefinedHierarchy != null && {
+      PredefinedHierarchy: serializeAws_restJson1PredefinedHierarchy(input.PredefinedHierarchy, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ColumnHierarchyList = (input: ColumnHierarchy[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ColumnHierarchy(entry, context);
+    });
+};
+
+const serializeAws_restJson1ColumnIdentifier = (input: ColumnIdentifier, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnName != null && { ColumnName: input.ColumnName }),
+    ...(input.DataSetIdentifier != null && { DataSetIdentifier: input.DataSetIdentifier }),
+  };
 };
 
 const serializeAws_restJson1ColumnLevelPermissionRule = (
@@ -13472,6 +15468,32 @@ const serializeAws_restJson1ColumnNameList = (input: string[], context: __SerdeC
     });
 };
 
+const serializeAws_restJson1ColumnSchema = (input: ColumnSchema, context: __SerdeContext): any => {
+  return {
+    ...(input.DataType != null && { DataType: input.DataType }),
+    ...(input.GeographicRole != null && { GeographicRole: input.GeographicRole }),
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1ColumnSchemaList = (input: ColumnSchema[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ColumnSchema(entry, context);
+    });
+};
+
+const serializeAws_restJson1ColumnSort = (input: ColumnSort, context: __SerdeContext): any => {
+  return {
+    ...(input.AggregationFunction != null && {
+      AggregationFunction: serializeAws_restJson1AggregationFunction(input.AggregationFunction, context),
+    }),
+    ...(input.Direction != null && { Direction: input.Direction }),
+    ...(input.SortBy != null && { SortBy: serializeAws_restJson1ColumnIdentifier(input.SortBy, context) }),
+  };
+};
+
 const serializeAws_restJson1ColumnTag = (input: ColumnTag, context: __SerdeContext): any => {
   return {
     ...(input.ColumnDescription != null && {
@@ -13497,6 +15519,329 @@ const serializeAws_restJson1ColumnTagNames = (input: (ColumnTagName | string)[],
     });
 };
 
+const serializeAws_restJson1ColumnTooltipItem = (input: ColumnTooltipItem, context: __SerdeContext): any => {
+  return {
+    ...(input.Aggregation != null && {
+      Aggregation: serializeAws_restJson1AggregationFunction(input.Aggregation, context),
+    }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.Label != null && { Label: input.Label }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1ComboChartAggregatedFieldWells = (
+  input: ComboChartAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BarValues != null && { BarValues: serializeAws_restJson1MeasureFieldList(input.BarValues, context) }),
+    ...(input.Category != null && { Category: serializeAws_restJson1DimensionFieldList(input.Category, context) }),
+    ...(input.Colors != null && { Colors: serializeAws_restJson1DimensionFieldList(input.Colors, context) }),
+    ...(input.LineValues != null && { LineValues: serializeAws_restJson1MeasureFieldList(input.LineValues, context) }),
+  };
+};
+
+const serializeAws_restJson1ComboChartConfiguration = (
+  input: ComboChartConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BarDataLabels != null && {
+      BarDataLabels: serializeAws_restJson1DataLabelOptions(input.BarDataLabels, context),
+    }),
+    ...(input.BarsArrangement != null && { BarsArrangement: input.BarsArrangement }),
+    ...(input.CategoryAxis != null && {
+      CategoryAxis: serializeAws_restJson1AxisDisplayOptions(input.CategoryAxis, context),
+    }),
+    ...(input.CategoryLabelOptions != null && {
+      CategoryLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.CategoryLabelOptions, context),
+    }),
+    ...(input.ColorLabelOptions != null && {
+      ColorLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.ColorLabelOptions, context),
+    }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1ComboChartFieldWells(input.FieldWells, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.LineDataLabels != null && {
+      LineDataLabels: serializeAws_restJson1DataLabelOptions(input.LineDataLabels, context),
+    }),
+    ...(input.PrimaryYAxisDisplayOptions != null && {
+      PrimaryYAxisDisplayOptions: serializeAws_restJson1AxisDisplayOptions(input.PrimaryYAxisDisplayOptions, context),
+    }),
+    ...(input.PrimaryYAxisLabelOptions != null && {
+      PrimaryYAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.PrimaryYAxisLabelOptions, context),
+    }),
+    ...(input.ReferenceLines != null && {
+      ReferenceLines: serializeAws_restJson1ReferenceLineList(input.ReferenceLines, context),
+    }),
+    ...(input.SecondaryYAxisDisplayOptions != null && {
+      SecondaryYAxisDisplayOptions: serializeAws_restJson1AxisDisplayOptions(
+        input.SecondaryYAxisDisplayOptions,
+        context
+      ),
+    }),
+    ...(input.SecondaryYAxisLabelOptions != null && {
+      SecondaryYAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(
+        input.SecondaryYAxisLabelOptions,
+        context
+      ),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1ComboChartSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ComboChartFieldWells = (input: ComboChartFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.ComboChartAggregatedFieldWells != null && {
+      ComboChartAggregatedFieldWells: serializeAws_restJson1ComboChartAggregatedFieldWells(
+        input.ComboChartAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1ComboChartSortConfiguration = (
+  input: ComboChartSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryItemsLimit != null && {
+      CategoryItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.CategoryItemsLimit, context),
+    }),
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+    ...(input.ColorItemsLimit != null && {
+      ColorItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.ColorItemsLimit, context),
+    }),
+    ...(input.ColorSort != null && { ColorSort: serializeAws_restJson1FieldSortOptionsList(input.ColorSort, context) }),
+  };
+};
+
+const serializeAws_restJson1ComboChartVisual = (input: ComboChartVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1ComboChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1ComparisonConfiguration = (
+  input: ComparisonConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ComparisonFormat != null && {
+      ComparisonFormat: serializeAws_restJson1ComparisonFormatConfiguration(input.ComparisonFormat, context),
+    }),
+    ...(input.ComparisonMethod != null && { ComparisonMethod: input.ComparisonMethod }),
+  };
+};
+
+const serializeAws_restJson1ComparisonFormatConfiguration = (
+  input: ComparisonFormatConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NumberDisplayFormatConfiguration != null && {
+      NumberDisplayFormatConfiguration: serializeAws_restJson1NumberDisplayFormatConfiguration(
+        input.NumberDisplayFormatConfiguration,
+        context
+      ),
+    }),
+    ...(input.PercentageDisplayFormatConfiguration != null && {
+      PercentageDisplayFormatConfiguration: serializeAws_restJson1PercentageDisplayFormatConfiguration(
+        input.PercentageDisplayFormatConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1Computation = (input: Computation, context: __SerdeContext): any => {
+  return {
+    ...(input.Forecast != null && { Forecast: serializeAws_restJson1ForecastComputation(input.Forecast, context) }),
+    ...(input.GrowthRate != null && {
+      GrowthRate: serializeAws_restJson1GrowthRateComputation(input.GrowthRate, context),
+    }),
+    ...(input.MaximumMinimum != null && {
+      MaximumMinimum: serializeAws_restJson1MaximumMinimumComputation(input.MaximumMinimum, context),
+    }),
+    ...(input.MetricComparison != null && {
+      MetricComparison: serializeAws_restJson1MetricComparisonComputation(input.MetricComparison, context),
+    }),
+    ...(input.PeriodOverPeriod != null && {
+      PeriodOverPeriod: serializeAws_restJson1PeriodOverPeriodComputation(input.PeriodOverPeriod, context),
+    }),
+    ...(input.PeriodToDate != null && {
+      PeriodToDate: serializeAws_restJson1PeriodToDateComputation(input.PeriodToDate, context),
+    }),
+    ...(input.TopBottomMovers != null && {
+      TopBottomMovers: serializeAws_restJson1TopBottomMoversComputation(input.TopBottomMovers, context),
+    }),
+    ...(input.TopBottomRanked != null && {
+      TopBottomRanked: serializeAws_restJson1TopBottomRankedComputation(input.TopBottomRanked, context),
+    }),
+    ...(input.TotalAggregation != null && {
+      TotalAggregation: serializeAws_restJson1TotalAggregationComputation(input.TotalAggregation, context),
+    }),
+    ...(input.UniqueValues != null && {
+      UniqueValues: serializeAws_restJson1UniqueValuesComputation(input.UniqueValues, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ComputationList = (input: Computation[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Computation(entry, context);
+    });
+};
+
+const serializeAws_restJson1ConditionalFormattingColor = (
+  input: ConditionalFormattingColor,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Gradient != null && {
+      Gradient: serializeAws_restJson1ConditionalFormattingGradientColor(input.Gradient, context),
+    }),
+    ...(input.Solid != null && { Solid: serializeAws_restJson1ConditionalFormattingSolidColor(input.Solid, context) }),
+  };
+};
+
+const serializeAws_restJson1ConditionalFormattingCustomIconCondition = (
+  input: ConditionalFormattingCustomIconCondition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Color != null && { Color: input.Color }),
+    ...(input.DisplayConfiguration != null && {
+      DisplayConfiguration: serializeAws_restJson1ConditionalFormattingIconDisplayConfiguration(
+        input.DisplayConfiguration,
+        context
+      ),
+    }),
+    ...(input.Expression != null && { Expression: input.Expression }),
+    ...(input.IconOptions != null && {
+      IconOptions: serializeAws_restJson1ConditionalFormattingCustomIconOptions(input.IconOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ConditionalFormattingCustomIconOptions = (
+  input: ConditionalFormattingCustomIconOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Icon != null && { Icon: input.Icon }),
+    ...(input.UnicodeIcon != null && { UnicodeIcon: input.UnicodeIcon }),
+  };
+};
+
+const serializeAws_restJson1ConditionalFormattingGradientColor = (
+  input: ConditionalFormattingGradientColor,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Color != null && { Color: serializeAws_restJson1GradientColor(input.Color, context) }),
+    ...(input.Expression != null && { Expression: input.Expression }),
+  };
+};
+
+const serializeAws_restJson1ConditionalFormattingIcon = (
+  input: ConditionalFormattingIcon,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomCondition != null && {
+      CustomCondition: serializeAws_restJson1ConditionalFormattingCustomIconCondition(input.CustomCondition, context),
+    }),
+    ...(input.IconSet != null && {
+      IconSet: serializeAws_restJson1ConditionalFormattingIconSet(input.IconSet, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ConditionalFormattingIconDisplayConfiguration = (
+  input: ConditionalFormattingIconDisplayConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IconDisplayOption != null && { IconDisplayOption: input.IconDisplayOption }),
+  };
+};
+
+const serializeAws_restJson1ConditionalFormattingIconSet = (
+  input: ConditionalFormattingIconSet,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Expression != null && { Expression: input.Expression }),
+    ...(input.IconSetType != null && { IconSetType: input.IconSetType }),
+  };
+};
+
+const serializeAws_restJson1ConditionalFormattingSolidColor = (
+  input: ConditionalFormattingSolidColor,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Color != null && { Color: input.Color }),
+    ...(input.Expression != null && { Expression: input.Expression }),
+  };
+};
+
+const serializeAws_restJson1ContributionAnalysisDefault = (
+  input: ContributionAnalysisDefault,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ContributorDimensions != null && {
+      ContributorDimensions: serializeAws_restJson1ContributorDimensionList(input.ContributorDimensions, context),
+    }),
+    ...(input.MeasureFieldId != null && { MeasureFieldId: input.MeasureFieldId }),
+  };
+};
+
+const serializeAws_restJson1ContributionAnalysisDefaultList = (
+  input: ContributionAnalysisDefault[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ContributionAnalysisDefault(entry, context);
+    });
+};
+
+const serializeAws_restJson1ContributorDimensionList = (input: ColumnIdentifier[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ColumnIdentifier(entry, context);
+    });
+};
+
 const serializeAws_restJson1CreateColumnsOperation = (input: CreateColumnsOperation, context: __SerdeContext): any => {
   return {
     ...(input.Columns != null && { Columns: serializeAws_restJson1CalculatedColumnList(input.Columns, context) }),
@@ -13516,12 +15861,194 @@ const serializeAws_restJson1CredentialPair = (input: CredentialPair, context: __
   };
 };
 
+const serializeAws_restJson1CurrencyDisplayFormatConfiguration = (
+  input: CurrencyDisplayFormatConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DecimalPlacesConfiguration != null && {
+      DecimalPlacesConfiguration: serializeAws_restJson1DecimalPlacesConfiguration(
+        input.DecimalPlacesConfiguration,
+        context
+      ),
+    }),
+    ...(input.NegativeValueConfiguration != null && {
+      NegativeValueConfiguration: serializeAws_restJson1NegativeValueConfiguration(
+        input.NegativeValueConfiguration,
+        context
+      ),
+    }),
+    ...(input.NullValueFormatConfiguration != null && {
+      NullValueFormatConfiguration: serializeAws_restJson1NullValueFormatConfiguration(
+        input.NullValueFormatConfiguration,
+        context
+      ),
+    }),
+    ...(input.NumberScale != null && { NumberScale: input.NumberScale }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
+    ...(input.SeparatorConfiguration != null && {
+      SeparatorConfiguration: serializeAws_restJson1NumericSeparatorConfiguration(
+        input.SeparatorConfiguration,
+        context
+      ),
+    }),
+    ...(input.Suffix != null && { Suffix: input.Suffix }),
+    ...(input.Symbol != null && { Symbol: input.Symbol }),
+  };
+};
+
+const serializeAws_restJson1CustomActionFilterOperation = (
+  input: CustomActionFilterOperation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SelectedFieldsConfiguration != null && {
+      SelectedFieldsConfiguration: serializeAws_restJson1FilterOperationSelectedFieldsConfiguration(
+        input.SelectedFieldsConfiguration,
+        context
+      ),
+    }),
+    ...(input.TargetVisualsConfiguration != null && {
+      TargetVisualsConfiguration: serializeAws_restJson1FilterOperationTargetVisualsConfiguration(
+        input.TargetVisualsConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1CustomActionNavigationOperation = (
+  input: CustomActionNavigationOperation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LocalNavigationConfiguration != null && {
+      LocalNavigationConfiguration: serializeAws_restJson1LocalNavigationConfiguration(
+        input.LocalNavigationConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1CustomActionSetParametersOperation = (
+  input: CustomActionSetParametersOperation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ParameterValueConfigurations != null && {
+      ParameterValueConfigurations: serializeAws_restJson1SetParameterValueConfigurationList(
+        input.ParameterValueConfigurations,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1CustomActionURLOperation = (
+  input: CustomActionURLOperation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.URLTarget != null && { URLTarget: input.URLTarget }),
+    ...(input.URLTemplate != null && { URLTemplate: input.URLTemplate }),
+  };
+};
+
+const serializeAws_restJson1CustomContentConfiguration = (
+  input: CustomContentConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ContentType != null && { ContentType: input.ContentType }),
+    ...(input.ContentUrl != null && { ContentUrl: input.ContentUrl }),
+    ...(input.ImageScaling != null && { ImageScaling: input.ImageScaling }),
+  };
+};
+
+const serializeAws_restJson1CustomContentVisual = (input: CustomContentVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1CustomContentConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.DataSetIdentifier != null && { DataSetIdentifier: input.DataSetIdentifier }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1CustomFilterConfiguration = (
+  input: CustomFilterConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryValue != null && { CategoryValue: input.CategoryValue }),
+    ...(input.MatchOperator != null && { MatchOperator: input.MatchOperator }),
+    ...(input.NullOption != null && { NullOption: input.NullOption }),
+    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
+    ...(input.SelectAllOptions != null && { SelectAllOptions: input.SelectAllOptions }),
+  };
+};
+
+const serializeAws_restJson1CustomFilterListConfiguration = (
+  input: CustomFilterListConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryValues != null && {
+      CategoryValues: serializeAws_restJson1CategoryValueList(input.CategoryValues, context),
+    }),
+    ...(input.MatchOperator != null && { MatchOperator: input.MatchOperator }),
+    ...(input.NullOption != null && { NullOption: input.NullOption }),
+    ...(input.SelectAllOptions != null && { SelectAllOptions: input.SelectAllOptions }),
+  };
+};
+
+const serializeAws_restJson1CustomNarrativeOptions = (input: CustomNarrativeOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Narrative != null && { Narrative: input.Narrative }),
+  };
+};
+
+const serializeAws_restJson1CustomParameterValues = (input: CustomParameterValues, context: __SerdeContext): any => {
+  return {
+    ...(input.DateTimeValues != null && {
+      DateTimeValues: serializeAws_restJson1DateTimeDefaultValueList(input.DateTimeValues, context),
+    }),
+    ...(input.DecimalValues != null && {
+      DecimalValues: serializeAws_restJson1DecimalDefaultValueList(input.DecimalValues, context),
+    }),
+    ...(input.IntegerValues != null && {
+      IntegerValues: serializeAws_restJson1IntegerDefaultValueList(input.IntegerValues, context),
+    }),
+    ...(input.StringValues != null && {
+      StringValues: serializeAws_restJson1StringDefaultValueList(input.StringValues, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1CustomSql = (input: CustomSql, context: __SerdeContext): any => {
   return {
     ...(input.Columns != null && { Columns: serializeAws_restJson1InputColumnList(input.Columns, context) }),
     ...(input.DataSourceArn != null && { DataSourceArn: input.DataSourceArn }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.SqlQuery != null && { SqlQuery: input.SqlQuery }),
+  };
+};
+
+const serializeAws_restJson1CustomValuesConfiguration = (
+  input: CustomValuesConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomValues != null && {
+      CustomValues: serializeAws_restJson1CustomParameterValues(input.CustomValues, context),
+    }),
+    ...(input.IncludeNullValue != null && { IncludeNullValue: input.IncludeNullValue }),
   };
 };
 
@@ -13533,11 +16060,44 @@ const serializeAws_restJson1DashboardPublishOptions = (
     ...(input.AdHocFilteringOption != null && {
       AdHocFilteringOption: serializeAws_restJson1AdHocFilteringOption(input.AdHocFilteringOption, context),
     }),
+    ...(input.DataPointDrillUpDownOption != null && {
+      DataPointDrillUpDownOption: serializeAws_restJson1DataPointDrillUpDownOption(
+        input.DataPointDrillUpDownOption,
+        context
+      ),
+    }),
+    ...(input.DataPointMenuLabelOption != null && {
+      DataPointMenuLabelOption: serializeAws_restJson1DataPointMenuLabelOption(input.DataPointMenuLabelOption, context),
+    }),
+    ...(input.DataPointTooltipOption != null && {
+      DataPointTooltipOption: serializeAws_restJson1DataPointTooltipOption(input.DataPointTooltipOption, context),
+    }),
     ...(input.ExportToCSVOption != null && {
       ExportToCSVOption: serializeAws_restJson1ExportToCSVOption(input.ExportToCSVOption, context),
     }),
+    ...(input.ExportWithHiddenFieldsOption != null && {
+      ExportWithHiddenFieldsOption: serializeAws_restJson1ExportWithHiddenFieldsOption(
+        input.ExportWithHiddenFieldsOption,
+        context
+      ),
+    }),
     ...(input.SheetControlsOption != null && {
       SheetControlsOption: serializeAws_restJson1SheetControlsOption(input.SheetControlsOption, context),
+    }),
+    ...(input.SheetLayoutElementMaximizationOption != null && {
+      SheetLayoutElementMaximizationOption: serializeAws_restJson1SheetLayoutElementMaximizationOption(
+        input.SheetLayoutElementMaximizationOption,
+        context
+      ),
+    }),
+    ...(input.VisualAxisSortOption != null && {
+      VisualAxisSortOption: serializeAws_restJson1VisualAxisSortOption(input.VisualAxisSortOption, context),
+    }),
+    ...(input.VisualMenuOption != null && {
+      VisualMenuOption: serializeAws_restJson1VisualMenuOption(input.VisualMenuOption, context),
+    }),
+    ...(input.VisualPublishOptions != null && {
+      VisualPublishOptions: serializeAws_restJson1DashboardVisualPublishOptions(input.VisualPublishOptions, context),
     }),
   };
 };
@@ -13581,6 +16141,78 @@ const serializeAws_restJson1DashboardSourceTemplate = (
   };
 };
 
+const serializeAws_restJson1DashboardVersionDefinition = (
+  input: DashboardVersionDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AnalysisDefaults != null && {
+      AnalysisDefaults: serializeAws_restJson1AnalysisDefaults(input.AnalysisDefaults, context),
+    }),
+    ...(input.CalculatedFields != null && {
+      CalculatedFields: serializeAws_restJson1CalculatedFields(input.CalculatedFields, context),
+    }),
+    ...(input.ColumnConfigurations != null && {
+      ColumnConfigurations: serializeAws_restJson1ColumnConfigurationList(input.ColumnConfigurations, context),
+    }),
+    ...(input.DataSetIdentifierDeclarations != null && {
+      DataSetIdentifierDeclarations: serializeAws_restJson1DataSetIdentifierDeclarationList(
+        input.DataSetIdentifierDeclarations,
+        context
+      ),
+    }),
+    ...(input.FilterGroups != null && {
+      FilterGroups: serializeAws_restJson1FilterGroupList(input.FilterGroups, context),
+    }),
+    ...(input.ParameterDeclarations != null && {
+      ParameterDeclarations: serializeAws_restJson1ParameterDeclarationList(input.ParameterDeclarations, context),
+    }),
+    ...(input.Sheets != null && { Sheets: serializeAws_restJson1SheetDefinitionList(input.Sheets, context) }),
+  };
+};
+
+const serializeAws_restJson1DashboardVisualId = (input: DashboardVisualId, context: __SerdeContext): any => {
+  return {
+    ...(input.DashboardId != null && { DashboardId: input.DashboardId }),
+    ...(input.SheetId != null && { SheetId: input.SheetId }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1DashboardVisualPublishOptions = (
+  input: DashboardVisualPublishOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ExportHiddenFieldsOption != null && {
+      ExportHiddenFieldsOption: serializeAws_restJson1ExportHiddenFieldsOption(input.ExportHiddenFieldsOption, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DataBarsOptions = (input: DataBarsOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.NegativeColor != null && { NegativeColor: input.NegativeColor }),
+    ...(input.PositiveColor != null && { PositiveColor: input.PositiveColor }),
+  };
+};
+
+const serializeAws_restJson1DatabricksParameters = (input: DatabricksParameters, context: __SerdeContext): any => {
+  return {
+    ...(input.Host != null && { Host: input.Host }),
+    ...(input.Port != null && { Port: input.Port }),
+    ...(input.SqlEndpointPath != null && { SqlEndpointPath: input.SqlEndpointPath }),
+  };
+};
+
+const serializeAws_restJson1DataColor = (input: DataColor, context: __SerdeContext): any => {
+  return {
+    ...(input.Color != null && { Color: input.Color }),
+    ...(input.DataValue != null && { DataValue: __serializeFloat(input.DataValue) }),
+  };
+};
+
 const serializeAws_restJson1DataColorPalette = (input: DataColorPalette, context: __SerdeContext): any => {
   return {
     ...(input.Colors != null && { Colors: serializeAws_restJson1ColorList(input.Colors, context) }),
@@ -13589,6 +16221,175 @@ const serializeAws_restJson1DataColorPalette = (input: DataColorPalette, context
       MinMaxGradient: serializeAws_restJson1ColorList(input.MinMaxGradient, context),
     }),
   };
+};
+
+const serializeAws_restJson1DataFieldSeriesItem = (input: DataFieldSeriesItem, context: __SerdeContext): any => {
+  return {
+    ...(input.AxisBinding != null && { AxisBinding: input.AxisBinding }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.FieldValue != null && { FieldValue: input.FieldValue }),
+    ...(input.Settings != null && { Settings: serializeAws_restJson1LineChartSeriesSettings(input.Settings, context) }),
+  };
+};
+
+const serializeAws_restJson1DataLabelOptions = (input: DataLabelOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.CategoryLabelVisibility != null && { CategoryLabelVisibility: input.CategoryLabelVisibility }),
+    ...(input.DataLabelTypes != null && {
+      DataLabelTypes: serializeAws_restJson1DataLabelTypes(input.DataLabelTypes, context),
+    }),
+    ...(input.LabelColor != null && { LabelColor: input.LabelColor }),
+    ...(input.LabelContent != null && { LabelContent: input.LabelContent }),
+    ...(input.LabelFontConfiguration != null && {
+      LabelFontConfiguration: serializeAws_restJson1FontConfiguration(input.LabelFontConfiguration, context),
+    }),
+    ...(input.MeasureLabelVisibility != null && { MeasureLabelVisibility: input.MeasureLabelVisibility }),
+    ...(input.Overlap != null && { Overlap: input.Overlap }),
+    ...(input.Position != null && { Position: input.Position }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1DataLabelType = (input: DataLabelType, context: __SerdeContext): any => {
+  return {
+    ...(input.DataPathLabelType != null && {
+      DataPathLabelType: serializeAws_restJson1DataPathLabelType(input.DataPathLabelType, context),
+    }),
+    ...(input.FieldLabelType != null && {
+      FieldLabelType: serializeAws_restJson1FieldLabelType(input.FieldLabelType, context),
+    }),
+    ...(input.MaximumLabelType != null && {
+      MaximumLabelType: serializeAws_restJson1MaximumLabelType(input.MaximumLabelType, context),
+    }),
+    ...(input.MinimumLabelType != null && {
+      MinimumLabelType: serializeAws_restJson1MinimumLabelType(input.MinimumLabelType, context),
+    }),
+    ...(input.RangeEndsLabelType != null && {
+      RangeEndsLabelType: serializeAws_restJson1RangeEndsLabelType(input.RangeEndsLabelType, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DataLabelTypes = (input: DataLabelType[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DataLabelType(entry, context);
+    });
+};
+
+const serializeAws_restJson1DataPathColor = (input: DataPathColor, context: __SerdeContext): any => {
+  return {
+    ...(input.Color != null && { Color: input.Color }),
+    ...(input.Element != null && { Element: serializeAws_restJson1DataPathValue(input.Element, context) }),
+    ...(input.TimeGranularity != null && { TimeGranularity: input.TimeGranularity }),
+  };
+};
+
+const serializeAws_restJson1DataPathColorList = (input: DataPathColor[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DataPathColor(entry, context);
+    });
+};
+
+const serializeAws_restJson1DataPathLabelType = (input: DataPathLabelType, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.FieldValue != null && { FieldValue: input.FieldValue }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1DataPathSort = (input: DataPathSort, context: __SerdeContext): any => {
+  return {
+    ...(input.Direction != null && { Direction: input.Direction }),
+    ...(input.SortPaths != null && { SortPaths: serializeAws_restJson1DataPathValueList(input.SortPaths, context) }),
+  };
+};
+
+const serializeAws_restJson1DataPathValue = (input: DataPathValue, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.FieldValue != null && { FieldValue: input.FieldValue }),
+  };
+};
+
+const serializeAws_restJson1DataPathValueList = (input: DataPathValue[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DataPathValue(entry, context);
+    });
+};
+
+const serializeAws_restJson1DataPointDrillUpDownOption = (
+  input: DataPointDrillUpDownOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
+const serializeAws_restJson1DataPointMenuLabelOption = (
+  input: DataPointMenuLabelOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
+const serializeAws_restJson1DataPointTooltipOption = (input: DataPointTooltipOption, context: __SerdeContext): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
+const serializeAws_restJson1DataSetConfiguration = (input: DataSetConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnGroupSchemaList != null && {
+      ColumnGroupSchemaList: serializeAws_restJson1ColumnGroupSchemaList(input.ColumnGroupSchemaList, context),
+    }),
+    ...(input.DataSetSchema != null && {
+      DataSetSchema: serializeAws_restJson1DataSetSchema(input.DataSetSchema, context),
+    }),
+    ...(input.Placeholder != null && { Placeholder: input.Placeholder }),
+  };
+};
+
+const serializeAws_restJson1DataSetConfigurationList = (
+  input: DataSetConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DataSetConfiguration(entry, context);
+    });
+};
+
+const serializeAws_restJson1DataSetIdentifierDeclaration = (
+  input: DataSetIdentifierDeclaration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataSetArn != null && { DataSetArn: input.DataSetArn }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+  };
+};
+
+const serializeAws_restJson1DataSetIdentifierDeclarationList = (
+  input: DataSetIdentifierDeclaration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DataSetIdentifierDeclaration(entry, context);
+    });
 };
 
 const serializeAws_restJson1DataSetReference = (input: DataSetReference, context: __SerdeContext): any => {
@@ -13603,6 +16404,30 @@ const serializeAws_restJson1DataSetReferenceList = (input: DataSetReference[], c
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1DataSetReference(entry, context);
+    });
+};
+
+const serializeAws_restJson1DataSetSchema = (input: DataSetSchema, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnSchemaList != null && {
+      ColumnSchemaList: serializeAws_restJson1ColumnSchemaList(input.ColumnSchemaList, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DataSetSearchFilter = (input: DataSetSearchFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Operator != null && { Operator: input.Operator }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1DataSetSearchFilterList = (input: DataSetSearchFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DataSetSearchFilter(entry, context);
     });
 };
 
@@ -13624,6 +16449,7 @@ const serializeAws_restJson1DataSourceCredentials = (input: DataSourceCredential
     ...(input.CredentialPair != null && {
       CredentialPair: serializeAws_restJson1CredentialPair(input.CredentialPair, context),
     }),
+    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
   };
 };
 
@@ -13642,6 +16468,9 @@ const serializeAws_restJson1DataSourceParameters = (input: DataSourceParameters,
     }),
     AwsIotAnalyticsParameters: (value) => ({
       AwsIotAnalyticsParameters: serializeAws_restJson1AwsIotAnalyticsParameters(value, context),
+    }),
+    DatabricksParameters: (value) => ({
+      DatabricksParameters: serializeAws_restJson1DatabricksParameters(value, context),
     }),
     ExasolParameters: (value) => ({ ExasolParameters: serializeAws_restJson1ExasolParameters(value, context) }),
     JiraParameters: (value) => ({ JiraParameters: serializeAws_restJson1JiraParameters(value, context) }),
@@ -13682,10 +16511,126 @@ const serializeAws_restJson1DataSourceParametersList = (
     });
 };
 
+const serializeAws_restJson1DataSourceSearchFilter = (input: DataSourceSearchFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Operator != null && { Operator: input.Operator }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1DataSourceSearchFilterList = (
+  input: DataSourceSearchFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DataSourceSearchFilter(entry, context);
+    });
+};
+
+const serializeAws_restJson1DateAxisOptions = (input: DateAxisOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.MissingDateVisibility != null && { MissingDateVisibility: input.MissingDateVisibility }),
+  };
+};
+
+const serializeAws_restJson1DateDimensionField = (input: DateDimensionField, context: __SerdeContext): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.DateGranularity != null && { DateGranularity: input.DateGranularity }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.FormatConfiguration != null && {
+      FormatConfiguration: serializeAws_restJson1DateTimeFormatConfiguration(input.FormatConfiguration, context),
+    }),
+    ...(input.HierarchyId != null && { HierarchyId: input.HierarchyId }),
+  };
+};
+
+const serializeAws_restJson1DateMeasureField = (input: DateMeasureField, context: __SerdeContext): any => {
+  return {
+    ...(input.AggregationFunction != null && { AggregationFunction: input.AggregationFunction }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.FormatConfiguration != null && {
+      FormatConfiguration: serializeAws_restJson1DateTimeFormatConfiguration(input.FormatConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DateTimeDefaultValueList = (input: Date[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return Math.round(entry.getTime() / 1000);
+    });
+};
+
+const serializeAws_restJson1DateTimeDefaultValues = (input: DateTimeDefaultValues, context: __SerdeContext): any => {
+  return {
+    ...(input.DynamicValue != null && {
+      DynamicValue: serializeAws_restJson1DynamicDefaultValue(input.DynamicValue, context),
+    }),
+    ...(input.RollingDate != null && {
+      RollingDate: serializeAws_restJson1RollingDateConfiguration(input.RollingDate, context),
+    }),
+    ...(input.StaticValues != null && {
+      StaticValues: serializeAws_restJson1DateTimeDefaultValueList(input.StaticValues, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DateTimeFormatConfiguration = (
+  input: DateTimeFormatConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DateTimeFormat != null && { DateTimeFormat: input.DateTimeFormat }),
+    ...(input.NullValueFormatConfiguration != null && {
+      NullValueFormatConfiguration: serializeAws_restJson1NullValueFormatConfiguration(
+        input.NullValueFormatConfiguration,
+        context
+      ),
+    }),
+    ...(input.NumericFormatConfiguration != null && {
+      NumericFormatConfiguration: serializeAws_restJson1NumericFormatConfiguration(
+        input.NumericFormatConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1DateTimeHierarchy = (input: DateTimeHierarchy, context: __SerdeContext): any => {
+  return {
+    ...(input.DrillDownFilters != null && {
+      DrillDownFilters: serializeAws_restJson1DrillDownFilterList(input.DrillDownFilters, context),
+    }),
+    ...(input.HierarchyId != null && { HierarchyId: input.HierarchyId }),
+  };
+};
+
 const serializeAws_restJson1DateTimeParameter = (input: DateTimeParameter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_restJson1TimestampList(input.Values, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1SensitiveTimestampList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1DateTimeParameterDeclaration = (
+  input: DateTimeParameterDeclaration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DefaultValues != null && {
+      DefaultValues: serializeAws_restJson1DateTimeDefaultValues(input.DefaultValues, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.TimeGranularity != null && { TimeGranularity: input.TimeGranularity }),
+    ...(input.ValueWhenUnset != null && {
+      ValueWhenUnset: serializeAws_restJson1DateTimeValueWhenUnsetConfiguration(input.ValueWhenUnset, context),
+    }),
   };
 };
 
@@ -13697,10 +16642,67 @@ const serializeAws_restJson1DateTimeParameterList = (input: DateTimeParameter[],
     });
 };
 
+const serializeAws_restJson1DateTimePickerControlDisplayOptions = (
+  input: DateTimePickerControlDisplayOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DateTimeFormat != null && { DateTimeFormat: input.DateTimeFormat }),
+    ...(input.TitleOptions != null && {
+      TitleOptions: serializeAws_restJson1LabelOptions(input.TitleOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DateTimeValueWhenUnsetConfiguration = (
+  input: DateTimeValueWhenUnsetConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomValue != null && { CustomValue: Math.round(input.CustomValue.getTime() / 1000) }),
+    ...(input.ValueWhenUnsetOption != null && { ValueWhenUnsetOption: input.ValueWhenUnsetOption }),
+  };
+};
+
+const serializeAws_restJson1DecimalDefaultValueList = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return __serializeFloat(entry);
+    });
+};
+
+const serializeAws_restJson1DecimalDefaultValues = (input: DecimalDefaultValues, context: __SerdeContext): any => {
+  return {
+    ...(input.DynamicValue != null && {
+      DynamicValue: serializeAws_restJson1DynamicDefaultValue(input.DynamicValue, context),
+    }),
+    ...(input.StaticValues != null && {
+      StaticValues: serializeAws_restJson1DecimalDefaultValueList(input.StaticValues, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1DecimalParameter = (input: DecimalParameter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_restJson1DoubleList(input.Values, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1SensitiveDoubleList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1DecimalParameterDeclaration = (
+  input: DecimalParameterDeclaration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DefaultValues != null && {
+      DefaultValues: serializeAws_restJson1DecimalDefaultValues(input.DefaultValues, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ParameterValueType != null && { ParameterValueType: input.ParameterValueType }),
+    ...(input.ValueWhenUnset != null && {
+      ValueWhenUnset: serializeAws_restJson1DecimalValueWhenUnsetConfiguration(input.ValueWhenUnset, context),
+    }),
   };
 };
 
@@ -13712,12 +16714,215 @@ const serializeAws_restJson1DecimalParameterList = (input: DecimalParameter[], c
     });
 };
 
-const serializeAws_restJson1DoubleList = (input: number[], context: __SerdeContext): any => {
+const serializeAws_restJson1DecimalPlacesConfiguration = (
+  input: DecimalPlacesConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DecimalPlaces != null && { DecimalPlaces: input.DecimalPlaces }),
+  };
+};
+
+const serializeAws_restJson1DecimalValueWhenUnsetConfiguration = (
+  input: DecimalValueWhenUnsetConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomValue != null && { CustomValue: __serializeFloat(input.CustomValue) }),
+    ...(input.ValueWhenUnsetOption != null && { ValueWhenUnsetOption: input.ValueWhenUnsetOption }),
+  };
+};
+
+const serializeAws_restJson1DefaultFreeFormLayoutConfiguration = (
+  input: DefaultFreeFormLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CanvasSizeOptions != null && {
+      CanvasSizeOptions: serializeAws_restJson1FreeFormLayoutCanvasSizeOptions(input.CanvasSizeOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DefaultGridLayoutConfiguration = (
+  input: DefaultGridLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CanvasSizeOptions != null && {
+      CanvasSizeOptions: serializeAws_restJson1GridLayoutCanvasSizeOptions(input.CanvasSizeOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DefaultInteractiveLayoutConfiguration = (
+  input: DefaultInteractiveLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FreeForm != null && {
+      FreeForm: serializeAws_restJson1DefaultFreeFormLayoutConfiguration(input.FreeForm, context),
+    }),
+    ...(input.Grid != null && { Grid: serializeAws_restJson1DefaultGridLayoutConfiguration(input.Grid, context) }),
+  };
+};
+
+const serializeAws_restJson1DefaultNewSheetConfiguration = (
+  input: DefaultNewSheetConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InteractiveLayoutConfiguration != null && {
+      InteractiveLayoutConfiguration: serializeAws_restJson1DefaultInteractiveLayoutConfiguration(
+        input.InteractiveLayoutConfiguration,
+        context
+      ),
+    }),
+    ...(input.PaginatedLayoutConfiguration != null && {
+      PaginatedLayoutConfiguration: serializeAws_restJson1DefaultPaginatedLayoutConfiguration(
+        input.PaginatedLayoutConfiguration,
+        context
+      ),
+    }),
+    ...(input.SheetContentType != null && { SheetContentType: input.SheetContentType }),
+  };
+};
+
+const serializeAws_restJson1DefaultPaginatedLayoutConfiguration = (
+  input: DefaultPaginatedLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SectionBased != null && {
+      SectionBased: serializeAws_restJson1DefaultSectionBasedLayoutConfiguration(input.SectionBased, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DefaultSectionBasedLayoutConfiguration = (
+  input: DefaultSectionBasedLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CanvasSizeOptions != null && {
+      CanvasSizeOptions: serializeAws_restJson1SectionBasedLayoutCanvasSizeOptions(input.CanvasSizeOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DestinationParameterValueConfiguration = (
+  input: DestinationParameterValueConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomValuesConfiguration != null && {
+      CustomValuesConfiguration: serializeAws_restJson1CustomValuesConfiguration(
+        input.CustomValuesConfiguration,
+        context
+      ),
+    }),
+    ...(input.SelectAllValueOptions != null && { SelectAllValueOptions: input.SelectAllValueOptions }),
+    ...(input.SourceField != null && { SourceField: input.SourceField }),
+    ...(input.SourceParameterName != null && { SourceParameterName: input.SourceParameterName }),
+  };
+};
+
+const serializeAws_restJson1DimensionField = (input: DimensionField, context: __SerdeContext): any => {
+  return {
+    ...(input.CategoricalDimensionField != null && {
+      CategoricalDimensionField: serializeAws_restJson1CategoricalDimensionField(
+        input.CategoricalDimensionField,
+        context
+      ),
+    }),
+    ...(input.DateDimensionField != null && {
+      DateDimensionField: serializeAws_restJson1DateDimensionField(input.DateDimensionField, context),
+    }),
+    ...(input.NumericalDimensionField != null && {
+      NumericalDimensionField: serializeAws_restJson1NumericalDimensionField(input.NumericalDimensionField, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DimensionFieldList = (input: DimensionField[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return __serializeFloat(entry);
+      return serializeAws_restJson1DimensionField(entry, context);
     });
+};
+
+const serializeAws_restJson1DonutCenterOptions = (input: DonutCenterOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.LabelVisibility != null && { LabelVisibility: input.LabelVisibility }),
+  };
+};
+
+const serializeAws_restJson1DonutOptions = (input: DonutOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.ArcOptions != null && { ArcOptions: serializeAws_restJson1ArcOptions(input.ArcOptions, context) }),
+    ...(input.DonutCenterOptions != null && {
+      DonutCenterOptions: serializeAws_restJson1DonutCenterOptions(input.DonutCenterOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DrillDownFilter = (input: DrillDownFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.CategoryFilter != null && {
+      CategoryFilter: serializeAws_restJson1CategoryDrillDownFilter(input.CategoryFilter, context),
+    }),
+    ...(input.NumericEqualityFilter != null && {
+      NumericEqualityFilter: serializeAws_restJson1NumericEqualityDrillDownFilter(input.NumericEqualityFilter, context),
+    }),
+    ...(input.TimeRangeFilter != null && {
+      TimeRangeFilter: serializeAws_restJson1TimeRangeDrillDownFilter(input.TimeRangeFilter, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DrillDownFilterList = (input: DrillDownFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DrillDownFilter(entry, context);
+    });
+};
+
+const serializeAws_restJson1DropDownControlDisplayOptions = (
+  input: DropDownControlDisplayOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SelectAllOptions != null && {
+      SelectAllOptions: serializeAws_restJson1ListControlSelectAllOptions(input.SelectAllOptions, context),
+    }),
+    ...(input.TitleOptions != null && {
+      TitleOptions: serializeAws_restJson1LabelOptions(input.TitleOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DynamicDefaultValue = (input: DynamicDefaultValue, context: __SerdeContext): any => {
+  return {
+    ...(input.DefaultValueColumn != null && {
+      DefaultValueColumn: serializeAws_restJson1ColumnIdentifier(input.DefaultValueColumn, context),
+    }),
+    ...(input.GroupNameColumn != null && {
+      GroupNameColumn: serializeAws_restJson1ColumnIdentifier(input.GroupNameColumn, context),
+    }),
+    ...(input.UserNameColumn != null && {
+      UserNameColumn: serializeAws_restJson1ColumnIdentifier(input.UserNameColumn, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1EmptyVisual = (input: EmptyVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.DataSetIdentifier != null && { DataSetIdentifier: input.DataSetIdentifier }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
 };
 
 const serializeAws_restJson1ExasolParameters = (input: ExasolParameters, context: __SerdeContext): any => {
@@ -13727,9 +16932,68 @@ const serializeAws_restJson1ExasolParameters = (input: ExasolParameters, context
   };
 };
 
+const serializeAws_restJson1ExcludePeriodConfiguration = (
+  input: ExcludePeriodConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Amount != null && { Amount: input.Amount }),
+    ...(input.Granularity != null && { Granularity: input.Granularity }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1ExplicitHierarchy = (input: ExplicitHierarchy, context: __SerdeContext): any => {
+  return {
+    ...(input.Columns != null && {
+      Columns: serializeAws_restJson1ExplicitHierarchyColumnList(input.Columns, context),
+    }),
+    ...(input.DrillDownFilters != null && {
+      DrillDownFilters: serializeAws_restJson1DrillDownFilterList(input.DrillDownFilters, context),
+    }),
+    ...(input.HierarchyId != null && { HierarchyId: input.HierarchyId }),
+  };
+};
+
+const serializeAws_restJson1ExplicitHierarchyColumnList = (input: ColumnIdentifier[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ColumnIdentifier(entry, context);
+    });
+};
+
+const serializeAws_restJson1ExportHiddenFieldsOption = (
+  input: ExportHiddenFieldsOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
 const serializeAws_restJson1ExportToCSVOption = (input: ExportToCSVOption, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
+const serializeAws_restJson1ExportWithHiddenFieldsOption = (
+  input: ExportWithHiddenFieldsOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
+const serializeAws_restJson1FieldBasedTooltip = (input: FieldBasedTooltip, context: __SerdeContext): any => {
+  return {
+    ...(input.AggregationVisibility != null && { AggregationVisibility: input.AggregationVisibility }),
+    ...(input.TooltipFields != null && {
+      TooltipFields: serializeAws_restJson1TooltipItemList(input.TooltipFields, context),
+    }),
+    ...(input.TooltipTitleType != null && { TooltipTitleType: input.TooltipTitleType }),
   };
 };
 
@@ -13745,16 +17009,455 @@ const serializeAws_restJson1FieldFolderMap = (input: Record<string, FieldFolder>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1FieldFolder(value, context),
-    };
+    acc[key] = serializeAws_restJson1FieldFolder(value, context);
+    return acc;
   }, {});
+};
+
+const serializeAws_restJson1FieldLabelType = (input: FieldLabelType, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1FieldOrderList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1FieldSeriesItem = (input: FieldSeriesItem, context: __SerdeContext): any => {
+  return {
+    ...(input.AxisBinding != null && { AxisBinding: input.AxisBinding }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.Settings != null && { Settings: serializeAws_restJson1LineChartSeriesSettings(input.Settings, context) }),
+  };
+};
+
+const serializeAws_restJson1FieldSort = (input: FieldSort, context: __SerdeContext): any => {
+  return {
+    ...(input.Direction != null && { Direction: input.Direction }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+  };
+};
+
+const serializeAws_restJson1FieldSortOptions = (input: FieldSortOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnSort != null && { ColumnSort: serializeAws_restJson1ColumnSort(input.ColumnSort, context) }),
+    ...(input.FieldSort != null && { FieldSort: serializeAws_restJson1FieldSort(input.FieldSort, context) }),
+  };
+};
+
+const serializeAws_restJson1FieldSortOptionsList = (input: FieldSortOptions[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1FieldSortOptions(entry, context);
+    });
+};
+
+const serializeAws_restJson1FieldTooltipItem = (input: FieldTooltipItem, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.Label != null && { Label: input.Label }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1FilledMapAggregatedFieldWells = (
+  input: FilledMapAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Geospatial != null && {
+      Geospatial: serializeAws_restJson1FilledMapDimensionFieldList(input.Geospatial, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_restJson1FilledMapMeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1FilledMapConditionalFormatting = (
+  input: FilledMapConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConditionalFormattingOptions != null && {
+      ConditionalFormattingOptions: serializeAws_restJson1FilledMapConditionalFormattingOptionList(
+        input.ConditionalFormattingOptions,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilledMapConditionalFormattingOption = (
+  input: FilledMapConditionalFormattingOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Shape != null && {
+      Shape: serializeAws_restJson1FilledMapShapeConditionalFormatting(input.Shape, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilledMapConditionalFormattingOptionList = (
+  input: FilledMapConditionalFormattingOption[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1FilledMapConditionalFormattingOption(entry, context);
+    });
+};
+
+const serializeAws_restJson1FilledMapConfiguration = (input: FilledMapConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1FilledMapFieldWells(input.FieldWells, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.MapStyleOptions != null && {
+      MapStyleOptions: serializeAws_restJson1GeospatialMapStyleOptions(input.MapStyleOptions, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1FilledMapSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+    ...(input.WindowOptions != null && {
+      WindowOptions: serializeAws_restJson1GeospatialWindowOptions(input.WindowOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilledMapDimensionFieldList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1FilledMapFieldWells = (input: FilledMapFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.FilledMapAggregatedFieldWells != null && {
+      FilledMapAggregatedFieldWells: serializeAws_restJson1FilledMapAggregatedFieldWells(
+        input.FilledMapAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilledMapMeasureFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1FilledMapShapeConditionalFormatting = (
+  input: FilledMapShapeConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.Format != null && { Format: serializeAws_restJson1ShapeConditionalFormat(input.Format, context) }),
+  };
+};
+
+const serializeAws_restJson1FilledMapSortConfiguration = (
+  input: FilledMapSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilledMapVisual = (input: FilledMapVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1FilledMapConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.ConditionalFormatting != null && {
+      ConditionalFormatting: serializeAws_restJson1FilledMapConditionalFormatting(input.ConditionalFormatting, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
+  return {
+    ...(input.CategoryFilter != null && {
+      CategoryFilter: serializeAws_restJson1CategoryFilter(input.CategoryFilter, context),
+    }),
+    ...(input.NumericEqualityFilter != null && {
+      NumericEqualityFilter: serializeAws_restJson1NumericEqualityFilter(input.NumericEqualityFilter, context),
+    }),
+    ...(input.NumericRangeFilter != null && {
+      NumericRangeFilter: serializeAws_restJson1NumericRangeFilter(input.NumericRangeFilter, context),
+    }),
+    ...(input.RelativeDatesFilter != null && {
+      RelativeDatesFilter: serializeAws_restJson1RelativeDatesFilter(input.RelativeDatesFilter, context),
+    }),
+    ...(input.TimeEqualityFilter != null && {
+      TimeEqualityFilter: serializeAws_restJson1TimeEqualityFilter(input.TimeEqualityFilter, context),
+    }),
+    ...(input.TimeRangeFilter != null && {
+      TimeRangeFilter: serializeAws_restJson1TimeRangeFilter(input.TimeRangeFilter, context),
+    }),
+    ...(input.TopBottomFilter != null && {
+      TopBottomFilter: serializeAws_restJson1TopBottomFilter(input.TopBottomFilter, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilterControl = (input: FilterControl, context: __SerdeContext): any => {
+  return {
+    ...(input.DateTimePicker != null && {
+      DateTimePicker: serializeAws_restJson1FilterDateTimePickerControl(input.DateTimePicker, context),
+    }),
+    ...(input.Dropdown != null && { Dropdown: serializeAws_restJson1FilterDropDownControl(input.Dropdown, context) }),
+    ...(input.List != null && { List: serializeAws_restJson1FilterListControl(input.List, context) }),
+    ...(input.RelativeDateTime != null && {
+      RelativeDateTime: serializeAws_restJson1FilterRelativeDateTimeControl(input.RelativeDateTime, context),
+    }),
+    ...(input.Slider != null && { Slider: serializeAws_restJson1FilterSliderControl(input.Slider, context) }),
+    ...(input.TextArea != null && { TextArea: serializeAws_restJson1FilterTextAreaControl(input.TextArea, context) }),
+    ...(input.TextField != null && {
+      TextField: serializeAws_restJson1FilterTextFieldControl(input.TextField, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilterControlList = (input: FilterControl[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1FilterControl(entry, context);
+    });
+};
+
+const serializeAws_restJson1FilterDateTimePickerControl = (
+  input: FilterDateTimePickerControl,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1DateTimePickerControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.FilterControlId != null && { FilterControlId: input.FilterControlId }),
+    ...(input.SourceFilterId != null && { SourceFilterId: input.SourceFilterId }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1FilterDropDownControl = (input: FilterDropDownControl, context: __SerdeContext): any => {
+  return {
+    ...(input.CascadingControlConfiguration != null && {
+      CascadingControlConfiguration: serializeAws_restJson1CascadingControlConfiguration(
+        input.CascadingControlConfiguration,
+        context
+      ),
+    }),
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1DropDownControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.FilterControlId != null && { FilterControlId: input.FilterControlId }),
+    ...(input.SelectableValues != null && {
+      SelectableValues: serializeAws_restJson1FilterSelectableValues(input.SelectableValues, context),
+    }),
+    ...(input.SourceFilterId != null && { SourceFilterId: input.SourceFilterId }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1FilteredVisualsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1FilterGroup = (input: FilterGroup, context: __SerdeContext): any => {
+  return {
+    ...(input.CrossDataset != null && { CrossDataset: input.CrossDataset }),
+    ...(input.FilterGroupId != null && { FilterGroupId: input.FilterGroupId }),
+    ...(input.Filters != null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
+    ...(input.ScopeConfiguration != null && {
+      ScopeConfiguration: serializeAws_restJson1FilterScopeConfiguration(input.ScopeConfiguration, context),
+    }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1FilterGroupList = (input: FilterGroup[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1FilterGroup(entry, context);
+    });
+};
+
+const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Filter(entry, context);
+    });
+};
+
+const serializeAws_restJson1FilterListConfiguration = (
+  input: FilterListConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryValues != null && {
+      CategoryValues: serializeAws_restJson1CategoryValueList(input.CategoryValues, context),
+    }),
+    ...(input.MatchOperator != null && { MatchOperator: input.MatchOperator }),
+    ...(input.SelectAllOptions != null && { SelectAllOptions: input.SelectAllOptions }),
+  };
+};
+
+const serializeAws_restJson1FilterListControl = (input: FilterListControl, context: __SerdeContext): any => {
+  return {
+    ...(input.CascadingControlConfiguration != null && {
+      CascadingControlConfiguration: serializeAws_restJson1CascadingControlConfiguration(
+        input.CascadingControlConfiguration,
+        context
+      ),
+    }),
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1ListControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.FilterControlId != null && { FilterControlId: input.FilterControlId }),
+    ...(input.SelectableValues != null && {
+      SelectableValues: serializeAws_restJson1FilterSelectableValues(input.SelectableValues, context),
+    }),
+    ...(input.SourceFilterId != null && { SourceFilterId: input.SourceFilterId }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
 };
 
 const serializeAws_restJson1FilterOperation = (input: FilterOperation, context: __SerdeContext): any => {
   return {
     ...(input.ConditionExpression != null && { ConditionExpression: input.ConditionExpression }),
+  };
+};
+
+const serializeAws_restJson1FilterOperationSelectedFieldsConfiguration = (
+  input: FilterOperationSelectedFieldsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SelectedFieldOptions != null && { SelectedFieldOptions: input.SelectedFieldOptions }),
+    ...(input.SelectedFields != null && {
+      SelectedFields: serializeAws_restJson1SelectedFieldList(input.SelectedFields, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilterOperationTargetVisualsConfiguration = (
+  input: FilterOperationTargetVisualsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SameSheetTargetVisualConfiguration != null && {
+      SameSheetTargetVisualConfiguration: serializeAws_restJson1SameSheetTargetVisualConfiguration(
+        input.SameSheetTargetVisualConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilterRelativeDateTimeControl = (
+  input: FilterRelativeDateTimeControl,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1RelativeDateTimeControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.FilterControlId != null && { FilterControlId: input.FilterControlId }),
+    ...(input.SourceFilterId != null && { SourceFilterId: input.SourceFilterId }),
+    ...(input.Title != null && { Title: input.Title }),
+  };
+};
+
+const serializeAws_restJson1FilterScopeConfiguration = (
+  input: FilterScopeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SelectedSheets != null && {
+      SelectedSheets: serializeAws_restJson1SelectedSheetsFilterScopeConfiguration(input.SelectedSheets, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilterSelectableValues = (input: FilterSelectableValues, context: __SerdeContext): any => {
+  return {
+    ...(input.Values != null && { Values: serializeAws_restJson1ParameterSelectableValueList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1FilterSliderControl = (input: FilterSliderControl, context: __SerdeContext): any => {
+  return {
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1SliderControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.FilterControlId != null && { FilterControlId: input.FilterControlId }),
+    ...(input.MaximumValue != null && { MaximumValue: __serializeFloat(input.MaximumValue) }),
+    ...(input.MinimumValue != null && { MinimumValue: __serializeFloat(input.MinimumValue) }),
+    ...(input.SourceFilterId != null && { SourceFilterId: input.SourceFilterId }),
+    ...(input.StepSize != null && { StepSize: __serializeFloat(input.StepSize) }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1FilterTextAreaControl = (input: FilterTextAreaControl, context: __SerdeContext): any => {
+  return {
+    ...(input.Delimiter != null && { Delimiter: input.Delimiter }),
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1TextAreaControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.FilterControlId != null && { FilterControlId: input.FilterControlId }),
+    ...(input.SourceFilterId != null && { SourceFilterId: input.SourceFilterId }),
+    ...(input.Title != null && { Title: input.Title }),
+  };
+};
+
+const serializeAws_restJson1FilterTextFieldControl = (input: FilterTextFieldControl, context: __SerdeContext): any => {
+  return {
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1TextFieldControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.FilterControlId != null && { FilterControlId: input.FilterControlId }),
+    ...(input.SourceFilterId != null && { SourceFilterId: input.SourceFilterId }),
+    ...(input.Title != null && { Title: input.Title }),
   };
 };
 
@@ -13782,11 +17485,670 @@ const serializeAws_restJson1FolderSearchFilterList = (input: FolderSearchFilter[
     });
 };
 
+const serializeAws_restJson1Font = (input: Font, context: __SerdeContext): any => {
+  return {
+    ...(input.FontFamily != null && { FontFamily: input.FontFamily }),
+  };
+};
+
+const serializeAws_restJson1FontConfiguration = (input: FontConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.FontColor != null && { FontColor: input.FontColor }),
+    ...(input.FontDecoration != null && { FontDecoration: input.FontDecoration }),
+    ...(input.FontSize != null && { FontSize: serializeAws_restJson1FontSize(input.FontSize, context) }),
+    ...(input.FontStyle != null && { FontStyle: input.FontStyle }),
+    ...(input.FontWeight != null && { FontWeight: serializeAws_restJson1FontWeight(input.FontWeight, context) }),
+  };
+};
+
+const serializeAws_restJson1FontList = (input: Font[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Font(entry, context);
+    });
+};
+
+const serializeAws_restJson1FontSize = (input: FontSize, context: __SerdeContext): any => {
+  return {
+    ...(input.Relative != null && { Relative: input.Relative }),
+  };
+};
+
+const serializeAws_restJson1FontWeight = (input: FontWeight, context: __SerdeContext): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1ForecastComputation = (input: ForecastComputation, context: __SerdeContext): any => {
+  return {
+    ...(input.ComputationId != null && { ComputationId: input.ComputationId }),
+    ...(input.CustomSeasonalityValue != null && { CustomSeasonalityValue: input.CustomSeasonalityValue }),
+    ...(input.LowerBoundary != null && { LowerBoundary: __serializeFloat(input.LowerBoundary) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PeriodsBackward != null && { PeriodsBackward: input.PeriodsBackward }),
+    ...(input.PeriodsForward != null && { PeriodsForward: input.PeriodsForward }),
+    ...(input.PredictionInterval != null && { PredictionInterval: input.PredictionInterval }),
+    ...(input.Seasonality != null && { Seasonality: input.Seasonality }),
+    ...(input.Time != null && { Time: serializeAws_restJson1DimensionField(input.Time, context) }),
+    ...(input.UpperBoundary != null && { UpperBoundary: __serializeFloat(input.UpperBoundary) }),
+    ...(input.Value != null && { Value: serializeAws_restJson1MeasureField(input.Value, context) }),
+  };
+};
+
+const serializeAws_restJson1ForecastConfiguration = (input: ForecastConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ForecastProperties != null && {
+      ForecastProperties: serializeAws_restJson1TimeBasedForecastProperties(input.ForecastProperties, context),
+    }),
+    ...(input.Scenario != null && { Scenario: serializeAws_restJson1ForecastScenario(input.Scenario, context) }),
+  };
+};
+
+const serializeAws_restJson1ForecastConfigurationList = (
+  input: ForecastConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ForecastConfiguration(entry, context);
+    });
+};
+
+const serializeAws_restJson1ForecastScenario = (input: ForecastScenario, context: __SerdeContext): any => {
+  return {
+    ...(input.WhatIfPointScenario != null && {
+      WhatIfPointScenario: serializeAws_restJson1WhatIfPointScenario(input.WhatIfPointScenario, context),
+    }),
+    ...(input.WhatIfRangeScenario != null && {
+      WhatIfRangeScenario: serializeAws_restJson1WhatIfRangeScenario(input.WhatIfRangeScenario, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FormatConfiguration = (input: FormatConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.DateTimeFormatConfiguration != null && {
+      DateTimeFormatConfiguration: serializeAws_restJson1DateTimeFormatConfiguration(
+        input.DateTimeFormatConfiguration,
+        context
+      ),
+    }),
+    ...(input.NumberFormatConfiguration != null && {
+      NumberFormatConfiguration: serializeAws_restJson1NumberFormatConfiguration(
+        input.NumberFormatConfiguration,
+        context
+      ),
+    }),
+    ...(input.StringFormatConfiguration != null && {
+      StringFormatConfiguration: serializeAws_restJson1StringFormatConfiguration(
+        input.StringFormatConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1FreeFormLayoutCanvasSizeOptions = (
+  input: FreeFormLayoutCanvasSizeOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ScreenCanvasSizeOptions != null && {
+      ScreenCanvasSizeOptions: serializeAws_restJson1FreeFormLayoutScreenCanvasSizeOptions(
+        input.ScreenCanvasSizeOptions,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1FreeFormLayoutConfiguration = (
+  input: FreeFormLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CanvasSizeOptions != null && {
+      CanvasSizeOptions: serializeAws_restJson1FreeFormLayoutCanvasSizeOptions(input.CanvasSizeOptions, context),
+    }),
+    ...(input.Elements != null && {
+      Elements: serializeAws_restJson1FreeFromLayoutElementList(input.Elements, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FreeFormLayoutElement = (input: FreeFormLayoutElement, context: __SerdeContext): any => {
+  return {
+    ...(input.BackgroundStyle != null && {
+      BackgroundStyle: serializeAws_restJson1FreeFormLayoutElementBackgroundStyle(input.BackgroundStyle, context),
+    }),
+    ...(input.BorderStyle != null && {
+      BorderStyle: serializeAws_restJson1FreeFormLayoutElementBorderStyle(input.BorderStyle, context),
+    }),
+    ...(input.ElementId != null && { ElementId: input.ElementId }),
+    ...(input.ElementType != null && { ElementType: input.ElementType }),
+    ...(input.Height != null && { Height: input.Height }),
+    ...(input.LoadingAnimation != null && {
+      LoadingAnimation: serializeAws_restJson1LoadingAnimation(input.LoadingAnimation, context),
+    }),
+    ...(input.RenderingRules != null && {
+      RenderingRules: serializeAws_restJson1SheetElementRenderingRuleList(input.RenderingRules, context),
+    }),
+    ...(input.SelectedBorderStyle != null && {
+      SelectedBorderStyle: serializeAws_restJson1FreeFormLayoutElementBorderStyle(input.SelectedBorderStyle, context),
+    }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+    ...(input.Width != null && { Width: input.Width }),
+    ...(input.XAxisLocation != null && { XAxisLocation: input.XAxisLocation }),
+    ...(input.YAxisLocation != null && { YAxisLocation: input.YAxisLocation }),
+  };
+};
+
+const serializeAws_restJson1FreeFormLayoutElementBackgroundStyle = (
+  input: FreeFormLayoutElementBackgroundStyle,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Color != null && { Color: input.Color }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1FreeFormLayoutElementBorderStyle = (
+  input: FreeFormLayoutElementBorderStyle,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Color != null && { Color: input.Color }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1FreeFormLayoutScreenCanvasSizeOptions = (
+  input: FreeFormLayoutScreenCanvasSizeOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OptimizedViewPortWidth != null && { OptimizedViewPortWidth: input.OptimizedViewPortWidth }),
+  };
+};
+
+const serializeAws_restJson1FreeFormSectionLayoutConfiguration = (
+  input: FreeFormSectionLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Elements != null && {
+      Elements: serializeAws_restJson1FreeFromLayoutElementList(input.Elements, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FreeFromLayoutElementList = (
+  input: FreeFormLayoutElement[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1FreeFormLayoutElement(entry, context);
+    });
+};
+
+const serializeAws_restJson1FunnelChartAggregatedFieldWells = (
+  input: FunnelChartAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Category != null && {
+      Category: serializeAws_restJson1FunnelChartDimensionFieldList(input.Category, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_restJson1FunnelChartMeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1FunnelChartConfiguration = (
+  input: FunnelChartConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryLabelOptions != null && {
+      CategoryLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.CategoryLabelOptions, context),
+    }),
+    ...(input.DataLabelOptions != null && {
+      DataLabelOptions: serializeAws_restJson1FunnelChartDataLabelOptions(input.DataLabelOptions, context),
+    }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1FunnelChartFieldWells(input.FieldWells, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1FunnelChartSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+    ...(input.ValueLabelOptions != null && {
+      ValueLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.ValueLabelOptions, context),
+    }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FunnelChartDataLabelOptions = (
+  input: FunnelChartDataLabelOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryLabelVisibility != null && { CategoryLabelVisibility: input.CategoryLabelVisibility }),
+    ...(input.LabelColor != null && { LabelColor: input.LabelColor }),
+    ...(input.LabelFontConfiguration != null && {
+      LabelFontConfiguration: serializeAws_restJson1FontConfiguration(input.LabelFontConfiguration, context),
+    }),
+    ...(input.MeasureDataLabelStyle != null && { MeasureDataLabelStyle: input.MeasureDataLabelStyle }),
+    ...(input.MeasureLabelVisibility != null && { MeasureLabelVisibility: input.MeasureLabelVisibility }),
+    ...(input.Position != null && { Position: input.Position }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1FunnelChartDimensionFieldList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1FunnelChartFieldWells = (input: FunnelChartFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.FunnelChartAggregatedFieldWells != null && {
+      FunnelChartAggregatedFieldWells: serializeAws_restJson1FunnelChartAggregatedFieldWells(
+        input.FunnelChartAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1FunnelChartMeasureFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1FunnelChartSortConfiguration = (
+  input: FunnelChartSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryItemsLimit != null && {
+      CategoryItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.CategoryItemsLimit, context),
+    }),
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FunnelChartVisual = (input: FunnelChartVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1FunnelChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1GaugeChartArcConditionalFormatting = (
+  input: GaugeChartArcConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ForegroundColor != null && {
+      ForegroundColor: serializeAws_restJson1ConditionalFormattingColor(input.ForegroundColor, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1GaugeChartConditionalFormatting = (
+  input: GaugeChartConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConditionalFormattingOptions != null && {
+      ConditionalFormattingOptions: serializeAws_restJson1GaugeChartConditionalFormattingOptionList(
+        input.ConditionalFormattingOptions,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1GaugeChartConditionalFormattingOption = (
+  input: GaugeChartConditionalFormattingOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Arc != null && { Arc: serializeAws_restJson1GaugeChartArcConditionalFormatting(input.Arc, context) }),
+    ...(input.PrimaryValue != null && {
+      PrimaryValue: serializeAws_restJson1GaugeChartPrimaryValueConditionalFormatting(input.PrimaryValue, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1GaugeChartConditionalFormattingOptionList = (
+  input: GaugeChartConditionalFormattingOption[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1GaugeChartConditionalFormattingOption(entry, context);
+    });
+};
+
+const serializeAws_restJson1GaugeChartConfiguration = (
+  input: GaugeChartConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataLabels != null && { DataLabels: serializeAws_restJson1DataLabelOptions(input.DataLabels, context) }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1GaugeChartFieldWells(input.FieldWells, context),
+    }),
+    ...(input.GaugeChartOptions != null && {
+      GaugeChartOptions: serializeAws_restJson1GaugeChartOptions(input.GaugeChartOptions, context),
+    }),
+    ...(input.TooltipOptions != null && {
+      TooltipOptions: serializeAws_restJson1TooltipOptions(input.TooltipOptions, context),
+    }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1GaugeChartFieldWells = (input: GaugeChartFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.TargetValues != null && {
+      TargetValues: serializeAws_restJson1MeasureFieldList(input.TargetValues, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_restJson1MeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1GaugeChartOptions = (input: GaugeChartOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Arc != null && { Arc: serializeAws_restJson1ArcConfiguration(input.Arc, context) }),
+    ...(input.ArcAxis != null && { ArcAxis: serializeAws_restJson1ArcAxisConfiguration(input.ArcAxis, context) }),
+    ...(input.Comparison != null && {
+      Comparison: serializeAws_restJson1ComparisonConfiguration(input.Comparison, context),
+    }),
+    ...(input.PrimaryValueDisplayType != null && { PrimaryValueDisplayType: input.PrimaryValueDisplayType }),
+    ...(input.PrimaryValueFontConfiguration != null && {
+      PrimaryValueFontConfiguration: serializeAws_restJson1FontConfiguration(
+        input.PrimaryValueFontConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1GaugeChartPrimaryValueConditionalFormatting = (
+  input: GaugeChartPrimaryValueConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Icon != null && { Icon: serializeAws_restJson1ConditionalFormattingIcon(input.Icon, context) }),
+    ...(input.TextColor != null && {
+      TextColor: serializeAws_restJson1ConditionalFormattingColor(input.TextColor, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1GaugeChartVisual = (input: GaugeChartVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1GaugeChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ConditionalFormatting != null && {
+      ConditionalFormatting: serializeAws_restJson1GaugeChartConditionalFormatting(
+        input.ConditionalFormatting,
+        context
+      ),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
 const serializeAws_restJson1GeoSpatialColumnGroup = (input: GeoSpatialColumnGroup, context: __SerdeContext): any => {
   return {
     ...(input.Columns != null && { Columns: serializeAws_restJson1ColumnList(input.Columns, context) }),
     ...(input.CountryCode != null && { CountryCode: input.CountryCode }),
     ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1GeospatialCoordinateBounds = (
+  input: GeospatialCoordinateBounds,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.East != null && { East: __serializeFloat(input.East) }),
+    ...(input.North != null && { North: __serializeFloat(input.North) }),
+    ...(input.South != null && { South: __serializeFloat(input.South) }),
+    ...(input.West != null && { West: __serializeFloat(input.West) }),
+  };
+};
+
+const serializeAws_restJson1GeospatialMapAggregatedFieldWells = (
+  input: GeospatialMapAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Colors != null && { Colors: serializeAws_restJson1DimensionFieldList(input.Colors, context) }),
+    ...(input.Geospatial != null && {
+      Geospatial: serializeAws_restJson1DimensionFieldList(input.Geospatial, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_restJson1MeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1GeospatialMapConfiguration = (
+  input: GeospatialMapConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1GeospatialMapFieldWells(input.FieldWells, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.MapStyleOptions != null && {
+      MapStyleOptions: serializeAws_restJson1GeospatialMapStyleOptions(input.MapStyleOptions, context),
+    }),
+    ...(input.PointStyleOptions != null && {
+      PointStyleOptions: serializeAws_restJson1GeospatialPointStyleOptions(input.PointStyleOptions, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+    ...(input.WindowOptions != null && {
+      WindowOptions: serializeAws_restJson1GeospatialWindowOptions(input.WindowOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1GeospatialMapFieldWells = (
+  input: GeospatialMapFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GeospatialMapAggregatedFieldWells != null && {
+      GeospatialMapAggregatedFieldWells: serializeAws_restJson1GeospatialMapAggregatedFieldWells(
+        input.GeospatialMapAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1GeospatialMapStyleOptions = (
+  input: GeospatialMapStyleOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BaseMapStyle != null && { BaseMapStyle: input.BaseMapStyle }),
+  };
+};
+
+const serializeAws_restJson1GeospatialMapVisual = (input: GeospatialMapVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1GeospatialMapConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1GeospatialPointStyleOptions = (
+  input: GeospatialPointStyleOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterMarkerConfiguration != null && {
+      ClusterMarkerConfiguration: serializeAws_restJson1ClusterMarkerConfiguration(
+        input.ClusterMarkerConfiguration,
+        context
+      ),
+    }),
+    ...(input.SelectedPointStyle != null && { SelectedPointStyle: input.SelectedPointStyle }),
+  };
+};
+
+const serializeAws_restJson1GeospatialWindowOptions = (
+  input: GeospatialWindowOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Bounds != null && { Bounds: serializeAws_restJson1GeospatialCoordinateBounds(input.Bounds, context) }),
+    ...(input.MapZoomMode != null && { MapZoomMode: input.MapZoomMode }),
+  };
+};
+
+const serializeAws_restJson1GlobalTableBorderOptions = (
+  input: GlobalTableBorderOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SideSpecificBorder != null && {
+      SideSpecificBorder: serializeAws_restJson1TableSideBorderOptions(input.SideSpecificBorder, context),
+    }),
+    ...(input.UniformBorder != null && {
+      UniformBorder: serializeAws_restJson1TableBorderOptions(input.UniformBorder, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1GradientColor = (input: GradientColor, context: __SerdeContext): any => {
+  return {
+    ...(input.Stops != null && { Stops: serializeAws_restJson1GradientStopList(input.Stops, context) }),
+  };
+};
+
+const serializeAws_restJson1GradientStop = (input: GradientStop, context: __SerdeContext): any => {
+  return {
+    ...(input.Color != null && { Color: input.Color }),
+    ...(input.DataValue != null && { DataValue: __serializeFloat(input.DataValue) }),
+    ...(input.GradientOffset != null && { GradientOffset: __serializeFloat(input.GradientOffset) }),
+  };
+};
+
+const serializeAws_restJson1GradientStopList = (input: GradientStop[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1GradientStop(entry, context);
+    });
+};
+
+const serializeAws_restJson1GridLayoutCanvasSizeOptions = (
+  input: GridLayoutCanvasSizeOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ScreenCanvasSizeOptions != null && {
+      ScreenCanvasSizeOptions: serializeAws_restJson1GridLayoutScreenCanvasSizeOptions(
+        input.ScreenCanvasSizeOptions,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1GridLayoutConfiguration = (
+  input: GridLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CanvasSizeOptions != null && {
+      CanvasSizeOptions: serializeAws_restJson1GridLayoutCanvasSizeOptions(input.CanvasSizeOptions, context),
+    }),
+    ...(input.Elements != null && { Elements: serializeAws_restJson1GridLayoutElementList(input.Elements, context) }),
+  };
+};
+
+const serializeAws_restJson1GridLayoutElement = (input: GridLayoutElement, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnIndex != null && { ColumnIndex: input.ColumnIndex }),
+    ...(input.ColumnSpan != null && { ColumnSpan: input.ColumnSpan }),
+    ...(input.ElementId != null && { ElementId: input.ElementId }),
+    ...(input.ElementType != null && { ElementType: input.ElementType }),
+    ...(input.RowIndex != null && { RowIndex: input.RowIndex }),
+    ...(input.RowSpan != null && { RowSpan: input.RowSpan }),
+  };
+};
+
+const serializeAws_restJson1GridLayoutElementList = (input: GridLayoutElement[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1GridLayoutElement(entry, context);
+    });
+};
+
+const serializeAws_restJson1GridLayoutScreenCanvasSizeOptions = (
+  input: GridLayoutScreenCanvasSizeOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OptimizedViewPortWidth != null && { OptimizedViewPortWidth: input.OptimizedViewPortWidth }),
+    ...(input.ResizeOption != null && { ResizeOption: input.ResizeOption }),
   };
 };
 
@@ -13814,9 +18176,217 @@ const serializeAws_restJson1GroupsList = (input: string[], context: __SerdeConte
     });
 };
 
+const serializeAws_restJson1GrowthRateComputation = (input: GrowthRateComputation, context: __SerdeContext): any => {
+  return {
+    ...(input.ComputationId != null && { ComputationId: input.ComputationId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PeriodSize != null && { PeriodSize: input.PeriodSize }),
+    ...(input.Time != null && { Time: serializeAws_restJson1DimensionField(input.Time, context) }),
+    ...(input.Value != null && { Value: serializeAws_restJson1MeasureField(input.Value, context) }),
+  };
+};
+
 const serializeAws_restJson1GutterStyle = (input: GutterStyle, context: __SerdeContext): any => {
   return {
     ...(input.Show != null && { Show: input.Show }),
+  };
+};
+
+const serializeAws_restJson1HeaderFooterSectionConfiguration = (
+  input: HeaderFooterSectionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Layout != null && { Layout: serializeAws_restJson1SectionLayoutConfiguration(input.Layout, context) }),
+    ...(input.SectionId != null && { SectionId: input.SectionId }),
+    ...(input.Style != null && { Style: serializeAws_restJson1SectionStyle(input.Style, context) }),
+  };
+};
+
+const serializeAws_restJson1HeaderFooterSectionConfigurationList = (
+  input: HeaderFooterSectionConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1HeaderFooterSectionConfiguration(entry, context);
+    });
+};
+
+const serializeAws_restJson1HeatMapAggregatedFieldWells = (
+  input: HeatMapAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Columns != null && { Columns: serializeAws_restJson1HeatMapDimensionFieldList(input.Columns, context) }),
+    ...(input.Rows != null && { Rows: serializeAws_restJson1HeatMapDimensionFieldList(input.Rows, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1HeatMapMeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1HeatMapConfiguration = (input: HeatMapConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ColorScale != null && { ColorScale: serializeAws_restJson1ColorScale(input.ColorScale, context) }),
+    ...(input.ColumnLabelOptions != null && {
+      ColumnLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.ColumnLabelOptions, context),
+    }),
+    ...(input.DataLabels != null && { DataLabels: serializeAws_restJson1DataLabelOptions(input.DataLabels, context) }),
+    ...(input.FieldWells != null && { FieldWells: serializeAws_restJson1HeatMapFieldWells(input.FieldWells, context) }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.RowLabelOptions != null && {
+      RowLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.RowLabelOptions, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1HeatMapSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+  };
+};
+
+const serializeAws_restJson1HeatMapDimensionFieldList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1HeatMapFieldWells = (input: HeatMapFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.HeatMapAggregatedFieldWells != null && {
+      HeatMapAggregatedFieldWells: serializeAws_restJson1HeatMapAggregatedFieldWells(
+        input.HeatMapAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1HeatMapMeasureFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1HeatMapSortConfiguration = (
+  input: HeatMapSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HeatMapColumnItemsLimitConfiguration != null && {
+      HeatMapColumnItemsLimitConfiguration: serializeAws_restJson1ItemsLimitConfiguration(
+        input.HeatMapColumnItemsLimitConfiguration,
+        context
+      ),
+    }),
+    ...(input.HeatMapColumnSort != null && {
+      HeatMapColumnSort: serializeAws_restJson1FieldSortOptionsList(input.HeatMapColumnSort, context),
+    }),
+    ...(input.HeatMapRowItemsLimitConfiguration != null && {
+      HeatMapRowItemsLimitConfiguration: serializeAws_restJson1ItemsLimitConfiguration(
+        input.HeatMapRowItemsLimitConfiguration,
+        context
+      ),
+    }),
+    ...(input.HeatMapRowSort != null && {
+      HeatMapRowSort: serializeAws_restJson1FieldSortOptionsList(input.HeatMapRowSort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1HeatMapVisual = (input: HeatMapVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1HeatMapConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1HistogramAggregatedFieldWells = (
+  input: HistogramAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Values != null && { Values: serializeAws_restJson1HistogramMeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1HistogramBinOptions = (input: HistogramBinOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.BinCount != null && { BinCount: serializeAws_restJson1BinCountOptions(input.BinCount, context) }),
+    ...(input.BinWidth != null && { BinWidth: serializeAws_restJson1BinWidthOptions(input.BinWidth, context) }),
+    ...(input.SelectedBinType != null && { SelectedBinType: input.SelectedBinType }),
+    ...(input.StartValue != null && { StartValue: __serializeFloat(input.StartValue) }),
+  };
+};
+
+const serializeAws_restJson1HistogramConfiguration = (input: HistogramConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.BinOptions != null && {
+      BinOptions: serializeAws_restJson1HistogramBinOptions(input.BinOptions, context),
+    }),
+    ...(input.DataLabels != null && { DataLabels: serializeAws_restJson1DataLabelOptions(input.DataLabels, context) }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1HistogramFieldWells(input.FieldWells, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+    ...(input.XAxisDisplayOptions != null && {
+      XAxisDisplayOptions: serializeAws_restJson1AxisDisplayOptions(input.XAxisDisplayOptions, context),
+    }),
+    ...(input.XAxisLabelOptions != null && {
+      XAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.XAxisLabelOptions, context),
+    }),
+    ...(input.YAxisDisplayOptions != null && {
+      YAxisDisplayOptions: serializeAws_restJson1AxisDisplayOptions(input.YAxisDisplayOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1HistogramFieldWells = (input: HistogramFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.HistogramAggregatedFieldWells != null && {
+      HistogramAggregatedFieldWells: serializeAws_restJson1HistogramAggregatedFieldWells(
+        input.HistogramAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1HistogramMeasureFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1HistogramVisual = (input: HistogramVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1HistogramConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
   };
 };
 
@@ -13825,10 +18395,8 @@ const serializeAws_restJson1IdentityMap = (input: Record<string, string[]>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1IdentityNameList(value, context),
-    };
+    acc[key] = serializeAws_restJson1IdentityNameList(value, context);
+    return acc;
   }, {});
 };
 
@@ -13855,10 +18423,71 @@ const serializeAws_restJson1InputColumnList = (input: InputColumn[], context: __
     });
 };
 
+const serializeAws_restJson1InsightConfiguration = (input: InsightConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Computations != null && {
+      Computations: serializeAws_restJson1ComputationList(input.Computations, context),
+    }),
+    ...(input.CustomNarrative != null && {
+      CustomNarrative: serializeAws_restJson1CustomNarrativeOptions(input.CustomNarrative, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1InsightVisual = (input: InsightVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.DataSetIdentifier != null && { DataSetIdentifier: input.DataSetIdentifier }),
+    ...(input.InsightConfiguration != null && {
+      InsightConfiguration: serializeAws_restJson1InsightConfiguration(input.InsightConfiguration, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1IntegerDefaultValueList = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1IntegerDefaultValues = (input: IntegerDefaultValues, context: __SerdeContext): any => {
+  return {
+    ...(input.DynamicValue != null && {
+      DynamicValue: serializeAws_restJson1DynamicDefaultValue(input.DynamicValue, context),
+    }),
+    ...(input.StaticValues != null && {
+      StaticValues: serializeAws_restJson1IntegerDefaultValueList(input.StaticValues, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1IntegerParameter = (input: IntegerParameter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_restJson1LongList(input.Values, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1SensitiveLongList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1IntegerParameterDeclaration = (
+  input: IntegerParameterDeclaration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DefaultValues != null && {
+      DefaultValues: serializeAws_restJson1IntegerDefaultValues(input.DefaultValues, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ParameterValueType != null && { ParameterValueType: input.ParameterValueType }),
+    ...(input.ValueWhenUnset != null && {
+      ValueWhenUnset: serializeAws_restJson1IntegerValueWhenUnsetConfiguration(input.ValueWhenUnset, context),
+    }),
   };
 };
 
@@ -13870,16 +18499,34 @@ const serializeAws_restJson1IntegerParameterList = (input: IntegerParameter[], c
     });
 };
 
+const serializeAws_restJson1IntegerValueWhenUnsetConfiguration = (
+  input: IntegerValueWhenUnsetConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomValue != null && { CustomValue: input.CustomValue }),
+    ...(input.ValueWhenUnsetOption != null && { ValueWhenUnsetOption: input.ValueWhenUnsetOption }),
+  };
+};
+
 const serializeAws_restJson1IpRestrictionRuleMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
+};
+
+const serializeAws_restJson1ItemsLimitConfiguration = (
+  input: ItemsLimitConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ItemsLimit != null && { ItemsLimit: input.ItemsLimit }),
+    ...(input.OtherCategories != null && { OtherCategories: input.OtherCategories }),
+  };
 };
 
 const serializeAws_restJson1JiraParameters = (input: JiraParameters, context: __SerdeContext): any => {
@@ -13909,6 +18556,456 @@ const serializeAws_restJson1JoinKeyProperties = (input: JoinKeyProperties, conte
   };
 };
 
+const serializeAws_restJson1KPIConditionalFormatting = (
+  input: KPIConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConditionalFormattingOptions != null && {
+      ConditionalFormattingOptions: serializeAws_restJson1KPIConditionalFormattingOptionList(
+        input.ConditionalFormattingOptions,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1KPIConditionalFormattingOption = (
+  input: KPIConditionalFormattingOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PrimaryValue != null && {
+      PrimaryValue: serializeAws_restJson1KPIPrimaryValueConditionalFormatting(input.PrimaryValue, context),
+    }),
+    ...(input.ProgressBar != null && {
+      ProgressBar: serializeAws_restJson1KPIProgressBarConditionalFormatting(input.ProgressBar, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1KPIConditionalFormattingOptionList = (
+  input: KPIConditionalFormattingOption[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1KPIConditionalFormattingOption(entry, context);
+    });
+};
+
+const serializeAws_restJson1KPIConfiguration = (input: KPIConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldWells != null && { FieldWells: serializeAws_restJson1KPIFieldWells(input.FieldWells, context) }),
+    ...(input.KPIOptions != null && { KPIOptions: serializeAws_restJson1KPIOptions(input.KPIOptions, context) }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1KPISortConfiguration(input.SortConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1KPIFieldWells = (input: KPIFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.TargetValues != null && {
+      TargetValues: serializeAws_restJson1MeasureFieldList(input.TargetValues, context),
+    }),
+    ...(input.TrendGroups != null && {
+      TrendGroups: serializeAws_restJson1DimensionFieldList(input.TrendGroups, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_restJson1MeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1KPIOptions = (input: KPIOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Comparison != null && {
+      Comparison: serializeAws_restJson1ComparisonConfiguration(input.Comparison, context),
+    }),
+    ...(input.PrimaryValueDisplayType != null && { PrimaryValueDisplayType: input.PrimaryValueDisplayType }),
+    ...(input.PrimaryValueFontConfiguration != null && {
+      PrimaryValueFontConfiguration: serializeAws_restJson1FontConfiguration(
+        input.PrimaryValueFontConfiguration,
+        context
+      ),
+    }),
+    ...(input.ProgressBar != null && {
+      ProgressBar: serializeAws_restJson1ProgressBarOptions(input.ProgressBar, context),
+    }),
+    ...(input.SecondaryValue != null && {
+      SecondaryValue: serializeAws_restJson1SecondaryValueOptions(input.SecondaryValue, context),
+    }),
+    ...(input.SecondaryValueFontConfiguration != null && {
+      SecondaryValueFontConfiguration: serializeAws_restJson1FontConfiguration(
+        input.SecondaryValueFontConfiguration,
+        context
+      ),
+    }),
+    ...(input.TrendArrows != null && {
+      TrendArrows: serializeAws_restJson1TrendArrowOptions(input.TrendArrows, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1KPIPrimaryValueConditionalFormatting = (
+  input: KPIPrimaryValueConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Icon != null && { Icon: serializeAws_restJson1ConditionalFormattingIcon(input.Icon, context) }),
+    ...(input.TextColor != null && {
+      TextColor: serializeAws_restJson1ConditionalFormattingColor(input.TextColor, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1KPIProgressBarConditionalFormatting = (
+  input: KPIProgressBarConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ForegroundColor != null && {
+      ForegroundColor: serializeAws_restJson1ConditionalFormattingColor(input.ForegroundColor, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1KPISortConfiguration = (input: KPISortConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.TrendGroupSort != null && {
+      TrendGroupSort: serializeAws_restJson1FieldSortOptionsList(input.TrendGroupSort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1KPIVisual = (input: KPIVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1KPIConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.ConditionalFormatting != null && {
+      ConditionalFormatting: serializeAws_restJson1KPIConditionalFormatting(input.ConditionalFormatting, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1LabelOptions = (input: LabelOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomLabel != null && { CustomLabel: input.CustomLabel }),
+    ...(input.FontConfiguration != null && {
+      FontConfiguration: serializeAws_restJson1FontConfiguration(input.FontConfiguration, context),
+    }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1Layout = (input: Layout, context: __SerdeContext): any => {
+  return {
+    ...(input.Configuration != null && {
+      Configuration: serializeAws_restJson1LayoutConfiguration(input.Configuration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1LayoutConfiguration = (input: LayoutConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.FreeFormLayout != null && {
+      FreeFormLayout: serializeAws_restJson1FreeFormLayoutConfiguration(input.FreeFormLayout, context),
+    }),
+    ...(input.GridLayout != null && {
+      GridLayout: serializeAws_restJson1GridLayoutConfiguration(input.GridLayout, context),
+    }),
+    ...(input.SectionBasedLayout != null && {
+      SectionBasedLayout: serializeAws_restJson1SectionBasedLayoutConfiguration(input.SectionBasedLayout, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1LayoutList = (input: Layout[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Layout(entry, context);
+    });
+};
+
+const serializeAws_restJson1LegendOptions = (input: LegendOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Height != null && { Height: input.Height }),
+    ...(input.Position != null && { Position: input.Position }),
+    ...(input.Title != null && { Title: serializeAws_restJson1LabelOptions(input.Title, context) }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+    ...(input.Width != null && { Width: input.Width }),
+  };
+};
+
+const serializeAws_restJson1LineChartAggregatedFieldWells = (
+  input: LineChartAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Category != null && { Category: serializeAws_restJson1DimensionFieldList(input.Category, context) }),
+    ...(input.Colors != null && { Colors: serializeAws_restJson1DimensionFieldList(input.Colors, context) }),
+    ...(input.SmallMultiples != null && {
+      SmallMultiples: serializeAws_restJson1SmallMultiplesDimensionFieldList(input.SmallMultiples, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_restJson1MeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1LineChartConfiguration = (input: LineChartConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ContributionAnalysisDefaults != null && {
+      ContributionAnalysisDefaults: serializeAws_restJson1ContributionAnalysisDefaultList(
+        input.ContributionAnalysisDefaults,
+        context
+      ),
+    }),
+    ...(input.DataLabels != null && { DataLabels: serializeAws_restJson1DataLabelOptions(input.DataLabels, context) }),
+    ...(input.DefaultSeriesSettings != null && {
+      DefaultSeriesSettings: serializeAws_restJson1LineChartDefaultSeriesSettings(input.DefaultSeriesSettings, context),
+    }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1LineChartFieldWells(input.FieldWells, context),
+    }),
+    ...(input.ForecastConfigurations != null && {
+      ForecastConfigurations: serializeAws_restJson1ForecastConfigurationList(input.ForecastConfigurations, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.PrimaryYAxisDisplayOptions != null && {
+      PrimaryYAxisDisplayOptions: serializeAws_restJson1LineSeriesAxisDisplayOptions(
+        input.PrimaryYAxisDisplayOptions,
+        context
+      ),
+    }),
+    ...(input.PrimaryYAxisLabelOptions != null && {
+      PrimaryYAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.PrimaryYAxisLabelOptions, context),
+    }),
+    ...(input.ReferenceLines != null && {
+      ReferenceLines: serializeAws_restJson1ReferenceLineList(input.ReferenceLines, context),
+    }),
+    ...(input.SecondaryYAxisDisplayOptions != null && {
+      SecondaryYAxisDisplayOptions: serializeAws_restJson1LineSeriesAxisDisplayOptions(
+        input.SecondaryYAxisDisplayOptions,
+        context
+      ),
+    }),
+    ...(input.SecondaryYAxisLabelOptions != null && {
+      SecondaryYAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(
+        input.SecondaryYAxisLabelOptions,
+        context
+      ),
+    }),
+    ...(input.Series != null && { Series: serializeAws_restJson1SeriesItemList(input.Series, context) }),
+    ...(input.SmallMultiplesOptions != null && {
+      SmallMultiplesOptions: serializeAws_restJson1SmallMultiplesOptions(input.SmallMultiplesOptions, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1LineChartSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+    ...(input.XAxisDisplayOptions != null && {
+      XAxisDisplayOptions: serializeAws_restJson1AxisDisplayOptions(input.XAxisDisplayOptions, context),
+    }),
+    ...(input.XAxisLabelOptions != null && {
+      XAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.XAxisLabelOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1LineChartDefaultSeriesSettings = (
+  input: LineChartDefaultSeriesSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AxisBinding != null && { AxisBinding: input.AxisBinding }),
+    ...(input.LineStyleSettings != null && {
+      LineStyleSettings: serializeAws_restJson1LineChartLineStyleSettings(input.LineStyleSettings, context),
+    }),
+    ...(input.MarkerStyleSettings != null && {
+      MarkerStyleSettings: serializeAws_restJson1LineChartMarkerStyleSettings(input.MarkerStyleSettings, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1LineChartFieldWells = (input: LineChartFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.LineChartAggregatedFieldWells != null && {
+      LineChartAggregatedFieldWells: serializeAws_restJson1LineChartAggregatedFieldWells(
+        input.LineChartAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1LineChartLineStyleSettings = (
+  input: LineChartLineStyleSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LineInterpolation != null && { LineInterpolation: input.LineInterpolation }),
+    ...(input.LineStyle != null && { LineStyle: input.LineStyle }),
+    ...(input.LineVisibility != null && { LineVisibility: input.LineVisibility }),
+    ...(input.LineWidth != null && { LineWidth: input.LineWidth }),
+  };
+};
+
+const serializeAws_restJson1LineChartMarkerStyleSettings = (
+  input: LineChartMarkerStyleSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MarkerColor != null && { MarkerColor: input.MarkerColor }),
+    ...(input.MarkerShape != null && { MarkerShape: input.MarkerShape }),
+    ...(input.MarkerSize != null && { MarkerSize: input.MarkerSize }),
+    ...(input.MarkerVisibility != null && { MarkerVisibility: input.MarkerVisibility }),
+  };
+};
+
+const serializeAws_restJson1LineChartSeriesSettings = (
+  input: LineChartSeriesSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LineStyleSettings != null && {
+      LineStyleSettings: serializeAws_restJson1LineChartLineStyleSettings(input.LineStyleSettings, context),
+    }),
+    ...(input.MarkerStyleSettings != null && {
+      MarkerStyleSettings: serializeAws_restJson1LineChartMarkerStyleSettings(input.MarkerStyleSettings, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1LineChartSortConfiguration = (
+  input: LineChartSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryItemsLimitConfiguration != null && {
+      CategoryItemsLimitConfiguration: serializeAws_restJson1ItemsLimitConfiguration(
+        input.CategoryItemsLimitConfiguration,
+        context
+      ),
+    }),
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+    ...(input.ColorItemsLimitConfiguration != null && {
+      ColorItemsLimitConfiguration: serializeAws_restJson1ItemsLimitConfiguration(
+        input.ColorItemsLimitConfiguration,
+        context
+      ),
+    }),
+    ...(input.SmallMultiplesLimitConfiguration != null && {
+      SmallMultiplesLimitConfiguration: serializeAws_restJson1ItemsLimitConfiguration(
+        input.SmallMultiplesLimitConfiguration,
+        context
+      ),
+    }),
+    ...(input.SmallMultiplesSort != null && {
+      SmallMultiplesSort: serializeAws_restJson1FieldSortOptionsList(input.SmallMultiplesSort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1LineChartVisual = (input: LineChartVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1LineChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1LineSeriesAxisDisplayOptions = (
+  input: LineSeriesAxisDisplayOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AxisOptions != null && {
+      AxisOptions: serializeAws_restJson1AxisDisplayOptions(input.AxisOptions, context),
+    }),
+    ...(input.MissingDataConfigurations != null && {
+      MissingDataConfigurations: serializeAws_restJson1MissingDataConfigurationList(
+        input.MissingDataConfigurations,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1ListControlDisplayOptions = (
+  input: ListControlDisplayOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SearchOptions != null && {
+      SearchOptions: serializeAws_restJson1ListControlSearchOptions(input.SearchOptions, context),
+    }),
+    ...(input.SelectAllOptions != null && {
+      SelectAllOptions: serializeAws_restJson1ListControlSelectAllOptions(input.SelectAllOptions, context),
+    }),
+    ...(input.TitleOptions != null && {
+      TitleOptions: serializeAws_restJson1LabelOptions(input.TitleOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ListControlSearchOptions = (
+  input: ListControlSearchOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1ListControlSelectAllOptions = (
+  input: ListControlSelectAllOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1LoadingAnimation = (input: LoadingAnimation, context: __SerdeContext): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1LocalNavigationConfiguration = (
+  input: LocalNavigationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TargetSheetId != null && { TargetSheetId: input.TargetSheetId }),
+  };
+};
+
 const serializeAws_restJson1LogicalTable = (input: LogicalTable, context: __SerdeContext): any => {
   return {
     ...(input.Alias != null && { Alias: input.Alias }),
@@ -13924,10 +19021,8 @@ const serializeAws_restJson1LogicalTableMap = (input: Record<string, LogicalTabl
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1LogicalTable(value, context),
-    };
+    acc[key] = serializeAws_restJson1LogicalTable(value, context);
+    return acc;
   }, {});
 };
 
@@ -13941,12 +19036,11 @@ const serializeAws_restJson1LogicalTableSource = (input: LogicalTableSource, con
   };
 };
 
-const serializeAws_restJson1LongList = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+const serializeAws_restJson1LongFormatText = (input: LongFormatText, context: __SerdeContext): any => {
+  return {
+    ...(input.PlainText != null && { PlainText: input.PlainText }),
+    ...(input.RichText != null && { RichText: input.RichText }),
+  };
 };
 
 const serializeAws_restJson1ManifestFileLocation = (input: ManifestFileLocation, context: __SerdeContext): any => {
@@ -13970,6 +19064,89 @@ const serializeAws_restJson1MariaDbParameters = (input: MariaDbParameters, conte
   };
 };
 
+const serializeAws_restJson1MaximumLabelType = (input: MaximumLabelType, context: __SerdeContext): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1MaximumMinimumComputation = (
+  input: MaximumMinimumComputation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ComputationId != null && { ComputationId: input.ComputationId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Time != null && { Time: serializeAws_restJson1DimensionField(input.Time, context) }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Value != null && { Value: serializeAws_restJson1MeasureField(input.Value, context) }),
+  };
+};
+
+const serializeAws_restJson1MeasureField = (input: MeasureField, context: __SerdeContext): any => {
+  return {
+    ...(input.CalculatedMeasureField != null && {
+      CalculatedMeasureField: serializeAws_restJson1CalculatedMeasureField(input.CalculatedMeasureField, context),
+    }),
+    ...(input.CategoricalMeasureField != null && {
+      CategoricalMeasureField: serializeAws_restJson1CategoricalMeasureField(input.CategoricalMeasureField, context),
+    }),
+    ...(input.DateMeasureField != null && {
+      DateMeasureField: serializeAws_restJson1DateMeasureField(input.DateMeasureField, context),
+    }),
+    ...(input.NumericalMeasureField != null && {
+      NumericalMeasureField: serializeAws_restJson1NumericalMeasureField(input.NumericalMeasureField, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1MeasureFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1MetricComparisonComputation = (
+  input: MetricComparisonComputation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ComputationId != null && { ComputationId: input.ComputationId }),
+    ...(input.FromValue != null && { FromValue: serializeAws_restJson1MeasureField(input.FromValue, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.TargetValue != null && { TargetValue: serializeAws_restJson1MeasureField(input.TargetValue, context) }),
+    ...(input.Time != null && { Time: serializeAws_restJson1DimensionField(input.Time, context) }),
+  };
+};
+
+const serializeAws_restJson1MinimumLabelType = (input: MinimumLabelType, context: __SerdeContext): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1MissingDataConfiguration = (
+  input: MissingDataConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TreatmentOption != null && { TreatmentOption: input.TreatmentOption }),
+  };
+};
+
+const serializeAws_restJson1MissingDataConfigurationList = (
+  input: MissingDataConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MissingDataConfiguration(entry, context);
+    });
+};
+
 const serializeAws_restJson1MySqlParameters = (input: MySqlParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database != null && { Database: input.Database }),
@@ -13978,11 +19155,374 @@ const serializeAws_restJson1MySqlParameters = (input: MySqlParameters, context: 
   };
 };
 
+const serializeAws_restJson1NegativeValueConfiguration = (
+  input: NegativeValueConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DisplayMode != null && { DisplayMode: input.DisplayMode }),
+  };
+};
+
+const serializeAws_restJson1NullValueFormatConfiguration = (
+  input: NullValueFormatConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NullString != null && { NullString: input.NullString }),
+  };
+};
+
+const serializeAws_restJson1NumberDisplayFormatConfiguration = (
+  input: NumberDisplayFormatConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DecimalPlacesConfiguration != null && {
+      DecimalPlacesConfiguration: serializeAws_restJson1DecimalPlacesConfiguration(
+        input.DecimalPlacesConfiguration,
+        context
+      ),
+    }),
+    ...(input.NegativeValueConfiguration != null && {
+      NegativeValueConfiguration: serializeAws_restJson1NegativeValueConfiguration(
+        input.NegativeValueConfiguration,
+        context
+      ),
+    }),
+    ...(input.NullValueFormatConfiguration != null && {
+      NullValueFormatConfiguration: serializeAws_restJson1NullValueFormatConfiguration(
+        input.NullValueFormatConfiguration,
+        context
+      ),
+    }),
+    ...(input.NumberScale != null && { NumberScale: input.NumberScale }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
+    ...(input.SeparatorConfiguration != null && {
+      SeparatorConfiguration: serializeAws_restJson1NumericSeparatorConfiguration(
+        input.SeparatorConfiguration,
+        context
+      ),
+    }),
+    ...(input.Suffix != null && { Suffix: input.Suffix }),
+  };
+};
+
+const serializeAws_restJson1NumberFormatConfiguration = (
+  input: NumberFormatConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FormatConfiguration != null && {
+      FormatConfiguration: serializeAws_restJson1NumericFormatConfiguration(input.FormatConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1NumericalAggregationFunction = (
+  input: NumericalAggregationFunction,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PercentileAggregation != null && {
+      PercentileAggregation: serializeAws_restJson1PercentileAggregation(input.PercentileAggregation, context),
+    }),
+    ...(input.SimpleNumericalAggregation != null && { SimpleNumericalAggregation: input.SimpleNumericalAggregation }),
+  };
+};
+
+const serializeAws_restJson1NumericalDimensionField = (
+  input: NumericalDimensionField,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.FormatConfiguration != null && {
+      FormatConfiguration: serializeAws_restJson1NumberFormatConfiguration(input.FormatConfiguration, context),
+    }),
+    ...(input.HierarchyId != null && { HierarchyId: input.HierarchyId }),
+  };
+};
+
+const serializeAws_restJson1NumericalMeasureField = (input: NumericalMeasureField, context: __SerdeContext): any => {
+  return {
+    ...(input.AggregationFunction != null && {
+      AggregationFunction: serializeAws_restJson1NumericalAggregationFunction(input.AggregationFunction, context),
+    }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.FormatConfiguration != null && {
+      FormatConfiguration: serializeAws_restJson1NumberFormatConfiguration(input.FormatConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1NumericAxisOptions = (input: NumericAxisOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Range != null && { Range: serializeAws_restJson1AxisDisplayRange(input.Range, context) }),
+    ...(input.Scale != null && { Scale: serializeAws_restJson1AxisScale(input.Scale, context) }),
+  };
+};
+
+const serializeAws_restJson1NumericEqualityDrillDownFilter = (
+  input: NumericEqualityDrillDownFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
+  };
+};
+
+const serializeAws_restJson1NumericEqualityFilter = (input: NumericEqualityFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.AggregationFunction != null && {
+      AggregationFunction: serializeAws_restJson1AggregationFunction(input.AggregationFunction, context),
+    }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FilterId != null && { FilterId: input.FilterId }),
+    ...(input.MatchOperator != null && { MatchOperator: input.MatchOperator }),
+    ...(input.NullOption != null && { NullOption: input.NullOption }),
+    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
+    ...(input.SelectAllOptions != null && { SelectAllOptions: input.SelectAllOptions }),
+    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
+  };
+};
+
+const serializeAws_restJson1NumericFormatConfiguration = (
+  input: NumericFormatConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CurrencyDisplayFormatConfiguration != null && {
+      CurrencyDisplayFormatConfiguration: serializeAws_restJson1CurrencyDisplayFormatConfiguration(
+        input.CurrencyDisplayFormatConfiguration,
+        context
+      ),
+    }),
+    ...(input.NumberDisplayFormatConfiguration != null && {
+      NumberDisplayFormatConfiguration: serializeAws_restJson1NumberDisplayFormatConfiguration(
+        input.NumberDisplayFormatConfiguration,
+        context
+      ),
+    }),
+    ...(input.PercentageDisplayFormatConfiguration != null && {
+      PercentageDisplayFormatConfiguration: serializeAws_restJson1PercentageDisplayFormatConfiguration(
+        input.PercentageDisplayFormatConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1NumericRangeFilter = (input: NumericRangeFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.AggregationFunction != null && {
+      AggregationFunction: serializeAws_restJson1AggregationFunction(input.AggregationFunction, context),
+    }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FilterId != null && { FilterId: input.FilterId }),
+    ...(input.IncludeMaximum != null && { IncludeMaximum: input.IncludeMaximum }),
+    ...(input.IncludeMinimum != null && { IncludeMinimum: input.IncludeMinimum }),
+    ...(input.NullOption != null && { NullOption: input.NullOption }),
+    ...(input.RangeMaximum != null && {
+      RangeMaximum: serializeAws_restJson1NumericRangeFilterValue(input.RangeMaximum, context),
+    }),
+    ...(input.RangeMinimum != null && {
+      RangeMinimum: serializeAws_restJson1NumericRangeFilterValue(input.RangeMinimum, context),
+    }),
+    ...(input.SelectAllOptions != null && { SelectAllOptions: input.SelectAllOptions }),
+  };
+};
+
+const serializeAws_restJson1NumericRangeFilterValue = (
+  input: NumericRangeFilterValue,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Parameter != null && { Parameter: input.Parameter }),
+    ...(input.StaticValue != null && { StaticValue: __serializeFloat(input.StaticValue) }),
+  };
+};
+
+const serializeAws_restJson1NumericSeparatorConfiguration = (
+  input: NumericSeparatorConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DecimalSeparator != null && { DecimalSeparator: input.DecimalSeparator }),
+    ...(input.ThousandsSeparator != null && {
+      ThousandsSeparator: serializeAws_restJson1ThousandSeparatorOptions(input.ThousandsSeparator, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1OracleParameters = (input: OracleParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database != null && { Database: input.Database }),
     ...(input.Host != null && { Host: input.Host }),
     ...(input.Port != null && { Port: input.Port }),
+  };
+};
+
+const serializeAws_restJson1PaginationConfiguration = (
+  input: PaginationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PageNumber != null && { PageNumber: input.PageNumber }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+  };
+};
+
+const serializeAws_restJson1PanelConfiguration = (input: PanelConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.BackgroundColor != null && { BackgroundColor: input.BackgroundColor }),
+    ...(input.BackgroundVisibility != null && { BackgroundVisibility: input.BackgroundVisibility }),
+    ...(input.BorderColor != null && { BorderColor: input.BorderColor }),
+    ...(input.BorderStyle != null && { BorderStyle: input.BorderStyle }),
+    ...(input.BorderThickness != null && { BorderThickness: input.BorderThickness }),
+    ...(input.BorderVisibility != null && { BorderVisibility: input.BorderVisibility }),
+    ...(input.GutterSpacing != null && { GutterSpacing: input.GutterSpacing }),
+    ...(input.GutterVisibility != null && { GutterVisibility: input.GutterVisibility }),
+    ...(input.Title != null && { Title: serializeAws_restJson1PanelTitleOptions(input.Title, context) }),
+  };
+};
+
+const serializeAws_restJson1PanelTitleOptions = (input: PanelTitleOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.FontConfiguration != null && {
+      FontConfiguration: serializeAws_restJson1FontConfiguration(input.FontConfiguration, context),
+    }),
+    ...(input.HorizontalTextAlignment != null && { HorizontalTextAlignment: input.HorizontalTextAlignment }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1ParameterControl = (input: ParameterControl, context: __SerdeContext): any => {
+  return {
+    ...(input.DateTimePicker != null && {
+      DateTimePicker: serializeAws_restJson1ParameterDateTimePickerControl(input.DateTimePicker, context),
+    }),
+    ...(input.Dropdown != null && {
+      Dropdown: serializeAws_restJson1ParameterDropDownControl(input.Dropdown, context),
+    }),
+    ...(input.List != null && { List: serializeAws_restJson1ParameterListControl(input.List, context) }),
+    ...(input.Slider != null && { Slider: serializeAws_restJson1ParameterSliderControl(input.Slider, context) }),
+    ...(input.TextArea != null && {
+      TextArea: serializeAws_restJson1ParameterTextAreaControl(input.TextArea, context),
+    }),
+    ...(input.TextField != null && {
+      TextField: serializeAws_restJson1ParameterTextFieldControl(input.TextField, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ParameterControlList = (input: ParameterControl[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ParameterControl(entry, context);
+    });
+};
+
+const serializeAws_restJson1ParameterDateTimePickerControl = (
+  input: ParameterDateTimePickerControl,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1DateTimePickerControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.ParameterControlId != null && { ParameterControlId: input.ParameterControlId }),
+    ...(input.SourceParameterName != null && { SourceParameterName: input.SourceParameterName }),
+    ...(input.Title != null && { Title: input.Title }),
+  };
+};
+
+const serializeAws_restJson1ParameterDeclaration = (input: ParameterDeclaration, context: __SerdeContext): any => {
+  return {
+    ...(input.DateTimeParameterDeclaration != null && {
+      DateTimeParameterDeclaration: serializeAws_restJson1DateTimeParameterDeclaration(
+        input.DateTimeParameterDeclaration,
+        context
+      ),
+    }),
+    ...(input.DecimalParameterDeclaration != null && {
+      DecimalParameterDeclaration: serializeAws_restJson1DecimalParameterDeclaration(
+        input.DecimalParameterDeclaration,
+        context
+      ),
+    }),
+    ...(input.IntegerParameterDeclaration != null && {
+      IntegerParameterDeclaration: serializeAws_restJson1IntegerParameterDeclaration(
+        input.IntegerParameterDeclaration,
+        context
+      ),
+    }),
+    ...(input.StringParameterDeclaration != null && {
+      StringParameterDeclaration: serializeAws_restJson1StringParameterDeclaration(
+        input.StringParameterDeclaration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1ParameterDeclarationList = (
+  input: ParameterDeclaration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ParameterDeclaration(entry, context);
+    });
+};
+
+const serializeAws_restJson1ParameterDropDownControl = (
+  input: ParameterDropDownControl,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CascadingControlConfiguration != null && {
+      CascadingControlConfiguration: serializeAws_restJson1CascadingControlConfiguration(
+        input.CascadingControlConfiguration,
+        context
+      ),
+    }),
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1DropDownControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.ParameterControlId != null && { ParameterControlId: input.ParameterControlId }),
+    ...(input.SelectableValues != null && {
+      SelectableValues: serializeAws_restJson1ParameterSelectableValues(input.SelectableValues, context),
+    }),
+    ...(input.SourceParameterName != null && { SourceParameterName: input.SourceParameterName }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1ParameterListControl = (input: ParameterListControl, context: __SerdeContext): any => {
+  return {
+    ...(input.CascadingControlConfiguration != null && {
+      CascadingControlConfiguration: serializeAws_restJson1CascadingControlConfiguration(
+        input.CascadingControlConfiguration,
+        context
+      ),
+    }),
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1ListControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.ParameterControlId != null && { ParameterControlId: input.ParameterControlId }),
+    ...(input.SelectableValues != null && {
+      SelectableValues: serializeAws_restJson1ParameterSelectableValues(input.SelectableValues, context),
+    }),
+    ...(input.SourceParameterName != null && { SourceParameterName: input.SourceParameterName }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -14003,6 +19543,141 @@ const serializeAws_restJson1_Parameters = (input: _Parameters, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1ParameterSelectableValueList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ParameterSelectableValues = (
+  input: ParameterSelectableValues,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LinkToDataSetColumn != null && {
+      LinkToDataSetColumn: serializeAws_restJson1ColumnIdentifier(input.LinkToDataSetColumn, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_restJson1ParameterSelectableValueList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1ParameterSliderControl = (input: ParameterSliderControl, context: __SerdeContext): any => {
+  return {
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1SliderControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.MaximumValue != null && { MaximumValue: __serializeFloat(input.MaximumValue) }),
+    ...(input.MinimumValue != null && { MinimumValue: __serializeFloat(input.MinimumValue) }),
+    ...(input.ParameterControlId != null && { ParameterControlId: input.ParameterControlId }),
+    ...(input.SourceParameterName != null && { SourceParameterName: input.SourceParameterName }),
+    ...(input.StepSize != null && { StepSize: __serializeFloat(input.StepSize) }),
+    ...(input.Title != null && { Title: input.Title }),
+  };
+};
+
+const serializeAws_restJson1ParameterTextAreaControl = (
+  input: ParameterTextAreaControl,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Delimiter != null && { Delimiter: input.Delimiter }),
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1TextAreaControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.ParameterControlId != null && { ParameterControlId: input.ParameterControlId }),
+    ...(input.SourceParameterName != null && { SourceParameterName: input.SourceParameterName }),
+    ...(input.Title != null && { Title: input.Title }),
+  };
+};
+
+const serializeAws_restJson1ParameterTextFieldControl = (
+  input: ParameterTextFieldControl,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DisplayOptions != null && {
+      DisplayOptions: serializeAws_restJson1TextFieldControlDisplayOptions(input.DisplayOptions, context),
+    }),
+    ...(input.ParameterControlId != null && { ParameterControlId: input.ParameterControlId }),
+    ...(input.SourceParameterName != null && { SourceParameterName: input.SourceParameterName }),
+    ...(input.Title != null && { Title: input.Title }),
+  };
+};
+
+const serializeAws_restJson1PercentageDisplayFormatConfiguration = (
+  input: PercentageDisplayFormatConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DecimalPlacesConfiguration != null && {
+      DecimalPlacesConfiguration: serializeAws_restJson1DecimalPlacesConfiguration(
+        input.DecimalPlacesConfiguration,
+        context
+      ),
+    }),
+    ...(input.NegativeValueConfiguration != null && {
+      NegativeValueConfiguration: serializeAws_restJson1NegativeValueConfiguration(
+        input.NegativeValueConfiguration,
+        context
+      ),
+    }),
+    ...(input.NullValueFormatConfiguration != null && {
+      NullValueFormatConfiguration: serializeAws_restJson1NullValueFormatConfiguration(
+        input.NullValueFormatConfiguration,
+        context
+      ),
+    }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
+    ...(input.SeparatorConfiguration != null && {
+      SeparatorConfiguration: serializeAws_restJson1NumericSeparatorConfiguration(
+        input.SeparatorConfiguration,
+        context
+      ),
+    }),
+    ...(input.Suffix != null && { Suffix: input.Suffix }),
+  };
+};
+
+const serializeAws_restJson1PercentileAggregation = (input: PercentileAggregation, context: __SerdeContext): any => {
+  return {
+    ...(input.PercentileValue != null && { PercentileValue: __serializeFloat(input.PercentileValue) }),
+  };
+};
+
+const serializeAws_restJson1PercentVisibleRange = (input: PercentVisibleRange, context: __SerdeContext): any => {
+  return {
+    ...(input.From != null && { From: __serializeFloat(input.From) }),
+    ...(input.To != null && { To: __serializeFloat(input.To) }),
+  };
+};
+
+const serializeAws_restJson1PeriodOverPeriodComputation = (
+  input: PeriodOverPeriodComputation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ComputationId != null && { ComputationId: input.ComputationId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Time != null && { Time: serializeAws_restJson1DimensionField(input.Time, context) }),
+    ...(input.Value != null && { Value: serializeAws_restJson1MeasureField(input.Value, context) }),
+  };
+};
+
+const serializeAws_restJson1PeriodToDateComputation = (
+  input: PeriodToDateComputation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ComputationId != null && { ComputationId: input.ComputationId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PeriodTimeGranularity != null && { PeriodTimeGranularity: input.PeriodTimeGranularity }),
+    ...(input.Time != null && { Time: serializeAws_restJson1DimensionField(input.Time, context) }),
+    ...(input.Value != null && { Value: serializeAws_restJson1MeasureField(input.Value, context) }),
+  };
+};
+
 const serializeAws_restJson1PhysicalTable = (input: PhysicalTable, context: __SerdeContext): any => {
   return PhysicalTable.visit(input, {
     CustomSql: (value) => ({ CustomSql: serializeAws_restJson1CustomSql(value, context) }),
@@ -14017,11 +19692,432 @@ const serializeAws_restJson1PhysicalTableMap = (input: Record<string, PhysicalTa
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1PhysicalTable(value, context),
-    };
+    acc[key] = serializeAws_restJson1PhysicalTable(value, context);
+    return acc;
   }, {});
+};
+
+const serializeAws_restJson1PieChartAggregatedFieldWells = (
+  input: PieChartAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Category != null && { Category: serializeAws_restJson1DimensionFieldList(input.Category, context) }),
+    ...(input.SmallMultiples != null && {
+      SmallMultiples: serializeAws_restJson1SmallMultiplesDimensionFieldList(input.SmallMultiples, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_restJson1MeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1PieChartConfiguration = (input: PieChartConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.CategoryLabelOptions != null && {
+      CategoryLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.CategoryLabelOptions, context),
+    }),
+    ...(input.ContributionAnalysisDefaults != null && {
+      ContributionAnalysisDefaults: serializeAws_restJson1ContributionAnalysisDefaultList(
+        input.ContributionAnalysisDefaults,
+        context
+      ),
+    }),
+    ...(input.DataLabels != null && { DataLabels: serializeAws_restJson1DataLabelOptions(input.DataLabels, context) }),
+    ...(input.DonutOptions != null && {
+      DonutOptions: serializeAws_restJson1DonutOptions(input.DonutOptions, context),
+    }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1PieChartFieldWells(input.FieldWells, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.SmallMultiplesOptions != null && {
+      SmallMultiplesOptions: serializeAws_restJson1SmallMultiplesOptions(input.SmallMultiplesOptions, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1PieChartSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+    ...(input.ValueLabelOptions != null && {
+      ValueLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.ValueLabelOptions, context),
+    }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1PieChartFieldWells = (input: PieChartFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.PieChartAggregatedFieldWells != null && {
+      PieChartAggregatedFieldWells: serializeAws_restJson1PieChartAggregatedFieldWells(
+        input.PieChartAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1PieChartSortConfiguration = (
+  input: PieChartSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryItemsLimit != null && {
+      CategoryItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.CategoryItemsLimit, context),
+    }),
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+    ...(input.SmallMultiplesLimitConfiguration != null && {
+      SmallMultiplesLimitConfiguration: serializeAws_restJson1ItemsLimitConfiguration(
+        input.SmallMultiplesLimitConfiguration,
+        context
+      ),
+    }),
+    ...(input.SmallMultiplesSort != null && {
+      SmallMultiplesSort: serializeAws_restJson1FieldSortOptionsList(input.SmallMultiplesSort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1PieChartVisual = (input: PieChartVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1PieChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1PivotFieldSortOptions = (input: PivotFieldSortOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.SortBy != null && { SortBy: serializeAws_restJson1PivotTableSortBy(input.SortBy, context) }),
+  };
+};
+
+const serializeAws_restJson1PivotFieldSortOptionsList = (
+  input: PivotFieldSortOptions[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1PivotFieldSortOptions(entry, context);
+    });
+};
+
+const serializeAws_restJson1PivotMeasureFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1PivotTableAggregatedFieldWells = (
+  input: PivotTableAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Columns != null && { Columns: serializeAws_restJson1PivotTableDimensionList(input.Columns, context) }),
+    ...(input.Rows != null && { Rows: serializeAws_restJson1PivotTableDimensionList(input.Rows, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1PivotMeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1PivotTableCellConditionalFormatting = (
+  input: PivotTableCellConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.Scope != null && {
+      Scope: serializeAws_restJson1PivotTableConditionalFormattingScope(input.Scope, context),
+    }),
+    ...(input.TextFormat != null && {
+      TextFormat: serializeAws_restJson1TextConditionalFormat(input.TextFormat, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1PivotTableConditionalFormatting = (
+  input: PivotTableConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConditionalFormattingOptions != null && {
+      ConditionalFormattingOptions: serializeAws_restJson1PivotTableConditionalFormattingOptionList(
+        input.ConditionalFormattingOptions,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1PivotTableConditionalFormattingOption = (
+  input: PivotTableConditionalFormattingOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Cell != null && { Cell: serializeAws_restJson1PivotTableCellConditionalFormatting(input.Cell, context) }),
+  };
+};
+
+const serializeAws_restJson1PivotTableConditionalFormattingOptionList = (
+  input: PivotTableConditionalFormattingOption[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1PivotTableConditionalFormattingOption(entry, context);
+    });
+};
+
+const serializeAws_restJson1PivotTableConditionalFormattingScope = (
+  input: PivotTableConditionalFormattingScope,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Role != null && { Role: input.Role }),
+  };
+};
+
+const serializeAws_restJson1PivotTableConfiguration = (
+  input: PivotTableConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FieldOptions != null && {
+      FieldOptions: serializeAws_restJson1PivotTableFieldOptions(input.FieldOptions, context),
+    }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1PivotTableFieldWells(input.FieldWells, context),
+    }),
+    ...(input.PaginatedReportOptions != null && {
+      PaginatedReportOptions: serializeAws_restJson1PivotTablePaginatedReportOptions(
+        input.PaginatedReportOptions,
+        context
+      ),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1PivotTableSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.TableOptions != null && {
+      TableOptions: serializeAws_restJson1PivotTableOptions(input.TableOptions, context),
+    }),
+    ...(input.TotalOptions != null && {
+      TotalOptions: serializeAws_restJson1PivotTableTotalOptions(input.TotalOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1PivotTableDataPathOption = (
+  input: PivotTableDataPathOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataPathList != null && {
+      DataPathList: serializeAws_restJson1DataPathValueList(input.DataPathList, context),
+    }),
+    ...(input.Width != null && { Width: input.Width }),
+  };
+};
+
+const serializeAws_restJson1PivotTableDataPathOptionList = (
+  input: PivotTableDataPathOption[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1PivotTableDataPathOption(entry, context);
+    });
+};
+
+const serializeAws_restJson1PivotTableDimensionList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1PivotTableFieldOption = (input: PivotTableFieldOption, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomLabel != null && { CustomLabel: input.CustomLabel }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1PivotTableFieldOptionList = (
+  input: PivotTableFieldOption[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1PivotTableFieldOption(entry, context);
+    });
+};
+
+const serializeAws_restJson1PivotTableFieldOptions = (input: PivotTableFieldOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.DataPathOptions != null && {
+      DataPathOptions: serializeAws_restJson1PivotTableDataPathOptionList(input.DataPathOptions, context),
+    }),
+    ...(input.SelectedFieldOptions != null && {
+      SelectedFieldOptions: serializeAws_restJson1PivotTableFieldOptionList(input.SelectedFieldOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1PivotTableFieldSubtotalOptions = (
+  input: PivotTableFieldSubtotalOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+  };
+};
+
+const serializeAws_restJson1PivotTableFieldSubtotalOptionsList = (
+  input: PivotTableFieldSubtotalOptions[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1PivotTableFieldSubtotalOptions(entry, context);
+    });
+};
+
+const serializeAws_restJson1PivotTableFieldWells = (input: PivotTableFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.PivotTableAggregatedFieldWells != null && {
+      PivotTableAggregatedFieldWells: serializeAws_restJson1PivotTableAggregatedFieldWells(
+        input.PivotTableAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1PivotTableOptions = (input: PivotTableOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.CellStyle != null && { CellStyle: serializeAws_restJson1TableCellStyle(input.CellStyle, context) }),
+    ...(input.ColumnHeaderStyle != null && {
+      ColumnHeaderStyle: serializeAws_restJson1TableCellStyle(input.ColumnHeaderStyle, context),
+    }),
+    ...(input.ColumnNamesVisibility != null && { ColumnNamesVisibility: input.ColumnNamesVisibility }),
+    ...(input.MetricPlacement != null && { MetricPlacement: input.MetricPlacement }),
+    ...(input.RowAlternateColorOptions != null && {
+      RowAlternateColorOptions: serializeAws_restJson1RowAlternateColorOptions(input.RowAlternateColorOptions, context),
+    }),
+    ...(input.RowFieldNamesStyle != null && {
+      RowFieldNamesStyle: serializeAws_restJson1TableCellStyle(input.RowFieldNamesStyle, context),
+    }),
+    ...(input.RowHeaderStyle != null && {
+      RowHeaderStyle: serializeAws_restJson1TableCellStyle(input.RowHeaderStyle, context),
+    }),
+    ...(input.SingleMetricVisibility != null && { SingleMetricVisibility: input.SingleMetricVisibility }),
+    ...(input.ToggleButtonsVisibility != null && { ToggleButtonsVisibility: input.ToggleButtonsVisibility }),
+  };
+};
+
+const serializeAws_restJson1PivotTablePaginatedReportOptions = (
+  input: PivotTablePaginatedReportOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OverflowColumnHeaderVisibility != null && {
+      OverflowColumnHeaderVisibility: input.OverflowColumnHeaderVisibility,
+    }),
+    ...(input.VerticalOverflowVisibility != null && { VerticalOverflowVisibility: input.VerticalOverflowVisibility }),
+  };
+};
+
+const serializeAws_restJson1PivotTableSortBy = (input: PivotTableSortBy, context: __SerdeContext): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnSort(input.Column, context) }),
+    ...(input.DataPath != null && { DataPath: serializeAws_restJson1DataPathSort(input.DataPath, context) }),
+    ...(input.Field != null && { Field: serializeAws_restJson1FieldSort(input.Field, context) }),
+  };
+};
+
+const serializeAws_restJson1PivotTableSortConfiguration = (
+  input: PivotTableSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FieldSortOptions != null && {
+      FieldSortOptions: serializeAws_restJson1PivotFieldSortOptionsList(input.FieldSortOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1PivotTableTotalOptions = (input: PivotTableTotalOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnSubtotalOptions != null && {
+      ColumnSubtotalOptions: serializeAws_restJson1SubtotalOptions(input.ColumnSubtotalOptions, context),
+    }),
+    ...(input.ColumnTotalOptions != null && {
+      ColumnTotalOptions: serializeAws_restJson1PivotTotalOptions(input.ColumnTotalOptions, context),
+    }),
+    ...(input.RowSubtotalOptions != null && {
+      RowSubtotalOptions: serializeAws_restJson1SubtotalOptions(input.RowSubtotalOptions, context),
+    }),
+    ...(input.RowTotalOptions != null && {
+      RowTotalOptions: serializeAws_restJson1PivotTotalOptions(input.RowTotalOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1PivotTableVisual = (input: PivotTableVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1PivotTableConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ConditionalFormatting != null && {
+      ConditionalFormatting: serializeAws_restJson1PivotTableConditionalFormatting(
+        input.ConditionalFormatting,
+        context
+      ),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1PivotTotalOptions = (input: PivotTotalOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomLabel != null && { CustomLabel: input.CustomLabel }),
+    ...(input.MetricHeaderCellStyle != null && {
+      MetricHeaderCellStyle: serializeAws_restJson1TableCellStyle(input.MetricHeaderCellStyle, context),
+    }),
+    ...(input.Placement != null && { Placement: input.Placement }),
+    ...(input.ScrollStatus != null && { ScrollStatus: input.ScrollStatus }),
+    ...(input.TotalCellStyle != null && {
+      TotalCellStyle: serializeAws_restJson1TableCellStyle(input.TotalCellStyle, context),
+    }),
+    ...(input.TotalsVisibility != null && { TotalsVisibility: input.TotalsVisibility }),
+    ...(input.ValueCellStyle != null && {
+      ValueCellStyle: serializeAws_restJson1TableCellStyle(input.ValueCellStyle, context),
+    }),
+  };
 };
 
 const serializeAws_restJson1PostgreSqlParameters = (input: PostgreSqlParameters, context: __SerdeContext): any => {
@@ -14030,6 +20126,29 @@ const serializeAws_restJson1PostgreSqlParameters = (input: PostgreSqlParameters,
     ...(input.Host != null && { Host: input.Host }),
     ...(input.Port != null && { Port: input.Port }),
   };
+};
+
+const serializeAws_restJson1PredefinedHierarchy = (input: PredefinedHierarchy, context: __SerdeContext): any => {
+  return {
+    ...(input.Columns != null && {
+      Columns: serializeAws_restJson1PredefinedHierarchyColumnList(input.Columns, context),
+    }),
+    ...(input.DrillDownFilters != null && {
+      DrillDownFilters: serializeAws_restJson1DrillDownFilterList(input.DrillDownFilters, context),
+    }),
+    ...(input.HierarchyId != null && { HierarchyId: input.HierarchyId }),
+  };
+};
+
+const serializeAws_restJson1PredefinedHierarchyColumnList = (
+  input: ColumnIdentifier[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ColumnIdentifier(entry, context);
+    });
 };
 
 const serializeAws_restJson1PrestoParameters = (input: PrestoParameters, context: __SerdeContext): any => {
@@ -14048,6 +20167,12 @@ const serializeAws_restJson1PrincipalList = (input: string[], context: __SerdeCo
     });
 };
 
+const serializeAws_restJson1ProgressBarOptions = (input: ProgressBarOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
 const serializeAws_restJson1ProjectedColumnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -14061,6 +20186,153 @@ const serializeAws_restJson1ProjectOperation = (input: ProjectOperation, context
     ...(input.ProjectedColumns != null && {
       ProjectedColumns: serializeAws_restJson1ProjectedColumnList(input.ProjectedColumns, context),
     }),
+  };
+};
+
+const serializeAws_restJson1RadarChartAggregatedFieldWells = (
+  input: RadarChartAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Category != null && {
+      Category: serializeAws_restJson1RadarChartCategoryFieldList(input.Category, context),
+    }),
+    ...(input.Color != null && { Color: serializeAws_restJson1RadarChartColorFieldList(input.Color, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1RadarChartValuesFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1RadarChartAreaStyleSettings = (
+  input: RadarChartAreaStyleSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1RadarChartCategoryFieldList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1RadarChartColorFieldList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1RadarChartConfiguration = (
+  input: RadarChartConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AlternateBandColorsVisibility != null && {
+      AlternateBandColorsVisibility: input.AlternateBandColorsVisibility,
+    }),
+    ...(input.AlternateBandEvenColor != null && { AlternateBandEvenColor: input.AlternateBandEvenColor }),
+    ...(input.AlternateBandOddColor != null && { AlternateBandOddColor: input.AlternateBandOddColor }),
+    ...(input.BaseSeriesSettings != null && {
+      BaseSeriesSettings: serializeAws_restJson1RadarChartSeriesSettings(input.BaseSeriesSettings, context),
+    }),
+    ...(input.CategoryAxis != null && {
+      CategoryAxis: serializeAws_restJson1AxisDisplayOptions(input.CategoryAxis, context),
+    }),
+    ...(input.CategoryLabelOptions != null && {
+      CategoryLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.CategoryLabelOptions, context),
+    }),
+    ...(input.ColorAxis != null && { ColorAxis: serializeAws_restJson1AxisDisplayOptions(input.ColorAxis, context) }),
+    ...(input.ColorLabelOptions != null && {
+      ColorLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.ColorLabelOptions, context),
+    }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1RadarChartFieldWells(input.FieldWells, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.Shape != null && { Shape: input.Shape }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1RadarChartSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.StartAngle != null && { StartAngle: __serializeFloat(input.StartAngle) }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1RadarChartFieldWells = (input: RadarChartFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.RadarChartAggregatedFieldWells != null && {
+      RadarChartAggregatedFieldWells: serializeAws_restJson1RadarChartAggregatedFieldWells(
+        input.RadarChartAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1RadarChartSeriesSettings = (
+  input: RadarChartSeriesSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AreaStyleSettings != null && {
+      AreaStyleSettings: serializeAws_restJson1RadarChartAreaStyleSettings(input.AreaStyleSettings, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1RadarChartSortConfiguration = (
+  input: RadarChartSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryItemsLimit != null && {
+      CategoryItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.CategoryItemsLimit, context),
+    }),
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+    ...(input.ColorItemsLimit != null && {
+      ColorItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.ColorItemsLimit, context),
+    }),
+    ...(input.ColorSort != null && { ColorSort: serializeAws_restJson1FieldSortOptionsList(input.ColorSort, context) }),
+  };
+};
+
+const serializeAws_restJson1RadarChartValuesFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1RadarChartVisual = (input: RadarChartVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1RadarChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1RangeEndsLabelType = (input: RangeEndsLabelType, context: __SerdeContext): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
   };
 };
 
@@ -14080,12 +20352,148 @@ const serializeAws_restJson1RedshiftParameters = (input: RedshiftParameters, con
   };
 };
 
+const serializeAws_restJson1ReferenceLine = (input: ReferenceLine, context: __SerdeContext): any => {
+  return {
+    ...(input.DataConfiguration != null && {
+      DataConfiguration: serializeAws_restJson1ReferenceLineDataConfiguration(input.DataConfiguration, context),
+    }),
+    ...(input.LabelConfiguration != null && {
+      LabelConfiguration: serializeAws_restJson1ReferenceLineLabelConfiguration(input.LabelConfiguration, context),
+    }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.StyleConfiguration != null && {
+      StyleConfiguration: serializeAws_restJson1ReferenceLineStyleConfiguration(input.StyleConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ReferenceLineCustomLabelConfiguration = (
+  input: ReferenceLineCustomLabelConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomLabel != null && { CustomLabel: input.CustomLabel }),
+  };
+};
+
+const serializeAws_restJson1ReferenceLineDataConfiguration = (
+  input: ReferenceLineDataConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AxisBinding != null && { AxisBinding: input.AxisBinding }),
+    ...(input.DynamicConfiguration != null && {
+      DynamicConfiguration: serializeAws_restJson1ReferenceLineDynamicDataConfiguration(
+        input.DynamicConfiguration,
+        context
+      ),
+    }),
+    ...(input.StaticConfiguration != null && {
+      StaticConfiguration: serializeAws_restJson1ReferenceLineStaticDataConfiguration(
+        input.StaticConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1ReferenceLineDynamicDataConfiguration = (
+  input: ReferenceLineDynamicDataConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Calculation != null && {
+      Calculation: serializeAws_restJson1NumericalAggregationFunction(input.Calculation, context),
+    }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.MeasureAggregationFunction != null && {
+      MeasureAggregationFunction: serializeAws_restJson1AggregationFunction(input.MeasureAggregationFunction, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ReferenceLineLabelConfiguration = (
+  input: ReferenceLineLabelConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomLabelConfiguration != null && {
+      CustomLabelConfiguration: serializeAws_restJson1ReferenceLineCustomLabelConfiguration(
+        input.CustomLabelConfiguration,
+        context
+      ),
+    }),
+    ...(input.FontColor != null && { FontColor: input.FontColor }),
+    ...(input.FontConfiguration != null && {
+      FontConfiguration: serializeAws_restJson1FontConfiguration(input.FontConfiguration, context),
+    }),
+    ...(input.HorizontalPosition != null && { HorizontalPosition: input.HorizontalPosition }),
+    ...(input.ValueLabelConfiguration != null && {
+      ValueLabelConfiguration: serializeAws_restJson1ReferenceLineValueLabelConfiguration(
+        input.ValueLabelConfiguration,
+        context
+      ),
+    }),
+    ...(input.VerticalPosition != null && { VerticalPosition: input.VerticalPosition }),
+  };
+};
+
+const serializeAws_restJson1ReferenceLineList = (input: ReferenceLine[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ReferenceLine(entry, context);
+    });
+};
+
+const serializeAws_restJson1ReferenceLineStaticDataConfiguration = (
+  input: ReferenceLineStaticDataConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
+  };
+};
+
+const serializeAws_restJson1ReferenceLineStyleConfiguration = (
+  input: ReferenceLineStyleConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Color != null && { Color: input.Color }),
+    ...(input.Pattern != null && { Pattern: input.Pattern }),
+  };
+};
+
+const serializeAws_restJson1ReferenceLineValueLabelConfiguration = (
+  input: ReferenceLineValueLabelConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FormatConfiguration != null && {
+      FormatConfiguration: serializeAws_restJson1NumericFormatConfiguration(input.FormatConfiguration, context),
+    }),
+    ...(input.RelativePosition != null && { RelativePosition: input.RelativePosition }),
+  };
+};
+
 const serializeAws_restJson1RegisteredUserDashboardEmbeddingConfiguration = (
   input: RegisteredUserDashboardEmbeddingConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.InitialDashboardId != null && { InitialDashboardId: input.InitialDashboardId }),
+  };
+};
+
+const serializeAws_restJson1RegisteredUserDashboardVisualEmbeddingConfiguration = (
+  input: RegisteredUserDashboardVisualEmbeddingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InitialDashboardVisualId != null && {
+      InitialDashboardVisualId: serializeAws_restJson1DashboardVisualId(input.InitialDashboardVisualId, context),
+    }),
   };
 };
 
@@ -14096,6 +20504,12 @@ const serializeAws_restJson1RegisteredUserEmbeddingExperienceConfiguration = (
   return {
     ...(input.Dashboard != null && {
       Dashboard: serializeAws_restJson1RegisteredUserDashboardEmbeddingConfiguration(input.Dashboard, context),
+    }),
+    ...(input.DashboardVisual != null && {
+      DashboardVisual: serializeAws_restJson1RegisteredUserDashboardVisualEmbeddingConfiguration(
+        input.DashboardVisual,
+        context
+      ),
     }),
     ...(input.QSearchBar != null && {
       QSearchBar: serializeAws_restJson1RegisteredUserQSearchBarEmbeddingConfiguration(input.QSearchBar, context),
@@ -14139,6 +20553,40 @@ const serializeAws_restJson1RelationalTable = (input: RelationalTable, context: 
   };
 };
 
+const serializeAws_restJson1RelativeDatesFilter = (input: RelativeDatesFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.AnchorDateConfiguration != null && {
+      AnchorDateConfiguration: serializeAws_restJson1AnchorDateConfiguration(input.AnchorDateConfiguration, context),
+    }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.ExcludePeriodConfiguration != null && {
+      ExcludePeriodConfiguration: serializeAws_restJson1ExcludePeriodConfiguration(
+        input.ExcludePeriodConfiguration,
+        context
+      ),
+    }),
+    ...(input.FilterId != null && { FilterId: input.FilterId }),
+    ...(input.MinimumGranularity != null && { MinimumGranularity: input.MinimumGranularity }),
+    ...(input.NullOption != null && { NullOption: input.NullOption }),
+    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
+    ...(input.RelativeDateType != null && { RelativeDateType: input.RelativeDateType }),
+    ...(input.RelativeDateValue != null && { RelativeDateValue: input.RelativeDateValue }),
+    ...(input.TimeGranularity != null && { TimeGranularity: input.TimeGranularity }),
+  };
+};
+
+const serializeAws_restJson1RelativeDateTimeControlDisplayOptions = (
+  input: RelativeDateTimeControlDisplayOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DateTimeFormat != null && { DateTimeFormat: input.DateTimeFormat }),
+    ...(input.TitleOptions != null && {
+      TitleOptions: serializeAws_restJson1LabelOptions(input.TitleOptions, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1RenameColumnOperation = (input: RenameColumnOperation, context: __SerdeContext): any => {
   return {
     ...(input.ColumnName != null && { ColumnName: input.ColumnName }),
@@ -14159,6 +20607,36 @@ const serializeAws_restJson1ResourcePermissionList = (input: ResourcePermission[
     .map((entry) => {
       return serializeAws_restJson1ResourcePermission(entry, context);
     });
+};
+
+const serializeAws_restJson1RollingDateConfiguration = (
+  input: RollingDateConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataSetIdentifier != null && { DataSetIdentifier: input.DataSetIdentifier }),
+    ...(input.Expression != null && { Expression: input.Expression }),
+  };
+};
+
+const serializeAws_restJson1RowAlternateColorList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1RowAlternateColorOptions = (
+  input: RowAlternateColorOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RowAlternateColors != null && {
+      RowAlternateColors: serializeAws_restJson1RowAlternateColorList(input.RowAlternateColors, context),
+    }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
 };
 
 const serializeAws_restJson1RowLevelPermissionDataSet = (
@@ -14209,11 +20687,20 @@ const serializeAws_restJson1RowLevelPermissionTagRuleList = (
     });
 };
 
+const serializeAws_restJson1RowSortList = (input: FieldSortOptions[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1FieldSortOptions(entry, context);
+    });
+};
+
 const serializeAws_restJson1S3Parameters = (input: S3Parameters, context: __SerdeContext): any => {
   return {
     ...(input.ManifestFileLocation != null && {
       ManifestFileLocation: serializeAws_restJson1ManifestFileLocation(input.ManifestFileLocation, context),
     }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   };
 };
 
@@ -14227,6 +20714,343 @@ const serializeAws_restJson1S3Source = (input: S3Source, context: __SerdeContext
       UploadSettings: serializeAws_restJson1UploadSettings(input.UploadSettings, context),
     }),
   };
+};
+
+const serializeAws_restJson1SameSheetTargetVisualConfiguration = (
+  input: SameSheetTargetVisualConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TargetVisualOptions != null && { TargetVisualOptions: input.TargetVisualOptions }),
+    ...(input.TargetVisuals != null && {
+      TargetVisuals: serializeAws_restJson1TargetVisualList(input.TargetVisuals, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SankeyDiagramAggregatedFieldWells = (
+  input: SankeyDiagramAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Destination != null && {
+      Destination: serializeAws_restJson1DimensionFieldList(input.Destination, context),
+    }),
+    ...(input.Source != null && { Source: serializeAws_restJson1DimensionFieldList(input.Source, context) }),
+    ...(input.Weight != null && { Weight: serializeAws_restJson1MeasureFieldList(input.Weight, context) }),
+  };
+};
+
+const serializeAws_restJson1SankeyDiagramChartConfiguration = (
+  input: SankeyDiagramChartConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataLabels != null && { DataLabels: serializeAws_restJson1DataLabelOptions(input.DataLabels, context) }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1SankeyDiagramFieldWells(input.FieldWells, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1SankeyDiagramSortConfiguration(input.SortConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SankeyDiagramFieldWells = (
+  input: SankeyDiagramFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SankeyDiagramAggregatedFieldWells != null && {
+      SankeyDiagramAggregatedFieldWells: serializeAws_restJson1SankeyDiagramAggregatedFieldWells(
+        input.SankeyDiagramAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1SankeyDiagramSortConfiguration = (
+  input: SankeyDiagramSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationItemsLimit != null && {
+      DestinationItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.DestinationItemsLimit, context),
+    }),
+    ...(input.SourceItemsLimit != null && {
+      SourceItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.SourceItemsLimit, context),
+    }),
+    ...(input.WeightSort != null && {
+      WeightSort: serializeAws_restJson1FieldSortOptionsList(input.WeightSort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SankeyDiagramVisual = (input: SankeyDiagramVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1SankeyDiagramChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1ScatterPlotCategoricallyAggregatedFieldWells = (
+  input: ScatterPlotCategoricallyAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Category != null && { Category: serializeAws_restJson1DimensionFieldList(input.Category, context) }),
+    ...(input.Size != null && { Size: serializeAws_restJson1MeasureFieldList(input.Size, context) }),
+    ...(input.XAxis != null && { XAxis: serializeAws_restJson1MeasureFieldList(input.XAxis, context) }),
+    ...(input.YAxis != null && { YAxis: serializeAws_restJson1MeasureFieldList(input.YAxis, context) }),
+  };
+};
+
+const serializeAws_restJson1ScatterPlotConfiguration = (
+  input: ScatterPlotConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataLabels != null && { DataLabels: serializeAws_restJson1DataLabelOptions(input.DataLabels, context) }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1ScatterPlotFieldWells(input.FieldWells, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+    ...(input.XAxisDisplayOptions != null && {
+      XAxisDisplayOptions: serializeAws_restJson1AxisDisplayOptions(input.XAxisDisplayOptions, context),
+    }),
+    ...(input.XAxisLabelOptions != null && {
+      XAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.XAxisLabelOptions, context),
+    }),
+    ...(input.YAxisDisplayOptions != null && {
+      YAxisDisplayOptions: serializeAws_restJson1AxisDisplayOptions(input.YAxisDisplayOptions, context),
+    }),
+    ...(input.YAxisLabelOptions != null && {
+      YAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.YAxisLabelOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ScatterPlotFieldWells = (input: ScatterPlotFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.ScatterPlotCategoricallyAggregatedFieldWells != null && {
+      ScatterPlotCategoricallyAggregatedFieldWells: serializeAws_restJson1ScatterPlotCategoricallyAggregatedFieldWells(
+        input.ScatterPlotCategoricallyAggregatedFieldWells,
+        context
+      ),
+    }),
+    ...(input.ScatterPlotUnaggregatedFieldWells != null && {
+      ScatterPlotUnaggregatedFieldWells: serializeAws_restJson1ScatterPlotUnaggregatedFieldWells(
+        input.ScatterPlotUnaggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1ScatterPlotUnaggregatedFieldWells = (
+  input: ScatterPlotUnaggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Size != null && { Size: serializeAws_restJson1MeasureFieldList(input.Size, context) }),
+    ...(input.XAxis != null && { XAxis: serializeAws_restJson1DimensionFieldList(input.XAxis, context) }),
+    ...(input.YAxis != null && { YAxis: serializeAws_restJson1DimensionFieldList(input.YAxis, context) }),
+  };
+};
+
+const serializeAws_restJson1ScatterPlotVisual = (input: ScatterPlotVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1ScatterPlotConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1ScrollBarOptions = (input: ScrollBarOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+    ...(input.VisibleRange != null && {
+      VisibleRange: serializeAws_restJson1VisibleRangeOptions(input.VisibleRange, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SecondaryValueOptions = (input: SecondaryValueOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1SectionAfterPageBreak = (input: SectionAfterPageBreak, context: __SerdeContext): any => {
+  return {
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1SectionBasedLayoutCanvasSizeOptions = (
+  input: SectionBasedLayoutCanvasSizeOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PaperCanvasSizeOptions != null && {
+      PaperCanvasSizeOptions: serializeAws_restJson1SectionBasedLayoutPaperCanvasSizeOptions(
+        input.PaperCanvasSizeOptions,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1SectionBasedLayoutConfiguration = (
+  input: SectionBasedLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BodySections != null && {
+      BodySections: serializeAws_restJson1BodySectionConfigurationList(input.BodySections, context),
+    }),
+    ...(input.CanvasSizeOptions != null && {
+      CanvasSizeOptions: serializeAws_restJson1SectionBasedLayoutCanvasSizeOptions(input.CanvasSizeOptions, context),
+    }),
+    ...(input.FooterSections != null && {
+      FooterSections: serializeAws_restJson1HeaderFooterSectionConfigurationList(input.FooterSections, context),
+    }),
+    ...(input.HeaderSections != null && {
+      HeaderSections: serializeAws_restJson1HeaderFooterSectionConfigurationList(input.HeaderSections, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SectionBasedLayoutPaperCanvasSizeOptions = (
+  input: SectionBasedLayoutPaperCanvasSizeOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PaperMargin != null && { PaperMargin: serializeAws_restJson1Spacing(input.PaperMargin, context) }),
+    ...(input.PaperOrientation != null && { PaperOrientation: input.PaperOrientation }),
+    ...(input.PaperSize != null && { PaperSize: input.PaperSize }),
+  };
+};
+
+const serializeAws_restJson1SectionLayoutConfiguration = (
+  input: SectionLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FreeFormLayout != null && {
+      FreeFormLayout: serializeAws_restJson1FreeFormSectionLayoutConfiguration(input.FreeFormLayout, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SectionPageBreakConfiguration = (
+  input: SectionPageBreakConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.After != null && { After: serializeAws_restJson1SectionAfterPageBreak(input.After, context) }),
+  };
+};
+
+const serializeAws_restJson1SectionStyle = (input: SectionStyle, context: __SerdeContext): any => {
+  return {
+    ...(input.Height != null && { Height: input.Height }),
+    ...(input.Padding != null && { Padding: serializeAws_restJson1Spacing(input.Padding, context) }),
+  };
+};
+
+const serializeAws_restJson1SelectedFieldList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SelectedSheetsFilterScopeConfiguration = (
+  input: SelectedSheetsFilterScopeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SheetVisualScopingConfigurations != null && {
+      SheetVisualScopingConfigurations: serializeAws_restJson1SheetVisualScopingConfigurations(
+        input.SheetVisualScopingConfigurations,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1SensitiveDoubleList = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return __serializeFloat(entry);
+    });
+};
+
+const serializeAws_restJson1SensitiveLongList = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SensitiveStringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SensitiveTimestampList = (input: Date[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return Math.round(entry.getTime() / 1000);
+    });
+};
+
+const serializeAws_restJson1SeriesItem = (input: SeriesItem, context: __SerdeContext): any => {
+  return {
+    ...(input.DataFieldSeriesItem != null && {
+      DataFieldSeriesItem: serializeAws_restJson1DataFieldSeriesItem(input.DataFieldSeriesItem, context),
+    }),
+    ...(input.FieldSeriesItem != null && {
+      FieldSeriesItem: serializeAws_restJson1FieldSeriesItem(input.FieldSeriesItem, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SeriesItemList = (input: SeriesItem[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SeriesItem(entry, context);
+    });
 };
 
 const serializeAws_restJson1ServiceNowParameters = (input: ServiceNowParameters, context: __SerdeContext): any => {
@@ -14250,9 +21074,141 @@ const serializeAws_restJson1SessionTagList = (input: SessionTag[], context: __Se
     });
 };
 
+const serializeAws_restJson1SetParameterValueConfiguration = (
+  input: SetParameterValueConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationParameterName != null && { DestinationParameterName: input.DestinationParameterName }),
+    ...(input.Value != null && {
+      Value: serializeAws_restJson1DestinationParameterValueConfiguration(input.Value, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SetParameterValueConfigurationList = (
+  input: SetParameterValueConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SetParameterValueConfiguration(entry, context);
+    });
+};
+
+const serializeAws_restJson1ShapeConditionalFormat = (input: ShapeConditionalFormat, context: __SerdeContext): any => {
+  return {
+    ...(input.BackgroundColor != null && {
+      BackgroundColor: serializeAws_restJson1ConditionalFormattingColor(input.BackgroundColor, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SheetControlLayout = (input: SheetControlLayout, context: __SerdeContext): any => {
+  return {
+    ...(input.Configuration != null && {
+      Configuration: serializeAws_restJson1SheetControlLayoutConfiguration(input.Configuration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SheetControlLayoutConfiguration = (
+  input: SheetControlLayoutConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GridLayout != null && {
+      GridLayout: serializeAws_restJson1GridLayoutConfiguration(input.GridLayout, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SheetControlLayoutList = (input: SheetControlLayout[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SheetControlLayout(entry, context);
+    });
+};
+
 const serializeAws_restJson1SheetControlsOption = (input: SheetControlsOption, context: __SerdeContext): any => {
   return {
     ...(input.VisibilityState != null && { VisibilityState: input.VisibilityState }),
+  };
+};
+
+const serializeAws_restJson1SheetDefinition = (input: SheetDefinition, context: __SerdeContext): any => {
+  return {
+    ...(input.ContentType != null && { ContentType: input.ContentType }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.FilterControls != null && {
+      FilterControls: serializeAws_restJson1FilterControlList(input.FilterControls, context),
+    }),
+    ...(input.Layouts != null && { Layouts: serializeAws_restJson1LayoutList(input.Layouts, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ParameterControls != null && {
+      ParameterControls: serializeAws_restJson1ParameterControlList(input.ParameterControls, context),
+    }),
+    ...(input.SheetControlLayouts != null && {
+      SheetControlLayouts: serializeAws_restJson1SheetControlLayoutList(input.SheetControlLayouts, context),
+    }),
+    ...(input.SheetId != null && { SheetId: input.SheetId }),
+    ...(input.TextBoxes != null && { TextBoxes: serializeAws_restJson1SheetTextBoxList(input.TextBoxes, context) }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Visuals != null && { Visuals: serializeAws_restJson1VisualList(input.Visuals, context) }),
+  };
+};
+
+const serializeAws_restJson1SheetDefinitionList = (input: SheetDefinition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SheetDefinition(entry, context);
+    });
+};
+
+const serializeAws_restJson1SheetElementConfigurationOverrides = (
+  input: SheetElementConfigurationOverrides,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1SheetElementRenderingRule = (
+  input: SheetElementRenderingRule,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConfigurationOverrides != null && {
+      ConfigurationOverrides: serializeAws_restJson1SheetElementConfigurationOverrides(
+        input.ConfigurationOverrides,
+        context
+      ),
+    }),
+    ...(input.Expression != null && { Expression: input.Expression }),
+  };
+};
+
+const serializeAws_restJson1SheetElementRenderingRuleList = (
+  input: SheetElementRenderingRule[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SheetElementRenderingRule(entry, context);
+    });
+};
+
+const serializeAws_restJson1SheetLayoutElementMaximizationOption = (
+  input: SheetLayoutElementMaximizationOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
   };
 };
 
@@ -14263,11 +21219,102 @@ const serializeAws_restJson1SheetStyle = (input: SheetStyle, context: __SerdeCon
   };
 };
 
+const serializeAws_restJson1SheetTextBox = (input: SheetTextBox, context: __SerdeContext): any => {
+  return {
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.SheetTextBoxId != null && { SheetTextBoxId: input.SheetTextBoxId }),
+  };
+};
+
+const serializeAws_restJson1SheetTextBoxList = (input: SheetTextBox[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SheetTextBox(entry, context);
+    });
+};
+
+const serializeAws_restJson1SheetVisualScopingConfiguration = (
+  input: SheetVisualScopingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Scope != null && { Scope: input.Scope }),
+    ...(input.SheetId != null && { SheetId: input.SheetId }),
+    ...(input.VisualIds != null && { VisualIds: serializeAws_restJson1FilteredVisualsList(input.VisualIds, context) }),
+  };
+};
+
+const serializeAws_restJson1SheetVisualScopingConfigurations = (
+  input: SheetVisualScopingConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SheetVisualScopingConfiguration(entry, context);
+    });
+};
+
+const serializeAws_restJson1ShortFormatText = (input: ShortFormatText, context: __SerdeContext): any => {
+  return {
+    ...(input.PlainText != null && { PlainText: input.PlainText }),
+    ...(input.RichText != null && { RichText: input.RichText }),
+  };
+};
+
+const serializeAws_restJson1SimpleClusterMarker = (input: SimpleClusterMarker, context: __SerdeContext): any => {
+  return {
+    ...(input.Color != null && { Color: input.Color }),
+  };
+};
+
+const serializeAws_restJson1SliderControlDisplayOptions = (
+  input: SliderControlDisplayOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TitleOptions != null && {
+      TitleOptions: serializeAws_restJson1LabelOptions(input.TitleOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SmallMultiplesDimensionFieldList = (
+  input: DimensionField[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1SmallMultiplesOptions = (input: SmallMultiplesOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxVisibleColumns != null && { MaxVisibleColumns: input.MaxVisibleColumns }),
+    ...(input.MaxVisibleRows != null && { MaxVisibleRows: input.MaxVisibleRows }),
+    ...(input.PanelConfiguration != null && {
+      PanelConfiguration: serializeAws_restJson1PanelConfiguration(input.PanelConfiguration, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1SnowflakeParameters = (input: SnowflakeParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database != null && { Database: input.Database }),
     ...(input.Host != null && { Host: input.Host }),
     ...(input.Warehouse != null && { Warehouse: input.Warehouse }),
+  };
+};
+
+const serializeAws_restJson1Spacing = (input: Spacing, context: __SerdeContext): any => {
+  return {
+    ...(input.Bottom != null && { Bottom: input.Bottom }),
+    ...(input.Left != null && { Left: input.Left }),
+    ...(input.Right != null && { Right: input.Right }),
+    ...(input.Top != null && { Top: input.Top }),
   };
 };
 
@@ -14292,6 +21339,45 @@ const serializeAws_restJson1SslProperties = (input: SslProperties, context: __Se
   };
 };
 
+const serializeAws_restJson1StringDefaultValueList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1StringDefaultValues = (input: StringDefaultValues, context: __SerdeContext): any => {
+  return {
+    ...(input.DynamicValue != null && {
+      DynamicValue: serializeAws_restJson1DynamicDefaultValue(input.DynamicValue, context),
+    }),
+    ...(input.StaticValues != null && {
+      StaticValues: serializeAws_restJson1StringDefaultValueList(input.StaticValues, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1StringFormatConfiguration = (
+  input: StringFormatConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NullValueFormatConfiguration != null && {
+      NullValueFormatConfiguration: serializeAws_restJson1NullValueFormatConfiguration(
+        input.NullValueFormatConfiguration,
+        context
+      ),
+    }),
+    ...(input.NumericFormatConfiguration != null && {
+      NumericFormatConfiguration: serializeAws_restJson1NumericFormatConfiguration(
+        input.NumericFormatConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -14303,7 +21389,23 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
 const serializeAws_restJson1StringParameter = (input: StringParameter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_restJson1StringList(input.Values, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1SensitiveStringList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1StringParameterDeclaration = (
+  input: StringParameterDeclaration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DefaultValues != null && {
+      DefaultValues: serializeAws_restJson1StringDefaultValues(input.DefaultValues, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ParameterValueType != null && { ParameterValueType: input.ParameterValueType }),
+    ...(input.ValueWhenUnset != null && {
+      ValueWhenUnset: serializeAws_restJson1StringValueWhenUnsetConfiguration(input.ValueWhenUnset, context),
+    }),
   };
 };
 
@@ -14313,6 +21415,379 @@ const serializeAws_restJson1StringParameterList = (input: StringParameter[], con
     .map((entry) => {
       return serializeAws_restJson1StringParameter(entry, context);
     });
+};
+
+const serializeAws_restJson1StringValueWhenUnsetConfiguration = (
+  input: StringValueWhenUnsetConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomValue != null && { CustomValue: input.CustomValue }),
+    ...(input.ValueWhenUnsetOption != null && { ValueWhenUnsetOption: input.ValueWhenUnsetOption }),
+  };
+};
+
+const serializeAws_restJson1SubtotalOptions = (input: SubtotalOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomLabel != null && { CustomLabel: input.CustomLabel }),
+    ...(input.FieldLevel != null && { FieldLevel: input.FieldLevel }),
+    ...(input.FieldLevelOptions != null && {
+      FieldLevelOptions: serializeAws_restJson1PivotTableFieldSubtotalOptionsList(input.FieldLevelOptions, context),
+    }),
+    ...(input.MetricHeaderCellStyle != null && {
+      MetricHeaderCellStyle: serializeAws_restJson1TableCellStyle(input.MetricHeaderCellStyle, context),
+    }),
+    ...(input.TotalCellStyle != null && {
+      TotalCellStyle: serializeAws_restJson1TableCellStyle(input.TotalCellStyle, context),
+    }),
+    ...(input.TotalsVisibility != null && { TotalsVisibility: input.TotalsVisibility }),
+    ...(input.ValueCellStyle != null && {
+      ValueCellStyle: serializeAws_restJson1TableCellStyle(input.ValueCellStyle, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TableAggregatedFieldWells = (
+  input: TableAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GroupBy != null && { GroupBy: serializeAws_restJson1DimensionFieldList(input.GroupBy, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1MeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1TableBorderOptions = (input: TableBorderOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Color != null && { Color: input.Color }),
+    ...(input.Style != null && { Style: input.Style }),
+    ...(input.Thickness != null && { Thickness: input.Thickness }),
+  };
+};
+
+const serializeAws_restJson1TableCellConditionalFormatting = (
+  input: TableCellConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.TextFormat != null && {
+      TextFormat: serializeAws_restJson1TextConditionalFormat(input.TextFormat, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TableCellImageSizingConfiguration = (
+  input: TableCellImageSizingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TableCellImageScalingConfiguration != null && {
+      TableCellImageScalingConfiguration: input.TableCellImageScalingConfiguration,
+    }),
+  };
+};
+
+const serializeAws_restJson1TableCellStyle = (input: TableCellStyle, context: __SerdeContext): any => {
+  return {
+    ...(input.BackgroundColor != null && { BackgroundColor: input.BackgroundColor }),
+    ...(input.Border != null && { Border: serializeAws_restJson1GlobalTableBorderOptions(input.Border, context) }),
+    ...(input.FontConfiguration != null && {
+      FontConfiguration: serializeAws_restJson1FontConfiguration(input.FontConfiguration, context),
+    }),
+    ...(input.Height != null && { Height: input.Height }),
+    ...(input.HorizontalTextAlignment != null && { HorizontalTextAlignment: input.HorizontalTextAlignment }),
+    ...(input.TextWrap != null && { TextWrap: input.TextWrap }),
+    ...(input.VerticalTextAlignment != null && { VerticalTextAlignment: input.VerticalTextAlignment }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1TableConditionalFormatting = (
+  input: TableConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConditionalFormattingOptions != null && {
+      ConditionalFormattingOptions: serializeAws_restJson1TableConditionalFormattingOptionList(
+        input.ConditionalFormattingOptions,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1TableConditionalFormattingOption = (
+  input: TableConditionalFormattingOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Cell != null && { Cell: serializeAws_restJson1TableCellConditionalFormatting(input.Cell, context) }),
+    ...(input.Row != null && { Row: serializeAws_restJson1TableRowConditionalFormatting(input.Row, context) }),
+  };
+};
+
+const serializeAws_restJson1TableConditionalFormattingOptionList = (
+  input: TableConditionalFormattingOption[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1TableConditionalFormattingOption(entry, context);
+    });
+};
+
+const serializeAws_restJson1TableConfiguration = (input: TableConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldOptions != null && {
+      FieldOptions: serializeAws_restJson1TableFieldOptions(input.FieldOptions, context),
+    }),
+    ...(input.FieldWells != null && { FieldWells: serializeAws_restJson1TableFieldWells(input.FieldWells, context) }),
+    ...(input.PaginatedReportOptions != null && {
+      PaginatedReportOptions: serializeAws_restJson1TablePaginatedReportOptions(input.PaginatedReportOptions, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1TableSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.TableInlineVisualizations != null && {
+      TableInlineVisualizations: serializeAws_restJson1TableInlineVisualizationList(
+        input.TableInlineVisualizations,
+        context
+      ),
+    }),
+    ...(input.TableOptions != null && {
+      TableOptions: serializeAws_restJson1TableOptions(input.TableOptions, context),
+    }),
+    ...(input.TotalOptions != null && {
+      TotalOptions: serializeAws_restJson1TotalOptions(input.TotalOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TableFieldCustomIconContent = (
+  input: TableFieldCustomIconContent,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Icon != null && { Icon: input.Icon }),
+  };
+};
+
+const serializeAws_restJson1TableFieldCustomTextContent = (
+  input: TableFieldCustomTextContent,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FontConfiguration != null && {
+      FontConfiguration: serializeAws_restJson1FontConfiguration(input.FontConfiguration, context),
+    }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1TableFieldImageConfiguration = (
+  input: TableFieldImageConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SizingOptions != null && {
+      SizingOptions: serializeAws_restJson1TableCellImageSizingConfiguration(input.SizingOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TableFieldLinkConfiguration = (
+  input: TableFieldLinkConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Content != null && {
+      Content: serializeAws_restJson1TableFieldLinkContentConfiguration(input.Content, context),
+    }),
+    ...(input.Target != null && { Target: input.Target }),
+  };
+};
+
+const serializeAws_restJson1TableFieldLinkContentConfiguration = (
+  input: TableFieldLinkContentConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomIconContent != null && {
+      CustomIconContent: serializeAws_restJson1TableFieldCustomIconContent(input.CustomIconContent, context),
+    }),
+    ...(input.CustomTextContent != null && {
+      CustomTextContent: serializeAws_restJson1TableFieldCustomTextContent(input.CustomTextContent, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TableFieldOption = (input: TableFieldOption, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomLabel != null && { CustomLabel: input.CustomLabel }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.URLStyling != null && {
+      URLStyling: serializeAws_restJson1TableFieldURLConfiguration(input.URLStyling, context),
+    }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+    ...(input.Width != null && { Width: input.Width }),
+  };
+};
+
+const serializeAws_restJson1TableFieldOptionList = (input: TableFieldOption[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1TableFieldOption(entry, context);
+    });
+};
+
+const serializeAws_restJson1TableFieldOptions = (input: TableFieldOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Order != null && { Order: serializeAws_restJson1FieldOrderList(input.Order, context) }),
+    ...(input.SelectedFieldOptions != null && {
+      SelectedFieldOptions: serializeAws_restJson1TableFieldOptionList(input.SelectedFieldOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TableFieldURLConfiguration = (
+  input: TableFieldURLConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ImageConfiguration != null && {
+      ImageConfiguration: serializeAws_restJson1TableFieldImageConfiguration(input.ImageConfiguration, context),
+    }),
+    ...(input.LinkConfiguration != null && {
+      LinkConfiguration: serializeAws_restJson1TableFieldLinkConfiguration(input.LinkConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TableFieldWells = (input: TableFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.TableAggregatedFieldWells != null && {
+      TableAggregatedFieldWells: serializeAws_restJson1TableAggregatedFieldWells(
+        input.TableAggregatedFieldWells,
+        context
+      ),
+    }),
+    ...(input.TableUnaggregatedFieldWells != null && {
+      TableUnaggregatedFieldWells: serializeAws_restJson1TableUnaggregatedFieldWells(
+        input.TableUnaggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1TableInlineVisualization = (
+  input: TableInlineVisualization,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataBars != null && { DataBars: serializeAws_restJson1DataBarsOptions(input.DataBars, context) }),
+  };
+};
+
+const serializeAws_restJson1TableInlineVisualizationList = (
+  input: TableInlineVisualization[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1TableInlineVisualization(entry, context);
+    });
+};
+
+const serializeAws_restJson1TableOptions = (input: TableOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.CellStyle != null && { CellStyle: serializeAws_restJson1TableCellStyle(input.CellStyle, context) }),
+    ...(input.HeaderStyle != null && { HeaderStyle: serializeAws_restJson1TableCellStyle(input.HeaderStyle, context) }),
+    ...(input.Orientation != null && { Orientation: input.Orientation }),
+    ...(input.RowAlternateColorOptions != null && {
+      RowAlternateColorOptions: serializeAws_restJson1RowAlternateColorOptions(input.RowAlternateColorOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TablePaginatedReportOptions = (
+  input: TablePaginatedReportOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OverflowColumnHeaderVisibility != null && {
+      OverflowColumnHeaderVisibility: input.OverflowColumnHeaderVisibility,
+    }),
+    ...(input.VerticalOverflowVisibility != null && { VerticalOverflowVisibility: input.VerticalOverflowVisibility }),
+  };
+};
+
+const serializeAws_restJson1TableRowConditionalFormatting = (
+  input: TableRowConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BackgroundColor != null && {
+      BackgroundColor: serializeAws_restJson1ConditionalFormattingColor(input.BackgroundColor, context),
+    }),
+    ...(input.TextColor != null && {
+      TextColor: serializeAws_restJson1ConditionalFormattingColor(input.TextColor, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TableSideBorderOptions = (input: TableSideBorderOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Bottom != null && { Bottom: serializeAws_restJson1TableBorderOptions(input.Bottom, context) }),
+    ...(input.InnerHorizontal != null && {
+      InnerHorizontal: serializeAws_restJson1TableBorderOptions(input.InnerHorizontal, context),
+    }),
+    ...(input.InnerVertical != null && {
+      InnerVertical: serializeAws_restJson1TableBorderOptions(input.InnerVertical, context),
+    }),
+    ...(input.Left != null && { Left: serializeAws_restJson1TableBorderOptions(input.Left, context) }),
+    ...(input.Right != null && { Right: serializeAws_restJson1TableBorderOptions(input.Right, context) }),
+    ...(input.Top != null && { Top: serializeAws_restJson1TableBorderOptions(input.Top, context) }),
+  };
+};
+
+const serializeAws_restJson1TableSortConfiguration = (input: TableSortConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.PaginationConfiguration != null && {
+      PaginationConfiguration: serializeAws_restJson1PaginationConfiguration(input.PaginationConfiguration, context),
+    }),
+    ...(input.RowSort != null && { RowSort: serializeAws_restJson1RowSortList(input.RowSort, context) }),
+  };
+};
+
+const serializeAws_restJson1TableUnaggregatedFieldWells = (
+  input: TableUnaggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Values != null && { Values: serializeAws_restJson1UnaggregatedFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1TableVisual = (input: TableVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1TableConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ConditionalFormatting != null && {
+      ConditionalFormatting: serializeAws_restJson1TableConditionalFormatting(input.ConditionalFormatting, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -14334,6 +21809,14 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1Tag(entry, context);
+    });
+};
+
+const serializeAws_restJson1TargetVisualList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
     });
 };
 
@@ -14363,11 +21846,87 @@ const serializeAws_restJson1TemplateSourceTemplate = (input: TemplateSourceTempl
   };
 };
 
+const serializeAws_restJson1TemplateVersionDefinition = (
+  input: TemplateVersionDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AnalysisDefaults != null && {
+      AnalysisDefaults: serializeAws_restJson1AnalysisDefaults(input.AnalysisDefaults, context),
+    }),
+    ...(input.CalculatedFields != null && {
+      CalculatedFields: serializeAws_restJson1CalculatedFields(input.CalculatedFields, context),
+    }),
+    ...(input.ColumnConfigurations != null && {
+      ColumnConfigurations: serializeAws_restJson1ColumnConfigurationList(input.ColumnConfigurations, context),
+    }),
+    ...(input.DataSetConfigurations != null && {
+      DataSetConfigurations: serializeAws_restJson1DataSetConfigurationList(input.DataSetConfigurations, context),
+    }),
+    ...(input.FilterGroups != null && {
+      FilterGroups: serializeAws_restJson1FilterGroupList(input.FilterGroups, context),
+    }),
+    ...(input.ParameterDeclarations != null && {
+      ParameterDeclarations: serializeAws_restJson1ParameterDeclarationList(input.ParameterDeclarations, context),
+    }),
+    ...(input.Sheets != null && { Sheets: serializeAws_restJson1SheetDefinitionList(input.Sheets, context) }),
+  };
+};
+
 const serializeAws_restJson1TeradataParameters = (input: TeradataParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database != null && { Database: input.Database }),
     ...(input.Host != null && { Host: input.Host }),
     ...(input.Port != null && { Port: input.Port }),
+  };
+};
+
+const serializeAws_restJson1TextAreaControlDisplayOptions = (
+  input: TextAreaControlDisplayOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PlaceholderOptions != null && {
+      PlaceholderOptions: serializeAws_restJson1TextControlPlaceholderOptions(input.PlaceholderOptions, context),
+    }),
+    ...(input.TitleOptions != null && {
+      TitleOptions: serializeAws_restJson1LabelOptions(input.TitleOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TextConditionalFormat = (input: TextConditionalFormat, context: __SerdeContext): any => {
+  return {
+    ...(input.BackgroundColor != null && {
+      BackgroundColor: serializeAws_restJson1ConditionalFormattingColor(input.BackgroundColor, context),
+    }),
+    ...(input.Icon != null && { Icon: serializeAws_restJson1ConditionalFormattingIcon(input.Icon, context) }),
+    ...(input.TextColor != null && {
+      TextColor: serializeAws_restJson1ConditionalFormattingColor(input.TextColor, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TextControlPlaceholderOptions = (
+  input: TextControlPlaceholderOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1TextFieldControlDisplayOptions = (
+  input: TextFieldControlDisplayOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PlaceholderOptions != null && {
+      PlaceholderOptions: serializeAws_restJson1TextControlPlaceholderOptions(input.PlaceholderOptions, context),
+    }),
+    ...(input.TitleOptions != null && {
+      TitleOptions: serializeAws_restJson1LabelOptions(input.TitleOptions, context),
+    }),
   };
 };
 
@@ -14377,9 +21936,20 @@ const serializeAws_restJson1ThemeConfiguration = (input: ThemeConfiguration, con
       DataColorPalette: serializeAws_restJson1DataColorPalette(input.DataColorPalette, context),
     }),
     ...(input.Sheet != null && { Sheet: serializeAws_restJson1SheetStyle(input.Sheet, context) }),
+    ...(input.Typography != null && { Typography: serializeAws_restJson1Typography(input.Typography, context) }),
     ...(input.UIColorPalette != null && {
       UIColorPalette: serializeAws_restJson1UIColorPalette(input.UIColorPalette, context),
     }),
+  };
+};
+
+const serializeAws_restJson1ThousandSeparatorOptions = (
+  input: ThousandSeparatorOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Symbol != null && { Symbol: input.Symbol }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
   };
 };
 
@@ -14396,12 +21966,171 @@ const serializeAws_restJson1TileStyle = (input: TileStyle, context: __SerdeConte
   };
 };
 
-const serializeAws_restJson1TimestampList = (input: Date[], context: __SerdeContext): any => {
+const serializeAws_restJson1TimeBasedForecastProperties = (
+  input: TimeBasedForecastProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LowerBoundary != null && { LowerBoundary: __serializeFloat(input.LowerBoundary) }),
+    ...(input.PeriodsBackward != null && { PeriodsBackward: input.PeriodsBackward }),
+    ...(input.PeriodsForward != null && { PeriodsForward: input.PeriodsForward }),
+    ...(input.PredictionInterval != null && { PredictionInterval: input.PredictionInterval }),
+    ...(input.Seasonality != null && { Seasonality: input.Seasonality }),
+    ...(input.UpperBoundary != null && { UpperBoundary: __serializeFloat(input.UpperBoundary) }),
+  };
+};
+
+const serializeAws_restJson1TimeEqualityFilter = (input: TimeEqualityFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FilterId != null && { FilterId: input.FilterId }),
+    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
+    ...(input.TimeGranularity != null && { TimeGranularity: input.TimeGranularity }),
+    ...(input.Value != null && { Value: Math.round(input.Value.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_restJson1TimeRangeDrillDownFilter = (
+  input: TimeRangeDrillDownFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.RangeMaximum != null && { RangeMaximum: Math.round(input.RangeMaximum.getTime() / 1000) }),
+    ...(input.RangeMinimum != null && { RangeMinimum: Math.round(input.RangeMinimum.getTime() / 1000) }),
+    ...(input.TimeGranularity != null && { TimeGranularity: input.TimeGranularity }),
+  };
+};
+
+const serializeAws_restJson1TimeRangeFilter = (input: TimeRangeFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.ExcludePeriodConfiguration != null && {
+      ExcludePeriodConfiguration: serializeAws_restJson1ExcludePeriodConfiguration(
+        input.ExcludePeriodConfiguration,
+        context
+      ),
+    }),
+    ...(input.FilterId != null && { FilterId: input.FilterId }),
+    ...(input.IncludeMaximum != null && { IncludeMaximum: input.IncludeMaximum }),
+    ...(input.IncludeMinimum != null && { IncludeMinimum: input.IncludeMinimum }),
+    ...(input.NullOption != null && { NullOption: input.NullOption }),
+    ...(input.RangeMaximumValue != null && {
+      RangeMaximumValue: serializeAws_restJson1TimeRangeFilterValue(input.RangeMaximumValue, context),
+    }),
+    ...(input.RangeMinimumValue != null && {
+      RangeMinimumValue: serializeAws_restJson1TimeRangeFilterValue(input.RangeMinimumValue, context),
+    }),
+    ...(input.TimeGranularity != null && { TimeGranularity: input.TimeGranularity }),
+  };
+};
+
+const serializeAws_restJson1TimeRangeFilterValue = (input: TimeRangeFilterValue, context: __SerdeContext): any => {
+  return {
+    ...(input.Parameter != null && { Parameter: input.Parameter }),
+    ...(input.RollingDate != null && {
+      RollingDate: serializeAws_restJson1RollingDateConfiguration(input.RollingDate, context),
+    }),
+    ...(input.StaticValue != null && { StaticValue: Math.round(input.StaticValue.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_restJson1TooltipItem = (input: TooltipItem, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnTooltipItem != null && {
+      ColumnTooltipItem: serializeAws_restJson1ColumnTooltipItem(input.ColumnTooltipItem, context),
+    }),
+    ...(input.FieldTooltipItem != null && {
+      FieldTooltipItem: serializeAws_restJson1FieldTooltipItem(input.FieldTooltipItem, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TooltipItemList = (input: TooltipItem[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return Math.round(entry.getTime() / 1000);
+      return serializeAws_restJson1TooltipItem(entry, context);
     });
+};
+
+const serializeAws_restJson1TooltipOptions = (input: TooltipOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldBasedTooltip != null && {
+      FieldBasedTooltip: serializeAws_restJson1FieldBasedTooltip(input.FieldBasedTooltip, context),
+    }),
+    ...(input.SelectedTooltipType != null && { SelectedTooltipType: input.SelectedTooltipType }),
+    ...(input.TooltipVisibility != null && { TooltipVisibility: input.TooltipVisibility }),
+  };
+};
+
+const serializeAws_restJson1TopBottomFilter = (input: TopBottomFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.AggregationSortConfigurations != null && {
+      AggregationSortConfigurations: serializeAws_restJson1AggregationSortConfigurationList(
+        input.AggregationSortConfigurations,
+        context
+      ),
+    }),
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FilterId != null && { FilterId: input.FilterId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
+    ...(input.TimeGranularity != null && { TimeGranularity: input.TimeGranularity }),
+  };
+};
+
+const serializeAws_restJson1TopBottomMoversComputation = (
+  input: TopBottomMoversComputation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Category != null && { Category: serializeAws_restJson1DimensionField(input.Category, context) }),
+    ...(input.ComputationId != null && { ComputationId: input.ComputationId }),
+    ...(input.MoverSize != null && { MoverSize: input.MoverSize }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.Time != null && { Time: serializeAws_restJson1DimensionField(input.Time, context) }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Value != null && { Value: serializeAws_restJson1MeasureField(input.Value, context) }),
+  };
+};
+
+const serializeAws_restJson1TopBottomRankedComputation = (
+  input: TopBottomRankedComputation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Category != null && { Category: serializeAws_restJson1DimensionField(input.Category, context) }),
+    ...(input.ComputationId != null && { ComputationId: input.ComputationId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResultSize != null && { ResultSize: input.ResultSize }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Value != null && { Value: serializeAws_restJson1MeasureField(input.Value, context) }),
+  };
+};
+
+const serializeAws_restJson1TotalAggregationComputation = (
+  input: TotalAggregationComputation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ComputationId != null && { ComputationId: input.ComputationId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: serializeAws_restJson1MeasureField(input.Value, context) }),
+  };
+};
+
+const serializeAws_restJson1TotalOptions = (input: TotalOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomLabel != null && { CustomLabel: input.CustomLabel }),
+    ...(input.Placement != null && { Placement: input.Placement }),
+    ...(input.ScrollStatus != null && { ScrollStatus: input.ScrollStatus }),
+    ...(input.TotalCellStyle != null && {
+      TotalCellStyle: serializeAws_restJson1TableCellStyle(input.TotalCellStyle, context),
+    }),
+    ...(input.TotalsVisibility != null && { TotalsVisibility: input.TotalsVisibility }),
+  };
 };
 
 const serializeAws_restJson1TransformOperation = (input: TransformOperation, context: __SerdeContext): any => {
@@ -14433,10 +22162,116 @@ const serializeAws_restJson1TransformOperationList = (input: TransformOperation[
     });
 };
 
+const serializeAws_restJson1TreeMapAggregatedFieldWells = (
+  input: TreeMapAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Colors != null && { Colors: serializeAws_restJson1TreeMapMeasureFieldList(input.Colors, context) }),
+    ...(input.Groups != null && { Groups: serializeAws_restJson1TreeMapDimensionFieldList(input.Groups, context) }),
+    ...(input.Sizes != null && { Sizes: serializeAws_restJson1TreeMapMeasureFieldList(input.Sizes, context) }),
+  };
+};
+
+const serializeAws_restJson1TreeMapConfiguration = (input: TreeMapConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ColorLabelOptions != null && {
+      ColorLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.ColorLabelOptions, context),
+    }),
+    ...(input.ColorScale != null && { ColorScale: serializeAws_restJson1ColorScale(input.ColorScale, context) }),
+    ...(input.DataLabels != null && { DataLabels: serializeAws_restJson1DataLabelOptions(input.DataLabels, context) }),
+    ...(input.FieldWells != null && { FieldWells: serializeAws_restJson1TreeMapFieldWells(input.FieldWells, context) }),
+    ...(input.GroupLabelOptions != null && {
+      GroupLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.GroupLabelOptions, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.SizeLabelOptions != null && {
+      SizeLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.SizeLabelOptions, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1TreeMapSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.Tooltip != null && { Tooltip: serializeAws_restJson1TooltipOptions(input.Tooltip, context) }),
+  };
+};
+
+const serializeAws_restJson1TreeMapDimensionFieldList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1TreeMapFieldWells = (input: TreeMapFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.TreeMapAggregatedFieldWells != null && {
+      TreeMapAggregatedFieldWells: serializeAws_restJson1TreeMapAggregatedFieldWells(
+        input.TreeMapAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1TreeMapMeasureFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1TreeMapSortConfiguration = (
+  input: TreeMapSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TreeMapGroupItemsLimitConfiguration != null && {
+      TreeMapGroupItemsLimitConfiguration: serializeAws_restJson1ItemsLimitConfiguration(
+        input.TreeMapGroupItemsLimitConfiguration,
+        context
+      ),
+    }),
+    ...(input.TreeMapSort != null && {
+      TreeMapSort: serializeAws_restJson1FieldSortOptionsList(input.TreeMapSort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TreeMapVisual = (input: TreeMapVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1TreeMapConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1TrendArrowOptions = (input: TrendArrowOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
 const serializeAws_restJson1TwitterParameters = (input: TwitterParameters, context: __SerdeContext): any => {
   return {
     ...(input.MaxRows != null && { MaxRows: input.MaxRows }),
     ...(input.Query != null && { Query: input.Query }),
+  };
+};
+
+const serializeAws_restJson1Typography = (input: Typography, context: __SerdeContext): any => {
+  return {
+    ...(input.FontFamilies != null && { FontFamilies: serializeAws_restJson1FontList(input.FontFamilies, context) }),
   };
 };
 
@@ -14458,6 +22293,35 @@ const serializeAws_restJson1UIColorPalette = (input: UIColorPalette, context: __
     ...(input.SuccessForeground != null && { SuccessForeground: input.SuccessForeground }),
     ...(input.Warning != null && { Warning: input.Warning }),
     ...(input.WarningForeground != null && { WarningForeground: input.WarningForeground }),
+  };
+};
+
+const serializeAws_restJson1UnaggregatedField = (input: UnaggregatedField, context: __SerdeContext): any => {
+  return {
+    ...(input.Column != null && { Column: serializeAws_restJson1ColumnIdentifier(input.Column, context) }),
+    ...(input.FieldId != null && { FieldId: input.FieldId }),
+    ...(input.FormatConfiguration != null && {
+      FormatConfiguration: serializeAws_restJson1FormatConfiguration(input.FormatConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1UnaggregatedFieldList = (input: UnaggregatedField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1UnaggregatedField(entry, context);
+    });
+};
+
+const serializeAws_restJson1UniqueValuesComputation = (
+  input: UniqueValuesComputation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Category != null && { Category: serializeAws_restJson1DimensionField(input.Category, context) }),
+    ...(input.ComputationId != null && { ComputationId: input.ComputationId }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -14497,12 +22361,405 @@ const serializeAws_restJson1UploadSettings = (input: UploadSettings, context: __
   };
 };
 
+const serializeAws_restJson1VisibleRangeOptions = (input: VisibleRangeOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.PercentRange != null && {
+      PercentRange: serializeAws_restJson1PercentVisibleRange(input.PercentRange, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1Visual = (input: Visual, context: __SerdeContext): any => {
+  return {
+    ...(input.BarChartVisual != null && {
+      BarChartVisual: serializeAws_restJson1BarChartVisual(input.BarChartVisual, context),
+    }),
+    ...(input.BoxPlotVisual != null && {
+      BoxPlotVisual: serializeAws_restJson1BoxPlotVisual(input.BoxPlotVisual, context),
+    }),
+    ...(input.ComboChartVisual != null && {
+      ComboChartVisual: serializeAws_restJson1ComboChartVisual(input.ComboChartVisual, context),
+    }),
+    ...(input.CustomContentVisual != null && {
+      CustomContentVisual: serializeAws_restJson1CustomContentVisual(input.CustomContentVisual, context),
+    }),
+    ...(input.EmptyVisual != null && { EmptyVisual: serializeAws_restJson1EmptyVisual(input.EmptyVisual, context) }),
+    ...(input.FilledMapVisual != null && {
+      FilledMapVisual: serializeAws_restJson1FilledMapVisual(input.FilledMapVisual, context),
+    }),
+    ...(input.FunnelChartVisual != null && {
+      FunnelChartVisual: serializeAws_restJson1FunnelChartVisual(input.FunnelChartVisual, context),
+    }),
+    ...(input.GaugeChartVisual != null && {
+      GaugeChartVisual: serializeAws_restJson1GaugeChartVisual(input.GaugeChartVisual, context),
+    }),
+    ...(input.GeospatialMapVisual != null && {
+      GeospatialMapVisual: serializeAws_restJson1GeospatialMapVisual(input.GeospatialMapVisual, context),
+    }),
+    ...(input.HeatMapVisual != null && {
+      HeatMapVisual: serializeAws_restJson1HeatMapVisual(input.HeatMapVisual, context),
+    }),
+    ...(input.HistogramVisual != null && {
+      HistogramVisual: serializeAws_restJson1HistogramVisual(input.HistogramVisual, context),
+    }),
+    ...(input.InsightVisual != null && {
+      InsightVisual: serializeAws_restJson1InsightVisual(input.InsightVisual, context),
+    }),
+    ...(input.KPIVisual != null && { KPIVisual: serializeAws_restJson1KPIVisual(input.KPIVisual, context) }),
+    ...(input.LineChartVisual != null && {
+      LineChartVisual: serializeAws_restJson1LineChartVisual(input.LineChartVisual, context),
+    }),
+    ...(input.PieChartVisual != null && {
+      PieChartVisual: serializeAws_restJson1PieChartVisual(input.PieChartVisual, context),
+    }),
+    ...(input.PivotTableVisual != null && {
+      PivotTableVisual: serializeAws_restJson1PivotTableVisual(input.PivotTableVisual, context),
+    }),
+    ...(input.RadarChartVisual != null && {
+      RadarChartVisual: serializeAws_restJson1RadarChartVisual(input.RadarChartVisual, context),
+    }),
+    ...(input.SankeyDiagramVisual != null && {
+      SankeyDiagramVisual: serializeAws_restJson1SankeyDiagramVisual(input.SankeyDiagramVisual, context),
+    }),
+    ...(input.ScatterPlotVisual != null && {
+      ScatterPlotVisual: serializeAws_restJson1ScatterPlotVisual(input.ScatterPlotVisual, context),
+    }),
+    ...(input.TableVisual != null && { TableVisual: serializeAws_restJson1TableVisual(input.TableVisual, context) }),
+    ...(input.TreeMapVisual != null && {
+      TreeMapVisual: serializeAws_restJson1TreeMapVisual(input.TreeMapVisual, context),
+    }),
+    ...(input.WaterfallVisual != null && {
+      WaterfallVisual: serializeAws_restJson1WaterfallVisual(input.WaterfallVisual, context),
+    }),
+    ...(input.WordCloudVisual != null && {
+      WordCloudVisual: serializeAws_restJson1WordCloudVisual(input.WordCloudVisual, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1VisualAxisSortOption = (input: VisualAxisSortOption, context: __SerdeContext): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
+const serializeAws_restJson1VisualCustomAction = (input: VisualCustomAction, context: __SerdeContext): any => {
+  return {
+    ...(input.ActionOperations != null && {
+      ActionOperations: serializeAws_restJson1VisualCustomActionOperationList(input.ActionOperations, context),
+    }),
+    ...(input.CustomActionId != null && { CustomActionId: input.CustomActionId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.Trigger != null && { Trigger: input.Trigger }),
+  };
+};
+
+const serializeAws_restJson1VisualCustomActionList = (input: VisualCustomAction[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1VisualCustomAction(entry, context);
+    });
+};
+
+const serializeAws_restJson1VisualCustomActionOperation = (
+  input: VisualCustomActionOperation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FilterOperation != null && {
+      FilterOperation: serializeAws_restJson1CustomActionFilterOperation(input.FilterOperation, context),
+    }),
+    ...(input.NavigationOperation != null && {
+      NavigationOperation: serializeAws_restJson1CustomActionNavigationOperation(input.NavigationOperation, context),
+    }),
+    ...(input.SetParametersOperation != null && {
+      SetParametersOperation: serializeAws_restJson1CustomActionSetParametersOperation(
+        input.SetParametersOperation,
+        context
+      ),
+    }),
+    ...(input.URLOperation != null && {
+      URLOperation: serializeAws_restJson1CustomActionURLOperation(input.URLOperation, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1VisualCustomActionOperationList = (
+  input: VisualCustomActionOperation[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1VisualCustomActionOperation(entry, context);
+    });
+};
+
+const serializeAws_restJson1VisualList = (input: Visual[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Visual(entry, context);
+    });
+};
+
+const serializeAws_restJson1VisualMenuOption = (input: VisualMenuOption, context: __SerdeContext): any => {
+  return {
+    ...(input.AvailabilityStatus != null && { AvailabilityStatus: input.AvailabilityStatus }),
+  };
+};
+
+const serializeAws_restJson1VisualPalette = (input: VisualPalette, context: __SerdeContext): any => {
+  return {
+    ...(input.ChartColor != null && { ChartColor: input.ChartColor }),
+    ...(input.ColorMap != null && { ColorMap: serializeAws_restJson1DataPathColorList(input.ColorMap, context) }),
+  };
+};
+
+const serializeAws_restJson1VisualSubtitleLabelOptions = (
+  input: VisualSubtitleLabelOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FormatText != null && { FormatText: serializeAws_restJson1LongFormatText(input.FormatText, context) }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
+const serializeAws_restJson1VisualTitleLabelOptions = (
+  input: VisualTitleLabelOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FormatText != null && { FormatText: serializeAws_restJson1ShortFormatText(input.FormatText, context) }),
+    ...(input.Visibility != null && { Visibility: input.Visibility }),
+  };
+};
+
 const serializeAws_restJson1VpcConnectionProperties = (
   input: VpcConnectionProperties,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.VpcConnectionArn != null && { VpcConnectionArn: input.VpcConnectionArn }),
+  };
+};
+
+const serializeAws_restJson1WaterfallChartAggregatedFieldWells = (
+  input: WaterfallChartAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Breakdowns != null && {
+      Breakdowns: serializeAws_restJson1DimensionFieldList(input.Breakdowns, context),
+    }),
+    ...(input.Categories != null && {
+      Categories: serializeAws_restJson1DimensionFieldList(input.Categories, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_restJson1MeasureFieldList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1WaterfallChartConfiguration = (
+  input: WaterfallChartConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryAxisDisplayOptions != null && {
+      CategoryAxisDisplayOptions: serializeAws_restJson1AxisDisplayOptions(input.CategoryAxisDisplayOptions, context),
+    }),
+    ...(input.CategoryAxisLabelOptions != null && {
+      CategoryAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.CategoryAxisLabelOptions, context),
+    }),
+    ...(input.DataLabels != null && { DataLabels: serializeAws_restJson1DataLabelOptions(input.DataLabels, context) }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1WaterfallChartFieldWells(input.FieldWells, context),
+    }),
+    ...(input.Legend != null && { Legend: serializeAws_restJson1LegendOptions(input.Legend, context) }),
+    ...(input.PrimaryYAxisDisplayOptions != null && {
+      PrimaryYAxisDisplayOptions: serializeAws_restJson1AxisDisplayOptions(input.PrimaryYAxisDisplayOptions, context),
+    }),
+    ...(input.PrimaryYAxisLabelOptions != null && {
+      PrimaryYAxisLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.PrimaryYAxisLabelOptions, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1WaterfallChartSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.VisualPalette != null && {
+      VisualPalette: serializeAws_restJson1VisualPalette(input.VisualPalette, context),
+    }),
+    ...(input.WaterfallChartOptions != null && {
+      WaterfallChartOptions: serializeAws_restJson1WaterfallChartOptions(input.WaterfallChartOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1WaterfallChartFieldWells = (
+  input: WaterfallChartFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.WaterfallChartAggregatedFieldWells != null && {
+      WaterfallChartAggregatedFieldWells: serializeAws_restJson1WaterfallChartAggregatedFieldWells(
+        input.WaterfallChartAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1WaterfallChartOptions = (input: WaterfallChartOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.TotalBarLabel != null && { TotalBarLabel: input.TotalBarLabel }),
+  };
+};
+
+const serializeAws_restJson1WaterfallChartSortConfiguration = (
+  input: WaterfallChartSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BreakdownItemsLimit != null && {
+      BreakdownItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.BreakdownItemsLimit, context),
+    }),
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1WaterfallVisual = (input: WaterfallVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1WaterfallChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+const serializeAws_restJson1WhatIfPointScenario = (input: WhatIfPointScenario, context: __SerdeContext): any => {
+  return {
+    ...(input.Date != null && { Date: Math.round(input.Date.getTime() / 1000) }),
+    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
+  };
+};
+
+const serializeAws_restJson1WhatIfRangeScenario = (input: WhatIfRangeScenario, context: __SerdeContext): any => {
+  return {
+    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000) }),
+    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000) }),
+    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
+  };
+};
+
+const serializeAws_restJson1WordCloudAggregatedFieldWells = (
+  input: WordCloudAggregatedFieldWells,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GroupBy != null && {
+      GroupBy: serializeAws_restJson1WordCloudDimensionFieldList(input.GroupBy, context),
+    }),
+    ...(input.Size != null && { Size: serializeAws_restJson1WordCloudMeasureFieldList(input.Size, context) }),
+  };
+};
+
+const serializeAws_restJson1WordCloudChartConfiguration = (
+  input: WordCloudChartConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryLabelOptions != null && {
+      CategoryLabelOptions: serializeAws_restJson1ChartAxisLabelOptions(input.CategoryLabelOptions, context),
+    }),
+    ...(input.FieldWells != null && {
+      FieldWells: serializeAws_restJson1WordCloudFieldWells(input.FieldWells, context),
+    }),
+    ...(input.SortConfiguration != null && {
+      SortConfiguration: serializeAws_restJson1WordCloudSortConfiguration(input.SortConfiguration, context),
+    }),
+    ...(input.WordCloudOptions != null && {
+      WordCloudOptions: serializeAws_restJson1WordCloudOptions(input.WordCloudOptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1WordCloudDimensionFieldList = (input: DimensionField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DimensionField(entry, context);
+    });
+};
+
+const serializeAws_restJson1WordCloudFieldWells = (input: WordCloudFieldWells, context: __SerdeContext): any => {
+  return {
+    ...(input.WordCloudAggregatedFieldWells != null && {
+      WordCloudAggregatedFieldWells: serializeAws_restJson1WordCloudAggregatedFieldWells(
+        input.WordCloudAggregatedFieldWells,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1WordCloudMeasureFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MeasureField(entry, context);
+    });
+};
+
+const serializeAws_restJson1WordCloudOptions = (input: WordCloudOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.CloudLayout != null && { CloudLayout: input.CloudLayout }),
+    ...(input.MaximumStringLength != null && { MaximumStringLength: input.MaximumStringLength }),
+    ...(input.WordCasing != null && { WordCasing: input.WordCasing }),
+    ...(input.WordOrientation != null && { WordOrientation: input.WordOrientation }),
+    ...(input.WordPadding != null && { WordPadding: input.WordPadding }),
+    ...(input.WordScaling != null && { WordScaling: input.WordScaling }),
+  };
+};
+
+const serializeAws_restJson1WordCloudSortConfiguration = (
+  input: WordCloudSortConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoryItemsLimit != null && {
+      CategoryItemsLimit: serializeAws_restJson1ItemsLimitConfiguration(input.CategoryItemsLimit, context),
+    }),
+    ...(input.CategorySort != null && {
+      CategorySort: serializeAws_restJson1FieldSortOptionsList(input.CategorySort, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1WordCloudVisual = (input: WordCloudVisual, context: __SerdeContext): any => {
+  return {
+    ...(input.Actions != null && { Actions: serializeAws_restJson1VisualCustomActionList(input.Actions, context) }),
+    ...(input.ChartConfiguration != null && {
+      ChartConfiguration: serializeAws_restJson1WordCloudChartConfiguration(input.ChartConfiguration, context),
+    }),
+    ...(input.ColumnHierarchies != null && {
+      ColumnHierarchies: serializeAws_restJson1ColumnHierarchyList(input.ColumnHierarchies, context),
+    }),
+    ...(input.Subtitle != null && {
+      Subtitle: serializeAws_restJson1VisualSubtitleLabelOptions(input.Subtitle, context),
+    }),
+    ...(input.Title != null && { Title: serializeAws_restJson1VisualTitleLabelOptions(input.Title, context) }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
   };
 };
 
@@ -14530,6 +22787,7 @@ const deserializeAws_restJson1AccountSettings = (output: any, context: __SerdeCo
     Edition: __expectString(output.Edition),
     NotificationEmail: __expectString(output.NotificationEmail),
     PublicSharingEnabled: __expectBoolean(output.PublicSharingEnabled),
+    TerminationProtectionEnabled: __expectBoolean(output.TerminationProtectionEnabled),
   } as any;
 };
 
@@ -14566,6 +22824,52 @@ const deserializeAws_restJson1ActiveIAMPolicyAssignmentList = (
         return null as any;
       }
       return deserializeAws_restJson1ActiveIAMPolicyAssignment(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AdHocFilteringOption = (output: any, context: __SerdeContext): AdHocFilteringOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1AggregationFunction = (output: any, context: __SerdeContext): AggregationFunction => {
+  return {
+    CategoricalAggregationFunction: __expectString(output.CategoricalAggregationFunction),
+    DateAggregationFunction: __expectString(output.DateAggregationFunction),
+    NumericalAggregationFunction:
+      output.NumericalAggregationFunction != null
+        ? deserializeAws_restJson1NumericalAggregationFunction(output.NumericalAggregationFunction, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AggregationSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AggregationSortConfiguration => {
+  return {
+    AggregationFunction:
+      output.AggregationFunction != null
+        ? deserializeAws_restJson1AggregationFunction(output.AggregationFunction, context)
+        : undefined,
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    SortDirection: __expectString(output.SortDirection),
+  } as any;
+};
+
+const deserializeAws_restJson1AggregationSortConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): AggregationSortConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AggregationSortConfiguration(entry, context);
     });
   return retVal;
 };
@@ -14610,10 +22914,51 @@ const deserializeAws_restJson1Analysis = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1AnalysisDefaults = (output: any, context: __SerdeContext): AnalysisDefaults => {
+  return {
+    DefaultNewSheetConfiguration:
+      output.DefaultNewSheetConfiguration != null
+        ? deserializeAws_restJson1DefaultNewSheetConfiguration(output.DefaultNewSheetConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AnalysisDefinition = (output: any, context: __SerdeContext): AnalysisDefinition => {
+  return {
+    AnalysisDefaults:
+      output.AnalysisDefaults != null
+        ? deserializeAws_restJson1AnalysisDefaults(output.AnalysisDefaults, context)
+        : undefined,
+    CalculatedFields:
+      output.CalculatedFields != null
+        ? deserializeAws_restJson1CalculatedFields(output.CalculatedFields, context)
+        : undefined,
+    ColumnConfigurations:
+      output.ColumnConfigurations != null
+        ? deserializeAws_restJson1ColumnConfigurationList(output.ColumnConfigurations, context)
+        : undefined,
+    DataSetIdentifierDeclarations:
+      output.DataSetIdentifierDeclarations != null
+        ? deserializeAws_restJson1DataSetIdentifierDeclarationList(output.DataSetIdentifierDeclarations, context)
+        : undefined,
+    FilterGroups:
+      output.FilterGroups != null ? deserializeAws_restJson1FilterGroupList(output.FilterGroups, context) : undefined,
+    ParameterDeclarations:
+      output.ParameterDeclarations != null
+        ? deserializeAws_restJson1ParameterDeclarationList(output.ParameterDeclarations, context)
+        : undefined,
+    Sheets: output.Sheets != null ? deserializeAws_restJson1SheetDefinitionList(output.Sheets, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1AnalysisError = (output: any, context: __SerdeContext): AnalysisError => {
   return {
     Message: __expectString(output.Message),
     Type: __expectString(output.Type),
+    ViolatedEntities:
+      output.ViolatedEntities != null
+        ? deserializeAws_restJson1EntityList(output.ViolatedEntities, context)
+        : undefined,
   } as any;
 };
 
@@ -14658,8 +23003,46 @@ const deserializeAws_restJson1AnalysisSummaryList = (output: any, context: __Ser
   return retVal;
 };
 
+const deserializeAws_restJson1AnchorDateConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AnchorDateConfiguration => {
+  return {
+    AnchorOption: __expectString(output.AnchorOption),
+    ParameterName: __expectString(output.ParameterName),
+  } as any;
+};
+
+const deserializeAws_restJson1ArcAxisConfiguration = (output: any, context: __SerdeContext): ArcAxisConfiguration => {
+  return {
+    Range: output.Range != null ? deserializeAws_restJson1ArcAxisDisplayRange(output.Range, context) : undefined,
+    ReserveRange: __expectInt32(output.ReserveRange),
+  } as any;
+};
+
+const deserializeAws_restJson1ArcAxisDisplayRange = (output: any, context: __SerdeContext): ArcAxisDisplayRange => {
+  return {
+    Max: __limitedParseDouble(output.Max),
+    Min: __limitedParseDouble(output.Min),
+  } as any;
+};
+
+const deserializeAws_restJson1ArcConfiguration = (output: any, context: __SerdeContext): ArcConfiguration => {
+  return {
+    ArcAngle: __limitedParseDouble(output.ArcAngle),
+    ArcThickness: __expectString(output.ArcThickness),
+  } as any;
+};
+
+const deserializeAws_restJson1ArcOptions = (output: any, context: __SerdeContext): ArcOptions => {
+  return {
+    ArcThickness: __expectString(output.ArcThickness),
+  } as any;
+};
+
 const deserializeAws_restJson1AthenaParameters = (output: any, context: __SerdeContext): AthenaParameters => {
   return {
+    RoleArn: __expectString(output.RoleArn),
     WorkGroup: __expectString(output.WorkGroup),
   } as any;
 };
@@ -14692,9 +23075,447 @@ const deserializeAws_restJson1AwsIotAnalyticsParameters = (
   } as any;
 };
 
+const deserializeAws_restJson1AxisDataOptions = (output: any, context: __SerdeContext): AxisDataOptions => {
+  return {
+    DateAxisOptions:
+      output.DateAxisOptions != null
+        ? deserializeAws_restJson1DateAxisOptions(output.DateAxisOptions, context)
+        : undefined,
+    NumericAxisOptions:
+      output.NumericAxisOptions != null
+        ? deserializeAws_restJson1NumericAxisOptions(output.NumericAxisOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AxisDisplayDataDrivenRange = (
+  output: any,
+  context: __SerdeContext
+): AxisDisplayDataDrivenRange => {
+  return {} as any;
+};
+
+const deserializeAws_restJson1AxisDisplayMinMaxRange = (
+  output: any,
+  context: __SerdeContext
+): AxisDisplayMinMaxRange => {
+  return {
+    Maximum: __limitedParseDouble(output.Maximum),
+    Minimum: __limitedParseDouble(output.Minimum),
+  } as any;
+};
+
+const deserializeAws_restJson1AxisDisplayOptions = (output: any, context: __SerdeContext): AxisDisplayOptions => {
+  return {
+    AxisLineVisibility: __expectString(output.AxisLineVisibility),
+    AxisOffset: __expectString(output.AxisOffset),
+    DataOptions:
+      output.DataOptions != null ? deserializeAws_restJson1AxisDataOptions(output.DataOptions, context) : undefined,
+    GridLineVisibility: __expectString(output.GridLineVisibility),
+    ScrollbarOptions:
+      output.ScrollbarOptions != null
+        ? deserializeAws_restJson1ScrollBarOptions(output.ScrollbarOptions, context)
+        : undefined,
+    TickLabelOptions:
+      output.TickLabelOptions != null
+        ? deserializeAws_restJson1AxisTickLabelOptions(output.TickLabelOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AxisDisplayRange = (output: any, context: __SerdeContext): AxisDisplayRange => {
+  return {
+    DataDriven:
+      output.DataDriven != null
+        ? deserializeAws_restJson1AxisDisplayDataDrivenRange(output.DataDriven, context)
+        : undefined,
+    MinMax: output.MinMax != null ? deserializeAws_restJson1AxisDisplayMinMaxRange(output.MinMax, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AxisLabelOptions = (output: any, context: __SerdeContext): AxisLabelOptions => {
+  return {
+    ApplyTo:
+      output.ApplyTo != null ? deserializeAws_restJson1AxisLabelReferenceOptions(output.ApplyTo, context) : undefined,
+    CustomLabel: __expectString(output.CustomLabel),
+    FontConfiguration:
+      output.FontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.FontConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AxisLabelOptionsList = (output: any, context: __SerdeContext): AxisLabelOptions[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AxisLabelOptions(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AxisLabelReferenceOptions = (
+  output: any,
+  context: __SerdeContext
+): AxisLabelReferenceOptions => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FieldId: __expectString(output.FieldId),
+  } as any;
+};
+
+const deserializeAws_restJson1AxisLinearScale = (output: any, context: __SerdeContext): AxisLinearScale => {
+  return {
+    StepCount: __expectInt32(output.StepCount),
+    StepSize: __limitedParseDouble(output.StepSize),
+  } as any;
+};
+
+const deserializeAws_restJson1AxisLogarithmicScale = (output: any, context: __SerdeContext): AxisLogarithmicScale => {
+  return {
+    Base: __limitedParseDouble(output.Base),
+  } as any;
+};
+
+const deserializeAws_restJson1AxisScale = (output: any, context: __SerdeContext): AxisScale => {
+  return {
+    Linear: output.Linear != null ? deserializeAws_restJson1AxisLinearScale(output.Linear, context) : undefined,
+    Logarithmic:
+      output.Logarithmic != null
+        ? deserializeAws_restJson1AxisLogarithmicScale(output.Logarithmic, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AxisTickLabelOptions = (output: any, context: __SerdeContext): AxisTickLabelOptions => {
+  return {
+    LabelOptions:
+      output.LabelOptions != null ? deserializeAws_restJson1LabelOptions(output.LabelOptions, context) : undefined,
+    RotationAngle: __limitedParseDouble(output.RotationAngle),
+  } as any;
+};
+
+const deserializeAws_restJson1BarChartAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): BarChartAggregatedFieldWells => {
+  return {
+    Category:
+      output.Category != null ? deserializeAws_restJson1DimensionFieldList(output.Category, context) : undefined,
+    Colors: output.Colors != null ? deserializeAws_restJson1DimensionFieldList(output.Colors, context) : undefined,
+    SmallMultiples:
+      output.SmallMultiples != null
+        ? deserializeAws_restJson1SmallMultiplesDimensionFieldList(output.SmallMultiples, context)
+        : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1MeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BarChartConfiguration = (output: any, context: __SerdeContext): BarChartConfiguration => {
+  return {
+    BarsArrangement: __expectString(output.BarsArrangement),
+    CategoryAxis:
+      output.CategoryAxis != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.CategoryAxis, context)
+        : undefined,
+    CategoryLabelOptions:
+      output.CategoryLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.CategoryLabelOptions, context)
+        : undefined,
+    ColorLabelOptions:
+      output.ColorLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.ColorLabelOptions, context)
+        : undefined,
+    ContributionAnalysisDefaults:
+      output.ContributionAnalysisDefaults != null
+        ? deserializeAws_restJson1ContributionAnalysisDefaultList(output.ContributionAnalysisDefaults, context)
+        : undefined,
+    DataLabels:
+      output.DataLabels != null ? deserializeAws_restJson1DataLabelOptions(output.DataLabels, context) : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1BarChartFieldWells(output.FieldWells, context) : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    Orientation: __expectString(output.Orientation),
+    ReferenceLines:
+      output.ReferenceLines != null
+        ? deserializeAws_restJson1ReferenceLineList(output.ReferenceLines, context)
+        : undefined,
+    SmallMultiplesOptions:
+      output.SmallMultiplesOptions != null
+        ? deserializeAws_restJson1SmallMultiplesOptions(output.SmallMultiplesOptions, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1BarChartSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+    ValueAxis:
+      output.ValueAxis != null ? deserializeAws_restJson1AxisDisplayOptions(output.ValueAxis, context) : undefined,
+    ValueLabelOptions:
+      output.ValueLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.ValueLabelOptions, context)
+        : undefined,
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BarChartFieldWells = (output: any, context: __SerdeContext): BarChartFieldWells => {
+  return {
+    BarChartAggregatedFieldWells:
+      output.BarChartAggregatedFieldWells != null
+        ? deserializeAws_restJson1BarChartAggregatedFieldWells(output.BarChartAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BarChartSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): BarChartSortConfiguration => {
+  return {
+    CategoryItemsLimit:
+      output.CategoryItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.CategoryItemsLimit, context)
+        : undefined,
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+    ColorItemsLimit:
+      output.ColorItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.ColorItemsLimit, context)
+        : undefined,
+    ColorSort:
+      output.ColorSort != null ? deserializeAws_restJson1FieldSortOptionsList(output.ColorSort, context) : undefined,
+    SmallMultiplesLimitConfiguration:
+      output.SmallMultiplesLimitConfiguration != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.SmallMultiplesLimitConfiguration, context)
+        : undefined,
+    SmallMultiplesSort:
+      output.SmallMultiplesSort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.SmallMultiplesSort, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BarChartVisual = (output: any, context: __SerdeContext): BarChartVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1BarChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1BinCountOptions = (output: any, context: __SerdeContext): BinCountOptions => {
+  return {
+    Value: __expectInt32(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1BinWidthOptions = (output: any, context: __SerdeContext): BinWidthOptions => {
+  return {
+    BinCountLimit: __expectLong(output.BinCountLimit),
+    Value: __limitedParseDouble(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1BodySectionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): BodySectionConfiguration => {
+  return {
+    Content: output.Content != null ? deserializeAws_restJson1BodySectionContent(output.Content, context) : undefined,
+    PageBreakConfiguration:
+      output.PageBreakConfiguration != null
+        ? deserializeAws_restJson1SectionPageBreakConfiguration(output.PageBreakConfiguration, context)
+        : undefined,
+    SectionId: __expectString(output.SectionId),
+    Style: output.Style != null ? deserializeAws_restJson1SectionStyle(output.Style, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BodySectionConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): BodySectionConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BodySectionConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BodySectionContent = (output: any, context: __SerdeContext): BodySectionContent => {
+  return {
+    Layout:
+      output.Layout != null ? deserializeAws_restJson1SectionLayoutConfiguration(output.Layout, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1BorderStyle = (output: any, context: __SerdeContext): BorderStyle => {
   return {
     Show: __expectBoolean(output.Show),
+  } as any;
+};
+
+const deserializeAws_restJson1BoxPlotAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): BoxPlotAggregatedFieldWells => {
+  return {
+    GroupBy:
+      output.GroupBy != null ? deserializeAws_restJson1BoxPlotDimensionFieldList(output.GroupBy, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1BoxPlotMeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BoxPlotChartConfiguration = (
+  output: any,
+  context: __SerdeContext
+): BoxPlotChartConfiguration => {
+  return {
+    BoxPlotOptions:
+      output.BoxPlotOptions != null
+        ? deserializeAws_restJson1BoxPlotOptions(output.BoxPlotOptions, context)
+        : undefined,
+    CategoryAxis:
+      output.CategoryAxis != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.CategoryAxis, context)
+        : undefined,
+    CategoryLabelOptions:
+      output.CategoryLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.CategoryLabelOptions, context)
+        : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1BoxPlotFieldWells(output.FieldWells, context) : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    PrimaryYAxisDisplayOptions:
+      output.PrimaryYAxisDisplayOptions != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.PrimaryYAxisDisplayOptions, context)
+        : undefined,
+    PrimaryYAxisLabelOptions:
+      output.PrimaryYAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.PrimaryYAxisLabelOptions, context)
+        : undefined,
+    ReferenceLines:
+      output.ReferenceLines != null
+        ? deserializeAws_restJson1ReferenceLineList(output.ReferenceLines, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1BoxPlotSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BoxPlotDimensionFieldList = (output: any, context: __SerdeContext): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BoxPlotFieldWells = (output: any, context: __SerdeContext): BoxPlotFieldWells => {
+  return {
+    BoxPlotAggregatedFieldWells:
+      output.BoxPlotAggregatedFieldWells != null
+        ? deserializeAws_restJson1BoxPlotAggregatedFieldWells(output.BoxPlotAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BoxPlotMeasureFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BoxPlotOptions = (output: any, context: __SerdeContext): BoxPlotOptions => {
+  return {
+    AllDataPointsVisibility: __expectString(output.AllDataPointsVisibility),
+    OutlierVisibility: __expectString(output.OutlierVisibility),
+    StyleOptions:
+      output.StyleOptions != null
+        ? deserializeAws_restJson1BoxPlotStyleOptions(output.StyleOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BoxPlotSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): BoxPlotSortConfiguration => {
+  return {
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+    PaginationConfiguration:
+      output.PaginationConfiguration != null
+        ? deserializeAws_restJson1PaginationConfiguration(output.PaginationConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BoxPlotStyleOptions = (output: any, context: __SerdeContext): BoxPlotStyleOptions => {
+  return {
+    FillStyle: __expectString(output.FillStyle),
+  } as any;
+};
+
+const deserializeAws_restJson1BoxPlotVisual = (output: any, context: __SerdeContext): BoxPlotVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1BoxPlotChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
   } as any;
 };
 
@@ -14718,6 +23539,76 @@ const deserializeAws_restJson1CalculatedColumnList = (output: any, context: __Se
   return retVal;
 };
 
+const deserializeAws_restJson1CalculatedField = (output: any, context: __SerdeContext): CalculatedField => {
+  return {
+    DataSetIdentifier: __expectString(output.DataSetIdentifier),
+    Expression: __expectString(output.Expression),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_restJson1CalculatedFields = (output: any, context: __SerdeContext): CalculatedField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CalculatedField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1CalculatedMeasureField = (
+  output: any,
+  context: __SerdeContext
+): CalculatedMeasureField => {
+  return {
+    Expression: __expectString(output.Expression),
+    FieldId: __expectString(output.FieldId),
+  } as any;
+};
+
+const deserializeAws_restJson1CascadingControlConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CascadingControlConfiguration => {
+  return {
+    SourceControls:
+      output.SourceControls != null
+        ? deserializeAws_restJson1CascadingControlSourceList(output.SourceControls, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CascadingControlSource = (
+  output: any,
+  context: __SerdeContext
+): CascadingControlSource => {
+  return {
+    ColumnToMatch:
+      output.ColumnToMatch != null
+        ? deserializeAws_restJson1ColumnIdentifier(output.ColumnToMatch, context)
+        : undefined,
+    SourceSheetControlId: __expectString(output.SourceSheetControlId),
+  } as any;
+};
+
+const deserializeAws_restJson1CascadingControlSourceList = (
+  output: any,
+  context: __SerdeContext
+): CascadingControlSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CascadingControlSource(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1CastColumnTypeOperation = (
   output: any,
   context: __SerdeContext
@@ -14729,6 +23620,122 @@ const deserializeAws_restJson1CastColumnTypeOperation = (
   } as any;
 };
 
+const deserializeAws_restJson1CategoricalDimensionField = (
+  output: any,
+  context: __SerdeContext
+): CategoricalDimensionField => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FieldId: __expectString(output.FieldId),
+    FormatConfiguration:
+      output.FormatConfiguration != null
+        ? deserializeAws_restJson1StringFormatConfiguration(output.FormatConfiguration, context)
+        : undefined,
+    HierarchyId: __expectString(output.HierarchyId),
+  } as any;
+};
+
+const deserializeAws_restJson1CategoricalMeasureField = (
+  output: any,
+  context: __SerdeContext
+): CategoricalMeasureField => {
+  return {
+    AggregationFunction: __expectString(output.AggregationFunction),
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FieldId: __expectString(output.FieldId),
+    FormatConfiguration:
+      output.FormatConfiguration != null
+        ? deserializeAws_restJson1StringFormatConfiguration(output.FormatConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CategoryDrillDownFilter = (
+  output: any,
+  context: __SerdeContext
+): CategoryDrillDownFilter => {
+  return {
+    CategoryValues:
+      output.CategoryValues != null
+        ? deserializeAws_restJson1CategoryValueList(output.CategoryValues, context)
+        : undefined,
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CategoryFilter = (output: any, context: __SerdeContext): CategoryFilter => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    Configuration:
+      output.Configuration != null
+        ? deserializeAws_restJson1CategoryFilterConfiguration(output.Configuration, context)
+        : undefined,
+    FilterId: __expectString(output.FilterId),
+  } as any;
+};
+
+const deserializeAws_restJson1CategoryFilterConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CategoryFilterConfiguration => {
+  return {
+    CustomFilterConfiguration:
+      output.CustomFilterConfiguration != null
+        ? deserializeAws_restJson1CustomFilterConfiguration(output.CustomFilterConfiguration, context)
+        : undefined,
+    CustomFilterListConfiguration:
+      output.CustomFilterListConfiguration != null
+        ? deserializeAws_restJson1CustomFilterListConfiguration(output.CustomFilterListConfiguration, context)
+        : undefined,
+    FilterListConfiguration:
+      output.FilterListConfiguration != null
+        ? deserializeAws_restJson1FilterListConfiguration(output.FilterListConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CategoryValueList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ChartAxisLabelOptions = (output: any, context: __SerdeContext): ChartAxisLabelOptions => {
+  return {
+    AxisLabelOptions:
+      output.AxisLabelOptions != null
+        ? deserializeAws_restJson1AxisLabelOptionsList(output.AxisLabelOptions, context)
+        : undefined,
+    SortIconVisibility: __expectString(output.SortIconVisibility),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1ClusterMarker = (output: any, context: __SerdeContext): ClusterMarker => {
+  return {
+    SimpleClusterMarker:
+      output.SimpleClusterMarker != null
+        ? deserializeAws_restJson1SimpleClusterMarker(output.SimpleClusterMarker, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ClusterMarkerConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ClusterMarkerConfiguration => {
+  return {
+    ClusterMarker:
+      output.ClusterMarker != null ? deserializeAws_restJson1ClusterMarker(output.ClusterMarker, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ColorList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -14737,6 +23744,53 @@ const deserializeAws_restJson1ColorList = (output: any, context: __SerdeContext)
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ColorScale = (output: any, context: __SerdeContext): ColorScale => {
+  return {
+    ColorFillType: __expectString(output.ColorFillType),
+    Colors: output.Colors != null ? deserializeAws_restJson1ColorScaleColorList(output.Colors, context) : undefined,
+    NullValueColor:
+      output.NullValueColor != null ? deserializeAws_restJson1DataColor(output.NullValueColor, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ColorScaleColorList = (output: any, context: __SerdeContext): DataColor[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DataColor(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ColumnConfiguration = (output: any, context: __SerdeContext): ColumnConfiguration => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FormatConfiguration:
+      output.FormatConfiguration != null
+        ? deserializeAws_restJson1FormatConfiguration(output.FormatConfiguration, context)
+        : undefined,
+    Role: __expectString(output.Role),
+  } as any;
+};
+
+const deserializeAws_restJson1ColumnConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): ColumnConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ColumnConfiguration(entry, context);
     });
   return retVal;
 };
@@ -14814,6 +23868,42 @@ const deserializeAws_restJson1ColumnGroupSchemaList = (output: any, context: __S
   return retVal;
 };
 
+const deserializeAws_restJson1ColumnHierarchy = (output: any, context: __SerdeContext): ColumnHierarchy => {
+  return {
+    DateTimeHierarchy:
+      output.DateTimeHierarchy != null
+        ? deserializeAws_restJson1DateTimeHierarchy(output.DateTimeHierarchy, context)
+        : undefined,
+    ExplicitHierarchy:
+      output.ExplicitHierarchy != null
+        ? deserializeAws_restJson1ExplicitHierarchy(output.ExplicitHierarchy, context)
+        : undefined,
+    PredefinedHierarchy:
+      output.PredefinedHierarchy != null
+        ? deserializeAws_restJson1PredefinedHierarchy(output.PredefinedHierarchy, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ColumnHierarchyList = (output: any, context: __SerdeContext): ColumnHierarchy[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ColumnHierarchy(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ColumnIdentifier = (output: any, context: __SerdeContext): ColumnIdentifier => {
+  return {
+    ColumnName: __expectString(output.ColumnName),
+    DataSetIdentifier: __expectString(output.DataSetIdentifier),
+  } as any;
+};
+
 const deserializeAws_restJson1ColumnLevelPermissionRule = (
   output: any,
   context: __SerdeContext
@@ -14885,6 +23975,17 @@ const deserializeAws_restJson1ColumnSchemaList = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_restJson1ColumnSort = (output: any, context: __SerdeContext): ColumnSort => {
+  return {
+    AggregationFunction:
+      output.AggregationFunction != null
+        ? deserializeAws_restJson1AggregationFunction(output.AggregationFunction, context)
+        : undefined,
+    Direction: __expectString(output.Direction),
+    SortBy: output.SortBy != null ? deserializeAws_restJson1ColumnIdentifier(output.SortBy, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ColumnTag = (output: any, context: __SerdeContext): ColumnTag => {
   return {
     ColumnDescription:
@@ -14919,6 +24020,364 @@ const deserializeAws_restJson1ColumnTagNames = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_restJson1ColumnTooltipItem = (output: any, context: __SerdeContext): ColumnTooltipItem => {
+  return {
+    Aggregation:
+      output.Aggregation != null ? deserializeAws_restJson1AggregationFunction(output.Aggregation, context) : undefined,
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    Label: __expectString(output.Label),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1ComboChartAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): ComboChartAggregatedFieldWells => {
+  return {
+    BarValues:
+      output.BarValues != null ? deserializeAws_restJson1MeasureFieldList(output.BarValues, context) : undefined,
+    Category:
+      output.Category != null ? deserializeAws_restJson1DimensionFieldList(output.Category, context) : undefined,
+    Colors: output.Colors != null ? deserializeAws_restJson1DimensionFieldList(output.Colors, context) : undefined,
+    LineValues:
+      output.LineValues != null ? deserializeAws_restJson1MeasureFieldList(output.LineValues, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ComboChartConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ComboChartConfiguration => {
+  return {
+    BarDataLabels:
+      output.BarDataLabels != null
+        ? deserializeAws_restJson1DataLabelOptions(output.BarDataLabels, context)
+        : undefined,
+    BarsArrangement: __expectString(output.BarsArrangement),
+    CategoryAxis:
+      output.CategoryAxis != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.CategoryAxis, context)
+        : undefined,
+    CategoryLabelOptions:
+      output.CategoryLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.CategoryLabelOptions, context)
+        : undefined,
+    ColorLabelOptions:
+      output.ColorLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.ColorLabelOptions, context)
+        : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1ComboChartFieldWells(output.FieldWells, context) : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    LineDataLabels:
+      output.LineDataLabels != null
+        ? deserializeAws_restJson1DataLabelOptions(output.LineDataLabels, context)
+        : undefined,
+    PrimaryYAxisDisplayOptions:
+      output.PrimaryYAxisDisplayOptions != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.PrimaryYAxisDisplayOptions, context)
+        : undefined,
+    PrimaryYAxisLabelOptions:
+      output.PrimaryYAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.PrimaryYAxisLabelOptions, context)
+        : undefined,
+    ReferenceLines:
+      output.ReferenceLines != null
+        ? deserializeAws_restJson1ReferenceLineList(output.ReferenceLines, context)
+        : undefined,
+    SecondaryYAxisDisplayOptions:
+      output.SecondaryYAxisDisplayOptions != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.SecondaryYAxisDisplayOptions, context)
+        : undefined,
+    SecondaryYAxisLabelOptions:
+      output.SecondaryYAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.SecondaryYAxisLabelOptions, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1ComboChartSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ComboChartFieldWells = (output: any, context: __SerdeContext): ComboChartFieldWells => {
+  return {
+    ComboChartAggregatedFieldWells:
+      output.ComboChartAggregatedFieldWells != null
+        ? deserializeAws_restJson1ComboChartAggregatedFieldWells(output.ComboChartAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ComboChartSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ComboChartSortConfiguration => {
+  return {
+    CategoryItemsLimit:
+      output.CategoryItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.CategoryItemsLimit, context)
+        : undefined,
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+    ColorItemsLimit:
+      output.ColorItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.ColorItemsLimit, context)
+        : undefined,
+    ColorSort:
+      output.ColorSort != null ? deserializeAws_restJson1FieldSortOptionsList(output.ColorSort, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ComboChartVisual = (output: any, context: __SerdeContext): ComboChartVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1ComboChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1ComparisonConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ComparisonConfiguration => {
+  return {
+    ComparisonFormat:
+      output.ComparisonFormat != null
+        ? deserializeAws_restJson1ComparisonFormatConfiguration(output.ComparisonFormat, context)
+        : undefined,
+    ComparisonMethod: __expectString(output.ComparisonMethod),
+  } as any;
+};
+
+const deserializeAws_restJson1ComparisonFormatConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ComparisonFormatConfiguration => {
+  return {
+    NumberDisplayFormatConfiguration:
+      output.NumberDisplayFormatConfiguration != null
+        ? deserializeAws_restJson1NumberDisplayFormatConfiguration(output.NumberDisplayFormatConfiguration, context)
+        : undefined,
+    PercentageDisplayFormatConfiguration:
+      output.PercentageDisplayFormatConfiguration != null
+        ? deserializeAws_restJson1PercentageDisplayFormatConfiguration(
+            output.PercentageDisplayFormatConfiguration,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Computation = (output: any, context: __SerdeContext): Computation => {
+  return {
+    Forecast:
+      output.Forecast != null ? deserializeAws_restJson1ForecastComputation(output.Forecast, context) : undefined,
+    GrowthRate:
+      output.GrowthRate != null ? deserializeAws_restJson1GrowthRateComputation(output.GrowthRate, context) : undefined,
+    MaximumMinimum:
+      output.MaximumMinimum != null
+        ? deserializeAws_restJson1MaximumMinimumComputation(output.MaximumMinimum, context)
+        : undefined,
+    MetricComparison:
+      output.MetricComparison != null
+        ? deserializeAws_restJson1MetricComparisonComputation(output.MetricComparison, context)
+        : undefined,
+    PeriodOverPeriod:
+      output.PeriodOverPeriod != null
+        ? deserializeAws_restJson1PeriodOverPeriodComputation(output.PeriodOverPeriod, context)
+        : undefined,
+    PeriodToDate:
+      output.PeriodToDate != null
+        ? deserializeAws_restJson1PeriodToDateComputation(output.PeriodToDate, context)
+        : undefined,
+    TopBottomMovers:
+      output.TopBottomMovers != null
+        ? deserializeAws_restJson1TopBottomMoversComputation(output.TopBottomMovers, context)
+        : undefined,
+    TopBottomRanked:
+      output.TopBottomRanked != null
+        ? deserializeAws_restJson1TopBottomRankedComputation(output.TopBottomRanked, context)
+        : undefined,
+    TotalAggregation:
+      output.TotalAggregation != null
+        ? deserializeAws_restJson1TotalAggregationComputation(output.TotalAggregation, context)
+        : undefined,
+    UniqueValues:
+      output.UniqueValues != null
+        ? deserializeAws_restJson1UniqueValuesComputation(output.UniqueValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ComputationList = (output: any, context: __SerdeContext): Computation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Computation(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ConditionalFormattingColor = (
+  output: any,
+  context: __SerdeContext
+): ConditionalFormattingColor => {
+  return {
+    Gradient:
+      output.Gradient != null
+        ? deserializeAws_restJson1ConditionalFormattingGradientColor(output.Gradient, context)
+        : undefined,
+    Solid:
+      output.Solid != null ? deserializeAws_restJson1ConditionalFormattingSolidColor(output.Solid, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionalFormattingCustomIconCondition = (
+  output: any,
+  context: __SerdeContext
+): ConditionalFormattingCustomIconCondition => {
+  return {
+    Color: __expectString(output.Color),
+    DisplayConfiguration:
+      output.DisplayConfiguration != null
+        ? deserializeAws_restJson1ConditionalFormattingIconDisplayConfiguration(output.DisplayConfiguration, context)
+        : undefined,
+    Expression: __expectString(output.Expression),
+    IconOptions:
+      output.IconOptions != null
+        ? deserializeAws_restJson1ConditionalFormattingCustomIconOptions(output.IconOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionalFormattingCustomIconOptions = (
+  output: any,
+  context: __SerdeContext
+): ConditionalFormattingCustomIconOptions => {
+  return {
+    Icon: __expectString(output.Icon),
+    UnicodeIcon: __expectString(output.UnicodeIcon),
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionalFormattingGradientColor = (
+  output: any,
+  context: __SerdeContext
+): ConditionalFormattingGradientColor => {
+  return {
+    Color: output.Color != null ? deserializeAws_restJson1GradientColor(output.Color, context) : undefined,
+    Expression: __expectString(output.Expression),
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionalFormattingIcon = (
+  output: any,
+  context: __SerdeContext
+): ConditionalFormattingIcon => {
+  return {
+    CustomCondition:
+      output.CustomCondition != null
+        ? deserializeAws_restJson1ConditionalFormattingCustomIconCondition(output.CustomCondition, context)
+        : undefined,
+    IconSet:
+      output.IconSet != null
+        ? deserializeAws_restJson1ConditionalFormattingIconSet(output.IconSet, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionalFormattingIconDisplayConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ConditionalFormattingIconDisplayConfiguration => {
+  return {
+    IconDisplayOption: __expectString(output.IconDisplayOption),
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionalFormattingIconSet = (
+  output: any,
+  context: __SerdeContext
+): ConditionalFormattingIconSet => {
+  return {
+    Expression: __expectString(output.Expression),
+    IconSetType: __expectString(output.IconSetType),
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionalFormattingSolidColor = (
+  output: any,
+  context: __SerdeContext
+): ConditionalFormattingSolidColor => {
+  return {
+    Color: __expectString(output.Color),
+    Expression: __expectString(output.Expression),
+  } as any;
+};
+
+const deserializeAws_restJson1ContributionAnalysisDefault = (
+  output: any,
+  context: __SerdeContext
+): ContributionAnalysisDefault => {
+  return {
+    ContributorDimensions:
+      output.ContributorDimensions != null
+        ? deserializeAws_restJson1ContributorDimensionList(output.ContributorDimensions, context)
+        : undefined,
+    MeasureFieldId: __expectString(output.MeasureFieldId),
+  } as any;
+};
+
+const deserializeAws_restJson1ContributionAnalysisDefaultList = (
+  output: any,
+  context: __SerdeContext
+): ContributionAnalysisDefault[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ContributionAnalysisDefault(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ContributorDimensionList = (output: any, context: __SerdeContext): ColumnIdentifier[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ColumnIdentifier(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1CreateColumnsOperation = (
   output: any,
   context: __SerdeContext
@@ -14928,12 +24387,193 @@ const deserializeAws_restJson1CreateColumnsOperation = (
   } as any;
 };
 
+const deserializeAws_restJson1CurrencyDisplayFormatConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CurrencyDisplayFormatConfiguration => {
+  return {
+    DecimalPlacesConfiguration:
+      output.DecimalPlacesConfiguration != null
+        ? deserializeAws_restJson1DecimalPlacesConfiguration(output.DecimalPlacesConfiguration, context)
+        : undefined,
+    NegativeValueConfiguration:
+      output.NegativeValueConfiguration != null
+        ? deserializeAws_restJson1NegativeValueConfiguration(output.NegativeValueConfiguration, context)
+        : undefined,
+    NullValueFormatConfiguration:
+      output.NullValueFormatConfiguration != null
+        ? deserializeAws_restJson1NullValueFormatConfiguration(output.NullValueFormatConfiguration, context)
+        : undefined,
+    NumberScale: __expectString(output.NumberScale),
+    Prefix: __expectString(output.Prefix),
+    SeparatorConfiguration:
+      output.SeparatorConfiguration != null
+        ? deserializeAws_restJson1NumericSeparatorConfiguration(output.SeparatorConfiguration, context)
+        : undefined,
+    Suffix: __expectString(output.Suffix),
+    Symbol: __expectString(output.Symbol),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomActionFilterOperation = (
+  output: any,
+  context: __SerdeContext
+): CustomActionFilterOperation => {
+  return {
+    SelectedFieldsConfiguration:
+      output.SelectedFieldsConfiguration != null
+        ? deserializeAws_restJson1FilterOperationSelectedFieldsConfiguration(
+            output.SelectedFieldsConfiguration,
+            context
+          )
+        : undefined,
+    TargetVisualsConfiguration:
+      output.TargetVisualsConfiguration != null
+        ? deserializeAws_restJson1FilterOperationTargetVisualsConfiguration(output.TargetVisualsConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CustomActionNavigationOperation = (
+  output: any,
+  context: __SerdeContext
+): CustomActionNavigationOperation => {
+  return {
+    LocalNavigationConfiguration:
+      output.LocalNavigationConfiguration != null
+        ? deserializeAws_restJson1LocalNavigationConfiguration(output.LocalNavigationConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CustomActionSetParametersOperation = (
+  output: any,
+  context: __SerdeContext
+): CustomActionSetParametersOperation => {
+  return {
+    ParameterValueConfigurations:
+      output.ParameterValueConfigurations != null
+        ? deserializeAws_restJson1SetParameterValueConfigurationList(output.ParameterValueConfigurations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CustomActionURLOperation = (
+  output: any,
+  context: __SerdeContext
+): CustomActionURLOperation => {
+  return {
+    URLTarget: __expectString(output.URLTarget),
+    URLTemplate: __expectString(output.URLTemplate),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomContentConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CustomContentConfiguration => {
+  return {
+    ContentType: __expectString(output.ContentType),
+    ContentUrl: __expectString(output.ContentUrl),
+    ImageScaling: __expectString(output.ImageScaling),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomContentVisual = (output: any, context: __SerdeContext): CustomContentVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1CustomContentConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    DataSetIdentifier: __expectString(output.DataSetIdentifier),
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomFilterConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CustomFilterConfiguration => {
+  return {
+    CategoryValue: __expectString(output.CategoryValue),
+    MatchOperator: __expectString(output.MatchOperator),
+    NullOption: __expectString(output.NullOption),
+    ParameterName: __expectString(output.ParameterName),
+    SelectAllOptions: __expectString(output.SelectAllOptions),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomFilterListConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CustomFilterListConfiguration => {
+  return {
+    CategoryValues:
+      output.CategoryValues != null
+        ? deserializeAws_restJson1CategoryValueList(output.CategoryValues, context)
+        : undefined,
+    MatchOperator: __expectString(output.MatchOperator),
+    NullOption: __expectString(output.NullOption),
+    SelectAllOptions: __expectString(output.SelectAllOptions),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomNarrativeOptions = (
+  output: any,
+  context: __SerdeContext
+): CustomNarrativeOptions => {
+  return {
+    Narrative: __expectString(output.Narrative),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomParameterValues = (output: any, context: __SerdeContext): CustomParameterValues => {
+  return {
+    DateTimeValues:
+      output.DateTimeValues != null
+        ? deserializeAws_restJson1DateTimeDefaultValueList(output.DateTimeValues, context)
+        : undefined,
+    DecimalValues:
+      output.DecimalValues != null
+        ? deserializeAws_restJson1DecimalDefaultValueList(output.DecimalValues, context)
+        : undefined,
+    IntegerValues:
+      output.IntegerValues != null
+        ? deserializeAws_restJson1IntegerDefaultValueList(output.IntegerValues, context)
+        : undefined,
+    StringValues:
+      output.StringValues != null
+        ? deserializeAws_restJson1StringDefaultValueList(output.StringValues, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1CustomSql = (output: any, context: __SerdeContext): CustomSql => {
   return {
     Columns: output.Columns != null ? deserializeAws_restJson1InputColumnList(output.Columns, context) : undefined,
     DataSourceArn: __expectString(output.DataSourceArn),
     Name: __expectString(output.Name),
     SqlQuery: __expectString(output.SqlQuery),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomValuesConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CustomValuesConfiguration => {
+  return {
+    CustomValues:
+      output.CustomValues != null
+        ? deserializeAws_restJson1CustomParameterValues(output.CustomValues, context)
+        : undefined,
+    IncludeNullValue: __expectBoolean(output.IncludeNullValue),
   } as any;
 };
 
@@ -14962,6 +24602,10 @@ const deserializeAws_restJson1DashboardError = (output: any, context: __SerdeCon
   return {
     Message: __expectString(output.Message),
     Type: __expectString(output.Type),
+    ViolatedEntities:
+      output.ViolatedEntities != null
+        ? deserializeAws_restJson1EntityList(output.ViolatedEntities, context)
+        : undefined,
   } as any;
 };
 
@@ -14975,6 +24619,61 @@ const deserializeAws_restJson1DashboardErrorList = (output: any, context: __Serd
       return deserializeAws_restJson1DashboardError(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1DashboardPublishOptions = (
+  output: any,
+  context: __SerdeContext
+): DashboardPublishOptions => {
+  return {
+    AdHocFilteringOption:
+      output.AdHocFilteringOption != null
+        ? deserializeAws_restJson1AdHocFilteringOption(output.AdHocFilteringOption, context)
+        : undefined,
+    DataPointDrillUpDownOption:
+      output.DataPointDrillUpDownOption != null
+        ? deserializeAws_restJson1DataPointDrillUpDownOption(output.DataPointDrillUpDownOption, context)
+        : undefined,
+    DataPointMenuLabelOption:
+      output.DataPointMenuLabelOption != null
+        ? deserializeAws_restJson1DataPointMenuLabelOption(output.DataPointMenuLabelOption, context)
+        : undefined,
+    DataPointTooltipOption:
+      output.DataPointTooltipOption != null
+        ? deserializeAws_restJson1DataPointTooltipOption(output.DataPointTooltipOption, context)
+        : undefined,
+    ExportToCSVOption:
+      output.ExportToCSVOption != null
+        ? deserializeAws_restJson1ExportToCSVOption(output.ExportToCSVOption, context)
+        : undefined,
+    ExportWithHiddenFieldsOption:
+      output.ExportWithHiddenFieldsOption != null
+        ? deserializeAws_restJson1ExportWithHiddenFieldsOption(output.ExportWithHiddenFieldsOption, context)
+        : undefined,
+    SheetControlsOption:
+      output.SheetControlsOption != null
+        ? deserializeAws_restJson1SheetControlsOption(output.SheetControlsOption, context)
+        : undefined,
+    SheetLayoutElementMaximizationOption:
+      output.SheetLayoutElementMaximizationOption != null
+        ? deserializeAws_restJson1SheetLayoutElementMaximizationOption(
+            output.SheetLayoutElementMaximizationOption,
+            context
+          )
+        : undefined,
+    VisualAxisSortOption:
+      output.VisualAxisSortOption != null
+        ? deserializeAws_restJson1VisualAxisSortOption(output.VisualAxisSortOption, context)
+        : undefined,
+    VisualMenuOption:
+      output.VisualMenuOption != null
+        ? deserializeAws_restJson1VisualMenuOption(output.VisualMenuOption, context)
+        : undefined,
+    VisualPublishOptions:
+      output.VisualPublishOptions != null
+        ? deserializeAws_restJson1DashboardVisualPublishOptions(output.VisualPublishOptions, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1DashboardSummary = (output: any, context: __SerdeContext): DashboardSummary => {
@@ -15029,6 +24728,37 @@ const deserializeAws_restJson1DashboardVersion = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1DashboardVersionDefinition = (
+  output: any,
+  context: __SerdeContext
+): DashboardVersionDefinition => {
+  return {
+    AnalysisDefaults:
+      output.AnalysisDefaults != null
+        ? deserializeAws_restJson1AnalysisDefaults(output.AnalysisDefaults, context)
+        : undefined,
+    CalculatedFields:
+      output.CalculatedFields != null
+        ? deserializeAws_restJson1CalculatedFields(output.CalculatedFields, context)
+        : undefined,
+    ColumnConfigurations:
+      output.ColumnConfigurations != null
+        ? deserializeAws_restJson1ColumnConfigurationList(output.ColumnConfigurations, context)
+        : undefined,
+    DataSetIdentifierDeclarations:
+      output.DataSetIdentifierDeclarations != null
+        ? deserializeAws_restJson1DataSetIdentifierDeclarationList(output.DataSetIdentifierDeclarations, context)
+        : undefined,
+    FilterGroups:
+      output.FilterGroups != null ? deserializeAws_restJson1FilterGroupList(output.FilterGroups, context) : undefined,
+    ParameterDeclarations:
+      output.ParameterDeclarations != null
+        ? deserializeAws_restJson1ParameterDeclarationList(output.ParameterDeclarations, context)
+        : undefined,
+    Sheets: output.Sheets != null ? deserializeAws_restJson1SheetDefinitionList(output.Sheets, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1DashboardVersionSummary = (
   output: any,
   context: __SerdeContext
@@ -15061,12 +24791,196 @@ const deserializeAws_restJson1DashboardVersionSummaryList = (
   return retVal;
 };
 
+const deserializeAws_restJson1DashboardVisualPublishOptions = (
+  output: any,
+  context: __SerdeContext
+): DashboardVisualPublishOptions => {
+  return {
+    ExportHiddenFieldsOption:
+      output.ExportHiddenFieldsOption != null
+        ? deserializeAws_restJson1ExportHiddenFieldsOption(output.ExportHiddenFieldsOption, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DataBarsOptions = (output: any, context: __SerdeContext): DataBarsOptions => {
+  return {
+    FieldId: __expectString(output.FieldId),
+    NegativeColor: __expectString(output.NegativeColor),
+    PositiveColor: __expectString(output.PositiveColor),
+  } as any;
+};
+
+const deserializeAws_restJson1DatabricksParameters = (output: any, context: __SerdeContext): DatabricksParameters => {
+  return {
+    Host: __expectString(output.Host),
+    Port: __expectInt32(output.Port),
+    SqlEndpointPath: __expectString(output.SqlEndpointPath),
+  } as any;
+};
+
+const deserializeAws_restJson1DataColor = (output: any, context: __SerdeContext): DataColor => {
+  return {
+    Color: __expectString(output.Color),
+    DataValue: __limitedParseDouble(output.DataValue),
+  } as any;
+};
+
 const deserializeAws_restJson1DataColorPalette = (output: any, context: __SerdeContext): DataColorPalette => {
   return {
     Colors: output.Colors != null ? deserializeAws_restJson1ColorList(output.Colors, context) : undefined,
     EmptyFillColor: __expectString(output.EmptyFillColor),
     MinMaxGradient:
       output.MinMaxGradient != null ? deserializeAws_restJson1ColorList(output.MinMaxGradient, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DataFieldSeriesItem = (output: any, context: __SerdeContext): DataFieldSeriesItem => {
+  return {
+    AxisBinding: __expectString(output.AxisBinding),
+    FieldId: __expectString(output.FieldId),
+    FieldValue: __expectString(output.FieldValue),
+    Settings:
+      output.Settings != null ? deserializeAws_restJson1LineChartSeriesSettings(output.Settings, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DataLabelOptions = (output: any, context: __SerdeContext): DataLabelOptions => {
+  return {
+    CategoryLabelVisibility: __expectString(output.CategoryLabelVisibility),
+    DataLabelTypes:
+      output.DataLabelTypes != null
+        ? deserializeAws_restJson1DataLabelTypes(output.DataLabelTypes, context)
+        : undefined,
+    LabelColor: __expectString(output.LabelColor),
+    LabelContent: __expectString(output.LabelContent),
+    LabelFontConfiguration:
+      output.LabelFontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.LabelFontConfiguration, context)
+        : undefined,
+    MeasureLabelVisibility: __expectString(output.MeasureLabelVisibility),
+    Overlap: __expectString(output.Overlap),
+    Position: __expectString(output.Position),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1DataLabelType = (output: any, context: __SerdeContext): DataLabelType => {
+  return {
+    DataPathLabelType:
+      output.DataPathLabelType != null
+        ? deserializeAws_restJson1DataPathLabelType(output.DataPathLabelType, context)
+        : undefined,
+    FieldLabelType:
+      output.FieldLabelType != null
+        ? deserializeAws_restJson1FieldLabelType(output.FieldLabelType, context)
+        : undefined,
+    MaximumLabelType:
+      output.MaximumLabelType != null
+        ? deserializeAws_restJson1MaximumLabelType(output.MaximumLabelType, context)
+        : undefined,
+    MinimumLabelType:
+      output.MinimumLabelType != null
+        ? deserializeAws_restJson1MinimumLabelType(output.MinimumLabelType, context)
+        : undefined,
+    RangeEndsLabelType:
+      output.RangeEndsLabelType != null
+        ? deserializeAws_restJson1RangeEndsLabelType(output.RangeEndsLabelType, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DataLabelTypes = (output: any, context: __SerdeContext): DataLabelType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DataLabelType(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DataPathColor = (output: any, context: __SerdeContext): DataPathColor => {
+  return {
+    Color: __expectString(output.Color),
+    Element: output.Element != null ? deserializeAws_restJson1DataPathValue(output.Element, context) : undefined,
+    TimeGranularity: __expectString(output.TimeGranularity),
+  } as any;
+};
+
+const deserializeAws_restJson1DataPathColorList = (output: any, context: __SerdeContext): DataPathColor[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DataPathColor(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DataPathLabelType = (output: any, context: __SerdeContext): DataPathLabelType => {
+  return {
+    FieldId: __expectString(output.FieldId),
+    FieldValue: __expectString(output.FieldValue),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1DataPathSort = (output: any, context: __SerdeContext): DataPathSort => {
+  return {
+    Direction: __expectString(output.Direction),
+    SortPaths:
+      output.SortPaths != null ? deserializeAws_restJson1DataPathValueList(output.SortPaths, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DataPathValue = (output: any, context: __SerdeContext): DataPathValue => {
+  return {
+    FieldId: __expectString(output.FieldId),
+    FieldValue: __expectString(output.FieldValue),
+  } as any;
+};
+
+const deserializeAws_restJson1DataPathValueList = (output: any, context: __SerdeContext): DataPathValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DataPathValue(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DataPointDrillUpDownOption = (
+  output: any,
+  context: __SerdeContext
+): DataPointDrillUpDownOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1DataPointMenuLabelOption = (
+  output: any,
+  context: __SerdeContext
+): DataPointMenuLabelOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1DataPointTooltipOption = (
+  output: any,
+  context: __SerdeContext
+): DataPointTooltipOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
   } as any;
 };
 
@@ -15159,6 +25073,31 @@ const deserializeAws_restJson1DataSetConfigurationList = (
   return retVal;
 };
 
+const deserializeAws_restJson1DataSetIdentifierDeclaration = (
+  output: any,
+  context: __SerdeContext
+): DataSetIdentifierDeclaration => {
+  return {
+    DataSetArn: __expectString(output.DataSetArn),
+    Identifier: __expectString(output.Identifier),
+  } as any;
+};
+
+const deserializeAws_restJson1DataSetIdentifierDeclarationList = (
+  output: any,
+  context: __SerdeContext
+): DataSetIdentifierDeclaration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DataSetIdentifierDeclaration(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1DataSetSchema = (output: any, context: __SerdeContext): DataSetSchema => {
   return {
     ColumnSchemaList:
@@ -15236,6 +25175,7 @@ const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     Name: __expectString(output.Name),
+    SecretArn: __expectString(output.SecretArn),
     SslProperties:
       output.SslProperties != null ? deserializeAws_restJson1SslProperties(output.SslProperties, context) : undefined,
     Status: __expectString(output.Status),
@@ -15307,6 +25247,11 @@ const deserializeAws_restJson1DataSourceParameters = (output: any, context: __Se
         output.AwsIotAnalyticsParameters,
         context
       ),
+    };
+  }
+  if (output.DatabricksParameters != null) {
+    return {
+      DatabricksParameters: deserializeAws_restJson1DatabricksParameters(output.DatabricksParameters, context),
     };
   }
   if (output.ExasolParameters != null) {
@@ -15407,6 +25352,452 @@ const deserializeAws_restJson1DataSourceParametersList = (
   return retVal;
 };
 
+const deserializeAws_restJson1DataSourceSummary = (output: any, context: __SerdeContext): DataSourceSummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    CreatedTime:
+      output.CreatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
+        : undefined,
+    DataSourceId: __expectString(output.DataSourceId),
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1DataSourceSummaryList = (output: any, context: __SerdeContext): DataSourceSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DataSourceSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DateAxisOptions = (output: any, context: __SerdeContext): DateAxisOptions => {
+  return {
+    MissingDateVisibility: __expectString(output.MissingDateVisibility),
+  } as any;
+};
+
+const deserializeAws_restJson1DateDimensionField = (output: any, context: __SerdeContext): DateDimensionField => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    DateGranularity: __expectString(output.DateGranularity),
+    FieldId: __expectString(output.FieldId),
+    FormatConfiguration:
+      output.FormatConfiguration != null
+        ? deserializeAws_restJson1DateTimeFormatConfiguration(output.FormatConfiguration, context)
+        : undefined,
+    HierarchyId: __expectString(output.HierarchyId),
+  } as any;
+};
+
+const deserializeAws_restJson1DateMeasureField = (output: any, context: __SerdeContext): DateMeasureField => {
+  return {
+    AggregationFunction: __expectString(output.AggregationFunction),
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FieldId: __expectString(output.FieldId),
+    FormatConfiguration:
+      output.FormatConfiguration != null
+        ? deserializeAws_restJson1DateTimeFormatConfiguration(output.FormatConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DateTimeDefaultValueList = (output: any, context: __SerdeContext): Date[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DateTimeDefaultValues = (output: any, context: __SerdeContext): DateTimeDefaultValues => {
+  return {
+    DynamicValue:
+      output.DynamicValue != null
+        ? deserializeAws_restJson1DynamicDefaultValue(output.DynamicValue, context)
+        : undefined,
+    RollingDate:
+      output.RollingDate != null
+        ? deserializeAws_restJson1RollingDateConfiguration(output.RollingDate, context)
+        : undefined,
+    StaticValues:
+      output.StaticValues != null
+        ? deserializeAws_restJson1DateTimeDefaultValueList(output.StaticValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DateTimeFormatConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DateTimeFormatConfiguration => {
+  return {
+    DateTimeFormat: __expectString(output.DateTimeFormat),
+    NullValueFormatConfiguration:
+      output.NullValueFormatConfiguration != null
+        ? deserializeAws_restJson1NullValueFormatConfiguration(output.NullValueFormatConfiguration, context)
+        : undefined,
+    NumericFormatConfiguration:
+      output.NumericFormatConfiguration != null
+        ? deserializeAws_restJson1NumericFormatConfiguration(output.NumericFormatConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DateTimeHierarchy = (output: any, context: __SerdeContext): DateTimeHierarchy => {
+  return {
+    DrillDownFilters:
+      output.DrillDownFilters != null
+        ? deserializeAws_restJson1DrillDownFilterList(output.DrillDownFilters, context)
+        : undefined,
+    HierarchyId: __expectString(output.HierarchyId),
+  } as any;
+};
+
+const deserializeAws_restJson1DateTimeParameterDeclaration = (
+  output: any,
+  context: __SerdeContext
+): DateTimeParameterDeclaration => {
+  return {
+    DefaultValues:
+      output.DefaultValues != null
+        ? deserializeAws_restJson1DateTimeDefaultValues(output.DefaultValues, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    TimeGranularity: __expectString(output.TimeGranularity),
+    ValueWhenUnset:
+      output.ValueWhenUnset != null
+        ? deserializeAws_restJson1DateTimeValueWhenUnsetConfiguration(output.ValueWhenUnset, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DateTimePickerControlDisplayOptions = (
+  output: any,
+  context: __SerdeContext
+): DateTimePickerControlDisplayOptions => {
+  return {
+    DateTimeFormat: __expectString(output.DateTimeFormat),
+    TitleOptions:
+      output.TitleOptions != null ? deserializeAws_restJson1LabelOptions(output.TitleOptions, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DateTimeValueWhenUnsetConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DateTimeValueWhenUnsetConfiguration => {
+  return {
+    CustomValue:
+      output.CustomValue != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CustomValue)))
+        : undefined,
+    ValueWhenUnsetOption: __expectString(output.ValueWhenUnsetOption),
+  } as any;
+};
+
+const deserializeAws_restJson1DecimalDefaultValueList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __limitedParseDouble(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DecimalDefaultValues = (output: any, context: __SerdeContext): DecimalDefaultValues => {
+  return {
+    DynamicValue:
+      output.DynamicValue != null
+        ? deserializeAws_restJson1DynamicDefaultValue(output.DynamicValue, context)
+        : undefined,
+    StaticValues:
+      output.StaticValues != null
+        ? deserializeAws_restJson1DecimalDefaultValueList(output.StaticValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DecimalParameterDeclaration = (
+  output: any,
+  context: __SerdeContext
+): DecimalParameterDeclaration => {
+  return {
+    DefaultValues:
+      output.DefaultValues != null
+        ? deserializeAws_restJson1DecimalDefaultValues(output.DefaultValues, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    ParameterValueType: __expectString(output.ParameterValueType),
+    ValueWhenUnset:
+      output.ValueWhenUnset != null
+        ? deserializeAws_restJson1DecimalValueWhenUnsetConfiguration(output.ValueWhenUnset, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DecimalPlacesConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DecimalPlacesConfiguration => {
+  return {
+    DecimalPlaces: __expectLong(output.DecimalPlaces),
+  } as any;
+};
+
+const deserializeAws_restJson1DecimalValueWhenUnsetConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DecimalValueWhenUnsetConfiguration => {
+  return {
+    CustomValue: __limitedParseDouble(output.CustomValue),
+    ValueWhenUnsetOption: __expectString(output.ValueWhenUnsetOption),
+  } as any;
+};
+
+const deserializeAws_restJson1DefaultFreeFormLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DefaultFreeFormLayoutConfiguration => {
+  return {
+    CanvasSizeOptions:
+      output.CanvasSizeOptions != null
+        ? deserializeAws_restJson1FreeFormLayoutCanvasSizeOptions(output.CanvasSizeOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DefaultGridLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DefaultGridLayoutConfiguration => {
+  return {
+    CanvasSizeOptions:
+      output.CanvasSizeOptions != null
+        ? deserializeAws_restJson1GridLayoutCanvasSizeOptions(output.CanvasSizeOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DefaultInteractiveLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DefaultInteractiveLayoutConfiguration => {
+  return {
+    FreeForm:
+      output.FreeForm != null
+        ? deserializeAws_restJson1DefaultFreeFormLayoutConfiguration(output.FreeForm, context)
+        : undefined,
+    Grid:
+      output.Grid != null ? deserializeAws_restJson1DefaultGridLayoutConfiguration(output.Grid, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DefaultNewSheetConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DefaultNewSheetConfiguration => {
+  return {
+    InteractiveLayoutConfiguration:
+      output.InteractiveLayoutConfiguration != null
+        ? deserializeAws_restJson1DefaultInteractiveLayoutConfiguration(output.InteractiveLayoutConfiguration, context)
+        : undefined,
+    PaginatedLayoutConfiguration:
+      output.PaginatedLayoutConfiguration != null
+        ? deserializeAws_restJson1DefaultPaginatedLayoutConfiguration(output.PaginatedLayoutConfiguration, context)
+        : undefined,
+    SheetContentType: __expectString(output.SheetContentType),
+  } as any;
+};
+
+const deserializeAws_restJson1DefaultPaginatedLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DefaultPaginatedLayoutConfiguration => {
+  return {
+    SectionBased:
+      output.SectionBased != null
+        ? deserializeAws_restJson1DefaultSectionBasedLayoutConfiguration(output.SectionBased, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DefaultSectionBasedLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DefaultSectionBasedLayoutConfiguration => {
+  return {
+    CanvasSizeOptions:
+      output.CanvasSizeOptions != null
+        ? deserializeAws_restJson1SectionBasedLayoutCanvasSizeOptions(output.CanvasSizeOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DestinationParameterValueConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DestinationParameterValueConfiguration => {
+  return {
+    CustomValuesConfiguration:
+      output.CustomValuesConfiguration != null
+        ? deserializeAws_restJson1CustomValuesConfiguration(output.CustomValuesConfiguration, context)
+        : undefined,
+    SelectAllValueOptions: __expectString(output.SelectAllValueOptions),
+    SourceField: __expectString(output.SourceField),
+    SourceParameterName: __expectString(output.SourceParameterName),
+  } as any;
+};
+
+const deserializeAws_restJson1DimensionField = (output: any, context: __SerdeContext): DimensionField => {
+  return {
+    CategoricalDimensionField:
+      output.CategoricalDimensionField != null
+        ? deserializeAws_restJson1CategoricalDimensionField(output.CategoricalDimensionField, context)
+        : undefined,
+    DateDimensionField:
+      output.DateDimensionField != null
+        ? deserializeAws_restJson1DateDimensionField(output.DateDimensionField, context)
+        : undefined,
+    NumericalDimensionField:
+      output.NumericalDimensionField != null
+        ? deserializeAws_restJson1NumericalDimensionField(output.NumericalDimensionField, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DimensionFieldList = (output: any, context: __SerdeContext): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DonutCenterOptions = (output: any, context: __SerdeContext): DonutCenterOptions => {
+  return {
+    LabelVisibility: __expectString(output.LabelVisibility),
+  } as any;
+};
+
+const deserializeAws_restJson1DonutOptions = (output: any, context: __SerdeContext): DonutOptions => {
+  return {
+    ArcOptions: output.ArcOptions != null ? deserializeAws_restJson1ArcOptions(output.ArcOptions, context) : undefined,
+    DonutCenterOptions:
+      output.DonutCenterOptions != null
+        ? deserializeAws_restJson1DonutCenterOptions(output.DonutCenterOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DrillDownFilter = (output: any, context: __SerdeContext): DrillDownFilter => {
+  return {
+    CategoryFilter:
+      output.CategoryFilter != null
+        ? deserializeAws_restJson1CategoryDrillDownFilter(output.CategoryFilter, context)
+        : undefined,
+    NumericEqualityFilter:
+      output.NumericEqualityFilter != null
+        ? deserializeAws_restJson1NumericEqualityDrillDownFilter(output.NumericEqualityFilter, context)
+        : undefined,
+    TimeRangeFilter:
+      output.TimeRangeFilter != null
+        ? deserializeAws_restJson1TimeRangeDrillDownFilter(output.TimeRangeFilter, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DrillDownFilterList = (output: any, context: __SerdeContext): DrillDownFilter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DrillDownFilter(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DropDownControlDisplayOptions = (
+  output: any,
+  context: __SerdeContext
+): DropDownControlDisplayOptions => {
+  return {
+    SelectAllOptions:
+      output.SelectAllOptions != null
+        ? deserializeAws_restJson1ListControlSelectAllOptions(output.SelectAllOptions, context)
+        : undefined,
+    TitleOptions:
+      output.TitleOptions != null ? deserializeAws_restJson1LabelOptions(output.TitleOptions, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DynamicDefaultValue = (output: any, context: __SerdeContext): DynamicDefaultValue => {
+  return {
+    DefaultValueColumn:
+      output.DefaultValueColumn != null
+        ? deserializeAws_restJson1ColumnIdentifier(output.DefaultValueColumn, context)
+        : undefined,
+    GroupNameColumn:
+      output.GroupNameColumn != null
+        ? deserializeAws_restJson1ColumnIdentifier(output.GroupNameColumn, context)
+        : undefined,
+    UserNameColumn:
+      output.UserNameColumn != null
+        ? deserializeAws_restJson1ColumnIdentifier(output.UserNameColumn, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EmptyVisual = (output: any, context: __SerdeContext): EmptyVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    DataSetIdentifier: __expectString(output.DataSetIdentifier),
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1Entity = (output: any, context: __SerdeContext): Entity => {
+  return {
+    Path: __expectString(output.Path),
+  } as any;
+};
+
+const deserializeAws_restJson1EntityList = (output: any, context: __SerdeContext): Entity[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Entity(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
     Message: __expectString(output.Message),
@@ -15418,6 +25809,77 @@ const deserializeAws_restJson1ExasolParameters = (output: any, context: __SerdeC
   return {
     Host: __expectString(output.Host),
     Port: __expectInt32(output.Port),
+  } as any;
+};
+
+const deserializeAws_restJson1ExcludePeriodConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ExcludePeriodConfiguration => {
+  return {
+    Amount: __expectInt32(output.Amount),
+    Granularity: __expectString(output.Granularity),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_restJson1ExplicitHierarchy = (output: any, context: __SerdeContext): ExplicitHierarchy => {
+  return {
+    Columns:
+      output.Columns != null ? deserializeAws_restJson1ExplicitHierarchyColumnList(output.Columns, context) : undefined,
+    DrillDownFilters:
+      output.DrillDownFilters != null
+        ? deserializeAws_restJson1DrillDownFilterList(output.DrillDownFilters, context)
+        : undefined,
+    HierarchyId: __expectString(output.HierarchyId),
+  } as any;
+};
+
+const deserializeAws_restJson1ExplicitHierarchyColumnList = (
+  output: any,
+  context: __SerdeContext
+): ColumnIdentifier[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ColumnIdentifier(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ExportHiddenFieldsOption = (
+  output: any,
+  context: __SerdeContext
+): ExportHiddenFieldsOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1ExportToCSVOption = (output: any, context: __SerdeContext): ExportToCSVOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1ExportWithHiddenFieldsOption = (
+  output: any,
+  context: __SerdeContext
+): ExportWithHiddenFieldsOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1FieldBasedTooltip = (output: any, context: __SerdeContext): FieldBasedTooltip => {
+  return {
+    AggregationVisibility: __expectString(output.AggregationVisibility),
+    TooltipFields:
+      output.TooltipFields != null ? deserializeAws_restJson1TooltipItemList(output.TooltipFields, context) : undefined,
+    TooltipTitleType: __expectString(output.TooltipTitleType),
   } as any;
 };
 
@@ -15433,16 +25895,529 @@ const deserializeAws_restJson1FieldFolderMap = (output: any, context: __SerdeCon
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1FieldFolder(value, context),
-    };
+    acc[key] = deserializeAws_restJson1FieldFolder(value, context);
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1FieldLabelType = (output: any, context: __SerdeContext): FieldLabelType => {
+  return {
+    FieldId: __expectString(output.FieldId),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1FieldOrderList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FieldSeriesItem = (output: any, context: __SerdeContext): FieldSeriesItem => {
+  return {
+    AxisBinding: __expectString(output.AxisBinding),
+    FieldId: __expectString(output.FieldId),
+    Settings:
+      output.Settings != null ? deserializeAws_restJson1LineChartSeriesSettings(output.Settings, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FieldSort = (output: any, context: __SerdeContext): FieldSort => {
+  return {
+    Direction: __expectString(output.Direction),
+    FieldId: __expectString(output.FieldId),
+  } as any;
+};
+
+const deserializeAws_restJson1FieldSortOptions = (output: any, context: __SerdeContext): FieldSortOptions => {
+  return {
+    ColumnSort: output.ColumnSort != null ? deserializeAws_restJson1ColumnSort(output.ColumnSort, context) : undefined,
+    FieldSort: output.FieldSort != null ? deserializeAws_restJson1FieldSort(output.FieldSort, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FieldSortOptionsList = (output: any, context: __SerdeContext): FieldSortOptions[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FieldSortOptions(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FieldTooltipItem = (output: any, context: __SerdeContext): FieldTooltipItem => {
+  return {
+    FieldId: __expectString(output.FieldId),
+    Label: __expectString(output.Label),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1FilledMapAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): FilledMapAggregatedFieldWells => {
+  return {
+    Geospatial:
+      output.Geospatial != null
+        ? deserializeAws_restJson1FilledMapDimensionFieldList(output.Geospatial, context)
+        : undefined,
+    Values:
+      output.Values != null ? deserializeAws_restJson1FilledMapMeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilledMapConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): FilledMapConditionalFormatting => {
+  return {
+    ConditionalFormattingOptions:
+      output.ConditionalFormattingOptions != null
+        ? deserializeAws_restJson1FilledMapConditionalFormattingOptionList(output.ConditionalFormattingOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilledMapConditionalFormattingOption = (
+  output: any,
+  context: __SerdeContext
+): FilledMapConditionalFormattingOption => {
+  return {
+    Shape:
+      output.Shape != null
+        ? deserializeAws_restJson1FilledMapShapeConditionalFormatting(output.Shape, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilledMapConditionalFormattingOptionList = (
+  output: any,
+  context: __SerdeContext
+): FilledMapConditionalFormattingOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FilledMapConditionalFormattingOption(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FilledMapConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FilledMapConfiguration => {
+  return {
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1FilledMapFieldWells(output.FieldWells, context) : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    MapStyleOptions:
+      output.MapStyleOptions != null
+        ? deserializeAws_restJson1GeospatialMapStyleOptions(output.MapStyleOptions, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1FilledMapSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+    WindowOptions:
+      output.WindowOptions != null
+        ? deserializeAws_restJson1GeospatialWindowOptions(output.WindowOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilledMapDimensionFieldList = (
+  output: any,
+  context: __SerdeContext
+): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FilledMapFieldWells = (output: any, context: __SerdeContext): FilledMapFieldWells => {
+  return {
+    FilledMapAggregatedFieldWells:
+      output.FilledMapAggregatedFieldWells != null
+        ? deserializeAws_restJson1FilledMapAggregatedFieldWells(output.FilledMapAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilledMapMeasureFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FilledMapShapeConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): FilledMapShapeConditionalFormatting => {
+  return {
+    FieldId: __expectString(output.FieldId),
+    Format: output.Format != null ? deserializeAws_restJson1ShapeConditionalFormat(output.Format, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilledMapSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FilledMapSortConfiguration => {
+  return {
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilledMapVisual = (output: any, context: __SerdeContext): FilledMapVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1FilledMapConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    ConditionalFormatting:
+      output.ConditionalFormatting != null
+        ? deserializeAws_restJson1FilledMapConditionalFormatting(output.ConditionalFormatting, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1Filter = (output: any, context: __SerdeContext): Filter => {
+  return {
+    CategoryFilter:
+      output.CategoryFilter != null
+        ? deserializeAws_restJson1CategoryFilter(output.CategoryFilter, context)
+        : undefined,
+    NumericEqualityFilter:
+      output.NumericEqualityFilter != null
+        ? deserializeAws_restJson1NumericEqualityFilter(output.NumericEqualityFilter, context)
+        : undefined,
+    NumericRangeFilter:
+      output.NumericRangeFilter != null
+        ? deserializeAws_restJson1NumericRangeFilter(output.NumericRangeFilter, context)
+        : undefined,
+    RelativeDatesFilter:
+      output.RelativeDatesFilter != null
+        ? deserializeAws_restJson1RelativeDatesFilter(output.RelativeDatesFilter, context)
+        : undefined,
+    TimeEqualityFilter:
+      output.TimeEqualityFilter != null
+        ? deserializeAws_restJson1TimeEqualityFilter(output.TimeEqualityFilter, context)
+        : undefined,
+    TimeRangeFilter:
+      output.TimeRangeFilter != null
+        ? deserializeAws_restJson1TimeRangeFilter(output.TimeRangeFilter, context)
+        : undefined,
+    TopBottomFilter:
+      output.TopBottomFilter != null
+        ? deserializeAws_restJson1TopBottomFilter(output.TopBottomFilter, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilterControl = (output: any, context: __SerdeContext): FilterControl => {
+  return {
+    DateTimePicker:
+      output.DateTimePicker != null
+        ? deserializeAws_restJson1FilterDateTimePickerControl(output.DateTimePicker, context)
+        : undefined,
+    Dropdown:
+      output.Dropdown != null ? deserializeAws_restJson1FilterDropDownControl(output.Dropdown, context) : undefined,
+    List: output.List != null ? deserializeAws_restJson1FilterListControl(output.List, context) : undefined,
+    RelativeDateTime:
+      output.RelativeDateTime != null
+        ? deserializeAws_restJson1FilterRelativeDateTimeControl(output.RelativeDateTime, context)
+        : undefined,
+    Slider: output.Slider != null ? deserializeAws_restJson1FilterSliderControl(output.Slider, context) : undefined,
+    TextArea:
+      output.TextArea != null ? deserializeAws_restJson1FilterTextAreaControl(output.TextArea, context) : undefined,
+    TextField:
+      output.TextField != null ? deserializeAws_restJson1FilterTextFieldControl(output.TextField, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilterControlList = (output: any, context: __SerdeContext): FilterControl[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FilterControl(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FilterDateTimePickerControl = (
+  output: any,
+  context: __SerdeContext
+): FilterDateTimePickerControl => {
+  return {
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1DateTimePickerControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    FilterControlId: __expectString(output.FilterControlId),
+    SourceFilterId: __expectString(output.SourceFilterId),
+    Title: __expectString(output.Title),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1FilterDropDownControl = (output: any, context: __SerdeContext): FilterDropDownControl => {
+  return {
+    CascadingControlConfiguration:
+      output.CascadingControlConfiguration != null
+        ? deserializeAws_restJson1CascadingControlConfiguration(output.CascadingControlConfiguration, context)
+        : undefined,
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1DropDownControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    FilterControlId: __expectString(output.FilterControlId),
+    SelectableValues:
+      output.SelectableValues != null
+        ? deserializeAws_restJson1FilterSelectableValues(output.SelectableValues, context)
+        : undefined,
+    SourceFilterId: __expectString(output.SourceFilterId),
+    Title: __expectString(output.Title),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1FilteredVisualsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FilterGroup = (output: any, context: __SerdeContext): FilterGroup => {
+  return {
+    CrossDataset: __expectString(output.CrossDataset),
+    FilterGroupId: __expectString(output.FilterGroupId),
+    Filters: output.Filters != null ? deserializeAws_restJson1FilterList(output.Filters, context) : undefined,
+    ScopeConfiguration:
+      output.ScopeConfiguration != null
+        ? deserializeAws_restJson1FilterScopeConfiguration(output.ScopeConfiguration, context)
+        : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_restJson1FilterGroupList = (output: any, context: __SerdeContext): FilterGroup[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FilterGroup(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FilterList = (output: any, context: __SerdeContext): Filter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Filter(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FilterListConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FilterListConfiguration => {
+  return {
+    CategoryValues:
+      output.CategoryValues != null
+        ? deserializeAws_restJson1CategoryValueList(output.CategoryValues, context)
+        : undefined,
+    MatchOperator: __expectString(output.MatchOperator),
+    SelectAllOptions: __expectString(output.SelectAllOptions),
+  } as any;
+};
+
+const deserializeAws_restJson1FilterListControl = (output: any, context: __SerdeContext): FilterListControl => {
+  return {
+    CascadingControlConfiguration:
+      output.CascadingControlConfiguration != null
+        ? deserializeAws_restJson1CascadingControlConfiguration(output.CascadingControlConfiguration, context)
+        : undefined,
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1ListControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    FilterControlId: __expectString(output.FilterControlId),
+    SelectableValues:
+      output.SelectableValues != null
+        ? deserializeAws_restJson1FilterSelectableValues(output.SelectableValues, context)
+        : undefined,
+    SourceFilterId: __expectString(output.SourceFilterId),
+    Title: __expectString(output.Title),
+    Type: __expectString(output.Type),
+  } as any;
 };
 
 const deserializeAws_restJson1FilterOperation = (output: any, context: __SerdeContext): FilterOperation => {
   return {
     ConditionExpression: __expectString(output.ConditionExpression),
+  } as any;
+};
+
+const deserializeAws_restJson1FilterOperationSelectedFieldsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FilterOperationSelectedFieldsConfiguration => {
+  return {
+    SelectedFieldOptions: __expectString(output.SelectedFieldOptions),
+    SelectedFields:
+      output.SelectedFields != null
+        ? deserializeAws_restJson1SelectedFieldList(output.SelectedFields, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilterOperationTargetVisualsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FilterOperationTargetVisualsConfiguration => {
+  return {
+    SameSheetTargetVisualConfiguration:
+      output.SameSheetTargetVisualConfiguration != null
+        ? deserializeAws_restJson1SameSheetTargetVisualConfiguration(output.SameSheetTargetVisualConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilterRelativeDateTimeControl = (
+  output: any,
+  context: __SerdeContext
+): FilterRelativeDateTimeControl => {
+  return {
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1RelativeDateTimeControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    FilterControlId: __expectString(output.FilterControlId),
+    SourceFilterId: __expectString(output.SourceFilterId),
+    Title: __expectString(output.Title),
+  } as any;
+};
+
+const deserializeAws_restJson1FilterScopeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FilterScopeConfiguration => {
+  return {
+    SelectedSheets:
+      output.SelectedSheets != null
+        ? deserializeAws_restJson1SelectedSheetsFilterScopeConfiguration(output.SelectedSheets, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilterSelectableValues = (
+  output: any,
+  context: __SerdeContext
+): FilterSelectableValues => {
+  return {
+    Values:
+      output.Values != null ? deserializeAws_restJson1ParameterSelectableValueList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilterSliderControl = (output: any, context: __SerdeContext): FilterSliderControl => {
+  return {
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1SliderControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    FilterControlId: __expectString(output.FilterControlId),
+    MaximumValue: __limitedParseDouble(output.MaximumValue),
+    MinimumValue: __limitedParseDouble(output.MinimumValue),
+    SourceFilterId: __expectString(output.SourceFilterId),
+    StepSize: __limitedParseDouble(output.StepSize),
+    Title: __expectString(output.Title),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1FilterTextAreaControl = (output: any, context: __SerdeContext): FilterTextAreaControl => {
+  return {
+    Delimiter: __expectString(output.Delimiter),
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1TextAreaControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    FilterControlId: __expectString(output.FilterControlId),
+    SourceFilterId: __expectString(output.SourceFilterId),
+    Title: __expectString(output.Title),
+  } as any;
+};
+
+const deserializeAws_restJson1FilterTextFieldControl = (
+  output: any,
+  context: __SerdeContext
+): FilterTextFieldControl => {
+  return {
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1TextFieldControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    FilterControlId: __expectString(output.FilterControlId),
+    SourceFilterId: __expectString(output.SourceFilterId),
+    Title: __expectString(output.Title),
   } as any;
 };
 
@@ -15524,11 +26499,723 @@ const deserializeAws_restJson1FolderSummaryList = (output: any, context: __Serde
   return retVal;
 };
 
+const deserializeAws_restJson1Font = (output: any, context: __SerdeContext): Font => {
+  return {
+    FontFamily: __expectString(output.FontFamily),
+  } as any;
+};
+
+const deserializeAws_restJson1FontConfiguration = (output: any, context: __SerdeContext): FontConfiguration => {
+  return {
+    FontColor: __expectString(output.FontColor),
+    FontDecoration: __expectString(output.FontDecoration),
+    FontSize: output.FontSize != null ? deserializeAws_restJson1FontSize(output.FontSize, context) : undefined,
+    FontStyle: __expectString(output.FontStyle),
+    FontWeight: output.FontWeight != null ? deserializeAws_restJson1FontWeight(output.FontWeight, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FontList = (output: any, context: __SerdeContext): Font[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Font(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FontSize = (output: any, context: __SerdeContext): FontSize => {
+  return {
+    Relative: __expectString(output.Relative),
+  } as any;
+};
+
+const deserializeAws_restJson1FontWeight = (output: any, context: __SerdeContext): FontWeight => {
+  return {
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_restJson1ForecastComputation = (output: any, context: __SerdeContext): ForecastComputation => {
+  return {
+    ComputationId: __expectString(output.ComputationId),
+    CustomSeasonalityValue: __expectInt32(output.CustomSeasonalityValue),
+    LowerBoundary: __limitedParseDouble(output.LowerBoundary),
+    Name: __expectString(output.Name),
+    PeriodsBackward: __expectInt32(output.PeriodsBackward),
+    PeriodsForward: __expectInt32(output.PeriodsForward),
+    PredictionInterval: __expectInt32(output.PredictionInterval),
+    Seasonality: __expectString(output.Seasonality),
+    Time: output.Time != null ? deserializeAws_restJson1DimensionField(output.Time, context) : undefined,
+    UpperBoundary: __limitedParseDouble(output.UpperBoundary),
+    Value: output.Value != null ? deserializeAws_restJson1MeasureField(output.Value, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ForecastConfiguration = (output: any, context: __SerdeContext): ForecastConfiguration => {
+  return {
+    ForecastProperties:
+      output.ForecastProperties != null
+        ? deserializeAws_restJson1TimeBasedForecastProperties(output.ForecastProperties, context)
+        : undefined,
+    Scenario: output.Scenario != null ? deserializeAws_restJson1ForecastScenario(output.Scenario, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ForecastConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): ForecastConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ForecastConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ForecastScenario = (output: any, context: __SerdeContext): ForecastScenario => {
+  return {
+    WhatIfPointScenario:
+      output.WhatIfPointScenario != null
+        ? deserializeAws_restJson1WhatIfPointScenario(output.WhatIfPointScenario, context)
+        : undefined,
+    WhatIfRangeScenario:
+      output.WhatIfRangeScenario != null
+        ? deserializeAws_restJson1WhatIfRangeScenario(output.WhatIfRangeScenario, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FormatConfiguration = (output: any, context: __SerdeContext): FormatConfiguration => {
+  return {
+    DateTimeFormatConfiguration:
+      output.DateTimeFormatConfiguration != null
+        ? deserializeAws_restJson1DateTimeFormatConfiguration(output.DateTimeFormatConfiguration, context)
+        : undefined,
+    NumberFormatConfiguration:
+      output.NumberFormatConfiguration != null
+        ? deserializeAws_restJson1NumberFormatConfiguration(output.NumberFormatConfiguration, context)
+        : undefined,
+    StringFormatConfiguration:
+      output.StringFormatConfiguration != null
+        ? deserializeAws_restJson1StringFormatConfiguration(output.StringFormatConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FreeFormLayoutCanvasSizeOptions = (
+  output: any,
+  context: __SerdeContext
+): FreeFormLayoutCanvasSizeOptions => {
+  return {
+    ScreenCanvasSizeOptions:
+      output.ScreenCanvasSizeOptions != null
+        ? deserializeAws_restJson1FreeFormLayoutScreenCanvasSizeOptions(output.ScreenCanvasSizeOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FreeFormLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FreeFormLayoutConfiguration => {
+  return {
+    CanvasSizeOptions:
+      output.CanvasSizeOptions != null
+        ? deserializeAws_restJson1FreeFormLayoutCanvasSizeOptions(output.CanvasSizeOptions, context)
+        : undefined,
+    Elements:
+      output.Elements != null ? deserializeAws_restJson1FreeFromLayoutElementList(output.Elements, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FreeFormLayoutElement = (output: any, context: __SerdeContext): FreeFormLayoutElement => {
+  return {
+    BackgroundStyle:
+      output.BackgroundStyle != null
+        ? deserializeAws_restJson1FreeFormLayoutElementBackgroundStyle(output.BackgroundStyle, context)
+        : undefined,
+    BorderStyle:
+      output.BorderStyle != null
+        ? deserializeAws_restJson1FreeFormLayoutElementBorderStyle(output.BorderStyle, context)
+        : undefined,
+    ElementId: __expectString(output.ElementId),
+    ElementType: __expectString(output.ElementType),
+    Height: __expectString(output.Height),
+    LoadingAnimation:
+      output.LoadingAnimation != null
+        ? deserializeAws_restJson1LoadingAnimation(output.LoadingAnimation, context)
+        : undefined,
+    RenderingRules:
+      output.RenderingRules != null
+        ? deserializeAws_restJson1SheetElementRenderingRuleList(output.RenderingRules, context)
+        : undefined,
+    SelectedBorderStyle:
+      output.SelectedBorderStyle != null
+        ? deserializeAws_restJson1FreeFormLayoutElementBorderStyle(output.SelectedBorderStyle, context)
+        : undefined,
+    Visibility: __expectString(output.Visibility),
+    Width: __expectString(output.Width),
+    XAxisLocation: __expectString(output.XAxisLocation),
+    YAxisLocation: __expectString(output.YAxisLocation),
+  } as any;
+};
+
+const deserializeAws_restJson1FreeFormLayoutElementBackgroundStyle = (
+  output: any,
+  context: __SerdeContext
+): FreeFormLayoutElementBackgroundStyle => {
+  return {
+    Color: __expectString(output.Color),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1FreeFormLayoutElementBorderStyle = (
+  output: any,
+  context: __SerdeContext
+): FreeFormLayoutElementBorderStyle => {
+  return {
+    Color: __expectString(output.Color),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1FreeFormLayoutScreenCanvasSizeOptions = (
+  output: any,
+  context: __SerdeContext
+): FreeFormLayoutScreenCanvasSizeOptions => {
+  return {
+    OptimizedViewPortWidth: __expectString(output.OptimizedViewPortWidth),
+  } as any;
+};
+
+const deserializeAws_restJson1FreeFormSectionLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FreeFormSectionLayoutConfiguration => {
+  return {
+    Elements:
+      output.Elements != null ? deserializeAws_restJson1FreeFromLayoutElementList(output.Elements, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FreeFromLayoutElementList = (
+  output: any,
+  context: __SerdeContext
+): FreeFormLayoutElement[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FreeFormLayoutElement(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FunnelChartAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): FunnelChartAggregatedFieldWells => {
+  return {
+    Category:
+      output.Category != null
+        ? deserializeAws_restJson1FunnelChartDimensionFieldList(output.Category, context)
+        : undefined,
+    Values:
+      output.Values != null ? deserializeAws_restJson1FunnelChartMeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FunnelChartConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FunnelChartConfiguration => {
+  return {
+    CategoryLabelOptions:
+      output.CategoryLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.CategoryLabelOptions, context)
+        : undefined,
+    DataLabelOptions:
+      output.DataLabelOptions != null
+        ? deserializeAws_restJson1FunnelChartDataLabelOptions(output.DataLabelOptions, context)
+        : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1FunnelChartFieldWells(output.FieldWells, context) : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1FunnelChartSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+    ValueLabelOptions:
+      output.ValueLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.ValueLabelOptions, context)
+        : undefined,
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FunnelChartDataLabelOptions = (
+  output: any,
+  context: __SerdeContext
+): FunnelChartDataLabelOptions => {
+  return {
+    CategoryLabelVisibility: __expectString(output.CategoryLabelVisibility),
+    LabelColor: __expectString(output.LabelColor),
+    LabelFontConfiguration:
+      output.LabelFontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.LabelFontConfiguration, context)
+        : undefined,
+    MeasureDataLabelStyle: __expectString(output.MeasureDataLabelStyle),
+    MeasureLabelVisibility: __expectString(output.MeasureLabelVisibility),
+    Position: __expectString(output.Position),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1FunnelChartDimensionFieldList = (
+  output: any,
+  context: __SerdeContext
+): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FunnelChartFieldWells = (output: any, context: __SerdeContext): FunnelChartFieldWells => {
+  return {
+    FunnelChartAggregatedFieldWells:
+      output.FunnelChartAggregatedFieldWells != null
+        ? deserializeAws_restJson1FunnelChartAggregatedFieldWells(output.FunnelChartAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FunnelChartMeasureFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FunnelChartSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FunnelChartSortConfiguration => {
+  return {
+    CategoryItemsLimit:
+      output.CategoryItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.CategoryItemsLimit, context)
+        : undefined,
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FunnelChartVisual = (output: any, context: __SerdeContext): FunnelChartVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1FunnelChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1GaugeChartArcConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): GaugeChartArcConditionalFormatting => {
+  return {
+    ForegroundColor:
+      output.ForegroundColor != null
+        ? deserializeAws_restJson1ConditionalFormattingColor(output.ForegroundColor, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GaugeChartConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): GaugeChartConditionalFormatting => {
+  return {
+    ConditionalFormattingOptions:
+      output.ConditionalFormattingOptions != null
+        ? deserializeAws_restJson1GaugeChartConditionalFormattingOptionList(
+            output.ConditionalFormattingOptions,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GaugeChartConditionalFormattingOption = (
+  output: any,
+  context: __SerdeContext
+): GaugeChartConditionalFormattingOption => {
+  return {
+    Arc:
+      output.Arc != null ? deserializeAws_restJson1GaugeChartArcConditionalFormatting(output.Arc, context) : undefined,
+    PrimaryValue:
+      output.PrimaryValue != null
+        ? deserializeAws_restJson1GaugeChartPrimaryValueConditionalFormatting(output.PrimaryValue, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GaugeChartConditionalFormattingOptionList = (
+  output: any,
+  context: __SerdeContext
+): GaugeChartConditionalFormattingOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GaugeChartConditionalFormattingOption(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1GaugeChartConfiguration = (
+  output: any,
+  context: __SerdeContext
+): GaugeChartConfiguration => {
+  return {
+    DataLabels:
+      output.DataLabels != null ? deserializeAws_restJson1DataLabelOptions(output.DataLabels, context) : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1GaugeChartFieldWells(output.FieldWells, context) : undefined,
+    GaugeChartOptions:
+      output.GaugeChartOptions != null
+        ? deserializeAws_restJson1GaugeChartOptions(output.GaugeChartOptions, context)
+        : undefined,
+    TooltipOptions:
+      output.TooltipOptions != null
+        ? deserializeAws_restJson1TooltipOptions(output.TooltipOptions, context)
+        : undefined,
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GaugeChartFieldWells = (output: any, context: __SerdeContext): GaugeChartFieldWells => {
+  return {
+    TargetValues:
+      output.TargetValues != null ? deserializeAws_restJson1MeasureFieldList(output.TargetValues, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1MeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GaugeChartOptions = (output: any, context: __SerdeContext): GaugeChartOptions => {
+  return {
+    Arc: output.Arc != null ? deserializeAws_restJson1ArcConfiguration(output.Arc, context) : undefined,
+    ArcAxis: output.ArcAxis != null ? deserializeAws_restJson1ArcAxisConfiguration(output.ArcAxis, context) : undefined,
+    Comparison:
+      output.Comparison != null
+        ? deserializeAws_restJson1ComparisonConfiguration(output.Comparison, context)
+        : undefined,
+    PrimaryValueDisplayType: __expectString(output.PrimaryValueDisplayType),
+    PrimaryValueFontConfiguration:
+      output.PrimaryValueFontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.PrimaryValueFontConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GaugeChartPrimaryValueConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): GaugeChartPrimaryValueConditionalFormatting => {
+  return {
+    Icon: output.Icon != null ? deserializeAws_restJson1ConditionalFormattingIcon(output.Icon, context) : undefined,
+    TextColor:
+      output.TextColor != null
+        ? deserializeAws_restJson1ConditionalFormattingColor(output.TextColor, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GaugeChartVisual = (output: any, context: __SerdeContext): GaugeChartVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1GaugeChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ConditionalFormatting:
+      output.ConditionalFormatting != null
+        ? deserializeAws_restJson1GaugeChartConditionalFormatting(output.ConditionalFormatting, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
 const deserializeAws_restJson1GeoSpatialColumnGroup = (output: any, context: __SerdeContext): GeoSpatialColumnGroup => {
   return {
     Columns: output.Columns != null ? deserializeAws_restJson1ColumnList(output.Columns, context) : undefined,
     CountryCode: __expectString(output.CountryCode),
     Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_restJson1GeospatialCoordinateBounds = (
+  output: any,
+  context: __SerdeContext
+): GeospatialCoordinateBounds => {
+  return {
+    East: __limitedParseDouble(output.East),
+    North: __limitedParseDouble(output.North),
+    South: __limitedParseDouble(output.South),
+    West: __limitedParseDouble(output.West),
+  } as any;
+};
+
+const deserializeAws_restJson1GeospatialMapAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): GeospatialMapAggregatedFieldWells => {
+  return {
+    Colors: output.Colors != null ? deserializeAws_restJson1DimensionFieldList(output.Colors, context) : undefined,
+    Geospatial:
+      output.Geospatial != null ? deserializeAws_restJson1DimensionFieldList(output.Geospatial, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1MeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GeospatialMapConfiguration = (
+  output: any,
+  context: __SerdeContext
+): GeospatialMapConfiguration => {
+  return {
+    FieldWells:
+      output.FieldWells != null
+        ? deserializeAws_restJson1GeospatialMapFieldWells(output.FieldWells, context)
+        : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    MapStyleOptions:
+      output.MapStyleOptions != null
+        ? deserializeAws_restJson1GeospatialMapStyleOptions(output.MapStyleOptions, context)
+        : undefined,
+    PointStyleOptions:
+      output.PointStyleOptions != null
+        ? deserializeAws_restJson1GeospatialPointStyleOptions(output.PointStyleOptions, context)
+        : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+    WindowOptions:
+      output.WindowOptions != null
+        ? deserializeAws_restJson1GeospatialWindowOptions(output.WindowOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GeospatialMapFieldWells = (
+  output: any,
+  context: __SerdeContext
+): GeospatialMapFieldWells => {
+  return {
+    GeospatialMapAggregatedFieldWells:
+      output.GeospatialMapAggregatedFieldWells != null
+        ? deserializeAws_restJson1GeospatialMapAggregatedFieldWells(output.GeospatialMapAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GeospatialMapStyleOptions = (
+  output: any,
+  context: __SerdeContext
+): GeospatialMapStyleOptions => {
+  return {
+    BaseMapStyle: __expectString(output.BaseMapStyle),
+  } as any;
+};
+
+const deserializeAws_restJson1GeospatialMapVisual = (output: any, context: __SerdeContext): GeospatialMapVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1GeospatialMapConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1GeospatialPointStyleOptions = (
+  output: any,
+  context: __SerdeContext
+): GeospatialPointStyleOptions => {
+  return {
+    ClusterMarkerConfiguration:
+      output.ClusterMarkerConfiguration != null
+        ? deserializeAws_restJson1ClusterMarkerConfiguration(output.ClusterMarkerConfiguration, context)
+        : undefined,
+    SelectedPointStyle: __expectString(output.SelectedPointStyle),
+  } as any;
+};
+
+const deserializeAws_restJson1GeospatialWindowOptions = (
+  output: any,
+  context: __SerdeContext
+): GeospatialWindowOptions => {
+  return {
+    Bounds:
+      output.Bounds != null ? deserializeAws_restJson1GeospatialCoordinateBounds(output.Bounds, context) : undefined,
+    MapZoomMode: __expectString(output.MapZoomMode),
+  } as any;
+};
+
+const deserializeAws_restJson1GlobalTableBorderOptions = (
+  output: any,
+  context: __SerdeContext
+): GlobalTableBorderOptions => {
+  return {
+    SideSpecificBorder:
+      output.SideSpecificBorder != null
+        ? deserializeAws_restJson1TableSideBorderOptions(output.SideSpecificBorder, context)
+        : undefined,
+    UniformBorder:
+      output.UniformBorder != null
+        ? deserializeAws_restJson1TableBorderOptions(output.UniformBorder, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GradientColor = (output: any, context: __SerdeContext): GradientColor => {
+  return {
+    Stops: output.Stops != null ? deserializeAws_restJson1GradientStopList(output.Stops, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GradientStop = (output: any, context: __SerdeContext): GradientStop => {
+  return {
+    Color: __expectString(output.Color),
+    DataValue: __limitedParseDouble(output.DataValue),
+    GradientOffset: __limitedParseDouble(output.GradientOffset),
+  } as any;
+};
+
+const deserializeAws_restJson1GradientStopList = (output: any, context: __SerdeContext): GradientStop[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GradientStop(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1GridLayoutCanvasSizeOptions = (
+  output: any,
+  context: __SerdeContext
+): GridLayoutCanvasSizeOptions => {
+  return {
+    ScreenCanvasSizeOptions:
+      output.ScreenCanvasSizeOptions != null
+        ? deserializeAws_restJson1GridLayoutScreenCanvasSizeOptions(output.ScreenCanvasSizeOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GridLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): GridLayoutConfiguration => {
+  return {
+    CanvasSizeOptions:
+      output.CanvasSizeOptions != null
+        ? deserializeAws_restJson1GridLayoutCanvasSizeOptions(output.CanvasSizeOptions, context)
+        : undefined,
+    Elements:
+      output.Elements != null ? deserializeAws_restJson1GridLayoutElementList(output.Elements, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GridLayoutElement = (output: any, context: __SerdeContext): GridLayoutElement => {
+  return {
+    ColumnIndex: __expectInt32(output.ColumnIndex),
+    ColumnSpan: __expectInt32(output.ColumnSpan),
+    ElementId: __expectString(output.ElementId),
+    ElementType: __expectString(output.ElementType),
+    RowIndex: __expectInt32(output.RowIndex),
+    RowSpan: __expectInt32(output.RowSpan),
+  } as any;
+};
+
+const deserializeAws_restJson1GridLayoutElementList = (output: any, context: __SerdeContext): GridLayoutElement[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GridLayoutElement(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1GridLayoutScreenCanvasSizeOptions = (
+  output: any,
+  context: __SerdeContext
+): GridLayoutScreenCanvasSizeOptions => {
+  return {
+    OptimizedViewPortWidth: __expectString(output.OptimizedViewPortWidth),
+    ResizeOption: __expectString(output.ResizeOption),
   } as any;
 };
 
@@ -15572,9 +27259,246 @@ const deserializeAws_restJson1GroupMemberList = (output: any, context: __SerdeCo
   return retVal;
 };
 
+const deserializeAws_restJson1GrowthRateComputation = (output: any, context: __SerdeContext): GrowthRateComputation => {
+  return {
+    ComputationId: __expectString(output.ComputationId),
+    Name: __expectString(output.Name),
+    PeriodSize: __expectInt32(output.PeriodSize),
+    Time: output.Time != null ? deserializeAws_restJson1DimensionField(output.Time, context) : undefined,
+    Value: output.Value != null ? deserializeAws_restJson1MeasureField(output.Value, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1GutterStyle = (output: any, context: __SerdeContext): GutterStyle => {
   return {
     Show: __expectBoolean(output.Show),
+  } as any;
+};
+
+const deserializeAws_restJson1HeaderFooterSectionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): HeaderFooterSectionConfiguration => {
+  return {
+    Layout:
+      output.Layout != null ? deserializeAws_restJson1SectionLayoutConfiguration(output.Layout, context) : undefined,
+    SectionId: __expectString(output.SectionId),
+    Style: output.Style != null ? deserializeAws_restJson1SectionStyle(output.Style, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HeaderFooterSectionConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): HeaderFooterSectionConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1HeaderFooterSectionConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1HeatMapAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): HeatMapAggregatedFieldWells => {
+  return {
+    Columns:
+      output.Columns != null ? deserializeAws_restJson1HeatMapDimensionFieldList(output.Columns, context) : undefined,
+    Rows: output.Rows != null ? deserializeAws_restJson1HeatMapDimensionFieldList(output.Rows, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1HeatMapMeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HeatMapConfiguration = (output: any, context: __SerdeContext): HeatMapConfiguration => {
+  return {
+    ColorScale: output.ColorScale != null ? deserializeAws_restJson1ColorScale(output.ColorScale, context) : undefined,
+    ColumnLabelOptions:
+      output.ColumnLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.ColumnLabelOptions, context)
+        : undefined,
+    DataLabels:
+      output.DataLabels != null ? deserializeAws_restJson1DataLabelOptions(output.DataLabels, context) : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1HeatMapFieldWells(output.FieldWells, context) : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    RowLabelOptions:
+      output.RowLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.RowLabelOptions, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1HeatMapSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HeatMapDimensionFieldList = (output: any, context: __SerdeContext): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1HeatMapFieldWells = (output: any, context: __SerdeContext): HeatMapFieldWells => {
+  return {
+    HeatMapAggregatedFieldWells:
+      output.HeatMapAggregatedFieldWells != null
+        ? deserializeAws_restJson1HeatMapAggregatedFieldWells(output.HeatMapAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HeatMapMeasureFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1HeatMapSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): HeatMapSortConfiguration => {
+  return {
+    HeatMapColumnItemsLimitConfiguration:
+      output.HeatMapColumnItemsLimitConfiguration != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.HeatMapColumnItemsLimitConfiguration, context)
+        : undefined,
+    HeatMapColumnSort:
+      output.HeatMapColumnSort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.HeatMapColumnSort, context)
+        : undefined,
+    HeatMapRowItemsLimitConfiguration:
+      output.HeatMapRowItemsLimitConfiguration != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.HeatMapRowItemsLimitConfiguration, context)
+        : undefined,
+    HeatMapRowSort:
+      output.HeatMapRowSort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.HeatMapRowSort, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HeatMapVisual = (output: any, context: __SerdeContext): HeatMapVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1HeatMapConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1HistogramAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): HistogramAggregatedFieldWells => {
+  return {
+    Values:
+      output.Values != null ? deserializeAws_restJson1HistogramMeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HistogramBinOptions = (output: any, context: __SerdeContext): HistogramBinOptions => {
+  return {
+    BinCount: output.BinCount != null ? deserializeAws_restJson1BinCountOptions(output.BinCount, context) : undefined,
+    BinWidth: output.BinWidth != null ? deserializeAws_restJson1BinWidthOptions(output.BinWidth, context) : undefined,
+    SelectedBinType: __expectString(output.SelectedBinType),
+    StartValue: __limitedParseDouble(output.StartValue),
+  } as any;
+};
+
+const deserializeAws_restJson1HistogramConfiguration = (
+  output: any,
+  context: __SerdeContext
+): HistogramConfiguration => {
+  return {
+    BinOptions:
+      output.BinOptions != null ? deserializeAws_restJson1HistogramBinOptions(output.BinOptions, context) : undefined,
+    DataLabels:
+      output.DataLabels != null ? deserializeAws_restJson1DataLabelOptions(output.DataLabels, context) : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1HistogramFieldWells(output.FieldWells, context) : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+    XAxisDisplayOptions:
+      output.XAxisDisplayOptions != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.XAxisDisplayOptions, context)
+        : undefined,
+    XAxisLabelOptions:
+      output.XAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.XAxisLabelOptions, context)
+        : undefined,
+    YAxisDisplayOptions:
+      output.YAxisDisplayOptions != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.YAxisDisplayOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HistogramFieldWells = (output: any, context: __SerdeContext): HistogramFieldWells => {
+  return {
+    HistogramAggregatedFieldWells:
+      output.HistogramAggregatedFieldWells != null
+        ? deserializeAws_restJson1HistogramAggregatedFieldWells(output.HistogramAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HistogramMeasureFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1HistogramVisual = (output: any, context: __SerdeContext): HistogramVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1HistogramConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
   } as any;
 };
 
@@ -15619,10 +27543,8 @@ const deserializeAws_restJson1IdentityMap = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1IdentityNameList(value, context),
-    };
+    acc[key] = deserializeAws_restJson1IdentityNameList(value, context);
+    return acc;
   }, {});
 };
 
@@ -15688,16 +27610,106 @@ const deserializeAws_restJson1InputColumnList = (output: any, context: __SerdeCo
   return retVal;
 };
 
+const deserializeAws_restJson1InsightConfiguration = (output: any, context: __SerdeContext): InsightConfiguration => {
+  return {
+    Computations:
+      output.Computations != null ? deserializeAws_restJson1ComputationList(output.Computations, context) : undefined,
+    CustomNarrative:
+      output.CustomNarrative != null
+        ? deserializeAws_restJson1CustomNarrativeOptions(output.CustomNarrative, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InsightVisual = (output: any, context: __SerdeContext): InsightVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    DataSetIdentifier: __expectString(output.DataSetIdentifier),
+    InsightConfiguration:
+      output.InsightConfiguration != null
+        ? deserializeAws_restJson1InsightConfiguration(output.InsightConfiguration, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1IntegerDefaultValueList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectLong(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1IntegerDefaultValues = (output: any, context: __SerdeContext): IntegerDefaultValues => {
+  return {
+    DynamicValue:
+      output.DynamicValue != null
+        ? deserializeAws_restJson1DynamicDefaultValue(output.DynamicValue, context)
+        : undefined,
+    StaticValues:
+      output.StaticValues != null
+        ? deserializeAws_restJson1IntegerDefaultValueList(output.StaticValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1IntegerParameterDeclaration = (
+  output: any,
+  context: __SerdeContext
+): IntegerParameterDeclaration => {
+  return {
+    DefaultValues:
+      output.DefaultValues != null
+        ? deserializeAws_restJson1IntegerDefaultValues(output.DefaultValues, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    ParameterValueType: __expectString(output.ParameterValueType),
+    ValueWhenUnset:
+      output.ValueWhenUnset != null
+        ? deserializeAws_restJson1IntegerValueWhenUnsetConfiguration(output.ValueWhenUnset, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1IntegerValueWhenUnsetConfiguration = (
+  output: any,
+  context: __SerdeContext
+): IntegerValueWhenUnsetConfiguration => {
+  return {
+    CustomValue: __expectLong(output.CustomValue),
+    ValueWhenUnsetOption: __expectString(output.ValueWhenUnsetOption),
+  } as any;
+};
+
 const deserializeAws_restJson1IpRestrictionRuleMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1ItemsLimitConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ItemsLimitConfiguration => {
+  return {
+    ItemsLimit: __expectLong(output.ItemsLimit),
+    OtherCategories: __expectString(output.OtherCategories),
+  } as any;
 };
 
 const deserializeAws_restJson1JiraParameters = (output: any, context: __SerdeContext): JiraParameters => {
@@ -15729,6 +27741,426 @@ const deserializeAws_restJson1JoinKeyProperties = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1KPIConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): KPIConditionalFormatting => {
+  return {
+    ConditionalFormattingOptions:
+      output.ConditionalFormattingOptions != null
+        ? deserializeAws_restJson1KPIConditionalFormattingOptionList(output.ConditionalFormattingOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KPIConditionalFormattingOption = (
+  output: any,
+  context: __SerdeContext
+): KPIConditionalFormattingOption => {
+  return {
+    PrimaryValue:
+      output.PrimaryValue != null
+        ? deserializeAws_restJson1KPIPrimaryValueConditionalFormatting(output.PrimaryValue, context)
+        : undefined,
+    ProgressBar:
+      output.ProgressBar != null
+        ? deserializeAws_restJson1KPIProgressBarConditionalFormatting(output.ProgressBar, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KPIConditionalFormattingOptionList = (
+  output: any,
+  context: __SerdeContext
+): KPIConditionalFormattingOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1KPIConditionalFormattingOption(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1KPIConfiguration = (output: any, context: __SerdeContext): KPIConfiguration => {
+  return {
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1KPIFieldWells(output.FieldWells, context) : undefined,
+    KPIOptions: output.KPIOptions != null ? deserializeAws_restJson1KPIOptions(output.KPIOptions, context) : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1KPISortConfiguration(output.SortConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KPIFieldWells = (output: any, context: __SerdeContext): KPIFieldWells => {
+  return {
+    TargetValues:
+      output.TargetValues != null ? deserializeAws_restJson1MeasureFieldList(output.TargetValues, context) : undefined,
+    TrendGroups:
+      output.TrendGroups != null ? deserializeAws_restJson1DimensionFieldList(output.TrendGroups, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1MeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KPIOptions = (output: any, context: __SerdeContext): KPIOptions => {
+  return {
+    Comparison:
+      output.Comparison != null
+        ? deserializeAws_restJson1ComparisonConfiguration(output.Comparison, context)
+        : undefined,
+    PrimaryValueDisplayType: __expectString(output.PrimaryValueDisplayType),
+    PrimaryValueFontConfiguration:
+      output.PrimaryValueFontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.PrimaryValueFontConfiguration, context)
+        : undefined,
+    ProgressBar:
+      output.ProgressBar != null ? deserializeAws_restJson1ProgressBarOptions(output.ProgressBar, context) : undefined,
+    SecondaryValue:
+      output.SecondaryValue != null
+        ? deserializeAws_restJson1SecondaryValueOptions(output.SecondaryValue, context)
+        : undefined,
+    SecondaryValueFontConfiguration:
+      output.SecondaryValueFontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.SecondaryValueFontConfiguration, context)
+        : undefined,
+    TrendArrows:
+      output.TrendArrows != null ? deserializeAws_restJson1TrendArrowOptions(output.TrendArrows, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KPIPrimaryValueConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): KPIPrimaryValueConditionalFormatting => {
+  return {
+    Icon: output.Icon != null ? deserializeAws_restJson1ConditionalFormattingIcon(output.Icon, context) : undefined,
+    TextColor:
+      output.TextColor != null
+        ? deserializeAws_restJson1ConditionalFormattingColor(output.TextColor, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KPIProgressBarConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): KPIProgressBarConditionalFormatting => {
+  return {
+    ForegroundColor:
+      output.ForegroundColor != null
+        ? deserializeAws_restJson1ConditionalFormattingColor(output.ForegroundColor, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KPISortConfiguration = (output: any, context: __SerdeContext): KPISortConfiguration => {
+  return {
+    TrendGroupSort:
+      output.TrendGroupSort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.TrendGroupSort, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KPIVisual = (output: any, context: __SerdeContext): KPIVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1KPIConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    ConditionalFormatting:
+      output.ConditionalFormatting != null
+        ? deserializeAws_restJson1KPIConditionalFormatting(output.ConditionalFormatting, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1LabelOptions = (output: any, context: __SerdeContext): LabelOptions => {
+  return {
+    CustomLabel: __expectString(output.CustomLabel),
+    FontConfiguration:
+      output.FontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.FontConfiguration, context)
+        : undefined,
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1Layout = (output: any, context: __SerdeContext): Layout => {
+  return {
+    Configuration:
+      output.Configuration != null
+        ? deserializeAws_restJson1LayoutConfiguration(output.Configuration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LayoutConfiguration = (output: any, context: __SerdeContext): LayoutConfiguration => {
+  return {
+    FreeFormLayout:
+      output.FreeFormLayout != null
+        ? deserializeAws_restJson1FreeFormLayoutConfiguration(output.FreeFormLayout, context)
+        : undefined,
+    GridLayout:
+      output.GridLayout != null
+        ? deserializeAws_restJson1GridLayoutConfiguration(output.GridLayout, context)
+        : undefined,
+    SectionBasedLayout:
+      output.SectionBasedLayout != null
+        ? deserializeAws_restJson1SectionBasedLayoutConfiguration(output.SectionBasedLayout, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LayoutList = (output: any, context: __SerdeContext): Layout[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Layout(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1LegendOptions = (output: any, context: __SerdeContext): LegendOptions => {
+  return {
+    Height: __expectString(output.Height),
+    Position: __expectString(output.Position),
+    Title: output.Title != null ? deserializeAws_restJson1LabelOptions(output.Title, context) : undefined,
+    Visibility: __expectString(output.Visibility),
+    Width: __expectString(output.Width),
+  } as any;
+};
+
+const deserializeAws_restJson1LineChartAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): LineChartAggregatedFieldWells => {
+  return {
+    Category:
+      output.Category != null ? deserializeAws_restJson1DimensionFieldList(output.Category, context) : undefined,
+    Colors: output.Colors != null ? deserializeAws_restJson1DimensionFieldList(output.Colors, context) : undefined,
+    SmallMultiples:
+      output.SmallMultiples != null
+        ? deserializeAws_restJson1SmallMultiplesDimensionFieldList(output.SmallMultiples, context)
+        : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1MeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LineChartConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LineChartConfiguration => {
+  return {
+    ContributionAnalysisDefaults:
+      output.ContributionAnalysisDefaults != null
+        ? deserializeAws_restJson1ContributionAnalysisDefaultList(output.ContributionAnalysisDefaults, context)
+        : undefined,
+    DataLabels:
+      output.DataLabels != null ? deserializeAws_restJson1DataLabelOptions(output.DataLabels, context) : undefined,
+    DefaultSeriesSettings:
+      output.DefaultSeriesSettings != null
+        ? deserializeAws_restJson1LineChartDefaultSeriesSettings(output.DefaultSeriesSettings, context)
+        : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1LineChartFieldWells(output.FieldWells, context) : undefined,
+    ForecastConfigurations:
+      output.ForecastConfigurations != null
+        ? deserializeAws_restJson1ForecastConfigurationList(output.ForecastConfigurations, context)
+        : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    PrimaryYAxisDisplayOptions:
+      output.PrimaryYAxisDisplayOptions != null
+        ? deserializeAws_restJson1LineSeriesAxisDisplayOptions(output.PrimaryYAxisDisplayOptions, context)
+        : undefined,
+    PrimaryYAxisLabelOptions:
+      output.PrimaryYAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.PrimaryYAxisLabelOptions, context)
+        : undefined,
+    ReferenceLines:
+      output.ReferenceLines != null
+        ? deserializeAws_restJson1ReferenceLineList(output.ReferenceLines, context)
+        : undefined,
+    SecondaryYAxisDisplayOptions:
+      output.SecondaryYAxisDisplayOptions != null
+        ? deserializeAws_restJson1LineSeriesAxisDisplayOptions(output.SecondaryYAxisDisplayOptions, context)
+        : undefined,
+    SecondaryYAxisLabelOptions:
+      output.SecondaryYAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.SecondaryYAxisLabelOptions, context)
+        : undefined,
+    Series: output.Series != null ? deserializeAws_restJson1SeriesItemList(output.Series, context) : undefined,
+    SmallMultiplesOptions:
+      output.SmallMultiplesOptions != null
+        ? deserializeAws_restJson1SmallMultiplesOptions(output.SmallMultiplesOptions, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1LineChartSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+    Type: __expectString(output.Type),
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+    XAxisDisplayOptions:
+      output.XAxisDisplayOptions != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.XAxisDisplayOptions, context)
+        : undefined,
+    XAxisLabelOptions:
+      output.XAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.XAxisLabelOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LineChartDefaultSeriesSettings = (
+  output: any,
+  context: __SerdeContext
+): LineChartDefaultSeriesSettings => {
+  return {
+    AxisBinding: __expectString(output.AxisBinding),
+    LineStyleSettings:
+      output.LineStyleSettings != null
+        ? deserializeAws_restJson1LineChartLineStyleSettings(output.LineStyleSettings, context)
+        : undefined,
+    MarkerStyleSettings:
+      output.MarkerStyleSettings != null
+        ? deserializeAws_restJson1LineChartMarkerStyleSettings(output.MarkerStyleSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LineChartFieldWells = (output: any, context: __SerdeContext): LineChartFieldWells => {
+  return {
+    LineChartAggregatedFieldWells:
+      output.LineChartAggregatedFieldWells != null
+        ? deserializeAws_restJson1LineChartAggregatedFieldWells(output.LineChartAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LineChartLineStyleSettings = (
+  output: any,
+  context: __SerdeContext
+): LineChartLineStyleSettings => {
+  return {
+    LineInterpolation: __expectString(output.LineInterpolation),
+    LineStyle: __expectString(output.LineStyle),
+    LineVisibility: __expectString(output.LineVisibility),
+    LineWidth: __expectString(output.LineWidth),
+  } as any;
+};
+
+const deserializeAws_restJson1LineChartMarkerStyleSettings = (
+  output: any,
+  context: __SerdeContext
+): LineChartMarkerStyleSettings => {
+  return {
+    MarkerColor: __expectString(output.MarkerColor),
+    MarkerShape: __expectString(output.MarkerShape),
+    MarkerSize: __expectString(output.MarkerSize),
+    MarkerVisibility: __expectString(output.MarkerVisibility),
+  } as any;
+};
+
+const deserializeAws_restJson1LineChartSeriesSettings = (
+  output: any,
+  context: __SerdeContext
+): LineChartSeriesSettings => {
+  return {
+    LineStyleSettings:
+      output.LineStyleSettings != null
+        ? deserializeAws_restJson1LineChartLineStyleSettings(output.LineStyleSettings, context)
+        : undefined,
+    MarkerStyleSettings:
+      output.MarkerStyleSettings != null
+        ? deserializeAws_restJson1LineChartMarkerStyleSettings(output.MarkerStyleSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LineChartSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LineChartSortConfiguration => {
+  return {
+    CategoryItemsLimitConfiguration:
+      output.CategoryItemsLimitConfiguration != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.CategoryItemsLimitConfiguration, context)
+        : undefined,
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+    ColorItemsLimitConfiguration:
+      output.ColorItemsLimitConfiguration != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.ColorItemsLimitConfiguration, context)
+        : undefined,
+    SmallMultiplesLimitConfiguration:
+      output.SmallMultiplesLimitConfiguration != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.SmallMultiplesLimitConfiguration, context)
+        : undefined,
+    SmallMultiplesSort:
+      output.SmallMultiplesSort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.SmallMultiplesSort, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LineChartVisual = (output: any, context: __SerdeContext): LineChartVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1LineChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1LineSeriesAxisDisplayOptions = (
+  output: any,
+  context: __SerdeContext
+): LineSeriesAxisDisplayOptions => {
+  return {
+    AxisOptions:
+      output.AxisOptions != null ? deserializeAws_restJson1AxisDisplayOptions(output.AxisOptions, context) : undefined,
+    MissingDataConfigurations:
+      output.MissingDataConfigurations != null
+        ? deserializeAws_restJson1MissingDataConfigurationList(output.MissingDataConfigurations, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1LinkSharingConfiguration = (
   output: any,
   context: __SerdeContext
@@ -15738,6 +28170,57 @@ const deserializeAws_restJson1LinkSharingConfiguration = (
       output.Permissions != null
         ? deserializeAws_restJson1ResourcePermissionList(output.Permissions, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ListControlDisplayOptions = (
+  output: any,
+  context: __SerdeContext
+): ListControlDisplayOptions => {
+  return {
+    SearchOptions:
+      output.SearchOptions != null
+        ? deserializeAws_restJson1ListControlSearchOptions(output.SearchOptions, context)
+        : undefined,
+    SelectAllOptions:
+      output.SelectAllOptions != null
+        ? deserializeAws_restJson1ListControlSelectAllOptions(output.SelectAllOptions, context)
+        : undefined,
+    TitleOptions:
+      output.TitleOptions != null ? deserializeAws_restJson1LabelOptions(output.TitleOptions, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ListControlSearchOptions = (
+  output: any,
+  context: __SerdeContext
+): ListControlSearchOptions => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1ListControlSelectAllOptions = (
+  output: any,
+  context: __SerdeContext
+): ListControlSelectAllOptions => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1LoadingAnimation = (output: any, context: __SerdeContext): LoadingAnimation => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1LocalNavigationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LocalNavigationConfiguration => {
+  return {
+    TargetSheetId: __expectString(output.TargetSheetId),
   } as any;
 };
 
@@ -15760,10 +28243,8 @@ const deserializeAws_restJson1LogicalTableMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1LogicalTable(value, context),
-    };
+    acc[key] = deserializeAws_restJson1LogicalTable(value, context);
+    return acc;
   }, {});
 };
 
@@ -15775,6 +28256,13 @@ const deserializeAws_restJson1LogicalTableSource = (output: any, context: __Serd
         ? deserializeAws_restJson1JoinInstruction(output.JoinInstruction, context)
         : undefined,
     PhysicalTableId: __expectString(output.PhysicalTableId),
+  } as any;
+};
+
+const deserializeAws_restJson1LongFormatText = (output: any, context: __SerdeContext): LongFormatText => {
+  return {
+    PlainText: __expectString(output.PlainText),
+    RichText: __expectString(output.RichText),
   } as any;
 };
 
@@ -15799,11 +28287,107 @@ const deserializeAws_restJson1MariaDbParameters = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1MaximumLabelType = (output: any, context: __SerdeContext): MaximumLabelType => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1MaximumMinimumComputation = (
+  output: any,
+  context: __SerdeContext
+): MaximumMinimumComputation => {
+  return {
+    ComputationId: __expectString(output.ComputationId),
+    Name: __expectString(output.Name),
+    Time: output.Time != null ? deserializeAws_restJson1DimensionField(output.Time, context) : undefined,
+    Type: __expectString(output.Type),
+    Value: output.Value != null ? deserializeAws_restJson1MeasureField(output.Value, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MeasureField = (output: any, context: __SerdeContext): MeasureField => {
+  return {
+    CalculatedMeasureField:
+      output.CalculatedMeasureField != null
+        ? deserializeAws_restJson1CalculatedMeasureField(output.CalculatedMeasureField, context)
+        : undefined,
+    CategoricalMeasureField:
+      output.CategoricalMeasureField != null
+        ? deserializeAws_restJson1CategoricalMeasureField(output.CategoricalMeasureField, context)
+        : undefined,
+    DateMeasureField:
+      output.DateMeasureField != null
+        ? deserializeAws_restJson1DateMeasureField(output.DateMeasureField, context)
+        : undefined,
+    NumericalMeasureField:
+      output.NumericalMeasureField != null
+        ? deserializeAws_restJson1NumericalMeasureField(output.NumericalMeasureField, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MeasureFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1MemberIdArnPair = (output: any, context: __SerdeContext): MemberIdArnPair => {
   return {
     MemberArn: __expectString(output.MemberArn),
     MemberId: __expectString(output.MemberId),
   } as any;
+};
+
+const deserializeAws_restJson1MetricComparisonComputation = (
+  output: any,
+  context: __SerdeContext
+): MetricComparisonComputation => {
+  return {
+    ComputationId: __expectString(output.ComputationId),
+    FromValue: output.FromValue != null ? deserializeAws_restJson1MeasureField(output.FromValue, context) : undefined,
+    Name: __expectString(output.Name),
+    TargetValue:
+      output.TargetValue != null ? deserializeAws_restJson1MeasureField(output.TargetValue, context) : undefined,
+    Time: output.Time != null ? deserializeAws_restJson1DimensionField(output.Time, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MinimumLabelType = (output: any, context: __SerdeContext): MinimumLabelType => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1MissingDataConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MissingDataConfiguration => {
+  return {
+    TreatmentOption: __expectString(output.TreatmentOption),
+  } as any;
+};
+
+const deserializeAws_restJson1MissingDataConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): MissingDataConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MissingDataConfiguration(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1MySqlParameters = (output: any, context: __SerdeContext): MySqlParameters => {
@@ -15847,6 +28431,208 @@ const deserializeAws_restJson1Namespaces = (output: any, context: __SerdeContext
   return retVal;
 };
 
+const deserializeAws_restJson1NegativeValueConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NegativeValueConfiguration => {
+  return {
+    DisplayMode: __expectString(output.DisplayMode),
+  } as any;
+};
+
+const deserializeAws_restJson1NullValueFormatConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NullValueFormatConfiguration => {
+  return {
+    NullString: __expectString(output.NullString),
+  } as any;
+};
+
+const deserializeAws_restJson1NumberDisplayFormatConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NumberDisplayFormatConfiguration => {
+  return {
+    DecimalPlacesConfiguration:
+      output.DecimalPlacesConfiguration != null
+        ? deserializeAws_restJson1DecimalPlacesConfiguration(output.DecimalPlacesConfiguration, context)
+        : undefined,
+    NegativeValueConfiguration:
+      output.NegativeValueConfiguration != null
+        ? deserializeAws_restJson1NegativeValueConfiguration(output.NegativeValueConfiguration, context)
+        : undefined,
+    NullValueFormatConfiguration:
+      output.NullValueFormatConfiguration != null
+        ? deserializeAws_restJson1NullValueFormatConfiguration(output.NullValueFormatConfiguration, context)
+        : undefined,
+    NumberScale: __expectString(output.NumberScale),
+    Prefix: __expectString(output.Prefix),
+    SeparatorConfiguration:
+      output.SeparatorConfiguration != null
+        ? deserializeAws_restJson1NumericSeparatorConfiguration(output.SeparatorConfiguration, context)
+        : undefined,
+    Suffix: __expectString(output.Suffix),
+  } as any;
+};
+
+const deserializeAws_restJson1NumberFormatConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NumberFormatConfiguration => {
+  return {
+    FormatConfiguration:
+      output.FormatConfiguration != null
+        ? deserializeAws_restJson1NumericFormatConfiguration(output.FormatConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NumericalAggregationFunction = (
+  output: any,
+  context: __SerdeContext
+): NumericalAggregationFunction => {
+  return {
+    PercentileAggregation:
+      output.PercentileAggregation != null
+        ? deserializeAws_restJson1PercentileAggregation(output.PercentileAggregation, context)
+        : undefined,
+    SimpleNumericalAggregation: __expectString(output.SimpleNumericalAggregation),
+  } as any;
+};
+
+const deserializeAws_restJson1NumericalDimensionField = (
+  output: any,
+  context: __SerdeContext
+): NumericalDimensionField => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FieldId: __expectString(output.FieldId),
+    FormatConfiguration:
+      output.FormatConfiguration != null
+        ? deserializeAws_restJson1NumberFormatConfiguration(output.FormatConfiguration, context)
+        : undefined,
+    HierarchyId: __expectString(output.HierarchyId),
+  } as any;
+};
+
+const deserializeAws_restJson1NumericalMeasureField = (output: any, context: __SerdeContext): NumericalMeasureField => {
+  return {
+    AggregationFunction:
+      output.AggregationFunction != null
+        ? deserializeAws_restJson1NumericalAggregationFunction(output.AggregationFunction, context)
+        : undefined,
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FieldId: __expectString(output.FieldId),
+    FormatConfiguration:
+      output.FormatConfiguration != null
+        ? deserializeAws_restJson1NumberFormatConfiguration(output.FormatConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NumericAxisOptions = (output: any, context: __SerdeContext): NumericAxisOptions => {
+  return {
+    Range: output.Range != null ? deserializeAws_restJson1AxisDisplayRange(output.Range, context) : undefined,
+    Scale: output.Scale != null ? deserializeAws_restJson1AxisScale(output.Scale, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NumericEqualityDrillDownFilter = (
+  output: any,
+  context: __SerdeContext
+): NumericEqualityDrillDownFilter => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    Value: __limitedParseDouble(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1NumericEqualityFilter = (output: any, context: __SerdeContext): NumericEqualityFilter => {
+  return {
+    AggregationFunction:
+      output.AggregationFunction != null
+        ? deserializeAws_restJson1AggregationFunction(output.AggregationFunction, context)
+        : undefined,
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FilterId: __expectString(output.FilterId),
+    MatchOperator: __expectString(output.MatchOperator),
+    NullOption: __expectString(output.NullOption),
+    ParameterName: __expectString(output.ParameterName),
+    SelectAllOptions: __expectString(output.SelectAllOptions),
+    Value: __limitedParseDouble(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1NumericFormatConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NumericFormatConfiguration => {
+  return {
+    CurrencyDisplayFormatConfiguration:
+      output.CurrencyDisplayFormatConfiguration != null
+        ? deserializeAws_restJson1CurrencyDisplayFormatConfiguration(output.CurrencyDisplayFormatConfiguration, context)
+        : undefined,
+    NumberDisplayFormatConfiguration:
+      output.NumberDisplayFormatConfiguration != null
+        ? deserializeAws_restJson1NumberDisplayFormatConfiguration(output.NumberDisplayFormatConfiguration, context)
+        : undefined,
+    PercentageDisplayFormatConfiguration:
+      output.PercentageDisplayFormatConfiguration != null
+        ? deserializeAws_restJson1PercentageDisplayFormatConfiguration(
+            output.PercentageDisplayFormatConfiguration,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NumericRangeFilter = (output: any, context: __SerdeContext): NumericRangeFilter => {
+  return {
+    AggregationFunction:
+      output.AggregationFunction != null
+        ? deserializeAws_restJson1AggregationFunction(output.AggregationFunction, context)
+        : undefined,
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FilterId: __expectString(output.FilterId),
+    IncludeMaximum: __expectBoolean(output.IncludeMaximum),
+    IncludeMinimum: __expectBoolean(output.IncludeMinimum),
+    NullOption: __expectString(output.NullOption),
+    RangeMaximum:
+      output.RangeMaximum != null
+        ? deserializeAws_restJson1NumericRangeFilterValue(output.RangeMaximum, context)
+        : undefined,
+    RangeMinimum:
+      output.RangeMinimum != null
+        ? deserializeAws_restJson1NumericRangeFilterValue(output.RangeMinimum, context)
+        : undefined,
+    SelectAllOptions: __expectString(output.SelectAllOptions),
+  } as any;
+};
+
+const deserializeAws_restJson1NumericRangeFilterValue = (
+  output: any,
+  context: __SerdeContext
+): NumericRangeFilterValue => {
+  return {
+    Parameter: __expectString(output.Parameter),
+    StaticValue: __limitedParseDouble(output.StaticValue),
+  } as any;
+};
+
+const deserializeAws_restJson1NumericSeparatorConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NumericSeparatorConfiguration => {
+  return {
+    DecimalSeparator: __expectString(output.DecimalSeparator),
+    ThousandsSeparator:
+      output.ThousandsSeparator != null
+        ? deserializeAws_restJson1ThousandSeparatorOptions(output.ThousandsSeparator, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1OracleParameters = (output: any, context: __SerdeContext): OracleParameters => {
   return {
     Database: __expectString(output.Database),
@@ -15875,6 +28661,243 @@ const deserializeAws_restJson1OutputColumnList = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_restJson1PaginationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PaginationConfiguration => {
+  return {
+    PageNumber: __expectLong(output.PageNumber),
+    PageSize: __expectLong(output.PageSize),
+  } as any;
+};
+
+const deserializeAws_restJson1PanelConfiguration = (output: any, context: __SerdeContext): PanelConfiguration => {
+  return {
+    BackgroundColor: __expectString(output.BackgroundColor),
+    BackgroundVisibility: __expectString(output.BackgroundVisibility),
+    BorderColor: __expectString(output.BorderColor),
+    BorderStyle: __expectString(output.BorderStyle),
+    BorderThickness: __expectString(output.BorderThickness),
+    BorderVisibility: __expectString(output.BorderVisibility),
+    GutterSpacing: __expectString(output.GutterSpacing),
+    GutterVisibility: __expectString(output.GutterVisibility),
+    Title: output.Title != null ? deserializeAws_restJson1PanelTitleOptions(output.Title, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PanelTitleOptions = (output: any, context: __SerdeContext): PanelTitleOptions => {
+  return {
+    FontConfiguration:
+      output.FontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.FontConfiguration, context)
+        : undefined,
+    HorizontalTextAlignment: __expectString(output.HorizontalTextAlignment),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1ParameterControl = (output: any, context: __SerdeContext): ParameterControl => {
+  return {
+    DateTimePicker:
+      output.DateTimePicker != null
+        ? deserializeAws_restJson1ParameterDateTimePickerControl(output.DateTimePicker, context)
+        : undefined,
+    Dropdown:
+      output.Dropdown != null ? deserializeAws_restJson1ParameterDropDownControl(output.Dropdown, context) : undefined,
+    List: output.List != null ? deserializeAws_restJson1ParameterListControl(output.List, context) : undefined,
+    Slider: output.Slider != null ? deserializeAws_restJson1ParameterSliderControl(output.Slider, context) : undefined,
+    TextArea:
+      output.TextArea != null ? deserializeAws_restJson1ParameterTextAreaControl(output.TextArea, context) : undefined,
+    TextField:
+      output.TextField != null
+        ? deserializeAws_restJson1ParameterTextFieldControl(output.TextField, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ParameterControlList = (output: any, context: __SerdeContext): ParameterControl[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ParameterControl(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ParameterDateTimePickerControl = (
+  output: any,
+  context: __SerdeContext
+): ParameterDateTimePickerControl => {
+  return {
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1DateTimePickerControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    ParameterControlId: __expectString(output.ParameterControlId),
+    SourceParameterName: __expectString(output.SourceParameterName),
+    Title: __expectString(output.Title),
+  } as any;
+};
+
+const deserializeAws_restJson1ParameterDeclaration = (output: any, context: __SerdeContext): ParameterDeclaration => {
+  return {
+    DateTimeParameterDeclaration:
+      output.DateTimeParameterDeclaration != null
+        ? deserializeAws_restJson1DateTimeParameterDeclaration(output.DateTimeParameterDeclaration, context)
+        : undefined,
+    DecimalParameterDeclaration:
+      output.DecimalParameterDeclaration != null
+        ? deserializeAws_restJson1DecimalParameterDeclaration(output.DecimalParameterDeclaration, context)
+        : undefined,
+    IntegerParameterDeclaration:
+      output.IntegerParameterDeclaration != null
+        ? deserializeAws_restJson1IntegerParameterDeclaration(output.IntegerParameterDeclaration, context)
+        : undefined,
+    StringParameterDeclaration:
+      output.StringParameterDeclaration != null
+        ? deserializeAws_restJson1StringParameterDeclaration(output.StringParameterDeclaration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ParameterDeclarationList = (
+  output: any,
+  context: __SerdeContext
+): ParameterDeclaration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ParameterDeclaration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ParameterDropDownControl = (
+  output: any,
+  context: __SerdeContext
+): ParameterDropDownControl => {
+  return {
+    CascadingControlConfiguration:
+      output.CascadingControlConfiguration != null
+        ? deserializeAws_restJson1CascadingControlConfiguration(output.CascadingControlConfiguration, context)
+        : undefined,
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1DropDownControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    ParameterControlId: __expectString(output.ParameterControlId),
+    SelectableValues:
+      output.SelectableValues != null
+        ? deserializeAws_restJson1ParameterSelectableValues(output.SelectableValues, context)
+        : undefined,
+    SourceParameterName: __expectString(output.SourceParameterName),
+    Title: __expectString(output.Title),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1ParameterListControl = (output: any, context: __SerdeContext): ParameterListControl => {
+  return {
+    CascadingControlConfiguration:
+      output.CascadingControlConfiguration != null
+        ? deserializeAws_restJson1CascadingControlConfiguration(output.CascadingControlConfiguration, context)
+        : undefined,
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1ListControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    ParameterControlId: __expectString(output.ParameterControlId),
+    SelectableValues:
+      output.SelectableValues != null
+        ? deserializeAws_restJson1ParameterSelectableValues(output.SelectableValues, context)
+        : undefined,
+    SourceParameterName: __expectString(output.SourceParameterName),
+    Title: __expectString(output.Title),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1ParameterSelectableValueList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ParameterSelectableValues = (
+  output: any,
+  context: __SerdeContext
+): ParameterSelectableValues => {
+  return {
+    LinkToDataSetColumn:
+      output.LinkToDataSetColumn != null
+        ? deserializeAws_restJson1ColumnIdentifier(output.LinkToDataSetColumn, context)
+        : undefined,
+    Values:
+      output.Values != null ? deserializeAws_restJson1ParameterSelectableValueList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ParameterSliderControl = (
+  output: any,
+  context: __SerdeContext
+): ParameterSliderControl => {
+  return {
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1SliderControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    MaximumValue: __limitedParseDouble(output.MaximumValue),
+    MinimumValue: __limitedParseDouble(output.MinimumValue),
+    ParameterControlId: __expectString(output.ParameterControlId),
+    SourceParameterName: __expectString(output.SourceParameterName),
+    StepSize: __limitedParseDouble(output.StepSize),
+    Title: __expectString(output.Title),
+  } as any;
+};
+
+const deserializeAws_restJson1ParameterTextAreaControl = (
+  output: any,
+  context: __SerdeContext
+): ParameterTextAreaControl => {
+  return {
+    Delimiter: __expectString(output.Delimiter),
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1TextAreaControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    ParameterControlId: __expectString(output.ParameterControlId),
+    SourceParameterName: __expectString(output.SourceParameterName),
+    Title: __expectString(output.Title),
+  } as any;
+};
+
+const deserializeAws_restJson1ParameterTextFieldControl = (
+  output: any,
+  context: __SerdeContext
+): ParameterTextFieldControl => {
+  return {
+    DisplayOptions:
+      output.DisplayOptions != null
+        ? deserializeAws_restJson1TextFieldControlDisplayOptions(output.DisplayOptions, context)
+        : undefined,
+    ParameterControlId: __expectString(output.ParameterControlId),
+    SourceParameterName: __expectString(output.SourceParameterName),
+    Title: __expectString(output.Title),
+  } as any;
+};
+
 const deserializeAws_restJson1Path = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -15885,6 +28908,70 @@ const deserializeAws_restJson1Path = (output: any, context: __SerdeContext): str
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1PercentageDisplayFormatConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PercentageDisplayFormatConfiguration => {
+  return {
+    DecimalPlacesConfiguration:
+      output.DecimalPlacesConfiguration != null
+        ? deserializeAws_restJson1DecimalPlacesConfiguration(output.DecimalPlacesConfiguration, context)
+        : undefined,
+    NegativeValueConfiguration:
+      output.NegativeValueConfiguration != null
+        ? deserializeAws_restJson1NegativeValueConfiguration(output.NegativeValueConfiguration, context)
+        : undefined,
+    NullValueFormatConfiguration:
+      output.NullValueFormatConfiguration != null
+        ? deserializeAws_restJson1NullValueFormatConfiguration(output.NullValueFormatConfiguration, context)
+        : undefined,
+    Prefix: __expectString(output.Prefix),
+    SeparatorConfiguration:
+      output.SeparatorConfiguration != null
+        ? deserializeAws_restJson1NumericSeparatorConfiguration(output.SeparatorConfiguration, context)
+        : undefined,
+    Suffix: __expectString(output.Suffix),
+  } as any;
+};
+
+const deserializeAws_restJson1PercentileAggregation = (output: any, context: __SerdeContext): PercentileAggregation => {
+  return {
+    PercentileValue: __limitedParseDouble(output.PercentileValue),
+  } as any;
+};
+
+const deserializeAws_restJson1PercentVisibleRange = (output: any, context: __SerdeContext): PercentVisibleRange => {
+  return {
+    From: __limitedParseDouble(output.From),
+    To: __limitedParseDouble(output.To),
+  } as any;
+};
+
+const deserializeAws_restJson1PeriodOverPeriodComputation = (
+  output: any,
+  context: __SerdeContext
+): PeriodOverPeriodComputation => {
+  return {
+    ComputationId: __expectString(output.ComputationId),
+    Name: __expectString(output.Name),
+    Time: output.Time != null ? deserializeAws_restJson1DimensionField(output.Time, context) : undefined,
+    Value: output.Value != null ? deserializeAws_restJson1MeasureField(output.Value, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PeriodToDateComputation = (
+  output: any,
+  context: __SerdeContext
+): PeriodToDateComputation => {
+  return {
+    ComputationId: __expectString(output.ComputationId),
+    Name: __expectString(output.Name),
+    PeriodTimeGranularity: __expectString(output.PeriodTimeGranularity),
+    Time: output.Time != null ? deserializeAws_restJson1DimensionField(output.Time, context) : undefined,
+    Value: output.Value != null ? deserializeAws_restJson1MeasureField(output.Value, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1PhysicalTable = (output: any, context: __SerdeContext): PhysicalTable => {
@@ -15914,11 +29001,485 @@ const deserializeAws_restJson1PhysicalTableMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1PhysicalTable(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_restJson1PhysicalTable(__expectUnion(value), context);
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1PieChartAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): PieChartAggregatedFieldWells => {
+  return {
+    Category:
+      output.Category != null ? deserializeAws_restJson1DimensionFieldList(output.Category, context) : undefined,
+    SmallMultiples:
+      output.SmallMultiples != null
+        ? deserializeAws_restJson1SmallMultiplesDimensionFieldList(output.SmallMultiples, context)
+        : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1MeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PieChartConfiguration = (output: any, context: __SerdeContext): PieChartConfiguration => {
+  return {
+    CategoryLabelOptions:
+      output.CategoryLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.CategoryLabelOptions, context)
+        : undefined,
+    ContributionAnalysisDefaults:
+      output.ContributionAnalysisDefaults != null
+        ? deserializeAws_restJson1ContributionAnalysisDefaultList(output.ContributionAnalysisDefaults, context)
+        : undefined,
+    DataLabels:
+      output.DataLabels != null ? deserializeAws_restJson1DataLabelOptions(output.DataLabels, context) : undefined,
+    DonutOptions:
+      output.DonutOptions != null ? deserializeAws_restJson1DonutOptions(output.DonutOptions, context) : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1PieChartFieldWells(output.FieldWells, context) : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    SmallMultiplesOptions:
+      output.SmallMultiplesOptions != null
+        ? deserializeAws_restJson1SmallMultiplesOptions(output.SmallMultiplesOptions, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1PieChartSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+    ValueLabelOptions:
+      output.ValueLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.ValueLabelOptions, context)
+        : undefined,
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PieChartFieldWells = (output: any, context: __SerdeContext): PieChartFieldWells => {
+  return {
+    PieChartAggregatedFieldWells:
+      output.PieChartAggregatedFieldWells != null
+        ? deserializeAws_restJson1PieChartAggregatedFieldWells(output.PieChartAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PieChartSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PieChartSortConfiguration => {
+  return {
+    CategoryItemsLimit:
+      output.CategoryItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.CategoryItemsLimit, context)
+        : undefined,
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+    SmallMultiplesLimitConfiguration:
+      output.SmallMultiplesLimitConfiguration != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.SmallMultiplesLimitConfiguration, context)
+        : undefined,
+    SmallMultiplesSort:
+      output.SmallMultiplesSort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.SmallMultiplesSort, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PieChartVisual = (output: any, context: __SerdeContext): PieChartVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1PieChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1PivotFieldSortOptions = (output: any, context: __SerdeContext): PivotFieldSortOptions => {
+  return {
+    FieldId: __expectString(output.FieldId),
+    SortBy: output.SortBy != null ? deserializeAws_restJson1PivotTableSortBy(output.SortBy, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotFieldSortOptionsList = (
+  output: any,
+  context: __SerdeContext
+): PivotFieldSortOptions[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PivotFieldSortOptions(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PivotMeasureFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PivotTableAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): PivotTableAggregatedFieldWells => {
+  return {
+    Columns:
+      output.Columns != null ? deserializeAws_restJson1PivotTableDimensionList(output.Columns, context) : undefined,
+    Rows: output.Rows != null ? deserializeAws_restJson1PivotTableDimensionList(output.Rows, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1PivotMeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableCellConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): PivotTableCellConditionalFormatting => {
+  return {
+    FieldId: __expectString(output.FieldId),
+    Scope:
+      output.Scope != null
+        ? deserializeAws_restJson1PivotTableConditionalFormattingScope(output.Scope, context)
+        : undefined,
+    TextFormat:
+      output.TextFormat != null ? deserializeAws_restJson1TextConditionalFormat(output.TextFormat, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): PivotTableConditionalFormatting => {
+  return {
+    ConditionalFormattingOptions:
+      output.ConditionalFormattingOptions != null
+        ? deserializeAws_restJson1PivotTableConditionalFormattingOptionList(
+            output.ConditionalFormattingOptions,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableConditionalFormattingOption = (
+  output: any,
+  context: __SerdeContext
+): PivotTableConditionalFormattingOption => {
+  return {
+    Cell:
+      output.Cell != null
+        ? deserializeAws_restJson1PivotTableCellConditionalFormatting(output.Cell, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableConditionalFormattingOptionList = (
+  output: any,
+  context: __SerdeContext
+): PivotTableConditionalFormattingOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PivotTableConditionalFormattingOption(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PivotTableConditionalFormattingScope = (
+  output: any,
+  context: __SerdeContext
+): PivotTableConditionalFormattingScope => {
+  return {
+    Role: __expectString(output.Role),
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PivotTableConfiguration => {
+  return {
+    FieldOptions:
+      output.FieldOptions != null
+        ? deserializeAws_restJson1PivotTableFieldOptions(output.FieldOptions, context)
+        : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1PivotTableFieldWells(output.FieldWells, context) : undefined,
+    PaginatedReportOptions:
+      output.PaginatedReportOptions != null
+        ? deserializeAws_restJson1PivotTablePaginatedReportOptions(output.PaginatedReportOptions, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1PivotTableSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    TableOptions:
+      output.TableOptions != null ? deserializeAws_restJson1PivotTableOptions(output.TableOptions, context) : undefined,
+    TotalOptions:
+      output.TotalOptions != null
+        ? deserializeAws_restJson1PivotTableTotalOptions(output.TotalOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableDataPathOption = (
+  output: any,
+  context: __SerdeContext
+): PivotTableDataPathOption => {
+  return {
+    DataPathList:
+      output.DataPathList != null ? deserializeAws_restJson1DataPathValueList(output.DataPathList, context) : undefined,
+    Width: __expectString(output.Width),
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableDataPathOptionList = (
+  output: any,
+  context: __SerdeContext
+): PivotTableDataPathOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PivotTableDataPathOption(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PivotTableDimensionList = (output: any, context: __SerdeContext): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PivotTableFieldOption = (output: any, context: __SerdeContext): PivotTableFieldOption => {
+  return {
+    CustomLabel: __expectString(output.CustomLabel),
+    FieldId: __expectString(output.FieldId),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableFieldOptionList = (
+  output: any,
+  context: __SerdeContext
+): PivotTableFieldOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PivotTableFieldOption(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PivotTableFieldOptions = (
+  output: any,
+  context: __SerdeContext
+): PivotTableFieldOptions => {
+  return {
+    DataPathOptions:
+      output.DataPathOptions != null
+        ? deserializeAws_restJson1PivotTableDataPathOptionList(output.DataPathOptions, context)
+        : undefined,
+    SelectedFieldOptions:
+      output.SelectedFieldOptions != null
+        ? deserializeAws_restJson1PivotTableFieldOptionList(output.SelectedFieldOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableFieldSubtotalOptions = (
+  output: any,
+  context: __SerdeContext
+): PivotTableFieldSubtotalOptions => {
+  return {
+    FieldId: __expectString(output.FieldId),
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableFieldSubtotalOptionsList = (
+  output: any,
+  context: __SerdeContext
+): PivotTableFieldSubtotalOptions[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PivotTableFieldSubtotalOptions(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PivotTableFieldWells = (output: any, context: __SerdeContext): PivotTableFieldWells => {
+  return {
+    PivotTableAggregatedFieldWells:
+      output.PivotTableAggregatedFieldWells != null
+        ? deserializeAws_restJson1PivotTableAggregatedFieldWells(output.PivotTableAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableOptions = (output: any, context: __SerdeContext): PivotTableOptions => {
+  return {
+    CellStyle: output.CellStyle != null ? deserializeAws_restJson1TableCellStyle(output.CellStyle, context) : undefined,
+    ColumnHeaderStyle:
+      output.ColumnHeaderStyle != null
+        ? deserializeAws_restJson1TableCellStyle(output.ColumnHeaderStyle, context)
+        : undefined,
+    ColumnNamesVisibility: __expectString(output.ColumnNamesVisibility),
+    MetricPlacement: __expectString(output.MetricPlacement),
+    RowAlternateColorOptions:
+      output.RowAlternateColorOptions != null
+        ? deserializeAws_restJson1RowAlternateColorOptions(output.RowAlternateColorOptions, context)
+        : undefined,
+    RowFieldNamesStyle:
+      output.RowFieldNamesStyle != null
+        ? deserializeAws_restJson1TableCellStyle(output.RowFieldNamesStyle, context)
+        : undefined,
+    RowHeaderStyle:
+      output.RowHeaderStyle != null
+        ? deserializeAws_restJson1TableCellStyle(output.RowHeaderStyle, context)
+        : undefined,
+    SingleMetricVisibility: __expectString(output.SingleMetricVisibility),
+    ToggleButtonsVisibility: __expectString(output.ToggleButtonsVisibility),
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTablePaginatedReportOptions = (
+  output: any,
+  context: __SerdeContext
+): PivotTablePaginatedReportOptions => {
+  return {
+    OverflowColumnHeaderVisibility: __expectString(output.OverflowColumnHeaderVisibility),
+    VerticalOverflowVisibility: __expectString(output.VerticalOverflowVisibility),
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableSortBy = (output: any, context: __SerdeContext): PivotTableSortBy => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnSort(output.Column, context) : undefined,
+    DataPath: output.DataPath != null ? deserializeAws_restJson1DataPathSort(output.DataPath, context) : undefined,
+    Field: output.Field != null ? deserializeAws_restJson1FieldSort(output.Field, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PivotTableSortConfiguration => {
+  return {
+    FieldSortOptions:
+      output.FieldSortOptions != null
+        ? deserializeAws_restJson1PivotFieldSortOptionsList(output.FieldSortOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableTotalOptions = (
+  output: any,
+  context: __SerdeContext
+): PivotTableTotalOptions => {
+  return {
+    ColumnSubtotalOptions:
+      output.ColumnSubtotalOptions != null
+        ? deserializeAws_restJson1SubtotalOptions(output.ColumnSubtotalOptions, context)
+        : undefined,
+    ColumnTotalOptions:
+      output.ColumnTotalOptions != null
+        ? deserializeAws_restJson1PivotTotalOptions(output.ColumnTotalOptions, context)
+        : undefined,
+    RowSubtotalOptions:
+      output.RowSubtotalOptions != null
+        ? deserializeAws_restJson1SubtotalOptions(output.RowSubtotalOptions, context)
+        : undefined,
+    RowTotalOptions:
+      output.RowTotalOptions != null
+        ? deserializeAws_restJson1PivotTotalOptions(output.RowTotalOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTableVisual = (output: any, context: __SerdeContext): PivotTableVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1PivotTableConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ConditionalFormatting:
+      output.ConditionalFormatting != null
+        ? deserializeAws_restJson1PivotTableConditionalFormatting(output.ConditionalFormatting, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1PivotTotalOptions = (output: any, context: __SerdeContext): PivotTotalOptions => {
+  return {
+    CustomLabel: __expectString(output.CustomLabel),
+    MetricHeaderCellStyle:
+      output.MetricHeaderCellStyle != null
+        ? deserializeAws_restJson1TableCellStyle(output.MetricHeaderCellStyle, context)
+        : undefined,
+    Placement: __expectString(output.Placement),
+    ScrollStatus: __expectString(output.ScrollStatus),
+    TotalCellStyle:
+      output.TotalCellStyle != null
+        ? deserializeAws_restJson1TableCellStyle(output.TotalCellStyle, context)
+        : undefined,
+    TotalsVisibility: __expectString(output.TotalsVisibility),
+    ValueCellStyle:
+      output.ValueCellStyle != null
+        ? deserializeAws_restJson1TableCellStyle(output.ValueCellStyle, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1PostgreSqlParameters = (output: any, context: __SerdeContext): PostgreSqlParameters => {
@@ -15927,6 +29488,35 @@ const deserializeAws_restJson1PostgreSqlParameters = (output: any, context: __Se
     Host: __expectString(output.Host),
     Port: __expectInt32(output.Port),
   } as any;
+};
+
+const deserializeAws_restJson1PredefinedHierarchy = (output: any, context: __SerdeContext): PredefinedHierarchy => {
+  return {
+    Columns:
+      output.Columns != null
+        ? deserializeAws_restJson1PredefinedHierarchyColumnList(output.Columns, context)
+        : undefined,
+    DrillDownFilters:
+      output.DrillDownFilters != null
+        ? deserializeAws_restJson1DrillDownFilterList(output.DrillDownFilters, context)
+        : undefined,
+    HierarchyId: __expectString(output.HierarchyId),
+  } as any;
+};
+
+const deserializeAws_restJson1PredefinedHierarchyColumnList = (
+  output: any,
+  context: __SerdeContext
+): ColumnIdentifier[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ColumnIdentifier(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1PrestoParameters = (output: any, context: __SerdeContext): PrestoParameters => {
@@ -15947,6 +29537,12 @@ const deserializeAws_restJson1PrincipalList = (output: any, context: __SerdeCont
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1ProgressBarOptions = (output: any, context: __SerdeContext): ProgressBarOptions => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
 };
 
 const deserializeAws_restJson1ProjectedColumnList = (output: any, context: __SerdeContext): string[] => {
@@ -15977,6 +29573,179 @@ const deserializeAws_restJson1QueueInfo = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_restJson1RadarChartAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): RadarChartAggregatedFieldWells => {
+  return {
+    Category:
+      output.Category != null
+        ? deserializeAws_restJson1RadarChartCategoryFieldList(output.Category, context)
+        : undefined,
+    Color: output.Color != null ? deserializeAws_restJson1RadarChartColorFieldList(output.Color, context) : undefined,
+    Values:
+      output.Values != null ? deserializeAws_restJson1RadarChartValuesFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartAreaStyleSettings = (
+  output: any,
+  context: __SerdeContext
+): RadarChartAreaStyleSettings => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartCategoryFieldList = (
+  output: any,
+  context: __SerdeContext
+): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RadarChartColorFieldList = (output: any, context: __SerdeContext): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RadarChartConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RadarChartConfiguration => {
+  return {
+    AlternateBandColorsVisibility: __expectString(output.AlternateBandColorsVisibility),
+    AlternateBandEvenColor: __expectString(output.AlternateBandEvenColor),
+    AlternateBandOddColor: __expectString(output.AlternateBandOddColor),
+    BaseSeriesSettings:
+      output.BaseSeriesSettings != null
+        ? deserializeAws_restJson1RadarChartSeriesSettings(output.BaseSeriesSettings, context)
+        : undefined,
+    CategoryAxis:
+      output.CategoryAxis != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.CategoryAxis, context)
+        : undefined,
+    CategoryLabelOptions:
+      output.CategoryLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.CategoryLabelOptions, context)
+        : undefined,
+    ColorAxis:
+      output.ColorAxis != null ? deserializeAws_restJson1AxisDisplayOptions(output.ColorAxis, context) : undefined,
+    ColorLabelOptions:
+      output.ColorLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.ColorLabelOptions, context)
+        : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1RadarChartFieldWells(output.FieldWells, context) : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    Shape: __expectString(output.Shape),
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1RadarChartSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    StartAngle: __limitedParseDouble(output.StartAngle),
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartFieldWells = (output: any, context: __SerdeContext): RadarChartFieldWells => {
+  return {
+    RadarChartAggregatedFieldWells:
+      output.RadarChartAggregatedFieldWells != null
+        ? deserializeAws_restJson1RadarChartAggregatedFieldWells(output.RadarChartAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartSeriesSettings = (
+  output: any,
+  context: __SerdeContext
+): RadarChartSeriesSettings => {
+  return {
+    AreaStyleSettings:
+      output.AreaStyleSettings != null
+        ? deserializeAws_restJson1RadarChartAreaStyleSettings(output.AreaStyleSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RadarChartSortConfiguration => {
+  return {
+    CategoryItemsLimit:
+      output.CategoryItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.CategoryItemsLimit, context)
+        : undefined,
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+    ColorItemsLimit:
+      output.ColorItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.ColorItemsLimit, context)
+        : undefined,
+    ColorSort:
+      output.ColorSort != null ? deserializeAws_restJson1FieldSortOptionsList(output.ColorSort, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RadarChartValuesFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RadarChartVisual = (output: any, context: __SerdeContext): RadarChartVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1RadarChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1RangeEndsLabelType = (output: any, context: __SerdeContext): RangeEndsLabelType => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
 const deserializeAws_restJson1RdsParameters = (output: any, context: __SerdeContext): RdsParameters => {
   return {
     Database: __expectString(output.Database),
@@ -15993,6 +29762,134 @@ const deserializeAws_restJson1RedshiftParameters = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1ReferenceLine = (output: any, context: __SerdeContext): ReferenceLine => {
+  return {
+    DataConfiguration:
+      output.DataConfiguration != null
+        ? deserializeAws_restJson1ReferenceLineDataConfiguration(output.DataConfiguration, context)
+        : undefined,
+    LabelConfiguration:
+      output.LabelConfiguration != null
+        ? deserializeAws_restJson1ReferenceLineLabelConfiguration(output.LabelConfiguration, context)
+        : undefined,
+    Status: __expectString(output.Status),
+    StyleConfiguration:
+      output.StyleConfiguration != null
+        ? deserializeAws_restJson1ReferenceLineStyleConfiguration(output.StyleConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ReferenceLineCustomLabelConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ReferenceLineCustomLabelConfiguration => {
+  return {
+    CustomLabel: __expectString(output.CustomLabel),
+  } as any;
+};
+
+const deserializeAws_restJson1ReferenceLineDataConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ReferenceLineDataConfiguration => {
+  return {
+    AxisBinding: __expectString(output.AxisBinding),
+    DynamicConfiguration:
+      output.DynamicConfiguration != null
+        ? deserializeAws_restJson1ReferenceLineDynamicDataConfiguration(output.DynamicConfiguration, context)
+        : undefined,
+    StaticConfiguration:
+      output.StaticConfiguration != null
+        ? deserializeAws_restJson1ReferenceLineStaticDataConfiguration(output.StaticConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ReferenceLineDynamicDataConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ReferenceLineDynamicDataConfiguration => {
+  return {
+    Calculation:
+      output.Calculation != null
+        ? deserializeAws_restJson1NumericalAggregationFunction(output.Calculation, context)
+        : undefined,
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    MeasureAggregationFunction:
+      output.MeasureAggregationFunction != null
+        ? deserializeAws_restJson1AggregationFunction(output.MeasureAggregationFunction, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ReferenceLineLabelConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ReferenceLineLabelConfiguration => {
+  return {
+    CustomLabelConfiguration:
+      output.CustomLabelConfiguration != null
+        ? deserializeAws_restJson1ReferenceLineCustomLabelConfiguration(output.CustomLabelConfiguration, context)
+        : undefined,
+    FontColor: __expectString(output.FontColor),
+    FontConfiguration:
+      output.FontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.FontConfiguration, context)
+        : undefined,
+    HorizontalPosition: __expectString(output.HorizontalPosition),
+    ValueLabelConfiguration:
+      output.ValueLabelConfiguration != null
+        ? deserializeAws_restJson1ReferenceLineValueLabelConfiguration(output.ValueLabelConfiguration, context)
+        : undefined,
+    VerticalPosition: __expectString(output.VerticalPosition),
+  } as any;
+};
+
+const deserializeAws_restJson1ReferenceLineList = (output: any, context: __SerdeContext): ReferenceLine[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ReferenceLine(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ReferenceLineStaticDataConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ReferenceLineStaticDataConfiguration => {
+  return {
+    Value: __limitedParseDouble(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1ReferenceLineStyleConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ReferenceLineStyleConfiguration => {
+  return {
+    Color: __expectString(output.Color),
+    Pattern: __expectString(output.Pattern),
+  } as any;
+};
+
+const deserializeAws_restJson1ReferenceLineValueLabelConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ReferenceLineValueLabelConfiguration => {
+  return {
+    FormatConfiguration:
+      output.FormatConfiguration != null
+        ? deserializeAws_restJson1NumericFormatConfiguration(output.FormatConfiguration, context)
+        : undefined,
+    RelativePosition: __expectString(output.RelativePosition),
+  } as any;
+};
+
 const deserializeAws_restJson1RelationalTable = (output: any, context: __SerdeContext): RelationalTable => {
   return {
     Catalog: __expectString(output.Catalog),
@@ -16001,6 +29898,38 @@ const deserializeAws_restJson1RelationalTable = (output: any, context: __SerdeCo
       output.InputColumns != null ? deserializeAws_restJson1InputColumnList(output.InputColumns, context) : undefined,
     Name: __expectString(output.Name),
     Schema: __expectString(output.Schema),
+  } as any;
+};
+
+const deserializeAws_restJson1RelativeDatesFilter = (output: any, context: __SerdeContext): RelativeDatesFilter => {
+  return {
+    AnchorDateConfiguration:
+      output.AnchorDateConfiguration != null
+        ? deserializeAws_restJson1AnchorDateConfiguration(output.AnchorDateConfiguration, context)
+        : undefined,
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    ExcludePeriodConfiguration:
+      output.ExcludePeriodConfiguration != null
+        ? deserializeAws_restJson1ExcludePeriodConfiguration(output.ExcludePeriodConfiguration, context)
+        : undefined,
+    FilterId: __expectString(output.FilterId),
+    MinimumGranularity: __expectString(output.MinimumGranularity),
+    NullOption: __expectString(output.NullOption),
+    ParameterName: __expectString(output.ParameterName),
+    RelativeDateType: __expectString(output.RelativeDateType),
+    RelativeDateValue: __expectInt32(output.RelativeDateValue),
+    TimeGranularity: __expectString(output.TimeGranularity),
+  } as any;
+};
+
+const deserializeAws_restJson1RelativeDateTimeControlDisplayOptions = (
+  output: any,
+  context: __SerdeContext
+): RelativeDateTimeControlDisplayOptions => {
+  return {
+    DateTimeFormat: __expectString(output.DateTimeFormat),
+    TitleOptions:
+      output.TitleOptions != null ? deserializeAws_restJson1LabelOptions(output.TitleOptions, context) : undefined,
   } as any;
 };
 
@@ -16028,6 +29957,41 @@ const deserializeAws_restJson1ResourcePermissionList = (output: any, context: __
       return deserializeAws_restJson1ResourcePermission(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1RollingDateConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RollingDateConfiguration => {
+  return {
+    DataSetIdentifier: __expectString(output.DataSetIdentifier),
+    Expression: __expectString(output.Expression),
+  } as any;
+};
+
+const deserializeAws_restJson1RowAlternateColorList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RowAlternateColorOptions = (
+  output: any,
+  context: __SerdeContext
+): RowAlternateColorOptions => {
+  return {
+    RowAlternateColors:
+      output.RowAlternateColors != null
+        ? deserializeAws_restJson1RowAlternateColorList(output.RowAlternateColors, context)
+        : undefined,
+    Status: __expectString(output.Status),
+  } as any;
 };
 
 const deserializeAws_restJson1RowInfo = (output: any, context: __SerdeContext): RowInfo => {
@@ -16091,12 +30055,25 @@ const deserializeAws_restJson1RowLevelPermissionTagRuleList = (
   return retVal;
 };
 
+const deserializeAws_restJson1RowSortList = (output: any, context: __SerdeContext): FieldSortOptions[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FieldSortOptions(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1S3Parameters = (output: any, context: __SerdeContext): S3Parameters => {
   return {
     ManifestFileLocation:
       output.ManifestFileLocation != null
         ? deserializeAws_restJson1ManifestFileLocation(output.ManifestFileLocation, context)
         : undefined,
+    RoleArn: __expectString(output.RoleArn),
   } as any;
 };
 
@@ -16112,9 +30089,378 @@ const deserializeAws_restJson1S3Source = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1SameSheetTargetVisualConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SameSheetTargetVisualConfiguration => {
+  return {
+    TargetVisualOptions: __expectString(output.TargetVisualOptions),
+    TargetVisuals:
+      output.TargetVisuals != null
+        ? deserializeAws_restJson1TargetVisualList(output.TargetVisuals, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SankeyDiagramAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): SankeyDiagramAggregatedFieldWells => {
+  return {
+    Destination:
+      output.Destination != null ? deserializeAws_restJson1DimensionFieldList(output.Destination, context) : undefined,
+    Source: output.Source != null ? deserializeAws_restJson1DimensionFieldList(output.Source, context) : undefined,
+    Weight: output.Weight != null ? deserializeAws_restJson1MeasureFieldList(output.Weight, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SankeyDiagramChartConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SankeyDiagramChartConfiguration => {
+  return {
+    DataLabels:
+      output.DataLabels != null ? deserializeAws_restJson1DataLabelOptions(output.DataLabels, context) : undefined,
+    FieldWells:
+      output.FieldWells != null
+        ? deserializeAws_restJson1SankeyDiagramFieldWells(output.FieldWells, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1SankeyDiagramSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SankeyDiagramFieldWells = (
+  output: any,
+  context: __SerdeContext
+): SankeyDiagramFieldWells => {
+  return {
+    SankeyDiagramAggregatedFieldWells:
+      output.SankeyDiagramAggregatedFieldWells != null
+        ? deserializeAws_restJson1SankeyDiagramAggregatedFieldWells(output.SankeyDiagramAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SankeyDiagramSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SankeyDiagramSortConfiguration => {
+  return {
+    DestinationItemsLimit:
+      output.DestinationItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.DestinationItemsLimit, context)
+        : undefined,
+    SourceItemsLimit:
+      output.SourceItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.SourceItemsLimit, context)
+        : undefined,
+    WeightSort:
+      output.WeightSort != null ? deserializeAws_restJson1FieldSortOptionsList(output.WeightSort, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SankeyDiagramVisual = (output: any, context: __SerdeContext): SankeyDiagramVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1SankeyDiagramChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1ScatterPlotCategoricallyAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): ScatterPlotCategoricallyAggregatedFieldWells => {
+  return {
+    Category:
+      output.Category != null ? deserializeAws_restJson1DimensionFieldList(output.Category, context) : undefined,
+    Size: output.Size != null ? deserializeAws_restJson1MeasureFieldList(output.Size, context) : undefined,
+    XAxis: output.XAxis != null ? deserializeAws_restJson1MeasureFieldList(output.XAxis, context) : undefined,
+    YAxis: output.YAxis != null ? deserializeAws_restJson1MeasureFieldList(output.YAxis, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ScatterPlotConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ScatterPlotConfiguration => {
+  return {
+    DataLabels:
+      output.DataLabels != null ? deserializeAws_restJson1DataLabelOptions(output.DataLabels, context) : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1ScatterPlotFieldWells(output.FieldWells, context) : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+    XAxisDisplayOptions:
+      output.XAxisDisplayOptions != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.XAxisDisplayOptions, context)
+        : undefined,
+    XAxisLabelOptions:
+      output.XAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.XAxisLabelOptions, context)
+        : undefined,
+    YAxisDisplayOptions:
+      output.YAxisDisplayOptions != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.YAxisDisplayOptions, context)
+        : undefined,
+    YAxisLabelOptions:
+      output.YAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.YAxisLabelOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ScatterPlotFieldWells = (output: any, context: __SerdeContext): ScatterPlotFieldWells => {
+  return {
+    ScatterPlotCategoricallyAggregatedFieldWells:
+      output.ScatterPlotCategoricallyAggregatedFieldWells != null
+        ? deserializeAws_restJson1ScatterPlotCategoricallyAggregatedFieldWells(
+            output.ScatterPlotCategoricallyAggregatedFieldWells,
+            context
+          )
+        : undefined,
+    ScatterPlotUnaggregatedFieldWells:
+      output.ScatterPlotUnaggregatedFieldWells != null
+        ? deserializeAws_restJson1ScatterPlotUnaggregatedFieldWells(output.ScatterPlotUnaggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ScatterPlotUnaggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): ScatterPlotUnaggregatedFieldWells => {
+  return {
+    Size: output.Size != null ? deserializeAws_restJson1MeasureFieldList(output.Size, context) : undefined,
+    XAxis: output.XAxis != null ? deserializeAws_restJson1DimensionFieldList(output.XAxis, context) : undefined,
+    YAxis: output.YAxis != null ? deserializeAws_restJson1DimensionFieldList(output.YAxis, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ScatterPlotVisual = (output: any, context: __SerdeContext): ScatterPlotVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1ScatterPlotConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1ScrollBarOptions = (output: any, context: __SerdeContext): ScrollBarOptions => {
+  return {
+    Visibility: __expectString(output.Visibility),
+    VisibleRange:
+      output.VisibleRange != null
+        ? deserializeAws_restJson1VisibleRangeOptions(output.VisibleRange, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SecondaryValueOptions = (output: any, context: __SerdeContext): SecondaryValueOptions => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1SectionAfterPageBreak = (output: any, context: __SerdeContext): SectionAfterPageBreak => {
+  return {
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_restJson1SectionBasedLayoutCanvasSizeOptions = (
+  output: any,
+  context: __SerdeContext
+): SectionBasedLayoutCanvasSizeOptions => {
+  return {
+    PaperCanvasSizeOptions:
+      output.PaperCanvasSizeOptions != null
+        ? deserializeAws_restJson1SectionBasedLayoutPaperCanvasSizeOptions(output.PaperCanvasSizeOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SectionBasedLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SectionBasedLayoutConfiguration => {
+  return {
+    BodySections:
+      output.BodySections != null
+        ? deserializeAws_restJson1BodySectionConfigurationList(output.BodySections, context)
+        : undefined,
+    CanvasSizeOptions:
+      output.CanvasSizeOptions != null
+        ? deserializeAws_restJson1SectionBasedLayoutCanvasSizeOptions(output.CanvasSizeOptions, context)
+        : undefined,
+    FooterSections:
+      output.FooterSections != null
+        ? deserializeAws_restJson1HeaderFooterSectionConfigurationList(output.FooterSections, context)
+        : undefined,
+    HeaderSections:
+      output.HeaderSections != null
+        ? deserializeAws_restJson1HeaderFooterSectionConfigurationList(output.HeaderSections, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SectionBasedLayoutPaperCanvasSizeOptions = (
+  output: any,
+  context: __SerdeContext
+): SectionBasedLayoutPaperCanvasSizeOptions => {
+  return {
+    PaperMargin: output.PaperMargin != null ? deserializeAws_restJson1Spacing(output.PaperMargin, context) : undefined,
+    PaperOrientation: __expectString(output.PaperOrientation),
+    PaperSize: __expectString(output.PaperSize),
+  } as any;
+};
+
+const deserializeAws_restJson1SectionLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SectionLayoutConfiguration => {
+  return {
+    FreeFormLayout:
+      output.FreeFormLayout != null
+        ? deserializeAws_restJson1FreeFormSectionLayoutConfiguration(output.FreeFormLayout, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SectionPageBreakConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SectionPageBreakConfiguration => {
+  return {
+    After: output.After != null ? deserializeAws_restJson1SectionAfterPageBreak(output.After, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SectionStyle = (output: any, context: __SerdeContext): SectionStyle => {
+  return {
+    Height: __expectString(output.Height),
+    Padding: output.Padding != null ? deserializeAws_restJson1Spacing(output.Padding, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SelectedFieldList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SelectedSheetsFilterScopeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SelectedSheetsFilterScopeConfiguration => {
+  return {
+    SheetVisualScopingConfigurations:
+      output.SheetVisualScopingConfigurations != null
+        ? deserializeAws_restJson1SheetVisualScopingConfigurations(output.SheetVisualScopingConfigurations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SeriesItem = (output: any, context: __SerdeContext): SeriesItem => {
+  return {
+    DataFieldSeriesItem:
+      output.DataFieldSeriesItem != null
+        ? deserializeAws_restJson1DataFieldSeriesItem(output.DataFieldSeriesItem, context)
+        : undefined,
+    FieldSeriesItem:
+      output.FieldSeriesItem != null
+        ? deserializeAws_restJson1FieldSeriesItem(output.FieldSeriesItem, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SeriesItemList = (output: any, context: __SerdeContext): SeriesItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SeriesItem(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ServiceNowParameters = (output: any, context: __SerdeContext): ServiceNowParameters => {
   return {
     SiteBaseUrl: __expectString(output.SiteBaseUrl),
+  } as any;
+};
+
+const deserializeAws_restJson1SetParameterValueConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SetParameterValueConfiguration => {
+  return {
+    DestinationParameterName: __expectString(output.DestinationParameterName),
+    Value:
+      output.Value != null
+        ? deserializeAws_restJson1DestinationParameterValueConfiguration(output.Value, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SetParameterValueConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): SetParameterValueConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SetParameterValueConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ShapeConditionalFormat = (
+  output: any,
+  context: __SerdeContext
+): ShapeConditionalFormat => {
+  return {
+    BackgroundColor:
+      output.BackgroundColor != null
+        ? deserializeAws_restJson1ConditionalFormattingColor(output.BackgroundColor, context)
+        : undefined,
   } as any;
 };
 
@@ -16122,6 +30468,129 @@ const deserializeAws_restJson1Sheet = (output: any, context: __SerdeContext): Sh
   return {
     Name: __expectString(output.Name),
     SheetId: __expectString(output.SheetId),
+  } as any;
+};
+
+const deserializeAws_restJson1SheetControlLayout = (output: any, context: __SerdeContext): SheetControlLayout => {
+  return {
+    Configuration:
+      output.Configuration != null
+        ? deserializeAws_restJson1SheetControlLayoutConfiguration(output.Configuration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SheetControlLayoutConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SheetControlLayoutConfiguration => {
+  return {
+    GridLayout:
+      output.GridLayout != null
+        ? deserializeAws_restJson1GridLayoutConfiguration(output.GridLayout, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SheetControlLayoutList = (output: any, context: __SerdeContext): SheetControlLayout[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SheetControlLayout(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SheetControlsOption = (output: any, context: __SerdeContext): SheetControlsOption => {
+  return {
+    VisibilityState: __expectString(output.VisibilityState),
+  } as any;
+};
+
+const deserializeAws_restJson1SheetDefinition = (output: any, context: __SerdeContext): SheetDefinition => {
+  return {
+    ContentType: __expectString(output.ContentType),
+    Description: __expectString(output.Description),
+    FilterControls:
+      output.FilterControls != null
+        ? deserializeAws_restJson1FilterControlList(output.FilterControls, context)
+        : undefined,
+    Layouts: output.Layouts != null ? deserializeAws_restJson1LayoutList(output.Layouts, context) : undefined,
+    Name: __expectString(output.Name),
+    ParameterControls:
+      output.ParameterControls != null
+        ? deserializeAws_restJson1ParameterControlList(output.ParameterControls, context)
+        : undefined,
+    SheetControlLayouts:
+      output.SheetControlLayouts != null
+        ? deserializeAws_restJson1SheetControlLayoutList(output.SheetControlLayouts, context)
+        : undefined,
+    SheetId: __expectString(output.SheetId),
+    TextBoxes:
+      output.TextBoxes != null ? deserializeAws_restJson1SheetTextBoxList(output.TextBoxes, context) : undefined,
+    Title: __expectString(output.Title),
+    Visuals: output.Visuals != null ? deserializeAws_restJson1VisualList(output.Visuals, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SheetDefinitionList = (output: any, context: __SerdeContext): SheetDefinition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SheetDefinition(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SheetElementConfigurationOverrides = (
+  output: any,
+  context: __SerdeContext
+): SheetElementConfigurationOverrides => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1SheetElementRenderingRule = (
+  output: any,
+  context: __SerdeContext
+): SheetElementRenderingRule => {
+  return {
+    ConfigurationOverrides:
+      output.ConfigurationOverrides != null
+        ? deserializeAws_restJson1SheetElementConfigurationOverrides(output.ConfigurationOverrides, context)
+        : undefined,
+    Expression: __expectString(output.Expression),
+  } as any;
+};
+
+const deserializeAws_restJson1SheetElementRenderingRuleList = (
+  output: any,
+  context: __SerdeContext
+): SheetElementRenderingRule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SheetElementRenderingRule(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SheetLayoutElementMaximizationOption = (
+  output: any,
+  context: __SerdeContext
+): SheetLayoutElementMaximizationOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
   } as any;
 };
 
@@ -16145,6 +30614,59 @@ const deserializeAws_restJson1SheetStyle = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_restJson1SheetTextBox = (output: any, context: __SerdeContext): SheetTextBox => {
+  return {
+    Content: __expectString(output.Content),
+    SheetTextBoxId: __expectString(output.SheetTextBoxId),
+  } as any;
+};
+
+const deserializeAws_restJson1SheetTextBoxList = (output: any, context: __SerdeContext): SheetTextBox[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SheetTextBox(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SheetVisualScopingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SheetVisualScopingConfiguration => {
+  return {
+    Scope: __expectString(output.Scope),
+    SheetId: __expectString(output.SheetId),
+    VisualIds:
+      output.VisualIds != null ? deserializeAws_restJson1FilteredVisualsList(output.VisualIds, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SheetVisualScopingConfigurations = (
+  output: any,
+  context: __SerdeContext
+): SheetVisualScopingConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SheetVisualScopingConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ShortFormatText = (output: any, context: __SerdeContext): ShortFormatText => {
+  return {
+    PlainText: __expectString(output.PlainText),
+    RichText: __expectString(output.RichText),
+  } as any;
+};
+
 const deserializeAws_restJson1SignupResponse = (output: any, context: __SerdeContext): SignupResponse => {
   return {
     IAMUser: __expectBoolean(output.IAMUser),
@@ -16154,11 +30676,62 @@ const deserializeAws_restJson1SignupResponse = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_restJson1SimpleClusterMarker = (output: any, context: __SerdeContext): SimpleClusterMarker => {
+  return {
+    Color: __expectString(output.Color),
+  } as any;
+};
+
+const deserializeAws_restJson1SliderControlDisplayOptions = (
+  output: any,
+  context: __SerdeContext
+): SliderControlDisplayOptions => {
+  return {
+    TitleOptions:
+      output.TitleOptions != null ? deserializeAws_restJson1LabelOptions(output.TitleOptions, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SmallMultiplesDimensionFieldList = (
+  output: any,
+  context: __SerdeContext
+): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SmallMultiplesOptions = (output: any, context: __SerdeContext): SmallMultiplesOptions => {
+  return {
+    MaxVisibleColumns: __expectLong(output.MaxVisibleColumns),
+    MaxVisibleRows: __expectLong(output.MaxVisibleRows),
+    PanelConfiguration:
+      output.PanelConfiguration != null
+        ? deserializeAws_restJson1PanelConfiguration(output.PanelConfiguration, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1SnowflakeParameters = (output: any, context: __SerdeContext): SnowflakeParameters => {
   return {
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
     Warehouse: __expectString(output.Warehouse),
+  } as any;
+};
+
+const deserializeAws_restJson1Spacing = (output: any, context: __SerdeContext): Spacing => {
+  return {
+    Bottom: __expectString(output.Bottom),
+    Left: __expectString(output.Left),
+    Right: __expectString(output.Right),
+    Top: __expectString(output.Top),
   } as any;
 };
 
@@ -16180,6 +30753,470 @@ const deserializeAws_restJson1SqlServerParameters = (output: any, context: __Ser
 const deserializeAws_restJson1SslProperties = (output: any, context: __SerdeContext): SslProperties => {
   return {
     DisableSsl: __expectBoolean(output.DisableSsl),
+  } as any;
+};
+
+const deserializeAws_restJson1StringDefaultValueList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1StringDefaultValues = (output: any, context: __SerdeContext): StringDefaultValues => {
+  return {
+    DynamicValue:
+      output.DynamicValue != null
+        ? deserializeAws_restJson1DynamicDefaultValue(output.DynamicValue, context)
+        : undefined,
+    StaticValues:
+      output.StaticValues != null
+        ? deserializeAws_restJson1StringDefaultValueList(output.StaticValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StringFormatConfiguration = (
+  output: any,
+  context: __SerdeContext
+): StringFormatConfiguration => {
+  return {
+    NullValueFormatConfiguration:
+      output.NullValueFormatConfiguration != null
+        ? deserializeAws_restJson1NullValueFormatConfiguration(output.NullValueFormatConfiguration, context)
+        : undefined,
+    NumericFormatConfiguration:
+      output.NumericFormatConfiguration != null
+        ? deserializeAws_restJson1NumericFormatConfiguration(output.NumericFormatConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StringParameterDeclaration = (
+  output: any,
+  context: __SerdeContext
+): StringParameterDeclaration => {
+  return {
+    DefaultValues:
+      output.DefaultValues != null
+        ? deserializeAws_restJson1StringDefaultValues(output.DefaultValues, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    ParameterValueType: __expectString(output.ParameterValueType),
+    ValueWhenUnset:
+      output.ValueWhenUnset != null
+        ? deserializeAws_restJson1StringValueWhenUnsetConfiguration(output.ValueWhenUnset, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StringValueWhenUnsetConfiguration = (
+  output: any,
+  context: __SerdeContext
+): StringValueWhenUnsetConfiguration => {
+  return {
+    CustomValue: __expectString(output.CustomValue),
+    ValueWhenUnsetOption: __expectString(output.ValueWhenUnsetOption),
+  } as any;
+};
+
+const deserializeAws_restJson1SubtotalOptions = (output: any, context: __SerdeContext): SubtotalOptions => {
+  return {
+    CustomLabel: __expectString(output.CustomLabel),
+    FieldLevel: __expectString(output.FieldLevel),
+    FieldLevelOptions:
+      output.FieldLevelOptions != null
+        ? deserializeAws_restJson1PivotTableFieldSubtotalOptionsList(output.FieldLevelOptions, context)
+        : undefined,
+    MetricHeaderCellStyle:
+      output.MetricHeaderCellStyle != null
+        ? deserializeAws_restJson1TableCellStyle(output.MetricHeaderCellStyle, context)
+        : undefined,
+    TotalCellStyle:
+      output.TotalCellStyle != null
+        ? deserializeAws_restJson1TableCellStyle(output.TotalCellStyle, context)
+        : undefined,
+    TotalsVisibility: __expectString(output.TotalsVisibility),
+    ValueCellStyle:
+      output.ValueCellStyle != null
+        ? deserializeAws_restJson1TableCellStyle(output.ValueCellStyle, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): TableAggregatedFieldWells => {
+  return {
+    GroupBy: output.GroupBy != null ? deserializeAws_restJson1DimensionFieldList(output.GroupBy, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1MeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableBorderOptions = (output: any, context: __SerdeContext): TableBorderOptions => {
+  return {
+    Color: __expectString(output.Color),
+    Style: __expectString(output.Style),
+    Thickness: __expectInt32(output.Thickness),
+  } as any;
+};
+
+const deserializeAws_restJson1TableCellConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): TableCellConditionalFormatting => {
+  return {
+    FieldId: __expectString(output.FieldId),
+    TextFormat:
+      output.TextFormat != null ? deserializeAws_restJson1TextConditionalFormat(output.TextFormat, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableCellImageSizingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TableCellImageSizingConfiguration => {
+  return {
+    TableCellImageScalingConfiguration: __expectString(output.TableCellImageScalingConfiguration),
+  } as any;
+};
+
+const deserializeAws_restJson1TableCellStyle = (output: any, context: __SerdeContext): TableCellStyle => {
+  return {
+    BackgroundColor: __expectString(output.BackgroundColor),
+    Border:
+      output.Border != null ? deserializeAws_restJson1GlobalTableBorderOptions(output.Border, context) : undefined,
+    FontConfiguration:
+      output.FontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.FontConfiguration, context)
+        : undefined,
+    Height: __expectInt32(output.Height),
+    HorizontalTextAlignment: __expectString(output.HorizontalTextAlignment),
+    TextWrap: __expectString(output.TextWrap),
+    VerticalTextAlignment: __expectString(output.VerticalTextAlignment),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1TableConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): TableConditionalFormatting => {
+  return {
+    ConditionalFormattingOptions:
+      output.ConditionalFormattingOptions != null
+        ? deserializeAws_restJson1TableConditionalFormattingOptionList(output.ConditionalFormattingOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableConditionalFormattingOption = (
+  output: any,
+  context: __SerdeContext
+): TableConditionalFormattingOption => {
+  return {
+    Cell:
+      output.Cell != null ? deserializeAws_restJson1TableCellConditionalFormatting(output.Cell, context) : undefined,
+    Row: output.Row != null ? deserializeAws_restJson1TableRowConditionalFormatting(output.Row, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableConditionalFormattingOptionList = (
+  output: any,
+  context: __SerdeContext
+): TableConditionalFormattingOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TableConditionalFormattingOption(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1TableConfiguration = (output: any, context: __SerdeContext): TableConfiguration => {
+  return {
+    FieldOptions:
+      output.FieldOptions != null ? deserializeAws_restJson1TableFieldOptions(output.FieldOptions, context) : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1TableFieldWells(output.FieldWells, context) : undefined,
+    PaginatedReportOptions:
+      output.PaginatedReportOptions != null
+        ? deserializeAws_restJson1TablePaginatedReportOptions(output.PaginatedReportOptions, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1TableSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    TableInlineVisualizations:
+      output.TableInlineVisualizations != null
+        ? deserializeAws_restJson1TableInlineVisualizationList(output.TableInlineVisualizations, context)
+        : undefined,
+    TableOptions:
+      output.TableOptions != null ? deserializeAws_restJson1TableOptions(output.TableOptions, context) : undefined,
+    TotalOptions:
+      output.TotalOptions != null ? deserializeAws_restJson1TotalOptions(output.TotalOptions, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableFieldCustomIconContent = (
+  output: any,
+  context: __SerdeContext
+): TableFieldCustomIconContent => {
+  return {
+    Icon: __expectString(output.Icon),
+  } as any;
+};
+
+const deserializeAws_restJson1TableFieldCustomTextContent = (
+  output: any,
+  context: __SerdeContext
+): TableFieldCustomTextContent => {
+  return {
+    FontConfiguration:
+      output.FontConfiguration != null
+        ? deserializeAws_restJson1FontConfiguration(output.FontConfiguration, context)
+        : undefined,
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1TableFieldImageConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TableFieldImageConfiguration => {
+  return {
+    SizingOptions:
+      output.SizingOptions != null
+        ? deserializeAws_restJson1TableCellImageSizingConfiguration(output.SizingOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableFieldLinkConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TableFieldLinkConfiguration => {
+  return {
+    Content:
+      output.Content != null
+        ? deserializeAws_restJson1TableFieldLinkContentConfiguration(output.Content, context)
+        : undefined,
+    Target: __expectString(output.Target),
+  } as any;
+};
+
+const deserializeAws_restJson1TableFieldLinkContentConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TableFieldLinkContentConfiguration => {
+  return {
+    CustomIconContent:
+      output.CustomIconContent != null
+        ? deserializeAws_restJson1TableFieldCustomIconContent(output.CustomIconContent, context)
+        : undefined,
+    CustomTextContent:
+      output.CustomTextContent != null
+        ? deserializeAws_restJson1TableFieldCustomTextContent(output.CustomTextContent, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableFieldOption = (output: any, context: __SerdeContext): TableFieldOption => {
+  return {
+    CustomLabel: __expectString(output.CustomLabel),
+    FieldId: __expectString(output.FieldId),
+    URLStyling:
+      output.URLStyling != null
+        ? deserializeAws_restJson1TableFieldURLConfiguration(output.URLStyling, context)
+        : undefined,
+    Visibility: __expectString(output.Visibility),
+    Width: __expectString(output.Width),
+  } as any;
+};
+
+const deserializeAws_restJson1TableFieldOptionList = (output: any, context: __SerdeContext): TableFieldOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TableFieldOption(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1TableFieldOptions = (output: any, context: __SerdeContext): TableFieldOptions => {
+  return {
+    Order: output.Order != null ? deserializeAws_restJson1FieldOrderList(output.Order, context) : undefined,
+    SelectedFieldOptions:
+      output.SelectedFieldOptions != null
+        ? deserializeAws_restJson1TableFieldOptionList(output.SelectedFieldOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableFieldURLConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TableFieldURLConfiguration => {
+  return {
+    ImageConfiguration:
+      output.ImageConfiguration != null
+        ? deserializeAws_restJson1TableFieldImageConfiguration(output.ImageConfiguration, context)
+        : undefined,
+    LinkConfiguration:
+      output.LinkConfiguration != null
+        ? deserializeAws_restJson1TableFieldLinkConfiguration(output.LinkConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableFieldWells = (output: any, context: __SerdeContext): TableFieldWells => {
+  return {
+    TableAggregatedFieldWells:
+      output.TableAggregatedFieldWells != null
+        ? deserializeAws_restJson1TableAggregatedFieldWells(output.TableAggregatedFieldWells, context)
+        : undefined,
+    TableUnaggregatedFieldWells:
+      output.TableUnaggregatedFieldWells != null
+        ? deserializeAws_restJson1TableUnaggregatedFieldWells(output.TableUnaggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableInlineVisualization = (
+  output: any,
+  context: __SerdeContext
+): TableInlineVisualization => {
+  return {
+    DataBars: output.DataBars != null ? deserializeAws_restJson1DataBarsOptions(output.DataBars, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableInlineVisualizationList = (
+  output: any,
+  context: __SerdeContext
+): TableInlineVisualization[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TableInlineVisualization(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1TableOptions = (output: any, context: __SerdeContext): TableOptions => {
+  return {
+    CellStyle: output.CellStyle != null ? deserializeAws_restJson1TableCellStyle(output.CellStyle, context) : undefined,
+    HeaderStyle:
+      output.HeaderStyle != null ? deserializeAws_restJson1TableCellStyle(output.HeaderStyle, context) : undefined,
+    Orientation: __expectString(output.Orientation),
+    RowAlternateColorOptions:
+      output.RowAlternateColorOptions != null
+        ? deserializeAws_restJson1RowAlternateColorOptions(output.RowAlternateColorOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TablePaginatedReportOptions = (
+  output: any,
+  context: __SerdeContext
+): TablePaginatedReportOptions => {
+  return {
+    OverflowColumnHeaderVisibility: __expectString(output.OverflowColumnHeaderVisibility),
+    VerticalOverflowVisibility: __expectString(output.VerticalOverflowVisibility),
+  } as any;
+};
+
+const deserializeAws_restJson1TableRowConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): TableRowConditionalFormatting => {
+  return {
+    BackgroundColor:
+      output.BackgroundColor != null
+        ? deserializeAws_restJson1ConditionalFormattingColor(output.BackgroundColor, context)
+        : undefined,
+    TextColor:
+      output.TextColor != null
+        ? deserializeAws_restJson1ConditionalFormattingColor(output.TextColor, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableSideBorderOptions = (
+  output: any,
+  context: __SerdeContext
+): TableSideBorderOptions => {
+  return {
+    Bottom: output.Bottom != null ? deserializeAws_restJson1TableBorderOptions(output.Bottom, context) : undefined,
+    InnerHorizontal:
+      output.InnerHorizontal != null
+        ? deserializeAws_restJson1TableBorderOptions(output.InnerHorizontal, context)
+        : undefined,
+    InnerVertical:
+      output.InnerVertical != null
+        ? deserializeAws_restJson1TableBorderOptions(output.InnerVertical, context)
+        : undefined,
+    Left: output.Left != null ? deserializeAws_restJson1TableBorderOptions(output.Left, context) : undefined,
+    Right: output.Right != null ? deserializeAws_restJson1TableBorderOptions(output.Right, context) : undefined,
+    Top: output.Top != null ? deserializeAws_restJson1TableBorderOptions(output.Top, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TableSortConfiguration => {
+  return {
+    PaginationConfiguration:
+      output.PaginationConfiguration != null
+        ? deserializeAws_restJson1PaginationConfiguration(output.PaginationConfiguration, context)
+        : undefined,
+    RowSort: output.RowSort != null ? deserializeAws_restJson1RowSortList(output.RowSort, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableUnaggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): TableUnaggregatedFieldWells => {
+  return {
+    Values: output.Values != null ? deserializeAws_restJson1UnaggregatedFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableVisual = (output: any, context: __SerdeContext): TableVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1TableConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ConditionalFormatting:
+      output.ConditionalFormatting != null
+        ? deserializeAws_restJson1TableConditionalFormatting(output.ConditionalFormatting, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
   } as any;
 };
 
@@ -16205,6 +31242,18 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
         return null as any;
       }
       return deserializeAws_restJson1Tag(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1TargetVisualList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -16250,6 +31299,10 @@ const deserializeAws_restJson1TemplateError = (output: any, context: __SerdeCont
   return {
     Message: __expectString(output.Message),
     Type: __expectString(output.Type),
+    ViolatedEntities:
+      output.ViolatedEntities != null
+        ? deserializeAws_restJson1EntityList(output.ViolatedEntities, context)
+        : undefined,
   } as any;
 };
 
@@ -16314,6 +31367,37 @@ const deserializeAws_restJson1TemplateVersion = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1TemplateVersionDefinition = (
+  output: any,
+  context: __SerdeContext
+): TemplateVersionDefinition => {
+  return {
+    AnalysisDefaults:
+      output.AnalysisDefaults != null
+        ? deserializeAws_restJson1AnalysisDefaults(output.AnalysisDefaults, context)
+        : undefined,
+    CalculatedFields:
+      output.CalculatedFields != null
+        ? deserializeAws_restJson1CalculatedFields(output.CalculatedFields, context)
+        : undefined,
+    ColumnConfigurations:
+      output.ColumnConfigurations != null
+        ? deserializeAws_restJson1ColumnConfigurationList(output.ColumnConfigurations, context)
+        : undefined,
+    DataSetConfigurations:
+      output.DataSetConfigurations != null
+        ? deserializeAws_restJson1DataSetConfigurationList(output.DataSetConfigurations, context)
+        : undefined,
+    FilterGroups:
+      output.FilterGroups != null ? deserializeAws_restJson1FilterGroupList(output.FilterGroups, context) : undefined,
+    ParameterDeclarations:
+      output.ParameterDeclarations != null
+        ? deserializeAws_restJson1ParameterDeclarationList(output.ParameterDeclarations, context)
+        : undefined,
+    Sheets: output.Sheets != null ? deserializeAws_restJson1SheetDefinitionList(output.Sheets, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1TemplateVersionSummary = (
   output: any,
   context: __SerdeContext
@@ -16350,6 +31434,57 @@ const deserializeAws_restJson1TeradataParameters = (output: any, context: __Serd
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
     Port: __expectInt32(output.Port),
+  } as any;
+};
+
+const deserializeAws_restJson1TextAreaControlDisplayOptions = (
+  output: any,
+  context: __SerdeContext
+): TextAreaControlDisplayOptions => {
+  return {
+    PlaceholderOptions:
+      output.PlaceholderOptions != null
+        ? deserializeAws_restJson1TextControlPlaceholderOptions(output.PlaceholderOptions, context)
+        : undefined,
+    TitleOptions:
+      output.TitleOptions != null ? deserializeAws_restJson1LabelOptions(output.TitleOptions, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TextConditionalFormat = (output: any, context: __SerdeContext): TextConditionalFormat => {
+  return {
+    BackgroundColor:
+      output.BackgroundColor != null
+        ? deserializeAws_restJson1ConditionalFormattingColor(output.BackgroundColor, context)
+        : undefined,
+    Icon: output.Icon != null ? deserializeAws_restJson1ConditionalFormattingIcon(output.Icon, context) : undefined,
+    TextColor:
+      output.TextColor != null
+        ? deserializeAws_restJson1ConditionalFormattingColor(output.TextColor, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TextControlPlaceholderOptions = (
+  output: any,
+  context: __SerdeContext
+): TextControlPlaceholderOptions => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1TextFieldControlDisplayOptions = (
+  output: any,
+  context: __SerdeContext
+): TextFieldControlDisplayOptions => {
+  return {
+    PlaceholderOptions:
+      output.PlaceholderOptions != null
+        ? deserializeAws_restJson1TextControlPlaceholderOptions(output.PlaceholderOptions, context)
+        : undefined,
+    TitleOptions:
+      output.TitleOptions != null ? deserializeAws_restJson1LabelOptions(output.TitleOptions, context) : undefined,
   } as any;
 };
 
@@ -16398,6 +31533,7 @@ const deserializeAws_restJson1ThemeConfiguration = (output: any, context: __Serd
         ? deserializeAws_restJson1DataColorPalette(output.DataColorPalette, context)
         : undefined,
     Sheet: output.Sheet != null ? deserializeAws_restJson1SheetStyle(output.Sheet, context) : undefined,
+    Typography: output.Typography != null ? deserializeAws_restJson1Typography(output.Typography, context) : undefined,
     UIColorPalette:
       output.UIColorPalette != null
         ? deserializeAws_restJson1UIColorPalette(output.UIColorPalette, context)
@@ -16500,6 +31636,16 @@ const deserializeAws_restJson1ThemeVersionSummaryList = (
   return retVal;
 };
 
+const deserializeAws_restJson1ThousandSeparatorOptions = (
+  output: any,
+  context: __SerdeContext
+): ThousandSeparatorOptions => {
+  return {
+    Symbol: __expectString(output.Symbol),
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
 const deserializeAws_restJson1TileLayoutStyle = (output: any, context: __SerdeContext): TileLayoutStyle => {
   return {
     Gutter: output.Gutter != null ? deserializeAws_restJson1GutterStyle(output.Gutter, context) : undefined,
@@ -16510,6 +31656,189 @@ const deserializeAws_restJson1TileLayoutStyle = (output: any, context: __SerdeCo
 const deserializeAws_restJson1TileStyle = (output: any, context: __SerdeContext): TileStyle => {
   return {
     Border: output.Border != null ? deserializeAws_restJson1BorderStyle(output.Border, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TimeBasedForecastProperties = (
+  output: any,
+  context: __SerdeContext
+): TimeBasedForecastProperties => {
+  return {
+    LowerBoundary: __limitedParseDouble(output.LowerBoundary),
+    PeriodsBackward: __expectInt32(output.PeriodsBackward),
+    PeriodsForward: __expectInt32(output.PeriodsForward),
+    PredictionInterval: __expectInt32(output.PredictionInterval),
+    Seasonality: __expectInt32(output.Seasonality),
+    UpperBoundary: __limitedParseDouble(output.UpperBoundary),
+  } as any;
+};
+
+const deserializeAws_restJson1TimeEqualityFilter = (output: any, context: __SerdeContext): TimeEqualityFilter => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FilterId: __expectString(output.FilterId),
+    ParameterName: __expectString(output.ParameterName),
+    TimeGranularity: __expectString(output.TimeGranularity),
+    Value: output.Value != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Value))) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TimeRangeDrillDownFilter = (
+  output: any,
+  context: __SerdeContext
+): TimeRangeDrillDownFilter => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    RangeMaximum:
+      output.RangeMaximum != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RangeMaximum)))
+        : undefined,
+    RangeMinimum:
+      output.RangeMinimum != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RangeMinimum)))
+        : undefined,
+    TimeGranularity: __expectString(output.TimeGranularity),
+  } as any;
+};
+
+const deserializeAws_restJson1TimeRangeFilter = (output: any, context: __SerdeContext): TimeRangeFilter => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    ExcludePeriodConfiguration:
+      output.ExcludePeriodConfiguration != null
+        ? deserializeAws_restJson1ExcludePeriodConfiguration(output.ExcludePeriodConfiguration, context)
+        : undefined,
+    FilterId: __expectString(output.FilterId),
+    IncludeMaximum: __expectBoolean(output.IncludeMaximum),
+    IncludeMinimum: __expectBoolean(output.IncludeMinimum),
+    NullOption: __expectString(output.NullOption),
+    RangeMaximumValue:
+      output.RangeMaximumValue != null
+        ? deserializeAws_restJson1TimeRangeFilterValue(output.RangeMaximumValue, context)
+        : undefined,
+    RangeMinimumValue:
+      output.RangeMinimumValue != null
+        ? deserializeAws_restJson1TimeRangeFilterValue(output.RangeMinimumValue, context)
+        : undefined,
+    TimeGranularity: __expectString(output.TimeGranularity),
+  } as any;
+};
+
+const deserializeAws_restJson1TimeRangeFilterValue = (output: any, context: __SerdeContext): TimeRangeFilterValue => {
+  return {
+    Parameter: __expectString(output.Parameter),
+    RollingDate:
+      output.RollingDate != null
+        ? deserializeAws_restJson1RollingDateConfiguration(output.RollingDate, context)
+        : undefined,
+    StaticValue:
+      output.StaticValue != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StaticValue)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TooltipItem = (output: any, context: __SerdeContext): TooltipItem => {
+  return {
+    ColumnTooltipItem:
+      output.ColumnTooltipItem != null
+        ? deserializeAws_restJson1ColumnTooltipItem(output.ColumnTooltipItem, context)
+        : undefined,
+    FieldTooltipItem:
+      output.FieldTooltipItem != null
+        ? deserializeAws_restJson1FieldTooltipItem(output.FieldTooltipItem, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TooltipItemList = (output: any, context: __SerdeContext): TooltipItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TooltipItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1TooltipOptions = (output: any, context: __SerdeContext): TooltipOptions => {
+  return {
+    FieldBasedTooltip:
+      output.FieldBasedTooltip != null
+        ? deserializeAws_restJson1FieldBasedTooltip(output.FieldBasedTooltip, context)
+        : undefined,
+    SelectedTooltipType: __expectString(output.SelectedTooltipType),
+    TooltipVisibility: __expectString(output.TooltipVisibility),
+  } as any;
+};
+
+const deserializeAws_restJson1TopBottomFilter = (output: any, context: __SerdeContext): TopBottomFilter => {
+  return {
+    AggregationSortConfigurations:
+      output.AggregationSortConfigurations != null
+        ? deserializeAws_restJson1AggregationSortConfigurationList(output.AggregationSortConfigurations, context)
+        : undefined,
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FilterId: __expectString(output.FilterId),
+    Limit: __expectInt32(output.Limit),
+    ParameterName: __expectString(output.ParameterName),
+    TimeGranularity: __expectString(output.TimeGranularity),
+  } as any;
+};
+
+const deserializeAws_restJson1TopBottomMoversComputation = (
+  output: any,
+  context: __SerdeContext
+): TopBottomMoversComputation => {
+  return {
+    Category: output.Category != null ? deserializeAws_restJson1DimensionField(output.Category, context) : undefined,
+    ComputationId: __expectString(output.ComputationId),
+    MoverSize: __expectInt32(output.MoverSize),
+    Name: __expectString(output.Name),
+    SortOrder: __expectString(output.SortOrder),
+    Time: output.Time != null ? deserializeAws_restJson1DimensionField(output.Time, context) : undefined,
+    Type: __expectString(output.Type),
+    Value: output.Value != null ? deserializeAws_restJson1MeasureField(output.Value, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TopBottomRankedComputation = (
+  output: any,
+  context: __SerdeContext
+): TopBottomRankedComputation => {
+  return {
+    Category: output.Category != null ? deserializeAws_restJson1DimensionField(output.Category, context) : undefined,
+    ComputationId: __expectString(output.ComputationId),
+    Name: __expectString(output.Name),
+    ResultSize: __expectInt32(output.ResultSize),
+    Type: __expectString(output.Type),
+    Value: output.Value != null ? deserializeAws_restJson1MeasureField(output.Value, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TotalAggregationComputation = (
+  output: any,
+  context: __SerdeContext
+): TotalAggregationComputation => {
+  return {
+    ComputationId: __expectString(output.ComputationId),
+    Name: __expectString(output.Name),
+    Value: output.Value != null ? deserializeAws_restJson1MeasureField(output.Value, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TotalOptions = (output: any, context: __SerdeContext): TotalOptions => {
+  return {
+    CustomLabel: __expectString(output.CustomLabel),
+    Placement: __expectString(output.Placement),
+    ScrollStatus: __expectString(output.ScrollStatus),
+    TotalCellStyle:
+      output.TotalCellStyle != null
+        ? deserializeAws_restJson1TableCellStyle(output.TotalCellStyle, context)
+        : undefined,
+    TotalsVisibility: __expectString(output.TotalsVisibility),
   } as any;
 };
 
@@ -16564,10 +31893,133 @@ const deserializeAws_restJson1TransformOperationList = (output: any, context: __
   return retVal;
 };
 
+const deserializeAws_restJson1TreeMapAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): TreeMapAggregatedFieldWells => {
+  return {
+    Colors: output.Colors != null ? deserializeAws_restJson1TreeMapMeasureFieldList(output.Colors, context) : undefined,
+    Groups:
+      output.Groups != null ? deserializeAws_restJson1TreeMapDimensionFieldList(output.Groups, context) : undefined,
+    Sizes: output.Sizes != null ? deserializeAws_restJson1TreeMapMeasureFieldList(output.Sizes, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TreeMapConfiguration = (output: any, context: __SerdeContext): TreeMapConfiguration => {
+  return {
+    ColorLabelOptions:
+      output.ColorLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.ColorLabelOptions, context)
+        : undefined,
+    ColorScale: output.ColorScale != null ? deserializeAws_restJson1ColorScale(output.ColorScale, context) : undefined,
+    DataLabels:
+      output.DataLabels != null ? deserializeAws_restJson1DataLabelOptions(output.DataLabels, context) : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1TreeMapFieldWells(output.FieldWells, context) : undefined,
+    GroupLabelOptions:
+      output.GroupLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.GroupLabelOptions, context)
+        : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    SizeLabelOptions:
+      output.SizeLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.SizeLabelOptions, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1TreeMapSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    Tooltip: output.Tooltip != null ? deserializeAws_restJson1TooltipOptions(output.Tooltip, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TreeMapDimensionFieldList = (output: any, context: __SerdeContext): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1TreeMapFieldWells = (output: any, context: __SerdeContext): TreeMapFieldWells => {
+  return {
+    TreeMapAggregatedFieldWells:
+      output.TreeMapAggregatedFieldWells != null
+        ? deserializeAws_restJson1TreeMapAggregatedFieldWells(output.TreeMapAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TreeMapMeasureFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1TreeMapSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TreeMapSortConfiguration => {
+  return {
+    TreeMapGroupItemsLimitConfiguration:
+      output.TreeMapGroupItemsLimitConfiguration != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.TreeMapGroupItemsLimitConfiguration, context)
+        : undefined,
+    TreeMapSort:
+      output.TreeMapSort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.TreeMapSort, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TreeMapVisual = (output: any, context: __SerdeContext): TreeMapVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1TreeMapConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1TrendArrowOptions = (output: any, context: __SerdeContext): TrendArrowOptions => {
+  return {
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
 const deserializeAws_restJson1TwitterParameters = (output: any, context: __SerdeContext): TwitterParameters => {
   return {
     MaxRows: __expectInt32(output.MaxRows),
     Query: __expectString(output.Query),
+  } as any;
+};
+
+const deserializeAws_restJson1Typography = (output: any, context: __SerdeContext): Typography => {
+  return {
+    FontFamilies:
+      output.FontFamilies != null ? deserializeAws_restJson1FontList(output.FontFamilies, context) : undefined,
   } as any;
 };
 
@@ -16589,6 +32041,40 @@ const deserializeAws_restJson1UIColorPalette = (output: any, context: __SerdeCon
     SuccessForeground: __expectString(output.SuccessForeground),
     Warning: __expectString(output.Warning),
     WarningForeground: __expectString(output.WarningForeground),
+  } as any;
+};
+
+const deserializeAws_restJson1UnaggregatedField = (output: any, context: __SerdeContext): UnaggregatedField => {
+  return {
+    Column: output.Column != null ? deserializeAws_restJson1ColumnIdentifier(output.Column, context) : undefined,
+    FieldId: __expectString(output.FieldId),
+    FormatConfiguration:
+      output.FormatConfiguration != null
+        ? deserializeAws_restJson1FormatConfiguration(output.FormatConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UnaggregatedFieldList = (output: any, context: __SerdeContext): UnaggregatedField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UnaggregatedField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1UniqueValuesComputation = (
+  output: any,
+  context: __SerdeContext
+): UniqueValuesComputation => {
+  return {
+    Category: output.Category != null ? deserializeAws_restJson1DimensionField(output.Category, context) : undefined,
+    ComputationId: __expectString(output.ComputationId),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -16637,6 +32123,214 @@ const deserializeAws_restJson1UserList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
+const deserializeAws_restJson1VisibleRangeOptions = (output: any, context: __SerdeContext): VisibleRangeOptions => {
+  return {
+    PercentRange:
+      output.PercentRange != null
+        ? deserializeAws_restJson1PercentVisibleRange(output.PercentRange, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Visual = (output: any, context: __SerdeContext): Visual => {
+  return {
+    BarChartVisual:
+      output.BarChartVisual != null
+        ? deserializeAws_restJson1BarChartVisual(output.BarChartVisual, context)
+        : undefined,
+    BoxPlotVisual:
+      output.BoxPlotVisual != null ? deserializeAws_restJson1BoxPlotVisual(output.BoxPlotVisual, context) : undefined,
+    ComboChartVisual:
+      output.ComboChartVisual != null
+        ? deserializeAws_restJson1ComboChartVisual(output.ComboChartVisual, context)
+        : undefined,
+    CustomContentVisual:
+      output.CustomContentVisual != null
+        ? deserializeAws_restJson1CustomContentVisual(output.CustomContentVisual, context)
+        : undefined,
+    EmptyVisual:
+      output.EmptyVisual != null ? deserializeAws_restJson1EmptyVisual(output.EmptyVisual, context) : undefined,
+    FilledMapVisual:
+      output.FilledMapVisual != null
+        ? deserializeAws_restJson1FilledMapVisual(output.FilledMapVisual, context)
+        : undefined,
+    FunnelChartVisual:
+      output.FunnelChartVisual != null
+        ? deserializeAws_restJson1FunnelChartVisual(output.FunnelChartVisual, context)
+        : undefined,
+    GaugeChartVisual:
+      output.GaugeChartVisual != null
+        ? deserializeAws_restJson1GaugeChartVisual(output.GaugeChartVisual, context)
+        : undefined,
+    GeospatialMapVisual:
+      output.GeospatialMapVisual != null
+        ? deserializeAws_restJson1GeospatialMapVisual(output.GeospatialMapVisual, context)
+        : undefined,
+    HeatMapVisual:
+      output.HeatMapVisual != null ? deserializeAws_restJson1HeatMapVisual(output.HeatMapVisual, context) : undefined,
+    HistogramVisual:
+      output.HistogramVisual != null
+        ? deserializeAws_restJson1HistogramVisual(output.HistogramVisual, context)
+        : undefined,
+    InsightVisual:
+      output.InsightVisual != null ? deserializeAws_restJson1InsightVisual(output.InsightVisual, context) : undefined,
+    KPIVisual: output.KPIVisual != null ? deserializeAws_restJson1KPIVisual(output.KPIVisual, context) : undefined,
+    LineChartVisual:
+      output.LineChartVisual != null
+        ? deserializeAws_restJson1LineChartVisual(output.LineChartVisual, context)
+        : undefined,
+    PieChartVisual:
+      output.PieChartVisual != null
+        ? deserializeAws_restJson1PieChartVisual(output.PieChartVisual, context)
+        : undefined,
+    PivotTableVisual:
+      output.PivotTableVisual != null
+        ? deserializeAws_restJson1PivotTableVisual(output.PivotTableVisual, context)
+        : undefined,
+    RadarChartVisual:
+      output.RadarChartVisual != null
+        ? deserializeAws_restJson1RadarChartVisual(output.RadarChartVisual, context)
+        : undefined,
+    SankeyDiagramVisual:
+      output.SankeyDiagramVisual != null
+        ? deserializeAws_restJson1SankeyDiagramVisual(output.SankeyDiagramVisual, context)
+        : undefined,
+    ScatterPlotVisual:
+      output.ScatterPlotVisual != null
+        ? deserializeAws_restJson1ScatterPlotVisual(output.ScatterPlotVisual, context)
+        : undefined,
+    TableVisual:
+      output.TableVisual != null ? deserializeAws_restJson1TableVisual(output.TableVisual, context) : undefined,
+    TreeMapVisual:
+      output.TreeMapVisual != null ? deserializeAws_restJson1TreeMapVisual(output.TreeMapVisual, context) : undefined,
+    WaterfallVisual:
+      output.WaterfallVisual != null
+        ? deserializeAws_restJson1WaterfallVisual(output.WaterfallVisual, context)
+        : undefined,
+    WordCloudVisual:
+      output.WordCloudVisual != null
+        ? deserializeAws_restJson1WordCloudVisual(output.WordCloudVisual, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VisualAxisSortOption = (output: any, context: __SerdeContext): VisualAxisSortOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1VisualCustomAction = (output: any, context: __SerdeContext): VisualCustomAction => {
+  return {
+    ActionOperations:
+      output.ActionOperations != null
+        ? deserializeAws_restJson1VisualCustomActionOperationList(output.ActionOperations, context)
+        : undefined,
+    CustomActionId: __expectString(output.CustomActionId),
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
+    Trigger: __expectString(output.Trigger),
+  } as any;
+};
+
+const deserializeAws_restJson1VisualCustomActionList = (output: any, context: __SerdeContext): VisualCustomAction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VisualCustomAction(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1VisualCustomActionOperation = (
+  output: any,
+  context: __SerdeContext
+): VisualCustomActionOperation => {
+  return {
+    FilterOperation:
+      output.FilterOperation != null
+        ? deserializeAws_restJson1CustomActionFilterOperation(output.FilterOperation, context)
+        : undefined,
+    NavigationOperation:
+      output.NavigationOperation != null
+        ? deserializeAws_restJson1CustomActionNavigationOperation(output.NavigationOperation, context)
+        : undefined,
+    SetParametersOperation:
+      output.SetParametersOperation != null
+        ? deserializeAws_restJson1CustomActionSetParametersOperation(output.SetParametersOperation, context)
+        : undefined,
+    URLOperation:
+      output.URLOperation != null
+        ? deserializeAws_restJson1CustomActionURLOperation(output.URLOperation, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VisualCustomActionOperationList = (
+  output: any,
+  context: __SerdeContext
+): VisualCustomActionOperation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VisualCustomActionOperation(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1VisualList = (output: any, context: __SerdeContext): Visual[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Visual(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1VisualMenuOption = (output: any, context: __SerdeContext): VisualMenuOption => {
+  return {
+    AvailabilityStatus: __expectString(output.AvailabilityStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1VisualPalette = (output: any, context: __SerdeContext): VisualPalette => {
+  return {
+    ChartColor: __expectString(output.ChartColor),
+    ColorMap: output.ColorMap != null ? deserializeAws_restJson1DataPathColorList(output.ColorMap, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VisualSubtitleLabelOptions = (
+  output: any,
+  context: __SerdeContext
+): VisualSubtitleLabelOptions => {
+  return {
+    FormatText:
+      output.FormatText != null ? deserializeAws_restJson1LongFormatText(output.FormatText, context) : undefined,
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
+const deserializeAws_restJson1VisualTitleLabelOptions = (
+  output: any,
+  context: __SerdeContext
+): VisualTitleLabelOptions => {
+  return {
+    FormatText:
+      output.FormatText != null ? deserializeAws_restJson1ShortFormatText(output.FormatText, context) : undefined,
+    Visibility: __expectString(output.Visibility),
+  } as any;
+};
+
 const deserializeAws_restJson1VpcConnectionProperties = (
   output: any,
   context: __SerdeContext
@@ -16646,9 +32340,253 @@ const deserializeAws_restJson1VpcConnectionProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1WaterfallChartAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): WaterfallChartAggregatedFieldWells => {
+  return {
+    Breakdowns:
+      output.Breakdowns != null ? deserializeAws_restJson1DimensionFieldList(output.Breakdowns, context) : undefined,
+    Categories:
+      output.Categories != null ? deserializeAws_restJson1DimensionFieldList(output.Categories, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1MeasureFieldList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WaterfallChartConfiguration = (
+  output: any,
+  context: __SerdeContext
+): WaterfallChartConfiguration => {
+  return {
+    CategoryAxisDisplayOptions:
+      output.CategoryAxisDisplayOptions != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.CategoryAxisDisplayOptions, context)
+        : undefined,
+    CategoryAxisLabelOptions:
+      output.CategoryAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.CategoryAxisLabelOptions, context)
+        : undefined,
+    DataLabels:
+      output.DataLabels != null ? deserializeAws_restJson1DataLabelOptions(output.DataLabels, context) : undefined,
+    FieldWells:
+      output.FieldWells != null
+        ? deserializeAws_restJson1WaterfallChartFieldWells(output.FieldWells, context)
+        : undefined,
+    Legend: output.Legend != null ? deserializeAws_restJson1LegendOptions(output.Legend, context) : undefined,
+    PrimaryYAxisDisplayOptions:
+      output.PrimaryYAxisDisplayOptions != null
+        ? deserializeAws_restJson1AxisDisplayOptions(output.PrimaryYAxisDisplayOptions, context)
+        : undefined,
+    PrimaryYAxisLabelOptions:
+      output.PrimaryYAxisLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.PrimaryYAxisLabelOptions, context)
+        : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1WaterfallChartSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    VisualPalette:
+      output.VisualPalette != null ? deserializeAws_restJson1VisualPalette(output.VisualPalette, context) : undefined,
+    WaterfallChartOptions:
+      output.WaterfallChartOptions != null
+        ? deserializeAws_restJson1WaterfallChartOptions(output.WaterfallChartOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WaterfallChartFieldWells = (
+  output: any,
+  context: __SerdeContext
+): WaterfallChartFieldWells => {
+  return {
+    WaterfallChartAggregatedFieldWells:
+      output.WaterfallChartAggregatedFieldWells != null
+        ? deserializeAws_restJson1WaterfallChartAggregatedFieldWells(output.WaterfallChartAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WaterfallChartOptions = (output: any, context: __SerdeContext): WaterfallChartOptions => {
+  return {
+    TotalBarLabel: __expectString(output.TotalBarLabel),
+  } as any;
+};
+
+const deserializeAws_restJson1WaterfallChartSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): WaterfallChartSortConfiguration => {
+  return {
+    BreakdownItemsLimit:
+      output.BreakdownItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.BreakdownItemsLimit, context)
+        : undefined,
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WaterfallVisual = (output: any, context: __SerdeContext): WaterfallVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1WaterfallChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+const deserializeAws_restJson1WhatIfPointScenario = (output: any, context: __SerdeContext): WhatIfPointScenario => {
+  return {
+    Date: output.Date != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Date))) : undefined,
+    Value: __limitedParseDouble(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1WhatIfRangeScenario = (output: any, context: __SerdeContext): WhatIfRangeScenario => {
+  return {
+    EndDate:
+      output.EndDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndDate))) : undefined,
+    StartDate:
+      output.StartDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDate))) : undefined,
+    Value: __limitedParseDouble(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1WordCloudAggregatedFieldWells = (
+  output: any,
+  context: __SerdeContext
+): WordCloudAggregatedFieldWells => {
+  return {
+    GroupBy:
+      output.GroupBy != null ? deserializeAws_restJson1WordCloudDimensionFieldList(output.GroupBy, context) : undefined,
+    Size: output.Size != null ? deserializeAws_restJson1WordCloudMeasureFieldList(output.Size, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WordCloudChartConfiguration = (
+  output: any,
+  context: __SerdeContext
+): WordCloudChartConfiguration => {
+  return {
+    CategoryLabelOptions:
+      output.CategoryLabelOptions != null
+        ? deserializeAws_restJson1ChartAxisLabelOptions(output.CategoryLabelOptions, context)
+        : undefined,
+    FieldWells:
+      output.FieldWells != null ? deserializeAws_restJson1WordCloudFieldWells(output.FieldWells, context) : undefined,
+    SortConfiguration:
+      output.SortConfiguration != null
+        ? deserializeAws_restJson1WordCloudSortConfiguration(output.SortConfiguration, context)
+        : undefined,
+    WordCloudOptions:
+      output.WordCloudOptions != null
+        ? deserializeAws_restJson1WordCloudOptions(output.WordCloudOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WordCloudDimensionFieldList = (
+  output: any,
+  context: __SerdeContext
+): DimensionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1WordCloudFieldWells = (output: any, context: __SerdeContext): WordCloudFieldWells => {
+  return {
+    WordCloudAggregatedFieldWells:
+      output.WordCloudAggregatedFieldWells != null
+        ? deserializeAws_restJson1WordCloudAggregatedFieldWells(output.WordCloudAggregatedFieldWells, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WordCloudMeasureFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1WordCloudOptions = (output: any, context: __SerdeContext): WordCloudOptions => {
+  return {
+    CloudLayout: __expectString(output.CloudLayout),
+    MaximumStringLength: __expectInt32(output.MaximumStringLength),
+    WordCasing: __expectString(output.WordCasing),
+    WordOrientation: __expectString(output.WordOrientation),
+    WordPadding: __expectString(output.WordPadding),
+    WordScaling: __expectString(output.WordScaling),
+  } as any;
+};
+
+const deserializeAws_restJson1WordCloudSortConfiguration = (
+  output: any,
+  context: __SerdeContext
+): WordCloudSortConfiguration => {
+  return {
+    CategoryItemsLimit:
+      output.CategoryItemsLimit != null
+        ? deserializeAws_restJson1ItemsLimitConfiguration(output.CategoryItemsLimit, context)
+        : undefined,
+    CategorySort:
+      output.CategorySort != null
+        ? deserializeAws_restJson1FieldSortOptionsList(output.CategorySort, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WordCloudVisual = (output: any, context: __SerdeContext): WordCloudVisual => {
+  return {
+    Actions:
+      output.Actions != null ? deserializeAws_restJson1VisualCustomActionList(output.Actions, context) : undefined,
+    ChartConfiguration:
+      output.ChartConfiguration != null
+        ? deserializeAws_restJson1WordCloudChartConfiguration(output.ChartConfiguration, context)
+        : undefined,
+    ColumnHierarchies:
+      output.ColumnHierarchies != null
+        ? deserializeAws_restJson1ColumnHierarchyList(output.ColumnHierarchies, context)
+        : undefined,
+    Subtitle:
+      output.Subtitle != null
+        ? deserializeAws_restJson1VisualSubtitleLabelOptions(output.Subtitle, context)
+        : undefined,
+    Title: output.Title != null ? deserializeAws_restJson1VisualTitleLabelOptions(output.Title, context) : undefined,
+    VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -16680,6 +32618,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -16690,6 +32634,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

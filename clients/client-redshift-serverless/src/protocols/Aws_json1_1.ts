@@ -10,7 +10,7 @@ import {
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -50,12 +50,20 @@ import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "../commands
 import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "../commands/GetRecoveryPointCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { GetSnapshotCommandInput, GetSnapshotCommandOutput } from "../commands/GetSnapshotCommand";
+import {
+  GetTableRestoreStatusCommandInput,
+  GetTableRestoreStatusCommandOutput,
+} from "../commands/GetTableRestoreStatusCommand";
 import { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "../commands/GetUsageLimitCommand";
 import { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "../commands/GetWorkgroupCommand";
 import { ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput } from "../commands/ListEndpointAccessCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "../commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "../commands/ListRecoveryPointsCommand";
 import { ListSnapshotsCommandInput, ListSnapshotsCommandOutput } from "../commands/ListSnapshotsCommand";
+import {
+  ListTableRestoreStatusCommandInput,
+  ListTableRestoreStatusCommandOutput,
+} from "../commands/ListTableRestoreStatusCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -71,6 +79,10 @@ import {
   RestoreFromSnapshotCommandInput,
   RestoreFromSnapshotCommandOutput,
 } from "../commands/RestoreFromSnapshotCommand";
+import {
+  RestoreTableFromSnapshotCommandInput,
+  RestoreTableFromSnapshotCommandOutput,
+} from "../commands/RestoreTableFromSnapshotCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -123,6 +135,8 @@ import {
   GetResourcePolicyResponse,
   GetSnapshotRequest,
   GetSnapshotResponse,
+  GetTableRestoreStatusRequest,
+  GetTableRestoreStatusResponse,
   GetUsageLimitRequest,
   GetUsageLimitResponse,
   GetWorkgroupRequest,
@@ -138,6 +152,8 @@ import {
   ListRecoveryPointsResponse,
   ListSnapshotsRequest,
   ListSnapshotsResponse,
+  ListTableRestoreStatusRequest,
+  ListTableRestoreStatusResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   ListUsageLimitsRequest,
@@ -156,8 +172,11 @@ import {
   RestoreFromRecoveryPointResponse,
   RestoreFromSnapshotRequest,
   RestoreFromSnapshotResponse,
+  RestoreTableFromSnapshotRequest,
+  RestoreTableFromSnapshotResponse,
   ServiceQuotaExceededException,
   Snapshot,
+  TableRestoreStatus,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -417,6 +436,19 @@ export const serializeAws_json1_1GetSnapshotCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetTableRestoreStatusCommand = async (
+  input: GetTableRestoreStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RedshiftServerless.GetTableRestoreStatus",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetTableRestoreStatusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetUsageLimitCommand = async (
   input: GetUsageLimitCommandInput,
   context: __SerdeContext
@@ -495,6 +527,19 @@ export const serializeAws_json1_1ListSnapshotsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListTableRestoreStatusCommand = async (
+  input: ListTableRestoreStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RedshiftServerless.ListTableRestoreStatus",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTableRestoreStatusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -570,6 +615,19 @@ export const serializeAws_json1_1RestoreFromSnapshotCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RestoreFromSnapshotRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RestoreTableFromSnapshotCommand = async (
+  input: RestoreTableFromSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RedshiftServerless.RestoreTableFromSnapshot",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RestoreTableFromSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -687,7 +745,7 @@ const deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommandError = async (
 ): Promise<ConvertRecoveryPointToSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -703,6 +761,9 @@ const deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
       throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.redshiftserverless#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
       throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
@@ -740,7 +801,7 @@ const deserializeAws_json1_1CreateEndpointAccessCommandError = async (
 ): Promise<CreateEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -796,7 +857,7 @@ const deserializeAws_json1_1CreateNamespaceCommandError = async (
 ): Promise<CreateNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -846,7 +907,7 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
 ): Promise<CreateSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -862,6 +923,9 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
       throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.redshiftserverless#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
       throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
@@ -899,7 +963,7 @@ const deserializeAws_json1_1CreateUsageLimitCommandError = async (
 ): Promise<CreateUsageLimitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -952,7 +1016,7 @@ const deserializeAws_json1_1CreateWorkgroupCommandError = async (
 ): Promise<CreateWorkgroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1008,7 +1072,7 @@ const deserializeAws_json1_1DeleteEndpointAccessCommandError = async (
 ): Promise<DeleteEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1058,7 +1122,7 @@ const deserializeAws_json1_1DeleteNamespaceCommandError = async (
 ): Promise<DeleteNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1108,7 +1172,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1155,7 +1219,7 @@ const deserializeAws_json1_1DeleteSnapshotCommandError = async (
 ): Promise<DeleteSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1205,7 +1269,7 @@ const deserializeAws_json1_1DeleteUsageLimitCommandError = async (
 ): Promise<DeleteUsageLimitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1255,7 +1319,7 @@ const deserializeAws_json1_1DeleteWorkgroupCommandError = async (
 ): Promise<DeleteWorkgroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1305,7 +1369,7 @@ const deserializeAws_json1_1GetCredentialsCommandError = async (
 ): Promise<GetCredentialsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1352,7 +1416,7 @@ const deserializeAws_json1_1GetEndpointAccessCommandError = async (
 ): Promise<GetEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1402,7 +1466,7 @@ const deserializeAws_json1_1GetNamespaceCommandError = async (
 ): Promise<GetNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1449,7 +1513,7 @@ const deserializeAws_json1_1GetRecoveryPointCommandError = async (
 ): Promise<GetRecoveryPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1499,7 +1563,7 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
 ): Promise<GetResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1546,13 +1610,57 @@ const deserializeAws_json1_1GetSnapshotCommandError = async (
 ): Promise<GetSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
       throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetTableRestoreStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTableRestoreStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetTableRestoreStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetTableRestoreStatusResponse(data, context);
+  const response: GetTableRestoreStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetTableRestoreStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTableRestoreStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1593,7 +1701,7 @@ const deserializeAws_json1_1GetUsageLimitCommandError = async (
 ): Promise<GetUsageLimitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1643,7 +1751,7 @@ const deserializeAws_json1_1GetWorkgroupCommandError = async (
 ): Promise<GetWorkgroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1690,7 +1798,7 @@ const deserializeAws_json1_1ListEndpointAccessCommandError = async (
 ): Promise<ListEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1740,7 +1848,7 @@ const deserializeAws_json1_1ListNamespacesCommandError = async (
 ): Promise<ListNamespacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1784,7 +1892,7 @@ const deserializeAws_json1_1ListRecoveryPointsCommandError = async (
 ): Promise<ListRecoveryPointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1828,13 +1936,60 @@ const deserializeAws_json1_1ListSnapshotsCommandError = async (
 ): Promise<ListSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
       throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListTableRestoreStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTableRestoreStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListTableRestoreStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTableRestoreStatusResponse(data, context);
+  const response: ListTableRestoreStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTableRestoreStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTableRestoreStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidPaginationException":
+    case "com.amazonaws.redshiftserverless#InvalidPaginationException":
+      throw await deserializeAws_json1_1InvalidPaginationExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1875,7 +2030,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1925,7 +2080,7 @@ const deserializeAws_json1_1ListUsageLimitsCommandError = async (
 ): Promise<ListUsageLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1978,7 +2133,7 @@ const deserializeAws_json1_1ListWorkgroupsCommandError = async (
 ): Promise<ListWorkgroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2022,7 +2177,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
 ): Promise<PutResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2075,7 +2230,7 @@ const deserializeAws_json1_1RestoreFromRecoveryPointCommandError = async (
 ): Promise<RestoreFromRecoveryPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2125,7 +2280,7 @@ const deserializeAws_json1_1RestoreFromSnapshotCommandError = async (
 ): Promise<RestoreFromSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2141,6 +2296,56 @@ const deserializeAws_json1_1RestoreFromSnapshotCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
       throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1RestoreTableFromSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreTableFromSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RestoreTableFromSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RestoreTableFromSnapshotResponse(data, context);
+  const response: RestoreTableFromSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RestoreTableFromSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreTableFromSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
       throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
@@ -2178,7 +2383,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2231,7 +2436,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2281,7 +2486,7 @@ const deserializeAws_json1_1UpdateEndpointAccessCommandError = async (
 ): Promise<UpdateEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2334,7 +2539,7 @@ const deserializeAws_json1_1UpdateNamespaceCommandError = async (
 ): Promise<UpdateNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2384,7 +2589,7 @@ const deserializeAws_json1_1UpdateSnapshotCommandError = async (
 ): Promise<UpdateSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2434,7 +2639,7 @@ const deserializeAws_json1_1UpdateUsageLimitCommandError = async (
 ): Promise<UpdateUsageLimitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2484,7 +2689,7 @@ const deserializeAws_json1_1UpdateWorkgroupCommandError = async (
 ): Promise<UpdateWorkgroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2667,6 +2872,7 @@ const serializeAws_json1_1ConvertRecoveryPointToSnapshotRequest = (
     ...(input.recoveryPointId != null && { recoveryPointId: input.recoveryPointId }),
     ...(input.retentionPeriod != null && { retentionPeriod: input.retentionPeriod }),
     ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -2703,6 +2909,7 @@ const serializeAws_json1_1CreateSnapshotRequest = (input: CreateSnapshotRequest,
     ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
     ...(input.retentionPeriod != null && { retentionPeriod: input.retentionPeriod }),
     ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -2724,6 +2931,7 @@ const serializeAws_json1_1CreateWorkgroupRequest = (input: CreateWorkgroupReques
     }),
     ...(input.enhancedVpcRouting != null && { enhancedVpcRouting: input.enhancedVpcRouting }),
     ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
+    ...(input.port != null && { port: input.port }),
     ...(input.publiclyAccessible != null && { publiclyAccessible: input.publiclyAccessible }),
     ...(input.securityGroupIds != null && {
       securityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.securityGroupIds, context),
@@ -2826,6 +3034,15 @@ const serializeAws_json1_1GetSnapshotRequest = (input: GetSnapshotRequest, conte
   };
 };
 
+const serializeAws_json1_1GetTableRestoreStatusRequest = (
+  input: GetTableRestoreStatusRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.tableRestoreRequestId != null && { tableRestoreRequestId: input.tableRestoreRequestId }),
+  };
+};
+
 const serializeAws_json1_1GetUsageLimitRequest = (input: GetUsageLimitRequest, context: __SerdeContext): any => {
   return {
     ...(input.usageLimitId != null && { usageLimitId: input.usageLimitId }),
@@ -2872,6 +3089,7 @@ const serializeAws_json1_1ListRecoveryPointsRequest = (
   return {
     ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.namespaceArn != null && { namespaceArn: input.namespaceArn }),
     ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
@@ -2887,6 +3105,18 @@ const serializeAws_json1_1ListSnapshotsRequest = (input: ListSnapshotsRequest, c
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
     ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_1ListTableRestoreStatusRequest = (
+  input: ListTableRestoreStatusRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
@@ -2953,6 +3183,26 @@ const serializeAws_json1_1RestoreFromSnapshotRequest = (
     ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
     ...(input.snapshotArn != null && { snapshotArn: input.snapshotArn }),
     ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
+  };
+};
+
+const serializeAws_json1_1RestoreTableFromSnapshotRequest = (
+  input: RestoreTableFromSnapshotRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.activateCaseSensitiveIdentifier != null && {
+      activateCaseSensitiveIdentifier: input.activateCaseSensitiveIdentifier,
+    }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
+    ...(input.newTableName != null && { newTableName: input.newTableName }),
+    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
+    ...(input.sourceDatabaseName != null && { sourceDatabaseName: input.sourceDatabaseName }),
+    ...(input.sourceSchemaName != null && { sourceSchemaName: input.sourceSchemaName }),
+    ...(input.sourceTableName != null && { sourceTableName: input.sourceTableName }),
+    ...(input.targetDatabaseName != null && { targetDatabaseName: input.targetDatabaseName }),
+    ...(input.targetSchemaName != null && { targetSchemaName: input.targetSchemaName }),
     ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
@@ -3056,6 +3306,7 @@ const serializeAws_json1_1UpdateWorkgroupRequest = (input: UpdateWorkgroupReques
       configParameters: serializeAws_json1_1ConfigParameterList(input.configParameters, context),
     }),
     ...(input.enhancedVpcRouting != null && { enhancedVpcRouting: input.enhancedVpcRouting }),
+    ...(input.port != null && { port: input.port }),
     ...(input.publiclyAccessible != null && { publiclyAccessible: input.publiclyAccessible }),
     ...(input.securityGroupIds != null && {
       securityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.securityGroupIds, context),
@@ -3232,7 +3483,7 @@ const deserializeAws_json1_1EndpointAccess = (output: any, context: __SerdeConte
     endpointArn: __expectString(output.endpointArn),
     endpointCreateTime:
       output.endpointCreateTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.endpointCreateTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endpointCreateTime))
         : undefined,
     endpointName: __expectString(output.endpointName),
     endpointStatus: __expectString(output.endpointStatus),
@@ -3311,6 +3562,18 @@ const deserializeAws_json1_1GetResourcePolicyResponse = (
 const deserializeAws_json1_1GetSnapshotResponse = (output: any, context: __SerdeContext): GetSnapshotResponse => {
   return {
     snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetTableRestoreStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): GetTableRestoreStatusResponse => {
+  return {
+    tableRestoreStatus:
+      output.tableRestoreStatus != null
+        ? deserializeAws_json1_1TableRestoreStatus(output.tableRestoreStatus, context)
+        : undefined,
   } as any;
 };
 
@@ -3403,6 +3666,19 @@ const deserializeAws_json1_1ListSnapshotsResponse = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1ListTableRestoreStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTableRestoreStatusResponse => {
+  return {
+    nextToken: __expectString(output.nextToken),
+    tableRestoreStatuses:
+      output.tableRestoreStatuses != null
+        ? deserializeAws_json1_1TableRestoreStatusList(output.tableRestoreStatuses, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
@@ -3446,7 +3722,7 @@ const deserializeAws_json1_1Namespace = (output: any, context: __SerdeContext): 
   return {
     adminUsername: __expectString(output.adminUsername),
     creationDate:
-      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.creationDate)) : undefined,
+      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationDate)) : undefined,
     dbName: __expectString(output.dbName),
     defaultIamRoleArn: __expectString(output.defaultIamRoleArn),
     iamRoles: output.iamRoles != null ? deserializeAws_json1_1IamRoleArnList(output.iamRoles, context) : undefined,
@@ -3504,10 +3780,11 @@ const deserializeAws_json1_1PutResourcePolicyResponse = (
 
 const deserializeAws_json1_1RecoveryPoint = (output: any, context: __SerdeContext): RecoveryPoint => {
   return {
+    namespaceArn: __expectString(output.namespaceArn),
     namespaceName: __expectString(output.namespaceName),
     recoveryPointCreateTime:
       output.recoveryPointCreateTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.recoveryPointCreateTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.recoveryPointCreateTime))
         : undefined,
     recoveryPointId: __expectString(output.recoveryPointId),
     totalSizeInMegaBytes: __limitedParseDouble(output.totalSizeInMegaBytes),
@@ -3565,6 +3842,18 @@ const deserializeAws_json1_1RestoreFromSnapshotResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1RestoreTableFromSnapshotResponse = (
+  output: any,
+  context: __SerdeContext
+): RestoreTableFromSnapshotResponse => {
+  return {
+    tableRestoreStatus:
+      output.tableRestoreStatus != null
+        ? deserializeAws_json1_1TableRestoreStatus(output.tableRestoreStatus, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -3609,14 +3898,14 @@ const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): S
     snapshotArn: __expectString(output.snapshotArn),
     snapshotCreateTime:
       output.snapshotCreateTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.snapshotCreateTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.snapshotCreateTime))
         : undefined,
     snapshotName: __expectString(output.snapshotName),
     snapshotRemainingDays: __expectInt32(output.snapshotRemainingDays),
     snapshotRetentionPeriod: __expectInt32(output.snapshotRetentionPeriod),
     snapshotRetentionStartTime:
       output.snapshotRetentionStartTime != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.snapshotRetentionStartTime))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.snapshotRetentionStartTime))
         : undefined,
     status: __expectString(output.status),
     totalBackupSizeInMegaBytes: __limitedParseDouble(output.totalBackupSizeInMegaBytes),
@@ -3643,6 +3932,41 @@ const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1TableRestoreStatus = (output: any, context: __SerdeContext): TableRestoreStatus => {
+  return {
+    message: __expectString(output.message),
+    namespaceName: __expectString(output.namespaceName),
+    newTableName: __expectString(output.newTableName),
+    progressInMegaBytes: __expectLong(output.progressInMegaBytes),
+    requestTime:
+      output.requestTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestTime)))
+        : undefined,
+    snapshotName: __expectString(output.snapshotName),
+    sourceDatabaseName: __expectString(output.sourceDatabaseName),
+    sourceSchemaName: __expectString(output.sourceSchemaName),
+    sourceTableName: __expectString(output.sourceTableName),
+    status: __expectString(output.status),
+    tableRestoreRequestId: __expectString(output.tableRestoreRequestId),
+    targetDatabaseName: __expectString(output.targetDatabaseName),
+    targetSchemaName: __expectString(output.targetSchemaName),
+    totalDataInMegaBytes: __expectLong(output.totalDataInMegaBytes),
+    workgroupName: __expectString(output.workgroupName),
+  } as any;
+};
+
+const deserializeAws_json1_1TableRestoreStatusList = (output: any, context: __SerdeContext): TableRestoreStatus[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TableRestoreStatus(entry, context);
     });
   return retVal;
 };
@@ -3816,10 +4140,11 @@ const deserializeAws_json1_1Workgroup = (output: any, context: __SerdeContext): 
         ? deserializeAws_json1_1ConfigParameterList(output.configParameters, context)
         : undefined,
     creationDate:
-      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.creationDate)) : undefined,
+      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationDate)) : undefined,
     endpoint: output.endpoint != null ? deserializeAws_json1_1Endpoint(output.endpoint, context) : undefined,
     enhancedVpcRouting: __expectBoolean(output.enhancedVpcRouting),
     namespaceName: __expectString(output.namespaceName),
+    port: __expectInt32(output.port),
     publiclyAccessible: __expectBoolean(output.publiclyAccessible),
     securityGroupIds:
       output.securityGroupIds != null
@@ -3847,7 +4172,8 @@ const deserializeAws_json1_1WorkgroupList = (output: any, context: __SerdeContex
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3897,6 +4223,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3907,6 +4239,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

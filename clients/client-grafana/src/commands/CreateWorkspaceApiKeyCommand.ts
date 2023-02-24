@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,10 +29,9 @@ export interface CreateWorkspaceApiKeyCommandInput extends CreateWorkspaceApiKey
 export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an API key for the workspace.  This key can be used to authenticate
- *          requests sent to the workspace's HTTP API.  See
- *          <a href=" https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html"> https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
- *          for available APIs and example requests.</p>
+ * <p>Creates a Grafana API key for the workspace. This key can be used to authenticate
+ *             requests sent to the workspace's HTTP API. See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
+ *             for available APIs and example requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,15 @@ export class CreateWorkspaceApiKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateWorkspaceApiKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +79,9 @@ export class CreateWorkspaceApiKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateWorkspaceApiKeyCommandInput, CreateWorkspaceApiKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateWorkspaceApiKeyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

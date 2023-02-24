@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -112,6 +113,10 @@ import {
   GetRepositorySyncStatusCommandInput,
   GetRepositorySyncStatusCommandOutput,
 } from "../commands/GetRepositorySyncStatusCommand";
+import {
+  GetResourcesSummaryCommandInput,
+  GetResourcesSummaryCommandOutput,
+} from "../commands/GetResourcesSummaryCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "../commands/GetServiceCommand";
 import { GetServiceInstanceCommandInput, GetServiceInstanceCommandOutput } from "../commands/GetServiceInstanceCommand";
 import { GetServiceTemplateCommandInput, GetServiceTemplateCommandOutput } from "../commands/GetServiceTemplateCommand";
@@ -262,6 +267,7 @@ import {
   Component,
   ComponentSummary,
   ConflictException,
+  CountsSummary,
   CreateComponentInput,
   CreateComponentOutput,
   CreateEnvironmentAccountConnectionInput,
@@ -328,6 +334,8 @@ import {
   GetRepositoryOutput,
   GetRepositorySyncStatusInput,
   GetRepositorySyncStatusOutput,
+  GetResourcesSummaryInput,
+  GetResourcesSummaryOutput,
   GetServiceInput,
   GetServiceInstanceInput,
   GetServiceInstanceOutput,
@@ -367,6 +375,7 @@ import {
   ListServiceInstanceOutputsOutput,
   ListServiceInstanceProvisionedResourcesInput,
   ListServiceInstanceProvisionedResourcesOutput,
+  ListServiceInstancesFilter,
   ListServiceInstancesInput,
   ListServiceInstancesOutput,
   ListServicePipelineOutputsInput,
@@ -394,6 +403,7 @@ import {
   RepositorySyncAttempt,
   RepositorySyncDefinition,
   RepositorySyncEvent,
+  ResourceCountsSummary,
   ResourceNotFoundException,
   ResourceSyncAttempt,
   ResourceSyncEvent,
@@ -872,6 +882,19 @@ export const serializeAws_json1_0GetRepositorySyncStatusCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetRepositorySyncStatusInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetResourcesSummaryCommand = async (
+  input: GetResourcesSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.GetResourcesSummary",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetResourcesSummaryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1444,7 +1467,7 @@ const deserializeAws_json1_0AcceptEnvironmentAccountConnectionCommandError = asy
 ): Promise<AcceptEnvironmentAccountConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1500,7 +1523,7 @@ const deserializeAws_json1_0CancelComponentDeploymentCommandError = async (
 ): Promise<CancelComponentDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1556,7 +1579,7 @@ const deserializeAws_json1_0CancelEnvironmentDeploymentCommandError = async (
 ): Promise<CancelEnvironmentDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1612,7 +1635,7 @@ const deserializeAws_json1_0CancelServiceInstanceDeploymentCommandError = async 
 ): Promise<CancelServiceInstanceDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1668,7 +1691,7 @@ const deserializeAws_json1_0CancelServicePipelineDeploymentCommandError = async 
 ): Promise<CancelServicePipelineDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1724,7 +1747,7 @@ const deserializeAws_json1_0CreateComponentCommandError = async (
 ): Promise<CreateComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1783,7 +1806,7 @@ const deserializeAws_json1_0CreateEnvironmentCommandError = async (
 ): Promise<CreateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1842,7 +1865,7 @@ const deserializeAws_json1_0CreateEnvironmentAccountConnectionCommandError = asy
 ): Promise<CreateEnvironmentAccountConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1898,7 +1921,7 @@ const deserializeAws_json1_0CreateEnvironmentTemplateCommandError = async (
 ): Promise<CreateEnvironmentTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1954,7 +1977,7 @@ const deserializeAws_json1_0CreateEnvironmentTemplateVersionCommandError = async
 ): Promise<CreateEnvironmentTemplateVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2013,7 +2036,7 @@ const deserializeAws_json1_0CreateRepositoryCommandError = async (
 ): Promise<CreateRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2069,7 +2092,7 @@ const deserializeAws_json1_0CreateServiceCommandError = async (
 ): Promise<CreateServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2128,7 +2151,7 @@ const deserializeAws_json1_0CreateServiceTemplateCommandError = async (
 ): Promise<CreateServiceTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2184,7 +2207,7 @@ const deserializeAws_json1_0CreateServiceTemplateVersionCommandError = async (
 ): Promise<CreateServiceTemplateVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2243,7 +2266,7 @@ const deserializeAws_json1_0CreateTemplateSyncConfigCommandError = async (
 ): Promise<CreateTemplateSyncConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2299,7 +2322,7 @@ const deserializeAws_json1_0DeleteComponentCommandError = async (
 ): Promise<DeleteComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2355,7 +2378,7 @@ const deserializeAws_json1_0DeleteEnvironmentCommandError = async (
 ): Promise<DeleteEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2411,7 +2434,7 @@ const deserializeAws_json1_0DeleteEnvironmentAccountConnectionCommandError = asy
 ): Promise<DeleteEnvironmentAccountConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2467,7 +2490,7 @@ const deserializeAws_json1_0DeleteEnvironmentTemplateCommandError = async (
 ): Promise<DeleteEnvironmentTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2523,7 +2546,7 @@ const deserializeAws_json1_0DeleteEnvironmentTemplateVersionCommandError = async
 ): Promise<DeleteEnvironmentTemplateVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2579,7 +2602,7 @@ const deserializeAws_json1_0DeleteRepositoryCommandError = async (
 ): Promise<DeleteRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2635,7 +2658,7 @@ const deserializeAws_json1_0DeleteServiceCommandError = async (
 ): Promise<DeleteServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2691,7 +2714,7 @@ const deserializeAws_json1_0DeleteServiceTemplateCommandError = async (
 ): Promise<DeleteServiceTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2747,7 +2770,7 @@ const deserializeAws_json1_0DeleteServiceTemplateVersionCommandError = async (
 ): Promise<DeleteServiceTemplateVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2803,7 +2826,7 @@ const deserializeAws_json1_0DeleteTemplateSyncConfigCommandError = async (
 ): Promise<DeleteTemplateSyncConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2859,7 +2882,7 @@ const deserializeAws_json1_0GetAccountSettingsCommandError = async (
 ): Promise<GetAccountSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2912,7 +2935,7 @@ const deserializeAws_json1_0GetComponentCommandError = async (
 ): Promise<GetComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2965,7 +2988,7 @@ const deserializeAws_json1_0GetEnvironmentCommandError = async (
 ): Promise<GetEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3018,7 +3041,7 @@ const deserializeAws_json1_0GetEnvironmentAccountConnectionCommandError = async 
 ): Promise<GetEnvironmentAccountConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3071,7 +3094,7 @@ const deserializeAws_json1_0GetEnvironmentTemplateCommandError = async (
 ): Promise<GetEnvironmentTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3124,7 +3147,7 @@ const deserializeAws_json1_0GetEnvironmentTemplateVersionCommandError = async (
 ): Promise<GetEnvironmentTemplateVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3177,7 +3200,7 @@ const deserializeAws_json1_0GetRepositoryCommandError = async (
 ): Promise<GetRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3230,7 +3253,7 @@ const deserializeAws_json1_0GetRepositorySyncStatusCommandError = async (
 ): Promise<GetRepositorySyncStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3243,6 +3266,56 @@ const deserializeAws_json1_0GetRepositorySyncStatusCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.proton#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0GetResourcesSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcesSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetResourcesSummaryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetResourcesSummaryOutput(data, context);
+  const response: GetResourcesSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetResourcesSummaryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcesSummaryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.proton#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
@@ -3283,7 +3356,7 @@ const deserializeAws_json1_0GetServiceCommandError = async (
 ): Promise<GetServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3336,7 +3409,7 @@ const deserializeAws_json1_0GetServiceInstanceCommandError = async (
 ): Promise<GetServiceInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3389,7 +3462,7 @@ const deserializeAws_json1_0GetServiceTemplateCommandError = async (
 ): Promise<GetServiceTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3442,7 +3515,7 @@ const deserializeAws_json1_0GetServiceTemplateVersionCommandError = async (
 ): Promise<GetServiceTemplateVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3495,7 +3568,7 @@ const deserializeAws_json1_0GetTemplateSyncConfigCommandError = async (
 ): Promise<GetTemplateSyncConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3548,7 +3621,7 @@ const deserializeAws_json1_0GetTemplateSyncStatusCommandError = async (
 ): Promise<GetTemplateSyncStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3601,7 +3674,7 @@ const deserializeAws_json1_0ListComponentOutputsCommandError = async (
 ): Promise<ListComponentOutputsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3654,7 +3727,7 @@ const deserializeAws_json1_0ListComponentProvisionedResourcesCommandError = asyn
 ): Promise<ListComponentProvisionedResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3707,7 +3780,7 @@ const deserializeAws_json1_0ListComponentsCommandError = async (
 ): Promise<ListComponentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3757,7 +3830,7 @@ const deserializeAws_json1_0ListEnvironmentAccountConnectionsCommandError = asyn
 ): Promise<ListEnvironmentAccountConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3807,7 +3880,7 @@ const deserializeAws_json1_0ListEnvironmentOutputsCommandError = async (
 ): Promise<ListEnvironmentOutputsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3860,7 +3933,7 @@ const deserializeAws_json1_0ListEnvironmentProvisionedResourcesCommandError = as
 ): Promise<ListEnvironmentProvisionedResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3913,7 +3986,7 @@ const deserializeAws_json1_0ListEnvironmentsCommandError = async (
 ): Promise<ListEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3966,7 +4039,7 @@ const deserializeAws_json1_0ListEnvironmentTemplatesCommandError = async (
 ): Promise<ListEnvironmentTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4016,7 +4089,7 @@ const deserializeAws_json1_0ListEnvironmentTemplateVersionsCommandError = async 
 ): Promise<ListEnvironmentTemplateVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4069,7 +4142,7 @@ const deserializeAws_json1_0ListRepositoriesCommandError = async (
 ): Promise<ListRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4122,7 +4195,7 @@ const deserializeAws_json1_0ListRepositorySyncDefinitionsCommandError = async (
 ): Promise<ListRepositorySyncDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4172,7 +4245,7 @@ const deserializeAws_json1_0ListServiceInstanceOutputsCommandError = async (
 ): Promise<ListServiceInstanceOutputsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4225,7 +4298,7 @@ const deserializeAws_json1_0ListServiceInstanceProvisionedResourcesCommandError 
 ): Promise<ListServiceInstanceProvisionedResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4278,7 +4351,7 @@ const deserializeAws_json1_0ListServiceInstancesCommandError = async (
 ): Promise<ListServiceInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4331,7 +4404,7 @@ const deserializeAws_json1_0ListServicePipelineOutputsCommandError = async (
 ): Promise<ListServicePipelineOutputsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4384,7 +4457,7 @@ const deserializeAws_json1_0ListServicePipelineProvisionedResourcesCommandError 
 ): Promise<ListServicePipelineProvisionedResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4437,7 +4510,7 @@ const deserializeAws_json1_0ListServicesCommandError = async (
 ): Promise<ListServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4487,7 +4560,7 @@ const deserializeAws_json1_0ListServiceTemplatesCommandError = async (
 ): Promise<ListServiceTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4537,7 +4610,7 @@ const deserializeAws_json1_0ListServiceTemplateVersionsCommandError = async (
 ): Promise<ListServiceTemplateVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4590,7 +4663,7 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4643,7 +4716,7 @@ const deserializeAws_json1_0NotifyResourceDeploymentStatusChangeCommandError = a
 ): Promise<NotifyResourceDeploymentStatusChangeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4702,7 +4775,7 @@ const deserializeAws_json1_0RejectEnvironmentAccountConnectionCommandError = asy
 ): Promise<RejectEnvironmentAccountConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4758,7 +4831,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4814,7 +4887,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4870,7 +4943,7 @@ const deserializeAws_json1_0UpdateAccountSettingsCommandError = async (
 ): Promise<UpdateAccountSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4923,7 +4996,7 @@ const deserializeAws_json1_0UpdateComponentCommandError = async (
 ): Promise<UpdateComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4982,7 +5055,7 @@ const deserializeAws_json1_0UpdateEnvironmentCommandError = async (
 ): Promise<UpdateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5038,7 +5111,7 @@ const deserializeAws_json1_0UpdateEnvironmentAccountConnectionCommandError = asy
 ): Promise<UpdateEnvironmentAccountConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5094,7 +5167,7 @@ const deserializeAws_json1_0UpdateEnvironmentTemplateCommandError = async (
 ): Promise<UpdateEnvironmentTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5150,7 +5223,7 @@ const deserializeAws_json1_0UpdateEnvironmentTemplateVersionCommandError = async
 ): Promise<UpdateEnvironmentTemplateVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5206,7 +5279,7 @@ const deserializeAws_json1_0UpdateServiceCommandError = async (
 ): Promise<UpdateServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5265,7 +5338,7 @@ const deserializeAws_json1_0UpdateServiceInstanceCommandError = async (
 ): Promise<UpdateServiceInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5321,7 +5394,7 @@ const deserializeAws_json1_0UpdateServicePipelineCommandError = async (
 ): Promise<UpdateServicePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5377,7 +5450,7 @@ const deserializeAws_json1_0UpdateServiceTemplateCommandError = async (
 ): Promise<UpdateServiceTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5433,7 +5506,7 @@ const deserializeAws_json1_0UpdateServiceTemplateVersionCommandError = async (
 ): Promise<UpdateServiceTemplateVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5489,7 +5562,7 @@ const deserializeAws_json1_0UpdateTemplateSyncConfigCommandError = async (
 ): Promise<UpdateTemplateSyncConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5700,6 +5773,7 @@ const serializeAws_json1_0CreateEnvironmentAccountConnectionInput = (
 ): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
     ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
     ...(input.environmentName != null && { environmentName: input.environmentName }),
     ...(input.managementAccountId != null && { managementAccountId: input.managementAccountId }),
@@ -5710,6 +5784,7 @@ const serializeAws_json1_0CreateEnvironmentAccountConnectionInput = (
 
 const serializeAws_json1_0CreateEnvironmentInput = (input: CreateEnvironmentInput, context: __SerdeContext): any => {
   return {
+    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
     ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
     ...(input.description != null && { description: input.description }),
     ...(input.environmentAccountConnectionId != null && {
@@ -6015,6 +6090,13 @@ const serializeAws_json1_0GetRepositorySyncStatusInput = (
   };
 };
 
+const serializeAws_json1_0GetResourcesSummaryInput = (
+  input: GetResourcesSummaryInput,
+  context: __SerdeContext
+): any => {
+  return {};
+};
+
 const serializeAws_json1_0GetServiceInput = (input: GetServiceInput, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
@@ -6204,14 +6286,40 @@ const serializeAws_json1_0ListServiceInstanceProvisionedResourcesInput = (
   };
 };
 
+const serializeAws_json1_0ListServiceInstancesFilter = (
+  input: ListServiceInstancesFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
+  };
+};
+
+const serializeAws_json1_0ListServiceInstancesFilterList = (
+  input: ListServiceInstancesFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0ListServiceInstancesFilter(entry, context);
+    });
+};
+
 const serializeAws_json1_0ListServiceInstancesInput = (
   input: ListServiceInstancesInput,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.filters != null && {
+      filters: serializeAws_json1_0ListServiceInstancesFilterList(input.filters, context),
+    }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.serviceName != null && { serviceName: input.serviceName }),
+    ...(input.sortBy != null && { sortBy: input.sortBy }),
+    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
   };
 };
 
@@ -6390,6 +6498,10 @@ const serializeAws_json1_0UpdateAccountSettingsInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.deletePipelineProvisioningRepository != null && {
+      deletePipelineProvisioningRepository: input.deletePipelineProvisioningRepository,
+    }),
+    ...(input.pipelineCodebuildRoleArn != null && { pipelineCodebuildRoleArn: input.pipelineCodebuildRoleArn }),
     ...(input.pipelineProvisioningRepository != null && {
       pipelineProvisioningRepository: serializeAws_json1_0RepositoryBranchInput(
         input.pipelineProvisioningRepository,
@@ -6417,6 +6529,7 @@ const serializeAws_json1_0UpdateEnvironmentAccountConnectionInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
     ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
     ...(input.id != null && { id: input.id }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
@@ -6425,6 +6538,7 @@ const serializeAws_json1_0UpdateEnvironmentAccountConnectionInput = (
 
 const serializeAws_json1_0UpdateEnvironmentInput = (input: UpdateEnvironmentInput, context: __SerdeContext): any => {
   return {
+    ...(input.codebuildRoleArn != null && { codebuildRoleArn: input.codebuildRoleArn }),
     ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
     ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
     ...(input.description != null && { description: input.description }),
@@ -6571,6 +6685,7 @@ const deserializeAws_json1_0AccessDeniedException = (output: any, context: __Ser
 
 const deserializeAws_json1_0AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
   return {
+    pipelineCodebuildRoleArn: __expectString(output.pipelineCodebuildRoleArn),
     pipelineProvisioningRepository:
       output.pipelineProvisioningRepository != null
         ? deserializeAws_json1_0RepositoryBranch(output.pipelineProvisioningRepository, context)
@@ -6713,6 +6828,33 @@ const deserializeAws_json1_0ComponentSummaryList = (output: any, context: __Serd
 const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_0CountsSummary = (output: any, context: __SerdeContext): CountsSummary => {
+  return {
+    components:
+      output.components != null ? deserializeAws_json1_0ResourceCountsSummary(output.components, context) : undefined,
+    environmentTemplates:
+      output.environmentTemplates != null
+        ? deserializeAws_json1_0ResourceCountsSummary(output.environmentTemplates, context)
+        : undefined,
+    environments:
+      output.environments != null
+        ? deserializeAws_json1_0ResourceCountsSummary(output.environments, context)
+        : undefined,
+    pipelines:
+      output.pipelines != null ? deserializeAws_json1_0ResourceCountsSummary(output.pipelines, context) : undefined,
+    serviceInstances:
+      output.serviceInstances != null
+        ? deserializeAws_json1_0ResourceCountsSummary(output.serviceInstances, context)
+        : undefined,
+    serviceTemplates:
+      output.serviceTemplates != null
+        ? deserializeAws_json1_0ResourceCountsSummary(output.serviceTemplates, context)
+        : undefined,
+    services:
+      output.services != null ? deserializeAws_json1_0ResourceCountsSummary(output.services, context) : undefined,
   } as any;
 };
 
@@ -6919,6 +7061,7 @@ const deserializeAws_json1_0DeleteTemplateSyncConfigOutput = (
 const deserializeAws_json1_0Environment = (output: any, context: __SerdeContext): Environment => {
   return {
     arn: __expectString(output.arn),
+    codebuildRoleArn: __expectString(output.codebuildRoleArn),
     componentRoleArn: __expectString(output.componentRoleArn),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
@@ -6955,6 +7098,7 @@ const deserializeAws_json1_0EnvironmentAccountConnection = (
 ): EnvironmentAccountConnection => {
   return {
     arn: __expectString(output.arn),
+    codebuildRoleArn: __expectString(output.codebuildRoleArn),
     componentRoleArn: __expectString(output.componentRoleArn),
     environmentAccountId: __expectString(output.environmentAccountId),
     environmentName: __expectString(output.environmentName),
@@ -7239,6 +7383,15 @@ const deserializeAws_json1_0GetRepositorySyncStatusOutput = (
   return {
     latestSync:
       output.latestSync != null ? deserializeAws_json1_0RepositorySyncAttempt(output.latestSync, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0GetResourcesSummaryOutput = (
+  output: any,
+  context: __SerdeContext
+): GetResourcesSummaryOutput => {
+  return {
+    counts: output.counts != null ? deserializeAws_json1_0CountsSummary(output.counts, context) : undefined,
   } as any;
 };
 
@@ -7701,6 +7854,16 @@ const deserializeAws_json1_0RepositorySyncEvents = (output: any, context: __Serd
       return deserializeAws_json1_0RepositorySyncEvent(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_0ResourceCountsSummary = (output: any, context: __SerdeContext): ResourceCountsSummary => {
+  return {
+    behindMajor: __expectInt32(output.behindMajor),
+    behindMinor: __expectInt32(output.behindMinor),
+    failed: __expectInt32(output.failed),
+    total: __expectInt32(output.total),
+    upToDate: __expectInt32(output.upToDate),
+  } as any;
 };
 
 const deserializeAws_json1_0ResourceNotFoundException = (
@@ -8215,7 +8378,8 @@ const deserializeAws_json1_0ValidationException = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -8265,6 +8429,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -8275,6 +8445,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

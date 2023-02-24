@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,14 @@ export interface CancelInstanceRefreshCommandInput extends CancelInstanceRefresh
 export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
- * <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any
- *             replacements that have already been completed, but it prevents new replacements from
- *             being started. </p>
- *         <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
+ * <p>Cancels an instance refresh or rollback that is in progress. If an instance refresh or
+ *             rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error
+ *             occurs.</p>
+ *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
  *             after you make configuration changes.</p>
+ *          <p>When you cancel an instance refresh, this does not roll back any changes that it made.
+ *             Use the <a>RollbackInstanceRefresh</a> API to roll back instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +60,15 @@ export class CancelInstanceRefreshCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CancelInstanceRefreshCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +84,9 @@ export class CancelInstanceRefreshCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelInstanceRefreshCommandInput, CancelInstanceRefreshCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CancelInstanceRefreshCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

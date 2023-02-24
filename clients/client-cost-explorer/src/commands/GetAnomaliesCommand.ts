@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,8 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
 
 /**
  * <p>Retrieves all of the cost anomalies detected on your account during the time period that's
- *       specified by the <code>DateInterval</code> object. </p>
+ *       specified by the <code>DateInterval</code> object. Anomalies are available for up to 90
+ *       days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +55,15 @@ export class GetAnomaliesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetAnomaliesCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +79,7 @@ export class GetAnomaliesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAnomaliesCommandInput, GetAnomaliesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetAnomaliesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

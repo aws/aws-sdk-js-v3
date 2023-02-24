@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,26 +33,26 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  *                 <code>afterTime</code> and <code>beforeTime</code> parameters to filter by date. You
  *             can use the <code>caseId</code> parameter to restrict the results to a specific
  *             case.</p>
- *         <p>Case data is available for 12 months after creation. If a case was created more than
+ *          <p>Case data is available for 12 months after creation. If a case was created more than
  *             12 months ago, a request for data might cause an error.</p>
- *         <p>You can use the <code>maxResults</code> and <code>nextToken</code> parameters to
+ *          <p>You can use the <code>maxResults</code> and <code>nextToken</code> parameters to
  *             control the pagination of the results. Set <code>maxResults</code> to the number of
  *             cases that you want to display on each page, and use <code>nextToken</code> to specify
  *             the resumption of pagination.</p>
- *         <note>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
  *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +76,15 @@ export class DescribeCommunicationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeCommunicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,6 +100,9 @@ export class DescribeCommunicationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeCommunicationsCommandInput, DescribeCommunicationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeCommunicationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

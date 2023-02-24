@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,11 +28,11 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
 
 /**
  * <p>Deletes an Amazon Redshift security group.</p>
- *         <note>
+ *          <note>
  *             <p>You cannot delete a security group that is associated with any clusters. You
  *                 cannot delete the default security group.</p>
- *         </note>
- *         <p>
+ *          </note>
+ *          <p>
  * For information about managing security groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster Security Groups</a> in the
  * <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -58,6 +59,15 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteClusterSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteClusterSecurityGroupCommandInput, DeleteClusterSecurityGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteClusterSecurityGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -57,6 +57,21 @@ import {
   CreatePredictorCommandOutput,
 } from "./commands/CreatePredictorCommand";
 import {
+  CreateWhatIfAnalysisCommand,
+  CreateWhatIfAnalysisCommandInput,
+  CreateWhatIfAnalysisCommandOutput,
+} from "./commands/CreateWhatIfAnalysisCommand";
+import {
+  CreateWhatIfForecastCommand,
+  CreateWhatIfForecastCommandInput,
+  CreateWhatIfForecastCommandOutput,
+} from "./commands/CreateWhatIfForecastCommand";
+import {
+  CreateWhatIfForecastExportCommand,
+  CreateWhatIfForecastExportCommandInput,
+  CreateWhatIfForecastExportCommandOutput,
+} from "./commands/CreateWhatIfForecastExportCommand";
+import {
   DeleteDatasetCommand,
   DeleteDatasetCommandInput,
   DeleteDatasetCommandOutput,
@@ -112,6 +127,21 @@ import {
   DeleteResourceTreeCommandOutput,
 } from "./commands/DeleteResourceTreeCommand";
 import {
+  DeleteWhatIfAnalysisCommand,
+  DeleteWhatIfAnalysisCommandInput,
+  DeleteWhatIfAnalysisCommandOutput,
+} from "./commands/DeleteWhatIfAnalysisCommand";
+import {
+  DeleteWhatIfForecastCommand,
+  DeleteWhatIfForecastCommandInput,
+  DeleteWhatIfForecastCommandOutput,
+} from "./commands/DeleteWhatIfForecastCommand";
+import {
+  DeleteWhatIfForecastExportCommand,
+  DeleteWhatIfForecastExportCommandInput,
+  DeleteWhatIfForecastExportCommandOutput,
+} from "./commands/DeleteWhatIfForecastExportCommand";
+import {
   DescribeAutoPredictorCommand,
   DescribeAutoPredictorCommandInput,
   DescribeAutoPredictorCommandOutput,
@@ -166,6 +196,21 @@ import {
   DescribePredictorCommandInput,
   DescribePredictorCommandOutput,
 } from "./commands/DescribePredictorCommand";
+import {
+  DescribeWhatIfAnalysisCommand,
+  DescribeWhatIfAnalysisCommandInput,
+  DescribeWhatIfAnalysisCommandOutput,
+} from "./commands/DescribeWhatIfAnalysisCommand";
+import {
+  DescribeWhatIfForecastCommand,
+  DescribeWhatIfForecastCommandInput,
+  DescribeWhatIfForecastCommandOutput,
+} from "./commands/DescribeWhatIfForecastCommand";
+import {
+  DescribeWhatIfForecastExportCommand,
+  DescribeWhatIfForecastExportCommandInput,
+  DescribeWhatIfForecastExportCommandOutput,
+} from "./commands/DescribeWhatIfForecastExportCommand";
 import {
   GetAccuracyMetricsCommand,
   GetAccuracyMetricsCommandInput,
@@ -232,6 +277,21 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListWhatIfAnalysesCommand,
+  ListWhatIfAnalysesCommandInput,
+  ListWhatIfAnalysesCommandOutput,
+} from "./commands/ListWhatIfAnalysesCommand";
+import {
+  ListWhatIfForecastExportsCommand,
+  ListWhatIfForecastExportsCommandInput,
+  ListWhatIfForecastExportsCommandOutput,
+} from "./commands/ListWhatIfForecastExportsCommand";
+import {
+  ListWhatIfForecastsCommand,
+  ListWhatIfForecastsCommandInput,
+  ListWhatIfForecastsCommandOutput,
+} from "./commands/ListWhatIfForecastsCommand";
+import {
   ResumeResourceCommand,
   ResumeResourceCommandInput,
   ResumeResourceCommandOutput,
@@ -260,55 +320,53 @@ import { ForecastClient } from "./ForecastClient";
 export class Forecast extends ForecastClient {
   /**
    * <p>Creates an Amazon Forecast predictor.</p>
-   *         <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
+   *          <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
    *             optimal combination of algorithms to each time series in your datasets. You can use
    *                 <a>CreateAutoPredictor</a> to create new predictors or upgrade/retrain
    *             existing predictors.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Creating new predictors</b>
    *          </p>
-   *
-   *         <p>The following parameters are required when creating a new predictor:</p>
-   *         <ul>
+   *          <p>The following parameters are required when creating a new predictor:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PredictorName</code> - A unique name for the predictor.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DatasetGroupArn</code> - The ARN of the dataset group used to train the
    *                     predictor.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ForecastFrequency</code> - The granularity of your forecasts (hourly,
    *                     daily, weekly, etc).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ForecastHorizon</code> - The number of time-steps that the model
    *                     predicts. The forecast horizon is also called the prediction length.</p>
    *             </li>
    *          </ul>
-   *         <p>When creating a new predictor, do not specify a value for
+   *          <p>When creating a new predictor, do not specify a value for
    *                 <code>ReferencePredictorArn</code>.</p>
-   *         <p>
+   *          <p>
    *             <b>Upgrading and retraining predictors</b>
-   *         </p>
-   *         <p>The following parameters are required when retraining or upgrading a predictor:</p>
-   *         <ul>
+   *          </p>
+   *          <p>The following parameters are required when retraining or upgrading a predictor:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PredictorName</code> - A unique name for the predictor.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ReferencePredictorArn</code> - The ARN of the predictor to retrain or
    *                     upgrade.</p>
    *             </li>
    *          </ul>
-   *         <p>When upgrading or retraining a predictor, only specify values for the
+   *          <p>When upgrading or retraining a predictor, only specify values for the
    *                 <code>ReferencePredictorArn</code> and <code>PredictorName</code>. </p>
    */
   public createAutoPredictor(
@@ -459,8 +517,8 @@ export class Forecast extends ForecastClient {
    *       training data in an Amazon Simple Storage Service (Amazon S3) bucket and the Amazon Resource Name (ARN) of the dataset
    *       that you want to import the data to.</p>
    *          <p>You must specify a <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DataSource.html">DataSource</a> object that includes an
-   *       AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the data, as Amazon Forecast makes a copy
-   *       of your data and processes it in an internal AWS system. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html">Set up
+   *       Identity and Access Management (IAM) role that Amazon Forecast can assume to access the data, as Amazon Forecast makes a copy
+   *       of your data and processes it in an internal Amazon Web Services system. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html">Set up
    *         permissions</a>.</p>
    *          <p>The training data must be in CSV or Parquet format. The delimiter must be a comma (,).</p>
    *          <p>You can specify the path to a specific file, the S3 bucket, or to a folder in the S3
@@ -506,118 +564,118 @@ export class Forecast extends ForecastClient {
    * <note>
    *             <p>Explainability is only available for Forecasts and Predictors generated from an
    *                 AutoPredictor (<a>CreateAutoPredictor</a>)</p>
-   *         </note>
-   *         <p>Creates an Amazon Forecast Explainability.</p>
-   *         <p>Explainability helps you better understand how the attributes in your datasets impact
+   *          </note>
+   *          <p>Creates an Amazon Forecast Explainability.</p>
+   *          <p>Explainability helps you better understand how the attributes in your datasets impact
    *             forecast. Amazon Forecast uses a metric called Impact scores to quantify the relative
    *             impact of each attribute and determine whether they increase or decrease forecast
    *             values.</p>
-   *         <p>To enable Forecast Explainability, your predictor must include at least one of the
+   *          <p>To enable Forecast Explainability, your predictor must include at least one of the
    *             following: related time series, item metadata, or additional datasets like Holidays and
    *             the Weather Index.</p>
-   *         <p>CreateExplainability accepts either a Predictor ARN or Forecast ARN. To receive
+   *          <p>CreateExplainability accepts either a Predictor ARN or Forecast ARN. To receive
    *             aggregated Impact scores for all time series and time points in your datasets, provide a
    *             Predictor ARN. To receive Impact scores for specific time series and time points,
    *             provide a Forecast ARN.</p>
-   *         <p>
+   *          <p>
    *             <b>CreateExplainability with a Predictor ARN</b>
-   *         </p>
-   *         <note>
+   *          </p>
+   *          <note>
    *             <p>You can only have one Explainability resource per predictor. If you already
    *                 enabled <code>ExplainPredictor</code> in <a>CreateAutoPredictor</a>, that
    *                 predictor already has an Explainability resource.</p>
-   *         </note>
-   *         <p>The following parameters are required when providing a Predictor ARN:</p>
-   *         <ul>
+   *          </note>
+   *          <p>The following parameters are required when providing a Predictor ARN:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ExplainabilityName</code> - A unique name for the Explainability.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ResourceArn</code> - The Arn of the predictor.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TimePointGranularity</code> - Must be set to “ALL”.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TimeSeriesGranularity</code> - Must be set to “ALL”.</p>
    *             </li>
    *          </ul>
-   *         <p>Do not specify a value for the following parameters:</p>
-   *         <ul>
+   *          <p>Do not specify a value for the following parameters:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DataSource</code> - Only valid when TimeSeriesGranularity is
    *                     “SPECIFIC”.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Schema</code> - Only valid when TimeSeriesGranularity is
    *                     “SPECIFIC”.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>StartDateTime</code> - Only valid when TimePointGranularity is
    *                     “SPECIFIC”.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>EndDateTime</code> - Only valid when TimePointGranularity is
    *                     “SPECIFIC”.</p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>CreateExplainability with a Forecast ARN</b>
-   *         </p>
-   *         <note>
+   *          </p>
+   *          <note>
    *             <p>You can specify a maximum of 50 time series and 500 time points.</p>
-   *         </note>
-   *         <p>The following parameters are required when providing a Predictor ARN:</p>
-   *         <ul>
+   *          </note>
+   *          <p>The following parameters are required when providing a Predictor ARN:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ExplainabilityName</code> - A unique name for the Explainability.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ResourceArn</code> - The Arn of the forecast.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TimePointGranularity</code> - Either “ALL” or “SPECIFIC”.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TimeSeriesGranularity</code> - Either “ALL” or “SPECIFIC”.</p>
    *             </li>
    *          </ul>
-   *         <p>If you set TimeSeriesGranularity to “SPECIFIC”, you must also provide the
+   *          <p>If you set TimeSeriesGranularity to “SPECIFIC”, you must also provide the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DataSource</code> - The S3 location of the CSV file specifying your time
    *                     series.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Schema</code> - The Schema defines the attributes and attribute types
    *                     listed in the Data Source.</p>
    *             </li>
    *          </ul>
-   *         <p>If you set TimePointGranularity to “SPECIFIC”, you must also provide the
+   *          <p>If you set TimePointGranularity to “SPECIFIC”, you must also provide the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>StartDateTime</code> - The first timestamp in the range of time
    *                     points.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>EndDateTime</code> - The last timestamp in the range of time
    *                     points.</p>
    *             </li>
@@ -655,13 +713,13 @@ export class Forecast extends ForecastClient {
   /**
    * <p>Exports an Explainability resource created by the <a>CreateExplainability</a> operation. Exported files are exported to an Amazon Simple Storage Service (Amazon
    *             S3) bucket.</p>
-   *         <p>You must specify a <a>DataDestination</a> object that includes an Amazon S3
-   *             bucket and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
+   *          <p>You must specify a <a>DataDestination</a> object that includes an Amazon S3
+   *             bucket and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
    *             bucket. For more information, see <a>aws-forecast-iam-roles</a>.</p>
-   *         <note>
+   *          <note>
    *             <p>The <code>Status</code> of the export job must be <code>ACTIVE</code> before you
    *                 can access the export in your Amazon S3 bucket. To get the status, use the <a>DescribeExplainabilityExport</a> operation.</p>
-   *         </note>
+   *          </note>
    */
   public createExplainabilityExport(
     args: CreateExplainabilityExportCommandInput,
@@ -750,7 +808,7 @@ export class Forecast extends ForecastClient {
    *          <p><ForecastExportJobName>_<ExportTimestamp>_<PartNumber></p>
    *          <p>where the <ExportTimestamp> component is in Java SimpleDateFormat
    *       (yyyy-MM-ddTHH-mm-ssZ).</p>
-   *          <p>You must specify a <a>DataDestination</a> object that includes an AWS Identity and Access Management
+   *          <p>You must specify a <a>DataDestination</a> object that includes an Identity and Access Management
    *       (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see
    *         <a>aws-forecast-iam-roles</a>.</p>
    *          <p>For more information, see <a>howitworks-forecast</a>.</p>
@@ -877,9 +935,6 @@ export class Forecast extends ForecastClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
    *          <p>To get a list of all of your predictors, use the <a>ListPredictors</a>
    *       operation.</p>
    *          <note>
@@ -920,19 +975,19 @@ export class Forecast extends ForecastClient {
   /**
    * <p>Exports backtest forecasts and accuracy metrics generated by the <a>CreateAutoPredictor</a> or <a>CreatePredictor</a> operations. Two
    *             folders containing CSV or Parquet files are exported to your specified S3 bucket.</p>
-   *         <p> The export file names will match the following conventions:</p>
-   *         <p>
+   *          <p> The export file names will match the following conventions:</p>
+   *          <p>
    *             <code><ExportJobName>_<ExportTimestamp>_<PartNumber>.csv</code>
    *          </p>
-   *         <p>The <ExportTimestamp> component is in Java SimpleDate format
+   *          <p>The <ExportTimestamp> component is in Java SimpleDate format
    *             (yyyy-MM-ddTHH-mm-ssZ).</p>
-   *         <p>You must specify a <a>DataDestination</a> object that includes an Amazon S3
-   *             bucket and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
+   *          <p>You must specify a <a>DataDestination</a> object that includes an Amazon S3
+   *             bucket and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
    *             bucket. For more information, see <a>aws-forecast-iam-roles</a>.</p>
-   *         <note>
+   *          <note>
    *             <p>The <code>Status</code> of the export job must be <code>ACTIVE</code> before you
    *                 can access the export in your Amazon S3 bucket. To get the status, use the <a>DescribePredictorBacktestExportJob</a> operation.</p>
-   *         </note>
+   *          </note>
    */
   public createPredictorBacktestExportJob(
     args: CreatePredictorBacktestExportJobCommandInput,
@@ -953,6 +1008,131 @@ export class Forecast extends ForecastClient {
     cb?: (err: any, data?: CreatePredictorBacktestExportJobCommandOutput) => void
   ): Promise<CreatePredictorBacktestExportJobCommandOutput> | void {
     const command = new CreatePredictorBacktestExportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>What-if analysis is a scenario modeling technique where you make a hypothetical change to a time series and
+   *       compare the forecasts generated by these changes against the baseline, unchanged time series. It is important to
+   *       remember that the purpose of a what-if analysis is to understand how a forecast can change given different
+   *       modifications to the baseline time series.</p>
+   *          <p>For example, imagine you are a clothing retailer who is considering an end of season sale
+   *       to clear space for new styles. After creating a baseline forecast, you can use a what-if
+   *       analysis to investigate how different sales tactics might affect your goals.</p>
+   *          <p>You could create a scenario where everything is given a 25% markdown, and another where
+   *       everything is given a fixed dollar markdown. You could create a scenario where the sale lasts for one week and
+   *       another where the sale lasts for one month.
+   *       With a what-if analysis, you can compare many different scenarios against each other.</p>
+   *          <p>Note that a what-if analysis is meant to display what the forecasting model has learned and how it will behave in the scenarios that you are evaluating. Do not blindly use the results of the what-if analysis to make business decisions. For instance, forecasts might not be accurate for novel scenarios where there is no reference available to determine whether a forecast is good.</p>
+   *          <p>The <a>TimeSeriesSelector</a> object defines the items that you want in the what-if analysis.</p>
+   */
+  public createWhatIfAnalysis(
+    args: CreateWhatIfAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWhatIfAnalysisCommandOutput>;
+  public createWhatIfAnalysis(
+    args: CreateWhatIfAnalysisCommandInput,
+    cb: (err: any, data?: CreateWhatIfAnalysisCommandOutput) => void
+  ): void;
+  public createWhatIfAnalysis(
+    args: CreateWhatIfAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWhatIfAnalysisCommandOutput) => void
+  ): void;
+  public createWhatIfAnalysis(
+    args: CreateWhatIfAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWhatIfAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: CreateWhatIfAnalysisCommandOutput) => void
+  ): Promise<CreateWhatIfAnalysisCommandOutput> | void {
+    const command = new CreateWhatIfAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A what-if forecast is a forecast that is created from a modified version of the baseline forecast. Each
+   *       what-if forecast incorporates either a replacement dataset or a set of transformations to the original dataset. </p>
+   */
+  public createWhatIfForecast(
+    args: CreateWhatIfForecastCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWhatIfForecastCommandOutput>;
+  public createWhatIfForecast(
+    args: CreateWhatIfForecastCommandInput,
+    cb: (err: any, data?: CreateWhatIfForecastCommandOutput) => void
+  ): void;
+  public createWhatIfForecast(
+    args: CreateWhatIfForecastCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWhatIfForecastCommandOutput) => void
+  ): void;
+  public createWhatIfForecast(
+    args: CreateWhatIfForecastCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWhatIfForecastCommandOutput) => void),
+    cb?: (err: any, data?: CreateWhatIfForecastCommandOutput) => void
+  ): Promise<CreateWhatIfForecastCommandOutput> | void {
+    const command = new CreateWhatIfForecastCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Exports a forecast created by the <a>CreateWhatIfForecast</a> operation to your
+   *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
+   *          <p>
+   *             <code>≈<ForecastExportJobName>_<ExportTimestamp>_<PartNumber></code>
+   *          </p>
+   *          <p>The <ExportTimestamp> component is in Java SimpleDateFormat
+   *       (yyyy-MM-ddTHH-mm-ssZ).</p>
+   *          <p>You must specify a <a>DataDestination</a> object that includes an Identity and Access Management
+   *       (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see
+   *       <a>aws-forecast-iam-roles</a>.</p>
+   *          <p>For more information, see <a>howitworks-forecast</a>.</p>
+   *          <p>To get a list of all your what-if forecast export jobs, use the <a>ListWhatIfForecastExports</a>
+   *       operation.</p>
+   *          <note>
+   *             <p>The <code>Status</code> of the forecast export job must be <code>ACTIVE</code> before
+   *         you can access the forecast in your Amazon S3 bucket. To get the status, use the <a>DescribeWhatIfForecastExport</a> operation.</p>
+   *          </note>
+   */
+  public createWhatIfForecastExport(
+    args: CreateWhatIfForecastExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWhatIfForecastExportCommandOutput>;
+  public createWhatIfForecastExport(
+    args: CreateWhatIfForecastExportCommandInput,
+    cb: (err: any, data?: CreateWhatIfForecastExportCommandOutput) => void
+  ): void;
+  public createWhatIfForecastExport(
+    args: CreateWhatIfForecastExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWhatIfForecastExportCommandOutput) => void
+  ): void;
+  public createWhatIfForecastExport(
+    args: CreateWhatIfForecastExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWhatIfForecastExportCommandOutput) => void),
+    cb?: (err: any, data?: CreateWhatIfForecastExportCommandOutput) => void
+  ): Promise<CreateWhatIfForecastExportCommandOutput> | void {
+    const command = new CreateWhatIfForecastExportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1074,7 +1254,7 @@ export class Forecast extends ForecastClient {
 
   /**
    * <p>Deletes an Explainability resource.</p>
-   *         <p>You can delete only predictor that have a status of <code>ACTIVE</code> or
+   *          <p>You can delete only predictor that have a status of <code>ACTIVE</code> or
    *                 <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeExplainability</a> operation.</p>
    */
   public deleteExplainability(
@@ -1308,36 +1488,35 @@ export class Forecast extends ForecastClient {
   /**
    * <p>Deletes an entire resource tree. This operation will delete the parent resource and
    *             its child resources.</p>
-   *         <p>Child resources are resources that were created from another resource. For example,
+   *          <p>Child resources are resources that were created from another resource. For example,
    *             when a forecast is generated from a predictor, the forecast is the child resource and
    *             the predictor is the parent resource.</p>
-   *         <p>Amazon Forecast resources possess the following parent-child resource hierarchies:</p>
-   *
-   *         <ul>
+   *          <p>Amazon Forecast resources possess the following parent-child resource hierarchies:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>Dataset</b>: dataset import jobs</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>Dataset Group</b>: predictors, predictor backtest
    *                     export jobs, forecasts, forecast export jobs</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>Predictor</b>: predictor backtest export jobs,
    *                     forecasts, forecast export jobs</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>Forecast</b>: forecast export jobs</p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>DeleteResourceTree</code> will only delete Amazon Forecast resources, and will not
    *                 delete datasets or exported files stored in Amazon S3. </p>
-   *         </note>
+   *          </note>
    */
   public deleteResourceTree(
     args: DeleteResourceTreeCommandInput,
@@ -1358,6 +1537,107 @@ export class Forecast extends ForecastClient {
     cb?: (err: any, data?: DeleteResourceTreeCommandOutput) => void
   ): Promise<DeleteResourceTreeCommandOutput> | void {
     const command = new DeleteResourceTreeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a what-if analysis created using the <a>CreateWhatIfAnalysis</a>
+   *       operation. You can delete only what-if analyses that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfAnalysis</a> operation. </p>
+   *          <p>You can't delete a what-if analysis while any of its forecasts are being exported.</p>
+   */
+  public deleteWhatIfAnalysis(
+    args: DeleteWhatIfAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWhatIfAnalysisCommandOutput>;
+  public deleteWhatIfAnalysis(
+    args: DeleteWhatIfAnalysisCommandInput,
+    cb: (err: any, data?: DeleteWhatIfAnalysisCommandOutput) => void
+  ): void;
+  public deleteWhatIfAnalysis(
+    args: DeleteWhatIfAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWhatIfAnalysisCommandOutput) => void
+  ): void;
+  public deleteWhatIfAnalysis(
+    args: DeleteWhatIfAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWhatIfAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWhatIfAnalysisCommandOutput) => void
+  ): Promise<DeleteWhatIfAnalysisCommandOutput> | void {
+    const command = new DeleteWhatIfAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a what-if forecast created using the <a>CreateWhatIfForecast</a>
+   *       operation. You can delete only what-if forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfForecast</a> operation. </p>
+   *          <p>You can't delete a what-if forecast while it is being exported. After a what-if forecast is deleted, you can no longer query the what-if analysis.</p>
+   */
+  public deleteWhatIfForecast(
+    args: DeleteWhatIfForecastCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWhatIfForecastCommandOutput>;
+  public deleteWhatIfForecast(
+    args: DeleteWhatIfForecastCommandInput,
+    cb: (err: any, data?: DeleteWhatIfForecastCommandOutput) => void
+  ): void;
+  public deleteWhatIfForecast(
+    args: DeleteWhatIfForecastCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWhatIfForecastCommandOutput) => void
+  ): void;
+  public deleteWhatIfForecast(
+    args: DeleteWhatIfForecastCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWhatIfForecastCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWhatIfForecastCommandOutput) => void
+  ): Promise<DeleteWhatIfForecastCommandOutput> | void {
+    const command = new DeleteWhatIfForecastCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a what-if forecast export created using the <a>CreateWhatIfForecastExport</a>
+   *       operation. You can delete only what-if forecast exports that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfForecastExport</a> operation. </p>
+   */
+  public deleteWhatIfForecastExport(
+    args: DeleteWhatIfForecastExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWhatIfForecastExportCommandOutput>;
+  public deleteWhatIfForecastExport(
+    args: DeleteWhatIfForecastExportCommandInput,
+    cb: (err: any, data?: DeleteWhatIfForecastExportCommandOutput) => void
+  ): void;
+  public deleteWhatIfForecastExport(
+    args: DeleteWhatIfForecastExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWhatIfForecastExportCommandOutput) => void
+  ): void;
+  public deleteWhatIfForecastExport(
+    args: DeleteWhatIfForecastExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWhatIfForecastExportCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWhatIfForecastExportCommandOutput) => void
+  ): Promise<DeleteWhatIfForecastExportCommandOutput> | void {
+    const command = new DeleteWhatIfForecastExportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1894,27 +2174,27 @@ export class Forecast extends ForecastClient {
 
   /**
    * <p>Describes a predictor backtest export job created using the <a>CreatePredictorBacktestExportJob</a> operation.</p>
-   *         <p>In addition to listing the properties provided by the user in the
+   *          <p>In addition to listing the properties provided by the user in the
    *                 <code>CreatePredictorBacktestExportJob</code> request, this operation lists the
    *             following properties:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>CreationTime</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CreationTime</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>LastModificationTime</code>
-   *                 </p>
+   *                <p>
+   *                   <code>LastModificationTime</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>Status</code>
-   *                 </p>
+   *                <p>
+   *                   <code>Status</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Message</code> (if an error occurred)</p>
    *             </li>
    *          </ul>
@@ -1949,6 +2229,168 @@ export class Forecast extends ForecastClient {
   }
 
   /**
+   * <p>Describes the what-if analysis created using the <a>CreateWhatIfAnalysis</a> operation.</p>
+   *          <p>In addition to listing the properties provided in the <code>CreateWhatIfAnalysis</code> request, this operation lists the following properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreationTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastModificationTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Message</code> - If an error occurred, information about the error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Status</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public describeWhatIfAnalysis(
+    args: DescribeWhatIfAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWhatIfAnalysisCommandOutput>;
+  public describeWhatIfAnalysis(
+    args: DescribeWhatIfAnalysisCommandInput,
+    cb: (err: any, data?: DescribeWhatIfAnalysisCommandOutput) => void
+  ): void;
+  public describeWhatIfAnalysis(
+    args: DescribeWhatIfAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWhatIfAnalysisCommandOutput) => void
+  ): void;
+  public describeWhatIfAnalysis(
+    args: DescribeWhatIfAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWhatIfAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWhatIfAnalysisCommandOutput) => void
+  ): Promise<DescribeWhatIfAnalysisCommandOutput> | void {
+    const command = new DescribeWhatIfAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the what-if forecast created using the <a>CreateWhatIfForecast</a> operation.</p>
+   *          <p>In addition to listing the properties provided in the <code>CreateWhatIfForecast</code> request, this operation lists the following properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreationTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastModificationTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Message</code> - If an error occurred, information about the error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Status</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public describeWhatIfForecast(
+    args: DescribeWhatIfForecastCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWhatIfForecastCommandOutput>;
+  public describeWhatIfForecast(
+    args: DescribeWhatIfForecastCommandInput,
+    cb: (err: any, data?: DescribeWhatIfForecastCommandOutput) => void
+  ): void;
+  public describeWhatIfForecast(
+    args: DescribeWhatIfForecastCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWhatIfForecastCommandOutput) => void
+  ): void;
+  public describeWhatIfForecast(
+    args: DescribeWhatIfForecastCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWhatIfForecastCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWhatIfForecastCommandOutput) => void
+  ): Promise<DescribeWhatIfForecastCommandOutput> | void {
+    const command = new DescribeWhatIfForecastCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the what-if forecast export created using the <a>CreateWhatIfForecastExport</a> operation.</p>
+   *          <p>In addition to listing the properties provided in the <code>CreateWhatIfForecastExport</code> request, this operation lists the following properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreationTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastModificationTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Message</code> - If an error occurred, information about the error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Status</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public describeWhatIfForecastExport(
+    args: DescribeWhatIfForecastExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWhatIfForecastExportCommandOutput>;
+  public describeWhatIfForecastExport(
+    args: DescribeWhatIfForecastExportCommandInput,
+    cb: (err: any, data?: DescribeWhatIfForecastExportCommandOutput) => void
+  ): void;
+  public describeWhatIfForecastExport(
+    args: DescribeWhatIfForecastExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWhatIfForecastExportCommandOutput) => void
+  ): void;
+  public describeWhatIfForecastExport(
+    args: DescribeWhatIfForecastExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWhatIfForecastExportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWhatIfForecastExportCommandOutput) => void
+  ): Promise<DescribeWhatIfForecastExportCommandOutput> | void {
+    const command = new DescribeWhatIfForecastExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides metrics on the accuracy of the models that were trained by the <a>CreatePredictor</a> operation. Use metrics to see how well the model performed and
    *       to decide whether to use the predictor to generate a forecast. For more information, see
    *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">Predictor
@@ -1961,7 +2403,6 @@ export class Forecast extends ForecastClient {
    *       metrics. If you want all items to contribute, specify <code>zero</code>. If you want only
    *       those items that have complete data in the range being evaluated to contribute, specify
    *         <code>nan</code>. For more information, see <a>FeaturizationMethod</a>.</p>
-   *
    *          <note>
    *             <p>Before you can get accuracy metrics, the <code>Status</code> of the predictor must be
    *           <code>ACTIVE</code>, signifying that training has completed. To get the status, use the
@@ -2104,7 +2545,7 @@ export class Forecast extends ForecastClient {
    * <p>Returns a list of Explainability resources created using the <a>CreateExplainability</a> operation. This operation returns a summary for
    *             each Explainability. You can filter the list using an array of <a>Filter</a>
    *             objects.</p>
-   *         <p>To retrieve the complete set of properties for a particular Explainability resource,
+   *          <p>To retrieve the complete set of properties for a particular Explainability resource,
    *             use the ARN with the <a>DescribeExplainability</a> operation.</p>
    */
   public listExplainabilities(
@@ -2139,7 +2580,7 @@ export class Forecast extends ForecastClient {
   /**
    * <p>Returns a list of Explainability exports created using the <a>CreateExplainabilityExport</a> operation. This operation returns a summary
    *             for each Explainability export. You can filter the list using an array of <a>Filter</a> objects.</p>
-   *         <p>To retrieve the complete set of properties for a particular Explainability export, use
+   *          <p>To retrieve the complete set of properties for a particular Explainability export, use
    *             the ARN with the <a>DescribeExplainability</a> operation.</p>
    */
   public listExplainabilityExports(
@@ -2310,7 +2751,7 @@ export class Forecast extends ForecastClient {
   /**
    * <p>Returns a list of predictor backtest export jobs created using the <a>CreatePredictorBacktestExportJob</a> operation. This operation returns a
    *             summary for each backtest export job. You can filter the list using an array of <a>Filter</a> objects.</p>
-   *         <p>To retrieve the complete set of properties for a particular backtest export job, use
+   *          <p>To retrieve the complete set of properties for a particular backtest export job, use
    *             the ARN with the <a>DescribePredictorBacktestExportJob</a> operation.</p>
    */
   public listPredictorBacktestExportJobs(
@@ -2400,6 +2841,102 @@ export class Forecast extends ForecastClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of what-if analyses created using the <a>CreateWhatIfAnalysis</a> operation. For each what-if analysis, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if analysis ARN with the <a>DescribeWhatIfAnalysis</a> operation.</p>
+   */
+  public listWhatIfAnalyses(
+    args: ListWhatIfAnalysesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWhatIfAnalysesCommandOutput>;
+  public listWhatIfAnalyses(
+    args: ListWhatIfAnalysesCommandInput,
+    cb: (err: any, data?: ListWhatIfAnalysesCommandOutput) => void
+  ): void;
+  public listWhatIfAnalyses(
+    args: ListWhatIfAnalysesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWhatIfAnalysesCommandOutput) => void
+  ): void;
+  public listWhatIfAnalyses(
+    args: ListWhatIfAnalysesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWhatIfAnalysesCommandOutput) => void),
+    cb?: (err: any, data?: ListWhatIfAnalysesCommandOutput) => void
+  ): Promise<ListWhatIfAnalysesCommandOutput> | void {
+    const command = new ListWhatIfAnalysesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of what-if forecast exports created using the <a>CreateWhatIfForecastExport</a> operation. For each what-if forecast export, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast export ARN with the <a>DescribeWhatIfForecastExport</a> operation.</p>
+   */
+  public listWhatIfForecastExports(
+    args: ListWhatIfForecastExportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWhatIfForecastExportsCommandOutput>;
+  public listWhatIfForecastExports(
+    args: ListWhatIfForecastExportsCommandInput,
+    cb: (err: any, data?: ListWhatIfForecastExportsCommandOutput) => void
+  ): void;
+  public listWhatIfForecastExports(
+    args: ListWhatIfForecastExportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWhatIfForecastExportsCommandOutput) => void
+  ): void;
+  public listWhatIfForecastExports(
+    args: ListWhatIfForecastExportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWhatIfForecastExportsCommandOutput) => void),
+    cb?: (err: any, data?: ListWhatIfForecastExportsCommandOutput) => void
+  ): Promise<ListWhatIfForecastExportsCommandOutput> | void {
+    const command = new ListWhatIfForecastExportsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of what-if forecasts created using the <a>CreateWhatIfForecast</a> operation. For each what-if forecast, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast ARN with the <a>DescribeWhatIfForecast</a> operation.</p>
+   */
+  public listWhatIfForecasts(
+    args: ListWhatIfForecastsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWhatIfForecastsCommandOutput>;
+  public listWhatIfForecasts(
+    args: ListWhatIfForecastsCommandInput,
+    cb: (err: any, data?: ListWhatIfForecastsCommandOutput) => void
+  ): void;
+  public listWhatIfForecasts(
+    args: ListWhatIfForecastsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWhatIfForecastsCommandOutput) => void
+  ): void;
+  public listWhatIfForecasts(
+    args: ListWhatIfForecastsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWhatIfForecastsCommandOutput) => void),
+    cb?: (err: any, data?: ListWhatIfForecastsCommandOutput) => void
+  ): Promise<ListWhatIfForecastsCommandOutput> | void {
+    const command = new ListWhatIfForecastsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

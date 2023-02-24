@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,7 +37,7 @@ export interface TestAvailabilityConfigurationCommandOutput
  *             <p>The request must contain either one provider definition (<code>EwsProvider</code> or
  *                <code>LambdaProvider</code>) or the <code>DomainName</code> parameter. If the
  *                <code>DomainName</code> parameter is provided, the configuration stored under the
- *                <code>DomainName</code> will be tested. </p>
+ *                <code>DomainName</code> will be tested.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +62,15 @@ export class TestAvailabilityConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TestAvailabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class TestAvailabilityConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TestAvailabilityConfigurationCommandInput, TestAvailabilityConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, TestAvailabilityConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -15,8 +16,6 @@ import {
 import {
   DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
   DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotAttributesResultFilterSensitiveLog,
 } from "../models/models_1";
@@ -33,12 +32,12 @@ export interface DescribeDBSnapshotAttributesCommandOutput
 
 /**
  * <p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p>
- *         <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBSnapshotAttributes</code>
+ *          <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBSnapshotAttributes</code>
  *       returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are
  *       authorized to copy or restore the manual DB snapshot. If <code>all</code> is included in the list of
  *       values for the <code>restore</code> attribute, then the manual DB snapshot is public and
  *       can be copied or restored by all Amazon Web Services accounts.</p>
- *         <p>To add or remove access for an Amazon Web Services account to copy or restore a manual DB snapshot, or to make the
+ *          <p>To add or remove access for an Amazon Web Services account to copy or restore a manual DB snapshot, or to make the
  *       manual DB snapshot public or private, use the <code>ModifyDBSnapshotAttribute</code> API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,15 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeDBSnapshotAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +86,9 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDBSnapshotAttributesCommandInput, DescribeDBSnapshotAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDBSnapshotAttributesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -33,8 +34,9 @@ export interface AdminDisableUserCommandInput extends AdminDisableUserRequest {}
 export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse, __MetadataBearer {}
 
 /**
- * <p>Disables the specified user.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ * <p>Deactivates a user and revokes all access tokens for the user. A deactivated user can't sign in,
+ *             but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code> API requests.</p>
+ *         <p>You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code> permissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +60,15 @@ export class AdminDisableUserCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AdminDisableUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +84,9 @@ export class AdminDisableUserCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AdminDisableUserCommandInput, AdminDisableUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AdminDisableUserCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

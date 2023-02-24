@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,25 +28,25 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Add tags to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
  *                 <i>Amazon SNS Developer Guide</i>.</p>
- *         <p>When you use topic tags, keep the following guidelines in mind:</p>
- *         <ul>
+ *          <p>When you use topic tags, keep the following guidelines in mind:</p>
+ *          <ul>
  *             <li>
- *                 <p>Adding more than 50 tags to a topic isn't recommended.</p>
+ *                <p>Adding more than 50 tags to a topic isn't recommended.</p>
  *             </li>
  *             <li>
- *                 <p>Tags don't have any semantic meaning. Amazon SNS interprets tags as character
+ *                <p>Tags don't have any semantic meaning. Amazon SNS interprets tags as character
  *                     strings.</p>
  *             </li>
  *             <li>
- *                 <p>Tags are case-sensitive.</p>
+ *                <p>Tags are case-sensitive.</p>
  *             </li>
  *             <li>
- *                 <p>A new tag with a key identical to that of an existing tag overwrites the
+ *                <p>A new tag with a key identical to that of an existing tag overwrites the
  *                     existing tag.</p>
  *             </li>
  *             <li>
- *                 <p>Tagging actions are limited to 10 TPS per Amazon Web Services account, per Amazon Web Services Region. If your
- *                     application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p>
+ *                <p>Tagging actions are limited to 10 TPS per Amazon Web Services account, per Amazon Web Services Region. If
+ *                     your application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -71,6 +72,15 @@ export class TagResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +96,7 @@ export class TagResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,9 @@ export interface UpdateDomainCommandInput extends UpdateDomainRequest {}
 export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified domain. This API has clobber behavior, and clears and replaces all attributes.
- *             If an optional field, such as 'Description' is not provided, it is removed from the domain.</p>
+ * <p>Updates the specified domain. This API has clobber behavior, and clears and replaces
+ *             all attributes. If an optional field, such as 'Description' is not provided, it is
+ *             removed from the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +55,15 @@ export class UpdateDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +79,7 @@ export class UpdateDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDomainCommandInput, UpdateDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateDomainCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

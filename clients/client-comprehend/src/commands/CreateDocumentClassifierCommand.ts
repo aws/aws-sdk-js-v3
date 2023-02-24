@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,9 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * <p>Creates a new document classifier that you can use to categorize documents. To create a
  *       classifier, you provide a set of training documents that labeled with the categories that you
  *       want to use. After the classifier is trained you can use it to categorize a set of labeled
- *       documents into the categories. For more information, see <a>how-document-classification</a>.</p>
+ *       documents into the categories. For more information, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Document Classification</a> in the Comprehend Developer Guide.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +58,15 @@ export class CreateDocumentClassifierCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDocumentClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +82,9 @@ export class CreateDocumentClassifierCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDocumentClassifierCommandInput, CreateDocumentClassifierCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDocumentClassifierCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

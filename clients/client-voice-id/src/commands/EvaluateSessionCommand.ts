@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,8 @@ export interface EvaluateSessionCommandInput extends EvaluateSessionRequest {}
 export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Evaluates a specified session based on audio data accumulated during a streaming Amazon Connect Voice
- *             ID call.</p>
+ * <p>Evaluates a specified session based on audio data accumulated during a streaming
+ *             Amazon Connect Voice ID call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,15 @@ export class EvaluateSessionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EvaluateSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class EvaluateSessionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EvaluateSessionCommandInput, EvaluateSessionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EvaluateSessionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

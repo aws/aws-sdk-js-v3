@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,7 +36,7 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  *             operation more than once for the same service-linked role and an earlier deletion task
  *             is not complete, then the <code>DeletionTaskId</code> of the earlier request is
  *             returned.</p>
- *         <p>If you submit a deletion request for a service-linked role whose linked service is
+ *          <p>If you submit a deletion request for a service-linked role whose linked service is
  *             still accessing a resource, then the deletion task fails. If it fails, the <a>GetServiceLinkedRoleDeletionStatus</a> operation returns the reason for the
  *             failure, usually including the resources that must be deleted. To delete the
  *             service-linked role, you must first remove those resources from the linked service and
@@ -43,7 +44,7 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  *             linked to the role. For more information about removing resources from a service, see
  *             the <a href="http://docs.aws.amazon.com/">Amazon Web Services documentation</a> for your
  *             service.</p>
- *         <p>For more information about service-linked roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Roles terms and concepts: Amazon Web Services service-linked role</a> in the
+ *          <p>For more information about service-linked roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Roles terms and concepts: Amazon Web Services service-linked role</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +69,15 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteServiceLinkedRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +93,9 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteServiceLinkedRoleCommandInput, DeleteServiceLinkedRoleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteServiceLinkedRoleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,10 @@ export interface StartLoggingCommandInput extends StartLoggingRequest {}
 export interface StartLoggingCommandOutput extends StartLoggingResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail. For a trail that is enabled in all regions, this operation must be called from the region in which the trail was created. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.</p>
+ * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail.
+ *          For a trail that is enabled in all regions, this operation must be called from the region
+ *          in which the trail was created. This operation cannot be called on the shadow trails
+ *          (replicated trails in other regions) of a trail that is enabled in all regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +56,15 @@ export class StartLoggingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +80,7 @@ export class StartLoggingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartLoggingCommandInput, StartLoggingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StartLoggingCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

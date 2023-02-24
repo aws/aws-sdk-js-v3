@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +31,6 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
 /**
  * <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
- *
  *          <p>The following action is related to <code>GetObjectRetention</code>:</p>
  *          <ul>
  *             <li>
@@ -63,6 +62,21 @@ export class GetObjectRetentionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetObjectRetentionCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,7 +92,9 @@ export class GetObjectRetentionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetObjectRetentionCommandInput, GetObjectRetentionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetObjectRetentionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

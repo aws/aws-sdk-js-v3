@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,20 +30,19 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
 
 /**
  * <p>Modifies the settings for a replication group.</p>
- *
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling for Amazon ElastiCache for Redis (cluster mode enabled)</a>
  *                     in the ElastiCache User Guide</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html">ModifyReplicationGroupShardConfiguration</a>
  *                     in the ElastiCache API Reference</p>
  *             </li>
  *          </ul>
- *         <note>
+ *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
  * @example
@@ -68,6 +68,15 @@ export class ModifyReplicationGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +92,9 @@ export class ModifyReplicationGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyReplicationGroupCommandInput, ModifyReplicationGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyReplicationGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

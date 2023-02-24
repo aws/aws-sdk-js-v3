@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,11 +29,11 @@ export interface RegisterToWorkMailCommandInput extends RegisterToWorkMailReques
 export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailResponse, __MetadataBearer {}
 
 /**
- * <p>Registers an existing and disabled user, group, or resource for Amazon WorkMail use by
+ * <p>Registers an existing and disabled user, group, or resource for WorkMail use by
  *          associating a mailbox and calendaring capabilities. It performs no change if the user,
  *          group, or resource is enabled and fails if the user, group, or resource is deleted. This
  *          operation results in the accumulation of costs. For more information, see <a href="https://aws.amazon.com/workmail/pricing">Pricing</a>. The equivalent console
- *          functionality for this operation is <i>Enable</i>. </p>
+ *          functionality for this operation is <i>Enable</i>.</p>
  *          <p>Users can either be created by calling the <a>CreateUser</a> API operation
  *          or they can be synchronized from your directory. For more information, see <a>DeregisterFromWorkMail</a>.</p>
  * @example
@@ -58,6 +59,15 @@ export class RegisterToWorkMailCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterToWorkMailCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class RegisterToWorkMailCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterToWorkMailCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

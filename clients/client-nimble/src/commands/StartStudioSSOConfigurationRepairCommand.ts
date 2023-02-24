@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,13 +31,13 @@ export interface StartStudioSSOConfigurationRepairCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Repairs the Amazon Web Services SSO configuration for a given studio.</p>
- *         <p>If the studio has a valid Amazon Web Services SSO configuration currently associated with
+ * <p>Repairs the IAM Identity Center configuration for a given studio.</p>
+ *         <p>If the studio has a valid IAM Identity Center configuration currently associated with
  *             it, this operation will fail with a validation error.</p>
- *         <p>If the studio does not have a valid Amazon Web Services SSO configuration currently
- *             associated with it, then a new Amazon Web Services SSO application is created for the studio
- *             and the studio is changed to the READY state.</p>
- *         <p>After the Amazon Web Services SSO application is repaired, you must use the Amazon Nimble Studio console to add administrators and users to your studio.</p>
+ *         <p>If the studio does not have a valid IAM Identity Center configuration currently
+ *             associated with it, then a new IAM Identity Center application is created for the studio
+ *             and the studio is changed to the <code>READY</code> state.</p>
+ *         <p>After the IAM Identity Center application is repaired, you must use the Amazon Nimble Studio console to add administrators and users to your studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +61,15 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartStudioSSOConfigurationRepairCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartStudioSSOConfigurationRepairCommandInput, StartStudioSSOConfigurationRepairCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartStudioSSOConfigurationRepairCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

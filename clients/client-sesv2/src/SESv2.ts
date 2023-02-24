@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  BatchGetMetricDataCommand,
+  BatchGetMetricDataCommandInput,
+  BatchGetMetricDataCommandOutput,
+} from "./commands/BatchGetMetricDataCommand";
+import {
   CreateConfigurationSetCommand,
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -139,6 +144,11 @@ import {
   GetDedicatedIpCommandOutput,
 } from "./commands/GetDedicatedIpCommand";
 import {
+  GetDedicatedIpPoolCommand,
+  GetDedicatedIpPoolCommandInput,
+  GetDedicatedIpPoolCommandOutput,
+} from "./commands/GetDedicatedIpPoolCommand";
+import {
   GetDedicatedIpsCommand,
   GetDedicatedIpsCommandInput,
   GetDedicatedIpsCommandOutput,
@@ -239,6 +249,11 @@ import {
   ListImportJobsCommandOutput,
 } from "./commands/ListImportJobsCommand";
 import {
+  ListRecommendationsCommand,
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "./commands/ListRecommendationsCommand";
+import {
   ListSuppressedDestinationsCommand,
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
@@ -269,6 +284,11 @@ import {
   PutAccountSuppressionAttributesCommandOutput,
 } from "./commands/PutAccountSuppressionAttributesCommand";
 import {
+  PutAccountVdmAttributesCommand,
+  PutAccountVdmAttributesCommandInput,
+  PutAccountVdmAttributesCommandOutput,
+} from "./commands/PutAccountVdmAttributesCommand";
+import {
   PutConfigurationSetDeliveryOptionsCommand,
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
@@ -293,6 +313,11 @@ import {
   PutConfigurationSetTrackingOptionsCommandInput,
   PutConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetTrackingOptionsCommand";
+import {
+  PutConfigurationSetVdmOptionsCommand,
+  PutConfigurationSetVdmOptionsCommandInput,
+  PutConfigurationSetVdmOptionsCommandOutput,
+} from "./commands/PutConfigurationSetVdmOptionsCommand";
 import {
   PutDedicatedIpInPoolCommand,
   PutDedicatedIpInPoolCommandInput,
@@ -403,6 +428,40 @@ import { SESv2Client } from "./SESv2Client";
  *             and code samples that demonstrate how to use Amazon SES API v2 features programmatically.</p>
  */
 export class SESv2 extends SESv2Client {
+  /**
+   * <p>Retrieves batches of metric data collected based on your sending activity.</p>
+   *         <p>You can execute this operation no more than 16 times per second,
+   *             and with at most 160 queries from the batches per second (cumulative).</p>
+   */
+  public batchGetMetricData(
+    args: BatchGetMetricDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetMetricDataCommandOutput>;
+  public batchGetMetricData(
+    args: BatchGetMetricDataCommandInput,
+    cb: (err: any, data?: BatchGetMetricDataCommandOutput) => void
+  ): void;
+  public batchGetMetricData(
+    args: BatchGetMetricDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetMetricDataCommandOutput) => void
+  ): void;
+  public batchGetMetricData(
+    args: BatchGetMetricDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetMetricDataCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetMetricDataCommandOutput) => void
+  ): Promise<BatchGetMetricDataCommandOutput> | void {
+    const command = new BatchGetMetricDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Create a configuration set. <i>Configuration sets</i> are groups of
    *             rules that you can apply to the emails that you send. You apply a configuration set to
@@ -546,7 +605,8 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Creates a new custom verification email template.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -964,7 +1024,8 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Deletes an existing custom verification email template.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -1373,7 +1434,8 @@ export class SESv2 extends SESv2Client {
   /**
    * <p>Returns the custom email verification template for the template name you
    *             specify.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -1430,6 +1492,38 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: GetDedicatedIpCommandOutput) => void
   ): Promise<GetDedicatedIpCommandOutput> | void {
     const command = new GetDedicatedIpCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieve information about the dedicated pool.</p>
+   */
+  public getDedicatedIpPool(
+    args: GetDedicatedIpPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDedicatedIpPoolCommandOutput>;
+  public getDedicatedIpPool(
+    args: GetDedicatedIpPoolCommandInput,
+    cb: (err: any, data?: GetDedicatedIpPoolCommandOutput) => void
+  ): void;
+  public getDedicatedIpPool(
+    args: GetDedicatedIpPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDedicatedIpPoolCommandOutput) => void
+  ): void;
+  public getDedicatedIpPool(
+    args: GetDedicatedIpPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDedicatedIpPoolCommandOutput) => void),
+    cb?: (err: any, data?: GetDedicatedIpPoolCommandOutput) => void
+  ): Promise<GetDedicatedIpPoolCommandOutput> | void {
+    const command = new GetDedicatedIpPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1886,8 +1980,9 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Lists the existing custom verification email templates for your account in the current
-   *             Amazon Web Services Region.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Amazon Web Services Region.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -2124,6 +2219,39 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * <p>Lists the recommendations present in your Amazon SES account in the current Amazon Web Services Region.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public listRecommendations(
+    args: ListRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecommendationsCommandOutput>;
+  public listRecommendations(
+    args: ListRecommendationsCommandInput,
+    cb: (err: any, data?: ListRecommendationsCommandOutput) => void
+  ): void;
+  public listRecommendations(
+    args: ListRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecommendationsCommandOutput) => void
+  ): void;
+  public listRecommendations(
+    args: ListRecommendationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecommendationsCommandOutput) => void),
+    cb?: (err: any, data?: ListRecommendationsCommandOutput) => void
+  ): Promise<ListRecommendationsCommandOutput> | void {
+    const command = new ListRecommendationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves a list of email addresses that are on the suppression list for your
    *             account.</p>
    */
@@ -2324,6 +2452,39 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * <p>Update your Amazon SES account VDM attributes.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public putAccountVdmAttributes(
+    args: PutAccountVdmAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountVdmAttributesCommandOutput>;
+  public putAccountVdmAttributes(
+    args: PutAccountVdmAttributesCommandInput,
+    cb: (err: any, data?: PutAccountVdmAttributesCommandOutput) => void
+  ): void;
+  public putAccountVdmAttributes(
+    args: PutAccountVdmAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountVdmAttributesCommandOutput) => void
+  ): void;
+  public putAccountVdmAttributes(
+    args: PutAccountVdmAttributesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountVdmAttributesCommandOutput) => void),
+    cb?: (err: any, data?: PutAccountVdmAttributesCommandOutput) => void
+  ): Promise<PutAccountVdmAttributesCommandOutput> | void {
+    const command = new PutAccountVdmAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools
    *             to create groups of dedicated IP addresses for sending specific types of email.</p>
    */
@@ -2479,6 +2640,39 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: PutConfigurationSetTrackingOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> | void {
     const command = new PutConfigurationSetTrackingOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Specify VDM preferences for email that you send using the configuration set.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public putConfigurationSetVdmOptions(
+    args: PutConfigurationSetVdmOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutConfigurationSetVdmOptionsCommandOutput>;
+  public putConfigurationSetVdmOptions(
+    args: PutConfigurationSetVdmOptionsCommandInput,
+    cb: (err: any, data?: PutConfigurationSetVdmOptionsCommandOutput) => void
+  ): void;
+  public putConfigurationSetVdmOptions(
+    args: PutConfigurationSetVdmOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutConfigurationSetVdmOptionsCommandOutput) => void
+  ): void;
+  public putConfigurationSetVdmOptions(
+    args: PutConfigurationSetVdmOptionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationSetVdmOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetVdmOptionsCommandOutput) => void
+  ): Promise<PutConfigurationSetVdmOptionsCommandOutput> | void {
+    const command = new PutConfigurationSetVdmOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2862,11 +3056,12 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Adds an email address to the list of identities for your Amazon SES account in the current
-   *             Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
-   *             customized verification email is sent to the specified address.</p>
+   *                 Amazon Web Services Region and attempts to verify it. As a result of executing this
+   *             operation, a customized verification email is sent to the specified address.</p>
    *         <p>To use this operation, you must first create a custom verification email template. For
    *             more information about creating and using custom verification email templates, see
-   *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -3157,7 +3352,8 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Updates an existing custom verification email template.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */

@@ -5,5 +5,7 @@ export * from "./ListDatasetsPaginator";
 export * from "./ListInferenceEventsPaginator";
 export * from "./ListInferenceExecutionsPaginator";
 export * from "./ListInferenceSchedulersPaginator";
+export * from "./ListLabelGroupsPaginator";
+export * from "./ListLabelsPaginator";
 export * from "./ListModelsPaginator";
 export * from "./ListSensorStatisticsPaginator";

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface DetachUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified managed policy from the specified user.</p>
- *         <p>A user can also have inline policies embedded with it. To delete an inline policy, use
+ *          <p>A user can also have inline policies embedded with it. To delete an inline policy, use
  *                 <a>DeleteUserPolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
  *                 policies and inline policies</a> in the
  *             <i>IAM User Guide</i>.</p>
@@ -51,6 +52,15 @@ export class DetachUserPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetachUserPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +76,9 @@ export class DetachUserPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetachUserPolicyCommandInput, DetachUserPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetachUserPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

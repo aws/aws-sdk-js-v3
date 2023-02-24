@@ -14,6 +14,13 @@ export const getOutpostEndpoint = (
     return hostname;
   }
 
+  const match = hostname.match(REGEX_S3CONTROL_HOSTNAME);
+
+  if (!match) {
+    // outposts hostname was already set by endpoints ruleset.
+    return hostname;
+  }
+
   const [matched, prefix, fips, region] = hostname.match(REGEX_S3CONTROL_HOSTNAME)!;
   // hostname prefix will be ignored even if it is present
   return [

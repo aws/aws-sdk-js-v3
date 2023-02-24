@@ -313,6 +313,71 @@ export interface Ac3Settings {
   MetadataControl?: Ac3MetadataControl | string;
 }
 
+export enum Eac3AtmosCodingMode {
+  CODING_MODE_5_1_4 = "CODING_MODE_5_1_4",
+  CODING_MODE_7_1_4 = "CODING_MODE_7_1_4",
+  CODING_MODE_9_1_6 = "CODING_MODE_9_1_6",
+}
+
+export enum Eac3AtmosDrcLine {
+  FILM_LIGHT = "FILM_LIGHT",
+  FILM_STANDARD = "FILM_STANDARD",
+  MUSIC_LIGHT = "MUSIC_LIGHT",
+  MUSIC_STANDARD = "MUSIC_STANDARD",
+  NONE = "NONE",
+  SPEECH = "SPEECH",
+}
+
+export enum Eac3AtmosDrcRf {
+  FILM_LIGHT = "FILM_LIGHT",
+  FILM_STANDARD = "FILM_STANDARD",
+  MUSIC_LIGHT = "MUSIC_LIGHT",
+  MUSIC_STANDARD = "MUSIC_STANDARD",
+  NONE = "NONE",
+  SPEECH = "SPEECH",
+}
+
+/**
+ * Eac3 Atmos Settings
+ */
+export interface Eac3AtmosSettings {
+  /**
+   * Average bitrate in bits/second. Valid bitrates depend on the coding mode.
+   * //  * @affectsRightSizing true
+   */
+  Bitrate?: number;
+
+  /**
+   * Dolby Digital Plus with Dolby Atmos coding mode. Determines number of channels.
+   */
+  CodingMode?: Eac3AtmosCodingMode | string;
+
+  /**
+   * Sets the dialnorm for the output. Default 23.
+   */
+  Dialnorm?: number;
+
+  /**
+   * Sets the Dolby dynamic range compression profile.
+   */
+  DrcLine?: Eac3AtmosDrcLine | string;
+
+  /**
+   * Sets the profile for heavy Dolby dynamic range compression, ensures that the instantaneous signal peaks do not exceed specified levels.
+   */
+  DrcRf?: Eac3AtmosDrcRf | string;
+
+  /**
+   * Height dimensional trim. Sets the maximum amount to attenuate the height channels when the downstream player isn??t configured to handle Dolby Digital Plus with Dolby Atmos and must remix the channels.
+   */
+  HeightTrim?: number;
+
+  /**
+   * Surround dimensional trim. Sets the maximum amount to attenuate the surround channels when the downstream player isn't configured to handle Dolby Digital Plus with Dolby Atmos and must remix the channels.
+   */
+  SurroundTrim?: number;
+}
+
 export enum Eac3AttenuationControl {
   ATTENUATE_3_DB = "ATTENUATE_3_DB",
   NONE = "NONE",
@@ -576,6 +641,11 @@ export interface AudioCodecSettings {
   Ac3Settings?: Ac3Settings;
 
   /**
+   * Eac3 Atmos Settings
+   */
+  Eac3AtmosSettings?: Eac3AtmosSettings;
+
+  /**
    * Eac3 Settings
    */
   Eac3Settings?: Eac3Settings;
@@ -730,6 +800,28 @@ export interface AudioPidSelection {
   Pid: number | undefined;
 }
 
+export enum DolbyEProgramSelection {
+  ALL_CHANNELS = "ALL_CHANNELS",
+  PROGRAM_1 = "PROGRAM_1",
+  PROGRAM_2 = "PROGRAM_2",
+  PROGRAM_3 = "PROGRAM_3",
+  PROGRAM_4 = "PROGRAM_4",
+  PROGRAM_5 = "PROGRAM_5",
+  PROGRAM_6 = "PROGRAM_6",
+  PROGRAM_7 = "PROGRAM_7",
+  PROGRAM_8 = "PROGRAM_8",
+}
+
+/**
+ * Audio Dolby EDecode
+ */
+export interface AudioDolbyEDecode {
+  /**
+   * Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+   */
+  ProgramSelection: DolbyEProgramSelection | string | undefined;
+}
+
 /**
  * Audio Track
  */
@@ -748,6 +840,11 @@ export interface AudioTrackSelection {
    * Selects one or more unique audio tracks from within a source.
    */
   Tracks: AudioTrack[] | undefined;
+
+  /**
+   * Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337
+   */
+  DolbyEDecode?: AudioDolbyEDecode;
 }
 
 /**
@@ -2595,6 +2692,11 @@ export interface InputDeviceHdSettings {
    * The width of the video source, in pixels.
    */
   Width?: number;
+
+  /**
+   * The Link device's buffer size (latency) in milliseconds (ms). You can specify this value.
+   */
+  LatencyMs?: number;
 }
 
 export enum InputDeviceIpScheme {
@@ -2634,6 +2736,7 @@ export interface InputDeviceNetworkSettings {
 
 export enum InputDeviceType {
   HD = "HD",
+  UHD = "UHD",
 }
 
 /**
@@ -2679,6 +2782,11 @@ export interface InputDeviceUhdSettings {
    * The width of the video source, in pixels.
    */
   Width?: number;
+
+  /**
+   * The Link device's buffer size (latency) in milliseconds (ms). You can specify this value.
+   */
+  LatencyMs?: number;
 }
 
 /**
@@ -3523,6 +3631,11 @@ export interface M2tsSettings {
    * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
    */
   VideoPid?: string;
+
+  /**
+   * Defines the amount SCTE-35 preroll will be increased (in milliseconds) on the output. Preroll is the amount of time between the presence of a SCTE-35 indication in a transport stream and the PTS of the video frame it references. Zero means don't add pullup (it doesn't mean set the preroll to zero). Negative pullup is not supported, which means that you can't make the preroll shorter. Be aware that latency in the output will increase by the pullup amount.
+   */
+  Scte35PrerollPullupMilliseconds?: number;
 }
 
 /**
@@ -4415,37 +4528,6 @@ export enum HlsMode {
   VOD = "VOD",
 }
 
-export enum HlsOutputSelection {
-  MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
-  SEGMENTS_ONLY = "SEGMENTS_ONLY",
-  VARIANT_MANIFESTS_AND_SEGMENTS = "VARIANT_MANIFESTS_AND_SEGMENTS",
-}
-
-export enum HlsProgramDateTime {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum HlsProgramDateTimeClock {
-  INITIALIZE_FROM_OUTPUT_TIMECODE = "INITIALIZE_FROM_OUTPUT_TIMECODE",
-  SYSTEM_CLOCK = "SYSTEM_CLOCK",
-}
-
-export enum HlsRedundantManifest {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum HlsSegmentationMode {
-  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
-}
-
-export enum HlsStreamInfResolution {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
 /**
  * @internal
  */
@@ -4506,6 +4588,13 @@ export const AacSettingsFilterSensitiveLog = (obj: AacSettings): any => ({
  * @internal
  */
 export const Ac3SettingsFilterSensitiveLog = (obj: Ac3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Eac3AtmosSettingsFilterSensitiveLog = (obj: Eac3AtmosSettings): any => ({
   ...obj,
 });
 
@@ -4576,6 +4665,13 @@ export const AudioLanguageSelectionFilterSensitiveLog = (obj: AudioLanguageSelec
  * @internal
  */
 export const AudioPidSelectionFilterSensitiveLog = (obj: AudioPidSelection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioDolbyEDecodeFilterSensitiveLog = (obj: AudioDolbyEDecode): any => ({
   ...obj,
 });
 

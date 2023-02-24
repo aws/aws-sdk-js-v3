@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,26 +30,26 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
 
 /**
  * <p>Updates a real-time log configuration.</p>
- * 		       <p>When you update a real-time log configuration, all the parameters are updated with the
+ *          <p>When you update a real-time log configuration, all the parameters are updated with the
  * 			values provided in the request. You cannot update some parameters independent of others.
  * 			To update a real-time log configuration:</p>
- * 		       <ol>
+ *          <ol>
  *             <li>
- * 				           <p>Call <code>GetRealtimeLogConfig</code> to get the current real-time log
+ *                <p>Call <code>GetRealtimeLogConfig</code> to get the current real-time log
  * 					configuration.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Locally modify the parameters in the real-time log configuration that you want
+ *                <p>Locally modify the parameters in the real-time log configuration that you want
  * 					to update.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Call this API (<code>UpdateRealtimeLogConfig</code>) by providing the entire
+ *                <p>Call this API (<code>UpdateRealtimeLogConfig</code>) by providing the entire
  * 					real-time log configuration, including the parameters that you modified and
- * 					those that you didn’t.</p>
- * 			         </li>
+ * 					those that you didn't.</p>
+ *             </li>
  *          </ol>
- * 		       <p>You cannot update a real-time log configuration’s <code>Name</code> or
- * 			<code>ARN</code>.</p>
+ *          <p>You cannot update a real-time log configuration's <code>Name</code> or
+ * 				<code>ARN</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +73,15 @@ export class UpdateRealtimeLogConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +97,9 @@ export class UpdateRealtimeLogConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateRealtimeLogConfigCommandInput, UpdateRealtimeLogConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateRealtimeLogConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

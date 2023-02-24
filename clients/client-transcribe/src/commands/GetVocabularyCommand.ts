@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,12 @@ export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __Met
 
 /**
  * <p>Provides information about the specified custom vocabulary.</p>
- *         <p>To view the status of the specified vocabulary, check the <code>VocabularyState</code>
- *             field. If the status is <code>READY</code>, your vocabulary is available to use. If the status
- *             is <code>FAILED</code>, <code>FailureReason</code> provides details on why your
- *             vocabulary failed.</p>
- *         <p>To get a list of your custom vocabularies, use the
- *             operation.</p>
+ *          <p>To view the status of the specified custom vocabulary, check the
+ *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
+ *             vocabulary is available to use. If the status is <code>FAILED</code>,
+ *                 <code>FailureReason</code> provides details on why your custom vocabulary
+ *             failed.</p>
+ *          <p>To get a list of your custom vocabularies, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class GetVocabularyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,7 @@ export class GetVocabularyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetVocabularyCommandInput, GetVocabularyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetVocabularyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

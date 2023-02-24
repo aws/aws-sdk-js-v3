@@ -167,6 +167,267 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+export enum MetricDimensionName {
+  CONFIGURATION_SET = "CONFIGURATION_SET",
+  EMAIL_IDENTITY = "EMAIL_IDENTITY",
+  ISP = "ISP",
+}
+
+export enum Metric {
+  CLICK = "CLICK",
+  COMPLAINT = "COMPLAINT",
+  DELIVERY = "DELIVERY",
+  DELIVERY_CLICK = "DELIVERY_CLICK",
+  DELIVERY_COMPLAINT = "DELIVERY_COMPLAINT",
+  DELIVERY_OPEN = "DELIVERY_OPEN",
+  OPEN = "OPEN",
+  PERMANENT_BOUNCE = "PERMANENT_BOUNCE",
+  SEND = "SEND",
+  TRANSIENT_BOUNCE = "TRANSIENT_BOUNCE",
+}
+
+export enum MetricNamespace {
+  VDM = "VDM",
+}
+
+/**
+ * <p>Represents a single metric data query to include in a batch.</p>
+ */
+export interface BatchGetMetricDataQuery {
+  /**
+   * <p>The query identifier.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The query namespace - e.g. <code>VDM</code>
+   *          </p>
+   */
+  Namespace: MetricNamespace | string | undefined;
+
+  /**
+   * <p>The queried metric. This can be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>SEND</code> – Emails sent eligible for tracking
+   *                     in the VDM dashboard. This excludes emails sent to the mailbox simulator and emails
+   *                     addressed to more than one recipient.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>COMPLAINT</code> – Complaints received for your
+   *                     account. This excludes complaints from the mailbox simulator, those originating from
+   *                     your account-level suppression list (if enabled), and those for emails addressed to more
+   *                     than one recipient</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>PERMANENT_BOUNCE</code> – Permanent bounces - i.e. feedback received for
+   *                     emails sent to non-existent mailboxes. Excludes bounces from the mailbox simulator, those
+   *                     originating from your account-level suppression list (if enabled), and those for emails
+   *                     addressed to more than one recipient.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TRANSIENT_BOUNCE</code> – Transient bounces - i.e. feedback received for
+   *                     delivery failures excluding issues with non-existent mailboxes. Excludes bounces from the
+   *                     mailbox simulator, and those for emails addressed to more than one recipient.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>OPEN</code> – Unique open events for emails including open trackers.
+   *                     Excludes opens for emails addressed to more than one recipient.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CLICK</code> – Unique click events for emails including wrapped links.
+   *                     Excludes clicks for emails addressed to more than one recipient.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELIVERY</code> – Successful deliveries for email sending attempts.
+   *                     Excludes deliveries to the mailbox simulator and for emails addressed to more
+   *                     than one recipient.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELIVERY_OPEN</code> – Successful deliveries for email sending attempts.
+   *                     Excludes deliveries to the mailbox simulator, for emails addressed to more than one recipient,
+   *                     and emails without open trackers.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELIVERY_CLICK</code> – Successful deliveries for email sending attempts.
+   *                     Excludes deliveries to the mailbox simulator, for emails addressed to more than one recipient,
+   *                     and emails without click trackers.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELIVERY_COMPLAINT</code> – Successful deliveries for email sending attempts.
+   *                     Excludes deliveries to the mailbox simulator, for emails addressed to more than one recipient,
+   *                     and emails addressed to recipients hosted by ISPs with which Amazon SES does not have a
+   *                     feedback loop agreement.</p>
+   *             </li>
+   *          </ul>
+   */
+  Metric: Metric | string | undefined;
+
+  /**
+   * <p>An object that contains mapping between <code>MetricDimensionName</code>
+   *             and <code>MetricDimensionValue</code> to filter metrics by.</p>
+   */
+  Dimensions?: Record<string, string>;
+
+  /**
+   * <p>Represents the start date for the query interval.</p>
+   */
+  StartDate: Date | undefined;
+
+  /**
+   * <p>Represents the end date for the query interval.</p>
+   */
+  EndDate: Date | undefined;
+}
+
+/**
+ * <p>Represents a request to retrieve a batch of metric data.</p>
+ */
+export interface BatchGetMetricDataRequest {
+  /**
+   * <p>A list of queries for metrics to be retrieved.</p>
+   */
+  Queries: BatchGetMetricDataQuery[] | undefined;
+}
+
+export enum QueryErrorCode {
+  ACCESS_DENIED = "ACCESS_DENIED",
+  INTERNAL_FAILURE = "INTERNAL_FAILURE",
+}
+
+/**
+ * <p>An error corresponding to the unsuccessful processing of a single metric data query.</p>
+ */
+export interface MetricDataError {
+  /**
+   * <p>The query identifier.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The query error code. Can be one of:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>INTERNAL_FAILURE</code> – Amazon SES has failed to process one of the queries.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ACCESS_DENIED</code> – You have insufficient access to retrieve metrics
+   *                     based on the given query.</p>
+   *             </li>
+   *          </ul>
+   */
+  Code?: QueryErrorCode | string;
+
+  /**
+   * <p>The error message associated with the current query error.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>The result of a single metric data query.</p>
+ */
+export interface MetricDataResult {
+  /**
+   * <p>The query identifier.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>A list of timestamps for the metric data results.</p>
+   */
+  Timestamps?: Date[];
+
+  /**
+   * <p>A list of values (cumulative / sum) for the metric data results.</p>
+   */
+  Values?: number[];
+}
+
+/**
+ * <p>Represents the result of processing your metric data batch request</p>
+ */
+export interface BatchGetMetricDataResponse {
+  /**
+   * <p>A list of successfully retrieved <code>MetricDataResult</code>.</p>
+   */
+  Results?: MetricDataResult[];
+
+  /**
+   * <p>A list of <code>MetricDataError</code> encountered while processing your metric data batch request.</p>
+   */
+  Errors?: MetricDataError[];
+}
+
+/**
+ * <p>The request couldn't be processed because an error occurred with the Amazon SES API v2.</p>
+ */
+export class InternalServiceErrorException extends __BaseException {
+  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
+    super({
+      name: "InternalServiceErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
+  }
+}
+
+/**
+ * <p>The resource you attempted to access doesn't exist.</p>
+ */
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>Too many requests have been made to the operation.</p>
+ */
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+  }
+}
+
 export enum BehaviorOnMxFailure {
   REJECT_MESSAGE = "REJECT_MESSAGE",
   USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE",
@@ -183,7 +444,7 @@ export interface BlacklistEntry {
   RblName?: string;
 
   /**
-   * <p>The time when the blacklisting event occurred, shown in Unix time format.</p>
+   * <p>The time when the blacklisting event occurred.</p>
    */
   ListingTime?: Date;
 
@@ -535,8 +796,8 @@ export interface CloudWatchDimensionConfiguration {
    *             criteria:</p>
    *         <ul>
    *             <li>
-   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
-   *                     underscores (_), or dashes (-).</p>
+   *                 <p>Can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+   *                     underscores (_), or dashes (-), at signs (@), and periods (.).</p>
    *             </li>
    *             <li>
    *                 <p>It can contain no more than 256 characters.</p>
@@ -848,6 +1109,67 @@ export interface TrackingOptions {
   CustomRedirectDomain: string | undefined;
 }
 
+export enum FeatureStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>An object containing additional settings for your VDM configuration as applicable to the Dashboard.</p>
+ */
+export interface DashboardOptions {
+  /**
+   * <p>Specifies the status of your VDM engagement metrics collection. Can be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ENABLED</code> – Amazon SES enables engagement metrics for the configuration set.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DISABLED</code> – Amazon SES disables engagement metrics for the configuration set.</p>
+   *             </li>
+   *          </ul>
+   */
+  EngagementMetrics?: FeatureStatus | string;
+}
+
+/**
+ * <p>An object containing additional settings for your VDM configuration as applicable to the Guardian.</p>
+ */
+export interface GuardianOptions {
+  /**
+   * <p>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ENABLED</code> – Amazon SES enables optimized shared delivery for the configuration set.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DISABLED</code> – Amazon SES disables optimized shared delivery for the configuration set.</p>
+   *             </li>
+   *          </ul>
+   */
+  OptimizedSharedDelivery?: FeatureStatus | string;
+}
+
+/**
+ * <p>An object that defines the VDM settings that apply to emails that you send
+ *             using the configuration set.</p>
+ */
+export interface VdmOptions {
+  /**
+   * <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
+   */
+  DashboardOptions?: DashboardOptions;
+
+  /**
+   * <p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>
+   */
+  GuardianOptions?: GuardianOptions;
+}
+
 /**
  * <p>A request to create a configuration set.</p>
  */
@@ -893,6 +1215,11 @@ export interface CreateConfigurationSetRequest {
    *             account.</p>
    */
   SuppressionOptions?: SuppressionOptions;
+
+  /**
+   * <p>An object that defines the VDM options for emails that you send using the configuration set.</p>
+   */
+  VdmOptions?: VdmOptions;
 }
 
 /**
@@ -917,44 +1244,6 @@ export class LimitExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The resource you attempted to access doesn't exist.</p>
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-  }
-}
-
-/**
- * <p>Too many requests have been made to the operation.</p>
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
   }
 }
 
@@ -1193,7 +1482,7 @@ export interface CreateCustomVerificationEmailTemplateRequest {
   /**
    * <p>The content of the custom verification email. The total size of the email must be less
    *             than 10 MB. The message body may contain HTML, with some limitations. For more
-   *             information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES
+   *             information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom-faq">Custom verification email frequently asked questions</a> in the <i>Amazon SES
    *                 Developer Guide</i>.</p>
    */
   TemplateContent: string | undefined;
@@ -1217,6 +1506,11 @@ export interface CreateCustomVerificationEmailTemplateRequest {
  */
 export interface CreateCustomVerificationEmailTemplateResponse {}
 
+export enum ScalingMode {
+  MANAGED = "MANAGED",
+  STANDARD = "STANDARD",
+}
+
 /**
  * <p>A request to create a new dedicated IP pool.</p>
  */
@@ -1231,6 +1525,11 @@ export interface CreateDedicatedIpPoolRequest {
    *             pool.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The type of scaling mode.</p>
+   */
+  ScalingMode?: ScalingMode | string;
 }
 
 /**
@@ -1508,8 +1807,9 @@ export interface CreateEmailIdentityRequest {
 
   /**
    * <p>If your request includes this object, Amazon SES configures the identity to use Bring Your
-   *             Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for
-   *             <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
+   *             Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be
+   *             used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+   *                 DKIM</a>.</p>
    *         <p>You can only specify this object if the email identity is a domain, as opposed to an
    *             address.</p>
    */
@@ -1952,6 +2252,26 @@ export interface DailyVolume {
   DomainIspPlacements?: DomainIspPlacement[];
 }
 
+/**
+ * <p>An object containing additional settings for your VDM configuration as applicable to the Dashboard.</p>
+ */
+export interface DashboardAttributes {
+  /**
+   * <p>Specifies the status of your VDM engagement metrics collection. Can be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ENABLED</code> – Amazon SES enables engagement metrics for your account.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DISABLED</code> – Amazon SES disables engagement metrics for your account.</p>
+   *             </li>
+   *          </ul>
+   */
+  EngagementMetrics?: FeatureStatus | string;
+}
+
 export enum WarmupStatus {
   DONE = "DONE",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1998,6 +2318,31 @@ export interface DedicatedIp {
    * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
    */
   PoolName?: string;
+}
+
+/**
+ * <p>Contains information about a dedicated IP pool.</p>
+ */
+export interface DedicatedIpPool {
+  /**
+   * <p>The name of the dedicated IP pool.</p>
+   */
+  PoolName: string | undefined;
+
+  /**
+   * <p>The type of the dedicated IP pool.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>STANDARD</code> – A dedicated IP pool where the customer can control which IPs are part of the pool.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>MANAGED</code> – A dedicated IP pool where the reputation and number of IPs is automatically managed by Amazon SES.</p>
+   *             </li>
+   *          </ul>
+   */
+  ScalingMode: ScalingMode | string | undefined;
 }
 
 /**
@@ -2202,7 +2547,7 @@ export interface DeliverabilityTestReport {
   FromEmailAddress?: string;
 
   /**
-   * <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
+   * <p>The date and time when the predictive inbox placement test was created.</p>
    */
   CreateDate?: Date;
 
@@ -2250,14 +2595,14 @@ export interface DomainDeliverabilityCampaign {
   SendingIps?: string[];
 
   /**
-   * <p>The first time, in Unix time format, when the email message was delivered to any
+   * <p>The first time when the email message was delivered to any
    *             recipient's inbox. This value can help you determine how long it took for a campaign to
    *             deliver an email message.</p>
    */
   FirstSeenDateTime?: Date;
 
   /**
-   * <p>The last time, in Unix time format, when the email message was delivered to any
+   * <p>The last time when the email message was delivered to any
    *             recipient's inbox. This value can help you determine how long it took for a campaign to
    *             deliver an email message.</p>
    */
@@ -2338,7 +2683,7 @@ export interface DomainDeliverabilityTrackingOption {
   Domain?: string;
 
   /**
-   * <p>The date, in Unix time format, when you enabled the Deliverability dashboard for the
+   * <p>The date when you enabled the Deliverability dashboard for the
    *             domain.</p>
    */
   SubscriptionStartDate?: Date;
@@ -2448,8 +2793,8 @@ export interface GetAccountRequest {}
 export interface SendQuota {
   /**
    * <p>The maximum number of emails that you can send in the current Amazon Web Services Region over a
-   *             24-hour period. This value is also called your <i>sending
-   *             quota</i>.</p>
+   *             24-hour period. A value of -1 signifies an unlimited quota. (This value is also referred
+   *             to as your <i>sending quota</i>.)</p>
    */
   Max24HourSend?: number;
 
@@ -2492,6 +2837,56 @@ export interface SuppressionAttributes {
    *          </ul>
    */
   SuppressedReasons?: (SuppressionListReason | string)[];
+}
+
+/**
+ * <p>An object containing additional settings for your VDM configuration as applicable to the Guardian.</p>
+ */
+export interface GuardianAttributes {
+  /**
+   * <p>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ENABLED</code> – Amazon SES enables optimized shared delivery for your account.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DISABLED</code> – Amazon SES disables optimized shared delivery for your account.</p>
+   *             </li>
+   *          </ul>
+   */
+  OptimizedSharedDelivery?: FeatureStatus | string;
+}
+
+/**
+ * <p>The VDM attributes that apply to your Amazon SES account.</p>
+ */
+export interface VdmAttributes {
+  /**
+   * <p>Specifies the status of your VDM configuration. Can be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ENABLED</code> – Amazon SES enables VDM for your account.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DISABLED</code> – Amazon SES disables VDM for your account.</p>
+   *             </li>
+   *          </ul>
+   */
+  VdmEnabled: FeatureStatus | string | undefined;
+
+  /**
+   * <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
+   */
+  DashboardAttributes?: DashboardAttributes;
+
+  /**
+   * <p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>
+   */
+  GuardianAttributes?: GuardianAttributes;
 }
 
 /**
@@ -2567,6 +2962,11 @@ export interface GetAccountResponse {
    * <p>An object that defines your account details.</p>
    */
   Details?: AccountDetails;
+
+  /**
+   * <p>The VDM attributes that apply to your Amazon SES account.</p>
+   */
+  VdmAttributes?: VdmAttributes;
 }
 
 /**
@@ -2647,6 +3047,11 @@ export interface GetConfigurationSetResponse {
    *             account.</p>
    */
   SuppressionOptions?: SuppressionOptions;
+
+  /**
+   * <p>An object that contains information about the VDM preferences for your configuration set.</p>
+   */
+  VdmOptions?: VdmOptions;
 }
 
 /**
@@ -2836,6 +3241,26 @@ export interface GetDedicatedIpResponse {
 }
 
 /**
+ * <p>A request to obtain more information about a dedicated IP pool.</p>
+ */
+export interface GetDedicatedIpPoolRequest {
+  /**
+   * <p>The name of the dedicated IP pool to retrieve.</p>
+   */
+  PoolName: string | undefined;
+}
+
+/**
+ * <p>The following element is returned by the service.</p>
+ */
+export interface GetDedicatedIpPoolResponse {
+  /**
+   * <p>An object that contains information about a dedicated IP pool.</p>
+   */
+  DedicatedIpPool?: DedicatedIpPool;
+}
+
+/**
  * <p>A request to obtain more information about dedicated IP pools.</p>
  */
 export interface GetDedicatedIpsRequest {
@@ -2899,7 +3324,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
   DashboardEnabled: boolean | undefined;
 
   /**
-   * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
+   * <p>The date  when your current subscription to the Deliverability dashboard
    *             is scheduled to expire, if your subscription is scheduled to expire at the end of the
    *             current calendar month. This value is null if you have an active subscription that isn’t
    *             due to expire at the end of the month.</p>
@@ -3171,9 +3596,9 @@ export interface MailFromAttributes {
 
   /**
    * <p>The action to take if the required MX record can't be found when you send an email.
-   *             When you set this value to <code>UseDefaultValue</code>, the mail is sent using
+   *             When you set this value to <code>USE_DEFAULT_VALUE</code>, the mail is sent using
    *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
-   *             to <code>RejectMessage</code>, the Amazon SES API v2 returns a
+   *             to <code>REJECT_MESSAGE</code>, the Amazon SES API v2 returns a
    *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
    *             email.</p>
    *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
@@ -3181,6 +3606,14 @@ export interface MailFromAttributes {
    *             states.</p>
    */
   BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
+}
+
+export enum VerificationStatus {
+  FAILED = "FAILED",
+  NOT_STARTED = "NOT_STARTED",
+  PENDING = "PENDING",
+  SUCCESS = "SUCCESS",
+  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
 }
 
 /**
@@ -3238,6 +3671,37 @@ export interface GetEmailIdentityResponse {
    * <p>The configuration set used by default when sending from this identity.</p>
    */
   ConfigurationSetName?: string;
+
+  /**
+   * <p>The verification status of the identity. The status can be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
+   *                     hasn't yet been able to verify the identity.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS</code> – The verification process completed
+   *                     successfully.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILED</code> – The verification process failed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
+   *                     from determining the verification status of the identity.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>NOT_STARTED</code> – The verification process hasn't been
+   *                     initiated for the identity.</p>
+   *             </li>
+   *          </ul>
+   */
+  VerificationStatus?: VerificationStatus | string;
 }
 
 /**
@@ -3446,6 +3910,37 @@ export interface IdentityInfo {
    *             the identity, and that you authorize Amazon SES to send email from that identity.</p>
    */
   SendingEnabled?: boolean;
+
+  /**
+   * <p>The verification status of the identity. The status can be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
+   *                     hasn't yet been able to verify the identity.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS</code> – The verification process completed
+   *                     successfully.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILED</code> – The verification process failed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
+   *                     from determining the verification status of the identity.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>NOT_STARTED</code> – The verification process hasn't been
+   *                     initiated for the identity.</p>
+   *             </li>
+   *          </ul>
+   */
+  VerificationStatus?: VerificationStatus | string;
 }
 
 export enum ImportDestinationType {
@@ -3477,6 +3972,17 @@ export interface ImportJobSummary {
    * <p>The date and time when the import job was created.</p>
    */
   CreatedTimestamp?: Date;
+
+  /**
+   * <p>The current number of records processed.</p>
+   */
+  ProcessedRecordsCount?: number;
+
+  /**
+   * <p>The number of records that failed processing because of invalid input or other
+   *             reasons.</p>
+   */
+  FailedRecordsCount?: number;
 }
 
 /**
@@ -3769,13 +4275,13 @@ export interface ListDeliverabilityTestReportsResponse {
  */
 export interface ListDomainDeliverabilityCampaignsRequest {
   /**
-   * <p>The first day, in Unix time format, that you want to obtain deliverability data
+   * <p>The first day that you want to obtain deliverability data
    *             for.</p>
    */
   StartDate: Date | undefined;
 
   /**
-   * <p>The last day, in Unix time format, that you want to obtain deliverability data for.
+   * <p>The last day that you want to obtain deliverability data for.
    *             This value has to be less than or equal to 30 days after the value of the
    *                 <code>StartDate</code> parameter.</p>
    */
@@ -3966,6 +4472,121 @@ export interface ListManagementOptions {
   TopicName?: string;
 }
 
+export enum ListRecommendationsFilterKey {
+  IMPACT = "IMPACT",
+  RESOURCE_ARN = "RESOURCE_ARN",
+  STATUS = "STATUS",
+  TYPE = "TYPE",
+}
+
+/**
+ * <p>Represents a request to list the existing recommendations for your account.</p>
+ */
+export interface ListRecommendationsRequest {
+  /**
+   * <p>Filters applied when retrieving recommendations. Can eiter be an individual filter, or
+   *               combinations of <code>STATUS</code> and <code>IMPACT</code> or
+   *               <code>STATUS</code> and <code>TYPE</code>
+   *          </p>
+   */
+  Filter?: Record<string, string>;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListRecommendations</code> to
+   *             indicate the position in the list of recommendations.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of results to show in a single call to
+   *             <code>ListRecommendations</code>. If the number of results is larger than
+   *             the number you specified in this parameter, then the response includes a
+   *             <code>NextToken</code> element, which you can use to obtain additional
+   *             results.</p>
+   *         <p>The value you specify has to be at least 1, and can be no more than 100.</p>
+   */
+  PageSize?: number;
+}
+
+export enum RecommendationImpact {
+  HIGH = "HIGH",
+  LOW = "LOW",
+}
+
+export enum RecommendationStatus {
+  FIXED = "FIXED",
+  OPEN = "OPEN",
+}
+
+export enum RecommendationType {
+  DKIM = "DKIM",
+  DMARC = "DMARC",
+  SPF = "SPF",
+}
+
+/**
+ * <p>A recommendation generated for your account.</p>
+ */
+export interface Recommendation {
+  /**
+   * <p>The resource affected by the recommendation,
+   *             with values like <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The recommendation type, with values like <code>DKIM</code>,
+   *             <code>SPF</code> or <code>DMARC</code>.</p>
+   */
+  Type?: RecommendationType | string;
+
+  /**
+   * <p>The recommendation description / disambiguator - e.g. <code>DKIM1</code> and <code>DKIM2</code>
+   *               are different recommendations about your DKIM setup.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The recommendation status, with values like
+   *             <code>OPEN</code> or <code>FIXED</code>.</p>
+   */
+  Status?: RecommendationStatus | string;
+
+  /**
+   * <p>The first time this issue was encountered and the recommendation was generated.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The last time the recommendation was updated.</p>
+   */
+  LastUpdatedTimestamp?: Date;
+
+  /**
+   * <p>The recommendation impact, with values like
+   *             <code>HIGH</code> or <code>LOW</code>.</p>
+   */
+  Impact?: RecommendationImpact | string;
+}
+
+/**
+ * <p>Contains the response to your request to retrieve the list of recommendations for your account.</p>
+ */
+export interface ListRecommendationsResponse {
+  /**
+   * <p>The recommendations applicable to your account.</p>
+   */
+  Recommendations?: Recommendation[];
+
+  /**
+   * <p>A string token indicating that there might be additional recommendations available to be
+   *             listed. Use the token provided in the <code>ListRecommendationsResponse</code> to use in the
+   *             subsequent call to <code>ListRecommendations</code> with the same parameters to retrieve the
+   *             next page of recommendations.</p>
+   */
+  NextToken?: string;
+}
+
 /**
  * <p>A request to obtain a list of email destinations that are on the suppression list for
  *             your account.</p>
@@ -3978,15 +4599,13 @@ export interface ListSuppressedDestinationsRequest {
 
   /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
-   *             addresses that were added to the list after a specific date. The date that you specify
-   *             should be in Unix time format.</p>
+   *             addresses that were added to the list after a specific date.</p>
    */
   StartDate?: Date;
 
   /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
-   *             addresses that were added to the list before a specific date. The date that you specify
-   *             should be in Unix time format.</p>
+   *             addresses that were added to the list before a specific date.</p>
    */
   EndDate?: Date;
 
@@ -4188,6 +4807,18 @@ export interface PutAccountSuppressionAttributesRequest {
 export interface PutAccountSuppressionAttributesResponse {}
 
 /**
+ * <p>A request to submit new account VDM attributes.</p>
+ */
+export interface PutAccountVdmAttributesRequest {
+  /**
+   * <p>The VDM attributes that you wish to apply to your Amazon SES account.</p>
+   */
+  VdmAttributes: VdmAttributes | undefined;
+}
+
+export interface PutAccountVdmAttributesResponse {}
+
+/**
  * <p>A request to associate a configuration set with a dedicated IP pool.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsRequest {
@@ -4323,6 +4954,27 @@ export interface PutConfigurationSetTrackingOptionsRequest {
  *             fails.</p>
  */
 export interface PutConfigurationSetTrackingOptionsResponse {}
+
+/**
+ * <p>A request to add specific VDM settings to a configuration set.</p>
+ */
+export interface PutConfigurationSetVdmOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The VDM options to apply to the configuration set.</p>
+   */
+  VdmOptions?: VdmOptions;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ */
+export interface PutConfigurationSetVdmOptionsResponse {}
 
 /**
  * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
@@ -4472,9 +5124,8 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
 
   /**
    * <p>An object that contains information about the private key and selector that you want
-   *             to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or,
-   *             configures the key length to be used for
-   *             <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
+   *             to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the
+   *             identity, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
    */
   SigningAttributes?: DkimSigningAttributes;
 }
@@ -5036,7 +5687,7 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
   /**
    * <p>The content of the custom verification email. The total size of the email must be less
    *             than 10 MB. The message body may contain HTML, with some limitations. For more
-   *             information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES
+   *             information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom-faq">Custom verification email frequently asked questions</a> in the <i>Amazon SES
    *                 Developer Guide</i>.</p>
    */
   TemplateContent: string | undefined;
@@ -5131,6 +5782,41 @@ export const AccountDetailsFilterSensitiveLog = (obj: AccountDetails): any => ({
   ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
   ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
   ...(obj.AdditionalContactEmailAddresses && { AdditionalContactEmailAddresses: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetMetricDataQueryFilterSensitiveLog = (obj: BatchGetMetricDataQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetMetricDataRequestFilterSensitiveLog = (obj: BatchGetMetricDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDataErrorFilterSensitiveLog = (obj: MetricDataError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDataResultFilterSensitiveLog = (obj: MetricDataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetMetricDataResponseFilterSensitiveLog = (obj: BatchGetMetricDataResponse): any => ({
+  ...obj,
 });
 
 /**
@@ -5291,6 +5977,27 @@ export const TagFilterSensitiveLog = (obj: Tag): any => ({
  * @internal
  */
 export const TrackingOptionsFilterSensitiveLog = (obj: TrackingOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardOptionsFilterSensitiveLog = (obj: DashboardOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardianOptionsFilterSensitiveLog = (obj: GuardianOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VdmOptionsFilterSensitiveLog = (obj: VdmOptions): any => ({
   ...obj,
 });
 
@@ -5595,7 +6302,21 @@ export const DailyVolumeFilterSensitiveLog = (obj: DailyVolume): any => ({
 /**
  * @internal
  */
+export const DashboardAttributesFilterSensitiveLog = (obj: DashboardAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DedicatedIpFilterSensitiveLog = (obj: DedicatedIp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DedicatedIpPoolFilterSensitiveLog = (obj: DedicatedIpPool): any => ({
   ...obj,
 });
 
@@ -5822,6 +6543,20 @@ export const SuppressionAttributesFilterSensitiveLog = (obj: SuppressionAttribut
 /**
  * @internal
  */
+export const GuardianAttributesFilterSensitiveLog = (obj: GuardianAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VdmAttributesFilterSensitiveLog = (obj: VdmAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetAccountResponseFilterSensitiveLog = (obj: GetAccountResponse): any => ({
   ...obj,
   ...(obj.Details && { Details: AccountDetailsFilterSensitiveLog(obj.Details) }),
@@ -5930,6 +6665,20 @@ export const GetDedicatedIpRequestFilterSensitiveLog = (obj: GetDedicatedIpReque
  * @internal
  */
 export const GetDedicatedIpResponseFilterSensitiveLog = (obj: GetDedicatedIpResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDedicatedIpPoolRequestFilterSensitiveLog = (obj: GetDedicatedIpPoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDedicatedIpPoolResponseFilterSensitiveLog = (obj: GetDedicatedIpPoolResponse): any => ({
   ...obj,
 });
 
@@ -6315,6 +7064,27 @@ export const ListManagementOptionsFilterSensitiveLog = (obj: ListManagementOptio
 /**
  * @internal
  */
+export const ListRecommendationsRequestFilterSensitiveLog = (obj: ListRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecommendationsResponseFilterSensitiveLog = (obj: ListRecommendationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListSuppressedDestinationsRequestFilterSensitiveLog = (obj: ListSuppressedDestinationsRequest): any => ({
   ...obj,
 });
@@ -6419,6 +7189,20 @@ export const PutAccountSuppressionAttributesResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const PutAccountVdmAttributesRequestFilterSensitiveLog = (obj: PutAccountVdmAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountVdmAttributesResponseFilterSensitiveLog = (obj: PutAccountVdmAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const PutConfigurationSetDeliveryOptionsRequestFilterSensitiveLog = (
   obj: PutConfigurationSetDeliveryOptionsRequest
 ): any => ({
@@ -6502,6 +7286,24 @@ export const PutConfigurationSetTrackingOptionsRequestFilterSensitiveLog = (
  */
 export const PutConfigurationSetTrackingOptionsResponseFilterSensitiveLog = (
   obj: PutConfigurationSetTrackingOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetVdmOptionsRequestFilterSensitiveLog = (
+  obj: PutConfigurationSetVdmOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetVdmOptionsResponseFilterSensitiveLog = (
+  obj: PutConfigurationSetVdmOptionsResponse
 ): any => ({
   ...obj,
 });

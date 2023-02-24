@@ -38,3 +38,7 @@ export interface MetadataBearer {
    */
   $metadata: ResponseMetadata;
 }
+
+export interface Response {
+  body: any;
+}

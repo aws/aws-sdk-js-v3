@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,22 +30,23 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
 
 /**
  * <p>Updates an origin request policy configuration.</p>
- * 		       <p>When you update an origin request policy configuration, all the fields are updated
+ *          <p>When you update an origin request policy configuration, all the fields are updated
  * 			with the values provided in the request. You cannot update some fields independent of
  * 			others. To update an origin request policy configuration:</p>
- * 		       <ol>
+ *          <ol>
  *             <li>
- * 				           <p>Use <code>GetOriginRequestPolicyConfig</code> to get the current configuration.</p>
- * 			         </li>
+ *                <p>Use <code>GetOriginRequestPolicyConfig</code> to get the current
+ * 					configuration.</p>
+ *             </li>
  *             <li>
- * 				           <p>Locally modify the fields in the origin request policy configuration that you
+ *                <p>Locally modify the fields in the origin request policy configuration that you
  * 					want to update.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Call <code>UpdateOriginRequestPolicy</code> by providing the entire origin
+ *                <p>Call <code>UpdateOriginRequestPolicy</code> by providing the entire origin
  * 					request policy configuration, including the fields that you modified and those
- * 					that you didn’t.</p>
- * 			         </li>
+ * 					that you didn't.</p>
+ *             </li>
  *          </ol>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +71,15 @@ export class UpdateOriginRequestPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateOriginRequestPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +95,9 @@ export class UpdateOriginRequestPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateOriginRequestPolicyCommandInput, UpdateOriginRequestPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateOriginRequestPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

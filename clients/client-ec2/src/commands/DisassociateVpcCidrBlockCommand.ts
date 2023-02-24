@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   DisassociateVpcCidrBlockRequestFilterSensitiveLog,
   DisassociateVpcCidrBlockResult,
   DisassociateVpcCidrBlockResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateVpcCidrBlockCommand,
   serializeAws_ec2DisassociateVpcCidrBlockCommand,
@@ -32,7 +33,7 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  *             specify its association ID. You can get the association ID by using
  *                 <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that
  *             are associated with the CIDR block before you can disassociate it. </p>
- * 		       <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
+ *          <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
  * 			primary CIDR block).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +58,15 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisassociateVpcCidrBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateVpcCidrBlockCommandInput, DisassociateVpcCidrBlockCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateVpcCidrBlockCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

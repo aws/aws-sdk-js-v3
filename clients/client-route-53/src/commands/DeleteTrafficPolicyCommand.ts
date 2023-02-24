@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -30,20 +31,20 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
 
 /**
  * <p>Deletes a traffic policy.</p>
- * 		       <p>When you delete a traffic policy, Route 53 sets a flag on the policy to indicate that
+ *          <p>When you delete a traffic policy, Route 53 sets a flag on the policy to indicate that
  * 			it has been deleted. However, Route 53 never fully deletes the traffic policy. Note the
  * 			following:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>Deleted traffic policies aren't listed if you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html">ListTrafficPolicies</a>.</p>
- * 			         </li>
+ *                <p>Deleted traffic policies aren't listed if you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html">ListTrafficPolicies</a>.</p>
+ *             </li>
  *             <li>
- * 				           <p> There's no way to get a list of deleted policies.</p>
- * 			         </li>
+ *                <p> There's no way to get a list of deleted policies.</p>
+ *             </li>
  *             <li>
- * 				           <p>If you retain the ID of the policy, you can get information about the policy,
+ *                <p>If you retain the ID of the policy, you can get information about the policy,
  * 					including the traffic policy document, by running <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html">GetTrafficPolicy</a>.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +69,15 @@ export class DeleteTrafficPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteTrafficPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +93,9 @@ export class DeleteTrafficPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteTrafficPolicyCommandInput, DeleteTrafficPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteTrafficPolicyCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

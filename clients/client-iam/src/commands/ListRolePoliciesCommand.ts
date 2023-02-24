@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,11 +31,11 @@ export interface ListRolePoliciesCommandOutput extends ListRolePoliciesResponse,
 /**
  * <p>Lists the names of the inline policies that are embedded in the specified IAM
  *             role.</p>
- *         <p>An IAM role can also have managed policies attached to it. To list the managed
+ *          <p>An IAM role can also have managed policies attached to it. To list the managed
  *             policies that are attached to a role, use <a>ListAttachedRolePolicies</a>.
  *             For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
- *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters. If there are no inline policies embedded with the specified role, the
  *             operation returns an empty list.</p>
  * @example
@@ -60,6 +61,15 @@ export class ListRolePoliciesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListRolePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class ListRolePoliciesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListRolePoliciesCommandInput, ListRolePoliciesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListRolePoliciesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

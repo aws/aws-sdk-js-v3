@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
- * 		       <p>Returns an endpoint for the Amazon ECS agent to poll for updates.</p>
+ *          <p>Returns an endpoint for the Amazon ECS agent to poll for updates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class DiscoverPollEndpointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DiscoverPollEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class DiscoverPollEndpointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DiscoverPollEndpointCommandInput, DiscoverPollEndpointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DiscoverPollEndpointCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

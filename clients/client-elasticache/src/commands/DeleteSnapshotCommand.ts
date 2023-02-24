@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,8 +32,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * <p>Deletes an existing snapshot. When you receive a
  *             successful response from this operation, ElastiCache immediately begins deleting the snapshot;
  *             you cannot cancel or revert this operation.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
  * @example
@@ -58,6 +58,15 @@ export class DeleteSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +82,9 @@ export class DeleteSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

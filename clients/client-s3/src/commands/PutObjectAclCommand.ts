@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -46,7 +46,6 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object ownership</a>
  *             in the <i>Amazon S3 User Guide</i>.</p>
  *          </important>
- *
  *          <p>
  *             <b>Access Permissions</b>
  *          </p>
@@ -68,7 +67,6 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                   <code>x-amz-acl</code> header to set a canned ACL. These parameters map to the set
  *                of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL)
  *                Overview</a>.</p>
- *
  *                <p>You specify each grantee as a type=value pair, where the type is one of the
  *                following:</p>
  *                <ul>
@@ -124,7 +122,6 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                   <code>x-amz-grant-read: emailAddress="xyz@amazon.com",
  *                   emailAddress="abc@amazon.com" </code>
  *                </p>
- *
  *             </li>
  *          </ul>
  *          <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do
@@ -235,6 +232,21 @@ export class PutObjectAclCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutObjectAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -250,7 +262,7 @@ export class PutObjectAclCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutObjectAclCommandInput, PutObjectAclCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutObjectAclCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,

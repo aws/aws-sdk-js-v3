@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,10 +26,8 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter.
  *       Otherwise, all versions and aliases are deleted.</p>
- *
- *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
- *       For Amazon Web Services services and resources that invoke your function directly, delete the trigger in the service where you
- *       originally configured it.</p>
+ *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services and resources that invoke your function
+ *       directly, delete the trigger in the service where you originally configured it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +51,15 @@ export class DeleteFunctionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +75,9 @@ export class DeleteFunctionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteFunctionCommandInput, DeleteFunctionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteFunctionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

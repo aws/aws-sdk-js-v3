@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,11 +32,11 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * <p>Creates a resource share. You can provide a list of the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> for the resources that you
  *             want to share, a list of principals you want to share the resources with, and the
  *             permissions to grant those principals.</p>
- *         <note>
+ *          <note>
  *             <p>Sharing a resource makes it available for use by principals outside of the
  *                 Amazon Web Services account that created the resource. Sharing doesn't change any permissions or
  *                 quotas that apply to the resource in the account that created it.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,15 @@ export class CreateResourceShareCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class CreateResourceShareCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateResourceShareCommandInput, CreateResourceShareCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateResourceShareCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

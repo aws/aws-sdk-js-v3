@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  * <p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to
  *             the client's HSM in order to store and retrieve the keys used to encrypt the cluster
  *             databases.</p>
- *         <p>The command returns a public key, which you must store in the HSM. In addition to
+ *          <p>The command returns a public key, which you must store in the HSM. In addition to
  *             creating the HSM certificate, you must create an Amazon Redshift HSM configuration that
  *             provides a cluster the information needed to store and use encryption keys in the HSM.
  *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#working-with-HSM">Hardware Security Modules</a>
@@ -59,6 +60,15 @@ export class CreateHsmClientCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateHsmClientCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class CreateHsmClientCertificateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateHsmClientCertificateCommandInput, CreateHsmClientCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateHsmClientCertificateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

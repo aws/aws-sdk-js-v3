@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,12 +31,10 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
 /**
  * <p>Creates an Glue machine learning transform. This operation creates the transform and
  *       all the necessary parameters to train it.</p>
- *
- * 	        <p>Call this operation as the first step in the process of using a machine learning transform
+ *          <p>Call this operation as the first step in the process of using a machine learning transform
  *       (such as the <code>FindMatches</code> transform) for deduplicating data. You can provide an
  *       optional <code>Description</code>, in addition to the parameters that you want to use for your
  *       algorithm.</p>
- *
  *          <p>You must also specify certain parameters for the tasks that Glue runs on your
  *       behalf as part of learning from your data and creating a high-quality machine learning
  *       transform. These parameters include <code>Role</code>, and optionally,
@@ -64,6 +63,15 @@ export class CreateMLTransformCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateMLTransformCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +87,9 @@ export class CreateMLTransformCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateMLTransformCommandInput, CreateMLTransformCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateMLTransformCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

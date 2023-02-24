@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,22 @@ export interface DetectEntitiesCommandInput extends DetectEntitiesRequest {}
 export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Inspects text for named entities, and returns information about them. For more
- *       information, about named entities, see <a>how-entities</a>. </p>
+ * <p>Detects named entities in input text when you use the pre-trained model.
+ *       Detects custom entities if you have a custom entity recognition model. </p>
+ *          <p>
+ *       When detecting named entities using the pre-trained model, use plain text as the input.
+ *       For more information about named entities, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p>
+ *          <p>When you use a custom entity recognition model,
+ *       you can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p>
+ *          <p>If the system detects errors while processing a page in the input document, the API response
+ *        includes an entry in <code>Errors</code> for each error. </p>
+ *          <p>If the system detects a document-level error in your input document, the API returns an
+ *        <code>InvalidRequestException</code> error response.
+ *       For details about this exception, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html">
+ *         Errors in semi-structured documents</a> in the Comprehend Developer Guide.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +68,15 @@ export class DetectEntitiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetectEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +92,9 @@ export class DetectEntitiesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetectEntitiesCommandInput, DetectEntitiesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetectEntitiesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

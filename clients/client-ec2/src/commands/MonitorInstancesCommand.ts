@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   MonitorInstancesRequestFilterSensitiveLog,
   MonitorInstancesResult,
   MonitorInstancesResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2MonitorInstancesCommand,
   serializeAws_ec2MonitorInstancesCommand,
@@ -31,7 +32,7 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
  *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using
  *                 CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *         <p>To disable detailed monitoring, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html">UnmonitorInstances</a>.</p>
+ *          <p>To disable detailed monitoring, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html">UnmonitorInstances</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class MonitorInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: MonitorInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class MonitorInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<MonitorInstancesCommandInput, MonitorInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, MonitorInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

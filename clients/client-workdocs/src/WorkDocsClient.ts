@@ -1,13 +1,7 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -32,22 +26,24 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -81,6 +77,10 @@ import {
   DeleteCustomMetadataCommandOutput,
 } from "./commands/DeleteCustomMetadataCommand";
 import { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "./commands/DeleteDocumentCommand";
+import {
+  DeleteDocumentVersionCommandInput,
+  DeleteDocumentVersionCommandOutput,
+} from "./commands/DeleteDocumentVersionCommand";
 import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
 import {
   DeleteFolderContentsCommandInput,
@@ -135,6 +135,10 @@ import {
   RemoveResourcePermissionCommandInput,
   RemoveResourcePermissionCommandOutput,
 } from "./commands/RemoveResourcePermissionCommand";
+import {
+  RestoreDocumentVersionsCommandInput,
+  RestoreDocumentVersionsCommandOutput,
+} from "./commands/RestoreDocumentVersionsCommand";
 import { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "./commands/UpdateDocumentCommand";
 import {
   UpdateDocumentVersionCommandInput,
@@ -142,6 +146,12 @@ import {
 } from "./commands/UpdateDocumentVersionCommand";
 import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "./commands/UpdateFolderCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -158,6 +168,7 @@ export type ServiceInputTypes =
   | DeleteCommentCommandInput
   | DeleteCustomMetadataCommandInput
   | DeleteDocumentCommandInput
+  | DeleteDocumentVersionCommandInput
   | DeleteFolderCommandInput
   | DeleteFolderContentsCommandInput
   | DeleteLabelsCommandInput
@@ -182,6 +193,7 @@ export type ServiceInputTypes =
   | InitiateDocumentVersionUploadCommandInput
   | RemoveAllResourcePermissionsCommandInput
   | RemoveResourcePermissionCommandInput
+  | RestoreDocumentVersionsCommandInput
   | UpdateDocumentCommandInput
   | UpdateDocumentVersionCommandInput
   | UpdateFolderCommandInput
@@ -201,6 +213,7 @@ export type ServiceOutputTypes =
   | DeleteCommentCommandOutput
   | DeleteCustomMetadataCommandOutput
   | DeleteDocumentCommandOutput
+  | DeleteDocumentVersionCommandOutput
   | DeleteFolderCommandOutput
   | DeleteFolderContentsCommandOutput
   | DeleteLabelsCommandOutput
@@ -225,6 +238,7 @@ export type ServiceOutputTypes =
   | InitiateDocumentVersionUploadCommandOutput
   | RemoveAllResourcePermissionsCommandOutput
   | RemoveResourcePermissionCommandOutput
+  | RestoreDocumentVersionsCommandOutput
   | UpdateDocumentCommandOutput
   | UpdateDocumentVersionCommandOutput
   | UpdateFolderCommandOutput
@@ -237,11 +251,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -298,6 +312,39 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -313,58 +360,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type WorkDocsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of WorkDocsClient class constructor that set the region, credentials and other options.
  */
@@ -373,50 +382,77 @@ export interface WorkDocsClientConfig extends WorkDocsClientConfigType {}
 type WorkDocsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of WorkDocsClient class. This is resolved and normalized from the {@link WorkDocsClientConfig | constructor configuration interface}.
  */
 export interface WorkDocsClientResolvedConfig extends WorkDocsClientResolvedConfigType {}
 
 /**
- * <p>The WorkDocs API is designed for the following use cases:</p>
- *         <ul>
+ * <p>The Amazon WorkDocs API is designed for the following use cases:</p>
+ *          <ul>
  *             <li>
- *                 <p>File Migration: File migration applications are supported for users who
+ *                <p>File Migration: File migration applications are supported for users who
  *                     want to migrate their files from an on-premises or off-premises file system or
  *                     service. Users can insert files into a user directory structure, as well as
  *                     allow for basic metadata changes, such as modifications to the permissions of
  *                     files.</p>
  *             </li>
  *             <li>
- *                 <p>Security: Support security applications are supported for users who have
+ *                <p>Security: Support security applications are supported for users who have
  *                     additional security needs, such as antivirus or data loss prevention. The API
- *                     actions, along with AWS CloudTrail, allow these applications to detect when
+ *                     actions, along with CloudTrail, allow these applications to detect when
  *                     changes occur in Amazon WorkDocs. Then, the application can take the necessary
  *                     actions and replace the target file. If the target file violates the policy, the
  *                     application can also choose to email the user.</p>
  *             </li>
  *             <li>
- *                 <p>eDiscovery/Analytics: General administrative applications are supported,
+ *                <p>eDiscovery/Analytics: General administrative applications are supported,
  *                     such as eDiscovery and analytics. These applications can choose to mimic or
- *                     record the actions in an Amazon WorkDocs site, along with AWS CloudTrail, to
+ *                     record the actions in an Amazon WorkDocs site, along with CloudTrail, to
  *                     replicate data for eDiscovery, backup, or analytical applications.</p>
  *             </li>
  *          </ul>
- *         <p>All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed.
- *             They not only require the use of the AWS SDK, but also allow for the exclusive use of
+ *          <p>All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed.
+ *             They not only require the use of the Amazon Web Services SDK, but also allow for the exclusive use of
  *             IAM users and roles to help facilitate access, trust, and permission policies. By
- *             creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM
- *             user gains full administrative visibility into the entire Amazon WorkDocs site (or as
+ *             creating a role and allowing an IAM user to access the Amazon WorkDocs site, the
+ *             IAM user gains full administrative visibility into the entire Amazon WorkDocs site (or as
  *             set in the IAM policy). This includes, but is not limited to, the ability to modify file
  *             permissions and upload any file to any user. This allows developers to perform the three
  *             use cases above, as well as give users the ability to grant access on a selective basis
  *             using the IAM model.</p>
+ *          <note>
+ *             <p>The pricing for Amazon WorkDocs APIs varies depending on the API call type for these actions:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>READ  (Get*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>LIST (Describe*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>DELETE*, CANCEL</code>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *             <p>For information about Amazon WorkDocs API pricing, see <a href="https://aws.amazon.com/workdocs/pricing/">Amazon WorkDocs Pricing</a>.</p>
+ *          </note>
  */
 export class WorkDocsClient extends __Client<
   __HttpHandlerOptions,
@@ -431,14 +467,15 @@ export class WorkDocsClient extends __Client<
 
   constructor(configuration: WorkDocsClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

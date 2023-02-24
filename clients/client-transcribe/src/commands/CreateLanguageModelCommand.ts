@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,23 +30,22 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
 
 /**
  * <p>Creates a new custom language model.</p>
- *         <p>When creating a new language model, you must specify:</p>
- *         <ul>
+ *          <p>When creating a new custom language model, you must specify:</p>
+ *          <ul>
  *             <li>
- *                 <p>If you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband (audio sample
- *                     rates under 16,000 Hz) base model</p>
+ *                <p>If you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband
+ *                     (audio sample rates under 16,000 Hz) base model</p>
  *             </li>
  *             <li>
- *                 <p>The location of your training and tuning files (this must be an Amazon S3 URI)</p>
+ *                <p>The location of your training and tuning files (this must be an Amazon S3 URI)</p>
  *             </li>
  *             <li>
- *                 <p>The language of your model</p>
+ *                <p>The language of your model</p>
  *             </li>
  *             <li>
- *                 <p>A unique name for your model</p>
+ *                <p>A unique name for your model</p>
  *             </li>
  *          </ul>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom language models</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +69,15 @@ export class CreateLanguageModelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateLanguageModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +93,9 @@ export class CreateLanguageModelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLanguageModelCommandInput, CreateLanguageModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLanguageModelCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

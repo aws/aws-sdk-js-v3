@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyFleetRequestFilterSensitiveLog,
   ModifyFleetResult,
   ModifyFleetResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { deserializeAws_ec2ModifyFleetCommand, serializeAws_ec2ModifyFleetCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyFleetCommandInput extends ModifyFleetRequest {}
@@ -70,6 +71,15 @@ export class ModifyFleetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +95,7 @@ export class ModifyFleetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyFleetCommandInput, ModifyFleetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ModifyFleetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

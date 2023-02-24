@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyInstanceCreditSpecificationRequestFilterSensitiveLog,
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceCreditSpecificationResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyInstanceCreditSpecificationCommand,
   serializeAws_ec2ModifyInstanceCreditSpecificationCommand,
@@ -33,7 +34,7 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * <p>Modifies the credit option for CPU usage on a running or stopped burstable performance
  *             instance. The credit options are <code>standard</code> and
  *             <code>unlimited</code>.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
  *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +59,15 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyInstanceCreditSpecificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyInstanceCreditSpecificationCommandInput, ModifyInstanceCreditSpecificationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyInstanceCreditSpecificationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

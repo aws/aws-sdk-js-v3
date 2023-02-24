@@ -12,6 +12,57 @@ export interface AcceptInvitationRequest {
   GraphArn: string | undefined;
 }
 
+export enum ErrorCode {
+  InternalError = "INTERNAL_ERROR",
+  InvalidGraphArn = "INVALID_GRAPH_ARN",
+  InvalidRequestBody = "INVALID_REQUEST_BODY",
+}
+
+/**
+ * <p>The request issuer does not have permission to access this resource or perform this
+ *          operation.</p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The SDK default error code associated with the access denied exception.</p>
+   */
+  ErrorCode?: ErrorCode | string;
+
+  /**
+   * <p>The SDK default explanation of why access was denied.</p>
+   */
+  ErrorCodeReason?: string;
+
+  /**
+   * <p>The error code associated with the access denied exception.</p>
+   */
+  SubErrorCode?: ErrorCode | string;
+
+  /**
+   * <p> An explanation of why access was denied.</p>
+   */
+  SubErrorCodeReason?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+    this.ErrorCode = opts.ErrorCode;
+    this.ErrorCodeReason = opts.ErrorCodeReason;
+    this.SubErrorCode = opts.SubErrorCode;
+    this.SubErrorCodeReason = opts.SubErrorCodeReason;
+  }
+}
+
 /**
  * <p>The request attempted an invalid action.</p>
  */
@@ -73,12 +124,6 @@ export class ResourceNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.Message = opts.Message;
   }
-}
-
-export enum ErrorCode {
-  InternalError = "INTERNAL_ERROR",
-  InvalidGraphArn = "INVALID_GRAPH_ARN",
-  InvalidRequestBody = "INVALID_REQUEST_BODY",
 }
 
 /**

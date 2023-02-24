@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,13 +28,13 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
 
 /**
  * <p>Removes the specified IAM role from the specified EC2 instance profile.</p>
- *         <important>
+ *          <important>
  *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you
  *                 are about to remove from the instance profile. Removing a role from an instance
  *                 profile that is associated with a running instance might break any applications
  *                 running on the instance.</p>
- *         </important>
- *         <p> For more information about IAM roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with roles</a>. For more
+ *          </important>
+ *          <p> For more information about IAM roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with roles</a>. For more
  *             information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
  *             profiles</a>.</p>
  * @example
@@ -59,6 +60,15 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RemoveRoleFromInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RemoveRoleFromInstanceProfileCommandInput, RemoveRoleFromInstanceProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RemoveRoleFromInstanceProfileCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,7 +27,7 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * <p>Changes the status of the specified user signing certificate from active to disabled,
  *             or vice versa. This operation can be used to disable an IAM user's signing certificate
  *             as part of a certificate rotation work flow.</p>
- *         <p>If the <code>UserName</code> field is not specified, the user name is determined
+ *          <p>If the <code>UserName</code> field is not specified, the user name is determined
  *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
  *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
  *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
@@ -54,6 +55,15 @@ export class UpdateSigningCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateSigningCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class UpdateSigningCertificateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateSigningCertificateCommandInput, UpdateSigningCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateSigningCertificateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

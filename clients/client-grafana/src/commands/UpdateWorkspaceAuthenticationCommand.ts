@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,9 +32,13 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
 
 /**
  * <p>Use this operation to define the identity provider (IdP) that this workspace
- *          authenticates users from, using SAML. You can also map SAML assertion attributes to
- *          workspace user information and define which groups in the assertion attribute are to have
- *          the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p>
+ *             authenticates users from, using SAML. You can also map SAML assertion attributes to
+ *             workspace user information and define which groups in the assertion attribute are to
+ *             have the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p>
+ *          <note>
+ *             <p>Changes to the authentication method for a workspace may take a few minutes to
+ *                 take effect.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +62,15 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateWorkspaceAuthenticationCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +86,9 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateWorkspaceAuthenticationCommandInput, UpdateWorkspaceAuthenticationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateWorkspaceAuthenticationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

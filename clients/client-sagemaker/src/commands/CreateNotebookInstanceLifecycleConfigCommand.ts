@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,16 +34,16 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  * <p>Creates a lifecycle configuration that you can associate with a notebook instance. A
  *                 <i>lifecycle configuration</i> is a collection of shell scripts that
  *             run when you create or start a notebook instance.</p>
- *         <p>Each lifecycle configuration script has a limit of 16384 characters.</p>
- *         <p>The value of the <code>$PATH</code> environment variable that is available to both
+ *          <p>Each lifecycle configuration script has a limit of 16384 characters.</p>
+ *          <p>The value of the <code>$PATH</code> environment variable that is available to both
  *             scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p>
- *         <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group
+ *          <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group
  *                 <code>/aws/sagemaker/NotebookInstances</code> in log stream
  *                 <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p>
- *         <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs
+ *          <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs
  *             for longer than 5 minutes, it fails and the notebook instance is not created or
  *             started.</p>
- *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+ *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
  *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +68,15 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateNotebookInstanceLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,9 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateNotebookInstanceLifecycleConfigCommandInput, CreateNotebookInstanceLifecycleConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateNotebookInstanceLifecycleConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

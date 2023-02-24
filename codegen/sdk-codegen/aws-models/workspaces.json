@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -48,18 +48,20 @@
       }
     },
     "com.amazonaws.workspaces#AccessPropertyValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ALLOW",
-            "name": "ALLOW"
-          },
-          {
-            "value": "DENY",
-            "name": "DENY"
+      "type": "enum",
+      "members": {
+        "ALLOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALLOW"
           }
-        ]
+        },
+        "DENY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DENY"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#AccountModification": {
@@ -146,18 +148,20 @@
       }
     },
     "com.amazonaws.workspaces#Application": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Microsoft_Office_2016",
-            "name": "Microsoft_Office_2016"
-          },
-          {
-            "value": "Microsoft_Office_2019",
-            "name": "Microsoft_Office_2019"
+      "type": "enum",
+      "members": {
+        "Microsoft_Office_2016": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Microsoft_Office_2016"
           }
-        ]
+        },
+        "Microsoft_Office_2019": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Microsoft_Office_2019"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#ApplicationList": {
@@ -221,6 +225,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#AssociateConnectionAliasResult": {
@@ -283,6 +290,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#AssociateIpGroupsResult": {
@@ -290,30 +300,38 @@
       "members": {}
     },
     "com.amazonaws.workspaces#AssociationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NOT_ASSOCIATED",
-            "name": "NOT_ASSOCIATED"
-          },
-          {
-            "value": "ASSOCIATED_WITH_OWNER_ACCOUNT",
-            "name": "ASSOCIATED_WITH_OWNER_ACCOUNT"
-          },
-          {
-            "value": "ASSOCIATED_WITH_SHARED_ACCOUNT",
-            "name": "ASSOCIATED_WITH_SHARED_ACCOUNT"
-          },
-          {
-            "value": "PENDING_ASSOCIATION",
-            "name": "PENDING_ASSOCIATION"
-          },
-          {
-            "value": "PENDING_DISASSOCIATION",
-            "name": "PENDING_DISASSOCIATION"
+      "type": "enum",
+      "members": {
+        "NOT_ASSOCIATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_ASSOCIATED"
           }
-        ]
+        },
+        "ASSOCIATED_WITH_OWNER_ACCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSOCIATED_WITH_OWNER_ACCOUNT"
+          }
+        },
+        "ASSOCIATED_WITH_SHARED_ACCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSOCIATED_WITH_SHARED_ACCOUNT"
+          }
+        },
+        "PENDING_ASSOCIATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_ASSOCIATION"
+          }
+        },
+        "PENDING_DISASSOCIATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_DISASSOCIATION"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#AuthorizeIpRules": {
@@ -362,6 +380,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#AuthorizeIpRulesResult": {
@@ -375,10 +396,7 @@
       }
     },
     "com.amazonaws.workspaces#BooleanObject": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.workspaces#BundleId": {
       "type": "string",
@@ -407,35 +425,109 @@
     "com.amazonaws.workspaces#BundleOwner": {
       "type": "string"
     },
-    "com.amazonaws.workspaces#ClientDeviceType": {
+    "com.amazonaws.workspaces#BundleType": {
+      "type": "enum",
+      "members": {
+        "REGULAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REGULAR"
+          }
+        },
+        "STANDBY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STANDBY"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#CertificateAuthorityArn": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DeviceTypeWindows",
-            "name": "DEVICE_TYPE_WINDOWS"
-          },
-          {
-            "value": "DeviceTypeOsx",
-            "name": "DEVICE_TYPE_OSX"
-          },
-          {
-            "value": "DeviceTypeAndroid",
-            "name": "DEVICE_TYPE_ANDROID"
-          },
-          {
-            "value": "DeviceTypeIos",
-            "name": "DEVICE_TYPE_IOS"
-          },
-          {
-            "value": "DeviceTypeLinux",
-            "name": "DEVICE_TYPE_LINUX"
-          },
-          {
-            "value": "DeviceTypeWeb",
-            "name": "DEVICE_TYPE_WEB"
+        "smithy.api#length": {
+          "min": 5,
+          "max": 200
+        },
+        "smithy.api#pattern": "^arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]*:[\\w+=,.@-]+(/[\\w+=,.@-]+)*$"
+      }
+    },
+    "com.amazonaws.workspaces#CertificateBasedAuthProperties": {
+      "type": "structure",
+      "members": {
+        "Status": {
+          "target": "com.amazonaws.workspaces#CertificateBasedAuthStatusEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the certificate-based authentication properties.</p>"
           }
-        ]
+        },
+        "CertificateAuthorityArn": {
+          "target": "com.amazonaws.workspaces#CertificateAuthorityArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the properties of the certificate-based authentication you want to use\n         with your WorkSpaces.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#CertificateBasedAuthStatusEnum": {
+      "type": "enum",
+      "members": {
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#ClientDeviceType": {
+      "type": "enum",
+      "members": {
+        "DEVICE_TYPE_WINDOWS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DeviceTypeWindows"
+          }
+        },
+        "DEVICE_TYPE_OSX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DeviceTypeOsx"
+          }
+        },
+        "DEVICE_TYPE_ANDROID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DeviceTypeAndroid"
+          }
+        },
+        "DEVICE_TYPE_IOS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DeviceTypeIos"
+          }
+        },
+        "DEVICE_TYPE_LINUX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DeviceTypeLinux"
+          }
+        },
+        "DEVICE_TYPE_WEB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DeviceTypeWeb"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#ClientDeviceTypeList": {
@@ -488,6 +580,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether users can cache their credentials on the Amazon WorkSpaces client.\n         When enabled, users can choose to reconnect to their WorkSpaces without re-entering their\n         credentials. </p>"
           }
+        },
+        "LogUploadEnabled": {
+          "target": "com.amazonaws.workspaces#LogUploadEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether users can upload diagnostic log files of Amazon WorkSpaces client directly to \n         WorkSpaces to troubleshoot issues when using the WorkSpaces client. \n         When enabled, the log files will be sent to WorkSpaces automatically and will be applied to all \n         users in the specified directory.</p>"
+          }
         }
       },
       "traits": {
@@ -531,46 +629,62 @@
       }
     },
     "com.amazonaws.workspaces#Compute": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "VALUE",
-            "name": "VALUE"
-          },
-          {
-            "value": "STANDARD",
-            "name": "STANDARD"
-          },
-          {
-            "value": "PERFORMANCE",
-            "name": "PERFORMANCE"
-          },
-          {
-            "value": "POWER",
-            "name": "POWER"
-          },
-          {
-            "value": "GRAPHICS",
-            "name": "GRAPHICS"
-          },
-          {
-            "value": "POWERPRO",
-            "name": "POWERPRO"
-          },
-          {
-            "value": "GRAPHICSPRO",
-            "name": "GRAPHICSPRO"
-          },
-          {
-            "value": "GRAPHICS_G4DN",
-            "name": "GRAPHICS_G4DN"
-          },
-          {
-            "value": "GRAPHICSPRO_G4DN",
-            "name": "GRAPHICSPRO_G4DN"
+      "type": "enum",
+      "members": {
+        "VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALUE"
           }
-        ]
+        },
+        "STANDARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STANDARD"
+          }
+        },
+        "PERFORMANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERFORMANCE"
+          }
+        },
+        "POWER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POWER"
+          }
+        },
+        "GRAPHICS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GRAPHICS"
+          }
+        },
+        "POWERPRO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POWERPRO"
+          }
+        },
+        "GRAPHICSPRO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GRAPHICSPRO"
+          }
+        },
+        "GRAPHICS_G4DN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GRAPHICS_G4DN"
+          }
+        },
+        "GRAPHICSPRO_G4DN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GRAPHICSPRO_G4DN"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#ComputeType": {
@@ -779,22 +893,26 @@
       }
     },
     "com.amazonaws.workspaces#ConnectionAliasState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATING",
-            "name": "CREATING"
-          },
-          {
-            "value": "CREATED",
-            "name": "CREATED"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
           }
-        ]
+        },
+        "CREATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATED"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#ConnectionIdentifier": {
@@ -808,22 +926,26 @@
       }
     },
     "com.amazonaws.workspaces#ConnectionState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CONNECTED",
-            "name": "CONNECTED"
-          },
-          {
-            "value": "DISCONNECTED",
-            "name": "DISCONNECTED"
-          },
-          {
-            "value": "UNKNOWN",
-            "name": "UNKNOWN"
+      "type": "enum",
+      "members": {
+        "CONNECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONNECTED"
           }
-        ]
+        },
+        "DISCONNECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISCONNECTED"
+          }
+        },
+        "UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNKNOWN"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#ConnectionString": {
@@ -907,6 +1029,9 @@
             "smithy.api#documentation": "<p>The tags for the image.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#CopyWorkspaceImageResult": {
@@ -973,6 +1098,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#CreateConnectClientAddInResult": {
@@ -1034,6 +1162,9 @@
             "smithy.api#documentation": "<p>The tags to associate with the connection alias.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#CreateConnectionAliasResult": {
@@ -1104,6 +1235,9 @@
             "smithy.api#documentation": "<p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#CreateIpGroupResult": {
@@ -1113,6 +1247,74 @@
           "target": "com.amazonaws.workspaces#IpGroupId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the group.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#CreateStandbyWorkspaces": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#CreateStandbyWorkspacesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#CreateStandbyWorkspacesResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a standby WorkSpace in a secondary Region.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#CreateStandbyWorkspacesRequest": {
+      "type": "structure",
+      "members": {
+        "PrimaryRegion": {
+          "target": "com.amazonaws.workspaces#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region of the primary WorkSpace.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StandbyWorkspaces": {
+          "target": "com.amazonaws.workspaces#StandbyWorkspacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the standby WorkSpace to be created.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#CreateStandbyWorkspacesResult": {
+      "type": "structure",
+      "members": {
+        "FailedStandbyRequests": {
+          "target": "com.amazonaws.workspaces#FailedCreateStandbyWorkspacesRequestList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the standby WorkSpace that could not be created. </p>"
+          }
+        },
+        "PendingStandbyRequests": {
+          "target": "com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequestList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the standby WorkSpace that was created.</p>"
           }
         }
       }
@@ -1157,6 +1359,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#CreateTagsResult": {
@@ -1195,7 +1400,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new updated WorkSpace image based on the specified source image. The new\n         updated WorkSpace image has the latest drivers and other updates required by the Amazon\n         WorkSpaces components.</p>\n         <p>To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces\n         requirements, use <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html\">\n            DescribeWorkspaceImages</a>.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>Only Windows 10, Windows Sever 2016, and Windows Server 2019 WorkSpace images\n                  can be programmatically updated at this time.</p>\n               </li>\n               <li>\n                  <p>Microsoft Windows updates and other application updates are not included in the\n                  update process.</p>\n               </li>\n               <li>\n                  <p>The source WorkSpace image is not deleted. You can delete the source image\n                  after you've verified your new updated image and created a new bundle. </p>\n               </li>\n            </ul>\n         </note>"
+        "smithy.api#documentation": "<p>Creates a new updated WorkSpace image based on the specified source image. The new\n         updated WorkSpace image has the latest drivers and other updates required by the \n         Amazon WorkSpaces components.</p>\n         <p>To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces\n         requirements, use <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html\">\n            DescribeWorkspaceImages</a>.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images\n                  can be programmatically updated at this time.</p>\n               </li>\n               <li>\n                  <p>Microsoft Windows updates and other application updates are not included in the\n                  update process.</p>\n               </li>\n               <li>\n                  <p>The source WorkSpace image is not deleted. You can delete the source image\n                  after you've verified your new updated image and created a new bundle. </p>\n               </li>\n            </ul>\n         </note>"
       }
     },
     "com.amazonaws.workspaces#CreateUpdatedWorkspaceImageRequest": {
@@ -1228,6 +1433,9 @@
             "smithy.api#documentation": "<p>The tags that you want to add to the new updated WorkSpace image.</p>\n         <note>\n            <p>To add tags at the same time when you're creating the updated image, you must create\n            an IAM policy that grants your IAM user permissions to use\n               <code>workspaces:CreateTags</code>. </p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#CreateUpdatedWorkspaceImageResult": {
@@ -1315,9 +1523,12 @@
         "Tags": {
           "target": "com.amazonaws.workspaces#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the bundle.</p>\n      \n         <note>\n            <p>To add tags at the same time when you're creating the bundle, you must create an IAM policy that \n            grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p>\n         </note>"
+            "smithy.api#documentation": "<p>The tags associated with the bundle.</p>\n         <note>\n            <p>To add tags at the same time when you're creating the bundle, you must create an IAM policy that \n            grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#CreateWorkspaceBundleResult": {
@@ -1393,6 +1604,9 @@
             "smithy.api#documentation": "<p>The tags that you want to add to the new WorkSpace image. \n         To add tags when you're creating the image, you must create an IAM policy that grants \n         your IAM user permission to use <code>workspaces:CreateTags</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#CreateWorkspaceImageResult": {
@@ -1431,7 +1645,7 @@
         "RequiredTenancy": {
           "target": "com.amazonaws.workspaces#WorkspaceImageRequiredTenancy",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the image is running on dedicated hardware. \n         When Bring Your Own License (BYOL) is enabled, this value is set \n         to DEDICATED. For more information, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm\">\n            Bring Your Own Windows Desktop Images.</a>\n         </p>"
+            "smithy.api#documentation": "<p>Specifies whether the image is running on dedicated hardware. \n         When Bring Your Own License (BYOL) is enabled, this value is set \n         to DEDICATED. For more information, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm\">\n            Bring Your Own Windows Desktop Images.</a>.</p>"
           }
         },
         "Created": {
@@ -1443,7 +1657,7 @@
         "OwnerAccountId": {
           "target": "com.amazonaws.workspaces#AwsAccount",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the AWS account that owns the image.</p>"
+            "smithy.api#documentation": "<p>The identifier of the Amazon Web Services account that owns the image.</p>"
           }
         }
       }
@@ -1465,7 +1679,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates one or more WorkSpaces.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>"
+        "smithy.api#documentation": "<p>Creates one or more WorkSpaces.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>\n         <note>\n            <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces\n            Core. Contact your account team to be allow-listed to use this value. For more\n            information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces\n               Core</a>.</p>\n         </note>"
       }
     },
     "com.amazonaws.workspaces#CreateWorkspacesRequest": {
@@ -1478,6 +1692,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#CreateWorkspacesResult": {
@@ -1510,48 +1727,54 @@
       }
     },
     "com.amazonaws.workspaces#DedicatedTenancyModificationStateEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#DedicatedTenancySupportEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.workspaces#DedicatedTenancySupportResultEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#DefaultClientBrandingAttributes": {
@@ -1686,6 +1909,23 @@
         "smithy.api#documentation": "<p>Describes the default values that are used to create WorkSpaces. For more information,\n         see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html\">Update Directory\n            Details for Your WorkSpaces</a>.</p>"
       }
     },
+    "com.amazonaws.workspaces#DeletableCertificateBasedAuthPropertiesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#DeletableCertificateBasedAuthProperty"
+      }
+    },
+    "com.amazonaws.workspaces#DeletableCertificateBasedAuthProperty": {
+      "type": "enum",
+      "members": {
+        "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN"
+          }
+        }
+      }
+    },
     "com.amazonaws.workspaces#DeletableSamlPropertiesList": {
       "type": "list",
       "member": {
@@ -1693,18 +1933,20 @@
       }
     },
     "com.amazonaws.workspaces#DeletableSamlProperty": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SAML_PROPERTIES_USER_ACCESS_URL",
-            "name": "SAML_PROPERTIES_USER_ACCESS_URL"
-          },
-          {
-            "value": "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
-            "name": "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME"
+      "type": "enum",
+      "members": {
+        "SAML_PROPERTIES_USER_ACCESS_URL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SAML_PROPERTIES_USER_ACCESS_URL"
           }
-        ]
+        },
+        "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#DeleteClientBranding": {
@@ -1747,6 +1989,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DeleteClientBrandingResult": {
@@ -1793,6 +2038,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DeleteConnectClientAddInResult": {
@@ -1841,6 +2089,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DeleteConnectionAliasResult": {
@@ -1883,6 +2134,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DeleteIpGroupResult": {
@@ -1926,6 +2180,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DeleteTagsResult": {
@@ -1967,6 +2224,9 @@
             "smithy.api#documentation": "<p>The identifier of the bundle.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DeleteWorkspaceBundleResult": {
@@ -2006,6 +2266,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DeleteWorkspaceImageResult": {
@@ -2051,6 +2314,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DeregisterWorkspaceDirectoryResult": {
@@ -2100,6 +2366,9 @@
             "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated,\n         provide this token to receive the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeAccountModificationsResult": {
@@ -2121,7 +2390,10 @@
     },
     "com.amazonaws.workspaces#DescribeAccountRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.workspaces#DescribeAccountResult": {
       "type": "structure",
@@ -2173,6 +2445,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeClientBrandingResult": {
@@ -2249,6 +2524,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeClientPropertiesResult": {
@@ -2307,6 +2585,9 @@
             "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeConnectClientAddInsResult": {
@@ -2374,6 +2655,9 @@
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeConnectionAliasPermissionsResult": {
@@ -2449,6 +2733,9 @@
             "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated,\n         provide this token to receive the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeConnectionAliasesResult": {
@@ -2509,6 +2796,9 @@
             "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeIpGroupsResult": {
@@ -2555,6 +2845,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeTagsResult": {
@@ -2611,6 +2904,9 @@
             "smithy.api#documentation": "<p>The token for the next set of results. (You received this token from a previous call.)</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeWorkspaceBundlesResult": {
@@ -2673,6 +2969,9 @@
             "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated,\n         provide this token to receive the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesResult": {
@@ -2737,6 +3036,9 @@
             "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeWorkspaceImagePermissionsResult": {
@@ -2806,6 +3108,9 @@
             "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeWorkspaceImagesResult": {
@@ -2858,6 +3163,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeWorkspaceSnapshotsResult": {
@@ -2935,6 +3243,9 @@
             "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated,\n         provide this token to receive the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeWorkspacesConnectionStatusResult": {
@@ -2993,6 +3304,9 @@
             "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated,\n         provide this token to receive the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DescribeWorkspacesResult": {
@@ -3085,6 +3399,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DisassociateConnectionAliasResult": {
@@ -3134,6 +3451,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#DisassociateIpGroupsResult": {
@@ -3160,6 +3480,38 @@
     },
     "com.amazonaws.workspaces#ExceptionMessage": {
       "type": "string"
+    },
+    "com.amazonaws.workspaces#FailedCreateStandbyWorkspacesRequest": {
+      "type": "structure",
+      "members": {
+        "StandbyWorkspaceRequest": {
+          "target": "com.amazonaws.workspaces#StandbyWorkspace",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the standby WorkSpace that could not be created.</p>"
+          }
+        },
+        "ErrorCode": {
+          "target": "com.amazonaws.workspaces#WorkspaceErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code that is returned if the standby WorkSpace could not be created.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.workspaces#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The text of the error message that is returned if the standby WorkSpace could not be created.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the standby WorkSpace that could not be created.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#FailedCreateStandbyWorkspacesRequestList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#FailedCreateStandbyWorkspacesRequest"
+      }
     },
     "com.amazonaws.workspaces#FailedCreateWorkspaceRequest": {
       "type": "structure",
@@ -3270,18 +3622,20 @@
       }
     },
     "com.amazonaws.workspaces#ImageType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OWNED",
-            "name": "OWNED"
-          },
-          {
-            "value": "SHARED",
-            "name": "SHARED"
+      "type": "enum",
+      "members": {
+        "OWNED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OWNED"
           }
-        ]
+        },
+        "SHARED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHARED"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#ImportClientBranding": {
@@ -3356,6 +3710,9 @@
             "smithy.api#documentation": "<p>The branding information to import for web access.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ImportClientBrandingResult": {
@@ -3428,7 +3785,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon\n         WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL\n         images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring Your Own Windows\n            Desktop Licenses</a>.</p>"
+        "smithy.api#documentation": "<p>Imports the specified Windows 10 Bring Your Own License (BYOL) \n         image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is \n         in your Amazon Web Services account, and you must own the image. For more information about \n         creating BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring Your Own Windows\n            Desktop Licenses</a>.</p>"
       }
     },
     "com.amazonaws.workspaces#ImportWorkspaceImageRequest": {
@@ -3444,7 +3801,7 @@
         "IngestionProcess": {
           "target": "com.amazonaws.workspaces#WorkspaceImageIngestionProcess",
           "traits": {
-            "smithy.api#documentation": "<p>The ingestion process to be used when importing the image, depending on which protocol\n         you want to use for your BYOL Workspace image, either PCoIP or WorkSpaces Streaming\n         Protocol (WSP). To use WSP, specify a value that ends in <code>_WSP</code>. To use PCoIP,\n         specify a value that does not end in <code>_WSP</code>. </p>\n         <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify\n            <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>, depending on the\n         protocol.</p>",
+            "smithy.api#documentation": "<p>The ingestion process to be used when importing the image, depending on which protocol\n         you want to use for your BYOL Workspace image, either PCoIP, WorkSpaces Streaming Protocol \n         (WSP), or bring your own protocol (BYOP). To use WSP, specify a value that ends in \n         <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>. \n         To use BYOP, specify a value that ends in <code>_BYOP</code>.</p>\n         <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify \n         <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_WSP</code>, or <code>BYOL_REGULAR_BYOP</code>, \n         depending on the protocol.</p>\n         <note>\n            <p>The <code>BYOL_REGULAR_BYOP</code> and <code>BYOL_GRAPHICS_G4DN_BYOP</code> values\n            are only supported by Amazon WorkSpaces Core. Contact your account team to be\n            allow-listed to use these values. For more information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -3474,6 +3831,9 @@
             "smithy.api#documentation": "<p>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10\n         BYOL images. For more information about subscribing to Office for BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring\n            Your Own Windows Desktop Licenses</a>.</p>\n         <note>\n            <p>Although this parameter is an array, only one item is allowed at this time.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ImportWorkspaceImageResult": {
@@ -3703,7 +4063,6 @@
     "com.amazonaws.workspaces#Limit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 25
@@ -3752,6 +4111,9 @@
             "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated,\n         provide this token to receive the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ListAvailableManagementCidrRangesResult": {
@@ -3767,6 +4129,23 @@
           "target": "com.amazonaws.workspaces#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there are\n         no more results to return. </p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#LogUploadEnum": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
           }
         }
       }
@@ -3789,7 +4168,6 @@
     "com.amazonaws.workspaces#ManagementCidrRangeMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 5
@@ -3845,6 +4223,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#MigrateWorkspaceResult": {
@@ -3865,22 +4246,26 @@
       }
     },
     "com.amazonaws.workspaces#ModificationResourceEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ROOT_VOLUME",
-            "name": "ROOT_VOLUME"
-          },
-          {
-            "value": "USER_VOLUME",
-            "name": "USER_VOLUME"
-          },
-          {
-            "value": "COMPUTE_TYPE",
-            "name": "COMPUTE_TYPE"
+      "type": "enum",
+      "members": {
+        "ROOT_VOLUME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROOT_VOLUME"
           }
-        ]
+        },
+        "USER_VOLUME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USER_VOLUME"
+          }
+        },
+        "COMPUTE_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPUTE_TYPE"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#ModificationState": {
@@ -3904,18 +4289,20 @@
       }
     },
     "com.amazonaws.workspaces#ModificationStateEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UPDATE_INITIATED",
-            "name": "UPDATE_INITIATED"
-          },
-          {
-            "value": "UPDATE_IN_PROGRESS",
-            "name": "UPDATE_IN_PROGRESS"
+      "type": "enum",
+      "members": {
+        "UPDATE_INITIATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_INITIATED"
           }
-        ]
+        },
+        "UPDATE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_IN_PROGRESS"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#ModificationStateList": {
@@ -3968,9 +4355,69 @@
             "smithy.api#documentation": "<p>The IP address range, specified as an IPv4 CIDR block, for the management network\n         interface. Specify an IP address range that is compatible with your network and in CIDR\n         notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be\n         /16 (for example, 203.0.113.25/16). It must also be specified as available by the\n            <code>ListAvailableManagementCidrRanges</code> operation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ModifyAccountResult": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workspaces#ModifyCertificateBasedAuthProperties": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#ModifyCertificateBasedAuthPropertiesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#ModifyCertificateBasedAuthPropertiesResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies the properties of the certificate-based authentication you want\n         to use with your WorkSpaces.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#ModifyCertificateBasedAuthPropertiesRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource identifiers, in the form of directory IDs.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CertificateBasedAuthProperties": {
+          "target": "com.amazonaws.workspaces#CertificateBasedAuthProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The properties of the certificate-based authentication.</p>"
+          }
+        },
+        "PropertiesToDelete": {
+          "target": "com.amazonaws.workspaces#DeletableCertificateBasedAuthPropertiesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The properties of the certificate-based authentication you want to delete.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#ModifyCertificateBasedAuthPropertiesResult": {
       "type": "structure",
       "members": {}
     },
@@ -4014,6 +4461,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ModifyClientPropertiesResult": {
@@ -4068,6 +4518,9 @@
             "smithy.api#documentation": "<p>The SAML properties to delete as part of your request.</p>\n         <p>Specify one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SAML_PROPERTIES_USER_ACCESS_URL</code> to delete the user access URL.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME</code> to delete the\n               relay state parameter name.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ModifySamlPropertiesResult": {
@@ -4114,6 +4567,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ModifySelfservicePermissionsResult": {
@@ -4157,6 +4613,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ModifyWorkspaceAccessPropertiesResult": {
@@ -4206,6 +4665,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ModifyWorkspaceCreationPropertiesResult": {
@@ -4244,7 +4706,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Modifies the specified WorkSpace properties. For important information about how to\n         modify the size of the root and user volumes, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html\"> Modify a WorkSpace</a>.\n      </p>"
+        "smithy.api#documentation": "<p>Modifies the specified WorkSpace properties. For important information about how to\n         modify the size of the root and user volumes, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html\"> Modify a WorkSpace</a>.\n      </p>\n         <note>\n            <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces\n            Core. Contact your account team to be allow-listed to use this value. For more\n            information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces\n               Core</a>.</p>\n         </note>"
       }
     },
     "com.amazonaws.workspaces#ModifyWorkspacePropertiesRequest": {
@@ -4264,6 +4726,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ModifyWorkspacePropertiesResult": {
@@ -4284,6 +4749,9 @@
         },
         {
           "target": "com.amazonaws.workspaces#InvalidResourceStateException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
         },
         {
           "target": "com.amazonaws.workspaces#ResourceNotFoundException"
@@ -4310,6 +4778,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#ModifyWorkspaceStateResult": {
@@ -4339,18 +4810,20 @@
       }
     },
     "com.amazonaws.workspaces#OperatingSystemType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "WINDOWS",
-            "name": "WINDOWS"
-          },
-          {
-            "value": "LINUX",
-            "name": "LINUX"
+      "type": "enum",
+      "members": {
+        "WINDOWS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WINDOWS"
           }
-        ]
+        },
+        "LINUX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LINUX"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#OperationInProgressException": {
@@ -4395,6 +4868,67 @@
         }
       }
     },
+    "com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequest": {
+      "type": "structure",
+      "members": {
+        "UserName": {
+          "target": "com.amazonaws.workspaces#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the standby WorkSpace that was created.</p>\n         <p>Because this operation is asynchronous, the identifier returned is not immediately \n         available for use with other operations. For example, if you call \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html\">\n            DescribeWorkspaces</a> \n         before the WorkSpace is created, the information returned can be incomplete. </p>"
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory for the standby WorkSpace.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workspaces#WorkspaceState",
+          "traits": {
+            "smithy.api#documentation": "<p>The operational state of the standby WorkSpace.</p>"
+          }
+        },
+        "WorkspaceId": {
+          "target": "com.amazonaws.workspaces#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the standby WorkSpace.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the standby WorkSpace.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequestList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequest"
+      }
+    },
+    "com.amazonaws.workspaces#Protocol": {
+      "type": "enum",
+      "members": {
+        "PCOIP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PCOIP"
+          }
+        },
+        "WSP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WSP"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#ProtocolList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#Protocol"
+      }
+    },
     "com.amazonaws.workspaces#RebootRequest": {
       "type": "structure",
       "members": {
@@ -4430,6 +4964,11 @@
       "output": {
         "target": "com.amazonaws.workspaces#RebootWorkspacesResult"
       },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        }
+      ],
       "traits": {
         "smithy.api#documentation": "<p>Reboots the specified WorkSpaces.</p>\n         <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code> or\n            <code>UNHEALTHY</code>.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p>"
       }
@@ -4444,6 +4983,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#RebootWorkspacesResult": {
@@ -4492,6 +5034,11 @@
       "output": {
         "target": "com.amazonaws.workspaces#RebuildWorkspacesResult"
       },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        }
+      ],
       "traits": {
         "smithy.api#documentation": "<p>Rebuilds the specified WorkSpace.</p>\n         <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,\n            <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or\n            <code>REBOOTING</code>.</p>\n         <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss\n         of data. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html\">Rebuild a\n         WorkSpace</a>.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces have been completely\n         rebuilt.</p>"
       }
@@ -4506,6 +5053,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#RebuildWorkspacesResult": {
@@ -4520,18 +5070,20 @@
       }
     },
     "com.amazonaws.workspaces#ReconnectEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#Region": {
@@ -4623,6 +5175,9 @@
             "smithy.api#documentation": "<p>The tags associated with the directory.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#RegisterWorkspaceDirectoryResult": {
@@ -4636,6 +5191,44 @@
           "min": 1,
           "max": 20
         }
+      }
+    },
+    "com.amazonaws.workspaces#RelatedWorkspaceProperties": {
+      "type": "structure",
+      "members": {
+        "WorkspaceId": {
+          "target": "com.amazonaws.workspaces#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the related WorkSpace.</p>"
+          }
+        },
+        "Region": {
+          "target": "com.amazonaws.workspaces#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region of the related WorkSpace.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workspaces#WorkspaceState",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the state of the WorkSpace.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.workspaces#StandbyWorkspaceRelationshipType",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the type of WorkSpace.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the related WorkSpace. The related WorkSpace could be a standby WorkSpace or \n         primary WorkSpace related to the specified WorkSpace.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#RelatedWorkspaces": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#RelatedWorkspaceProperties"
       }
     },
     "com.amazonaws.workspaces#ResourceAlreadyExistsException": {
@@ -4759,6 +5352,9 @@
           "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
         },
         {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
           "target": "com.amazonaws.workspaces#ResourceNotFoundException"
         }
       ],
@@ -4776,6 +5372,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#RestoreWorkspaceResult": {
@@ -4825,6 +5424,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#RevokeIpRulesResult": {
@@ -4846,31 +5448,33 @@
       }
     },
     "com.amazonaws.workspaces#RootVolumeSizeGib": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.workspaces#RunningMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AUTO_STOP",
-            "name": "AUTO_STOP"
-          },
-          {
-            "value": "ALWAYS_ON",
-            "name": "ALWAYS_ON"
+      "type": "enum",
+      "members": {
+        "AUTO_STOP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUTO_STOP"
           }
-        ]
+        },
+        "ALWAYS_ON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALWAYS_ON"
+          }
+        },
+        "MANUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MANUAL"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#RunningModeAutoStopTimeoutInMinutes": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.workspaces#SamlProperties": {
       "type": "structure",
@@ -4890,7 +5494,7 @@
         "RelayStateParameterName": {
           "target": "com.amazonaws.workspaces#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The relay state parameter name supported by the SAML 2.0 identity provider (IdP). When the end user is redirected to \n         the user access URL from the WorkSpaces client application, this relay state parameter name is appended as a query \n         parameter to the URL along with the relay state endpoint to return the user to the client application session.</p>\n      \n         <p>To use SAML 2.0 authentication with WorkSpaces, the IdP must support IdP-initiated deep linking for the relay state \n         URL. Consult your IdP documentation for more information.</p>"
+            "smithy.api#documentation": "<p>The relay state parameter name supported by the SAML 2.0 identity provider (IdP). When the end user is redirected to \n         the user access URL from the WorkSpaces client application, this relay state parameter name is appended as a query \n         parameter to the URL along with the relay state endpoint to return the user to the client application session.</p>\n         <p>To use SAML 2.0 authentication with WorkSpaces, the IdP must support IdP-initiated deep linking for the relay state \n         URL. Consult your IdP documentation for more information.</p>"
           }
         }
       },
@@ -4899,22 +5503,26 @@
       }
     },
     "com.amazonaws.workspaces#SamlStatusEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
-          },
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
-            "name": "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK"
+      "type": "enum",
+      "members": {
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
           }
-        ]
+        },
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#SamlUserAccessUrl": {
@@ -4995,6 +5603,63 @@
         "target": "com.amazonaws.workspaces#Snapshot"
       }
     },
+    "com.amazonaws.workspaces#StandbyWorkspace": {
+      "type": "structure",
+      "members": {
+        "PrimaryWorkspaceId": {
+          "target": "com.amazonaws.workspaces#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the standby WorkSpace.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VolumeEncryptionKey": {
+          "target": "com.amazonaws.workspaces#VolumeEncryptionKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The volume encryption key of the standby WorkSpace.</p>"
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory for the standby WorkSpace.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.workspaces#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the standby WorkSpace.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a standby WorkSpace.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#StandbyWorkspaceRelationshipType": {
+      "type": "enum",
+      "members": {
+        "PRIMARY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRIMARY"
+          }
+        },
+        "STANDBY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STANDBY"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#StandbyWorkspacesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#StandbyWorkspace"
+      }
+    },
     "com.amazonaws.workspaces#StartRequest": {
       "type": "structure",
       "members": {
@@ -5043,6 +5708,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#StartWorkspacesResult": {
@@ -5104,6 +5772,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#StopWorkspacesResult": {
@@ -5191,33 +5862,37 @@
       }
     },
     "com.amazonaws.workspaces#TargetWorkspaceState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AVAILABLE",
-            "name": "AVAILABLE"
-          },
-          {
-            "value": "ADMIN_MAINTENANCE",
-            "name": "ADMIN_MAINTENANCE"
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
           }
-        ]
+        },
+        "ADMIN_MAINTENANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADMIN_MAINTENANCE"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#Tenancy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEDICATED",
-            "name": "DEDICATED"
-          },
-          {
-            "value": "SHARED",
-            "name": "SHARED"
+      "type": "enum",
+      "members": {
+        "DEDICATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEDICATED"
           }
-        ]
+        },
+        "SHARED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHARED"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#TerminateRequest": {
@@ -5269,6 +5944,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#TerminateWorkspacesResult": {
@@ -5361,6 +6039,9 @@
             "smithy.api#documentation": "<p>The endpoint URL of the Amazon Connect client add-in.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#UpdateConnectClientAddInResult": {
@@ -5419,6 +6100,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#UpdateConnectionAliasPermissionResult": {
@@ -5501,6 +6185,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#UpdateRulesOfIpGroupResult": {
@@ -5523,6 +6210,9 @@
           "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
         },
         {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
           "target": "com.amazonaws.workspaces#ResourceNotFoundException"
         },
         {
@@ -5530,7 +6220,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html\">\n            Update a Custom WorkSpaces Bundle</a>.</p>\n      \n         <important>\n            <p>Existing WorkSpaces aren't automatically updated when you update the bundle that they're \n            based on. To update existing WorkSpaces that are based on a bundle that you've updated, you \n            must either rebuild the WorkSpaces or delete and recreate them.</p>\n         </important>"
+        "smithy.api#documentation": "<p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html\">\n            Update a Custom WorkSpaces Bundle</a>.</p>\n         <important>\n            <p>Existing WorkSpaces aren't automatically updated when you update the bundle that they're \n            based on. To update existing WorkSpaces that are based on a bundle that you've updated, you \n            must either rebuild the WorkSpaces or delete and recreate them.</p>\n         </important>"
       }
     },
     "com.amazonaws.workspaces#UpdateWorkspaceBundleRequest": {
@@ -5548,6 +6238,9 @@
             "smithy.api#documentation": "<p>The identifier of the image.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#UpdateWorkspaceBundleResult": {
@@ -5607,6 +6300,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.workspaces#UpdateWorkspaceImagePermissionResult": {
@@ -5637,10 +6333,7 @@
       }
     },
     "com.amazonaws.workspaces#UserVolumeSizeGib": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.workspaces#VolumeEncryptionKey": {
       "type": "string"
@@ -5736,6 +6429,12 @@
           "target": "com.amazonaws.workspaces#ModificationStateList",
           "traits": {
             "smithy.api#documentation": "<p>The modification states of the WorkSpace.</p>"
+          }
+        },
+        "RelatedWorkspaces": {
+          "target": "com.amazonaws.workspaces#RelatedWorkspaces",
+          "traits": {
+            "smithy.api#documentation": "<p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>"
           }
         }
       },
@@ -5861,6 +6560,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The time when the bundle was created.</p>"
           }
+        },
+        "State": {
+          "target": "com.amazonaws.workspaces#WorkspaceBundleState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the WorkSpace bundle.</p>"
+          }
+        },
+        "BundleType": {
+          "target": "com.amazonaws.workspaces#BundleType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of WorkSpace bundle.</p>"
+          }
         }
       },
       "traits": {
@@ -5885,6 +6596,29 @@
           "max": 64
         },
         "smithy.api#pattern": "^[a-zA-Z0-9_./()\\\\-]+$"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspaceBundleState": {
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
+          }
+        },
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#WorkspaceConnectionStatus": {
@@ -6073,6 +6807,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Describes the enablement status, user access URL, and relay state parameter name that are used for configuring \n         federation with an SAML 2.0 identity provider.</p>"
           }
+        },
+        "CertificateBasedAuthProperties": {
+          "target": "com.amazonaws.workspaces#CertificateBasedAuthProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP)\n         user identities to Active Directory for WorkSpaces login.</p>"
+          }
         }
       },
       "traits": {
@@ -6080,45 +6820,55 @@
       }
     },
     "com.amazonaws.workspaces#WorkspaceDirectoryState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "REGISTERING",
-            "name": "REGISTERING"
-          },
-          {
-            "value": "REGISTERED",
-            "name": "REGISTERED"
-          },
-          {
-            "value": "DEREGISTERING",
-            "name": "DEREGISTERING"
-          },
-          {
-            "value": "DEREGISTERED",
-            "name": "DEREGISTERED"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
+      "type": "enum",
+      "members": {
+        "REGISTERING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REGISTERING"
           }
-        ]
+        },
+        "REGISTERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REGISTERED"
+          }
+        },
+        "DEREGISTERING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEREGISTERING"
+          }
+        },
+        "DEREGISTERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEREGISTERED"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#WorkspaceDirectoryType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SIMPLE_AD",
-            "name": "SIMPLE_AD"
-          },
-          {
-            "value": "AD_CONNECTOR",
-            "name": "AD_CONNECTOR"
+      "type": "enum",
+      "members": {
+        "SIMPLE_AD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SIMPLE_AD"
           }
-        ]
+        },
+        "AD_CONNECTOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AD_CONNECTOR"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#WorkspaceErrorCode": {
@@ -6248,30 +6998,50 @@
       }
     },
     "com.amazonaws.workspaces#WorkspaceImageIngestionProcess": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "BYOL_REGULAR",
-            "name": "BYOL_REGULAR"
-          },
-          {
-            "value": "BYOL_GRAPHICS",
-            "name": "BYOL_GRAPHICS"
-          },
-          {
-            "value": "BYOL_GRAPHICSPRO",
-            "name": "BYOL_GRAPHICSPRO"
-          },
-          {
-            "value": "BYOL_GRAPHICS_G4DN",
-            "name": "BYOL_GRAPHICS_G4DN"
-          },
-          {
-            "value": "BYOL_REGULAR_WSP",
-            "name": "BYOL_REGULAR_WSP"
+      "type": "enum",
+      "members": {
+        "BYOL_REGULAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYOL_REGULAR"
           }
-        ]
+        },
+        "BYOL_GRAPHICS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYOL_GRAPHICS"
+          }
+        },
+        "BYOL_GRAPHICSPRO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYOL_GRAPHICSPRO"
+          }
+        },
+        "BYOL_GRAPHICS_G4DN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYOL_GRAPHICS_G4DN"
+          }
+        },
+        "BYOL_REGULAR_WSP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYOL_REGULAR_WSP"
+          }
+        },
+        "BYOL_REGULAR_BYOP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYOL_REGULAR_BYOP"
+          }
+        },
+        "BYOL_GRAPHICS_G4DN_BYOP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYOL_GRAPHICS_G4DN_BYOP"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#WorkspaceImageList": {
@@ -6291,37 +7061,43 @@
       }
     },
     "com.amazonaws.workspaces#WorkspaceImageRequiredTenancy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEFAULT",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "DEDICATED",
-            "name": "DEDICATED"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
           }
-        ]
+        },
+        "DEDICATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEDICATED"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#WorkspaceImageState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AVAILABLE",
-            "name": "AVAILABLE"
-          },
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
           }
-        ]
+        },
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#WorkspaceList": {
@@ -6336,7 +7112,7 @@
         "RunningMode": {
           "target": "com.amazonaws.workspaces#RunningMode",
           "traits": {
-            "smithy.api#documentation": "<p>The running mode. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html\">Manage the WorkSpace Running\n            Mode</a>.</p>"
+            "smithy.api#documentation": "<p>The running mode. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html\">Manage the WorkSpace Running\n         Mode</a>.</p>\n         <note>\n            <p>The <code>MANUAL</code> value is only supported by Amazon WorkSpaces Core. Contact\n            your account team to be allow-listed to use this value. For more information, see\n            <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p>\n         </note>"
           }
         },
         "RunningModeAutoStopTimeoutInMinutes": {
@@ -6361,6 +7137,12 @@
           "target": "com.amazonaws.workspaces#Compute",
           "traits": {
             "smithy.api#documentation": "<p>The compute type. For more information, see <a href=\"http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles\">Amazon WorkSpaces\n         Bundles</a>.</p>"
+          }
+        },
+        "Protocols": {
+          "target": "com.amazonaws.workspaces#ProtocolList",
+          "traits": {
+            "smithy.api#documentation": "<p>The protocol. For more information, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html\">\n            Protocols for Amazon WorkSpaces</a>.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>Only available for WorkSpaces created with PCoIP bundles.</p>\n               </li>\n               <li>\n                  <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>WSP</code>.</p>\n               </li>\n               <li>\n                  <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles \n               (Graphics, GraphicsPro, Graphics.g4dn, and GraphicsPro.g4dn).</p>\n               </li>\n            </ul>\n         </note>"
           }
         }
       },
@@ -6440,78 +7222,110 @@
       }
     },
     "com.amazonaws.workspaces#WorkspaceState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "AVAILABLE",
-            "name": "AVAILABLE"
-          },
-          {
-            "value": "IMPAIRED",
-            "name": "IMPAIRED"
-          },
-          {
-            "value": "UNHEALTHY",
-            "name": "UNHEALTHY"
-          },
-          {
-            "value": "REBOOTING",
-            "name": "REBOOTING"
-          },
-          {
-            "value": "STARTING",
-            "name": "STARTING"
-          },
-          {
-            "value": "REBUILDING",
-            "name": "REBUILDING"
-          },
-          {
-            "value": "RESTORING",
-            "name": "RESTORING"
-          },
-          {
-            "value": "MAINTENANCE",
-            "name": "MAINTENANCE"
-          },
-          {
-            "value": "ADMIN_MAINTENANCE",
-            "name": "ADMIN_MAINTENANCE"
-          },
-          {
-            "value": "TERMINATING",
-            "name": "TERMINATING"
-          },
-          {
-            "value": "TERMINATED",
-            "name": "TERMINATED"
-          },
-          {
-            "value": "SUSPENDED",
-            "name": "SUSPENDED"
-          },
-          {
-            "value": "UPDATING",
-            "name": "UPDATING"
-          },
-          {
-            "value": "STOPPING",
-            "name": "STOPPING"
-          },
-          {
-            "value": "STOPPED",
-            "name": "STOPPED"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
+          }
+        },
+        "IMPAIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPAIRED"
+          }
+        },
+        "UNHEALTHY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNHEALTHY"
+          }
+        },
+        "REBOOTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REBOOTING"
+          }
+        },
+        "STARTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STARTING"
+          }
+        },
+        "REBUILDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REBUILDING"
+          }
+        },
+        "RESTORING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESTORING"
+          }
+        },
+        "MAINTENANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAINTENANCE"
+          }
+        },
+        "ADMIN_MAINTENANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADMIN_MAINTENANCE"
+          }
+        },
+        "TERMINATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATING"
+          }
+        },
+        "TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TERMINATED"
+          }
+        },
+        "SUSPENDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUSPENDED"
+          }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATING"
+          }
+        },
+        "STOPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STOPPING"
+          }
+        },
+        "STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STOPPED"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#WorkspacesDefaultRoleNotFoundException": {
@@ -6566,24 +7380,6 @@
     },
     "com.amazonaws.workspaces#WorkspacesService": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "WorkSpaces",
-          "arnNamespace": "workspaces",
-          "cloudFormationName": "WorkSpaces",
-          "cloudTrailEventSource": "workspaces.amazonaws.com",
-          "endpointPrefix": "workspaces"
-        },
-        "aws.auth#sigv4": {
-          "name": "workspaces"
-        },
-        "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<fullname>Amazon WorkSpaces Service</fullname>\n         <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows\n         or Amazon Linux desktops for your users, known as <i>WorkSpaces</i>.\n            WorkSpaces eliminates the need to procure and deploy hardware or install complex\n         software. You can quickly add or remove users as your needs change. Users can access their\n         virtual desktops from multiple devices or web browsers.</p>\n         <p>This API Reference provides detailed information about the actions, data types,\n         parameters, and errors of the WorkSpaces service. For more information about the\n         supported Amazon Web Services Regions, endpoints, and service quotas of the Amazon WorkSpaces service, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/wsp.html\">WorkSpaces endpoints and quotas</a> in the <i>Amazon Web Services\n            General Reference</i>.</p>\n         <p>You can also manage your WorkSpaces resources using the WorkSpaces\n         console, Command Line Interface (CLI), and SDKs. For more information about\n         administering WorkSpaces, see the <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/\">Amazon WorkSpaces Administration Guide</a>.\n         For more information about using the Amazon WorkSpaces client application or web\n         browser to access provisioned WorkSpaces, see the <a href=\"https://docs.aws.amazon.com/workspaces/latest/userguide/\">Amazon WorkSpaces User Guide</a>. For more\n         information about using the CLI to manage your WorkSpaces resources,\n         see the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/workspaces/index.html\">WorkSpaces section of the CLI Reference</a>.</p>",
-        "smithy.api#title": "Amazon WorkSpaces",
-        "smithy.api#xmlNamespace": {
-          "uri": "http://workspaces.amazonaws.com/api/v1"
-        }
-      },
       "version": "2015-04-08",
       "operations": [
         {
@@ -6606,6 +7402,9 @@
         },
         {
           "target": "com.amazonaws.workspaces#CreateIpGroup"
+        },
+        {
+          "target": "com.amazonaws.workspaces#CreateStandbyWorkspaces"
         },
         {
           "target": "com.amazonaws.workspaces#CreateTags"
@@ -6716,6 +7515,9 @@
           "target": "com.amazonaws.workspaces#ModifyAccount"
         },
         {
+          "target": "com.amazonaws.workspaces#ModifyCertificateBasedAuthProperties"
+        },
+        {
           "target": "com.amazonaws.workspaces#ModifyClientProperties"
         },
         {
@@ -6775,7 +7577,795 @@
         {
           "target": "com.amazonaws.workspaces#UpdateWorkspaceImagePermission"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "WorkSpaces",
+          "arnNamespace": "workspaces",
+          "cloudFormationName": "WorkSpaces",
+          "cloudTrailEventSource": "workspaces.amazonaws.com",
+          "endpointPrefix": "workspaces"
+        },
+        "aws.auth#sigv4": {
+          "name": "workspaces"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<fullname>Amazon WorkSpaces Service</fullname>\n         <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows\n         or Amazon Linux desktops for your users, known as <i>WorkSpaces</i>.\n            WorkSpaces eliminates the need to procure and deploy hardware or install complex\n         software. You can quickly add or remove users as your needs change. Users can access their\n         virtual desktops from multiple devices or web browsers.</p>\n         <p>This API Reference provides detailed information about the actions, data types,\n         parameters, and errors of the WorkSpaces service. For more information about the\n         supported Amazon Web Services Regions, endpoints, and service quotas of the Amazon WorkSpaces service, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/wsp.html\">WorkSpaces endpoints and quotas</a> in the <i>Amazon Web Services\n            General Reference</i>.</p>\n         <p>You can also manage your WorkSpaces resources using the WorkSpaces\n         console, Command Line Interface (CLI), and SDKs. For more information about\n         administering WorkSpaces, see the <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/\">Amazon WorkSpaces Administration Guide</a>.\n         For more information about using the Amazon WorkSpaces client application or web\n         browser to access provisioned WorkSpaces, see the <a href=\"https://docs.aws.amazon.com/workspaces/latest/userguide/\">Amazon WorkSpaces User Guide</a>. For more\n         information about using the CLI to manage your WorkSpaces resources,\n         see the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/workspaces/index.html\">WorkSpaces section of the CLI Reference</a>.</p>",
+        "smithy.api#title": "Amazon WorkSpaces",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://workspaces.amazonaws.com/api/v1"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": true,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://workspaces-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://workspaces-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://workspaces.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://workspaces.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     }
   }
 }

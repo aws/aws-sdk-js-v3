@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseFloat as __strictParseFloat,
   strictParseLong as __strictParseLong,
   throwDefaultError,
@@ -19,8 +19,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import {
   CloneReceiptRuleSetCommandInput,
@@ -1605,17 +1604,17 @@ const deserializeAws_queryCloneReceiptRuleSetCommandError = async (
 ): Promise<CloneReceiptRuleSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -1652,17 +1651,17 @@ const deserializeAws_queryCreateConfigurationSetCommandError = async (
 ): Promise<CreateConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetAlreadyExistsException":
+    case "ConfigurationSetAlreadyExists":
     case "com.amazonaws.ses#ConfigurationSetAlreadyExistsException":
       throw await deserializeAws_queryConfigurationSetAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationSetException":
+    case "InvalidConfigurationSet":
     case "com.amazonaws.ses#InvalidConfigurationSetException":
       throw await deserializeAws_queryInvalidConfigurationSetExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1702,26 +1701,26 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "EventDestinationAlreadyExistsException":
+    case "EventDestinationAlreadyExists":
     case "com.amazonaws.ses#EventDestinationAlreadyExistsException":
       throw await deserializeAws_queryEventDestinationAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidCloudWatchDestinationException":
+    case "InvalidCloudWatchDestination":
     case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
       throw await deserializeAws_queryInvalidCloudWatchDestinationExceptionResponse(parsedOutput, context);
-    case "InvalidFirehoseDestinationException":
+    case "InvalidFirehoseDestination":
     case "com.amazonaws.ses#InvalidFirehoseDestinationException":
       throw await deserializeAws_queryInvalidFirehoseDestinationExceptionResponse(parsedOutput, context);
-    case "InvalidSNSDestinationException":
+    case "InvalidSNSDestination":
     case "com.amazonaws.ses#InvalidSNSDestinationException":
       throw await deserializeAws_queryInvalidSNSDestinationExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1761,14 +1760,14 @@ const deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandError = as
 ): Promise<CreateConfigurationSetTrackingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "InvalidTrackingOptionsException":
+    case "InvalidTrackingOptions":
     case "com.amazonaws.ses#InvalidTrackingOptionsException":
       throw await deserializeAws_queryInvalidTrackingOptionsExceptionResponse(parsedOutput, context);
     case "TrackingOptionsAlreadyExistsException":
@@ -1805,23 +1804,23 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
 ): Promise<CreateCustomVerificationEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomVerificationEmailInvalidContentException":
+    case "CustomVerificationEmailInvalidContent":
     case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
       throw await deserializeAws_queryCustomVerificationEmailInvalidContentExceptionResponse(parsedOutput, context);
-    case "CustomVerificationEmailTemplateAlreadyExistsException":
+    case "CustomVerificationEmailTemplateAlreadyExists":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateAlreadyExistsException":
       throw await deserializeAws_queryCustomVerificationEmailTemplateAlreadyExistsExceptionResponse(
         parsedOutput,
         context
       );
-    case "FromEmailAddressNotVerifiedException":
+    case "FromEmailAddressNotVerified":
     case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       throw await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1858,14 +1857,14 @@ const deserializeAws_queryCreateReceiptFilterCommandError = async (
 ): Promise<CreateReceiptFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1902,29 +1901,29 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
 ): Promise<CreateReceiptRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidLambdaFunctionException":
+    case "InvalidLambdaFunction":
     case "com.amazonaws.ses#InvalidLambdaFunctionException":
       throw await deserializeAws_queryInvalidLambdaFunctionExceptionResponse(parsedOutput, context);
-    case "InvalidS3ConfigurationException":
+    case "InvalidS3Configuration":
     case "com.amazonaws.ses#InvalidS3ConfigurationException":
       throw await deserializeAws_queryInvalidS3ConfigurationExceptionResponse(parsedOutput, context);
-    case "InvalidSnsTopicException":
+    case "InvalidSnsTopic":
     case "com.amazonaws.ses#InvalidSnsTopicException":
       throw await deserializeAws_queryInvalidSnsTopicExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       throw await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -1961,14 +1960,14 @@ const deserializeAws_queryCreateReceiptRuleSetCommandError = async (
 ): Promise<CreateReceiptRuleSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -2005,17 +2004,17 @@ const deserializeAws_queryCreateTemplateCommandError = async (
 ): Promise<CreateTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidTemplateException":
+    case "InvalidTemplate":
     case "com.amazonaws.ses#InvalidTemplateException":
       throw await deserializeAws_queryInvalidTemplateExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -2052,11 +2051,11 @@ const deserializeAws_queryDeleteConfigurationSetCommandError = async (
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2096,14 +2095,14 @@ const deserializeAws_queryDeleteConfigurationSetEventDestinationCommandError = a
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "EventDestinationDoesNotExistException":
+    case "EventDestinationDoesNotExist":
     case "com.amazonaws.ses#EventDestinationDoesNotExistException":
       throw await deserializeAws_queryEventDestinationDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2143,11 +2142,11 @@ const deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandError = as
 ): Promise<DeleteConfigurationSetTrackingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     case "TrackingOptionsDoesNotExistException":
@@ -2184,7 +2183,7 @@ const deserializeAws_queryDeleteCustomVerificationEmailTemplateCommandError = as
 ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2219,7 +2218,7 @@ const deserializeAws_queryDeleteIdentityCommandError = async (
 ): Promise<DeleteIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2254,7 +2253,7 @@ const deserializeAws_queryDeleteIdentityPolicyCommandError = async (
 ): Promise<DeleteIdentityPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2289,7 +2288,7 @@ const deserializeAws_queryDeleteReceiptFilterCommandError = async (
 ): Promise<DeleteReceiptFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2324,11 +2323,11 @@ const deserializeAws_queryDeleteReceiptRuleCommandError = async (
 ): Promise<DeleteReceiptRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2365,11 +2364,11 @@ const deserializeAws_queryDeleteReceiptRuleSetCommandError = async (
 ): Promise<DeleteReceiptRuleSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CannotDeleteException":
+    case "CannotDelete":
     case "com.amazonaws.ses#CannotDeleteException":
       throw await deserializeAws_queryCannotDeleteExceptionResponse(parsedOutput, context);
     default:
@@ -2406,7 +2405,7 @@ const deserializeAws_queryDeleteTemplateCommandError = async (
 ): Promise<DeleteTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2438,7 +2437,7 @@ const deserializeAws_queryDeleteVerifiedEmailAddressCommandError = async (
 ): Promise<DeleteVerifiedEmailAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2473,7 +2472,7 @@ const deserializeAws_queryDescribeActiveReceiptRuleSetCommandError = async (
 ): Promise<DescribeActiveReceiptRuleSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2508,11 +2507,11 @@ const deserializeAws_queryDescribeConfigurationSetCommandError = async (
 ): Promise<DescribeConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2549,14 +2548,14 @@ const deserializeAws_queryDescribeReceiptRuleCommandError = async (
 ): Promise<DescribeReceiptRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       throw await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2593,11 +2592,11 @@ const deserializeAws_queryDescribeReceiptRuleSetCommandError = async (
 ): Promise<DescribeReceiptRuleSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2634,7 +2633,7 @@ const deserializeAws_queryGetAccountSendingEnabledCommandError = async (
 ): Promise<GetAccountSendingEnabledCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2672,11 +2671,11 @@ const deserializeAws_queryGetCustomVerificationEmailTemplateCommandError = async
 ): Promise<GetCustomVerificationEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomVerificationEmailTemplateDoesNotExistException":
+    case "CustomVerificationEmailTemplateDoesNotExist":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       throw await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
         parsedOutput,
@@ -2716,7 +2715,7 @@ const deserializeAws_queryGetIdentityDkimAttributesCommandError = async (
 ): Promise<GetIdentityDkimAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2754,7 +2753,7 @@ const deserializeAws_queryGetIdentityMailFromDomainAttributesCommandError = asyn
 ): Promise<GetIdentityMailFromDomainAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2792,7 +2791,7 @@ const deserializeAws_queryGetIdentityNotificationAttributesCommandError = async 
 ): Promise<GetIdentityNotificationAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2827,7 +2826,7 @@ const deserializeAws_queryGetIdentityPoliciesCommandError = async (
 ): Promise<GetIdentityPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2865,7 +2864,7 @@ const deserializeAws_queryGetIdentityVerificationAttributesCommandError = async 
 ): Promise<GetIdentityVerificationAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2900,7 +2899,7 @@ const deserializeAws_queryGetSendQuotaCommandError = async (
 ): Promise<GetSendQuotaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2935,7 +2934,7 @@ const deserializeAws_queryGetSendStatisticsCommandError = async (
 ): Promise<GetSendStatisticsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2970,11 +2969,11 @@ const deserializeAws_queryGetTemplateCommandError = async (
 ): Promise<GetTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       throw await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -3011,7 +3010,7 @@ const deserializeAws_queryListConfigurationSetsCommandError = async (
 ): Promise<ListConfigurationSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3049,7 +3048,7 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesCommandError = asy
 ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3084,7 +3083,7 @@ const deserializeAws_queryListIdentitiesCommandError = async (
 ): Promise<ListIdentitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3119,7 +3118,7 @@ const deserializeAws_queryListIdentityPoliciesCommandError = async (
 ): Promise<ListIdentityPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3154,7 +3153,7 @@ const deserializeAws_queryListReceiptFiltersCommandError = async (
 ): Promise<ListReceiptFiltersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3189,7 +3188,7 @@ const deserializeAws_queryListReceiptRuleSetsCommandError = async (
 ): Promise<ListReceiptRuleSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3224,7 +3223,7 @@ const deserializeAws_queryListTemplatesCommandError = async (
 ): Promise<ListTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3259,7 +3258,7 @@ const deserializeAws_queryListVerifiedEmailAddressesCommandError = async (
 ): Promise<ListVerifiedEmailAddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3297,14 +3296,14 @@ const deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandError = async
 ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "InvalidDeliveryOptionsException":
+    case "InvalidDeliveryOptions":
     case "com.amazonaws.ses#InvalidDeliveryOptionsException":
       throw await deserializeAws_queryInvalidDeliveryOptionsExceptionResponse(parsedOutput, context);
     default:
@@ -3341,11 +3340,11 @@ const deserializeAws_queryPutIdentityPolicyCommandError = async (
 ): Promise<PutIdentityPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidPolicyException":
+    case "InvalidPolicy":
     case "com.amazonaws.ses#InvalidPolicyException":
       throw await deserializeAws_queryInvalidPolicyExceptionResponse(parsedOutput, context);
     default:
@@ -3382,14 +3381,14 @@ const deserializeAws_queryReorderReceiptRuleSetCommandError = async (
 ): Promise<ReorderReceiptRuleSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       throw await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -3426,7 +3425,7 @@ const deserializeAws_querySendBounceCommandError = async (
 ): Promise<SendBounceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3467,14 +3466,14 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
 ): Promise<SendBulkTemplatedEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
     case "com.amazonaws.ses#AccountSendingPausedException":
       throw await deserializeAws_queryAccountSendingPausedExceptionResponse(parsedOutput, context);
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     case "ConfigurationSetSendingPausedException":
@@ -3486,7 +3485,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
     case "MessageRejected":
     case "com.amazonaws.ses#MessageRejected":
       throw await deserializeAws_queryMessageRejectedResponse(parsedOutput, context);
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       throw await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -3523,26 +3522,26 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
 ): Promise<SendCustomVerificationEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "CustomVerificationEmailTemplateDoesNotExistException":
+    case "CustomVerificationEmailTemplateDoesNotExist":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       throw await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
         parsedOutput,
         context
       );
-    case "FromEmailAddressNotVerifiedException":
+    case "FromEmailAddressNotVerified":
     case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       throw await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(parsedOutput, context);
     case "MessageRejected":
     case "com.amazonaws.ses#MessageRejected":
       throw await deserializeAws_queryMessageRejectedResponse(parsedOutput, context);
-    case "ProductionAccessNotGrantedException":
+    case "ProductionAccessNotGranted":
     case "com.amazonaws.ses#ProductionAccessNotGrantedException":
       throw await deserializeAws_queryProductionAccessNotGrantedExceptionResponse(parsedOutput, context);
     default:
@@ -3579,14 +3578,14 @@ const deserializeAws_querySendEmailCommandError = async (
 ): Promise<SendEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
     case "com.amazonaws.ses#AccountSendingPausedException":
       throw await deserializeAws_queryAccountSendingPausedExceptionResponse(parsedOutput, context);
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     case "ConfigurationSetSendingPausedException":
@@ -3632,14 +3631,14 @@ const deserializeAws_querySendRawEmailCommandError = async (
 ): Promise<SendRawEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
     case "com.amazonaws.ses#AccountSendingPausedException":
       throw await deserializeAws_queryAccountSendingPausedExceptionResponse(parsedOutput, context);
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     case "ConfigurationSetSendingPausedException":
@@ -3685,14 +3684,14 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
 ): Promise<SendTemplatedEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
     case "com.amazonaws.ses#AccountSendingPausedException":
       throw await deserializeAws_queryAccountSendingPausedExceptionResponse(parsedOutput, context);
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     case "ConfigurationSetSendingPausedException":
@@ -3704,7 +3703,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
     case "MessageRejected":
     case "com.amazonaws.ses#MessageRejected":
       throw await deserializeAws_queryMessageRejectedResponse(parsedOutput, context);
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       throw await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -3741,11 +3740,11 @@ const deserializeAws_querySetActiveReceiptRuleSetCommandError = async (
 ): Promise<SetActiveReceiptRuleSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -3782,7 +3781,7 @@ const deserializeAws_querySetIdentityDkimEnabledCommandError = async (
 ): Promise<SetIdentityDkimEnabledCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3820,7 +3819,7 @@ const deserializeAws_querySetIdentityFeedbackForwardingEnabledCommandError = asy
 ): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3858,7 +3857,7 @@ const deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommandError =
 ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3893,7 +3892,7 @@ const deserializeAws_querySetIdentityMailFromDomainCommandError = async (
 ): Promise<SetIdentityMailFromDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3928,7 +3927,7 @@ const deserializeAws_querySetIdentityNotificationTopicCommandError = async (
 ): Promise<SetIdentityNotificationTopicCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3963,14 +3962,14 @@ const deserializeAws_querySetReceiptRulePositionCommandError = async (
 ): Promise<SetReceiptRulePositionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       throw await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4007,17 +4006,17 @@ const deserializeAws_queryTestRenderTemplateCommandError = async (
 ): Promise<TestRenderTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidRenderingParameterException":
+    case "InvalidRenderingParameter":
     case "com.amazonaws.ses#InvalidRenderingParameterException":
       throw await deserializeAws_queryInvalidRenderingParameterExceptionResponse(parsedOutput, context);
-    case "MissingRenderingAttributeException":
+    case "MissingRenderingAttribute":
     case "com.amazonaws.ses#MissingRenderingAttributeException":
       throw await deserializeAws_queryMissingRenderingAttributeExceptionResponse(parsedOutput, context);
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       throw await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4051,7 +4050,7 @@ const deserializeAws_queryUpdateAccountSendingEnabledCommandError = async (
 ): Promise<UpdateAccountSendingEnabledCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4089,23 +4088,23 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "EventDestinationDoesNotExistException":
+    case "EventDestinationDoesNotExist":
     case "com.amazonaws.ses#EventDestinationDoesNotExistException":
       throw await deserializeAws_queryEventDestinationDoesNotExistExceptionResponse(parsedOutput, context);
-    case "InvalidCloudWatchDestinationException":
+    case "InvalidCloudWatchDestination":
     case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
       throw await deserializeAws_queryInvalidCloudWatchDestinationExceptionResponse(parsedOutput, context);
-    case "InvalidFirehoseDestinationException":
+    case "InvalidFirehoseDestination":
     case "com.amazonaws.ses#InvalidFirehoseDestinationException":
       throw await deserializeAws_queryInvalidFirehoseDestinationExceptionResponse(parsedOutput, context);
-    case "InvalidSNSDestinationException":
+    case "InvalidSNSDestination":
     case "com.amazonaws.ses#InvalidSNSDestinationException":
       throw await deserializeAws_queryInvalidSNSDestinationExceptionResponse(parsedOutput, context);
     default:
@@ -4139,11 +4138,11 @@ const deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommandE
 ): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4177,11 +4176,11 @@ const deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandError = asy
 ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4221,14 +4220,14 @@ const deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandError = as
 ): Promise<UpdateConfigurationSetTrackingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "InvalidTrackingOptionsException":
+    case "InvalidTrackingOptions":
     case "com.amazonaws.ses#InvalidTrackingOptionsException":
       throw await deserializeAws_queryInvalidTrackingOptionsExceptionResponse(parsedOutput, context);
     case "TrackingOptionsDoesNotExistException":
@@ -4265,20 +4264,20 @@ const deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError = as
 ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomVerificationEmailInvalidContentException":
+    case "CustomVerificationEmailInvalidContent":
     case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
       throw await deserializeAws_queryCustomVerificationEmailInvalidContentExceptionResponse(parsedOutput, context);
-    case "CustomVerificationEmailTemplateDoesNotExistException":
+    case "CustomVerificationEmailTemplateDoesNotExist":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       throw await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
         parsedOutput,
         context
       );
-    case "FromEmailAddressNotVerifiedException":
+    case "FromEmailAddressNotVerified":
     case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       throw await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(parsedOutput, context);
     default:
@@ -4315,26 +4314,26 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
 ): Promise<UpdateReceiptRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidLambdaFunctionException":
+    case "InvalidLambdaFunction":
     case "com.amazonaws.ses#InvalidLambdaFunctionException":
       throw await deserializeAws_queryInvalidLambdaFunctionExceptionResponse(parsedOutput, context);
-    case "InvalidS3ConfigurationException":
+    case "InvalidS3Configuration":
     case "com.amazonaws.ses#InvalidS3ConfigurationException":
       throw await deserializeAws_queryInvalidS3ConfigurationExceptionResponse(parsedOutput, context);
-    case "InvalidSnsTopicException":
+    case "InvalidSnsTopic":
     case "com.amazonaws.ses#InvalidSnsTopicException":
       throw await deserializeAws_queryInvalidSnsTopicExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       throw await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4371,14 +4370,14 @@ const deserializeAws_queryUpdateTemplateCommandError = async (
 ): Promise<UpdateTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidTemplateException":
+    case "InvalidTemplate":
     case "com.amazonaws.ses#InvalidTemplateException":
       throw await deserializeAws_queryInvalidTemplateExceptionResponse(parsedOutput, context);
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       throw await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4415,7 +4414,7 @@ const deserializeAws_queryVerifyDomainDkimCommandError = async (
 ): Promise<VerifyDomainDkimCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4450,7 +4449,7 @@ const deserializeAws_queryVerifyDomainIdentityCommandError = async (
 ): Promise<VerifyDomainIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4482,7 +4481,7 @@ const deserializeAws_queryVerifyEmailAddressCommandError = async (
 ): Promise<VerifyEmailAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4517,7 +4516,7 @@ const deserializeAws_queryVerifyEmailIdentityCommandError = async (
 ): Promise<VerifyEmailIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5088,6 +5087,9 @@ const serializeAws_queryBulkEmailDestination = (input: BulkEmailDestination, con
   }
   if (input.ReplacementTags != null) {
     const memberEntries = serializeAws_queryMessageTagList(input.ReplacementTags, context);
+    if (input.ReplacementTags?.length === 0) {
+      entries.ReplacementTags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplacementTags.${key}`;
       entries[loc] = value;
@@ -5133,6 +5135,9 @@ const serializeAws_queryCloudWatchDestination = (input: CloudWatchDestination, c
   const entries: any = {};
   if (input.DimensionConfigurations != null) {
     const memberEntries = serializeAws_queryCloudWatchDimensionConfigurations(input.DimensionConfigurations, context);
+    if (input.DimensionConfigurations?.length === 0) {
+      entries.DimensionConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DimensionConfigurations.${key}`;
       entries[loc] = value;
@@ -5495,6 +5500,9 @@ const serializeAws_queryDescribeConfigurationSetRequest = (
       input.ConfigurationSetAttributeNames,
       context
     );
+    if (input.ConfigurationSetAttributeNames?.length === 0) {
+      entries.ConfigurationSetAttributeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConfigurationSetAttributeNames.${key}`;
       entries[loc] = value;
@@ -5532,6 +5540,9 @@ const serializeAws_queryDestination = (input: Destination, context: __SerdeConte
   const entries: any = {};
   if (input.ToAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.ToAddresses, context);
+    if (input.ToAddresses?.length === 0) {
+      entries.ToAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ToAddresses.${key}`;
       entries[loc] = value;
@@ -5539,6 +5550,9 @@ const serializeAws_queryDestination = (input: Destination, context: __SerdeConte
   }
   if (input.CcAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.CcAddresses, context);
+    if (input.CcAddresses?.length === 0) {
+      entries.CcAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CcAddresses.${key}`;
       entries[loc] = value;
@@ -5546,6 +5560,9 @@ const serializeAws_queryDestination = (input: Destination, context: __SerdeConte
   }
   if (input.BccAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.BccAddresses, context);
+    if (input.BccAddresses?.length === 0) {
+      entries.BccAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BccAddresses.${key}`;
       entries[loc] = value;
@@ -5564,6 +5581,9 @@ const serializeAws_queryEventDestination = (input: EventDestination, context: __
   }
   if (input.MatchingEventTypes != null) {
     const memberEntries = serializeAws_queryEventTypes(input.MatchingEventTypes, context);
+    if (input.MatchingEventTypes?.length === 0) {
+      entries.MatchingEventTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MatchingEventTypes.${key}`;
       entries[loc] = value;
@@ -5651,6 +5671,9 @@ const serializeAws_queryGetIdentityDkimAttributesRequest = (
   const entries: any = {};
   if (input.Identities != null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
+    if (input.Identities?.length === 0) {
+      entries.Identities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
       entries[loc] = value;
@@ -5666,6 +5689,9 @@ const serializeAws_queryGetIdentityMailFromDomainAttributesRequest = (
   const entries: any = {};
   if (input.Identities != null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
+    if (input.Identities?.length === 0) {
+      entries.Identities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
       entries[loc] = value;
@@ -5681,6 +5707,9 @@ const serializeAws_queryGetIdentityNotificationAttributesRequest = (
   const entries: any = {};
   if (input.Identities != null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
+    if (input.Identities?.length === 0) {
+      entries.Identities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
       entries[loc] = value;
@@ -5699,6 +5728,9 @@ const serializeAws_queryGetIdentityPoliciesRequest = (
   }
   if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNameList(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -5714,6 +5746,9 @@ const serializeAws_queryGetIdentityVerificationAttributesRequest = (
   const entries: any = {};
   if (input.Identities != null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
+    if (input.Identities?.length === 0) {
+      entries.Identities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
       entries[loc] = value;
@@ -5883,6 +5918,9 @@ const serializeAws_queryMessageDsn = (input: MessageDsn, context: __SerdeContext
   }
   if (input.ExtensionFields != null) {
     const memberEntries = serializeAws_queryExtensionFieldList(input.ExtensionFields, context);
+    if (input.ExtensionFields?.length === 0) {
+      entries.ExtensionFields = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExtensionFields.${key}`;
       entries[loc] = value;
@@ -6080,6 +6118,9 @@ const serializeAws_queryReceiptRule = (input: ReceiptRule, context: __SerdeConte
   }
   if (input.Recipients != null) {
     const memberEntries = serializeAws_queryRecipientsList(input.Recipients, context);
+    if (input.Recipients?.length === 0) {
+      entries.Recipients = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Recipients.${key}`;
       entries[loc] = value;
@@ -6087,6 +6128,9 @@ const serializeAws_queryReceiptRule = (input: ReceiptRule, context: __SerdeConte
   }
   if (input.Actions != null) {
     const memberEntries = serializeAws_queryReceiptActionsList(input.Actions, context);
+    if (input.Actions?.length === 0) {
+      entries.Actions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Actions.${key}`;
       entries[loc] = value;
@@ -6133,6 +6177,9 @@ const serializeAws_queryRecipientDsnFields = (input: RecipientDsnFields, context
   }
   if (input.ExtensionFields != null) {
     const memberEntries = serializeAws_queryExtensionFieldList(input.ExtensionFields, context);
+    if (input.ExtensionFields?.length === 0) {
+      entries.ExtensionFields = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExtensionFields.${key}`;
       entries[loc] = value;
@@ -6164,6 +6211,9 @@ const serializeAws_queryReorderReceiptRuleSetRequest = (
   }
   if (input.RuleNames != null) {
     const memberEntries = serializeAws_queryReceiptRuleNamesList(input.RuleNames, context);
+    if (input.RuleNames?.length === 0) {
+      entries.RuleNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RuleNames.${key}`;
       entries[loc] = value;
@@ -6209,6 +6259,9 @@ const serializeAws_querySendBounceRequest = (input: SendBounceRequest, context: 
   }
   if (input.BouncedRecipientInfoList != null) {
     const memberEntries = serializeAws_queryBouncedRecipientInfoList(input.BouncedRecipientInfoList, context);
+    if (input.BouncedRecipientInfoList?.length === 0) {
+      entries.BouncedRecipientInfoList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BouncedRecipientInfoList.${key}`;
       entries[loc] = value;
@@ -6233,6 +6286,9 @@ const serializeAws_querySendBulkTemplatedEmailRequest = (
   }
   if (input.ReplyToAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.ReplyToAddresses, context);
+    if (input.ReplyToAddresses?.length === 0) {
+      entries.ReplyToAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplyToAddresses.${key}`;
       entries[loc] = value;
@@ -6249,6 +6305,9 @@ const serializeAws_querySendBulkTemplatedEmailRequest = (
   }
   if (input.DefaultTags != null) {
     const memberEntries = serializeAws_queryMessageTagList(input.DefaultTags, context);
+    if (input.DefaultTags?.length === 0) {
+      entries.DefaultTags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DefaultTags.${key}`;
       entries[loc] = value;
@@ -6265,6 +6324,9 @@ const serializeAws_querySendBulkTemplatedEmailRequest = (
   }
   if (input.Destinations != null) {
     const memberEntries = serializeAws_queryBulkEmailDestinationList(input.Destinations, context);
+    if (input.Destinations?.length === 0) {
+      entries.Destinations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destinations.${key}`;
       entries[loc] = value;
@@ -6311,6 +6373,9 @@ const serializeAws_querySendEmailRequest = (input: SendEmailRequest, context: __
   }
   if (input.ReplyToAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.ReplyToAddresses, context);
+    if (input.ReplyToAddresses?.length === 0) {
+      entries.ReplyToAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplyToAddresses.${key}`;
       entries[loc] = value;
@@ -6327,6 +6392,9 @@ const serializeAws_querySendEmailRequest = (input: SendEmailRequest, context: __
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryMessageTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6345,6 +6413,9 @@ const serializeAws_querySendRawEmailRequest = (input: SendRawEmailRequest, conte
   }
   if (input.Destinations != null) {
     const memberEntries = serializeAws_queryAddressList(input.Destinations, context);
+    if (input.Destinations?.length === 0) {
+      entries.Destinations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destinations.${key}`;
       entries[loc] = value;
@@ -6368,6 +6439,9 @@ const serializeAws_querySendRawEmailRequest = (input: SendRawEmailRequest, conte
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryMessageTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6396,6 +6470,9 @@ const serializeAws_querySendTemplatedEmailRequest = (
   }
   if (input.ReplyToAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.ReplyToAddresses, context);
+    if (input.ReplyToAddresses?.length === 0) {
+      entries.ReplyToAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplyToAddresses.${key}`;
       entries[loc] = value;
@@ -6412,6 +6489,9 @@ const serializeAws_querySendTemplatedEmailRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryMessageTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -7345,10 +7425,8 @@ const deserializeAws_queryDkimAttributes = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_queryIdentityDkimAttributes(pair["value"], context),
-    };
+    acc[pair["key"]] = deserializeAws_queryIdentityDkimAttributes(pair["value"], context);
+    return acc;
   }, {});
 };
 
@@ -8176,10 +8254,8 @@ const deserializeAws_queryMailFromDomainAttributes = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_queryIdentityMailFromDomainAttributes(pair["value"], context),
-    };
+    acc[pair["key"]] = deserializeAws_queryIdentityMailFromDomainAttributes(pair["value"], context);
+    return acc;
   }, {});
 };
 
@@ -8231,10 +8307,8 @@ const deserializeAws_queryNotificationAttributes = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_queryIdentityNotificationAttributes(pair["value"], context),
-    };
+    acc[pair["key"]] = deserializeAws_queryIdentityNotificationAttributes(pair["value"], context);
+    return acc;
   }, {});
 };
 
@@ -8243,10 +8317,8 @@ const deserializeAws_queryPolicyMap = (output: any, context: __SerdeContext): Re
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -8414,7 +8486,7 @@ const deserializeAws_queryReceiptRuleSetMetadata = (output: any, context: __Serd
     contents.Name = __expectString(output["Name"]);
   }
   if (output["CreatedTimestamp"] !== undefined) {
-    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["CreatedTimestamp"]));
+    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTimestamp"]));
   }
   return contents;
 };
@@ -8464,7 +8536,7 @@ const deserializeAws_queryReputationOptions = (output: any, context: __SerdeCont
     contents.ReputationMetricsEnabled = __parseBoolean(output["ReputationMetricsEnabled"]);
   }
   if (output["LastFreshStart"] !== undefined) {
-    contents.LastFreshStart = __expectNonNull(__parseRfc3339DateTime(output["LastFreshStart"]));
+    contents.LastFreshStart = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastFreshStart"]));
   }
   return contents;
 };
@@ -8575,7 +8647,7 @@ const deserializeAws_querySendDataPoint = (output: any, context: __SerdeContext)
     Rejects: undefined,
   };
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
   }
   if (output["DeliveryAttempts"] !== undefined) {
     contents.DeliveryAttempts = __strictParseLong(output["DeliveryAttempts"]) as number;
@@ -8775,7 +8847,7 @@ const deserializeAws_queryTemplateMetadata = (output: any, context: __SerdeConte
     contents.Name = __expectString(output["Name"]);
   }
   if (output["CreatedTimestamp"] !== undefined) {
-    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["CreatedTimestamp"]));
+    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTimestamp"]));
   }
   return contents;
 };
@@ -8882,10 +8954,8 @@ const deserializeAws_queryVerificationAttributes = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_queryIdentityVerificationAttributes(pair["value"], context),
-    };
+    acc[pair["key"]] = deserializeAws_queryIdentityVerificationAttributes(pair["value"], context);
+    return acc;
   }, {});
 };
 
@@ -8952,7 +9022,8 @@ const deserializeAws_queryWorkmailAction = (output: any, context: __SerdeContext
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -8997,13 +9068,18 @@ const buildHttpRpcRequest = async (
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -9016,13 +9092,21 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,12 +32,13 @@ export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataRes
  * <p>A binary representation of the UEFI variable store. Only non-volatile variables are
  *             stored. This is a base64 encoded and zlib compressed binary value that must be properly
  *             encoded.</p>
- *         <p>When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a>
- *             to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code>
- *             parameter. You can modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a>
- *             on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can
- *             inspect and modify, and then convert back into the binary format to use with register-image.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
+ *          <p>When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a> to create
+ *             an AMI, you can create an exact copy of your variable store by passing the UEFI data in
+ *             the <code>UefiData</code> parameter. You can modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
+ *             GitHub. You can use the tool to convert the UEFI data into a human-readable format
+ *             (JSON), which you can inspect and modify, and then convert back into the binary format
+ *             to use with register-image.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +63,15 @@ export class GetInstanceUefiDataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetInstanceUefiDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +87,9 @@ export class GetInstanceUefiDataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetInstanceUefiDataCommandInput, GetInstanceUefiDataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetInstanceUefiDataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,7 +26,6 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
 /**
  * <p>Disables the specified rule. A disabled rule won't match any events, and won't
  *       self-trigger if it has a schedule expression.</p>
- *
  *          <p>When you disable a rule, incoming events might continue to match to the disabled rule.
  *       Allow a short period of time for changes to take effect.</p>
  * @example
@@ -51,6 +51,15 @@ export class DisableRuleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisableRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +75,7 @@ export class DisableRuleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisableRuleCommandInput, DisableRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DisableRuleCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

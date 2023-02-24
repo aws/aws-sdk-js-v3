@@ -18,6 +18,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
@@ -91,7 +92,7 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
     false
   );
   const query: any = map({
-    blockToken: [, input.BlockToken!],
+    blockToken: [, __expectNonNull(input.BlockToken!, `BlockToken`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -263,7 +264,7 @@ const deserializeAws_restJson1CompleteSnapshotCommandError = async (
 ): Promise<CompleteSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -298,7 +299,7 @@ const deserializeAws_restJson1CompleteSnapshotCommandError = async (
 
 export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetSnapshotBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSnapshotBlockCommandError(output, context);
@@ -313,6 +314,7 @@ export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
     ChecksumAlgorithm: [, output.headers["x-amz-checksum-algorithm"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.BlockData = data;
   return contents;
 };
@@ -323,7 +325,7 @@ const deserializeAws_restJson1GetSnapshotBlockCommandError = async (
 ): Promise<GetSnapshotBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -391,7 +393,7 @@ const deserializeAws_restJson1ListChangedBlocksCommandError = async (
 ): Promise<ListChangedBlocksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -459,7 +461,7 @@ const deserializeAws_restJson1ListSnapshotBlocksCommandError = async (
 ): Promise<ListSnapshotBlocksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -514,7 +516,7 @@ const deserializeAws_restJson1PutSnapshotBlockCommandError = async (
 ): Promise<PutSnapshotBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -597,7 +599,7 @@ const deserializeAws_restJson1StartSnapshotCommandError = async (
 ): Promise<StartSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -855,7 +857,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Tag
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -887,6 +890,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -897,6 +906,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 /**
  * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
  *          on an instance.</p>
@@ -46,6 +48,8 @@ export enum AcceleratorManufacturer {
 
 export enum AcceleratorName {
   A100 = "a100",
+  INFERENTIA = "inferentia",
+  K520 = "k520",
   K80 = "k80",
   M60 = "m60",
   RADEON_PRO_V520 = "radeon-pro-v520",
@@ -92,6 +96,205 @@ export enum AcceleratorType {
   FPGA = "fpga",
   GPU = "gpu",
   INFERENCE = "inference",
+}
+
+export enum ResourceType {
+  capacity_reservation = "capacity-reservation",
+  capacity_reservation_fleet = "capacity-reservation-fleet",
+  carrier_gateway = "carrier-gateway",
+  client_vpn_endpoint = "client-vpn-endpoint",
+  coip_pool = "coip-pool",
+  customer_gateway = "customer-gateway",
+  dedicated_host = "dedicated-host",
+  dhcp_options = "dhcp-options",
+  egress_only_internet_gateway = "egress-only-internet-gateway",
+  elastic_gpu = "elastic-gpu",
+  elastic_ip = "elastic-ip",
+  export_image_task = "export-image-task",
+  export_instance_task = "export-instance-task",
+  fleet = "fleet",
+  fpga_image = "fpga-image",
+  host_reservation = "host-reservation",
+  image = "image",
+  import_image_task = "import-image-task",
+  import_snapshot_task = "import-snapshot-task",
+  instance = "instance",
+  instance_event_window = "instance-event-window",
+  internet_gateway = "internet-gateway",
+  ipam = "ipam",
+  ipam_pool = "ipam-pool",
+  ipam_resource_discovery = "ipam-resource-discovery",
+  ipam_resource_discovery_association = "ipam-resource-discovery-association",
+  ipam_scope = "ipam-scope",
+  ipv4pool_ec2 = "ipv4pool-ec2",
+  ipv6pool_ec2 = "ipv6pool-ec2",
+  key_pair = "key-pair",
+  launch_template = "launch-template",
+  local_gateway = "local-gateway",
+  local_gateway_route_table = "local-gateway-route-table",
+  local_gateway_route_table_virtual_interface_group_association = "local-gateway-route-table-virtual-interface-group-association",
+  local_gateway_route_table_vpc_association = "local-gateway-route-table-vpc-association",
+  local_gateway_virtual_interface = "local-gateway-virtual-interface",
+  local_gateway_virtual_interface_group = "local-gateway-virtual-interface-group",
+  natgateway = "natgateway",
+  network_acl = "network-acl",
+  network_insights_access_scope = "network-insights-access-scope",
+  network_insights_access_scope_analysis = "network-insights-access-scope-analysis",
+  network_insights_analysis = "network-insights-analysis",
+  network_insights_path = "network-insights-path",
+  network_interface = "network-interface",
+  placement_group = "placement-group",
+  prefix_list = "prefix-list",
+  replace_root_volume_task = "replace-root-volume-task",
+  reserved_instances = "reserved-instances",
+  route_table = "route-table",
+  security_group = "security-group",
+  security_group_rule = "security-group-rule",
+  snapshot = "snapshot",
+  spot_fleet_request = "spot-fleet-request",
+  spot_instances_request = "spot-instances-request",
+  subnet = "subnet",
+  subnet_cidr_reservation = "subnet-cidr-reservation",
+  traffic_mirror_filter = "traffic-mirror-filter",
+  traffic_mirror_filter_rule = "traffic-mirror-filter-rule",
+  traffic_mirror_session = "traffic-mirror-session",
+  traffic_mirror_target = "traffic-mirror-target",
+  transit_gateway = "transit-gateway",
+  transit_gateway_attachment = "transit-gateway-attachment",
+  transit_gateway_connect_peer = "transit-gateway-connect-peer",
+  transit_gateway_multicast_domain = "transit-gateway-multicast-domain",
+  transit_gateway_policy_table = "transit-gateway-policy-table",
+  transit_gateway_route_table = "transit-gateway-route-table",
+  transit_gateway_route_table_announcement = "transit-gateway-route-table-announcement",
+  verified_access_endpoint = "verified-access-endpoint",
+  verified_access_group = "verified-access-group",
+  verified_access_instance = "verified-access-instance",
+  verified_access_policy = "verified-access-policy",
+  verified_access_trust_provider = "verified-access-trust-provider",
+  volume = "volume",
+  vpc = "vpc",
+  vpc_block_public_access_exclusion = "vpc-block-public-access-exclusion",
+  vpc_endpoint = "vpc-endpoint",
+  vpc_endpoint_connection = "vpc-endpoint-connection",
+  vpc_endpoint_connection_device_type = "vpc-endpoint-connection-device-type",
+  vpc_endpoint_service = "vpc-endpoint-service",
+  vpc_endpoint_service_permission = "vpc-endpoint-service-permission",
+  vpc_flow_log = "vpc-flow-log",
+  vpc_peering_connection = "vpc-peering-connection",
+  vpn_connection = "vpn-connection",
+  vpn_connection_device_type = "vpn-connection-device-type",
+  vpn_gateway = "vpn-gateway",
+}
+
+/**
+ * <p>Describes a tag.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The key of the tag.</p>
+   *          <p>Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters.
+   *          May not begin with <code>aws:</code>.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the tag.</p>
+   *          <p>Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * <p>The tags to apply to a resource when the resource is being created. When you specify a tag, you must
+ *        specify the resource type to tag, otherwise the request will fail.</p>
+ *          <note>
+ *             <p>The <code>Valid Values</code> lists all the resource types that can be tagged.
+ *             However, the action you're using might not support tagging all of these resource types.
+ *             If you try to tag a resource type that is unsupported for the action you're using,
+ *             you'll get an error.</p>
+ *          </note>
+ */
+export interface TagSpecification {
+  /**
+   * <p>The type of resource to tag on creation.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The tags to apply to the resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface AcceptAddressTransferRequest {
+  /**
+   * <p>The Elastic IP address you are accepting for transfer.</p>
+   */
+  Address: string | undefined;
+
+  /**
+   * <p>
+   *             <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export enum AddressTransferStatus {
+  accepted = "accepted",
+  disabled = "disabled",
+  pending = "pending",
+}
+
+/**
+ * <p>Details on the Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
+export interface AddressTransfer {
+  /**
+   * <p>The Elastic IP address being transferred.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>The allocation ID of an Elastic IP address.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
+   */
+  TransferAccountId?: string;
+
+  /**
+   * <p>The timestamp when the Elastic IP address transfer expired. When the source account starts
+   *       the transfer, the transfer account has seven hours to allocate the Elastic IP address to
+   *       complete the transfer, or the Elastic IP address will return to its original owner.</p>
+   */
+  TransferOfferExpirationTimestamp?: Date;
+
+  /**
+   * <p>The timestamp when the Elastic IP address transfer was accepted.</p>
+   */
+  TransferOfferAcceptedTimestamp?: Date;
+
+  /**
+   * <p>The Elastic IP address transfer status.</p>
+   */
+  AddressTransferStatus?: AddressTransferStatus | string;
+}
+
+export interface AcceptAddressTransferResult {
+  /**
+   * <p>An Elastic IP address transfer.</p>
+   */
+  AddressTransfer?: AddressTransfer;
 }
 
 /**
@@ -168,22 +371,24 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
   DryRun?: boolean;
 }
 
-export type TransitGatewayAttachmentResourceType =
-  | "connect"
-  | "direct-connect-gateway"
-  | "peering"
-  | "tgw-peering"
-  | "vpc"
-  | "vpn";
+export enum TransitGatewayAttachmentResourceType {
+  connect = "connect",
+  direct_connect_gateway = "direct-connect-gateway",
+  peering = "peering",
+  tgw_peering = "tgw-peering",
+  vpc = "vpc",
+  vpn = "vpn",
+}
 
-export type TransitGatewayMulitcastDomainAssociationState =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "failed"
-  | "pendingAcceptance"
-  | "rejected";
+export enum TransitGatewayMulitcastDomainAssociationState {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+  failed = "failed",
+  pendingAcceptance = "pendingAcceptance",
+  rejected = "rejected",
+}
 
 /**
  * <p>Describes the subnet association with the transit gateway multicast domain.</p>
@@ -237,7 +442,7 @@ export interface TransitGatewayMulticastDomainAssociations {
 
 export interface AcceptTransitGatewayMulticastDomainAssociationsResult {
   /**
-   * <p>Describes the multicast domain associations.</p>
+   * <p>Information about the multicast domain associations.</p>
    */
   Associations?: TransitGatewayMulticastDomainAssociations;
 }
@@ -296,20 +501,21 @@ export interface TransitGatewayPeeringAttachmentOptions {
   DynamicRouting?: DynamicRoutingValue | string;
 }
 
-export type TransitGatewayAttachmentState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "failed"
-  | "failing"
-  | "initiating"
-  | "initiatingRequest"
-  | "modifying"
-  | "pending"
-  | "pendingAcceptance"
-  | "rejected"
-  | "rejecting"
-  | "rollingBack";
+export enum TransitGatewayAttachmentState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  failed = "failed",
+  failing = "failing",
+  initiating = "initiating",
+  initiatingRequest = "initiatingRequest",
+  modifying = "modifying",
+  pending = "pending",
+  pendingAcceptance = "pendingAcceptance",
+  rejected = "rejected",
+  rejecting = "rejecting",
+  rollingBack = "rollingBack",
+}
 
 /**
  * <p>The status of the transit gateway peering attachment.</p>
@@ -324,24 +530,6 @@ export interface PeeringAttachmentStatus {
    * <p>The status message, if applicable.</p>
    */
   Message?: string;
-}
-
-/**
- * <p>Describes a tag.</p>
- */
-export interface Tag {
-  /**
-   * <p>The key of the tag.</p>
-   *          <p>Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters.
-   *          May not begin with <code>aws:</code>.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The value of the tag.</p>
-   *          <p>Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.</p>
-   */
-  Value?: string;
 }
 
 /**
@@ -415,11 +603,20 @@ export interface AcceptTransitGatewayVpcAttachmentRequest {
   DryRun?: boolean;
 }
 
-export type ApplianceModeSupportValue = "disable" | "enable";
+export enum ApplianceModeSupportValue {
+  disable = "disable",
+  enable = "enable",
+}
 
-export type DnsSupportValue = "disable" | "enable";
+export enum DnsSupportValue {
+  disable = "disable",
+  enable = "enable",
+}
 
-export type Ipv6SupportValue = "disable" | "enable";
+export enum Ipv6SupportValue {
+  disable = "disable",
+  enable = "enable",
+}
 
 /**
  * <p>Describes the VPC attachment options.</p>
@@ -512,7 +709,7 @@ export interface AcceptVpcEndpointConnectionsRequest {
   ServiceId: string | undefined;
 
   /**
-   * <p>The IDs of one or more interface VPC endpoints.</p>
+   * <p>The IDs of the interface VPC endpoints.</p>
    */
   VpcEndpointIds: string[] | undefined;
 }
@@ -567,7 +764,7 @@ export interface AcceptVpcPeeringConnectionRequest {
    * <p>The ID of the VPC peering connection. You must specify this parameter in the
    * 			request.</p>
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId: string | undefined;
 }
 
 /**
@@ -592,7 +789,7 @@ export interface Ipv6CidrBlock {
 
 /**
  * <note>
- *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
  *          <p>Describes the VPC peering connection options.</p>
  */
@@ -653,16 +850,17 @@ export interface VpcPeeringConnectionVpcInfo {
   Region?: string;
 }
 
-export type VpcPeeringConnectionStateReasonCode =
-  | "active"
-  | "deleted"
-  | "deleting"
-  | "expired"
-  | "failed"
-  | "initiating-request"
-  | "pending-acceptance"
-  | "provisioning"
-  | "rejected";
+export enum VpcPeeringConnectionStateReasonCode {
+  active = "active",
+  deleted = "deleted",
+  deleting = "deleting",
+  expired = "expired",
+  failed = "failed",
+  initiating_request = "initiating-request",
+  pending_acceptance = "pending-acceptance",
+  provisioning = "provisioning",
+  rejected = "rejected",
+}
 
 /**
  * <p>Describes the status of a VPC peering connection.</p>
@@ -807,34 +1005,43 @@ export interface AdditionalDetail {
 }
 
 /**
- * <p>Describes a header. Reflects any changes made by a component as traffic passes through.
- *          The fields of an inbound header are null except for the first component of a path.</p>
+ * <p>Describes a load balancer listener.</p>
  */
-export interface AnalysisPacketHeader {
+export interface AnalysisLoadBalancerListener {
   /**
-   * <p>The destination addresses.</p>
+   * <p>The port on which the load balancer is listening.</p>
    */
-  DestinationAddresses?: string[];
+  LoadBalancerPort?: number;
 
   /**
-   * <p>The destination port ranges.</p>
+   * <p>[Classic Load Balancers] The back-end port for the listener.</p>
    */
-  DestinationPortRanges?: PortRange[];
+  InstancePort?: number;
+}
+
+/**
+ * <p>Describes a load balancer target.</p>
+ */
+export interface AnalysisLoadBalancerTarget {
+  /**
+   * <p>The IP address.</p>
+   */
+  Address?: string;
 
   /**
-   * <p>The protocol.</p>
+   * <p>The Availability Zone.</p>
    */
-  Protocol?: string;
+  AvailabilityZone?: string;
 
   /**
-   * <p>The source addresses.</p>
+   * <p>Information about the instance.</p>
    */
-  SourceAddresses?: string[];
+  Instance?: AnalysisComponent;
 
   /**
-   * <p>The source port ranges.</p>
+   * <p>The port on which the target is listening.</p>
    */
-  SourcePortRanges?: PortRange[];
+  Port?: number;
 }
 
 /**
@@ -901,6 +1108,19 @@ export interface AnalysisRouteTableRoute {
    * <p>The ID of a VPC peering connection.</p>
    */
   VpcPeeringConnectionId?: string;
+
+  /**
+   * <p>The state. The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>active</p>
+   *             </li>
+   *             <li>
+   *                <p>blackhole</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: string;
 }
 
 /**
@@ -995,6 +1215,305 @@ export interface TransitGatewayRouteTableRoute {
 }
 
 /**
+ * <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
+ */
+export interface Explanation {
+  /**
+   * <p>The network ACL.</p>
+   */
+  Acl?: AnalysisComponent;
+
+  /**
+   * <p>The network ACL rule.</p>
+   */
+  AclRule?: AnalysisAclRule;
+
+  /**
+   * <p>The IPv4 address, in CIDR notation.</p>
+   */
+  Address?: string;
+
+  /**
+   * <p>The IPv4 addresses, in CIDR notation.</p>
+   */
+  Addresses?: string[];
+
+  /**
+   * <p>The resource to which the component is attached.</p>
+   */
+  AttachedTo?: AnalysisComponent;
+
+  /**
+   * <p>The Availability Zones.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>The CIDR ranges.</p>
+   */
+  Cidrs?: string[];
+
+  /**
+   * <p>The component.</p>
+   */
+  Component?: AnalysisComponent;
+
+  /**
+   * <p>The customer gateway.</p>
+   */
+  CustomerGateway?: AnalysisComponent;
+
+  /**
+   * <p>The destination.</p>
+   */
+  Destination?: AnalysisComponent;
+
+  /**
+   * <p>The destination VPC.</p>
+   */
+  DestinationVpc?: AnalysisComponent;
+
+  /**
+   * <p>The direction. The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>egress</p>
+   *             </li>
+   *             <li>
+   *                <p>ingress</p>
+   *             </li>
+   *          </ul>
+   */
+  Direction?: string;
+
+  /**
+   * <p>The explanation code.</p>
+   */
+  ExplanationCode?: string;
+
+  /**
+   * <p>The route table.</p>
+   */
+  IngressRouteTable?: AnalysisComponent;
+
+  /**
+   * <p>The internet gateway.</p>
+   */
+  InternetGateway?: AnalysisComponent;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   */
+  LoadBalancerArn?: string;
+
+  /**
+   * <p>The listener for a Classic Load Balancer.</p>
+   */
+  ClassicLoadBalancerListener?: AnalysisLoadBalancerListener;
+
+  /**
+   * <p>The listener port of the load balancer.</p>
+   */
+  LoadBalancerListenerPort?: number;
+
+  /**
+   * <p>The target.</p>
+   */
+  LoadBalancerTarget?: AnalysisLoadBalancerTarget;
+
+  /**
+   * <p>The target group.</p>
+   */
+  LoadBalancerTargetGroup?: AnalysisComponent;
+
+  /**
+   * <p>The target groups.</p>
+   */
+  LoadBalancerTargetGroups?: AnalysisComponent[];
+
+  /**
+   * <p>The target port.</p>
+   */
+  LoadBalancerTargetPort?: number;
+
+  /**
+   * <p>The load balancer listener.</p>
+   */
+  ElasticLoadBalancerListener?: AnalysisComponent;
+
+  /**
+   * <p>The missing component.</p>
+   */
+  MissingComponent?: string;
+
+  /**
+   * <p>The NAT gateway.</p>
+   */
+  NatGateway?: AnalysisComponent;
+
+  /**
+   * <p>The network interface.</p>
+   */
+  NetworkInterface?: AnalysisComponent;
+
+  /**
+   * <p>The packet field.</p>
+   */
+  PacketField?: string;
+
+  /**
+   * <p>The VPC peering connection.</p>
+   */
+  VpcPeeringConnection?: AnalysisComponent;
+
+  /**
+   * <p>The port.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The port ranges.</p>
+   */
+  PortRanges?: PortRange[];
+
+  /**
+   * <p>The prefix list.</p>
+   */
+  PrefixList?: AnalysisComponent;
+
+  /**
+   * <p>The protocols.</p>
+   */
+  Protocols?: string[];
+
+  /**
+   * <p>The route table route.</p>
+   */
+  RouteTableRoute?: AnalysisRouteTableRoute;
+
+  /**
+   * <p>The route table.</p>
+   */
+  RouteTable?: AnalysisComponent;
+
+  /**
+   * <p>The security group.</p>
+   */
+  SecurityGroup?: AnalysisComponent;
+
+  /**
+   * <p>The security group rule.</p>
+   */
+  SecurityGroupRule?: AnalysisSecurityGroupRule;
+
+  /**
+   * <p>The security groups.</p>
+   */
+  SecurityGroups?: AnalysisComponent[];
+
+  /**
+   * <p>The source VPC.</p>
+   */
+  SourceVpc?: AnalysisComponent;
+
+  /**
+   * <p>The state.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The subnet.</p>
+   */
+  Subnet?: AnalysisComponent;
+
+  /**
+   * <p>The route table for the subnet.</p>
+   */
+  SubnetRouteTable?: AnalysisComponent;
+
+  /**
+   * <p>The component VPC.</p>
+   */
+  Vpc?: AnalysisComponent;
+
+  /**
+   * <p>The VPC endpoint.</p>
+   */
+  VpcEndpoint?: AnalysisComponent;
+
+  /**
+   * <p>The VPN connection.</p>
+   */
+  VpnConnection?: AnalysisComponent;
+
+  /**
+   * <p>The VPN gateway.</p>
+   */
+  VpnGateway?: AnalysisComponent;
+
+  /**
+   * <p>The transit gateway.</p>
+   */
+  TransitGateway?: AnalysisComponent;
+
+  /**
+   * <p>The transit gateway route table.</p>
+   */
+  TransitGatewayRouteTable?: AnalysisComponent;
+
+  /**
+   * <p>The transit gateway route table route.</p>
+   */
+  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
+
+  /**
+   * <p>The transit gateway attachment.</p>
+   */
+  TransitGatewayAttachment?: AnalysisComponent;
+
+  /**
+   * <p>The Amazon Web Services account for the component.</p>
+   */
+  ComponentAccount?: string;
+
+  /**
+   * <p>The Region for the component.</p>
+   */
+  ComponentRegion?: string;
+}
+
+/**
+ * <p>Describes a header. Reflects any changes made by a component as traffic passes through.
+ *          The fields of an inbound header are null except for the first component of a path.</p>
+ */
+export interface AnalysisPacketHeader {
+  /**
+   * <p>The destination addresses.</p>
+   */
+  DestinationAddresses?: string[];
+
+  /**
+   * <p>The destination port ranges.</p>
+   */
+  DestinationPortRanges?: PortRange[];
+
+  /**
+   * <p>The protocol.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The source addresses.</p>
+   */
+  SourceAddresses?: string[];
+
+  /**
+   * <p>The source port ranges.</p>
+   */
+  SourcePortRanges?: PortRange[];
+}
+
+/**
  * <p>Describes a path component.</p>
  */
 export interface PathComponent {
@@ -1072,6 +1591,16 @@ export interface PathComponent {
    * <p>The route in a transit gateway route table.</p>
    */
   TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
+
+  /**
+   * <p>The explanation codes.</p>
+   */
+  Explanations?: Explanation[];
+
+  /**
+   * <p>The load balancer listener.</p>
+   */
+  ElasticLoadBalancerListener?: AnalysisComponent;
 }
 
 /**
@@ -1099,7 +1628,10 @@ export interface AccessScopeAnalysisFinding {
   FindingComponents?: PathComponent[];
 }
 
-export type Protocol = "tcp" | "udp";
+export enum Protocol {
+  tcp = "tcp",
+  udp = "udp",
+}
 
 /**
  * <p>Describes a packet header statement.</p>
@@ -1326,7 +1858,10 @@ export interface AccountAttribute {
   AttributeValues?: AccountAttributeValue[];
 }
 
-export type AccountAttributeName = "default-vpc" | "supported-platforms";
+export enum AccountAttributeName {
+  default_vpc = "default-vpc",
+  supported_platforms = "supported-platforms",
+}
 
 export enum InstanceHealthStatus {
   HEALTHY_STATUS = "healthy",
@@ -1367,9 +1902,42 @@ export enum ActivityStatus {
   PENDING_TERMINATION = "pending_termination",
 }
 
+export enum PrincipalType {
+  Account = "Account",
+  All = "All",
+  OrganizationUnit = "OrganizationUnit",
+  Role = "Role",
+  Service = "Service",
+  User = "User",
+}
+
 /**
- * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
- *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ * <p>Describes a principal.</p>
+ */
+export interface AddedPrincipal {
+  /**
+   * <p>The type of principal.</p>
+   */
+  PrincipalType?: PrincipalType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the principal.</p>
+   */
+  Principal?: string;
+
+  /**
+   * <p>The ID of the service permission.</p>
+   */
+  ServicePermissionId?: string;
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId?: string;
+}
+
+/**
+ * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
  *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  */
@@ -1391,12 +1959,15 @@ export interface AddPrefixListEntry {
 
   /**
    * <p>A description for the entry.</p>
-   *         <p>Constraints: Up to 255 characters in length.</p>
+   *          <p>Constraints: Up to 255 characters in length.</p>
    */
   Description?: string;
 }
 
-export type DomainType = "standard" | "vpc";
+export enum DomainType {
+  standard = "standard",
+  vpc = "vpc",
+}
 
 /**
  * <p>Describes an Elastic IP address, or a carrier IP address.</p>
@@ -1521,7 +2092,9 @@ export interface AddressAttribute {
   PtrRecordUpdate?: PtrUpdateStatus;
 }
 
-export type AddressAttributeName = "domain-name";
+export enum AddressAttributeName {
+  domain_name = "domain-name",
+}
 
 export enum AddressFamily {
   ipv4 = "ipv4",
@@ -1543,15 +2116,16 @@ export interface AdvertiseByoipCidrRequest {
   DryRun?: boolean;
 }
 
-export type ByoipCidrState =
-  | "advertised"
-  | "deprovisioned"
-  | "failed-deprovision"
-  | "failed-provision"
-  | "pending-deprovision"
-  | "pending-provision"
-  | "provisioned"
-  | "provisioned-not-publicly-advertisable";
+export enum ByoipCidrState {
+  advertised = "advertised",
+  deprovisioned = "deprovisioned",
+  failed_deprovision = "failed-deprovision",
+  failed_provision = "failed-provision",
+  pending_deprovision = "pending-deprovision",
+  pending_provision = "pending-provision",
+  provisioned = "provisioned",
+  provisioned_not_publicly_advertisable = "provisioned-not-publicly-advertisable",
+}
 
 /**
  * <p>Information about an address range that is provisioned for use with your Amazon Web Services resources
@@ -1586,102 +2160,9 @@ export interface AdvertiseByoipCidrResult {
   ByoipCidr?: ByoipCidr;
 }
 
-export type Affinity = "default" | "host";
-
-export type ResourceType =
-  | "capacity-reservation"
-  | "capacity-reservation-fleet"
-  | "carrier-gateway"
-  | "client-vpn-endpoint"
-  | "customer-gateway"
-  | "dedicated-host"
-  | "dhcp-options"
-  | "egress-only-internet-gateway"
-  | "elastic-gpu"
-  | "elastic-ip"
-  | "export-image-task"
-  | "export-instance-task"
-  | "fleet"
-  | "fpga-image"
-  | "host-reservation"
-  | "image"
-  | "import-image-task"
-  | "import-snapshot-task"
-  | "instance"
-  | "instance-event-window"
-  | "internet-gateway"
-  | "ipam"
-  | "ipam-pool"
-  | "ipam-scope"
-  | "ipv4pool-ec2"
-  | "ipv6pool-ec2"
-  | "key-pair"
-  | "launch-template"
-  | "local-gateway"
-  | "local-gateway-route-table"
-  | "local-gateway-route-table-virtual-interface-group-association"
-  | "local-gateway-route-table-vpc-association"
-  | "local-gateway-virtual-interface"
-  | "local-gateway-virtual-interface-group"
-  | "natgateway"
-  | "network-acl"
-  | "network-insights-access-scope"
-  | "network-insights-access-scope-analysis"
-  | "network-insights-analysis"
-  | "network-insights-path"
-  | "network-interface"
-  | "placement-group"
-  | "prefix-list"
-  | "replace-root-volume-task"
-  | "reserved-instances"
-  | "route-table"
-  | "security-group"
-  | "security-group-rule"
-  | "snapshot"
-  | "spot-fleet-request"
-  | "spot-instances-request"
-  | "subnet"
-  | "subnet-cidr-reservation"
-  | "traffic-mirror-filter"
-  | "traffic-mirror-filter-rule"
-  | "traffic-mirror-session"
-  | "traffic-mirror-target"
-  | "transit-gateway"
-  | "transit-gateway-attachment"
-  | "transit-gateway-connect-peer"
-  | "transit-gateway-multicast-domain"
-  | "transit-gateway-policy-table"
-  | "transit-gateway-route-table"
-  | "transit-gateway-route-table-announcement"
-  | "volume"
-  | "vpc"
-  | "vpc-endpoint"
-  | "vpc-endpoint-connection-device-type"
-  | "vpc-endpoint-service"
-  | "vpc-flow-log"
-  | "vpc-peering-connection"
-  | "vpn-connection"
-  | "vpn-gateway";
-
-/**
- * <p>The tags to apply to a resource when the resource is being created.</p>
- *          <note>
- *             <p>The <code>Valid Values</code> lists all the resource types that can be tagged.
- *             However, the action you're using might not support tagging all of these resource types.
- *             If you try to tag a resource type that is unsupported for the action you're using,
- *             you'll get an error.</p>
- *          </note>
- */
-export interface TagSpecification {
-  /**
-   * <p>The type of resource to tag on creation.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
-   * <p>The tags to apply to the resource.</p>
-   */
-  Tags?: Tag[];
+export enum Affinity {
+  default = "default",
+  host = "host",
 }
 
 export interface AllocateAddressRequest {
@@ -1708,7 +2189,6 @@ export interface AllocateAddressRequest {
    *       advertises IP addresses. Use this parameter to limit the IP address to this location. IP
    *       addresses cannot move between network border groups.</p>
    *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a> to view the network border groups.</p>
-   *
    *          <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 Classic,
    *       you receive an <code>InvalidParameterCombination</code> error.</p>
    */
@@ -1779,19 +2259,28 @@ export interface AllocateAddressResult {
   CarrierIp?: string;
 }
 
-export type AutoPlacement = "off" | "on";
+export enum AutoPlacement {
+  off = "off",
+  on = "on",
+}
 
-export type HostRecovery = "off" | "on";
+export enum HostMaintenance {
+  off = "off",
+  on = "on",
+}
+
+export enum HostRecovery {
+  off = "off",
+  on = "on",
+}
 
 export interface AllocateHostsRequest {
   /**
-   * <p>Indicates whether the host accepts any untargeted instance launches that
-   *     		match its instance type configuration, or if it only accepts Host tenancy
-   *     		instance launches that specify its unique host ID. For more information,
-   *     		see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding">
-   *         	Understanding auto-placement and affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *
-   *         <p>Default: <code>on</code>
+   * <p>Indicates whether the host accepts any untargeted instance launches that match its
+   *             instance type configuration, or if it only accepts Host tenancy instance launches that
+   *             specify its unique host ID. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding"> Understanding auto-placement and affinity</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>on</code>
    *          </p>
    */
   AutoPlacement?: AutoPlacement | string;
@@ -1807,31 +2296,28 @@ export interface AllocateHostsRequest {
   ClientToken?: string;
 
   /**
-   * <p>Specifies the instance type to be supported by the Dedicated Hosts. If you
-   * 		specify an instance type, the Dedicated Hosts support instances of the
-   * 		specified instance type only.</p>
-   *
-   *     	    <p>If you want the Dedicated Hosts to support multiple instance types in a specific
-   *     		instance family, omit this parameter and specify <b>InstanceFamily</b>
-   *     		instead. You cannot specify <b>InstanceType</b> and
-   *     		<b>InstanceFamily</b> in the same request.</p>
+   * <p>Specifies the instance type to be supported by the Dedicated Hosts. If you specify an
+   *             instance type, the Dedicated Hosts support instances of the specified instance type
+   *             only.</p>
+   *          <p>If you want the Dedicated Hosts to support multiple instance types in a specific
+   *             instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
+   *             same request.</p>
    */
   InstanceType?: string;
 
   /**
    * <p>Specifies the instance family to be supported by the Dedicated Hosts. If you specify
-   * 			an instance family, the Dedicated Hosts support multiple instance types within that
-   * 			instance family.</p>
-   *
-   * 		       <p>If you want the Dedicated Hosts to support a specific instance type only, omit this
-   * 			parameter and specify <b>InstanceType</b>
-   * 			instead. You cannot specify <b>InstanceFamily</b> and
-   * 			<b>InstanceType</b> in the same request.</p>
+   *             an instance family, the Dedicated Hosts support multiple instance types within that
+   *             instance family.</p>
+   *          <p>If you want the Dedicated Hosts to support a specific instance type only, omit this
+   *             parameter and specify <b>InstanceType</b> instead. You cannot
+   *             specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
    */
   InstanceFamily?: string;
 
   /**
-   * <p>The number of Dedicated Hosts to allocate to your account with these parameters.</p>
+   * <p>The number of Dedicated Hosts to allocate to your account with these
+   *             parameters.</p>
    */
   Quantity: number | undefined;
 
@@ -1841,19 +2327,28 @@ export interface AllocateHostsRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>Indicates whether to enable or disable host recovery for the Dedicated Host.
-   * 			Host recovery is disabled by default. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html">
-   * 			Host recovery</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * 		       <p>Default: <code>off</code>
+   * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. Host
+   *             recovery is disabled by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>off</code>
    *          </p>
    */
   HostRecovery?: HostRecovery | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate
+   *             the Dedicated Host.</p>
    */
   OutpostArn?: string;
+
+  /**
+   * <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html"> Host
+   *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>on</code>
+   *          </p>
+   */
+  HostMaintenance?: HostMaintenance | string;
 }
 
 /**
@@ -1862,7 +2357,7 @@ export interface AllocateHostsRequest {
 export interface AllocateHostsResult {
   /**
    * <p>The ID of the allocated Dedicated Host. This is used to launch an instance onto a
-   * 			specific host.</p>
+   *             specific host.</p>
    */
   HostIds?: string[];
 }
@@ -1924,7 +2419,7 @@ export interface AllocateIpamPoolCidrRequest {
   PreviewNextCidr?: boolean;
 
   /**
-   * <p>Exclude a particular CIDR range from being returned by the pool.</p>
+   * <p>Exclude a particular CIDR range from being returned by the pool. Disallowed CIDRs are only allowed if using netmask length for allocation.</p>
    */
   DisallowedCidrs?: string[];
 }
@@ -1937,7 +2432,7 @@ export enum IpamPoolAllocationResourceType {
 }
 
 /**
- * <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.</p>
+ * <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.</p>
  */
 export interface IpamPoolAllocation {
   /**
@@ -1984,28 +2479,25 @@ export interface AllocateIpamPoolCidrResult {
   IpamPoolAllocation?: IpamPoolAllocation;
 }
 
-export type AllocationState =
-  | "available"
-  | "pending"
-  | "permanent-failure"
-  | "released"
-  | "released-permanent-failure"
-  | "under-assessment";
+export enum AllocationState {
+  available = "available",
+  pending = "pending",
+  permanent_failure = "permanent-failure",
+  released = "released",
+  released_permanent_failure = "released-permanent-failure",
+  under_assessment = "under-assessment",
+}
 
 export enum AllocationStrategy {
   CAPACITY_OPTIMIZED = "capacityOptimized",
   CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized",
   DIVERSIFIED = "diversified",
   LOWEST_PRICE = "lowestPrice",
+  PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized",
 }
 
-export enum PrincipalType {
-  Account = "Account",
-  All = "All",
-  OrganizationUnit = "OrganizationUnit",
-  Role = "Role",
-  Service = "Service",
-  User = "User",
+export enum AllocationType {
+  used = "used",
 }
 
 /**
@@ -2021,9 +2513,27 @@ export interface AllowedPrincipal {
    * <p>The Amazon Resource Name (ARN) of the principal.</p>
    */
   Principal?: string;
+
+  /**
+   * <p>The ID of the service permission.</p>
+   */
+  ServicePermissionId?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId?: string;
 }
 
-export type AllowsMultipleInstanceTypes = "off" | "on";
+export enum AllowsMultipleInstanceTypes {
+  off = "off",
+  on = "on",
+}
 
 /**
  * <p>Describes an potential intermediate component of a feasible path.</p>
@@ -2081,7 +2591,7 @@ export interface AssignIpv6AddressesRequest {
   Ipv6AddressCount?: number;
 
   /**
-   * <p>One or more specific IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
+   * <p>The IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
    */
   Ipv6Addresses?: string[];
 
@@ -2136,8 +2646,8 @@ export interface AssignPrivateIpAddressesRequest {
   NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p>
-   *         <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
+   * <p>The IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p>
+   *          <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
    */
   PrivateIpAddresses?: string[];
 
@@ -2196,6 +2706,96 @@ export interface AssignPrivateIpAddressesResult {
   AssignedIpv4Prefixes?: Ipv4PrefixSpecification[];
 }
 
+export interface AssignPrivateNatGatewayAddressRequest {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId: string | undefined;
+
+  /**
+   * <p>The private IPv4 addresses you want to assign to the private NAT gateway.</p>
+   */
+  PrivateIpAddresses?: string[];
+
+  /**
+   * <p>The number of private IP addresses to assign to the NAT gateway. You can't specify this parameter when also specifying private IP addresses.</p>
+   */
+  PrivateIpAddressCount?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export enum NatGatewayAddressStatus {
+  ASSIGNING = "assigning",
+  ASSOCIATING = "associating",
+  DISASSOCIATING = "disassociating",
+  FAILED = "failed",
+  SUCCEEDED = "succeeded",
+  UNASSIGNING = "unassigning",
+}
+
+/**
+ * <p>Describes the IP addresses and network interface associated with a NAT gateway.</p>
+ */
+export interface NatGatewayAddress {
+  /**
+   * <p>[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>The ID of the network interface associated with the NAT gateway.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The private IP address associated with the NAT gateway.</p>
+   */
+  PrivateIp?: string;
+
+  /**
+   * <p>[Public NAT gateway only] The Elastic IP address associated with the NAT gateway.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>[Public NAT gateway only] The association ID of the Elastic IP address that's associated with the NAT gateway.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>Defines if the IP address is the primary address.</p>
+   */
+  IsPrimary?: boolean;
+
+  /**
+   * <p>The address failure message.</p>
+   */
+  FailureMessage?: string;
+
+  /**
+   * <p>The address status.</p>
+   */
+  Status?: NatGatewayAddressStatus | string;
+}
+
+export interface AssignPrivateNatGatewayAddressResult {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>NAT gateway IP addresses.</p>
+   */
+  NatGatewayAddresses?: NatGatewayAddress[];
+}
+
 export interface AssociateAddressRequest {
   /**
    * <p>[EC2-VPC] The allocation ID. This is required for EC2-VPC.</p>
@@ -2230,7 +2830,7 @@ export interface AssociateAddressRequest {
 
   /**
    * <p>[EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.</p>
-   *    	     <p>For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. </p>
+   *          <p>For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. </p>
    */
   NetworkInterfaceId?: string;
 
@@ -2269,12 +2869,13 @@ export interface AssociateClientVpnTargetNetworkRequest {
   DryRun?: boolean;
 }
 
-export type AssociationStatusCode =
-  | "associated"
-  | "associating"
-  | "association-failed"
-  | "disassociated"
-  | "disassociating";
+export enum AssociationStatusCode {
+  associated = "associated",
+  associating = "associating",
+  association_failed = "association-failed",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+}
 
 /**
  * <p>Describes the state of a target network association.</p>
@@ -2327,13 +2928,13 @@ export interface AssociateEnclaveCertificateIamRoleRequest {
   /**
    * <p>The ARN of the ACM certificate with which to associate the IAM role.</p>
    */
-  CertificateArn?: string;
+  CertificateArn: string | undefined;
 
   /**
    * <p>The ARN of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM
    * 			certificate.</p>
    */
-  RoleArn?: string;
+  RoleArn: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -2599,6 +3200,205 @@ export interface AssociateInstanceEventWindowResult {
   InstanceEventWindow?: InstanceEventWindow;
 }
 
+export interface AssociateIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>An IPAM ID.</p>
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>Tag specifications.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A client token.</p>
+   */
+  ClientToken?: string;
+}
+
+export enum IpamAssociatedResourceDiscoveryStatus {
+  ACTIVE = "active",
+  NOT_FOUND = "not-found",
+}
+
+export enum IpamResourceDiscoveryAssociationState {
+  ASSOCIATE_COMPLETE = "associate-complete",
+  ASSOCIATE_FAILED = "associate-failed",
+  ASSOCIATE_IN_PROGRESS = "associate-in-progress",
+  DISASSOCIATE_COMPLETE = "disassociate-complete",
+  DISASSOCIATE_FAILED = "disassociate-failed",
+  DISASSOCIATE_IN_PROGRESS = "disassociate-in-progress",
+  ISOLATE_COMPLETE = "isolate-complete",
+  ISOLATE_IN_PROGRESS = "isolate-in-progress",
+  RESTORE_IN_PROGRESS = "restore-in-progress",
+}
+
+/**
+ * <p>An IPAM resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM. IPAM aggregates the resource CIDRs discovered by the associated resource discovery.</p>
+ */
+export interface IpamResourceDiscoveryAssociation {
+  /**
+   * <p>The Amazon Web Services account ID of the resource discovery owner.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The resource discovery association ID.</p>
+   */
+  IpamResourceDiscoveryAssociationId?: string;
+
+  /**
+   * <p>The resource discovery association Amazon Resource Name (ARN).</p>
+   */
+  IpamResourceDiscoveryAssociationArn?: string;
+
+  /**
+   * <p>The resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId?: string;
+
+  /**
+   * <p>The IPAM ID.</p>
+   */
+  IpamId?: string;
+
+  /**
+   * <p>The IPAM ARN.</p>
+   */
+  IpamArn?: string;
+
+  /**
+   * <p>The IPAM home Region.</p>
+   */
+  IpamRegion?: string;
+
+  /**
+   * <p>Defines if the resource discovery is the default. When you create an IPAM, a default resource discovery is created for your IPAM and it's associated with your IPAM.</p>
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p>The resource discovery status.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - Connection or permissions required to read the
+   *                results of the resource discovery are intact.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>not-found</code> - Connection or permissions required to read the
+   *                results of the resource discovery are broken. This may happen if the owner of the resource discovery stopped sharing it or deleted the resource discovery. Verify the resource discovery still exists and the Amazon Web Services RAM resource share is still intact.</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus | string;
+
+  /**
+   * <p>The lifecycle state of the association when you associate or disassociate a resource discovery.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>associate-in-progress</code> - Resource discovery is being associated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associate-complete</code> - Resource discovery association is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associate-failed</code> - Resource discovery association has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-in-progress</code> - Resource discovery is being disassociated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-complete</code> - Resource discovery disassociation is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-failed </code> - Resource discovery disassociation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery association has been removed and the resource discovery associatation is being isolated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isolate-complete</code> - Resource discovery isolation is complete..</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>restore-in-progress</code> - Resource discovery is being restored.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: IpamResourceDiscoveryAssociationState | string;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface AssociateIpamResourceDiscoveryResult {
+  /**
+   * <p>A resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM.</p>
+   */
+  IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation;
+}
+
+export interface AssociateNatGatewayAddressRequest {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId: string | undefined;
+
+  /**
+   * <p>The allocation IDs of EIPs that you want to associate with your NAT gateway.</p>
+   */
+  AllocationIds: string[] | undefined;
+
+  /**
+   * <p>The private IPv4 addresses that you want to assign to the NAT gateway.</p>
+   */
+  PrivateIpAddresses?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface AssociateNatGatewayAddressResult {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>The IP addresses.</p>
+   */
+  NatGatewayAddresses?: NatGatewayAddress[];
+}
+
 export interface AssociateRouteTableRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2623,12 +3423,13 @@ export interface AssociateRouteTableRequest {
   GatewayId?: string;
 }
 
-export type RouteTableAssociationStateCode =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "failed";
+export enum RouteTableAssociationStateCode {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+  failed = "failed",
+}
 
 /**
  * <p>Describes the state of an association between a route table and a subnet or gateway.</p>
@@ -2671,13 +3472,14 @@ export interface AssociateSubnetCidrBlockRequest {
   SubnetId: string | undefined;
 }
 
-export type SubnetCidrBlockStateCode =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "failed"
-  | "failing";
+export enum SubnetCidrBlockStateCode {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+  failed = "failed",
+  failing = "failing",
+}
 
 /**
  * <p>Describes the state of a CIDR block.</p>
@@ -2730,17 +3532,17 @@ export interface AssociateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
-  TransitGatewayMulticastDomainId?: string;
+  TransitGatewayMulticastDomainId: string | undefined;
 
   /**
    * <p>The ID of the transit gateway attachment to associate with the transit gateway multicast domain.</p>
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId: string | undefined;
 
   /**
    * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
    */
-  SubnetIds?: string[];
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2776,7 +3578,12 @@ export interface AssociateTransitGatewayPolicyTableRequest {
   DryRun?: boolean;
 }
 
-export type TransitGatewayAssociationState = "associated" | "associating" | "disassociated" | "disassociating";
+export enum TransitGatewayAssociationState {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+}
 
 /**
  * <p>Describes a transit gateway policy table association.</p>
@@ -2916,8 +3723,8 @@ export enum InterfaceProtocolType {
  * <note>
  *             <p>Currently available in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
- *         </note>
- *         <p>Information about an association between a branch network interface with a trunk network interface.</p>
+ *          </note>
+ *          <p>Information about an association between a branch network interface with a trunk network interface.</p>
  */
 export interface TrunkInterfaceAssociation {
   /**
@@ -3001,7 +3808,7 @@ export interface AssociateVpcCidrBlockRequest {
 
   /**
    * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>
-   *         <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
+   *          <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
    */
   Ipv6CidrBlock?: string;
 
@@ -3027,13 +3834,14 @@ export interface AssociateVpcCidrBlockRequest {
   Ipv6NetmaskLength?: number;
 }
 
-export type VpcCidrBlockStateCode =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "failed"
-  | "failing";
+export enum VpcCidrBlockStateCode {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+  failed = "failed",
+  failing = "failing",
+}
 
 /**
  * <p>Describes the state of a CIDR block.</p>
@@ -3169,6 +3977,42 @@ export interface AttachInternetGatewayRequest {
 }
 
 /**
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it’s enabled, TCP traffic
+ * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
+ * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
+ * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
+ * 			environment needs.</p>
+ */
+export interface EnaSrdUdpSpecification {
+  /**
+   * <p>Indicates whether UDP traffic uses ENA Express. To specify this setting, you must first enable ENA Express.</p>
+   */
+  EnaSrdUdpEnabled?: boolean;
+}
+
+/**
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
+ */
+export interface EnaSrdSpecification {
+  /**
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
+   */
+  EnaSrdEnabled?: boolean;
+
+  /**
+   * <p>Configures ENA Express for UDP network traffic.</p>
+   */
+  EnaSrdUdpSpecification?: EnaSrdUdpSpecification;
+}
+
+/**
  * <p>Contains the parameters for AttachNetworkInterface.</p>
  */
 export interface AttachNetworkInterfaceRequest {
@@ -3200,6 +4044,11 @@ export interface AttachNetworkInterfaceRequest {
    *             The default is network card index 0.</p>
    */
   NetworkCardIndex?: number;
+
+  /**
+   * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
+   */
+  EnaSrdSpecification?: EnaSrdSpecification;
 }
 
 /**
@@ -3215,6 +4064,233 @@ export interface AttachNetworkInterfaceResult {
    * <p>The index of the network card.</p>
    */
   NetworkCardIndex?: number;
+}
+
+export interface AttachVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
+  VerifiedAccessTrustProviderId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export enum DeviceTrustProviderType {
+  crowdstrike = "crowdstrike",
+  jamf = "jamf",
+}
+
+export enum TrustProviderType {
+  device = "device",
+  user = "user",
+}
+
+export enum UserTrustProviderType {
+  iam_identity_center = "iam-identity-center",
+  oidc = "oidc",
+}
+
+/**
+ * <p>Condensed information about a trust provider.</p>
+ */
+export interface VerifiedAccessTrustProviderCondensed {
+  /**
+   * <p>The ID of the trust provider.</p>
+   */
+  VerifiedAccessTrustProviderId?: string;
+
+  /**
+   * <p>The description of trust provider.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of trust provider (user- or device-based).</p>
+   */
+  TrustProviderType?: TrustProviderType | string;
+
+  /**
+   * <p>The type of user-based trust provider.</p>
+   */
+  UserTrustProviderType?: UserTrustProviderType | string;
+
+  /**
+   * <p>The type of device-based trust provider.</p>
+   */
+  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+}
+
+/**
+ * <p>Describes a Verified Access instance.</p>
+ */
+export interface VerifiedAccessInstance {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access instance.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+   */
+  VerifiedAccessTrustProviders?: VerifiedAccessTrustProviderCondensed[];
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The last updated time.</p>
+   */
+  LastUpdatedTime?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * <p>Options for an Amazon Web Services Verified Access device-identity based trust provider.</p>
+ */
+export interface DeviceOptions {
+  /**
+   * <p>The ID of the tenant application with the device-identity provider.</p>
+   */
+  TenantId?: string;
+}
+
+/**
+ * <p>Options for OIDC-based, user-identity type trust provider.</p>
+ */
+export interface OidcOptions {
+  /**
+   * <p>The OIDC issuer.</p>
+   */
+  Issuer?: string;
+
+  /**
+   * <p>The OIDC authorization endpoint.</p>
+   */
+  AuthorizationEndpoint?: string;
+
+  /**
+   * <p>The OIDC token endpoint.</p>
+   */
+  TokenEndpoint?: string;
+
+  /**
+   * <p>The OIDC user info endpoint.</p>
+   */
+  UserInfoEndpoint?: string;
+
+  /**
+   * <p>The client identifier.</p>
+   */
+  ClientId?: string;
+
+  /**
+   * <p>The client secret.</p>
+   */
+  ClientSecret?: string;
+
+  /**
+   * <p>The OpenID Connect (OIDC) scope specified.</p>
+   */
+  Scope?: string;
+}
+
+/**
+ * <p>Describes a Verified Access trust provider.</p>
+ */
+export interface VerifiedAccessTrustProvider {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
+  VerifiedAccessTrustProviderId?: string;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of Verified Access trust provider.</p>
+   */
+  TrustProviderType?: TrustProviderType | string;
+
+  /**
+   * <p>The type of user-based trust provider.</p>
+   */
+  UserTrustProviderType?: UserTrustProviderType | string;
+
+  /**
+   * <p>The type of device-based trust provider.</p>
+   */
+  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+
+  /**
+   * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+   */
+  OidcOptions?: OidcOptions;
+
+  /**
+   * <p>The options for device-identity type trust provider.</p>
+   */
+  DeviceOptions?: DeviceOptions;
+
+  /**
+   * <p>The identifier to be used when working with policy rules.</p>
+   */
+  PolicyReferenceName?: string;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The last updated time.</p>
+   */
+  LastUpdatedTime?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface AttachVerifiedAccessTrustProviderResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
+  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
 export interface AttachVolumeRequest {
@@ -3242,7 +4318,13 @@ export interface AttachVolumeRequest {
   DryRun?: boolean;
 }
 
-export type VolumeAttachmentState = "attached" | "attaching" | "busy" | "detached" | "detaching";
+export enum VolumeAttachmentState {
+  attached = "attached",
+  attaching = "attaching",
+  busy = "busy",
+  detached = "detached",
+  detaching = "detaching",
+}
 
 /**
  * <p>Describes volume attachment details.</p>
@@ -3302,7 +4384,12 @@ export interface AttachVpnGatewayRequest {
   DryRun?: boolean;
 }
 
-export type AttachmentStatus = "attached" | "attaching" | "detached" | "detaching";
+export enum AttachmentStatus {
+  attached = "attached",
+  attaching = "attaching",
+  detached = "detached",
+  detaching = "detaching",
+}
 
 /**
  * <p>Describes an attachment between a virtual private gateway and a VPC.</p>
@@ -3368,7 +4455,12 @@ export interface AuthorizeClientVpnIngressRequest {
   DryRun?: boolean;
 }
 
-export type ClientVpnAuthorizationRuleStatusCode = "active" | "authorizing" | "failed" | "revoking";
+export enum ClientVpnAuthorizationRuleStatusCode {
+  active = "active",
+  authorizing = "authorizing",
+  failed = "failed",
+  revoking = "revoking",
+}
 
 /**
  * <p>Describes the state of an authorization rule.</p>
@@ -3448,7 +4540,7 @@ export interface PrefixListId {
 /**
  * <p>Describes a security group and Amazon Web Services account ID pair.</p>
  *          <note>
- *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
  */
 export interface UserIdGroupPair {
@@ -3469,7 +4561,7 @@ export interface UserIdGroupPair {
    * <p>The name of the security group. In a request, use this parameter for a security group
    *             in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the
    *             security group ID. </p>
-   *         <p>For a referenced security group in another VPC, this value is not returned if the
+   *          <p>For a referenced security group in another VPC, this value is not returned if the
    *             referenced security group is deleted.</p>
    */
   GroupName?: string;
@@ -3481,7 +4573,7 @@ export interface UserIdGroupPair {
 
   /**
    * <p>The ID of an Amazon Web Services account.</p>
-   *         <p>For a referenced security group in another VPC, the account ID of the referenced
+   *          <p>For a referenced security group in another VPC, the account ID of the referenced
    *             security group is returned in the response. If the referenced security group is deleted,
    *             this value is not returned.</p>
    *          <p>[EC2-Classic] Required when adding or removing rules that reference a security group
@@ -3505,9 +4597,9 @@ export interface UserIdGroupPair {
  */
 export interface IpPermission {
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
-   *         A value of <code>-1</code> indicates all ICMP/ICMPv6 types. If you specify all
-   * 		ICMP/ICMPv6 types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *         If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
+   *         If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   FromPort?: number;
 
@@ -3539,9 +4631,9 @@ export interface IpPermission {
   PrefixListIds?: PrefixListId[];
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value
-   * 		of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types,
-   *         you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes.
+   *           If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   ToPort?: number;
 
@@ -3666,19 +4758,21 @@ export interface SecurityGroupRule {
   /**
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
    *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
-   *         <p>Use <code>-1</code> to specify all protocols.</p>
+   *          <p>Use <code>-1</code> to specify all protocols.</p>
    */
   IpProtocol?: string;
 
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value
-   *             of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must
-   *             specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
+   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   FromPort?: number;
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 codes.
+   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   ToPort?: number;
 
@@ -3734,9 +4828,9 @@ export interface AuthorizeSecurityGroupIngressRequest {
   CidrIp?: string;
 
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP type number.
-   * 			For the ICMP type number, use <code>-1</code> to specify all types. If you
-   * 			specify all ICMP types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *            If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types.
+   *            If you specify all ICMP types, you must specify all ICMP codes.</p>
    *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
    */
   FromPort?: number;
@@ -3750,7 +4844,8 @@ export interface AuthorizeSecurityGroupIngressRequest {
 
   /**
    * <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the
-   * 			security group ID or the security group name in the request.</p>
+   *             security group ID or the security group name in the request. For security groups in a
+   *             nondefault VPC, you must specify the security group ID.</p>
    */
   GroupName?: string;
 
@@ -3788,9 +4883,9 @@ export interface AuthorizeSecurityGroupIngressRequest {
   SourceSecurityGroupOwnerId?: string;
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP code number.
-   * 			For the ICMP code number, use <code>-1</code> to specify all codes. If you
-   * 			specify all ICMP types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *            If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes.
+   *            If you specify all ICMP types, you must specify all ICMP codes.</p>
    *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
    */
   ToPort?: number;
@@ -3825,8 +4920,10 @@ export interface AuthorizeSecurityGroupIngressResult {
  */
 export interface S3Storage {
   /**
-   * <p>The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance
-   *        in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best Practices for Managing Amazon Web Services Access Keys</a>.</p>
+   * <p>The access key ID of the owner of the bucket. Before you specify a value for your access
+   *        key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html">Best
+   *          Practices for Amazon Web Services accounts</a> in the <i>Account ManagementReference
+   *            Guide</i>.</p>
    */
   AWSAccessKeyId?: string;
 
@@ -3901,14 +4998,15 @@ export interface BundleTaskError {
   Message?: string;
 }
 
-export type BundleTaskState =
-  | "bundling"
-  | "cancelling"
-  | "complete"
-  | "failed"
-  | "pending"
-  | "storing"
-  | "waiting-for-shutdown";
+export enum BundleTaskState {
+  bundling = "bundling",
+  cancelling = "cancelling",
+  complete = "complete",
+  failed = "failed",
+  pending = "pending",
+  storing = "storing",
+  waiting_for_shutdown = "waiting-for-shutdown",
+}
 
 /**
  * <p>Describes a bundle task.</p>
@@ -4123,6 +5221,27 @@ export interface CancelExportTaskRequest {
   ExportTaskId: string | undefined;
 }
 
+export interface CancelImageLaunchPermissionRequest {
+  /**
+   * <p>The ID of the AMI that was shared with your Amazon Web Services account.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface CancelImageLaunchPermissionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
 export interface CancelImportTaskRequest {
   /**
    * <p>The reason for canceling the task.</p>
@@ -4169,7 +5288,12 @@ export interface CancelReservedInstancesListingRequest {
   ReservedInstancesListingId: string | undefined;
 }
 
-export type ListingState = "available" | "cancelled" | "pending" | "sold";
+export enum ListingState {
+  available = "available",
+  cancelled = "cancelled",
+  pending = "pending",
+  sold = "sold",
+}
 
 /**
  * <p>Describes a Reserved Instance listing state.</p>
@@ -4186,7 +5310,9 @@ export interface InstanceCount {
   State?: ListingState | string;
 }
 
-export type CurrencyCodeValues = "USD";
+export enum CurrencyCodeValues {
+  USD = "USD",
+}
 
 /**
  * <p>Describes the price for a Reserved Instance.</p>
@@ -4215,7 +5341,12 @@ export interface PriceSchedule {
   Term?: number;
 }
 
-export type ListingStatus = "active" | "cancelled" | "closed" | "pending";
+export enum ListingStatus {
+  active = "active",
+  cancelled = "cancelled",
+  closed = "closed",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a Reserved Instance listing.</p>
@@ -4407,7 +5538,13 @@ export interface CancelSpotInstanceRequestsRequest {
   SpotInstanceRequestIds: string[] | undefined;
 }
 
-export type CancelSpotInstanceRequestState = "active" | "cancelled" | "closed" | "completed" | "open";
+export enum CancelSpotInstanceRequestState {
+  active = "active",
+  cancelled = "cancelled",
+  closed = "closed",
+  completed = "completed",
+  open = "open",
+}
 
 /**
  * <p>Describes a request to cancel a Spot Instance.</p>
@@ -4526,10 +5663,11 @@ export interface CopyImageRequest {
   Description?: string;
 
   /**
-   * <p>Specifies whether the destination snapshots of the copied image should be encrypted.
-   *        You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted
-   *        copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
-   *        Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>Specifies whether the destination snapshots of the copied image should be encrypted. You
+   *       can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an
+   *       encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
+   *       Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
    */
   Encrypted?: boolean;
 
@@ -4537,25 +5675,25 @@ export interface CopyImageRequest {
    * <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating
    *    		encrypted volumes. If this parameter is not specified, your Amazon Web Services managed KMS key for Amazon EBS is used.
    *    		If you specify a KMS key, you must also set the encrypted state to <code>true</code>.</p>
-   *    	     <p>You can specify a KMS key using any of the following:</p>
-   *    	     <ul>
+   *          <p>You can specify a KMS key using any of the following:</p>
+   *          <ul>
    *             <li>
-   *    			         <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *    		       </li>
+   *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+   *             </li>
    *             <li>
-   *    	           <p>Key alias. For example, alias/ExampleAlias.</p>
-   *    	        </li>
+   *                <p>Key alias. For example, alias/ExampleAlias.</p>
+   *             </li>
    *             <li>
-   *    	           <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *    		       </li>
+   *                <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+   *             </li>
    *             <li>
-   *    		          <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
-   *    		       </li>
+   *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
+   *             </li>
    *          </ul>
-   *    	     <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier that is not valid,
+   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier that is not valid,
    *       the action can appear to complete, but eventually fails.</p>
-   *    	     <p>The specified KMS key must exist in the destination Region.</p>
-   *    	     <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   *          <p>The specified KMS key must exist in the destination Region.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
    */
   KmsKeyId?: string;
 
@@ -4580,10 +5718,8 @@ export interface CopyImageRequest {
    *   		The AMI must be in the Region of the destination Outpost. You cannot copy an
    *   		AMI from an Outpost to a Region, from one Outpost to another, or within the same
    *   		Outpost.</p>
-   *
-   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis">
-   *   		Copying AMIs from an Amazon Web Services Region to an Outpost</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copy AMIs from an Amazon Web Services
+   *         Region to an Outpost</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   DestinationOutpostArn?: string;
 
@@ -4593,6 +5729,22 @@ export interface CopyImageRequest {
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to include your user-defined AMI tags when copying the AMI.</p>
+   *          <p>The following tags will not be copied:</p>
+   *          <ul>
+   *             <li>
+   *                <p>System tags (prefixed with <code>aws:</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>For public and shared AMIs, user-defined tags that are attached by other Amazon Web Services
+   *           accounts</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Your user-defined AMI tags are not copied.</p>
+   */
+  CopyImageTags?: boolean;
 }
 
 /**
@@ -4617,7 +5769,7 @@ export interface CopySnapshotRequest {
    * 		The snapshot must be in the Region for the destination Outpost. You cannot copy a
    * 		snapshot from an Outpost to a Region, from one Outpost to another, or within the same
    * 		Outpost.</p>
-   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
    *   		Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the
    *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -4627,7 +5779,6 @@ export interface CopySnapshotRequest {
    * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot
    *       copy operation. This parameter is only valid for specifying the destination Region in a
    *         <code>PresignedUrl</code> parameter, where it is required.</p>
-   *
    *          <p>The snapshot copy is sent to the regional endpoint that you sent the HTTP
    *     	request to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the CLI, this is
    *       specified using the <code>--region</code> parameter or the default Region in your Amazon Web Services
@@ -4720,9 +5871,15 @@ export interface CopySnapshotResult {
   Tags?: Tag[];
 }
 
-export type EndDateType = "limited" | "unlimited";
+export enum EndDateType {
+  limited = "limited",
+  unlimited = "unlimited",
+}
 
-export type InstanceMatchCriteria = "open" | "targeted";
+export enum InstanceMatchCriteria {
+  open = "open",
+  targeted = "targeted",
+}
 
 export enum CapacityReservationInstancePlatform {
   LINUX_UNIX = "Linux/UNIX",
@@ -4744,7 +5901,10 @@ export enum CapacityReservationInstancePlatform {
   WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web",
 }
 
-export type CapacityReservationTenancy = "dedicated" | "default";
+export enum CapacityReservationTenancy {
+  dedicated = "dedicated",
+  default = "default",
+}
 
 export interface CreateCapacityReservationRequest {
   /**
@@ -4774,7 +5934,7 @@ export interface CreateCapacityReservationRequest {
 
   /**
    * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
@@ -4789,7 +5949,7 @@ export interface CreateCapacityReservationRequest {
 
   /**
    * <p>The number of instances for which to reserve capacity.</p>
-   * 	  	     <p>Valid range: 1 - 1000</p>
+   *          <p>Valid range: 1 - 1000</p>
    */
   InstanceCount: number | undefined;
 
@@ -4812,11 +5972,10 @@ export interface CreateCapacityReservationRequest {
    * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
    * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
    * 				<code>expired</code> when it reaches its end date and time.</p>
-   * 		       <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
+   *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
    * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
    * 				<code>unlimited</code>.</p>
-   *
-   * 		       <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
+   *          <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
    * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
    */
   EndDate?: Date;
@@ -4824,7 +5983,7 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
    * 			types:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it. Do not
@@ -4844,7 +6003,7 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
    * 			include:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>open</code> - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform,
@@ -4858,7 +6017,7 @@ export interface CreateCapacityReservationRequest {
    * 					Capacity Reservation. This ensures that only permitted instances can use the reserved capacity. </p>
    *             </li>
    *          </ul>
-   * 		       <p>Default: <code>open</code>
+   *          <p>Default: <code>open</code>
    *          </p>
    */
   InstanceMatchCriteria?: InstanceMatchCriteria | string;
@@ -4888,7 +6047,30 @@ export interface CreateCapacityReservationRequest {
   PlacementGroupArn?: string;
 }
 
-export type CapacityReservationState = "active" | "cancelled" | "expired" | "failed" | "pending";
+/**
+ * <p>Information about instance capacity usage for a Capacity Reservation.</p>
+ */
+export interface CapacityAllocation {
+  /**
+   * <p>The usage type. <code>used</code> indicates that the instance capacity is
+   * 			in use by instances that are running in the Capacity Reservation.</p>
+   */
+  AllocationType?: AllocationType | string;
+
+  /**
+   * <p>The amount of instance capacity associated with the usage. For example a value of
+   * 			<code>4</code> indicates that instance capacity for 4 instances is currently in use.</p>
+   */
+  Count?: number;
+}
+
+export enum CapacityReservationState {
+  active = "active",
+  cancelled = "cancelled",
+  expired = "expired",
+  failed = "failed",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a Capacity Reservation.</p>
@@ -4931,7 +6113,7 @@ export interface CapacityReservation {
 
   /**
    * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
@@ -4971,7 +6153,7 @@ export interface CapacityReservation {
 
   /**
    * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p>
@@ -5016,7 +6198,7 @@ export interface CapacityReservation {
   /**
    * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
    * 			types:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p>
@@ -5032,7 +6214,7 @@ export interface CapacityReservation {
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
    * 			include:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>open</code> - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform,
@@ -5079,6 +6261,11 @@ export interface CapacityReservation {
    * 			<i>Amazon EC2 User Guide</i>.</p>
    */
   PlacementGroupArn?: string;
+
+  /**
+   * <p>Information about instance capacity usage.</p>
+   */
+  CapacityAllocations?: CapacityAllocation[];
 }
 
 export interface CreateCapacityReservationResult {
@@ -5092,533 +6279,627 @@ export enum FleetInstanceMatchCriteria {
   open = "open",
 }
 
-export type _InstanceType =
-  | "a1.2xlarge"
-  | "a1.4xlarge"
-  | "a1.large"
-  | "a1.medium"
-  | "a1.metal"
-  | "a1.xlarge"
-  | "c1.medium"
-  | "c1.xlarge"
-  | "c3.2xlarge"
-  | "c3.4xlarge"
-  | "c3.8xlarge"
-  | "c3.large"
-  | "c3.xlarge"
-  | "c4.2xlarge"
-  | "c4.4xlarge"
-  | "c4.8xlarge"
-  | "c4.large"
-  | "c4.xlarge"
-  | "c5.12xlarge"
-  | "c5.18xlarge"
-  | "c5.24xlarge"
-  | "c5.2xlarge"
-  | "c5.4xlarge"
-  | "c5.9xlarge"
-  | "c5.large"
-  | "c5.metal"
-  | "c5.xlarge"
-  | "c5a.12xlarge"
-  | "c5a.16xlarge"
-  | "c5a.24xlarge"
-  | "c5a.2xlarge"
-  | "c5a.4xlarge"
-  | "c5a.8xlarge"
-  | "c5a.large"
-  | "c5a.xlarge"
-  | "c5ad.12xlarge"
-  | "c5ad.16xlarge"
-  | "c5ad.24xlarge"
-  | "c5ad.2xlarge"
-  | "c5ad.4xlarge"
-  | "c5ad.8xlarge"
-  | "c5ad.large"
-  | "c5ad.xlarge"
-  | "c5d.12xlarge"
-  | "c5d.18xlarge"
-  | "c5d.24xlarge"
-  | "c5d.2xlarge"
-  | "c5d.4xlarge"
-  | "c5d.9xlarge"
-  | "c5d.large"
-  | "c5d.metal"
-  | "c5d.xlarge"
-  | "c5n.18xlarge"
-  | "c5n.2xlarge"
-  | "c5n.4xlarge"
-  | "c5n.9xlarge"
-  | "c5n.large"
-  | "c5n.metal"
-  | "c5n.xlarge"
-  | "c6a.12xlarge"
-  | "c6a.16xlarge"
-  | "c6a.24xlarge"
-  | "c6a.2xlarge"
-  | "c6a.32xlarge"
-  | "c6a.48xlarge"
-  | "c6a.4xlarge"
-  | "c6a.8xlarge"
-  | "c6a.large"
-  | "c6a.metal"
-  | "c6a.xlarge"
-  | "c6g.12xlarge"
-  | "c6g.16xlarge"
-  | "c6g.2xlarge"
-  | "c6g.4xlarge"
-  | "c6g.8xlarge"
-  | "c6g.large"
-  | "c6g.medium"
-  | "c6g.metal"
-  | "c6g.xlarge"
-  | "c6gd.12xlarge"
-  | "c6gd.16xlarge"
-  | "c6gd.2xlarge"
-  | "c6gd.4xlarge"
-  | "c6gd.8xlarge"
-  | "c6gd.large"
-  | "c6gd.medium"
-  | "c6gd.metal"
-  | "c6gd.xlarge"
-  | "c6gn.12xlarge"
-  | "c6gn.16xlarge"
-  | "c6gn.2xlarge"
-  | "c6gn.4xlarge"
-  | "c6gn.8xlarge"
-  | "c6gn.large"
-  | "c6gn.medium"
-  | "c6gn.xlarge"
-  | "c6i.12xlarge"
-  | "c6i.16xlarge"
-  | "c6i.24xlarge"
-  | "c6i.2xlarge"
-  | "c6i.32xlarge"
-  | "c6i.4xlarge"
-  | "c6i.8xlarge"
-  | "c6i.large"
-  | "c6i.metal"
-  | "c6i.xlarge"
-  | "c7g.12xlarge"
-  | "c7g.16xlarge"
-  | "c7g.2xlarge"
-  | "c7g.4xlarge"
-  | "c7g.8xlarge"
-  | "c7g.large"
-  | "c7g.medium"
-  | "c7g.xlarge"
-  | "cc1.4xlarge"
-  | "cc2.8xlarge"
-  | "cg1.4xlarge"
-  | "cr1.8xlarge"
-  | "d2.2xlarge"
-  | "d2.4xlarge"
-  | "d2.8xlarge"
-  | "d2.xlarge"
-  | "d3.2xlarge"
-  | "d3.4xlarge"
-  | "d3.8xlarge"
-  | "d3.xlarge"
-  | "d3en.12xlarge"
-  | "d3en.2xlarge"
-  | "d3en.4xlarge"
-  | "d3en.6xlarge"
-  | "d3en.8xlarge"
-  | "d3en.xlarge"
-  | "dl1.24xlarge"
-  | "f1.16xlarge"
-  | "f1.2xlarge"
-  | "f1.4xlarge"
-  | "g2.2xlarge"
-  | "g2.8xlarge"
-  | "g3.16xlarge"
-  | "g3.4xlarge"
-  | "g3.8xlarge"
-  | "g3s.xlarge"
-  | "g4ad.16xlarge"
-  | "g4ad.2xlarge"
-  | "g4ad.4xlarge"
-  | "g4ad.8xlarge"
-  | "g4ad.xlarge"
-  | "g4dn.12xlarge"
-  | "g4dn.16xlarge"
-  | "g4dn.2xlarge"
-  | "g4dn.4xlarge"
-  | "g4dn.8xlarge"
-  | "g4dn.metal"
-  | "g4dn.xlarge"
-  | "g5.12xlarge"
-  | "g5.16xlarge"
-  | "g5.24xlarge"
-  | "g5.2xlarge"
-  | "g5.48xlarge"
-  | "g5.4xlarge"
-  | "g5.8xlarge"
-  | "g5.xlarge"
-  | "g5g.16xlarge"
-  | "g5g.2xlarge"
-  | "g5g.4xlarge"
-  | "g5g.8xlarge"
-  | "g5g.metal"
-  | "g5g.xlarge"
-  | "h1.16xlarge"
-  | "h1.2xlarge"
-  | "h1.4xlarge"
-  | "h1.8xlarge"
-  | "hi1.4xlarge"
-  | "hpc6a.48xlarge"
-  | "hs1.8xlarge"
-  | "i2.2xlarge"
-  | "i2.4xlarge"
-  | "i2.8xlarge"
-  | "i2.xlarge"
-  | "i3.16xlarge"
-  | "i3.2xlarge"
-  | "i3.4xlarge"
-  | "i3.8xlarge"
-  | "i3.large"
-  | "i3.metal"
-  | "i3.xlarge"
-  | "i3en.12xlarge"
-  | "i3en.24xlarge"
-  | "i3en.2xlarge"
-  | "i3en.3xlarge"
-  | "i3en.6xlarge"
-  | "i3en.large"
-  | "i3en.metal"
-  | "i3en.xlarge"
-  | "i4i.16xlarge"
-  | "i4i.2xlarge"
-  | "i4i.32xlarge"
-  | "i4i.4xlarge"
-  | "i4i.8xlarge"
-  | "i4i.large"
-  | "i4i.metal"
-  | "i4i.xlarge"
-  | "im4gn.16xlarge"
-  | "im4gn.2xlarge"
-  | "im4gn.4xlarge"
-  | "im4gn.8xlarge"
-  | "im4gn.large"
-  | "im4gn.xlarge"
-  | "inf1.24xlarge"
-  | "inf1.2xlarge"
-  | "inf1.6xlarge"
-  | "inf1.xlarge"
-  | "is4gen.2xlarge"
-  | "is4gen.4xlarge"
-  | "is4gen.8xlarge"
-  | "is4gen.large"
-  | "is4gen.medium"
-  | "is4gen.xlarge"
-  | "m1.large"
-  | "m1.medium"
-  | "m1.small"
-  | "m1.xlarge"
-  | "m2.2xlarge"
-  | "m2.4xlarge"
-  | "m2.xlarge"
-  | "m3.2xlarge"
-  | "m3.large"
-  | "m3.medium"
-  | "m3.xlarge"
-  | "m4.10xlarge"
-  | "m4.16xlarge"
-  | "m4.2xlarge"
-  | "m4.4xlarge"
-  | "m4.large"
-  | "m4.xlarge"
-  | "m5.12xlarge"
-  | "m5.16xlarge"
-  | "m5.24xlarge"
-  | "m5.2xlarge"
-  | "m5.4xlarge"
-  | "m5.8xlarge"
-  | "m5.large"
-  | "m5.metal"
-  | "m5.xlarge"
-  | "m5a.12xlarge"
-  | "m5a.16xlarge"
-  | "m5a.24xlarge"
-  | "m5a.2xlarge"
-  | "m5a.4xlarge"
-  | "m5a.8xlarge"
-  | "m5a.large"
-  | "m5a.xlarge"
-  | "m5ad.12xlarge"
-  | "m5ad.16xlarge"
-  | "m5ad.24xlarge"
-  | "m5ad.2xlarge"
-  | "m5ad.4xlarge"
-  | "m5ad.8xlarge"
-  | "m5ad.large"
-  | "m5ad.xlarge"
-  | "m5d.12xlarge"
-  | "m5d.16xlarge"
-  | "m5d.24xlarge"
-  | "m5d.2xlarge"
-  | "m5d.4xlarge"
-  | "m5d.8xlarge"
-  | "m5d.large"
-  | "m5d.metal"
-  | "m5d.xlarge"
-  | "m5dn.12xlarge"
-  | "m5dn.16xlarge"
-  | "m5dn.24xlarge"
-  | "m5dn.2xlarge"
-  | "m5dn.4xlarge"
-  | "m5dn.8xlarge"
-  | "m5dn.large"
-  | "m5dn.metal"
-  | "m5dn.xlarge"
-  | "m5n.12xlarge"
-  | "m5n.16xlarge"
-  | "m5n.24xlarge"
-  | "m5n.2xlarge"
-  | "m5n.4xlarge"
-  | "m5n.8xlarge"
-  | "m5n.large"
-  | "m5n.metal"
-  | "m5n.xlarge"
-  | "m5zn.12xlarge"
-  | "m5zn.2xlarge"
-  | "m5zn.3xlarge"
-  | "m5zn.6xlarge"
-  | "m5zn.large"
-  | "m5zn.metal"
-  | "m5zn.xlarge"
-  | "m6a.12xlarge"
-  | "m6a.16xlarge"
-  | "m6a.24xlarge"
-  | "m6a.2xlarge"
-  | "m6a.32xlarge"
-  | "m6a.48xlarge"
-  | "m6a.4xlarge"
-  | "m6a.8xlarge"
-  | "m6a.large"
-  | "m6a.metal"
-  | "m6a.xlarge"
-  | "m6g.12xlarge"
-  | "m6g.16xlarge"
-  | "m6g.2xlarge"
-  | "m6g.4xlarge"
-  | "m6g.8xlarge"
-  | "m6g.large"
-  | "m6g.medium"
-  | "m6g.metal"
-  | "m6g.xlarge"
-  | "m6gd.12xlarge"
-  | "m6gd.16xlarge"
-  | "m6gd.2xlarge"
-  | "m6gd.4xlarge"
-  | "m6gd.8xlarge"
-  | "m6gd.large"
-  | "m6gd.medium"
-  | "m6gd.metal"
-  | "m6gd.xlarge"
-  | "m6i.12xlarge"
-  | "m6i.16xlarge"
-  | "m6i.24xlarge"
-  | "m6i.2xlarge"
-  | "m6i.32xlarge"
-  | "m6i.4xlarge"
-  | "m6i.8xlarge"
-  | "m6i.large"
-  | "m6i.metal"
-  | "m6i.xlarge"
-  | "mac1.metal"
-  | "mac2.metal"
-  | "p2.16xlarge"
-  | "p2.8xlarge"
-  | "p2.xlarge"
-  | "p3.16xlarge"
-  | "p3.2xlarge"
-  | "p3.8xlarge"
-  | "p3dn.24xlarge"
-  | "p4d.24xlarge"
-  | "r3.2xlarge"
-  | "r3.4xlarge"
-  | "r3.8xlarge"
-  | "r3.large"
-  | "r3.xlarge"
-  | "r4.16xlarge"
-  | "r4.2xlarge"
-  | "r4.4xlarge"
-  | "r4.8xlarge"
-  | "r4.large"
-  | "r4.xlarge"
-  | "r5.12xlarge"
-  | "r5.16xlarge"
-  | "r5.24xlarge"
-  | "r5.2xlarge"
-  | "r5.4xlarge"
-  | "r5.8xlarge"
-  | "r5.large"
-  | "r5.metal"
-  | "r5.xlarge"
-  | "r5a.12xlarge"
-  | "r5a.16xlarge"
-  | "r5a.24xlarge"
-  | "r5a.2xlarge"
-  | "r5a.4xlarge"
-  | "r5a.8xlarge"
-  | "r5a.large"
-  | "r5a.xlarge"
-  | "r5ad.12xlarge"
-  | "r5ad.16xlarge"
-  | "r5ad.24xlarge"
-  | "r5ad.2xlarge"
-  | "r5ad.4xlarge"
-  | "r5ad.8xlarge"
-  | "r5ad.large"
-  | "r5ad.xlarge"
-  | "r5b.12xlarge"
-  | "r5b.16xlarge"
-  | "r5b.24xlarge"
-  | "r5b.2xlarge"
-  | "r5b.4xlarge"
-  | "r5b.8xlarge"
-  | "r5b.large"
-  | "r5b.metal"
-  | "r5b.xlarge"
-  | "r5d.12xlarge"
-  | "r5d.16xlarge"
-  | "r5d.24xlarge"
-  | "r5d.2xlarge"
-  | "r5d.4xlarge"
-  | "r5d.8xlarge"
-  | "r5d.large"
-  | "r5d.metal"
-  | "r5d.xlarge"
-  | "r5dn.12xlarge"
-  | "r5dn.16xlarge"
-  | "r5dn.24xlarge"
-  | "r5dn.2xlarge"
-  | "r5dn.4xlarge"
-  | "r5dn.8xlarge"
-  | "r5dn.large"
-  | "r5dn.metal"
-  | "r5dn.xlarge"
-  | "r5n.12xlarge"
-  | "r5n.16xlarge"
-  | "r5n.24xlarge"
-  | "r5n.2xlarge"
-  | "r5n.4xlarge"
-  | "r5n.8xlarge"
-  | "r5n.large"
-  | "r5n.metal"
-  | "r5n.xlarge"
-  | "r6g.12xlarge"
-  | "r6g.16xlarge"
-  | "r6g.2xlarge"
-  | "r6g.4xlarge"
-  | "r6g.8xlarge"
-  | "r6g.large"
-  | "r6g.medium"
-  | "r6g.metal"
-  | "r6g.xlarge"
-  | "r6gd.12xlarge"
-  | "r6gd.16xlarge"
-  | "r6gd.2xlarge"
-  | "r6gd.4xlarge"
-  | "r6gd.8xlarge"
-  | "r6gd.large"
-  | "r6gd.medium"
-  | "r6gd.metal"
-  | "r6gd.xlarge"
-  | "r6i.12xlarge"
-  | "r6i.16xlarge"
-  | "r6i.24xlarge"
-  | "r6i.2xlarge"
-  | "r6i.32xlarge"
-  | "r6i.4xlarge"
-  | "r6i.8xlarge"
-  | "r6i.large"
-  | "r6i.metal"
-  | "r6i.xlarge"
-  | "t1.micro"
-  | "t2.2xlarge"
-  | "t2.large"
-  | "t2.medium"
-  | "t2.micro"
-  | "t2.nano"
-  | "t2.small"
-  | "t2.xlarge"
-  | "t3.2xlarge"
-  | "t3.large"
-  | "t3.medium"
-  | "t3.micro"
-  | "t3.nano"
-  | "t3.small"
-  | "t3.xlarge"
-  | "t3a.2xlarge"
-  | "t3a.large"
-  | "t3a.medium"
-  | "t3a.micro"
-  | "t3a.nano"
-  | "t3a.small"
-  | "t3a.xlarge"
-  | "t4g.2xlarge"
-  | "t4g.large"
-  | "t4g.medium"
-  | "t4g.micro"
-  | "t4g.nano"
-  | "t4g.small"
-  | "t4g.xlarge"
-  | "u-12tb1.112xlarge"
-  | "u-12tb1.metal"
-  | "u-18tb1.metal"
-  | "u-24tb1.metal"
-  | "u-6tb1.112xlarge"
-  | "u-6tb1.56xlarge"
-  | "u-6tb1.metal"
-  | "u-9tb1.112xlarge"
-  | "u-9tb1.metal"
-  | "vt1.24xlarge"
-  | "vt1.3xlarge"
-  | "vt1.6xlarge"
-  | "x1.16xlarge"
-  | "x1.32xlarge"
-  | "x1e.16xlarge"
-  | "x1e.2xlarge"
-  | "x1e.32xlarge"
-  | "x1e.4xlarge"
-  | "x1e.8xlarge"
-  | "x1e.xlarge"
-  | "x2gd.12xlarge"
-  | "x2gd.16xlarge"
-  | "x2gd.2xlarge"
-  | "x2gd.4xlarge"
-  | "x2gd.8xlarge"
-  | "x2gd.large"
-  | "x2gd.medium"
-  | "x2gd.metal"
-  | "x2gd.xlarge"
-  | "x2idn.16xlarge"
-  | "x2idn.24xlarge"
-  | "x2idn.32xlarge"
-  | "x2idn.metal"
-  | "x2iedn.16xlarge"
-  | "x2iedn.24xlarge"
-  | "x2iedn.2xlarge"
-  | "x2iedn.32xlarge"
-  | "x2iedn.4xlarge"
-  | "x2iedn.8xlarge"
-  | "x2iedn.metal"
-  | "x2iedn.xlarge"
-  | "x2iezn.12xlarge"
-  | "x2iezn.2xlarge"
-  | "x2iezn.4xlarge"
-  | "x2iezn.6xlarge"
-  | "x2iezn.8xlarge"
-  | "x2iezn.metal"
-  | "z1d.12xlarge"
-  | "z1d.2xlarge"
-  | "z1d.3xlarge"
-  | "z1d.6xlarge"
-  | "z1d.large"
-  | "z1d.metal"
-  | "z1d.xlarge";
+export enum _InstanceType {
+  a1_2xlarge = "a1.2xlarge",
+  a1_4xlarge = "a1.4xlarge",
+  a1_large = "a1.large",
+  a1_medium = "a1.medium",
+  a1_metal = "a1.metal",
+  a1_xlarge = "a1.xlarge",
+  c1_medium = "c1.medium",
+  c1_xlarge = "c1.xlarge",
+  c3_2xlarge = "c3.2xlarge",
+  c3_4xlarge = "c3.4xlarge",
+  c3_8xlarge = "c3.8xlarge",
+  c3_large = "c3.large",
+  c3_xlarge = "c3.xlarge",
+  c4_2xlarge = "c4.2xlarge",
+  c4_4xlarge = "c4.4xlarge",
+  c4_8xlarge = "c4.8xlarge",
+  c4_large = "c4.large",
+  c4_xlarge = "c4.xlarge",
+  c5_12xlarge = "c5.12xlarge",
+  c5_18xlarge = "c5.18xlarge",
+  c5_24xlarge = "c5.24xlarge",
+  c5_2xlarge = "c5.2xlarge",
+  c5_4xlarge = "c5.4xlarge",
+  c5_9xlarge = "c5.9xlarge",
+  c5_large = "c5.large",
+  c5_metal = "c5.metal",
+  c5_xlarge = "c5.xlarge",
+  c5a_12xlarge = "c5a.12xlarge",
+  c5a_16xlarge = "c5a.16xlarge",
+  c5a_24xlarge = "c5a.24xlarge",
+  c5a_2xlarge = "c5a.2xlarge",
+  c5a_4xlarge = "c5a.4xlarge",
+  c5a_8xlarge = "c5a.8xlarge",
+  c5a_large = "c5a.large",
+  c5a_xlarge = "c5a.xlarge",
+  c5ad_12xlarge = "c5ad.12xlarge",
+  c5ad_16xlarge = "c5ad.16xlarge",
+  c5ad_24xlarge = "c5ad.24xlarge",
+  c5ad_2xlarge = "c5ad.2xlarge",
+  c5ad_4xlarge = "c5ad.4xlarge",
+  c5ad_8xlarge = "c5ad.8xlarge",
+  c5ad_large = "c5ad.large",
+  c5ad_xlarge = "c5ad.xlarge",
+  c5d_12xlarge = "c5d.12xlarge",
+  c5d_18xlarge = "c5d.18xlarge",
+  c5d_24xlarge = "c5d.24xlarge",
+  c5d_2xlarge = "c5d.2xlarge",
+  c5d_4xlarge = "c5d.4xlarge",
+  c5d_9xlarge = "c5d.9xlarge",
+  c5d_large = "c5d.large",
+  c5d_metal = "c5d.metal",
+  c5d_xlarge = "c5d.xlarge",
+  c5n_18xlarge = "c5n.18xlarge",
+  c5n_2xlarge = "c5n.2xlarge",
+  c5n_4xlarge = "c5n.4xlarge",
+  c5n_9xlarge = "c5n.9xlarge",
+  c5n_large = "c5n.large",
+  c5n_metal = "c5n.metal",
+  c5n_xlarge = "c5n.xlarge",
+  c6a_12xlarge = "c6a.12xlarge",
+  c6a_16xlarge = "c6a.16xlarge",
+  c6a_24xlarge = "c6a.24xlarge",
+  c6a_2xlarge = "c6a.2xlarge",
+  c6a_32xlarge = "c6a.32xlarge",
+  c6a_48xlarge = "c6a.48xlarge",
+  c6a_4xlarge = "c6a.4xlarge",
+  c6a_8xlarge = "c6a.8xlarge",
+  c6a_large = "c6a.large",
+  c6a_metal = "c6a.metal",
+  c6a_xlarge = "c6a.xlarge",
+  c6g_12xlarge = "c6g.12xlarge",
+  c6g_16xlarge = "c6g.16xlarge",
+  c6g_2xlarge = "c6g.2xlarge",
+  c6g_4xlarge = "c6g.4xlarge",
+  c6g_8xlarge = "c6g.8xlarge",
+  c6g_large = "c6g.large",
+  c6g_medium = "c6g.medium",
+  c6g_metal = "c6g.metal",
+  c6g_xlarge = "c6g.xlarge",
+  c6gd_12xlarge = "c6gd.12xlarge",
+  c6gd_16xlarge = "c6gd.16xlarge",
+  c6gd_2xlarge = "c6gd.2xlarge",
+  c6gd_4xlarge = "c6gd.4xlarge",
+  c6gd_8xlarge = "c6gd.8xlarge",
+  c6gd_large = "c6gd.large",
+  c6gd_medium = "c6gd.medium",
+  c6gd_metal = "c6gd.metal",
+  c6gd_xlarge = "c6gd.xlarge",
+  c6gn_12xlarge = "c6gn.12xlarge",
+  c6gn_16xlarge = "c6gn.16xlarge",
+  c6gn_2xlarge = "c6gn.2xlarge",
+  c6gn_4xlarge = "c6gn.4xlarge",
+  c6gn_8xlarge = "c6gn.8xlarge",
+  c6gn_large = "c6gn.large",
+  c6gn_medium = "c6gn.medium",
+  c6gn_xlarge = "c6gn.xlarge",
+  c6i_12xlarge = "c6i.12xlarge",
+  c6i_16xlarge = "c6i.16xlarge",
+  c6i_24xlarge = "c6i.24xlarge",
+  c6i_2xlarge = "c6i.2xlarge",
+  c6i_32xlarge = "c6i.32xlarge",
+  c6i_4xlarge = "c6i.4xlarge",
+  c6i_8xlarge = "c6i.8xlarge",
+  c6i_large = "c6i.large",
+  c6i_metal = "c6i.metal",
+  c6i_xlarge = "c6i.xlarge",
+  c6id_12xlarge = "c6id.12xlarge",
+  c6id_16xlarge = "c6id.16xlarge",
+  c6id_24xlarge = "c6id.24xlarge",
+  c6id_2xlarge = "c6id.2xlarge",
+  c6id_32xlarge = "c6id.32xlarge",
+  c6id_4xlarge = "c6id.4xlarge",
+  c6id_8xlarge = "c6id.8xlarge",
+  c6id_large = "c6id.large",
+  c6id_metal = "c6id.metal",
+  c6id_xlarge = "c6id.xlarge",
+  c6in_12xlarge = "c6in.12xlarge",
+  c6in_16xlarge = "c6in.16xlarge",
+  c6in_24xlarge = "c6in.24xlarge",
+  c6in_2xlarge = "c6in.2xlarge",
+  c6in_32xlarge = "c6in.32xlarge",
+  c6in_4xlarge = "c6in.4xlarge",
+  c6in_8xlarge = "c6in.8xlarge",
+  c6in_large = "c6in.large",
+  c6in_xlarge = "c6in.xlarge",
+  c7g_12xlarge = "c7g.12xlarge",
+  c7g_16xlarge = "c7g.16xlarge",
+  c7g_2xlarge = "c7g.2xlarge",
+  c7g_4xlarge = "c7g.4xlarge",
+  c7g_8xlarge = "c7g.8xlarge",
+  c7g_large = "c7g.large",
+  c7g_medium = "c7g.medium",
+  c7g_xlarge = "c7g.xlarge",
+  cc1_4xlarge = "cc1.4xlarge",
+  cc2_8xlarge = "cc2.8xlarge",
+  cg1_4xlarge = "cg1.4xlarge",
+  cr1_8xlarge = "cr1.8xlarge",
+  d2_2xlarge = "d2.2xlarge",
+  d2_4xlarge = "d2.4xlarge",
+  d2_8xlarge = "d2.8xlarge",
+  d2_xlarge = "d2.xlarge",
+  d3_2xlarge = "d3.2xlarge",
+  d3_4xlarge = "d3.4xlarge",
+  d3_8xlarge = "d3.8xlarge",
+  d3_xlarge = "d3.xlarge",
+  d3en_12xlarge = "d3en.12xlarge",
+  d3en_2xlarge = "d3en.2xlarge",
+  d3en_4xlarge = "d3en.4xlarge",
+  d3en_6xlarge = "d3en.6xlarge",
+  d3en_8xlarge = "d3en.8xlarge",
+  d3en_xlarge = "d3en.xlarge",
+  dl1_24xlarge = "dl1.24xlarge",
+  f1_16xlarge = "f1.16xlarge",
+  f1_2xlarge = "f1.2xlarge",
+  f1_4xlarge = "f1.4xlarge",
+  g2_2xlarge = "g2.2xlarge",
+  g2_8xlarge = "g2.8xlarge",
+  g3_16xlarge = "g3.16xlarge",
+  g3_4xlarge = "g3.4xlarge",
+  g3_8xlarge = "g3.8xlarge",
+  g3s_xlarge = "g3s.xlarge",
+  g4ad_16xlarge = "g4ad.16xlarge",
+  g4ad_2xlarge = "g4ad.2xlarge",
+  g4ad_4xlarge = "g4ad.4xlarge",
+  g4ad_8xlarge = "g4ad.8xlarge",
+  g4ad_xlarge = "g4ad.xlarge",
+  g4dn_12xlarge = "g4dn.12xlarge",
+  g4dn_16xlarge = "g4dn.16xlarge",
+  g4dn_2xlarge = "g4dn.2xlarge",
+  g4dn_4xlarge = "g4dn.4xlarge",
+  g4dn_8xlarge = "g4dn.8xlarge",
+  g4dn_metal = "g4dn.metal",
+  g4dn_xlarge = "g4dn.xlarge",
+  g5_12xlarge = "g5.12xlarge",
+  g5_16xlarge = "g5.16xlarge",
+  g5_24xlarge = "g5.24xlarge",
+  g5_2xlarge = "g5.2xlarge",
+  g5_48xlarge = "g5.48xlarge",
+  g5_4xlarge = "g5.4xlarge",
+  g5_8xlarge = "g5.8xlarge",
+  g5_xlarge = "g5.xlarge",
+  g5g_16xlarge = "g5g.16xlarge",
+  g5g_2xlarge = "g5g.2xlarge",
+  g5g_4xlarge = "g5g.4xlarge",
+  g5g_8xlarge = "g5g.8xlarge",
+  g5g_metal = "g5g.metal",
+  g5g_xlarge = "g5g.xlarge",
+  h1_16xlarge = "h1.16xlarge",
+  h1_2xlarge = "h1.2xlarge",
+  h1_4xlarge = "h1.4xlarge",
+  h1_8xlarge = "h1.8xlarge",
+  hi1_4xlarge = "hi1.4xlarge",
+  hpc6a_48xlarge = "hpc6a.48xlarge",
+  hpc6id_32xlarge = "hpc6id.32xlarge",
+  hs1_8xlarge = "hs1.8xlarge",
+  i2_2xlarge = "i2.2xlarge",
+  i2_4xlarge = "i2.4xlarge",
+  i2_8xlarge = "i2.8xlarge",
+  i2_xlarge = "i2.xlarge",
+  i3_16xlarge = "i3.16xlarge",
+  i3_2xlarge = "i3.2xlarge",
+  i3_4xlarge = "i3.4xlarge",
+  i3_8xlarge = "i3.8xlarge",
+  i3_large = "i3.large",
+  i3_metal = "i3.metal",
+  i3_xlarge = "i3.xlarge",
+  i3en_12xlarge = "i3en.12xlarge",
+  i3en_24xlarge = "i3en.24xlarge",
+  i3en_2xlarge = "i3en.2xlarge",
+  i3en_3xlarge = "i3en.3xlarge",
+  i3en_6xlarge = "i3en.6xlarge",
+  i3en_large = "i3en.large",
+  i3en_metal = "i3en.metal",
+  i3en_xlarge = "i3en.xlarge",
+  i4i_16xlarge = "i4i.16xlarge",
+  i4i_2xlarge = "i4i.2xlarge",
+  i4i_32xlarge = "i4i.32xlarge",
+  i4i_4xlarge = "i4i.4xlarge",
+  i4i_8xlarge = "i4i.8xlarge",
+  i4i_large = "i4i.large",
+  i4i_metal = "i4i.metal",
+  i4i_xlarge = "i4i.xlarge",
+  im4gn_16xlarge = "im4gn.16xlarge",
+  im4gn_2xlarge = "im4gn.2xlarge",
+  im4gn_4xlarge = "im4gn.4xlarge",
+  im4gn_8xlarge = "im4gn.8xlarge",
+  im4gn_large = "im4gn.large",
+  im4gn_xlarge = "im4gn.xlarge",
+  inf1_24xlarge = "inf1.24xlarge",
+  inf1_2xlarge = "inf1.2xlarge",
+  inf1_6xlarge = "inf1.6xlarge",
+  inf1_xlarge = "inf1.xlarge",
+  is4gen_2xlarge = "is4gen.2xlarge",
+  is4gen_4xlarge = "is4gen.4xlarge",
+  is4gen_8xlarge = "is4gen.8xlarge",
+  is4gen_large = "is4gen.large",
+  is4gen_medium = "is4gen.medium",
+  is4gen_xlarge = "is4gen.xlarge",
+  m1_large = "m1.large",
+  m1_medium = "m1.medium",
+  m1_small = "m1.small",
+  m1_xlarge = "m1.xlarge",
+  m2_2xlarge = "m2.2xlarge",
+  m2_4xlarge = "m2.4xlarge",
+  m2_xlarge = "m2.xlarge",
+  m3_2xlarge = "m3.2xlarge",
+  m3_large = "m3.large",
+  m3_medium = "m3.medium",
+  m3_xlarge = "m3.xlarge",
+  m4_10xlarge = "m4.10xlarge",
+  m4_16xlarge = "m4.16xlarge",
+  m4_2xlarge = "m4.2xlarge",
+  m4_4xlarge = "m4.4xlarge",
+  m4_large = "m4.large",
+  m4_xlarge = "m4.xlarge",
+  m5_12xlarge = "m5.12xlarge",
+  m5_16xlarge = "m5.16xlarge",
+  m5_24xlarge = "m5.24xlarge",
+  m5_2xlarge = "m5.2xlarge",
+  m5_4xlarge = "m5.4xlarge",
+  m5_8xlarge = "m5.8xlarge",
+  m5_large = "m5.large",
+  m5_metal = "m5.metal",
+  m5_xlarge = "m5.xlarge",
+  m5a_12xlarge = "m5a.12xlarge",
+  m5a_16xlarge = "m5a.16xlarge",
+  m5a_24xlarge = "m5a.24xlarge",
+  m5a_2xlarge = "m5a.2xlarge",
+  m5a_4xlarge = "m5a.4xlarge",
+  m5a_8xlarge = "m5a.8xlarge",
+  m5a_large = "m5a.large",
+  m5a_xlarge = "m5a.xlarge",
+  m5ad_12xlarge = "m5ad.12xlarge",
+  m5ad_16xlarge = "m5ad.16xlarge",
+  m5ad_24xlarge = "m5ad.24xlarge",
+  m5ad_2xlarge = "m5ad.2xlarge",
+  m5ad_4xlarge = "m5ad.4xlarge",
+  m5ad_8xlarge = "m5ad.8xlarge",
+  m5ad_large = "m5ad.large",
+  m5ad_xlarge = "m5ad.xlarge",
+  m5d_12xlarge = "m5d.12xlarge",
+  m5d_16xlarge = "m5d.16xlarge",
+  m5d_24xlarge = "m5d.24xlarge",
+  m5d_2xlarge = "m5d.2xlarge",
+  m5d_4xlarge = "m5d.4xlarge",
+  m5d_8xlarge = "m5d.8xlarge",
+  m5d_large = "m5d.large",
+  m5d_metal = "m5d.metal",
+  m5d_xlarge = "m5d.xlarge",
+  m5dn_12xlarge = "m5dn.12xlarge",
+  m5dn_16xlarge = "m5dn.16xlarge",
+  m5dn_24xlarge = "m5dn.24xlarge",
+  m5dn_2xlarge = "m5dn.2xlarge",
+  m5dn_4xlarge = "m5dn.4xlarge",
+  m5dn_8xlarge = "m5dn.8xlarge",
+  m5dn_large = "m5dn.large",
+  m5dn_metal = "m5dn.metal",
+  m5dn_xlarge = "m5dn.xlarge",
+  m5n_12xlarge = "m5n.12xlarge",
+  m5n_16xlarge = "m5n.16xlarge",
+  m5n_24xlarge = "m5n.24xlarge",
+  m5n_2xlarge = "m5n.2xlarge",
+  m5n_4xlarge = "m5n.4xlarge",
+  m5n_8xlarge = "m5n.8xlarge",
+  m5n_large = "m5n.large",
+  m5n_metal = "m5n.metal",
+  m5n_xlarge = "m5n.xlarge",
+  m5zn_12xlarge = "m5zn.12xlarge",
+  m5zn_2xlarge = "m5zn.2xlarge",
+  m5zn_3xlarge = "m5zn.3xlarge",
+  m5zn_6xlarge = "m5zn.6xlarge",
+  m5zn_large = "m5zn.large",
+  m5zn_metal = "m5zn.metal",
+  m5zn_xlarge = "m5zn.xlarge",
+  m6a_12xlarge = "m6a.12xlarge",
+  m6a_16xlarge = "m6a.16xlarge",
+  m6a_24xlarge = "m6a.24xlarge",
+  m6a_2xlarge = "m6a.2xlarge",
+  m6a_32xlarge = "m6a.32xlarge",
+  m6a_48xlarge = "m6a.48xlarge",
+  m6a_4xlarge = "m6a.4xlarge",
+  m6a_8xlarge = "m6a.8xlarge",
+  m6a_large = "m6a.large",
+  m6a_metal = "m6a.metal",
+  m6a_xlarge = "m6a.xlarge",
+  m6g_12xlarge = "m6g.12xlarge",
+  m6g_16xlarge = "m6g.16xlarge",
+  m6g_2xlarge = "m6g.2xlarge",
+  m6g_4xlarge = "m6g.4xlarge",
+  m6g_8xlarge = "m6g.8xlarge",
+  m6g_large = "m6g.large",
+  m6g_medium = "m6g.medium",
+  m6g_metal = "m6g.metal",
+  m6g_xlarge = "m6g.xlarge",
+  m6gd_12xlarge = "m6gd.12xlarge",
+  m6gd_16xlarge = "m6gd.16xlarge",
+  m6gd_2xlarge = "m6gd.2xlarge",
+  m6gd_4xlarge = "m6gd.4xlarge",
+  m6gd_8xlarge = "m6gd.8xlarge",
+  m6gd_large = "m6gd.large",
+  m6gd_medium = "m6gd.medium",
+  m6gd_metal = "m6gd.metal",
+  m6gd_xlarge = "m6gd.xlarge",
+  m6i_12xlarge = "m6i.12xlarge",
+  m6i_16xlarge = "m6i.16xlarge",
+  m6i_24xlarge = "m6i.24xlarge",
+  m6i_2xlarge = "m6i.2xlarge",
+  m6i_32xlarge = "m6i.32xlarge",
+  m6i_4xlarge = "m6i.4xlarge",
+  m6i_8xlarge = "m6i.8xlarge",
+  m6i_large = "m6i.large",
+  m6i_metal = "m6i.metal",
+  m6i_xlarge = "m6i.xlarge",
+  m6id_12xlarge = "m6id.12xlarge",
+  m6id_16xlarge = "m6id.16xlarge",
+  m6id_24xlarge = "m6id.24xlarge",
+  m6id_2xlarge = "m6id.2xlarge",
+  m6id_32xlarge = "m6id.32xlarge",
+  m6id_4xlarge = "m6id.4xlarge",
+  m6id_8xlarge = "m6id.8xlarge",
+  m6id_large = "m6id.large",
+  m6id_metal = "m6id.metal",
+  m6id_xlarge = "m6id.xlarge",
+  m6idn_12xlarge = "m6idn.12xlarge",
+  m6idn_16xlarge = "m6idn.16xlarge",
+  m6idn_24xlarge = "m6idn.24xlarge",
+  m6idn_2xlarge = "m6idn.2xlarge",
+  m6idn_32xlarge = "m6idn.32xlarge",
+  m6idn_4xlarge = "m6idn.4xlarge",
+  m6idn_8xlarge = "m6idn.8xlarge",
+  m6idn_large = "m6idn.large",
+  m6idn_xlarge = "m6idn.xlarge",
+  m6in_12xlarge = "m6in.12xlarge",
+  m6in_16xlarge = "m6in.16xlarge",
+  m6in_24xlarge = "m6in.24xlarge",
+  m6in_2xlarge = "m6in.2xlarge",
+  m6in_32xlarge = "m6in.32xlarge",
+  m6in_4xlarge = "m6in.4xlarge",
+  m6in_8xlarge = "m6in.8xlarge",
+  m6in_large = "m6in.large",
+  m6in_xlarge = "m6in.xlarge",
+  mac1_metal = "mac1.metal",
+  mac2_metal = "mac2.metal",
+  p2_16xlarge = "p2.16xlarge",
+  p2_8xlarge = "p2.8xlarge",
+  p2_xlarge = "p2.xlarge",
+  p3_16xlarge = "p3.16xlarge",
+  p3_2xlarge = "p3.2xlarge",
+  p3_8xlarge = "p3.8xlarge",
+  p3dn_24xlarge = "p3dn.24xlarge",
+  p4d_24xlarge = "p4d.24xlarge",
+  p4de_24xlarge = "p4de.24xlarge",
+  r3_2xlarge = "r3.2xlarge",
+  r3_4xlarge = "r3.4xlarge",
+  r3_8xlarge = "r3.8xlarge",
+  r3_large = "r3.large",
+  r3_xlarge = "r3.xlarge",
+  r4_16xlarge = "r4.16xlarge",
+  r4_2xlarge = "r4.2xlarge",
+  r4_4xlarge = "r4.4xlarge",
+  r4_8xlarge = "r4.8xlarge",
+  r4_large = "r4.large",
+  r4_xlarge = "r4.xlarge",
+  r5_12xlarge = "r5.12xlarge",
+  r5_16xlarge = "r5.16xlarge",
+  r5_24xlarge = "r5.24xlarge",
+  r5_2xlarge = "r5.2xlarge",
+  r5_4xlarge = "r5.4xlarge",
+  r5_8xlarge = "r5.8xlarge",
+  r5_large = "r5.large",
+  r5_metal = "r5.metal",
+  r5_xlarge = "r5.xlarge",
+  r5a_12xlarge = "r5a.12xlarge",
+  r5a_16xlarge = "r5a.16xlarge",
+  r5a_24xlarge = "r5a.24xlarge",
+  r5a_2xlarge = "r5a.2xlarge",
+  r5a_4xlarge = "r5a.4xlarge",
+  r5a_8xlarge = "r5a.8xlarge",
+  r5a_large = "r5a.large",
+  r5a_xlarge = "r5a.xlarge",
+  r5ad_12xlarge = "r5ad.12xlarge",
+  r5ad_16xlarge = "r5ad.16xlarge",
+  r5ad_24xlarge = "r5ad.24xlarge",
+  r5ad_2xlarge = "r5ad.2xlarge",
+  r5ad_4xlarge = "r5ad.4xlarge",
+  r5ad_8xlarge = "r5ad.8xlarge",
+  r5ad_large = "r5ad.large",
+  r5ad_xlarge = "r5ad.xlarge",
+  r5b_12xlarge = "r5b.12xlarge",
+  r5b_16xlarge = "r5b.16xlarge",
+  r5b_24xlarge = "r5b.24xlarge",
+  r5b_2xlarge = "r5b.2xlarge",
+  r5b_4xlarge = "r5b.4xlarge",
+  r5b_8xlarge = "r5b.8xlarge",
+  r5b_large = "r5b.large",
+  r5b_metal = "r5b.metal",
+  r5b_xlarge = "r5b.xlarge",
+  r5d_12xlarge = "r5d.12xlarge",
+  r5d_16xlarge = "r5d.16xlarge",
+  r5d_24xlarge = "r5d.24xlarge",
+  r5d_2xlarge = "r5d.2xlarge",
+  r5d_4xlarge = "r5d.4xlarge",
+  r5d_8xlarge = "r5d.8xlarge",
+  r5d_large = "r5d.large",
+  r5d_metal = "r5d.metal",
+  r5d_xlarge = "r5d.xlarge",
+  r5dn_12xlarge = "r5dn.12xlarge",
+  r5dn_16xlarge = "r5dn.16xlarge",
+  r5dn_24xlarge = "r5dn.24xlarge",
+  r5dn_2xlarge = "r5dn.2xlarge",
+  r5dn_4xlarge = "r5dn.4xlarge",
+  r5dn_8xlarge = "r5dn.8xlarge",
+  r5dn_large = "r5dn.large",
+  r5dn_metal = "r5dn.metal",
+  r5dn_xlarge = "r5dn.xlarge",
+  r5n_12xlarge = "r5n.12xlarge",
+  r5n_16xlarge = "r5n.16xlarge",
+  r5n_24xlarge = "r5n.24xlarge",
+  r5n_2xlarge = "r5n.2xlarge",
+  r5n_4xlarge = "r5n.4xlarge",
+  r5n_8xlarge = "r5n.8xlarge",
+  r5n_large = "r5n.large",
+  r5n_metal = "r5n.metal",
+  r5n_xlarge = "r5n.xlarge",
+  r6a_12xlarge = "r6a.12xlarge",
+  r6a_16xlarge = "r6a.16xlarge",
+  r6a_24xlarge = "r6a.24xlarge",
+  r6a_2xlarge = "r6a.2xlarge",
+  r6a_32xlarge = "r6a.32xlarge",
+  r6a_48xlarge = "r6a.48xlarge",
+  r6a_4xlarge = "r6a.4xlarge",
+  r6a_8xlarge = "r6a.8xlarge",
+  r6a_large = "r6a.large",
+  r6a_metal = "r6a.metal",
+  r6a_xlarge = "r6a.xlarge",
+  r6g_12xlarge = "r6g.12xlarge",
+  r6g_16xlarge = "r6g.16xlarge",
+  r6g_2xlarge = "r6g.2xlarge",
+  r6g_4xlarge = "r6g.4xlarge",
+  r6g_8xlarge = "r6g.8xlarge",
+  r6g_large = "r6g.large",
+  r6g_medium = "r6g.medium",
+  r6g_metal = "r6g.metal",
+  r6g_xlarge = "r6g.xlarge",
+  r6gd_12xlarge = "r6gd.12xlarge",
+  r6gd_16xlarge = "r6gd.16xlarge",
+  r6gd_2xlarge = "r6gd.2xlarge",
+  r6gd_4xlarge = "r6gd.4xlarge",
+  r6gd_8xlarge = "r6gd.8xlarge",
+  r6gd_large = "r6gd.large",
+  r6gd_medium = "r6gd.medium",
+  r6gd_metal = "r6gd.metal",
+  r6gd_xlarge = "r6gd.xlarge",
+  r6i_12xlarge = "r6i.12xlarge",
+  r6i_16xlarge = "r6i.16xlarge",
+  r6i_24xlarge = "r6i.24xlarge",
+  r6i_2xlarge = "r6i.2xlarge",
+  r6i_32xlarge = "r6i.32xlarge",
+  r6i_4xlarge = "r6i.4xlarge",
+  r6i_8xlarge = "r6i.8xlarge",
+  r6i_large = "r6i.large",
+  r6i_metal = "r6i.metal",
+  r6i_xlarge = "r6i.xlarge",
+  r6id_12xlarge = "r6id.12xlarge",
+  r6id_16xlarge = "r6id.16xlarge",
+  r6id_24xlarge = "r6id.24xlarge",
+  r6id_2xlarge = "r6id.2xlarge",
+  r6id_32xlarge = "r6id.32xlarge",
+  r6id_4xlarge = "r6id.4xlarge",
+  r6id_8xlarge = "r6id.8xlarge",
+  r6id_large = "r6id.large",
+  r6id_metal = "r6id.metal",
+  r6id_xlarge = "r6id.xlarge",
+  r6idn_12xlarge = "r6idn.12xlarge",
+  r6idn_16xlarge = "r6idn.16xlarge",
+  r6idn_24xlarge = "r6idn.24xlarge",
+  r6idn_2xlarge = "r6idn.2xlarge",
+  r6idn_32xlarge = "r6idn.32xlarge",
+  r6idn_4xlarge = "r6idn.4xlarge",
+  r6idn_8xlarge = "r6idn.8xlarge",
+  r6idn_large = "r6idn.large",
+  r6idn_xlarge = "r6idn.xlarge",
+  r6in_12xlarge = "r6in.12xlarge",
+  r6in_16xlarge = "r6in.16xlarge",
+  r6in_24xlarge = "r6in.24xlarge",
+  r6in_2xlarge = "r6in.2xlarge",
+  r6in_32xlarge = "r6in.32xlarge",
+  r6in_4xlarge = "r6in.4xlarge",
+  r6in_8xlarge = "r6in.8xlarge",
+  r6in_large = "r6in.large",
+  r6in_xlarge = "r6in.xlarge",
+  t1_micro = "t1.micro",
+  t2_2xlarge = "t2.2xlarge",
+  t2_large = "t2.large",
+  t2_medium = "t2.medium",
+  t2_micro = "t2.micro",
+  t2_nano = "t2.nano",
+  t2_small = "t2.small",
+  t2_xlarge = "t2.xlarge",
+  t3_2xlarge = "t3.2xlarge",
+  t3_large = "t3.large",
+  t3_medium = "t3.medium",
+  t3_micro = "t3.micro",
+  t3_nano = "t3.nano",
+  t3_small = "t3.small",
+  t3_xlarge = "t3.xlarge",
+  t3a_2xlarge = "t3a.2xlarge",
+  t3a_large = "t3a.large",
+  t3a_medium = "t3a.medium",
+  t3a_micro = "t3a.micro",
+  t3a_nano = "t3a.nano",
+  t3a_small = "t3a.small",
+  t3a_xlarge = "t3a.xlarge",
+  t4g_2xlarge = "t4g.2xlarge",
+  t4g_large = "t4g.large",
+  t4g_medium = "t4g.medium",
+  t4g_micro = "t4g.micro",
+  t4g_nano = "t4g.nano",
+  t4g_small = "t4g.small",
+  t4g_xlarge = "t4g.xlarge",
+  trn1_2xlarge = "trn1.2xlarge",
+  trn1_32xlarge = "trn1.32xlarge",
+  u_12tb1_112xlarge = "u-12tb1.112xlarge",
+  u_12tb1_metal = "u-12tb1.metal",
+  u_18tb1_112xlarge = "u-18tb1.112xlarge",
+  u_18tb1_metal = "u-18tb1.metal",
+  u_24tb1_112xlarge = "u-24tb1.112xlarge",
+  u_24tb1_metal = "u-24tb1.metal",
+  u_3tb1_56xlarge = "u-3tb1.56xlarge",
+  u_6tb1_112xlarge = "u-6tb1.112xlarge",
+  u_6tb1_56xlarge = "u-6tb1.56xlarge",
+  u_6tb1_metal = "u-6tb1.metal",
+  u_9tb1_112xlarge = "u-9tb1.112xlarge",
+  u_9tb1_metal = "u-9tb1.metal",
+  vt1_24xlarge = "vt1.24xlarge",
+  vt1_3xlarge = "vt1.3xlarge",
+  vt1_6xlarge = "vt1.6xlarge",
+  x1_16xlarge = "x1.16xlarge",
+  x1_32xlarge = "x1.32xlarge",
+  x1e_16xlarge = "x1e.16xlarge",
+  x1e_2xlarge = "x1e.2xlarge",
+  x1e_32xlarge = "x1e.32xlarge",
+  x1e_4xlarge = "x1e.4xlarge",
+  x1e_8xlarge = "x1e.8xlarge",
+  x1e_xlarge = "x1e.xlarge",
+  x2gd_12xlarge = "x2gd.12xlarge",
+  x2gd_16xlarge = "x2gd.16xlarge",
+  x2gd_2xlarge = "x2gd.2xlarge",
+  x2gd_4xlarge = "x2gd.4xlarge",
+  x2gd_8xlarge = "x2gd.8xlarge",
+  x2gd_large = "x2gd.large",
+  x2gd_medium = "x2gd.medium",
+  x2gd_metal = "x2gd.metal",
+  x2gd_xlarge = "x2gd.xlarge",
+  x2idn_16xlarge = "x2idn.16xlarge",
+  x2idn_24xlarge = "x2idn.24xlarge",
+  x2idn_32xlarge = "x2idn.32xlarge",
+  x2idn_metal = "x2idn.metal",
+  x2iedn_16xlarge = "x2iedn.16xlarge",
+  x2iedn_24xlarge = "x2iedn.24xlarge",
+  x2iedn_2xlarge = "x2iedn.2xlarge",
+  x2iedn_32xlarge = "x2iedn.32xlarge",
+  x2iedn_4xlarge = "x2iedn.4xlarge",
+  x2iedn_8xlarge = "x2iedn.8xlarge",
+  x2iedn_metal = "x2iedn.metal",
+  x2iedn_xlarge = "x2iedn.xlarge",
+  x2iezn_12xlarge = "x2iezn.12xlarge",
+  x2iezn_2xlarge = "x2iezn.2xlarge",
+  x2iezn_4xlarge = "x2iezn.4xlarge",
+  x2iezn_6xlarge = "x2iezn.6xlarge",
+  x2iezn_8xlarge = "x2iezn.8xlarge",
+  x2iezn_metal = "x2iezn.metal",
+  z1d_12xlarge = "z1d.12xlarge",
+  z1d_2xlarge = "z1d.2xlarge",
+  z1d_3xlarge = "z1d.3xlarge",
+  z1d_6xlarge = "z1d.6xlarge",
+  z1d_large = "z1d.large",
+  z1d_metal = "z1d.metal",
+  z1d_xlarge = "z1d.xlarge",
+}
 
 /**
  * <p>Information about an instance type to use in a Capacity Reservation Fleet.</p>
@@ -5684,7 +6965,7 @@ export interface CreateCapacityReservationFleetRequest {
    * 			specified instance types to use. Currently, only the <code>prioritized</code>
    * 			allocation strategy is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">
    * 				Allocation strategy</a> in the Amazon EC2 User Guide.</p>
-   * 		       <p>Valid values: <code>prioritized</code>
+   *          <p>Valid values: <code>prioritized</code>
    *          </p>
    */
   AllocationStrategy?: string;
@@ -5703,17 +6984,17 @@ export interface CreateCapacityReservationFleetRequest {
    * <p>Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations
    * 			in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of
    * 			the following tenancy settings:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
-   * 					             <code>default</code> - The Capacity Reservation Fleet is created on hardware
+   *                <p>
+   *                   <code>default</code> - The Capacity Reservation Fleet is created on hardware
    * 					that is shared with other Amazon Web Services accounts.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>dedicated</code> - The Capacity Reservations are created on single-tenant
+   *                <p>
+   *                   <code>dedicated</code> - The Capacity Reservations are created on single-tenant
    * 					hardware that is dedicated to a single Amazon Web Services account.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Tenancy?: FleetCapacityReservationTenancy | string;
@@ -5731,7 +7012,7 @@ export interface CreateCapacityReservationFleetRequest {
    * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
    * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the Capacity
    * 			Reservations in the Fleet expire.</p>
-   * 		       <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example,
+   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example,
    * 			if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity Reservation Fleet
    * 			is guaranteed to expire between <code>13:30:55</code> and <code>14:30:55</code> on
    * 			<code>5/31/2019</code>.
@@ -5742,7 +7023,7 @@ export interface CreateCapacityReservationFleetRequest {
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All
    * 			Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
-   * 		       <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria
+   *          <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria
    * 			only. This means that instances that have matching attributes (instance type, platform, and
    * 			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
    * 			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
@@ -5910,7 +7191,12 @@ export interface CreateCarrierGatewayRequest {
   ClientToken?: string;
 }
 
-export type CarrierGatewayState = "available" | "deleted" | "deleting" | "pending";
+export enum CarrierGatewayState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a carrier gateway.</p>
@@ -5985,10 +7271,11 @@ export interface CertificateAuthenticationRequest {
   ClientRootCertificateChainArn?: string;
 }
 
-export type ClientVpnAuthenticationType =
-  | "certificate-authentication"
-  | "directory-service-authentication"
-  | "federated-authentication";
+export enum ClientVpnAuthenticationType {
+  certificate_authentication = "certificate-authentication",
+  directory_service_authentication = "directory-service-authentication",
+  federated_authentication = "federated-authentication",
+}
 
 /**
  * <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
@@ -6039,9 +7326,9 @@ export interface ClientLoginBannerOptions {
   /**
    * <p>Enable or disable a customizable text banner that will be displayed on
    * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   * 		       <p>Valid values: <code>true | false</code>
+   *          <p>Valid values: <code>true | false</code>
    *          </p>
-   * 		       <p>Default value: <code>false</code>
+   *          <p>Default value: <code>false</code>
    *          </p>
    */
   Enabled?: boolean;
@@ -6074,806 +7361,6 @@ export interface ConnectionLogOptions {
   CloudwatchLogStream?: string;
 }
 
-export type SelfServicePortal = "disabled" | "enabled";
-
-export type TransportProtocol = "tcp" | "udp";
-
-export interface CreateClientVpnEndpointRequest {
-  /**
-   * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.</p>
-   */
-  ClientCidrBlock: string | undefined;
-
-  /**
-   * <p>The ARN of the server certificate. For more information, see
-   * 			the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
-   */
-  ServerCertificateArn: string | undefined;
-
-  /**
-   * <p>Information about the authentication method to be used to authenticate clients.</p>
-   */
-  AuthenticationOptions: ClientVpnAuthenticationRequest[] | undefined;
-
-  /**
-   * <p>Information about the client connection logging options.</p>
-   * 		       <p>If you enable client connection logging, data about client connections is sent to a
-   * 			Cloudwatch Logs log stream. The following information is logged:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>Client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection results (successful and unsuccessful)</p>
-   *             </li>
-   *             <li>
-   *                <p>Reasons for unsuccessful client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection termination time</p>
-   *             </li>
-   *          </ul>
-   */
-  ConnectionLogOptions: ConnectionLogOptions | undefined;
-
-  /**
-   * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can
-   * 			have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.</p>
-   */
-  DnsServers?: string[];
-
-  /**
-   * <p>The transport protocol to be used by the VPN session.</p>
-   * 		       <p>Default value: <code>udp</code>
-   *          </p>
-   */
-  TransportProtocol?: TransportProtocol | string;
-
-  /**
-   * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-   * 	        <p>Valid Values: <code>443</code> | <code>1194</code>
-   *          </p>
-   * 	        <p>Default Value: <code>443</code>
-   *          </p>
-   */
-  VpnPort?: number;
-
-  /**
-   * <p>A brief description of the Client VPN endpoint.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</p>
-   * 		       <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
-   * 			<i>Client VPN Administrator Guide</i>.</p>
-   */
-  SplitTunnel?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The tags to apply to the Client VPN endpoint during creation.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
-   *         <p>Default Value: <code>enabled</code>
-   *          </p>
-   */
-  SelfServicePortal?: SelfServicePortal | string;
-
-  /**
-   * <p>The options for managing connection authorization for new client connections.</p>
-   */
-  ClientConnectOptions?: ClientConnectOptions;
-
-  /**
-   * <p>The maximum VPN session duration time in hours.</p>
-   * 		       <p>Valid values: <code>8 | 10 | 12 | 24</code>
-   *          </p>
-   * 		       <p>Default value: <code>24</code>
-   *          </p>
-   */
-  SessionTimeoutHours?: number;
-
-  /**
-   * <p>Options for enabling a customizable text banner that will be displayed on
-   * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   */
-  ClientLoginBannerOptions?: ClientLoginBannerOptions;
-}
-
-export type ClientVpnEndpointStatusCode = "available" | "deleted" | "deleting" | "pending-associate";
-
-/**
- * <p>Describes the state of a Client VPN endpoint.</p>
- */
-export interface ClientVpnEndpointStatus {
-  /**
-   * <p>The state of the Client VPN endpoint. Possible states include:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>pending-associate</code> - The Client VPN endpoint has been created but no target networks
-   * 					have been associated. The Client VPN endpoint cannot accept connections.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>available</code> - The Client VPN endpoint has been created and a target network has been
-   * 					associated. The Client VPN endpoint can accept connections.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>deleting</code> - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept
-   * 					connections.</p>
-   *             </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>deleted</code> - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept
-   * 					connections.</p>
-   * 			         </li>
-   *          </ul>
-   */
-  Code?: ClientVpnEndpointStatusCode | string;
-
-  /**
-   * <p>A message about the status of the Client VPN endpoint.</p>
-   */
-  Message?: string;
-}
-
-export interface CreateClientVpnEndpointResult {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId?: string;
-
-  /**
-   * <p>The current state of the Client VPN endpoint.</p>
-   */
-  Status?: ClientVpnEndpointStatus;
-
-  /**
-   * <p>The DNS name to be used by clients when establishing their VPN session.</p>
-   */
-  DnsName?: string;
-}
-
-export interface CreateClientVpnRouteRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint to which to add the route.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the route destination. For example:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>To add a route for Internet access, enter <code>0.0.0.0/0</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for an on-premises network, enter the Amazon Web Services Site-to-Site VPN connection's IPv4 CIDR range</p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for the local network, enter the client CIDR range</p>
-   *             </li>
-   *          </ul>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the subnet through which you want to route traffic. The specified subnet must be
-   * 			an existing target network of the Client VPN endpoint.</p>
-   * 	        <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
-   */
-  TargetVpcSubnetId: string | undefined;
-
-  /**
-   * <p>A brief description of the route.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export type ClientVpnRouteStatusCode = "active" | "creating" | "deleting" | "failed";
-
-/**
- * <p>Describes the state of a Client VPN endpoint route.</p>
- */
-export interface ClientVpnRouteStatus {
-  /**
-   * <p>The state of the Client VPN endpoint route.</p>
-   */
-  Code?: ClientVpnRouteStatusCode | string;
-
-  /**
-   * <p>A message about the status of the Client VPN endpoint route, if applicable.</p>
-   */
-  Message?: string;
-}
-
-export interface CreateClientVpnRouteResult {
-  /**
-   * <p>The current state of the route.</p>
-   */
-  Status?: ClientVpnRouteStatus;
-}
-
-export type GatewayType = "ipsec.1";
-
-/**
- * <p>Contains the parameters for CreateCustomerGateway.</p>
- */
-export interface CreateCustomerGatewayRequest {
-  /**
-   * <p>For devices that support BGP, the customer gateway's BGP ASN.</p>
-   *         <p>Default: 65000</p>
-   */
-  BgpAsn: number | undefined;
-
-  /**
-   * <p>
-   *             <i>This member has been deprecated.</i> The Internet-routable IP address for the customer gateway's outside interface. The
-   *             address must be static.</p>
-   */
-  PublicIp?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
-   */
-  CertificateArn?: string;
-
-  /**
-   * <p>The type of VPN connection that this customer gateway supports
-   *             (<code>ipsec.1</code>).</p>
-   */
-  Type: GatewayType | string | undefined;
-
-  /**
-   * <p>The tags to apply to the customer gateway.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>A name for the customer gateway device.</p>
-   *         <p>Length Constraints: Up to 255 characters.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>
-   *             IPv4 address for the customer gateway device's outside interface. The address must be static.
-   *         </p>
-   */
-  IpAddress?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>Describes a customer gateway.</p>
- */
-export interface CustomerGateway {
-  /**
-   * <p>The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number
-   *             (ASN).</p>
-   */
-  BgpAsn?: string;
-
-  /**
-   * <p>The ID of the customer gateway.</p>
-   */
-  CustomerGatewayId?: string;
-
-  /**
-   * <p>The IP address of the customer gateway device's outside interface.</p>
-   */
-  IpAddress?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
-   */
-  CertificateArn?: string;
-
-  /**
-   * <p>The current state of the customer gateway (<code>pending | available | deleting |
-   *                 deleted</code>).</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The type of VPN connection the customer gateway supports
-   *             (<code>ipsec.1</code>).</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The name of customer gateway device.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>Any tags assigned to the customer gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * <p>Contains the output of CreateCustomerGateway.</p>
- */
-export interface CreateCustomerGatewayResult {
-  /**
-   * <p>Information about the customer gateway.</p>
-   */
-  CustomerGateway?: CustomerGateway;
-}
-
-export interface CreateDefaultSubnetRequest {
-  /**
-   * <p>The Availability Zone in which to create the default subnet.</p>
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Indicates whether to create an IPv6 only subnet. If you already have a default subnet
-   *             for this Availability Zone, you must delete it before you can create an IPv6 only subnet.</p>
-   */
-  Ipv6Native?: boolean;
-}
-
-export enum HostnameType {
-  ip_name = "ip-name",
-  resource_name = "resource-name",
-}
-
-/**
- * <p>Describes the options for instance hostnames.</p>
- */
-export interface PrivateDnsNameOptionsOnLaunch {
-  /**
-   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
-   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
-   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
-   *             names use the instance IPv4 address or the instance ID.</p>
-   */
-  HostnameType?: HostnameType | string;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
-   *             records.</p>
-   */
-  EnableResourceNameDnsARecord?: boolean;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostname with DNS AAAA
-   *             records.</p>
-   */
-  EnableResourceNameDnsAAAARecord?: boolean;
-}
-
-export type SubnetState = "available" | "pending";
-
-/**
- * <p>Describes a subnet.</p>
- */
-export interface Subnet {
-  /**
-   * <p>The Availability Zone of the subnet.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The AZ ID of the subnet.</p>
-   */
-  AvailabilityZoneId?: string;
-
-  /**
-   * <p>The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any
-   * 			stopped instances are considered unavailable.</p>
-   */
-  AvailableIpAddressCount?: number;
-
-  /**
-   * <p>The IPv4 CIDR block assigned to the subnet.</p>
-   */
-  CidrBlock?: string;
-
-  /**
-   * <p>Indicates whether this is the default subnet for the Availability Zone.</p>
-   */
-  DefaultForAz?: boolean;
-
-  /**
-   * <p>
-   *             Indicates the device position for local network interfaces in this subnet. For example,
-   *             <code>1</code> indicates local network interfaces in this subnet are the secondary
-   *             network interface (eth1).
-   *         </p>
-   */
-  EnableLniAtDeviceIndex?: number;
-
-  /**
-   * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
-   */
-  MapPublicIpOnLaunch?: boolean;
-
-  /**
-   * <p>Indicates whether a network interface created in this subnet (including a network
-   *             interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>
-   */
-  MapCustomerOwnedIpOnLaunch?: boolean;
-
-  /**
-   * <p>The customer-owned IPv4 address pool associated with the subnet.</p>
-   */
-  CustomerOwnedIpv4Pool?: string;
-
-  /**
-   * <p>The current state of the subnet.</p>
-   */
-  State?: SubnetState | string;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the VPC the subnet is in.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the subnet.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>Indicates whether a network interface created in this subnet (including a network
-   *             interface created by <a>RunInstances</a>) receives an IPv6 address.</p>
-   */
-  AssignIpv6AddressOnCreation?: boolean;
-
-  /**
-   * <p>Information about the IPv6 CIDR blocks associated with the subnet.</p>
-   */
-  Ipv6CidrBlockAssociationSet?: SubnetIpv6CidrBlockAssociation[];
-
-  /**
-   * <p>Any tags assigned to the subnet.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the subnet.</p>
-   */
-  SubnetArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
-   *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
-   */
-  EnableDns64?: boolean;
-
-  /**
-   * <p>Indicates whether this is an IPv6 only subnet.</p>
-   */
-  Ipv6Native?: boolean;
-
-  /**
-   * <p>The type of hostnames to assign to instances in the subnet at launch. An instance hostname
-   *             is based on the IPv4 address or ID of the instance.</p>
-   */
-  PrivateDnsNameOptionsOnLaunch?: PrivateDnsNameOptionsOnLaunch;
-}
-
-export interface CreateDefaultSubnetResult {
-  /**
-   * <p>Information about the subnet.</p>
-   */
-  Subnet?: Subnet;
-}
-
-export interface CreateDefaultVpcRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export type Tenancy = "dedicated" | "default" | "host";
-
-export type VpcState = "available" | "pending";
-
-/**
- * <p>Describes a VPC.</p>
- */
-export interface Vpc {
-  /**
-   * <p>The primary IPv4 CIDR block for the VPC.</p>
-   */
-  CidrBlock?: string;
-
-  /**
-   * <p>The ID of the set of DHCP options you've associated with the VPC.</p>
-   */
-  DhcpOptionsId?: string;
-
-  /**
-   * <p>The current state of the VPC.</p>
-   */
-  State?: VpcState | string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The allowed tenancy of instances launched into the VPC.</p>
-   */
-  InstanceTenancy?: Tenancy | string;
-
-  /**
-   * <p>Information about the IPv6 CIDR blocks associated with the VPC.</p>
-   */
-  Ipv6CidrBlockAssociationSet?: VpcIpv6CidrBlockAssociation[];
-
-  /**
-   * <p>Information about the IPv4 CIDR blocks associated with the VPC.</p>
-   */
-  CidrBlockAssociationSet?: VpcCidrBlockAssociation[];
-
-  /**
-   * <p>Indicates whether the VPC is the default VPC.</p>
-   */
-  IsDefault?: boolean;
-
-  /**
-   * <p>Any tags assigned to the VPC.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateDefaultVpcResult {
-  /**
-   * <p>Information about the VPC.</p>
-   */
-  Vpc?: Vpc;
-}
-
-/**
- * <p>Describes a DHCP configuration option.</p>
- */
-export interface NewDhcpConfiguration {
-  /**
-   * <p>The name of a DHCP option.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>One or more values for the DHCP option.</p>
-   */
-  Values?: string[];
-}
-
-export interface CreateDhcpOptionsRequest {
-  /**
-   * <p>A DHCP configuration option.</p>
-   */
-  DhcpConfigurations: NewDhcpConfiguration[] | undefined;
-
-  /**
-   * <p>The tags to assign to the DHCP option.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>Describes a value for a resource attribute that is a String.</p>
- */
-export interface AttributeValue {
-  /**
-   * <p>The attribute value. The value is case-sensitive.</p>
-   */
-  Value?: string;
-}
-
-/**
- * <p>Describes a DHCP configuration option.</p>
- */
-export interface DhcpConfiguration {
-  /**
-   * <p>The name of a DHCP option.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>One or more values for the DHCP option.</p>
-   */
-  Values?: AttributeValue[];
-}
-
-/**
- * <p>Describes a set of DHCP options.</p>
- */
-export interface DhcpOptions {
-  /**
-   * <p>One or more DHCP options in the set.</p>
-   */
-  DhcpConfigurations?: DhcpConfiguration[];
-
-  /**
-   * <p>The ID of the set of DHCP options.</p>
-   */
-  DhcpOptionsId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the DHCP options set.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>Any tags assigned to the DHCP options set.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateDhcpOptionsResult {
-  /**
-   * <p>A set of DHCP options.</p>
-   */
-  DhcpOptions?: DhcpOptions;
-}
-
-export interface CreateEgressOnlyInternetGatewayRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
-   * 				idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the VPC for which to create the egress-only internet gateway.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The tags to assign to the egress-only internet gateway.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-/**
- * <p>Describes the attachment of a VPC to an internet gateway or an egress-only internet
- * 			gateway.</p>
- */
-export interface InternetGatewayAttachment {
-  /**
-   * <p>The current state of the attachment. For an internet gateway, the state is
-   * 				<code>available</code> when attached to a VPC; otherwise, this value is not
-   * 			returned.</p>
-   */
-  State?: AttachmentStatus | string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
-
-/**
- * <p>Describes an egress-only internet gateway.</p>
- */
-export interface EgressOnlyInternetGateway {
-  /**
-   * <p>Information about the attachment of the egress-only internet gateway.</p>
-   */
-  Attachments?: InternetGatewayAttachment[];
-
-  /**
-   * <p>The ID of the egress-only internet gateway.</p>
-   */
-  EgressOnlyInternetGatewayId?: string;
-
-  /**
-   * <p>The tags assigned to the egress-only internet gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateEgressOnlyInternetGatewayResult {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Information about the egress-only internet gateway.</p>
-   */
-  EgressOnlyInternetGateway?: EgressOnlyInternetGateway;
-}
-
-export enum FleetExcessCapacityTerminationPolicy {
-  NO_TERMINATION = "no-termination",
-  TERMINATION = "termination",
-}
-
 /**
  * @internal
  */
@@ -6899,6 +7386,41 @@ export const AcceleratorTotalMemoryMiBFilterSensitiveLog = (obj: AcceleratorTota
  * @internal
  */
 export const AcceleratorTotalMemoryMiBRequestFilterSensitiveLog = (obj: AcceleratorTotalMemoryMiBRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagSpecificationFilterSensitiveLog = (obj: TagSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptAddressTransferRequestFilterSensitiveLog = (obj: AcceptAddressTransferRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddressTransferFilterSensitiveLog = (obj: AddressTransfer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptAddressTransferResultFilterSensitiveLog = (obj: AcceptAddressTransferResult): any => ({
   ...obj,
 });
 
@@ -6990,13 +7512,6 @@ export const TransitGatewayPeeringAttachmentOptionsFilterSensitiveLog = (
  * @internal
  */
 export const PeeringAttachmentStatusFilterSensitiveLog = (obj: PeeringAttachmentStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
   ...obj,
 });
 
@@ -7167,7 +7682,14 @@ export const AdditionalDetailFilterSensitiveLog = (obj: AdditionalDetail): any =
 /**
  * @internal
  */
-export const AnalysisPacketHeaderFilterSensitiveLog = (obj: AnalysisPacketHeader): any => ({
+export const AnalysisLoadBalancerListenerFilterSensitiveLog = (obj: AnalysisLoadBalancerListener): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisLoadBalancerTargetFilterSensitiveLog = (obj: AnalysisLoadBalancerTarget): any => ({
   ...obj,
 });
 
@@ -7189,6 +7711,20 @@ export const AnalysisSecurityGroupRuleFilterSensitiveLog = (obj: AnalysisSecurit
  * @internal
  */
 export const TransitGatewayRouteTableRouteFilterSensitiveLog = (obj: TransitGatewayRouteTableRoute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExplanationFilterSensitiveLog = (obj: Explanation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisPacketHeaderFilterSensitiveLog = (obj: AnalysisPacketHeader): any => ({
   ...obj,
 });
 
@@ -7300,6 +7836,13 @@ export const ActiveInstanceFilterSensitiveLog = (obj: ActiveInstance): any => ({
 /**
  * @internal
  */
+export const AddedPrincipalFilterSensitiveLog = (obj: AddedPrincipal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AddIpamOperatingRegionFilterSensitiveLog = (obj: AddIpamOperatingRegion): any => ({
   ...obj,
 });
@@ -7350,13 +7893,6 @@ export const ByoipCidrFilterSensitiveLog = (obj: ByoipCidr): any => ({
  * @internal
  */
 export const AdvertiseByoipCidrResultFilterSensitiveLog = (obj: AdvertiseByoipCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagSpecificationFilterSensitiveLog = (obj: TagSpecification): any => ({
   ...obj,
 });
 
@@ -7480,6 +8016,31 @@ export const AssignedPrivateIpAddressFilterSensitiveLog = (obj: AssignedPrivateI
  * @internal
  */
 export const AssignPrivateIpAddressesResultFilterSensitiveLog = (obj: AssignPrivateIpAddressesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssignPrivateNatGatewayAddressRequestFilterSensitiveLog = (
+  obj: AssignPrivateNatGatewayAddressRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NatGatewayAddressFilterSensitiveLog = (obj: NatGatewayAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssignPrivateNatGatewayAddressResultFilterSensitiveLog = (
+  obj: AssignPrivateNatGatewayAddressResult
+): any => ({
   ...obj,
 });
 
@@ -7627,6 +8188,45 @@ export const InstanceEventWindowFilterSensitiveLog = (obj: InstanceEventWindow):
  * @internal
  */
 export const AssociateInstanceEventWindowResultFilterSensitiveLog = (obj: AssociateInstanceEventWindowResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateIpamResourceDiscoveryRequestFilterSensitiveLog = (
+  obj: AssociateIpamResourceDiscoveryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpamResourceDiscoveryAssociationFilterSensitiveLog = (obj: IpamResourceDiscoveryAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateIpamResourceDiscoveryResultFilterSensitiveLog = (
+  obj: AssociateIpamResourceDiscoveryResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateNatGatewayAddressRequestFilterSensitiveLog = (obj: AssociateNatGatewayAddressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateNatGatewayAddressResultFilterSensitiveLog = (obj: AssociateNatGatewayAddressResult): any => ({
   ...obj,
 });
 
@@ -7829,6 +8429,20 @@ export const AttachInternetGatewayRequestFilterSensitiveLog = (obj: AttachIntern
 /**
  * @internal
  */
+export const EnaSrdUdpSpecificationFilterSensitiveLog = (obj: EnaSrdUdpSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnaSrdSpecificationFilterSensitiveLog = (obj: EnaSrdSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AttachNetworkInterfaceRequestFilterSensitiveLog = (obj: AttachNetworkInterfaceRequest): any => ({
   ...obj,
 });
@@ -7837,6 +8451,61 @@ export const AttachNetworkInterfaceRequestFilterSensitiveLog = (obj: AttachNetwo
  * @internal
  */
 export const AttachNetworkInterfaceResultFilterSensitiveLog = (obj: AttachNetworkInterfaceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: AttachVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessTrustProviderCondensedFilterSensitiveLog = (
+  obj: VerifiedAccessTrustProviderCondensed
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessInstanceFilterSensitiveLog = (obj: VerifiedAccessInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceOptionsFilterSensitiveLog = (obj: DeviceOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OidcOptionsFilterSensitiveLog = (obj: OidcOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessTrustProviderFilterSensitiveLog = (obj: VerifiedAccessTrustProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: AttachVerifiedAccessTrustProviderResult
+): any => ({
   ...obj,
 });
 
@@ -8111,6 +8780,20 @@ export const CancelExportTaskRequestFilterSensitiveLog = (obj: CancelExportTaskR
 /**
  * @internal
  */
+export const CancelImageLaunchPermissionRequestFilterSensitiveLog = (obj: CancelImageLaunchPermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelImageLaunchPermissionResultFilterSensitiveLog = (obj: CancelImageLaunchPermissionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CancelImportTaskRequestFilterSensitiveLog = (obj: CancelImportTaskRequest): any => ({
   ...obj,
 });
@@ -8264,6 +8947,7 @@ export const CopyImageResultFilterSensitiveLog = (obj: CopyImageResult): any => 
  */
 export const CopySnapshotRequestFilterSensitiveLog = (obj: CopySnapshotRequest): any => ({
   ...obj,
+  ...(obj.PresignedUrl && { PresignedUrl: SENSITIVE_STRING }),
 });
 
 /**
@@ -8277,6 +8961,13 @@ export const CopySnapshotResultFilterSensitiveLog = (obj: CopySnapshotResult): a
  * @internal
  */
 export const CreateCapacityReservationRequestFilterSensitiveLog = (obj: CreateCapacityReservationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityAllocationFilterSensitiveLog = (obj: CapacityAllocation): any => ({
   ...obj,
 });
 
@@ -8397,191 +9088,5 @@ export const ClientLoginBannerOptionsFilterSensitiveLog = (obj: ClientLoginBanne
  * @internal
  */
 export const ConnectionLogOptionsFilterSensitiveLog = (obj: ConnectionLogOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnEndpointRequestFilterSensitiveLog = (obj: CreateClientVpnEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnEndpointStatusFilterSensitiveLog = (obj: ClientVpnEndpointStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnEndpointResultFilterSensitiveLog = (obj: CreateClientVpnEndpointResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnRouteRequestFilterSensitiveLog = (obj: CreateClientVpnRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnRouteStatusFilterSensitiveLog = (obj: ClientVpnRouteStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnRouteResultFilterSensitiveLog = (obj: CreateClientVpnRouteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomerGatewayRequestFilterSensitiveLog = (obj: CreateCustomerGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomerGatewayFilterSensitiveLog = (obj: CustomerGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomerGatewayResultFilterSensitiveLog = (obj: CreateCustomerGatewayResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultSubnetRequestFilterSensitiveLog = (obj: CreateDefaultSubnetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrivateDnsNameOptionsOnLaunchFilterSensitiveLog = (obj: PrivateDnsNameOptionsOnLaunch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultSubnetResultFilterSensitiveLog = (obj: CreateDefaultSubnetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultVpcRequestFilterSensitiveLog = (obj: CreateDefaultVpcRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcFilterSensitiveLog = (obj: Vpc): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultVpcResultFilterSensitiveLog = (obj: CreateDefaultVpcResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NewDhcpConfigurationFilterSensitiveLog = (obj: NewDhcpConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDhcpOptionsRequestFilterSensitiveLog = (obj: CreateDhcpOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DhcpConfigurationFilterSensitiveLog = (obj: DhcpConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DhcpOptionsFilterSensitiveLog = (obj: DhcpOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDhcpOptionsResultFilterSensitiveLog = (obj: CreateDhcpOptionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEgressOnlyInternetGatewayRequestFilterSensitiveLog = (
-  obj: CreateEgressOnlyInternetGatewayRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InternetGatewayAttachmentFilterSensitiveLog = (obj: InternetGatewayAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EgressOnlyInternetGatewayFilterSensitiveLog = (obj: EgressOnlyInternetGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEgressOnlyInternetGatewayResultFilterSensitiveLog = (
-  obj: CreateEgressOnlyInternetGatewayResult
-): any => ({
   ...obj,
 });

@@ -3,6 +3,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { BackupClient } from "./BackupClient";
 import {
+  CancelLegalHoldCommand,
+  CancelLegalHoldCommandInput,
+  CancelLegalHoldCommandOutput,
+} from "./commands/CancelLegalHoldCommand";
+import {
   CreateBackupPlanCommand,
   CreateBackupPlanCommandInput,
   CreateBackupPlanCommandOutput,
@@ -22,6 +27,11 @@ import {
   CreateFrameworkCommandInput,
   CreateFrameworkCommandOutput,
 } from "./commands/CreateFrameworkCommand";
+import {
+  CreateLegalHoldCommand,
+  CreateLegalHoldCommandInput,
+  CreateLegalHoldCommandOutput,
+} from "./commands/CreateLegalHoldCommand";
 import {
   CreateReportPlanCommand,
   CreateReportPlanCommandInput,
@@ -133,6 +143,11 @@ import {
   DisassociateRecoveryPointCommandOutput,
 } from "./commands/DisassociateRecoveryPointCommand";
 import {
+  DisassociateRecoveryPointFromParentCommand,
+  DisassociateRecoveryPointFromParentCommandInput,
+  DisassociateRecoveryPointFromParentCommandOutput,
+} from "./commands/DisassociateRecoveryPointFromParentCommand";
+import {
   ExportBackupPlanTemplateCommand,
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput,
@@ -167,6 +182,11 @@ import {
   GetBackupVaultNotificationsCommandInput,
   GetBackupVaultNotificationsCommandOutput,
 } from "./commands/GetBackupVaultNotificationsCommand";
+import {
+  GetLegalHoldCommand,
+  GetLegalHoldCommandInput,
+  GetLegalHoldCommandOutput,
+} from "./commands/GetLegalHoldCommand";
 import {
   GetRecoveryPointRestoreMetadataCommand,
   GetRecoveryPointRestoreMetadataCommandInput,
@@ -218,6 +238,11 @@ import {
   ListFrameworksCommandOutput,
 } from "./commands/ListFrameworksCommand";
 import {
+  ListLegalHoldsCommand,
+  ListLegalHoldsCommandInput,
+  ListLegalHoldsCommandOutput,
+} from "./commands/ListLegalHoldsCommand";
+import {
   ListProtectedResourcesCommand,
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
@@ -227,6 +252,11 @@ import {
   ListRecoveryPointsByBackupVaultCommandInput,
   ListRecoveryPointsByBackupVaultCommandOutput,
 } from "./commands/ListRecoveryPointsByBackupVaultCommand";
+import {
+  ListRecoveryPointsByLegalHoldCommand,
+  ListRecoveryPointsByLegalHoldCommandInput,
+  ListRecoveryPointsByLegalHoldCommandOutput,
+} from "./commands/ListRecoveryPointsByLegalHoldCommand";
 import {
   ListRecoveryPointsByResourceCommand,
   ListRecoveryPointsByResourceCommandInput,
@@ -333,6 +363,39 @@ import {
  *          auditing.</p>
  */
 export class Backup extends BackupClient {
+  /**
+   * <p>This action removes the specified legal hold on a recovery point.
+   *          This action can only be performed by a user with sufficient permissions.</p>
+   */
+  public cancelLegalHold(
+    args: CancelLegalHoldCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelLegalHoldCommandOutput>;
+  public cancelLegalHold(
+    args: CancelLegalHoldCommandInput,
+    cb: (err: any, data?: CancelLegalHoldCommandOutput) => void
+  ): void;
+  public cancelLegalHold(
+    args: CancelLegalHoldCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelLegalHoldCommandOutput) => void
+  ): void;
+  public cancelLegalHold(
+    args: CancelLegalHoldCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelLegalHoldCommandOutput) => void),
+    cb?: (err: any, data?: CancelLegalHoldCommandOutput) => void
+  ): Promise<CancelLegalHoldCommandOutput> | void {
+    const command = new CancelLegalHoldCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
    *          document that contains information that Backup uses to schedule tasks that
@@ -465,6 +528,41 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: CreateFrameworkCommandOutput) => void
   ): Promise<CreateFrameworkCommandOutput> | void {
     const command = new CreateFrameworkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This action creates a legal hold on a recovery point (backup). A legal hold
+   *          is a restraint on altering or deleting a backup until an authorized user cancels the
+   *          legal hold. Any actions to delete or disassociate a recovery point will fail with
+   *          an error if one or more active legal holds are on the recovery point.</p>
+   */
+  public createLegalHold(
+    args: CreateLegalHoldCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLegalHoldCommandOutput>;
+  public createLegalHold(
+    args: CreateLegalHoldCommandInput,
+    cb: (err: any, data?: CreateLegalHoldCommandOutput) => void
+  ): void;
+  public createLegalHold(
+    args: CreateLegalHoldCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLegalHoldCommandOutput) => void
+  ): void;
+  public createLegalHold(
+    args: CreateLegalHoldCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLegalHoldCommandOutput) => void),
+    cb?: (err: any, data?: CreateLegalHoldCommandOutput) => void
+  ): Promise<CreateLegalHoldCommandOutput> | void {
+    const command = new CreateLegalHoldCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -747,6 +845,16 @@ export class Backup extends BackupClient {
    * <p>Deletes the recovery point specified by a recovery point ID.</p>
    *          <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
    *          the existing continuous backup and stops future continuous backup.</p>
+   *          <p>When an IAM role's permissions are insufficient to call this API, the service sends back
+   *       an HTTP 200 response with an empty HTTP body, but the recovery point is not deleted.
+   *       Instead, it enters an <code>EXPIRED</code> state.</p>
+   *          <p>
+   *             <code>EXPIRED</code> recovery points can be deleted with this API once the IAM role
+   *       has the <code>iam:CreateServiceLinkedRole</code> action. To learn more about adding this role, see
+   *       <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html#deleting-backups-troubleshooting">
+   *          Troubleshooting manual deletions</a>.</p>
+   *          <p>If the user or role is deleted or the permission within the role is removed,
+   *       the deletion will not be successful and will enter an <code>EXPIRED</code> state.</p>
    */
   public deleteRecoveryPoint(
     args: DeleteRecoveryPointCommandInput,
@@ -1208,6 +1316,39 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * <p>This action to a specific child (nested) recovery point removes the relationship
+   *          between the specified recovery point and its parent (composite) recovery point.</p>
+   */
+  public disassociateRecoveryPointFromParent(
+    args: DisassociateRecoveryPointFromParentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateRecoveryPointFromParentCommandOutput>;
+  public disassociateRecoveryPointFromParent(
+    args: DisassociateRecoveryPointFromParentCommandInput,
+    cb: (err: any, data?: DisassociateRecoveryPointFromParentCommandOutput) => void
+  ): void;
+  public disassociateRecoveryPointFromParent(
+    args: DisassociateRecoveryPointFromParentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateRecoveryPointFromParentCommandOutput) => void
+  ): void;
+  public disassociateRecoveryPointFromParent(
+    args: DisassociateRecoveryPointFromParentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateRecoveryPointFromParentCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateRecoveryPointFromParentCommandOutput) => void
+  ): Promise<DisassociateRecoveryPointFromParentCommandOutput> | void {
+    const command = new DisassociateRecoveryPointFromParentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the backup plan that is specified by the plan ID as a backup template.</p>
    */
   public exportBackupPlanTemplate(
@@ -1424,6 +1565,36 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: GetBackupVaultNotificationsCommandOutput) => void
   ): Promise<GetBackupVaultNotificationsCommandOutput> | void {
     const command = new GetBackupVaultNotificationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This action returns details for a specified legal hold. The details are the
+   *          body of a legal hold in JSON format, in addition to metadata.</p>
+   */
+  public getLegalHold(
+    args: GetLegalHoldCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLegalHoldCommandOutput>;
+  public getLegalHold(args: GetLegalHoldCommandInput, cb: (err: any, data?: GetLegalHoldCommandOutput) => void): void;
+  public getLegalHold(
+    args: GetLegalHoldCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLegalHoldCommandOutput) => void
+  ): void;
+  public getLegalHold(
+    args: GetLegalHoldCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLegalHoldCommandOutput) => void),
+    cb?: (err: any, data?: GetLegalHoldCommandOutput) => void
+  ): Promise<GetLegalHoldCommandOutput> | void {
+    const command = new GetLegalHoldCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1759,6 +1930,38 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * <p>This action returns metadata about active and previous legal holds.</p>
+   */
+  public listLegalHolds(
+    args: ListLegalHoldsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLegalHoldsCommandOutput>;
+  public listLegalHolds(
+    args: ListLegalHoldsCommandInput,
+    cb: (err: any, data?: ListLegalHoldsCommandOutput) => void
+  ): void;
+  public listLegalHolds(
+    args: ListLegalHoldsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLegalHoldsCommandOutput) => void
+  ): void;
+  public listLegalHolds(
+    args: ListLegalHoldsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLegalHoldsCommandOutput) => void),
+    cb?: (err: any, data?: ListLegalHoldsCommandOutput) => void
+  ): Promise<ListLegalHoldsCommandOutput> | void {
+    const command = new ListLegalHoldsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns an array of resources successfully backed up by Backup, including
    *          the time the resource was saved, an Amazon Resource Name (ARN) of the resource, and a
    *          resource type.</p>
@@ -1814,6 +2017,39 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: ListRecoveryPointsByBackupVaultCommandOutput) => void
   ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> | void {
     const command = new ListRecoveryPointsByBackupVaultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This action returns recovery point ARNs (Amazon Resource Names) of the
+   *          specified legal hold.</p>
+   */
+  public listRecoveryPointsByLegalHold(
+    args: ListRecoveryPointsByLegalHoldCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecoveryPointsByLegalHoldCommandOutput>;
+  public listRecoveryPointsByLegalHold(
+    args: ListRecoveryPointsByLegalHoldCommandInput,
+    cb: (err: any, data?: ListRecoveryPointsByLegalHoldCommandOutput) => void
+  ): void;
+  public listRecoveryPointsByLegalHold(
+    args: ListRecoveryPointsByLegalHoldCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecoveryPointsByLegalHoldCommandOutput) => void
+  ): void;
+  public listRecoveryPointsByLegalHold(
+    args: ListRecoveryPointsByLegalHoldCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecoveryPointsByLegalHoldCommandOutput) => void),
+    cb?: (err: any, data?: ListRecoveryPointsByLegalHoldCommandOutput) => void
+  ): Promise<ListRecoveryPointsByLegalHoldCommandOutput> | void {
+    const command = new ListRecoveryPointsByLegalHoldCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2031,8 +2267,12 @@ export class Backup extends BackupClient {
    *          point currently stored in a backup vault. If specified, Vault Lock enforces a minimum and
    *          maximum retention period for future backup and copy jobs that target a backup vault.</p>
    *          <note>
-   *             <p>Backup Vault Lock has yet to receive a third-party assessment for SEC
-   *             17a-4(f) and CFTC.</p>
+   *             <p>Backup Vault Lock has been assessed by Cohasset Associates for use in environments
+   *             that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information about
+   *             how Backup Vault Lock relates to these regulations, see the
+   *             <a href="samples/cohassetreport.zip">Cohasset Associates
+   *                Compliance Assessment.</a>
+   *             </p>
    *          </note>
    */
   public putBackupVaultLockConfiguration(
@@ -2224,6 +2464,10 @@ export class Backup extends BackupClient {
 
   /**
    * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
+   *          <p>This action is not supported for the following services:
+   *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
+   *          , Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora,
+   *          and Amazon Neptune.</p>
    */
   public stopBackupJob(
     args: StopBackupJobCommandInput,

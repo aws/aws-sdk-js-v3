@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface CreatePermissionSetCommandInput extends CreatePermissionSetRequ
 export interface CreatePermissionSetCommandOutput extends CreatePermissionSetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a permission set within a specified Amazon Web Services SSO instance.</p>
+ * <p>Creates a permission set within a specified IAM Identity Center instance.</p>
  *          <note>
- *             <p>To grant users and groups access to Amazon Web Services account resources, use <code>
+ *             <p>To grant users and groups access to AWS account resources, use <code>
  *                   <a>CreateAccountAssignment</a>
  *                </code>.</p>
  *          </note>
@@ -57,6 +58,15 @@ export class CreatePermissionSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreatePermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class CreatePermissionSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePermissionSetCommandInput, CreatePermissionSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePermissionSetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

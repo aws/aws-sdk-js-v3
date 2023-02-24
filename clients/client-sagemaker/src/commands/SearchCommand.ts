@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchRequest,
-  SearchRequestFilterSensitiveLog,
-  SearchResponse,
-  SearchResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { SearchResponse, SearchResponseFilterSensitiveLog } from "../models/models_3";
+import { SearchRequest, SearchRequestFilterSensitiveLog } from "../models/models_4";
 import { deserializeAws_json1_1SearchCommand, serializeAws_json1_1SearchCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -49,6 +46,15 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +70,7 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
     options?: __HttpHandlerOptions
   ): Handler<SearchCommandInput, SearchCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, SearchCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

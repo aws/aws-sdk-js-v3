@@ -94,6 +94,11 @@ import {
   GetStreamingImageCommandOutput,
 } from "./commands/GetStreamingImageCommand";
 import {
+  GetStreamingSessionBackupCommand,
+  GetStreamingSessionBackupCommandInput,
+  GetStreamingSessionBackupCommandOutput,
+} from "./commands/GetStreamingSessionBackupCommand";
+import {
   GetStreamingSessionCommand,
   GetStreamingSessionCommandInput,
   GetStreamingSessionCommandOutput,
@@ -135,6 +140,11 @@ import {
   ListStreamingImagesCommandInput,
   ListStreamingImagesCommandOutput,
 } from "./commands/ListStreamingImagesCommand";
+import {
+  ListStreamingSessionBackupsCommand,
+  ListStreamingSessionBackupsCommandInput,
+  ListStreamingSessionBackupsCommandOutput,
+} from "./commands/ListStreamingSessionBackupsCommand";
 import {
   ListStreamingSessionsCommand,
   ListStreamingSessionsCommandInput,
@@ -316,7 +326,7 @@ export class Nimble extends NimbleClient {
   /**
    * <p>Creates a streaming session in a studio.</p>
    *         <p>After invoking this operation, you must poll GetStreamingSession until the streaming
-   *             session is in state READY.</p>
+   *             session is in the <code>READY</code> state.</p>
    */
   public createStreamingSession(
     args: CreateStreamingSessionCommandInput,
@@ -350,7 +360,7 @@ export class Nimble extends NimbleClient {
   /**
    * <p>Creates a streaming session stream for a streaming session.</p>
    *         <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId
-   *             to poll the resource until it is in state READY.</p>
+   *             to poll the resource until it is in the <code>READY</code> state.</p>
    */
   public createStreamingSessionStream(
     args: CreateStreamingSessionStreamCommandInput,
@@ -382,19 +392,19 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Create a new Studio.</p>
-   *         <p>When creating a Studio, two IAM roles must be provided: the admin role and the user
-   *             Role. These roles are assumed by your users when they log in to the Nimble Studio
-   *             portal.</p>
-   *         <p>The user role must have the AmazonNimbleStudio-StudioUser managed policy attached for
-   *             the portal to function properly.</p>
-   *         <p>The Admin Role must have the AmazonNimbleStudio-StudioAdmin managed policy attached
-   *             for the portal to function properly.</p>
-   *         <p>You may optionally specify a KMS key in the StudioEncryptionConfiguration.</p>
+   * <p>Create a new studio.</p>
+   *         <p>When creating a studio, two IAM roles must be provided: the admin role
+   *             and the user role. These roles are assumed by your users when they log in to the Nimble Studio portal.</p>
+   *         <p>The user role must have the <code>AmazonNimbleStudio-StudioUser</code> managed policy
+   *             attached for the portal to function properly.</p>
+   *         <p>The admin role must have the <code>AmazonNimbleStudio-StudioAdmin</code> managed
+   *             policy attached for the portal to function properly.</p>
+   *         <p>You may optionally specify a KMS key in the
+   *             <code>StudioEncryptionConfiguration</code>.</p>
    *         <p>In Nimble Studio, resource names, descriptions, initialization scripts, and other
    *             data you provide are always encrypted at rest using an KMS key. By default, this key is
-   *             owned by Amazon Web Services and managed on your behalf. You may provide your own KMS
-   *             key when calling CreateStudio to encrypt this data using a key you own and
+   *             owned by Amazon Web Services and managed on your behalf. You may provide your own KMS key
+   *             when calling <code>CreateStudio</code> to encrypt this data using a key you own and
    *             manage.</p>
    *         <p>When providing an KMS key during studio creation, Nimble Studio creates KMS
    *             grants in your account to provide your studio user and admin roles access to these KMS
@@ -560,9 +570,9 @@ export class Nimble extends NimbleClient {
   /**
    * <p>Deletes streaming session resource.</p>
    *         <p>After invoking this operation, use GetStreamingSession to poll the resource until it
-   *             transitions to a DELETED state.</p>
+   *             transitions to a <code>DELETED</code> state.</p>
    *         <p>A streaming session will count against your streaming session quota until it is marked
-   *             DELETED.</p>
+   *                 <code>DELETED</code>.</p>
    */
   public deleteStreamingSession(
     args: DeleteStreamingSessionCommandInput,
@@ -687,7 +697,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Get Eula.</p>
+   * <p>Get EULA.</p>
    */
   public getEula(args: GetEulaCommandInput, options?: __HttpHandlerOptions): Promise<GetEulaCommandOutput>;
   public getEula(args: GetEulaCommandInput, cb: (err: any, data?: GetEulaCommandOutput) => void): void;
@@ -910,11 +920,45 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * <p>Gets <code>StreamingSessionBackup</code> resource.</p>
+   *         <p>Invoke this operation to poll for a streaming session backup while stopping a
+   *             streaming session.</p>
+   */
+  public getStreamingSessionBackup(
+    args: GetStreamingSessionBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamingSessionBackupCommandOutput>;
+  public getStreamingSessionBackup(
+    args: GetStreamingSessionBackupCommandInput,
+    cb: (err: any, data?: GetStreamingSessionBackupCommandOutput) => void
+  ): void;
+  public getStreamingSessionBackup(
+    args: GetStreamingSessionBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStreamingSessionBackupCommandOutput) => void
+  ): void;
+  public getStreamingSessionBackup(
+    args: GetStreamingSessionBackupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStreamingSessionBackupCommandOutput) => void),
+    cb?: (err: any, data?: GetStreamingSessionBackupCommandOutput) => void
+  ): Promise<GetStreamingSessionBackupCommandOutput> | void {
+    const command = new GetStreamingSessionBackupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a StreamingSessionStream for a streaming session.</p>
    *         <p>Invoke this operation to poll the resource after invoking
-   *             CreateStreamingSessionStream.</p>
-   *         <p>After the StreamingSessionStream changes to the state READY, the url property will
-   *             contain a stream to be used with the DCV streaming client.</p>
+   *                 <code>CreateStreamingSessionStream</code>.</p>
+   *         <p>After the <code>StreamingSessionStream</code> changes to the <code>READY</code> state,
+   *             the url property will contain a stream to be used with the DCV streaming client.</p>
    */
   public getStreamingSessionStream(
     args: GetStreamingSessionStreamCommandInput,
@@ -946,7 +990,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Get a Studio resource.</p>
+   * <p>Get a studio resource.</p>
    */
   public getStudio(args: GetStudioCommandInput, options?: __HttpHandlerOptions): Promise<GetStudioCommandOutput>;
   public getStudio(args: GetStudioCommandInput, cb: (err: any, data?: GetStudioCommandOutput) => void): void;
@@ -1036,7 +1080,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>List Eula Acceptances.</p>
+   * <p>List EULA acceptances.</p>
    */
   public listEulaAcceptances(
     args: ListEulaAcceptancesCommandInput,
@@ -1068,7 +1112,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>List Eulas.</p>
+   * <p>List EULAs.</p>
    */
   public listEulas(args: ListEulasCommandInput, options?: __HttpHandlerOptions): Promise<ListEulasCommandOutput>;
   public listEulas(args: ListEulasCommandInput, cb: (err: any, data?: ListEulasCommandOutput) => void): void;
@@ -1192,6 +1236,38 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * <p>Lists the backups of a streaming session in a studio.</p>
+   */
+  public listStreamingSessionBackups(
+    args: ListStreamingSessionBackupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamingSessionBackupsCommandOutput>;
+  public listStreamingSessionBackups(
+    args: ListStreamingSessionBackupsCommandInput,
+    cb: (err: any, data?: ListStreamingSessionBackupsCommandOutput) => void
+  ): void;
+  public listStreamingSessionBackups(
+    args: ListStreamingSessionBackupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStreamingSessionBackupsCommandOutput) => void
+  ): void;
+  public listStreamingSessionBackups(
+    args: ListStreamingSessionBackupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamingSessionBackupsCommandOutput) => void),
+    cb?: (err: any, data?: ListStreamingSessionBackupsCommandOutput) => void
+  ): Promise<ListStreamingSessionBackupsCommandOutput> | void {
+    const command = new ListStreamingSessionBackupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the streaming sessions in a studio.</p>
    */
   public listStreamingSessions(
@@ -1224,7 +1300,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Lists the StudioComponents in a studio.</p>
+   * <p>Lists the <code>StudioComponents</code> in a studio.</p>
    */
   public listStudioComponents(
     args: ListStudioComponentsCommandInput,
@@ -1292,8 +1368,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>List studios in your Amazon Web Services account in the requested Amazon Web Services
-   *             Region.</p>
+   * <p>List studios in your Amazon Web Services accounts in the requested Amazon Web Services Region.</p>
    */
   public listStudios(args: ListStudiosCommandInput, options?: __HttpHandlerOptions): Promise<ListStudiosCommandOutput>;
   public listStudios(args: ListStudiosCommandInput, cb: (err: any, data?: ListStudiosCommandOutput) => void): void;
@@ -1419,9 +1494,9 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p> Transitions sessions from the STOPPED state into the READY state. The
-   *             START_IN_PROGRESS state is the intermediate state between the STOPPED and READY
-   *             states.</p>
+   * <p>Transitions sessions from the <code>STOPPED</code> state into the <code>READY</code>
+   *             state. The <code>START_IN_PROGRESS</code> state is the intermediate state between the
+   *                 <code>STOPPED</code> and <code>READY</code> states.</p>
    */
   public startStreamingSession(
     args: StartStreamingSessionCommandInput,
@@ -1453,13 +1528,13 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Repairs the Amazon Web Services SSO configuration for a given studio.</p>
-   *         <p>If the studio has a valid Amazon Web Services SSO configuration currently associated with
+   * <p>Repairs the IAM Identity Center configuration for a given studio.</p>
+   *         <p>If the studio has a valid IAM Identity Center configuration currently associated with
    *             it, this operation will fail with a validation error.</p>
-   *         <p>If the studio does not have a valid Amazon Web Services SSO configuration currently
-   *             associated with it, then a new Amazon Web Services SSO application is created for the studio
-   *             and the studio is changed to the READY state.</p>
-   *         <p>After the Amazon Web Services SSO application is repaired, you must use the Amazon Nimble Studio console to add administrators and users to your studio.</p>
+   *         <p>If the studio does not have a valid IAM Identity Center configuration currently
+   *             associated with it, then a new IAM Identity Center application is created for the studio
+   *             and the studio is changed to the <code>READY</code> state.</p>
+   *         <p>After the IAM Identity Center application is repaired, you must use the Amazon Nimble Studio console to add administrators and users to your studio.</p>
    */
   public startStudioSSOConfigurationRepair(
     args: StartStudioSSOConfigurationRepairCommandInput,
@@ -1491,8 +1566,9 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Transitions sessions from the READY state into the STOPPED state. The STOP_IN_PROGRESS
-   *             state is the intermediate state between the READY and STOPPED states.</p>
+   * <p>Transitions sessions from the <code>READY</code> state into the <code>STOPPED</code>
+   *             state. The <code>STOP_IN_PROGRESS</code> state is the intermediate state between the
+   *                 <code>READY</code> and <code>STOPPED</code> states.</p>
    */
   public stopStreamingSession(
     args: StopStreamingSessionCommandInput,

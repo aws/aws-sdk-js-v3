@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   CreateGroupRequestFilterSensitiveLog,
   CreateGroupResponse,
   CreateGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateGroupCommand,
   serializeAws_restJson1CreateGroupCommand,
@@ -29,10 +30,10 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
 
 /**
  * <p>Use the <code>CreateGroup</code> operation to create a group in   Amazon QuickSight. You can create up to 10,000 groups in a namespace. If you want to create more than 10,000 groups in a namespace, contact AWS Support.</p>
- * 		       <p>The permissions resource is
+ *          <p>The permissions resource is
  * 					<code>arn:aws:quicksight:<your-region>:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
  *             </code>.</p>
- * 		       <p>The response is a group object.</p>
+ *          <p>The response is a group object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class CreateGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,7 @@ export class CreateGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateGroupCommandInput, CreateGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateGroupCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

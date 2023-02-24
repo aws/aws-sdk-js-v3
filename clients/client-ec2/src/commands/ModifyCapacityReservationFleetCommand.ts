@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyCapacityReservationFleetRequestFilterSensitiveLog,
   ModifyCapacityReservationFleetResult,
   ModifyCapacityReservationFleetResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyCapacityReservationFleetCommand,
   serializeAws_ec2ModifyCapacityReservationFleetCommand,
@@ -31,7 +32,7 @@ export interface ModifyCapacityReservationFleetCommandOutput
 
 /**
  * <p>Modifies a Capacity Reservation Fleet.</p>
- * 		       <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically
+ *          <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically
  * 			creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet
  * 			to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for
  * 			all of the individual Capacity Reservations in the Fleet are updated accordingly.</p>
@@ -58,6 +59,15 @@ export class ModifyCapacityReservationFleetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyCapacityReservationFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class ModifyCapacityReservationFleetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyCapacityReservationFleetCommandInput, ModifyCapacityReservationFleetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyCapacityReservationFleetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   DescribeLocalGatewayRouteTablesRequestFilterSensitiveLog,
   DescribeLocalGatewayRouteTablesResult,
   DescribeLocalGatewayRouteTablesResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand,
   serializeAws_ec2DescribeLocalGatewayRouteTablesCommand,
@@ -55,6 +56,15 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeLocalGatewayRouteTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeLocalGatewayRouteTablesCommandInput, DescribeLocalGatewayRouteTablesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeLocalGatewayRouteTablesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

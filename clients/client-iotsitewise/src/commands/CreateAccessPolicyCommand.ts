@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface CreateAccessPolicyCommandInput extends CreateAccessPolicyReques
 export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an access policy that grants the specified identity (Amazon Web Services SSO user, Amazon Web Services SSO group, or
+ * <p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
  *       IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +54,15 @@ export class CreateAccessPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class CreateAccessPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateAccessPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

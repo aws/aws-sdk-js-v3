@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface DescribeFlowLogsCommandInput extends DescribeFlowLogsRequest {}
 export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more flow logs. To view the information in your flow logs (the log
- *             streams for the network interfaces), you must use the CloudWatch Logs console or the CloudWatch Logs
- *             API.</p>
+ * <p>Describes one or more flow logs.</p>
+ *          <p>To view the published flow log records, you must view the log destination. For example,
+ *             the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class DescribeFlowLogsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeFlowLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class DescribeFlowLogsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeFlowLogsCommandInput, DescribeFlowLogsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeFlowLogsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,8 +33,12 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  *          point currently stored in a backup vault. If specified, Vault Lock enforces a minimum and
  *          maximum retention period for future backup and copy jobs that target a backup vault.</p>
  *          <note>
- *             <p>Backup Vault Lock has yet to receive a third-party assessment for SEC
- *             17a-4(f) and CFTC.</p>
+ *             <p>Backup Vault Lock has been assessed by Cohasset Associates for use in environments
+ *             that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information about
+ *             how Backup Vault Lock relates to these regulations, see the
+ *             <a href="samples/cohassetreport.zip">Cohasset Associates
+ *                Compliance Assessment.</a>
+ *             </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +63,15 @@ export class PutBackupVaultLockConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutBackupVaultLockConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +87,9 @@ export class PutBackupVaultLockConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutBackupVaultLockConfigurationCommandInput, PutBackupVaultLockConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutBackupVaultLockConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

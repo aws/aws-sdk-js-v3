@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { UpdateInputRequest, UpdateInputRequestFilterSensitiveLog } from "../models/models_1";
-import { UpdateInputResponse, UpdateInputResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  UpdateInputRequest,
+  UpdateInputRequestFilterSensitiveLog,
+  UpdateInputResponse,
+  UpdateInputResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateInputCommand,
   serializeAws_restJson1UpdateInputCommand,
@@ -48,6 +53,15 @@ export class UpdateInputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +77,7 @@ export class UpdateInputCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateInputCommandInput, UpdateInputCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateInputCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

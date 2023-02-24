@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  *             cluster to store and use database encryption keys in a Hardware Security Module (HSM).
  *             After creating the HSM configuration, you can specify it as a parameter when creating a
  *             cluster. The cluster will then store its encryption keys in the HSM.</p>
- *         <p>In addition to creating an HSM configuration, you must also create an HSM client
+ *          <p>In addition to creating an HSM configuration, you must also create an HSM client
  *             certificate. For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a>
  *             in the Amazon Redshift Cluster Management Guide.</p>
  * @example
@@ -58,6 +59,15 @@ export class CreateHsmConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateHsmConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class CreateHsmConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateHsmConfigurationCommandInput, CreateHsmConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateHsmConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

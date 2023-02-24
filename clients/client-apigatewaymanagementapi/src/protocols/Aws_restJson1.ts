@@ -6,7 +6,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -137,7 +137,7 @@ const deserializeAws_restJson1DeleteConnectionCommandError = async (
 ): Promise<DeleteConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -173,13 +173,13 @@ export const deserializeAws_restJson1GetConnectionCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectedAt != null) {
-    contents.ConnectedAt = __expectNonNull(__parseRfc3339DateTime(data.connectedAt));
+    contents.ConnectedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.connectedAt));
   }
   if (data.identity != null) {
     contents.Identity = deserializeAws_restJson1Identity(data.identity, context);
   }
   if (data.lastActiveAt != null) {
-    contents.LastActiveAt = __expectNonNull(__parseRfc3339DateTime(data.lastActiveAt));
+    contents.LastActiveAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastActiveAt));
   }
   return contents;
 };
@@ -190,7 +190,7 @@ const deserializeAws_restJson1GetConnectionCommandError = async (
 ): Promise<GetConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -234,7 +234,7 @@ const deserializeAws_restJson1PostToConnectionCommandError = async (
 ): Promise<PostToConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -326,7 +326,8 @@ const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext):
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -358,6 +359,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -368,6 +375,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

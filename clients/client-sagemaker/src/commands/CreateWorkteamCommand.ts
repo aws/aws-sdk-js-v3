@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  * <p>Creates a new work team for labeling your data. A work team is defined by one or more
  *             Amazon Cognito user pools. You must first create the user pools before you can create a work
  *             team.</p>
- *         <p>You cannot create more than 25 work teams in an account and region.</p>
+ *          <p>You cannot create more than 25 work teams in an account and region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class CreateWorkteamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class CreateWorkteamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateWorkteamCommandInput, CreateWorkteamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateWorkteamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

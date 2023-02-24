@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,18 +32,18 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  * <p>Returns information about all provisioned
  *             clusters if no cluster identifier is specified, or about a specific cache
  *             cluster if a cluster identifier is supplied.</p>
- *         <p>By default, abbreviated information about the clusters is returned. You can
+ *          <p>By default, abbreviated information about the clusters is returned. You can
  *             use the optional <i>ShowCacheNodeInfo</i> flag to retrieve detailed information about the
  *             cache nodes associated with the clusters. These details include the DNS address
  *             and port for the cache node endpoint.</p>
- *         <p>If the cluster is in the <i>creating</i> state, only cluster-level information is displayed
+ *          <p>If the cluster is in the <i>creating</i> state, only cluster-level information is displayed
  *             until all of the nodes are successfully provisioned.</p>
- *         <p>If the cluster is in the <i>deleting</i> state, only cluster-level information is displayed.</p>
- *         <p>If cache nodes are currently being added to the cluster, node endpoint information
+ *          <p>If the cluster is in the <i>deleting</i> state, only cluster-level information is displayed.</p>
+ *          <p>If cache nodes are currently being added to the cluster, node endpoint information
  *             and creation time for the additional nodes are not displayed until they are
  *             completely provisioned. When the cluster state is <i>available</i>, the cluster is
  *             ready for use.</p>
- *         <p>If cache nodes are currently being removed from the cluster, no endpoint information
+ *          <p>If cache nodes are currently being removed from the cluster, no endpoint information
  *             for the removed nodes is displayed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +68,15 @@ export class DescribeCacheClustersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeCacheClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,9 @@ export class DescribeCacheClustersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeCacheClustersCommandInput, DescribeCacheClustersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeCacheClustersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

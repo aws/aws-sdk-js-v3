@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,9 +27,6 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  * <p>Creates or updates an access policy associated with an existing
  *       destination. An access policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used
  *       to authorize claims to register a subscription filter against a given destination.</p>
- *          <p>If multiple Amazon Web Services accounts are sending logs to this destination, each sender account must be
- *     listed separately in the policy. The policy does not support specifying <code>*</code>
- *     as the Principal or the use of the <code>aws:PrincipalOrgId</code> global key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +50,15 @@ export class PutDestinationPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutDestinationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +74,9 @@ export class PutDestinationPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutDestinationPolicyCommandInput, PutDestinationPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutDestinationPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

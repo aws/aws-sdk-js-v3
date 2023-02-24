@@ -377,13 +377,11 @@ export class Evidently extends EvidentlyClient {
    *       users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects,
    *       such as age.</p>
    *          <p>Using a segment in an experiment limits that experiment to evaluate only the users who match the segment
-   *       criteria. Using one or more segments in a launch allow you to define different traffic splits for the different
+   *       criteria. Using one or more segments in a launch allows you to define different traffic splits for the different
    *       audience segments.</p>
-   *
    *          <p>For more information about segment pattern syntax, see
-   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html">
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html">
    *         Segment rule pattern syntax</a>.</p>
-   *
    *          <p>The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>, which
    *       is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation,
    *       when Evidently assigns a feature variation to a user.</p>
@@ -585,7 +583,6 @@ export class Evidently extends EvidentlyClient {
    *          <p>The first rules that are evaluated are the override rules. If the user's
    *         <code>entityID</code> matches an override rule, the user is served the variation specified
    *       by that rule.</p>
-   *
    *          <p>If there is a current launch with this feature that uses segment overrides, and
    *       if the user session's <code>evaluationContext</code> matches a segment rule defined in a
    *       segment override, the configuration in the segment overrides is used. For more information
@@ -670,7 +667,10 @@ export class Evidently extends EvidentlyClient {
 
   /**
    * <p>Retrieves the results of a running or completed experiment. No results are available until
-   *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.</p>
+   *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.
+   *        To increase the statistical power, Evidently performs an additional offline p-value analysis at the end of the experiment.
+   *        Offline p-value analysis can detect statistical significance in some cases where the anytime p-values used during
+   *        the experiment do not find statistical significance.</p>
    *          <p>Experiment
    *        results are available up to 63 days after the start of the experiment. They are not available after that because
    *        of CloudWatch data retention policies.</p>

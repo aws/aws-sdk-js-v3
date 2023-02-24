@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,8 +35,8 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
  *             <p>You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is
  *         <code>IN_PROGRESS</code>.</p>
  *             <p>For more information about components, see
- *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
- *   <i>Proton Administrator Guide</i>.</p>
+ *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+ *   <i>Proton User Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +61,15 @@ export class UpdateServiceInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateServiceInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class UpdateServiceInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateServiceInstanceCommandInput, UpdateServiceInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateServiceInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

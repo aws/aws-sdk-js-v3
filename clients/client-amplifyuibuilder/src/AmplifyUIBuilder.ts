@@ -7,12 +7,14 @@ import {
   CreateComponentCommandInput,
   CreateComponentCommandOutput,
 } from "./commands/CreateComponentCommand";
+import { CreateFormCommand, CreateFormCommandInput, CreateFormCommandOutput } from "./commands/CreateFormCommand";
 import { CreateThemeCommand, CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand";
 import {
   DeleteComponentCommand,
   DeleteComponentCommandInput,
   DeleteComponentCommandOutput,
 } from "./commands/DeleteComponentCommand";
+import { DeleteFormCommand, DeleteFormCommandInput, DeleteFormCommandOutput } from "./commands/DeleteFormCommand";
 import { DeleteThemeCommand, DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand";
 import {
   ExchangeCodeForTokenCommand,
@@ -24,6 +26,7 @@ import {
   ExportComponentsCommandInput,
   ExportComponentsCommandOutput,
 } from "./commands/ExportComponentsCommand";
+import { ExportFormsCommand, ExportFormsCommandInput, ExportFormsCommandOutput } from "./commands/ExportFormsCommand";
 import {
   ExportThemesCommand,
   ExportThemesCommandInput,
@@ -34,13 +37,21 @@ import {
   GetComponentCommandInput,
   GetComponentCommandOutput,
 } from "./commands/GetComponentCommand";
+import { GetFormCommand, GetFormCommandInput, GetFormCommandOutput } from "./commands/GetFormCommand";
+import { GetMetadataCommand, GetMetadataCommandInput, GetMetadataCommandOutput } from "./commands/GetMetadataCommand";
 import { GetThemeCommand, GetThemeCommandInput, GetThemeCommandOutput } from "./commands/GetThemeCommand";
 import {
   ListComponentsCommand,
   ListComponentsCommandInput,
   ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
+import { ListFormsCommand, ListFormsCommandInput, ListFormsCommandOutput } from "./commands/ListFormsCommand";
 import { ListThemesCommand, ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
+import {
+  PutMetadataFlagCommand,
+  PutMetadataFlagCommandInput,
+  PutMetadataFlagCommandOutput,
+} from "./commands/PutMetadataFlagCommand";
 import {
   RefreshTokenCommand,
   RefreshTokenCommandInput,
@@ -51,6 +62,7 @@ import {
   UpdateComponentCommandInput,
   UpdateComponentCommandOutput,
 } from "./commands/UpdateComponentCommand";
+import { UpdateFormCommand, UpdateFormCommandInput, UpdateFormCommandOutput } from "./commands/UpdateFormCommand";
 import { UpdateThemeCommand, UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
 
 /**
@@ -87,6 +99,32 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
     cb?: (err: any, data?: CreateComponentCommandOutput) => void
   ): Promise<CreateComponentCommandOutput> | void {
     const command = new CreateComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new form for an Amplify app.</p>
+   */
+  public createForm(args: CreateFormCommandInput, options?: __HttpHandlerOptions): Promise<CreateFormCommandOutput>;
+  public createForm(args: CreateFormCommandInput, cb: (err: any, data?: CreateFormCommandOutput) => void): void;
+  public createForm(
+    args: CreateFormCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFormCommandOutput) => void
+  ): void;
+  public createForm(
+    args: CreateFormCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFormCommandOutput) => void),
+    cb?: (err: any, data?: CreateFormCommandOutput) => void
+  ): Promise<CreateFormCommandOutput> | void {
+    const command = new CreateFormCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -145,6 +183,32 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
     cb?: (err: any, data?: DeleteComponentCommandOutput) => void
   ): Promise<DeleteComponentCommandOutput> | void {
     const command = new DeleteComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a form from an Amplify app.</p>
+   */
+  public deleteForm(args: DeleteFormCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFormCommandOutput>;
+  public deleteForm(args: DeleteFormCommandInput, cb: (err: any, data?: DeleteFormCommandOutput) => void): void;
+  public deleteForm(
+    args: DeleteFormCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFormCommandOutput) => void
+  ): void;
+  public deleteForm(
+    args: DeleteFormCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFormCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFormCommandOutput) => void
+  ): Promise<DeleteFormCommandOutput> | void {
+    const command = new DeleteFormCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -246,6 +310,32 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * <p>Exports form configurations to code that is ready to integrate into an Amplify app.</p>
+   */
+  public exportForms(args: ExportFormsCommandInput, options?: __HttpHandlerOptions): Promise<ExportFormsCommandOutput>;
+  public exportForms(args: ExportFormsCommandInput, cb: (err: any, data?: ExportFormsCommandOutput) => void): void;
+  public exportForms(
+    args: ExportFormsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportFormsCommandOutput) => void
+  ): void;
+  public exportForms(
+    args: ExportFormsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportFormsCommandOutput) => void),
+    cb?: (err: any, data?: ExportFormsCommandOutput) => void
+  ): Promise<ExportFormsCommandOutput> | void {
+    const command = new ExportFormsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Exports theme configurations to code that is ready to integrate into an Amplify app.</p>
    */
   public exportThemes(
@@ -293,6 +383,58 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
     cb?: (err: any, data?: GetComponentCommandOutput) => void
   ): Promise<GetComponentCommandOutput> | void {
     const command = new GetComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an existing form for an Amplify app.</p>
+   */
+  public getForm(args: GetFormCommandInput, options?: __HttpHandlerOptions): Promise<GetFormCommandOutput>;
+  public getForm(args: GetFormCommandInput, cb: (err: any, data?: GetFormCommandOutput) => void): void;
+  public getForm(
+    args: GetFormCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFormCommandOutput) => void
+  ): void;
+  public getForm(
+    args: GetFormCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFormCommandOutput) => void),
+    cb?: (err: any, data?: GetFormCommandOutput) => void
+  ): Promise<GetFormCommandOutput> | void {
+    const command = new GetFormCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns existing metadata for an Amplify app.</p>
+   */
+  public getMetadata(args: GetMetadataCommandInput, options?: __HttpHandlerOptions): Promise<GetMetadataCommandOutput>;
+  public getMetadata(args: GetMetadataCommandInput, cb: (err: any, data?: GetMetadataCommandOutput) => void): void;
+  public getMetadata(
+    args: GetMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetadataCommandOutput) => void
+  ): void;
+  public getMetadata(
+    args: GetMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetMetadataCommandOutput) => void
+  ): Promise<GetMetadataCommandOutput> | void {
+    const command = new GetMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -363,6 +505,32 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * <p>Retrieves a list of forms for a specified Amplify app and backend environment.</p>
+   */
+  public listForms(args: ListFormsCommandInput, options?: __HttpHandlerOptions): Promise<ListFormsCommandOutput>;
+  public listForms(args: ListFormsCommandInput, cb: (err: any, data?: ListFormsCommandOutput) => void): void;
+  public listForms(
+    args: ListFormsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFormsCommandOutput) => void
+  ): void;
+  public listForms(
+    args: ListFormsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFormsCommandOutput) => void),
+    cb?: (err: any, data?: ListFormsCommandOutput) => void
+  ): Promise<ListFormsCommandOutput> | void {
+    const command = new ListFormsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves a list of themes for a specified Amplify app and backend
    *       environment.</p>
    */
@@ -379,6 +547,38 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
     cb?: (err: any, data?: ListThemesCommandOutput) => void
   ): Promise<ListThemesCommandOutput> | void {
     const command = new ListThemesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stores the metadata information about a feature on a form or view.</p>
+   */
+  public putMetadataFlag(
+    args: PutMetadataFlagCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutMetadataFlagCommandOutput>;
+  public putMetadataFlag(
+    args: PutMetadataFlagCommandInput,
+    cb: (err: any, data?: PutMetadataFlagCommandOutput) => void
+  ): void;
+  public putMetadataFlag(
+    args: PutMetadataFlagCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutMetadataFlagCommandOutput) => void
+  ): void;
+  public putMetadataFlag(
+    args: PutMetadataFlagCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetadataFlagCommandOutput) => void),
+    cb?: (err: any, data?: PutMetadataFlagCommandOutput) => void
+  ): Promise<PutMetadataFlagCommandOutput> | void {
+    const command = new PutMetadataFlagCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -440,6 +640,32 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
     cb?: (err: any, data?: UpdateComponentCommandOutput) => void
   ): Promise<UpdateComponentCommandOutput> | void {
     const command = new UpdateComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing form.</p>
+   */
+  public updateForm(args: UpdateFormCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFormCommandOutput>;
+  public updateForm(args: UpdateFormCommandInput, cb: (err: any, data?: UpdateFormCommandOutput) => void): void;
+  public updateForm(
+    args: UpdateFormCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFormCommandOutput) => void
+  ): void;
+  public updateForm(
+    args: UpdateFormCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFormCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFormCommandOutput) => void
+  ): Promise<UpdateFormCommandOutput> | void {
+    const command = new UpdateFormCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

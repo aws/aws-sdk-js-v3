@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   ListDataSetsRequestFilterSensitiveLog,
   ListDataSetsResponse,
   ListDataSetsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1ListDataSetsCommand,
   serializeAws_restJson1ListDataSetsCommand,
@@ -29,7 +30,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
 
 /**
  * <p>Lists all of the datasets belonging to the current Amazon Web Services account in an Amazon Web Services Region.</p>
- * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
+ *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,15 @@ export class ListDataSetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListDataSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,7 @@ export class ListDataSetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDataSetsCommandInput, ListDataSetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListDataSetsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

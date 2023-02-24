@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,9 +33,16 @@ export interface GetTranscriptCommandInput extends GetTranscriptRequest {}
 export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a transcript of the session, including details about any attachments. Note
- *             that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
- *         <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+ * <p>Retrieves a transcript of the session, including details about any attachments. For
+ *             information about accessing past chat contact transcripts for a persistent chat, see
+ *             <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.
+ *         </p>
+ *          <note>
+ *             <p>
+ *                <code>ConnectionToken</code> is used for invoking this API instead of
+ *                     <code>ParticipantToken</code>.</p>
+ *          </note>
+ *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
  *                     authentication</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +67,15 @@ export class GetTranscriptCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetTranscriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +91,7 @@ export class GetTranscriptCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetTranscriptCommandInput, GetTranscriptCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetTranscriptCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

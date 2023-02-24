@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachVpnGatewayRequest, DetachVpnGatewayRequestFilterSensitiveLog } from "../models/models_4";
+import { DetachVpnGatewayRequest, DetachVpnGatewayRequestFilterSensitiveLog } from "../models/models_5";
 import {
   deserializeAws_ec2DetachVpnGatewayCommand,
   serializeAws_ec2DetachVpnGatewayCommand,
@@ -27,7 +28,7 @@ export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
  *             off the VPC and not use it anymore. You can confirm a virtual private gateway has been
  *             completely detached from a VPC by describing the virtual private gateway (any
  *             attachments to the virtual private gateway are also described).</p>
- *         <p>You must wait for the attachment's state to switch to <code>detached</code> before you
+ *          <p>You must wait for the attachment's state to switch to <code>detached</code> before you
  *             can delete the VPC or attach a different VPC to the virtual private gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +53,15 @@ export class DetachVpnGatewayCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetachVpnGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,9 @@ export class DetachVpnGatewayCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetachVpnGatewayCommandInput, DetachVpnGatewayCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetachVpnGatewayCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

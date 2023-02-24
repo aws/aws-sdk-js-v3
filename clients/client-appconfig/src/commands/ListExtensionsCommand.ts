@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface ListExtensionsCommandInput extends ListExtensionsRequest {}
 export interface ListExtensionsCommandOutput extends Extensions, __MetadataBearer {}
 
 /**
- * <p>Lists all custom and Amazon Web Services-authored AppConfig extensions in the
+ * <p>Lists all custom and Amazon Web Services authored AppConfig extensions in the
  *          account. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
  *          <i>AppConfig User Guide</i>.</p>
@@ -55,6 +56,15 @@ export class ListExtensionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListExtensionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class ListExtensionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListExtensionsCommandInput, ListExtensionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListExtensionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

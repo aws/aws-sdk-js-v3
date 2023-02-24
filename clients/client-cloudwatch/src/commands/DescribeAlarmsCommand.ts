@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
 /**
  * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
  * 			name, the alarm state, or a prefix for any action.</p>
- * 		       <p>To use this operation and return information about composite alarms, you must be signed on with
+ *          <p>To use this operation and return information about composite alarms, you must be signed on with
  * 		the <code>cloudwatch:DescribeAlarms</code> permission that is scoped to <code>*</code>. You can't return information
  * 			about composite alarms if your <code>cloudwatch:DescribeAlarms</code> permission has a narrower scope.</p>
  * @example
@@ -56,6 +57,15 @@ export class DescribeAlarmsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeAlarmsCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DescribeAlarmsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAlarmsCommandInput, DescribeAlarmsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAlarmsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

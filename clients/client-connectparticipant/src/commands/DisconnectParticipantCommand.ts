@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,8 +33,12 @@ export interface DisconnectParticipantCommandInput extends DisconnectParticipant
 export interface DisconnectParticipantCommandOutput extends DisconnectParticipantResponse, __MetadataBearer {}
 
 /**
- * <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API
- *             instead of ParticipantToken.</p>
+ * <p>Disconnects a participant. </p>
+ *          <note>
+ *             <p>
+ *                <code>ConnectionToken</code> is used for invoking this API instead of
+ *                     <code>ParticipantToken</code>.</p>
+ *          </note>
  *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
  *                     authentication</a>.</p>
  * @example
@@ -59,6 +64,15 @@ export class DisconnectParticipantCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisconnectParticipantCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +88,9 @@ export class DisconnectParticipantCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisconnectParticipantCommandInput, DisconnectParticipantCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisconnectParticipantCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

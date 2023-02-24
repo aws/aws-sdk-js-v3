@@ -233,7 +233,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   * <p>Deletes an environment member from an Cloud9 development environment.</p>
+   * <p>Deletes an environment member from a development environment.</p>
    */
   public deleteEnvironmentMembership(
     args: DeleteEnvironmentMembershipCommandInput,

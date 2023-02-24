@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,13 +35,13 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *         and a read-only secondary cluster that receives
  *         data from the primary cluster through high-speed replication
  *         performed by the Aurora storage subsystem.</p>
- *         <p>You can create a global database that is initially empty, and then
+ *          <p>You can create a global database that is initially empty, and then
  *         add a primary cluster and a secondary cluster to it.
  *         Or you can specify an existing Aurora cluster during the create operation,
  *         and this cluster becomes the primary cluster of the global database.</p>
- *         <note>
+ *          <note>
  *             <p>This action applies only to Aurora DB clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +65,15 @@ export class CreateGlobalClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +89,9 @@ export class CreateGlobalClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateGlobalClusterCommandInput, CreateGlobalClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateGlobalClusterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

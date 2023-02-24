@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,17 +28,17 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
 
 /**
  * <p>Describes the available types of lifecycle hooks.</p>
- *         <p>The following hook types are supported:</p>
- *         <ul>
+ *          <p>The following hook types are supported:</p>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <code>autoscaling:EC2_INSTANCE_LAUNCHING</code>
- *                 </p>
+ *                <p>
+ *                   <code>autoscaling:EC2_INSTANCE_LAUNCHING</code>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <code>autoscaling:EC2_INSTANCE_TERMINATING</code>
- *                 </p>
+ *                <p>
+ *                   <code>autoscaling:EC2_INSTANCE_TERMINATING</code>
+ *                </p>
  *             </li>
  *          </ul>
  * @example
@@ -63,6 +64,15 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeLifecycleHookTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeLifecycleHookTypesCommandInput, DescribeLifecycleHookTypesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeLifecycleHookTypesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

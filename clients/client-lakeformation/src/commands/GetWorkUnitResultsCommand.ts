@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -9,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
@@ -25,7 +29,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetWorkUnitResultsCommandInput extends GetWorkUnitResultsRequest {}
-export interface GetWorkUnitResultsCommandOutput extends GetWorkUnitResultsResponse, __MetadataBearer {}
+export interface GetWorkUnitResultsCommandOutput
+  extends __WithSdkStreamMixin<GetWorkUnitResultsResponse, "ResultStream">,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the work units resulting from the query. Work units can be executed in any order and in parallel. </p>
@@ -52,6 +58,15 @@ export class GetWorkUnitResultsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetWorkUnitResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +82,9 @@ export class GetWorkUnitResultsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetWorkUnitResultsCommandInput, GetWorkUnitResultsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetWorkUnitResultsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -92,7 +110,10 @@ export class GetWorkUnitResultsCommand extends $Command<
     return serializeAws_restJson1GetWorkUnitResultsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkUnitResultsCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetWorkUnitResultsCommandOutput> {
     return deserializeAws_restJson1GetWorkUnitResultsCommand(output, context);
   }
 

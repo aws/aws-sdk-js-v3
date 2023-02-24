@@ -1,13 +1,7 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -32,33 +26,51 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
 import { CreateChatTokenCommandInput, CreateChatTokenCommandOutput } from "./commands/CreateChatTokenCommand";
+import {
+  CreateLoggingConfigurationCommandInput,
+  CreateLoggingConfigurationCommandOutput,
+} from "./commands/CreateLoggingConfigurationCommand";
 import { CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand";
+import {
+  DeleteLoggingConfigurationCommandInput,
+  DeleteLoggingConfigurationCommandOutput,
+} from "./commands/DeleteLoggingConfigurationCommand";
 import { DeleteMessageCommandInput, DeleteMessageCommandOutput } from "./commands/DeleteMessageCommand";
 import { DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand";
 import { DisconnectUserCommandInput, DisconnectUserCommandOutput } from "./commands/DisconnectUserCommand";
+import {
+  GetLoggingConfigurationCommandInput,
+  GetLoggingConfigurationCommandOutput,
+} from "./commands/GetLoggingConfigurationCommand";
 import { GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
+import {
+  ListLoggingConfigurationsCommandInput,
+  ListLoggingConfigurationsCommandOutput,
+} from "./commands/ListLoggingConfigurationsCommand";
 import { ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -67,35 +79,55 @@ import {
 import { SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateLoggingConfigurationCommandInput,
+  UpdateLoggingConfigurationCommandOutput,
+} from "./commands/UpdateLoggingConfigurationCommand";
 import { UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateChatTokenCommandInput
+  | CreateLoggingConfigurationCommandInput
   | CreateRoomCommandInput
+  | DeleteLoggingConfigurationCommandInput
   | DeleteMessageCommandInput
   | DeleteRoomCommandInput
   | DisconnectUserCommandInput
+  | GetLoggingConfigurationCommandInput
   | GetRoomCommandInput
+  | ListLoggingConfigurationsCommandInput
   | ListRoomsCommandInput
   | ListTagsForResourceCommandInput
   | SendEventCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateLoggingConfigurationCommandInput
   | UpdateRoomCommandInput;
 
 export type ServiceOutputTypes =
   | CreateChatTokenCommandOutput
+  | CreateLoggingConfigurationCommandOutput
   | CreateRoomCommandOutput
+  | DeleteLoggingConfigurationCommandOutput
   | DeleteMessageCommandOutput
   | DeleteRoomCommandOutput
   | DisconnectUserCommandOutput
+  | GetLoggingConfigurationCommandOutput
   | GetRoomCommandOutput
+  | ListLoggingConfigurationsCommandOutput
   | ListRoomsCommandOutput
   | ListTagsForResourceCommandOutput
   | SendEventCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateLoggingConfigurationCommandOutput
   | UpdateRoomCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -105,11 +137,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -166,6 +198,39 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -181,58 +246,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type IvschatClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of IvschatClient class constructor that set the region, credentials and other options.
  */
@@ -241,11 +268,12 @@ export interface IvschatClientConfig extends IvschatClientConfigType {}
 type IvschatClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of IvschatClient class. This is resolved and normalized from the {@link IvschatClientConfig | constructor configuration interface}.
  */
@@ -277,8 +305,12 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *          <p>
  *             <b>Resources</b>
  *          </p>
- *          <p>The following resource is part of Amazon IVS Chat:</p>
+ *          <p>The following resources are part of Amazon IVS Chat:</p>
  *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>LoggingConfiguration</b> — A configuration that allows customers to store and record sent messages in a chat room. See the Logging Configuration endpoints for more information.</p>
+ *             </li>
  *             <li>
  *                <p>
  *                   <b>Room</b> — The central Amazon IVS Chat resource through
@@ -286,6 +318,21 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *           information.</p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Tagging</b>
+ *          </p>
+ *          <p>A <i>tag</i> is a metadata label that you assign to an AWS resource. A tag
+ *       comprises a <i>key</i> and a <i>value</i>, both set by you. For
+ *       example, you might set a tag as <code>topic:nature</code> to label a particular video
+ *       category. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a> for more information, including restrictions that apply to
+ *       tags and "Tag naming limits and requirements"; Amazon IVS Chat has no service-specific
+ *       constraints beyond what is documented there.</p>
+ *          <p>Tags can help you identify and organize your AWS resources. For example, you can use the
+ *       same tag for different resources to indicate that they are related. You can also use tags to
+ *       manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Access Tags</a>).</p>
+ *          <p>The Amazon IVS Chat API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and
+ *       <a>ListTagsForResource</a>. The following resource supports tagging: Room.</p>
+ *          <p>At most 50 tags can be applied to a resource.</p>
  *          <p>
  *             <b>API Access Security</b>
  *          </p>
@@ -331,6 +378,13 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *             </li>
  *          </ul>
  *          <p>
+ *             <b>Amazon Resource Names (ARNs)</b>
+ *          </p>
+ *          <p>ARNs uniquely identify AWS resources. An ARN is required when you need to specify a
+ *       resource unambiguously across all of AWS, such as in IAM policies and API calls. For more
+ *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names</a> in the <i>AWS General
+ *           Reference</i>.</p>
+ *          <p>
  *             <b>Messaging Endpoints</b>
  *          </p>
  *          <ul>
@@ -361,10 +415,10 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateChatToken</a> — Creates an encrypted token that is used to
- *           establish an individual WebSocket connection to a room. The token is valid for one minute,
- *           and a connection (session) established with the token is valid for the specified
- *           duration.</p>
+ *                   <a>CreateChatToken</a> — Creates an encrypted token that is used by a chat participant to establish an
+ *           individual WebSocket chat connection to a room. When the token is used to connect to chat,
+ *           the connection is valid for the session duration specified in the request. The token
+ *           becomes invalid at the token-expiration timestamp included in the response.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -392,6 +446,34 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *             <li>
  *                <p>
  *                   <a>UpdateRoom</a> — Updates a room’s configuration.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Logging Configuration Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateLoggingConfiguration</a> — Creates a logging configuration that allows clients to store and record sent messages.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteLoggingConfiguration</a> — Deletes the specified logging
+ *           configuration.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetLoggingConfiguration</a> — Gets the specified logging
+ *           configuration.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListLoggingConfigurations</a> — Gets summary information about all
+ *           your logging configurations in the AWS region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateLoggingConfiguration</a> — Updates a specified logging configuration.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -431,14 +513,15 @@ export class IvschatClient extends __Client<
 
   constructor(configuration: IvschatClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

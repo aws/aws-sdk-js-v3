@@ -36,6 +36,11 @@ import {
   CreateIpGroupCommandInput,
   CreateIpGroupCommandOutput,
 } from "./commands/CreateIpGroupCommand";
+import {
+  CreateStandbyWorkspacesCommand,
+  CreateStandbyWorkspacesCommandInput,
+  CreateStandbyWorkspacesCommandOutput,
+} from "./commands/CreateStandbyWorkspacesCommand";
 import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   CreateUpdatedWorkspaceImageCommand,
@@ -208,6 +213,11 @@ import {
   ModifyAccountCommandInput,
   ModifyAccountCommandOutput,
 } from "./commands/ModifyAccountCommand";
+import {
+  ModifyCertificateBasedAuthPropertiesCommand,
+  ModifyCertificateBasedAuthPropertiesCommandInput,
+  ModifyCertificateBasedAuthPropertiesCommandOutput,
+} from "./commands/ModifyCertificateBasedAuthPropertiesCommand";
 import {
   ModifyClientPropertiesCommand,
   ModifyClientPropertiesCommandInput,
@@ -585,6 +595,38 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * <p>Creates a standby WorkSpace in a secondary Region.</p>
+   */
+  public createStandbyWorkspaces(
+    args: CreateStandbyWorkspacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStandbyWorkspacesCommandOutput>;
+  public createStandbyWorkspaces(
+    args: CreateStandbyWorkspacesCommandInput,
+    cb: (err: any, data?: CreateStandbyWorkspacesCommandOutput) => void
+  ): void;
+  public createStandbyWorkspaces(
+    args: CreateStandbyWorkspacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStandbyWorkspacesCommandOutput) => void
+  ): void;
+  public createStandbyWorkspaces(
+    args: CreateStandbyWorkspacesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStandbyWorkspacesCommandOutput) => void),
+    cb?: (err: any, data?: CreateStandbyWorkspacesCommandOutput) => void
+  ): Promise<CreateStandbyWorkspacesCommandOutput> | void {
+    const command = new CreateStandbyWorkspacesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates the specified tags for the specified WorkSpaces resource.</p>
    */
   public createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
@@ -612,15 +654,15 @@ export class WorkSpaces extends WorkSpacesClient {
 
   /**
    * <p>Creates a new updated WorkSpace image based on the specified source image. The new
-   *          updated WorkSpace image has the latest drivers and other updates required by the Amazon
-   *          WorkSpaces components.</p>
+   *          updated WorkSpace image has the latest drivers and other updates required by the
+   *          Amazon WorkSpaces components.</p>
    *          <p>To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces
    *          requirements, use <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">
    *             DescribeWorkspaceImages</a>.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>Only Windows 10, Windows Sever 2016, and Windows Server 2019 WorkSpace images
+   *                   <p>Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images
    *                   can be programmatically updated at this time.</p>
    *                </li>
    *                <li>
@@ -732,6 +774,12 @@ export class WorkSpaces extends WorkSpacesClient {
   /**
    * <p>Creates one or more WorkSpaces.</p>
    *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
+   *          <note>
+   *             <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
+   *             Core. Contact your account team to be allow-listed to use this value. For more
+   *             information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces
+   *                Core</a>.</p>
+   *          </note>
    */
   public createWorkspaces(
     args: CreateWorkspacesCommandInput,
@@ -1710,9 +1758,10 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon
-   *          WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL
-   *          images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring Your Own Windows
+   * <p>Imports the specified Windows 10 Bring Your Own License (BYOL)
+   *          image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is
+   *          in your Amazon Web Services account, and you must own the image. For more information about
+   *          creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring Your Own Windows
    *             Desktop Licenses</a>.</p>
    */
   public importWorkspaceImage(
@@ -1848,6 +1897,39 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: ModifyAccountCommandOutput) => void
   ): Promise<ModifyAccountCommandOutput> | void {
     const command = new ModifyAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the properties of the certificate-based authentication you want
+   *          to use with your WorkSpaces.</p>
+   */
+  public modifyCertificateBasedAuthProperties(
+    args: ModifyCertificateBasedAuthPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput>;
+  public modifyCertificateBasedAuthProperties(
+    args: ModifyCertificateBasedAuthPropertiesCommandInput,
+    cb: (err: any, data?: ModifyCertificateBasedAuthPropertiesCommandOutput) => void
+  ): void;
+  public modifyCertificateBasedAuthProperties(
+    args: ModifyCertificateBasedAuthPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyCertificateBasedAuthPropertiesCommandOutput) => void
+  ): void;
+  public modifyCertificateBasedAuthProperties(
+    args: ModifyCertificateBasedAuthPropertiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyCertificateBasedAuthPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: ModifyCertificateBasedAuthPropertiesCommandOutput) => void
+  ): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput> | void {
+    const command = new ModifyCertificateBasedAuthPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2027,6 +2109,12 @@ export class WorkSpaces extends WorkSpacesClient {
    * <p>Modifies the specified WorkSpace properties. For important information about how to
    *          modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html"> Modify a WorkSpace</a>.
    *       </p>
+   *          <note>
+   *             <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
+   *             Core. Contact your account team to be allow-listed to use this value. For more
+   *             information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces
+   *                Core</a>.</p>
+   *          </note>
    */
   public modifyWorkspaceProperties(
     args: ModifyWorkspacePropertiesCommandInput,
@@ -2524,7 +2612,6 @@ export class WorkSpaces extends WorkSpacesClient {
    * <p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html">
    *             Update a Custom WorkSpaces Bundle</a>.</p>
-   *
    *          <important>
    *             <p>Existing WorkSpaces aren't automatically updated when you update the bundle that they're
    *             based on. To update existing WorkSpaces that are based on a bundle that you've updated, you

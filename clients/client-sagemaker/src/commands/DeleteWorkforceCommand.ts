@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,6 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
 
 /**
  * <p>Use this operation to delete a workforce.</p>
- *
  *          <p>If you want to create a new workforce in an Amazon Web Services Region where
  *       a workforce already exists, use this operation to delete the
  *       existing workforce and then use
@@ -40,7 +40,7 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  *             operation to delete all work teams before you delete the workforce.
  *             If you try to delete a workforce that contains one or more work teams,
  *             you will recieve a <code>ResourceInUse</code> error.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +64,15 @@ export class DeleteWorkforceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteWorkforceCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +88,9 @@ export class DeleteWorkforceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteWorkforceCommandInput, DeleteWorkforceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteWorkforceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

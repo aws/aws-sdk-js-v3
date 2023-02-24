@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,7 +37,18 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  *         <p>
  *             <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio share to an organization node.</p>
  *          <p>You can't share a shared resource, including portfolios that contain a shared product.</p>
- *          <p>If the portfolio share with the specified account or organization node already exists, this action will have no effect and will not return an error. To update an existing share, you must use the <code> UpdatePortfolioShare</code> API instead.</p>
+ *          <p>If the portfolio share with the specified account or organization node already exists, this action will have no effect
+ *          and will not return an error. To update an existing share, you must use the <code> UpdatePortfolioShare</code> API instead. </p>
+ *
+ *          <note>
+ *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
+ *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,
+ *          but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal
+ *          name association for the portfolio. Although this user may not know which principal names are associated through
+ *          Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then
+ *          Service Catalog recommends using <code>PrincipalType</code> as <code>IAM</code>. With this configuration,
+ *          the <code>PrincipalARN</code> must already exist in the recipient account before it can be associated. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +72,15 @@ export class CreatePortfolioShareCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreatePortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +96,9 @@ export class CreatePortfolioShareCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePortfolioShareCommandInput, CreatePortfolioShareCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePortfolioShareCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

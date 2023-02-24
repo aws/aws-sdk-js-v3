@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,10 +32,10 @@ export interface ListQuerySuggestionsBlockListsCommandOutput
 
 /**
  * <p>Lists the block lists used for query suggestions for an index.</p>
- *         <p>For information on the current quota limits for block lists, see
+ *          <p>For information on the current quota limits for block lists, see
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
  *                 for Amazon Kendra</a>.</p>
- *         <p>
+ *          <p>
  *             <code>ListQuerySuggestionsBlockLists</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
@@ -60,6 +61,15 @@ export class ListQuerySuggestionsBlockListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListQuerySuggestionsBlockListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class ListQuerySuggestionsBlockListsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListQuerySuggestionsBlockListsCommandInput, ListQuerySuggestionsBlockListsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListQuerySuggestionsBlockListsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

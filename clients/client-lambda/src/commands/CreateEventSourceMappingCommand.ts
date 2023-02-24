@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,7 @@ export interface CreateEventSourceMappingCommandInput extends CreateEventSourceM
 export interface CreateEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
- * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the
- *       event source and triggers the function.</p>
+ * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and invokes the function.</p>
  *          <p>For details about how to configure different event sources, see the following topics. </p>
  *          <ul>
  *             <li>
@@ -69,28 +69,27 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *                </p>
  *             </li>
  *          </ul>
- *
- *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
+ *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p>
+ *                   <code>BisectBatchOnFunctionError</code> – If the function returns an error, split the batch in two and retry.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>
+ *                   <code>DestinationConfig</code> – Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p>
+ *                   <code>MaximumRecordAgeInSeconds</code> – Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+ *                   <code>MaximumRetryAttempts</code> – Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>
+ *                   <code>ParallelizationFactor</code> – Process multiple batches from each shard concurrently.</p>
  *             </li>
  *          </ul>
  *          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
@@ -155,6 +154,15 @@ export class CreateEventSourceMappingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateEventSourceMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,6 +178,9 @@ export class CreateEventSourceMappingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateEventSourceMappingCommandInput, CreateEventSourceMappingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateEventSourceMappingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

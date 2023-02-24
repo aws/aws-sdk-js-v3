@@ -1,6 +1,12 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
-import { CredentialProvider, Credentials, HashConstructor, Provider } from "@aws-sdk/types";
+import {
+  AwsCredentialIdentity,
+  AwsCredentialIdentityProvider,
+  ChecksumConstructor,
+  HashConstructor,
+  Provider,
+} from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -9,7 +15,7 @@ export interface SignerConfig {
   /**
    * The AWS credentials to sign requests with. Uses the default credential provider chain if not specified.
    */
-  credentials?: Credentials | CredentialProvider;
+  credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
   /**
    * The hostname of the database to connect to.
    */
@@ -25,7 +31,7 @@ export interface SignerConfig {
   /**
    * The SHA256 hasher constructor to sign the request.
    */
-  sha256?: HashConstructor;
+  sha256?: ChecksumConstructor | HashConstructor;
   /**
    * The username to login as.
    */
@@ -36,13 +42,13 @@ export interface SignerConfig {
  * The signer class that generates an auth token to a database.
  */
 export class Signer {
-  private readonly credentials: Credentials | CredentialProvider;
+  private readonly credentials: AwsCredentialIdentity | AwsCredentialIdentityProvider;
   private readonly hostname: string;
   private readonly port: number;
   private readonly protocol: string = "https:";
   private readonly region: string | Provider<string>;
   private readonly service: string = "rds-db";
-  private readonly sha256: HashConstructor;
+  private readonly sha256: ChecksumConstructor | HashConstructor;
   private readonly username: string;
 
   constructor(configuration: SignerConfig) {

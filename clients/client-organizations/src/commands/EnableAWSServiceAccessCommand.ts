@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -40,7 +41,7 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  *                 Organizations with Other Amazon Web Services Services</a> in the
  *                 <i>Organizations User Guide.</i>
  *          </p>
- *         <p>This operation can be called only from the organization's management account and only
+ *         <p>You can only call this operation from the organization's management account and only
  *             if the organization has <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled all
  *                 features</a>.</p>
  * @example
@@ -66,6 +67,15 @@ export class EnableAWSServiceAccessCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EnableAWSServiceAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +91,9 @@ export class EnableAWSServiceAccessCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableAWSServiceAccessCommandInput, EnableAWSServiceAccessCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableAWSServiceAccessCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

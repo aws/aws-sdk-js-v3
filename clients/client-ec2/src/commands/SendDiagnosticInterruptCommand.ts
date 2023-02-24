@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,16 +29,13 @@ export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {
  *                 screen</i>/<i>stop error</i> (on Windows instances). For
  *             instances based on Intel and AMD processors, the interrupt is received as a
  *                 <i>non-maskable interrupt</i> (NMI).</p>
- *
- *         <p>In general, the operating system crashes and reboots when a kernel panic or stop error
+ *          <p>In general, the operating system crashes and reboots when a kernel panic or stop error
  *             is triggered. The operating system can also be configured to perform diagnostic tasks,
  *             such as generating a memory dump file, loading a secondary kernel, or obtaining a call
  *             trace.</p>
- *
- *         <p>Before sending a diagnostic interrupt to your instance, ensure that its operating
+ *          <p>Before sending a diagnostic interrupt to your instance, ensure that its operating
  *             system is configured to perform the required diagnostic tasks.</p>
- *
- *         <p>For more information about configuring your operating system to generate a crash dump
+ *          <p>For more information about configuring your operating system to generate a crash dump
  *             when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt
  *                 (for advanced users)</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a diagnostic
  *                 interrupt (for advanced users)</a> (Windows instances).</p>
@@ -64,6 +62,15 @@ export class SendDiagnosticInterruptCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SendDiagnosticInterruptCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +86,9 @@ export class SendDiagnosticInterruptCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SendDiagnosticInterruptCommandInput, SendDiagnosticInterruptCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SendDiagnosticInterruptCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

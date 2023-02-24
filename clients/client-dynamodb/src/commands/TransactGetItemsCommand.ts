@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * <p>
  *             <code>TransactGetItems</code> is a synchronous operation that atomically retrieves
  *             multiple items from one or more tables (but not from indexes) in a single account and
- *             Region. A <code>TransactGetItems</code> call can contain up to 25
+ *             Region. A <code>TransactGetItems</code> call can contain up to 100
  *                 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code>
  *             structure that specifies an item to retrieve from a table in the account and Region. A
  *             call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one
@@ -78,6 +79,15 @@ export class TransactGetItemsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TransactGetItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,6 +103,9 @@ export class TransactGetItemsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TransactGetItemsCommandInput, TransactGetItemsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, TransactGetItemsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

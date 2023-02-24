@@ -455,6 +455,74 @@ export interface AnomalyDetectorConfigSummary {
   AnomalyDetectorFrequency?: Frequency | string;
 }
 
+export enum DataQualityMetricType {
+  BACKTEST_INFERENCE_DATA_END_TIME_STAMP = "BACKTEST_INFERENCE_DATA_END_TIME_STAMP",
+  BACKTEST_INFERENCE_DATA_START_TIME_STAMP = "BACKTEST_INFERENCE_DATA_START_TIME_STAMP",
+  BACKTEST_TRAINING_DATA_END_TIME_STAMP = "BACKTEST_TRAINING_DATA_END_TIME_STAMP",
+  BACKTEST_TRAINING_DATA_START_TIME_STAMP = "BACKTEST_TRAINING_DATA_START_TIME_STAMP",
+  COLUMN_COMPLETENESS = "COLUMN_COMPLETENESS",
+  DIMENSION_UNIQUENESS = "DIMENSION_UNIQUENESS",
+  INVALID_ROWS_COMPLIANCE = "INVALID_ROWS_COMPLIANCE",
+  ROWS_PARTIAL_COMPLIANCE = "ROWS_PARTIAL_COMPLIANCE",
+  ROWS_PROCESSED = "ROWS_PROCESSED",
+  TIME_SERIES_COUNT = "TIME_SERIES_COUNT",
+}
+
+/**
+ * <p>An array that describes a data quality metric. Each <code>DataQualityMetric</code> object contains the data quality metric name, its value, a description of the metric, and the affected column.</p>
+ */
+export interface DataQualityMetric {
+  /**
+   * <p>The name of the data quality metric.</p>
+   */
+  MetricType?: DataQualityMetricType | string;
+
+  /**
+   * <p>A description of the data quality metric.</p>
+   */
+  MetricDescription?: string;
+
+  /**
+   * <p>The column that is being monitored.</p>
+   */
+  RelatedColumnName?: string;
+
+  /**
+   * <p>The value of the data quality metric.</p>
+   */
+  MetricValue?: number;
+}
+
+/**
+ * <p>An array of <code>DataQualityMetric</code> objects that describes one or more data quality metrics.</p>
+ */
+export interface MetricSetDataQualityMetric {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data quality metric array.</p>
+   */
+  MetricSetArn?: string;
+
+  /**
+   * <p>The array of data quality metrics contained in the data quality metric set.</p>
+   */
+  DataQualityMetricList?: DataQualityMetric[];
+}
+
+/**
+ * <p>Aggregated details about the data quality metrics collected for the <code>AnomalyDetectorArn</code> provided in the <a>GetDataQualityMetrics</a> object.</p>
+ */
+export interface AnomalyDetectorDataQualityMetric {
+  /**
+   * <p>The start time for the data quality metrics collection.</p>
+   */
+  StartTimestamp?: Date;
+
+  /**
+   * <p>An array of <code>DataQualityMetricList</code> objects. Each object in the array contains information about a data quality metric.</p>
+   */
+  MetricSetDataQualityMetricList?: MetricSetDataQualityMetric[];
+}
+
 export enum AnomalyDetectorFailureType {
   ACTIVATION_FAILURE = "ACTIVATION_FAILURE",
   BACK_TEST_ACTIVATION_FAILURE = "BACK_TEST_ACTIVATION_FAILURE",
@@ -988,6 +1056,40 @@ export interface CreateAnomalyDetectorResponse {
   AnomalyDetectorArn?: string;
 }
 
+export enum FilterOperation {
+  EQUALS = "EQUALS",
+}
+
+/**
+ * <p>Describes a filter for choosing a subset of dimension values. Each filter consists of the dimension that you want to include and the condition statement. The condition statement is specified in the <code>FilterOperation</code> object.</p>
+ */
+export interface Filter {
+  /**
+   * <p>The value that you want to include in the filter.</p>
+   */
+  DimensionValue?: string;
+
+  /**
+   * <p>The condition to apply.</p>
+   */
+  FilterOperation?: FilterOperation | string;
+}
+
+/**
+ * <p>Describes a list of filters for choosing a subset of dimension values. Each filter consists of the dimension and one of its values that you want to include. When multiple dimensions or values are specified, the dimensions are joined with an AND operation and the values are joined with an OR operation. </p>
+ */
+export interface MetricSetDimensionFilter {
+  /**
+   * <p>The dimension that you want to filter on.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The list of filters that you are applying.</p>
+   */
+  FilterList?: Filter[];
+}
+
 /**
  * <p>A calculation made by contrasting a measure and a dimension from your source data.</p>
  */
@@ -1285,7 +1387,7 @@ export interface CreateMetricSetRequest {
   MetricList: Metric[] | undefined;
 
   /**
-   * <p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3 and Redshift datasources.</p>
+   * <p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3, Redshift, Athena and datasources.</p>
    */
   Offset?: number;
 
@@ -1318,6 +1420,11 @@ export interface CreateMetricSetRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to apply to the dataset.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>A list of filters that specify which data is kept for anomaly detection.</p>
+   */
+  DimensionFilterList?: MetricSetDimensionFilter[];
 }
 
 export interface CreateMetricSetResponse {
@@ -1520,7 +1627,7 @@ export interface DescribeMetricSetResponse {
   LastModificationTime?: Date;
 
   /**
-   * <p>The offset in seconds. Only supported for S3 and Redshift datasources.</p>
+   * <p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3, Redshift, Athena and datasources.</p>
    */
   Offset?: number;
 
@@ -1553,6 +1660,11 @@ export interface DescribeMetricSetResponse {
    * <p>Contains information about the dataset's source data.</p>
    */
   MetricSource?: MetricSource;
+
+  /**
+   * <p>The dimensions and their values that were used to filter the dataset.</p>
+   */
+  DimensionFilterList?: MetricSetDimensionFilter[];
 }
 
 /**
@@ -1731,6 +1843,25 @@ export interface GetAnomalyGroupResponse {
    * <p>Details about the anomaly group.</p>
    */
   AnomalyGroup?: AnomalyGroup;
+}
+
+export interface GetDataQualityMetricsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the anomaly detector that you want to investigate.</p>
+   */
+  AnomalyDetectorArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a specific data quality metric set.</p>
+   */
+  MetricSetArn?: string;
+}
+
+export interface GetDataQualityMetricsResponse {
+  /**
+   * <p>A list of the data quality metrics for the <code>AnomalyDetectorArn</code> that you requested.</p>
+   */
+  AnomalyDetectorDataQualityMetricList?: AnomalyDetectorDataQualityMetric[];
 }
 
 export interface GetFeedbackRequest {
@@ -2284,7 +2415,7 @@ export interface UpdateMetricSetRequest {
   MetricList?: Metric[];
 
   /**
-   * <p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3 and Redshift datasources.</p>
+   * <p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3, Redshift, Athena and datasources.</p>
    */
   Offset?: number;
 
@@ -2307,6 +2438,14 @@ export interface UpdateMetricSetRequest {
    * <p>Contains information about source data used to generate metrics.</p>
    */
   MetricSource?: MetricSource;
+
+  /**
+   * <p>Describes a list of filters for choosing specific dimensions and specific values. Each
+   *       filter consists of the dimension and one of its values that you want to include. When
+   *       multiple dimensions or values are specified, the dimensions are joined with an AND operation
+   *       and the values are joined with an OR operation.</p>
+   */
+  DimensionFilterList?: MetricSetDimensionFilter[];
 }
 
 export interface UpdateMetricSetResponse {
@@ -2397,6 +2536,27 @@ export const AnomalyDetectorConfigFilterSensitiveLog = (obj: AnomalyDetectorConf
  * @internal
  */
 export const AnomalyDetectorConfigSummaryFilterSensitiveLog = (obj: AnomalyDetectorConfigSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualityMetricFilterSensitiveLog = (obj: DataQualityMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricSetDataQualityMetricFilterSensitiveLog = (obj: MetricSetDataQualityMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyDetectorDataQualityMetricFilterSensitiveLog = (obj: AnomalyDetectorDataQualityMetric): any => ({
   ...obj,
 });
 
@@ -2565,6 +2725,20 @@ export const CreateAnomalyDetectorRequestFilterSensitiveLog = (obj: CreateAnomal
  * @internal
  */
 export const CreateAnomalyDetectorResponseFilterSensitiveLog = (obj: CreateAnomalyDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricSetDimensionFilterFilterSensitiveLog = (obj: MetricSetDimensionFilter): any => ({
   ...obj,
 });
 
@@ -2842,6 +3016,20 @@ export const GetAnomalyGroupRequestFilterSensitiveLog = (obj: GetAnomalyGroupReq
  * @internal
  */
 export const GetAnomalyGroupResponseFilterSensitiveLog = (obj: GetAnomalyGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataQualityMetricsRequestFilterSensitiveLog = (obj: GetDataQualityMetricsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataQualityMetricsResponseFilterSensitiveLog = (obj: GetDataQualityMetricsResponse): any => ({
   ...obj,
 });
 

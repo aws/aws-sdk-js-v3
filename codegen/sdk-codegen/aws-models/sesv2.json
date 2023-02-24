@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -142,20 +142,151 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.sesv2#BehaviorOnMxFailure": {
-      "type": "string",
+    "com.amazonaws.sesv2#BatchGetMetricData": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sesv2#BatchGetMetricDataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sesv2#BatchGetMetricDataResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sesv2#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.sesv2#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.sesv2#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.sesv2#TooManyRequestsException"
+        }
+      ],
       "traits": {
-        "smithy.api#documentation": "<p>The action to take if the required MX record can't be found when you send an email.\n            When you set this value to <code>UseDefaultValue</code>, the mail is sent using\n                <i>amazonses.com</i> as the MAIL FROM domain. When you set this value\n            to <code>RejectMessage</code>, the Amazon SES API v2 returns a\n                <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the\n            email.</p>\n        <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the\n                <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>\n            states.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "USE_DEFAULT_VALUE",
-            "name": "USE_DEFAULT_VALUE"
-          },
-          {
-            "value": "REJECT_MESSAGE",
-            "name": "REJECT_MESSAGE"
+        "smithy.api#documentation": "<p>Retrieves batches of metric data collected based on your sending activity.</p>\n        <p>You can execute this operation no more than 16 times per second,\n            and with at most 160 queries from the batches per second (cumulative).</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v2/email/metrics/batch",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.sesv2#BatchGetMetricDataQueries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sesv2#BatchGetMetricDataQuery"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.sesv2#BatchGetMetricDataQuery": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.sesv2#QueryIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The query identifier.</p>",
+            "smithy.api#required": {}
           }
-        ]
+        },
+        "Namespace": {
+          "target": "com.amazonaws.sesv2#MetricNamespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The query namespace - e.g. <code>VDM</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Metric": {
+          "target": "com.amazonaws.sesv2#Metric",
+          "traits": {
+            "smithy.api#documentation": "<p>The queried metric. This can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>SEND</code> – Emails sent eligible for tracking\n                    in the VDM dashboard. This excludes emails sent to the mailbox simulator and emails\n                    addressed to more than one recipient.</p>\n            </li>\n            <li>\n                <p>\n                  <code>COMPLAINT</code> – Complaints received for your\n                    account. This excludes complaints from the mailbox simulator, those originating from\n                    your account-level suppression list (if enabled), and those for emails addressed to more\n                    than one recipient</p>\n            </li>\n            <li>\n                <p>\n                  <code>PERMANENT_BOUNCE</code> – Permanent bounces - i.e. feedback received for\n                    emails sent to non-existent mailboxes. Excludes bounces from the mailbox simulator, those\n                    originating from your account-level suppression list (if enabled), and those for emails\n                    addressed to more than one recipient.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TRANSIENT_BOUNCE</code> – Transient bounces - i.e. feedback received for\n                    delivery failures excluding issues with non-existent mailboxes. Excludes bounces from the\n                    mailbox simulator, and those for emails addressed to more than one recipient.</p>\n            </li>\n            <li>\n                <p>\n                  <code>OPEN</code> – Unique open events for emails including open trackers.\n                    Excludes opens for emails addressed to more than one recipient.</p>\n            </li>\n            <li>\n                <p>\n                  <code>CLICK</code> – Unique click events for emails including wrapped links.\n                    Excludes clicks for emails addressed to more than one recipient.</p>\n            </li>\n            <li>\n                <p>\n                  <code>DELIVERY</code> – Successful deliveries for email sending attempts.\n                    Excludes deliveries to the mailbox simulator and for emails addressed to more\n                    than one recipient.</p>\n            </li>\n            <li>\n                <p>\n                  <code>DELIVERY_OPEN</code> – Successful deliveries for email sending attempts.\n                    Excludes deliveries to the mailbox simulator, for emails addressed to more than one recipient,\n                    and emails without open trackers.</p>\n            </li>\n            <li>\n                <p>\n                  <code>DELIVERY_CLICK</code> – Successful deliveries for email sending attempts.\n                    Excludes deliveries to the mailbox simulator, for emails addressed to more than one recipient,\n                    and emails without click trackers.</p>\n            </li>\n            <li>\n                <p>\n                  <code>DELIVERY_COMPLAINT</code> – Successful deliveries for email sending attempts.\n                    Excludes deliveries to the mailbox simulator, for emails addressed to more than one recipient,\n                    and emails addressed to recipients hosted by ISPs with which Amazon SES does not have a\n                    feedback loop agreement.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Dimensions": {
+          "target": "com.amazonaws.sesv2#Dimensions",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains mapping between <code>MetricDimensionName</code>\n            and <code>MetricDimensionValue</code> to filter metrics by.</p>"
+          }
+        },
+        "StartDate": {
+          "target": "com.amazonaws.sesv2#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents the start date for the query interval.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EndDate": {
+          "target": "com.amazonaws.sesv2#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents the end date for the query interval.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents a single metric data query to include in a batch.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#BatchGetMetricDataRequest": {
+      "type": "structure",
+      "members": {
+        "Queries": {
+          "target": "com.amazonaws.sesv2#BatchGetMetricDataQueries",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of queries for metrics to be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents a request to retrieve a batch of metric data.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#BatchGetMetricDataResponse": {
+      "type": "structure",
+      "members": {
+        "Results": {
+          "target": "com.amazonaws.sesv2#MetricDataResultList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of successfully retrieved <code>MetricDataResult</code>.</p>"
+          }
+        },
+        "Errors": {
+          "target": "com.amazonaws.sesv2#MetricDataErrorList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of <code>MetricDataError</code> encountered while processing your metric data batch request.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the result of processing your metric data batch request</p>"
+      }
+    },
+    "com.amazonaws.sesv2#BehaviorOnMxFailure": {
+      "type": "enum",
+      "members": {
+        "USE_DEFAULT_VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USE_DEFAULT_VALUE"
+          }
+        },
+        "REJECT_MESSAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECT_MESSAGE"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The action to take if the required MX record can't be found when you send an email.\n            When you set this value to <code>UseDefaultValue</code>, the mail is sent using\n                <i>amazonses.com</i> as the MAIL FROM domain. When you set this value\n            to <code>RejectMessage</code>, the Amazon SES API v2 returns a\n                <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the\n            email.</p>\n        <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the\n                <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>\n            states.</p>"
       }
     },
     "com.amazonaws.sesv2#BlacklistEntries": {
@@ -176,7 +307,7 @@
         "ListingTime": {
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The time when the blacklisting event occurred, shown in Unix time format.</p>"
+            "smithy.api#documentation": "<p>The time when the blacklisting event occurred.</p>"
           }
         },
         "Description": {
@@ -320,66 +451,92 @@
       }
     },
     "com.amazonaws.sesv2#BulkEmailStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SUCCESS",
-            "name": "SUCCESS"
-          },
-          {
-            "value": "MESSAGE_REJECTED",
-            "name": "MESSAGE_REJECTED"
-          },
-          {
-            "value": "MAIL_FROM_DOMAIN_NOT_VERIFIED",
-            "name": "MAIL_FROM_DOMAIN_NOT_VERIFIED"
-          },
-          {
-            "value": "CONFIGURATION_SET_NOT_FOUND",
-            "name": "CONFIGURATION_SET_NOT_FOUND"
-          },
-          {
-            "value": "TEMPLATE_NOT_FOUND",
-            "name": "TEMPLATE_NOT_FOUND"
-          },
-          {
-            "value": "ACCOUNT_SUSPENDED",
-            "name": "ACCOUNT_SUSPENDED"
-          },
-          {
-            "value": "ACCOUNT_THROTTLED",
-            "name": "ACCOUNT_THROTTLED"
-          },
-          {
-            "value": "ACCOUNT_DAILY_QUOTA_EXCEEDED",
-            "name": "ACCOUNT_DAILY_QUOTA_EXCEEDED"
-          },
-          {
-            "value": "INVALID_SENDING_POOL_NAME",
-            "name": "INVALID_SENDING_POOL_NAME"
-          },
-          {
-            "value": "ACCOUNT_SENDING_PAUSED",
-            "name": "ACCOUNT_SENDING_PAUSED"
-          },
-          {
-            "value": "CONFIGURATION_SET_SENDING_PAUSED",
-            "name": "CONFIGURATION_SET_SENDING_PAUSED"
-          },
-          {
-            "value": "INVALID_PARAMETER",
-            "name": "INVALID_PARAMETER"
-          },
-          {
-            "value": "TRANSIENT_FAILURE",
-            "name": "TRANSIENT_FAILURE"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "SUCCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCESS"
           }
-        ]
+        },
+        "MESSAGE_REJECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MESSAGE_REJECTED"
+          }
+        },
+        "MAIL_FROM_DOMAIN_NOT_VERIFIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAIL_FROM_DOMAIN_NOT_VERIFIED"
+          }
+        },
+        "CONFIGURATION_SET_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONFIGURATION_SET_NOT_FOUND"
+          }
+        },
+        "TEMPLATE_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TEMPLATE_NOT_FOUND"
+          }
+        },
+        "ACCOUNT_SUSPENDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT_SUSPENDED"
+          }
+        },
+        "ACCOUNT_THROTTLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT_THROTTLED"
+          }
+        },
+        "ACCOUNT_DAILY_QUOTA_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT_DAILY_QUOTA_EXCEEDED"
+          }
+        },
+        "INVALID_SENDING_POOL_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INVALID_SENDING_POOL_NAME"
+          }
+        },
+        "ACCOUNT_SENDING_PAUSED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT_SENDING_PAUSED"
+          }
+        },
+        "CONFIGURATION_SET_SENDING_PAUSED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONFIGURATION_SET_SENDING_PAUSED"
+          }
+        },
+        "INVALID_PARAMETER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INVALID_PARAMETER"
+          }
+        },
+        "TRANSIENT_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRANSIENT_FAILURE"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#CampaignId": {
@@ -426,7 +583,7 @@
         "DefaultDimensionValue": {
           "target": "com.amazonaws.sesv2#DefaultDimensionValue",
           "traits": {
-            "smithy.api#documentation": "<p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the\n            value of the dimension when you send an email. This value has to meet the following\n            criteria:</p>\n        <ul>\n            <li>\n                <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),\n                    underscores (_), or dashes (-).</p>\n            </li>\n            <li>\n                <p>It can contain no more than 256 characters.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the\n            value of the dimension when you send an email. This value has to meet the following\n            criteria:</p>\n        <ul>\n            <li>\n                <p>Can only contain ASCII letters (a–z, A–Z), numbers (0–9),\n                    underscores (_), or dashes (-), at signs (@), and periods (.).</p>\n            </li>\n            <li>\n                <p>It can contain no more than 256 characters.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -503,6 +660,7 @@
         "UnsubscribeAll": {
           "target": "com.amazonaws.sesv2#UnsubscribeAll",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value status noting if the contact is unsubscribed from all contact list\n            topics.</p>"
           }
         },
@@ -518,18 +676,20 @@
       }
     },
     "com.amazonaws.sesv2#ContactLanguage": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EN",
-            "name": "EN"
-          },
-          {
-            "value": "JA",
-            "name": "JA"
+      "type": "enum",
+      "members": {
+        "EN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EN"
           }
-        ]
+        },
+        "JA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JA"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#ContactList": {
@@ -575,18 +735,20 @@
       }
     },
     "com.amazonaws.sesv2#ContactListImportAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DELETE",
-            "name": "DELETE"
-          },
-          {
-            "value": "PUT",
-            "name": "PUT"
+      "type": "enum",
+      "members": {
+        "DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE"
           }
-        ]
+        },
+        "PUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PUT"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#ContactListName": {
@@ -611,6 +773,12 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>An object that represents the content of the email, and optionally a character set\n            specification.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#Counter": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
       }
     },
     "com.amazonaws.sesv2#CreateConfigurationSet": {
@@ -763,6 +931,12 @@
         },
         "SuppressionOptions": {
           "target": "com.amazonaws.sesv2#SuppressionOptions"
+        },
+        "VdmOptions": {
+          "target": "com.amazonaws.sesv2#VdmOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that defines the VDM options for emails that you send using the configuration set.</p>"
+          }
         }
       },
       "traits": {
@@ -899,6 +1073,7 @@
         "UnsubscribeAll": {
           "target": "com.amazonaws.sesv2#UnsubscribeAll",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value status noting if the contact is unsubscribed from all contact list\n            topics.</p>"
           }
         },
@@ -940,7 +1115,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new custom verification email template.</p>\n        <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
+        "smithy.api#documentation": "<p>Creates a new custom verification email template.</p>\n        <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using\n                custom verification email templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v2/email/custom-verification-email-templates",
@@ -975,7 +1150,7 @@
         "TemplateContent": {
           "target": "com.amazonaws.sesv2#TemplateContent",
           "traits": {
-            "smithy.api#documentation": "<p>The content of the custom verification email. The total size of the email must be less\n            than 10 MB. The message body may contain HTML, with some limitations. For more\n            information, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq\">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES\n                Developer Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The content of the custom verification email. The total size of the email must be less\n            than 10 MB. The message body may contain HTML, with some limitations. For more\n            information, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom-faq\">Custom verification email frequently asked questions</a> in the <i>Amazon SES\n                Developer Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1053,6 +1228,12 @@
           "target": "com.amazonaws.sesv2#TagList",
           "traits": {
             "smithy.api#documentation": "<p>An object that defines the tags (keys and values) that you want to associate with the\n            pool.</p>"
+          }
+        },
+        "ScalingMode": {
+          "target": "com.amazonaws.sesv2#ScalingMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of scaling mode.</p>"
           }
         }
       },
@@ -1297,7 +1478,7 @@
         "DkimSigningAttributes": {
           "target": "com.amazonaws.sesv2#DkimSigningAttributes",
           "traits": {
-            "smithy.api#documentation": "<p>If your request includes this object, Amazon SES configures the identity to use Bring Your\n            Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for\n            <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Easy DKIM</a>.</p>\n        <p>You can only specify this object if the email identity is a domain, as opposed to an\n            address.</p>"
+            "smithy.api#documentation": "<p>If your request includes this object, Amazon SES configures the identity to use Bring Your\n            Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be\n            used for <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Easy\n                DKIM</a>.</p>\n        <p>You can only specify this object if the email identity is a domain, as opposed to an\n            address.</p>"
           }
         },
         "ConfigurationSetName": {
@@ -1323,6 +1504,7 @@
         "VerifiedForSendingStatus": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether or not the identity is verified. You can only send email from\n            verified email addresses or domains. For more information about verifying identities,\n            see the <a href=\"https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html\">Amazon Pinpoint User Guide</a>.</p>"
           }
         },
@@ -1546,20 +1728,52 @@
         "target": "com.amazonaws.sesv2#DailyVolume"
       }
     },
-    "com.amazonaws.sesv2#DataFormat": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The data format of the import job's data source.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "CSV",
-            "name": "CSV"
-          },
-          {
-            "value": "JSON",
-            "name": "JSON"
+    "com.amazonaws.sesv2#DashboardAttributes": {
+      "type": "structure",
+      "members": {
+        "EngagementMetrics": {
+          "target": "com.amazonaws.sesv2#FeatureStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the status of your VDM engagement metrics collection. Can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>ENABLED</code> – Amazon SES enables engagement metrics for your account.</p>\n            </li>\n            <li>\n                <p>\n                  <code>DISABLED</code> – Amazon SES disables engagement metrics for your account.</p>\n            </li>\n         </ul>"
           }
-        ]
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object containing additional settings for your VDM configuration as applicable to the Dashboard.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#DashboardOptions": {
+      "type": "structure",
+      "members": {
+        "EngagementMetrics": {
+          "target": "com.amazonaws.sesv2#FeatureStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the status of your VDM engagement metrics collection. Can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>ENABLED</code> – Amazon SES enables engagement metrics for the configuration set.</p>\n            </li>\n            <li>\n                <p>\n                  <code>DISABLED</code> – Amazon SES disables engagement metrics for the configuration set.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object containing additional settings for your VDM configuration as applicable to the Dashboard.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#DataFormat": {
+      "type": "enum",
+      "members": {
+        "CSV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CSV"
+          }
+        },
+        "JSON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JSON"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The data format of the import job's data source.</p>"
       }
     },
     "com.amazonaws.sesv2#DedicatedIp": {
@@ -1604,6 +1818,28 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of dedicated IP addresses that are associated with your Amazon Web Services account.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#DedicatedIpPool": {
+      "type": "structure",
+      "members": {
+        "PoolName": {
+          "target": "com.amazonaws.sesv2#PoolName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the dedicated IP pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ScalingMode": {
+          "target": "com.amazonaws.sesv2#ScalingMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the dedicated IP pool.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>STANDARD</code> – A dedicated IP pool where the customer can control which IPs are part of the pool.</p>\n            </li>\n            <li>\n                <p>\n                  <code>MANAGED</code> – A dedicated IP pool where the reputation and number of IPs is automatically managed by Amazon SES.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information about a dedicated IP pool.</p>"
       }
     },
     "com.amazonaws.sesv2#DefaultDimensionValue": {
@@ -1846,7 +2082,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes an existing custom verification email template.</p>\n        <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
+        "smithy.api#documentation": "<p>Deletes an existing custom verification email template.</p>\n        <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using\n                custom verification email templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/v2/email/custom-verification-email-templates/{TemplateName}",
@@ -2147,23 +2383,29 @@
       }
     },
     "com.amazonaws.sesv2#DeliverabilityDashboardAccountStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The current status of your Deliverability dashboard subscription. If this value is\n                <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end\n            of the current calendar month.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "PENDING_EXPIRATION",
-            "name": "PENDING_EXPIRATION"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "PENDING_EXPIRATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_EXPIRATION"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The current status of your Deliverability dashboard subscription. If this value is\n                <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end\n            of the current calendar month.</p>"
       }
     },
     "com.amazonaws.sesv2#DeliverabilityTestReport": {
@@ -2196,7 +2438,7 @@
         "CreateDate": {
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>"
+            "smithy.api#documentation": "<p>The date and time when the predictive inbox placement test was created.</p>"
           }
         },
         "DeliverabilityTestStatus": {
@@ -2217,19 +2459,23 @@
       }
     },
     "com.amazonaws.sesv2#DeliverabilityTestStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The status of a predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is\n            currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test.\n            If the status is <code>COMPLETE</code>, then the test is finished, and you can use the\n                <code>GetDeliverabilityTestReport</code> operation to view the results of the\n            test.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The status of a predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is\n            currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test.\n            If the status is <code>COMPLETE</code>, then the test is finished, and you can use the\n                <code>GetDeliverabilityTestReport</code> operation to view the results of the\n            test.</p>"
       }
     },
     "com.amazonaws.sesv2#DeliverabilityTestSubject": {
@@ -2294,23 +2540,44 @@
       }
     },
     "com.amazonaws.sesv2#DimensionValueSource": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. To\n            use the message tags that you specify using an <code>X-SES-MESSAGE-TAGS</code> header or\n            a parameter to the <code>SendEmail</code> or <code>SendRawEmail</code> API, choose\n                <code>messageTag</code>. To use your own email headers, choose\n                <code>emailHeader</code>. To use link tags, choose <code>linkTags</code>.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "MESSAGE_TAG",
-            "name": "MESSAGE_TAG"
-          },
-          {
-            "value": "EMAIL_HEADER",
-            "name": "EMAIL_HEADER"
-          },
-          {
-            "value": "LINK_TAG",
-            "name": "LINK_TAG"
+      "type": "enum",
+      "members": {
+        "MESSAGE_TAG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MESSAGE_TAG"
           }
-        ]
+        },
+        "EMAIL_HEADER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL_HEADER"
+          }
+        },
+        "LINK_TAG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LINK_TAG"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. To\n            use the message tags that you specify using an <code>X-SES-MESSAGE-TAGS</code> header or\n            a parameter to the <code>SendEmail</code> or <code>SendRawEmail</code> API, choose\n                <code>messageTag</code>. To use your own email headers, choose\n                <code>emailHeader</code>. To use link tags, choose <code>linkTags</code>.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#Dimensions": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.sesv2#MetricDimensionName"
+      },
+      "value": {
+        "target": "com.amazonaws.sesv2#MetricDimensionValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 3
+        }
       }
     },
     "com.amazonaws.sesv2#DisplayName": {
@@ -2322,6 +2589,7 @@
         "SigningEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If the value is <code>true</code>, then the messages that you send from the identity\n            are signed using DKIM. If the value is <code>false</code>, then the messages that you\n            send from the identity aren't DKIM-signed.</p>"
           }
         },
@@ -2393,61 +2661,75 @@
       }
     },
     "com.amazonaws.sesv2#DkimSigningAttributesOrigin": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AWS_SES",
-            "name": "AWS_SES"
-          },
-          {
-            "value": "EXTERNAL",
-            "name": "EXTERNAL"
+      "type": "enum",
+      "members": {
+        "AWS_SES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_SES"
           }
-        ]
+        },
+        "EXTERNAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXTERNAL"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#DkimSigningKeyLength": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "RSA_1024_BIT",
-            "name": "RSA_1024_BIT"
-          },
-          {
-            "value": "RSA_2048_BIT",
-            "name": "RSA_2048_BIT"
+      "type": "enum",
+      "members": {
+        "RSA_1024_BIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RSA_1024_BIT"
           }
-        ]
+        },
+        "RSA_2048_BIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RSA_2048_BIT"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#DkimStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The DKIM authentication status of the identity. The status can be one of the\n            following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>PENDING</code> – The verification process was initiated, but Amazon SES\n                    hasn't yet detected the DKIM records in the DNS configuration for the\n                    domain.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SUCCESS</code> – The verification process completed\n                    successfully.</p>\n            </li>\n            <li>\n                <p>\n                  <code>FAILED</code> – The verification process failed. This typically\n                    occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the\n                    domain.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES\n                    from determining the DKIM authentication status of the domain.</p>\n            </li>\n            <li>\n                <p>\n                  <code>NOT_STARTED</code> – The DKIM verification process hasn't been\n                    initiated for the domain.</p>\n            </li>\n         </ul>",
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "SUCCESS",
-            "name": "SUCCESS"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "TEMPORARY_FAILURE",
-            "name": "TEMPORARY_FAILURE"
-          },
-          {
-            "value": "NOT_STARTED",
-            "name": "NOT_STARTED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "SUCCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCESS"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "TEMPORARY_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TEMPORARY_FAILURE"
+          }
+        },
+        "NOT_STARTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_STARTED"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The DKIM authentication status of the identity. The status can be one of the\n            following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>PENDING</code> – The verification process was initiated, but Amazon SES\n                    hasn't yet detected the DKIM records in the DNS configuration for the\n                    domain.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SUCCESS</code> – The verification process completed\n                    successfully.</p>\n            </li>\n            <li>\n                <p>\n                  <code>FAILED</code> – The verification process failed. This typically\n                    occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the\n                    domain.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES\n                    from determining the DKIM authentication status of the domain.</p>\n            </li>\n            <li>\n                <p>\n                  <code>NOT_STARTED</code> – The DKIM verification process hasn't been\n                    initiated for the domain.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.sesv2#DnsToken": {
@@ -2498,13 +2780,13 @@
         "FirstSeenDateTime": {
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The first time, in Unix time format, when the email message was delivered to any\n            recipient's inbox. This value can help you determine how long it took for a campaign to\n            deliver an email message.</p>"
+            "smithy.api#documentation": "<p>The first time when the email message was delivered to any\n            recipient's inbox. This value can help you determine how long it took for a campaign to\n            deliver an email message.</p>"
           }
         },
         "LastSeenDateTime": {
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The last time, in Unix time format, when the email message was delivered to any\n            recipient's inbox. This value can help you determine how long it took for a campaign to\n            deliver an email message.</p>"
+            "smithy.api#documentation": "<p>The last time when the email message was delivered to any\n            recipient's inbox. This value can help you determine how long it took for a campaign to\n            deliver an email message.</p>"
           }
         },
         "InboxCount": {
@@ -2575,7 +2857,7 @@
         "SubscriptionStartDate": {
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The date, in Unix time format, when you enabled the Deliverability dashboard for the\n            domain.</p>"
+            "smithy.api#documentation": "<p>The date when you enabled the Deliverability dashboard for the\n            domain.</p>"
           }
         },
         "InboxPlacementTrackingOption": {
@@ -2770,13 +3052,13 @@
       }
     },
     "com.amazonaws.sesv2#Enabled": {
-      "type": "boolean"
-    },
-    "com.amazonaws.sesv2#EnabledWrapper": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": false
       }
+    },
+    "com.amazonaws.sesv2#EnabledWrapper": {
+      "type": "boolean"
     },
     "com.amazonaws.sesv2#ErrorMessage": {
       "type": "string"
@@ -2803,6 +3085,7 @@
         "Enabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If <code>true</code>, the event destination is enabled. When the event destination is\n            enabled, the specified event types are sent to the destinations in this\n                <code>EventDestinationDefinition</code>.</p>\n        <p>If <code>false</code>, the event destination is disabled. When the event destination\n            is disabled, events aren't sent to the specified destinations.</p>"
           }
         },
@@ -2848,6 +3131,7 @@
         "Enabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If <code>true</code>, the event destination is enabled. When the event destination is\n            enabled, the specified event types are sent to the destinations in this\n                <code>EventDestinationDefinition</code>.</p>\n        <p>If <code>false</code>, the event destination is disabled. When the event destination\n            is disabled, events aren't sent to the specified destinations.</p>"
           }
         },
@@ -2899,51 +3183,71 @@
       }
     },
     "com.amazonaws.sesv2#EventType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>An email sending event type. For example, email sends, opens, and bounces are all\n            email events.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "SEND",
-            "name": "SEND"
-          },
-          {
-            "value": "REJECT",
-            "name": "REJECT"
-          },
-          {
-            "value": "BOUNCE",
-            "name": "BOUNCE"
-          },
-          {
-            "value": "COMPLAINT",
-            "name": "COMPLAINT"
-          },
-          {
-            "value": "DELIVERY",
-            "name": "DELIVERY"
-          },
-          {
-            "value": "OPEN",
-            "name": "OPEN"
-          },
-          {
-            "value": "CLICK",
-            "name": "CLICK"
-          },
-          {
-            "value": "RENDERING_FAILURE",
-            "name": "RENDERING_FAILURE"
-          },
-          {
-            "value": "DELIVERY_DELAY",
-            "name": "DELIVERY_DELAY"
-          },
-          {
-            "value": "SUBSCRIPTION",
-            "name": "SUBSCRIPTION"
+      "type": "enum",
+      "members": {
+        "SEND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SEND"
           }
-        ]
+        },
+        "REJECT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECT"
+          }
+        },
+        "BOUNCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOUNCE"
+          }
+        },
+        "COMPLAINT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLAINT"
+          }
+        },
+        "DELIVERY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELIVERY"
+          }
+        },
+        "OPEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN"
+          }
+        },
+        "CLICK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLICK"
+          }
+        },
+        "RENDERING_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RENDERING_FAILURE"
+          }
+        },
+        "DELIVERY_DELAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELIVERY_DELAY"
+          }
+        },
+        "SUBSCRIPTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBSCRIPTION"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An email sending event type. For example, email sends, opens, and bounces are all\n            email events.</p>"
       }
     },
     "com.amazonaws.sesv2#EventTypes": {
@@ -2953,10 +3257,7 @@
       }
     },
     "com.amazonaws.sesv2#FailedRecordsCount": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.sesv2#FailedRecordsS3Url": {
       "type": "string"
@@ -2985,6 +3286,23 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The URL that the recipient of the verification email is sent to if his or her address\n            is not successfully verified.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#FeatureStatus": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#FeedbackId": {
@@ -3031,6 +3349,7 @@
         "DedicatedIpAutoWarmupEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP\n            addresses that are associated with your account.</p>"
           }
         },
@@ -3043,6 +3362,7 @@
         "ProductionAccessEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether or not your account has production access in the current Amazon Web Services\n            Region.</p>\n        <p>If the value is <code>false</code>, then your account is in the\n                <i>sandbox</i>. When your account is in the sandbox, you can only send\n            email to verified identities. Additionally, the maximum number of emails you can send in\n            a 24-hour period (your sending quota) is 200, and the maximum number of emails you can\n            send per second (your maximum sending rate) is 1.</p>\n        <p>If the value is <code>true</code>, then your account has production access. When your\n            account has production access, you can send email to any address. The sending quota and\n            maximum sending rate for your account vary based on your specific use case.</p>"
           }
         },
@@ -3055,6 +3375,7 @@
         "SendingEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether or not email sending is enabled for your Amazon SES account in the\n            current Amazon Web Services Region.</p>"
           }
         },
@@ -3068,6 +3389,12 @@
           "target": "com.amazonaws.sesv2#AccountDetails",
           "traits": {
             "smithy.api#documentation": "<p>An object that defines your account details.</p>"
+          }
+        },
+        "VdmAttributes": {
+          "target": "com.amazonaws.sesv2#VdmAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>The VDM attributes that apply to your Amazon SES account.</p>"
           }
         }
       },
@@ -3280,6 +3607,12 @@
           "traits": {
             "smithy.api#documentation": "<p>An object that contains information about the suppression list preferences for your\n            account.</p>"
           }
+        },
+        "VdmOptions": {
+          "target": "com.amazonaws.sesv2#VdmOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains information about the VDM preferences for your configuration set.</p>"
+          }
         }
       },
       "traits": {
@@ -3447,6 +3780,7 @@
         "UnsubscribeAll": {
           "target": "com.amazonaws.sesv2#UnsubscribeAll",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value status noting if the contact is unsubscribed from all contact list\n            topics.</p>"
           }
         },
@@ -3490,7 +3824,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the custom email verification template for the template name you\n            specify.</p>\n        <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
+        "smithy.api#documentation": "<p>Returns the custom email verification template for the template name you\n            specify.</p>\n        <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using\n                custom verification email templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v2/email/custom-verification-email-templates/{TemplateName}",
@@ -3584,6 +3918,64 @@
           "uri": "/v2/email/dedicated-ips/{Ip}",
           "code": 200
         }
+      }
+    },
+    "com.amazonaws.sesv2#GetDedicatedIpPool": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sesv2#GetDedicatedIpPoolRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sesv2#GetDedicatedIpPoolResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sesv2#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.sesv2#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.sesv2#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieve information about the dedicated pool.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v2/email/dedicated-ip-pools/{PoolName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.sesv2#GetDedicatedIpPoolRequest": {
+      "type": "structure",
+      "members": {
+        "PoolName": {
+          "target": "com.amazonaws.sesv2#PoolName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the dedicated IP pool to retrieve.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A request to obtain more information about a dedicated IP pool.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#GetDedicatedIpPoolResponse": {
+      "type": "structure",
+      "members": {
+        "DedicatedIpPool": {
+          "target": "com.amazonaws.sesv2#DedicatedIpPool",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains information about a dedicated IP pool.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The following element is returned by the service.</p>"
       }
     },
     "com.amazonaws.sesv2#GetDedicatedIpRequest": {
@@ -3739,6 +4131,7 @@
         "DashboardEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the Deliverability dashboard is enabled. If this value is <code>true</code>,\n            the dashboard is enabled.</p>",
             "smithy.api#required": {}
           }
@@ -3746,7 +4139,7 @@
         "SubscriptionExpiryDate": {
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The date, in Unix time format, when your current subscription to the Deliverability dashboard\n            is scheduled to expire, if your subscription is scheduled to expire at the end of the\n            current calendar month. This value is null if you have an active subscription that isn’t\n            due to expire at the end of the month.</p>"
+            "smithy.api#documentation": "<p>The date  when your current subscription to the Deliverability dashboard\n            is scheduled to expire, if your subscription is scheduled to expire at the end of the\n            current calendar month. This value is null if you have an active subscription that isn’t\n            due to expire at the end of the month.</p>"
           }
         },
         "AccountStatus": {
@@ -4112,12 +4505,14 @@
         "FeedbackForwardingStatus": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The feedback forwarding configuration for the identity.</p>\n        <p>If the value is <code>true</code>, you receive email notifications when bounce or\n            complaint events occur. These notifications are sent to the address that you specified\n            in the <code>Return-Path</code> header of the original email.</p>\n        <p>You're required to have a method of tracking bounces and complaints. If you haven't\n            set up another mechanism for receiving bounce or complaint notifications (for example,\n            by setting up an event destination), you receive an email notification when these events\n            occur (even if this setting is disabled).</p>"
           }
         },
         "VerifiedForSendingStatus": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether or not the identity is verified. You can only send email from\n            verified email addresses or domains. For more information about verifying identities,\n            see the <a href=\"https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html\">Amazon Pinpoint User Guide</a>.</p>"
           }
         },
@@ -4149,6 +4544,12 @@
           "target": "com.amazonaws.sesv2#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>The configuration set used by default when sending from this identity.</p>"
+          }
+        },
+        "VerificationStatus": {
+          "target": "com.amazonaws.sesv2#VerificationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The verification status of the identity. The status can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>PENDING</code> – The verification process was initiated, but Amazon SES\n                    hasn't yet been able to verify the identity.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SUCCESS</code> – The verification process completed\n                    successfully.</p>\n            </li>\n            <li>\n                <p>\n                  <code>FAILED</code> – The verification process failed.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES\n                    from determining the verification status of the identity.</p>\n            </li>\n            <li>\n                <p>\n                  <code>NOT_STARTED</code> – The verification process hasn't been\n                    initiated for the identity.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -4387,6 +4788,34 @@
         "smithy.api#documentation": "<p>Information about the suppressed email address.</p>"
       }
     },
+    "com.amazonaws.sesv2#GuardianAttributes": {
+      "type": "structure",
+      "members": {
+        "OptimizedSharedDelivery": {
+          "target": "com.amazonaws.sesv2#FeatureStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>ENABLED</code> – Amazon SES enables optimized shared delivery for your account.</p>\n            </li>\n            <li>\n                <p>\n                  <code>DISABLED</code> – Amazon SES disables optimized shared delivery for your account.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object containing additional settings for your VDM configuration as applicable to the Guardian.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#GuardianOptions": {
+      "type": "structure",
+      "members": {
+        "OptimizedSharedDelivery": {
+          "target": "com.amazonaws.sesv2#FeatureStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>ENABLED</code> – Amazon SES enables optimized shared delivery for the configuration set.</p>\n            </li>\n            <li>\n                <p>\n                  <code>DISABLED</code> – Amazon SES disables optimized shared delivery for the configuration set.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object containing additional settings for your VDM configuration as applicable to the Guardian.</p>"
+      }
+    },
     "com.amazonaws.sesv2#Identity": {
       "type": "string",
       "traits": {
@@ -4413,7 +4842,14 @@
         "SendingEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether or not you can send email from the identity.</p>\n        <p>An <i>identity</i> is an email address or domain that you send email\n            from. Before you can send email from an identity, you have to demostrate that you own\n            the identity, and that you authorize Amazon SES to send email from that identity.</p>"
+          }
+        },
+        "VerificationStatus": {
+          "target": "com.amazonaws.sesv2#VerificationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The verification status of the identity. The status can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>PENDING</code> – The verification process was initiated, but Amazon SES\n                    hasn't yet been able to verify the identity.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SUCCESS</code> – The verification process completed\n                    successfully.</p>\n            </li>\n            <li>\n                <p>\n                  <code>FAILED</code> – The verification process failed.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES\n                    from determining the verification status of the identity.</p>\n            </li>\n            <li>\n                <p>\n                  <code>NOT_STARTED</code> – The verification process hasn't been\n                    initiated for the identity.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -4428,22 +4864,26 @@
       }
     },
     "com.amazonaws.sesv2#IdentityType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EMAIL_ADDRESS",
-            "name": "EMAIL_ADDRESS"
-          },
-          {
-            "value": "DOMAIN",
-            "name": "DOMAIN"
-          },
-          {
-            "value": "MANAGED_DOMAIN",
-            "name": "MANAGED_DOMAIN"
+      "type": "enum",
+      "members": {
+        "EMAIL_ADDRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL_ADDRESS"
           }
-        ]
+        },
+        "DOMAIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN"
+          }
+        },
+        "MANAGED_DOMAIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MANAGED_DOMAIN"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#ImageUrl": {
@@ -4492,19 +4932,23 @@
       }
     },
     "com.amazonaws.sesv2#ImportDestinationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The destination of the import job, which can be used to list import jobs that have a\n            certain <code>ImportDestinationType</code>.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "SUPPRESSION_LIST",
-            "name": "SUPPRESSION_LIST"
-          },
-          {
-            "value": "CONTACT_LIST",
-            "name": "CONTACT_LIST"
+      "type": "enum",
+      "members": {
+        "SUPPRESSION_LIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUPPRESSION_LIST"
           }
-        ]
+        },
+        "CONTACT_LIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTACT_LIST"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The destination of the import job, which can be used to list import jobs that have a\n            certain <code>ImportDestinationType</code>.</p>"
       }
     },
     "com.amazonaws.sesv2#ImportJobSummary": {
@@ -4523,6 +4967,18 @@
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the import job was created.</p>"
+          }
+        },
+        "ProcessedRecordsCount": {
+          "target": "com.amazonaws.sesv2#ProcessedRecordsCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The current number of records processed.</p>"
+          }
+        },
+        "FailedRecordsCount": {
+          "target": "com.amazonaws.sesv2#FailedRecordsCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of records that failed processing because of invalid input or other\n            reasons.</p>"
           }
         }
       },
@@ -4545,6 +5001,7 @@
         "Global": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether inbox placement data is being tracked for the domain.</p>"
           }
         },
@@ -4557,6 +5014,19 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>An object that contains information about the inbox placement data settings for a\n            verified domain that’s associated with your Amazon Web Services account. This data is available only\n            if you enabled the Deliverability dashboard for the domain.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#InternalServiceErrorException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.sesv2#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request couldn't be processed because an error occurred with the Amazon SES API v2.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.sesv2#InvalidNextTokenException": {
@@ -4632,27 +5102,35 @@
       }
     },
     "com.amazonaws.sesv2#JobStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The status of the import job.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "CREATED",
-            "name": "CREATED"
-          },
-          {
-            "value": "PROCESSING",
-            "name": "PROCESSING"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "CREATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATED"
           }
-        ]
+        },
+        "PROCESSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROCESSING"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The status of the import job.</p>"
       }
     },
     "com.amazonaws.sesv2#KinesisFirehoseDestination": {
@@ -4954,7 +5432,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the existing custom verification email templates for your account in the current\n            Amazon Web Services Region.</p>\n        <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
+        "smithy.api#documentation": "<p>Lists the existing custom verification email templates for your account in the current\n                Amazon Web Services Region.</p>\n        <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using\n                custom verification email templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v2/email/custom-verification-email-templates",
@@ -5196,7 +5674,7 @@
         "StartDate": {
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The first day, in Unix time format, that you want to obtain deliverability data\n            for.</p>",
+            "smithy.api#documentation": "<p>The first day that you want to obtain deliverability data\n            for.</p>",
             "smithy.api#httpQuery": "StartDate",
             "smithy.api#required": {}
           }
@@ -5204,7 +5682,7 @@
         "EndDate": {
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The last day, in Unix time format, that you want to obtain deliverability data for.\n            This value has to be less than or equal to 30 days after the value of the\n                <code>StartDate</code> parameter.</p>",
+            "smithy.api#documentation": "<p>The last day that you want to obtain deliverability data for.\n            This value has to be less than or equal to 30 days after the value of the\n                <code>StartDate</code> parameter.</p>",
             "smithy.api#httpQuery": "EndDate",
             "smithy.api#required": {}
           }
@@ -5521,6 +5999,142 @@
         "smithy.api#documentation": "<p>A list of dedicated IP pools that are associated with your Amazon Web Services account.</p>"
       }
     },
+    "com.amazonaws.sesv2#ListRecommendationFilterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 512
+        }
+      }
+    },
+    "com.amazonaws.sesv2#ListRecommendations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sesv2#ListRecommendationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sesv2#ListRecommendationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sesv2#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.sesv2#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.sesv2#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the recommendations present in your Amazon SES account in the current Amazon Web Services Region.</p>\n        <p>You can execute this operation no more than once per second.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v2/email/vdm/recommendations",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "PageSize"
+        }
+      }
+    },
+    "com.amazonaws.sesv2#ListRecommendationsFilter": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.sesv2#ListRecommendationsFilterKey"
+      },
+      "value": {
+        "target": "com.amazonaws.sesv2#ListRecommendationFilterValue"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that contains mapping between <code>ListRecommendationsFilterKey</code>\n            and <code>ListRecommendationFilterValue</code> to filter by.</p>",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2
+        }
+      }
+    },
+    "com.amazonaws.sesv2#ListRecommendationsFilterKey": {
+      "type": "enum",
+      "members": {
+        "TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TYPE"
+          }
+        },
+        "IMPACT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPACT"
+          }
+        },
+        "STATUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STATUS"
+          }
+        },
+        "RESOURCE_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESOURCE_ARN"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The <code>ListRecommendations</code> filter type. This can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>TYPE</code> – The recommendation type, with values like <code>DKIM</code>,\n                    <code>SPF</code> or <code>DMARC</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>IMPACT</code> – The recommendation impact, with values like\n                    <code>HIGH</code> or <code>LOW</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>STATUS</code> – The recommendation status, with values like\n                    <code>OPEN</code> or <code>FIXED</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>RESOURCE_ARN</code> – The resource affected by the recommendation,\n                    with values like <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>\n            </li>\n         </ul>"
+      }
+    },
+    "com.amazonaws.sesv2#ListRecommendationsRequest": {
+      "type": "structure",
+      "members": {
+        "Filter": {
+          "target": "com.amazonaws.sesv2#ListRecommendationsFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters applied when retrieving recommendations. Can eiter be an individual filter, or\n              combinations of <code>STATUS</code> and <code>IMPACT</code> or\n              <code>STATUS</code> and <code>TYPE</code>\n         </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sesv2#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token returned from a previous call to <code>ListRecommendations</code> to\n            indicate the position in the list of recommendations.</p>"
+          }
+        },
+        "PageSize": {
+          "target": "com.amazonaws.sesv2#MaxItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of results to show in a single call to\n            <code>ListRecommendations</code>. If the number of results is larger than\n            the number you specified in this parameter, then the response includes a\n            <code>NextToken</code> element, which you can use to obtain additional\n            results.</p>\n        <p>The value you specify has to be at least 1, and can be no more than 100.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents a request to list the existing recommendations for your account.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#ListRecommendationsResponse": {
+      "type": "structure",
+      "members": {
+        "Recommendations": {
+          "target": "com.amazonaws.sesv2#RecommendationsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommendations applicable to your account.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sesv2#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A string token indicating that there might be additional recommendations available to be\n            listed. Use the token provided in the <code>ListRecommendationsResponse</code> to use in the\n            subsequent call to <code>ListRecommendations</code> with the same parameters to retrieve the\n            next page of recommendations.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the response to your request to retrieve the list of recommendations for your account.</p>"
+      }
+    },
     "com.amazonaws.sesv2#ListSuppressedDestinations": {
       "type": "operation",
       "input": {
@@ -5567,14 +6181,14 @@
         "StartDate": {
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Used to filter the list of suppressed email destinations so that it only includes\n            addresses that were added to the list after a specific date. The date that you specify\n            should be in Unix time format.</p>",
+            "smithy.api#documentation": "<p>Used to filter the list of suppressed email destinations so that it only includes\n            addresses that were added to the list after a specific date.</p>",
             "smithy.api#httpQuery": "StartDate"
           }
         },
         "EndDate": {
           "target": "com.amazonaws.sesv2#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Used to filter the list of suppressed email destinations so that it only includes\n            addresses that were added to the list before a specific date. The date that you specify\n            should be in Unix time format.</p>",
+            "smithy.api#documentation": "<p>Used to filter the list of suppressed email destinations so that it only includes\n            addresses that were added to the list before a specific date.</p>",
             "smithy.api#httpQuery": "EndDate"
           }
         },
@@ -5690,7 +6304,7 @@
         "BehaviorOnMxFailure": {
           "target": "com.amazonaws.sesv2#BehaviorOnMxFailure",
           "traits": {
-            "smithy.api#documentation": "<p>The action to take if the required MX record can't be found when you send an email.\n            When you set this value to <code>UseDefaultValue</code>, the mail is sent using\n                <i>amazonses.com</i> as the MAIL FROM domain. When you set this value\n            to <code>RejectMessage</code>, the Amazon SES API v2 returns a\n                <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the\n            email.</p>\n        <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the\n                <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>\n            states.</p>",
+            "smithy.api#documentation": "<p>The action to take if the required MX record can't be found when you send an email.\n            When you set this value to <code>USE_DEFAULT_VALUE</code>, the mail is sent using\n                <i>amazonses.com</i> as the MAIL FROM domain. When you set this value\n            to <code>REJECT_MESSAGE</code>, the Amazon SES API v2 returns a\n                <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the\n            email.</p>\n        <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the\n                <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>\n            states.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5719,55 +6333,68 @@
       }
     },
     "com.amazonaws.sesv2#MailFromDomainStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The status of the MAIL FROM domain. This status can have the following values:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>PENDING</code> – Amazon SES hasn't started searching for the MX record\n                    yet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SUCCESS</code> – Amazon SES detected the required MX record for the\n                    MAIL FROM domain.</p>\n            </li>\n            <li>\n                <p>\n                  <code>FAILED</code> – Amazon SES can't find the required MX record, or the\n                    record no longer exists.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TEMPORARY_FAILURE</code> – A temporary issue occurred, which\n                    prevented Amazon SES from determining the status of the MAIL FROM domain.</p>\n            </li>\n         </ul>",
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "SUCCESS",
-            "name": "SUCCESS"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "TEMPORARY_FAILURE",
-            "name": "TEMPORARY_FAILURE"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "SUCCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCESS"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "TEMPORARY_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TEMPORARY_FAILURE"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The status of the MAIL FROM domain. This status can have the following values:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>PENDING</code> – Amazon SES hasn't started searching for the MX record\n                    yet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SUCCESS</code> – Amazon SES detected the required MX record for the\n                    MAIL FROM domain.</p>\n            </li>\n            <li>\n                <p>\n                  <code>FAILED</code> – Amazon SES can't find the required MX record, or the\n                    record no longer exists.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TEMPORARY_FAILURE</code> – A temporary issue occurred, which\n                    prevented Amazon SES from determining the status of the MAIL FROM domain.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.sesv2#MailType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MARKETING",
-            "name": "MARKETING"
-          },
-          {
-            "value": "TRANSACTIONAL",
-            "name": "TRANSACTIONAL"
+      "type": "enum",
+      "members": {
+        "MARKETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MARKETING"
           }
-        ]
+        },
+        "TRANSACTIONAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRANSACTIONAL"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#Max24HourSend": {
-      "type": "double"
-    },
-    "com.amazonaws.sesv2#MaxItems": {
-      "type": "integer",
+      "type": "double",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": 0
       }
     },
+    "com.amazonaws.sesv2#MaxItems": {
+      "type": "integer"
+    },
     "com.amazonaws.sesv2#MaxSendRate": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.sesv2#Message": {
       "type": "structure",
@@ -5856,6 +6483,181 @@
         "smithy.api#documentation": "<p>The value of the message tag. The message tag value has to meet the following\n            criteria:</p>\n        <ul>\n            <li>\n                <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),\n                    underscores (_), or dashes (-).</p>\n            </li>\n            <li>\n                <p>It can contain no more than 256 characters.</p>\n            </li>\n         </ul>"
       }
     },
+    "com.amazonaws.sesv2#Metric": {
+      "type": "enum",
+      "members": {
+        "SEND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SEND"
+          }
+        },
+        "COMPLAINT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLAINT"
+          }
+        },
+        "PERMANENT_BOUNCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERMANENT_BOUNCE"
+          }
+        },
+        "TRANSIENT_BOUNCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRANSIENT_BOUNCE"
+          }
+        },
+        "OPEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN"
+          }
+        },
+        "CLICK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLICK"
+          }
+        },
+        "DELIVERY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELIVERY"
+          }
+        },
+        "DELIVERY_OPEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELIVERY_OPEN"
+          }
+        },
+        "DELIVERY_CLICK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELIVERY_CLICK"
+          }
+        },
+        "DELIVERY_COMPLAINT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELIVERY_COMPLAINT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sesv2#MetricDataError": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.sesv2#QueryIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The query identifier.</p>"
+          }
+        },
+        "Code": {
+          "target": "com.amazonaws.sesv2#QueryErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The query error code. Can be one of:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>INTERNAL_FAILURE</code> – Amazon SES has failed to process one of the queries.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ACCESS_DENIED</code> – You have insufficient access to retrieve metrics\n                    based on the given query.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.sesv2#QueryErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message associated with the current query error.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An error corresponding to the unsuccessful processing of a single metric data query.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#MetricDataErrorList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sesv2#MetricDataError"
+      }
+    },
+    "com.amazonaws.sesv2#MetricDataResult": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.sesv2#QueryIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The query identifier.</p>"
+          }
+        },
+        "Timestamps": {
+          "target": "com.amazonaws.sesv2#TimestampList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of timestamps for the metric data results.</p>"
+          }
+        },
+        "Values": {
+          "target": "com.amazonaws.sesv2#MetricValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of values (cumulative / sum) for the metric data results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The result of a single metric data query.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#MetricDataResultList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sesv2#MetricDataResult"
+      }
+    },
+    "com.amazonaws.sesv2#MetricDimensionName": {
+      "type": "enum",
+      "members": {
+        "EMAIL_IDENTITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL_IDENTITY"
+          }
+        },
+        "CONFIGURATION_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONFIGURATION_SET"
+          }
+        },
+        "ISP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ISP"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The <code>BatchGetMetricDataQuery</code> dimension name. This can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>EMAIL_IDENTITY</code> – The email identity used when sending messages.</p>\n            </li>\n            <li>\n                <p>\n                  <code>CONFIGURATION_SET</code> – The configuration set used when sending messages\n                    (if one was used).</p>\n            </li>\n            <li>\n                <p>\n                  <code>ISP</code> – The recipient ISP (e.g. <code>Gmail</code>, <code>Yahoo</code>,\n                    etc.).</p>\n            </li>\n         </ul>"
+      }
+    },
+    "com.amazonaws.sesv2#MetricDimensionValue": {
+      "type": "string"
+    },
+    "com.amazonaws.sesv2#MetricNamespace": {
+      "type": "enum",
+      "members": {
+        "VDM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VDM"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sesv2#MetricValueList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sesv2#Counter"
+      }
+    },
     "com.amazonaws.sesv2#NextToken": {
       "type": "string"
     },
@@ -5904,15 +6706,11 @@
     "com.amazonaws.sesv2#Percentage": {
       "type": "double",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>An object that contains information about inbox placement percentages.</p>"
       }
     },
     "com.amazonaws.sesv2#Percentage100Wrapper": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.sesv2#PinpointDestination": {
       "type": "structure",
@@ -6015,10 +6813,7 @@
       }
     },
     "com.amazonaws.sesv2#ProcessedRecordsCount": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.sesv2#PutAccountDedicatedIpWarmupAttributes": {
       "type": "operation",
@@ -6051,6 +6846,7 @@
         "AutoWarmupEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are\n            associated with your Amazon SES account in the current Amazon Web Services Region. Set to <code>true</code>\n            to enable the automatic warm-up feature, or set to <code>false</code> to disable\n            it.</p>"
           }
         }
@@ -6179,6 +6975,7 @@
         "SendingEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Enables or disables your account's ability to send email. Set to <code>true</code> to\n            enable email sending, or set to <code>false</code> to disable email sending.</p>\n        <note>\n            <p>If Amazon Web Services paused your account's ability to send email, you can't use this operation\n                to resume your account's ability to send email.</p>\n        </note>"
           }
         }
@@ -6239,6 +7036,50 @@
       "traits": {
         "smithy.api#documentation": "<p>An HTTP 200 response if the request succeeds, or an error message if the request\n            fails.</p>"
       }
+    },
+    "com.amazonaws.sesv2#PutAccountVdmAttributes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sesv2#PutAccountVdmAttributesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sesv2#PutAccountVdmAttributesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sesv2#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.sesv2#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Update your Amazon SES account VDM attributes.</p>\n        <p>You can execute this operation no more than once per second.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/v2/email/account/vdm",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.sesv2#PutAccountVdmAttributesRequest": {
+      "type": "structure",
+      "members": {
+        "VdmAttributes": {
+          "target": "com.amazonaws.sesv2#VdmAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>The VDM attributes that you wish to apply to your Amazon SES account.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A request to submit new account VDM attributes.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#PutAccountVdmAttributesResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.sesv2#PutConfigurationSetDeliveryOptions": {
       "type": "operation",
@@ -6345,6 +7186,7 @@
         "ReputationMetricsEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration\n            set. If <code>false</code>, tracking of reputation metrics is disabled for the\n            configuration set.</p>"
           }
         }
@@ -6402,6 +7244,7 @@
         "SendingEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If <code>true</code>, email sending is enabled for the configuration set. If\n                <code>false</code>, email sending is disabled for the configuration set.</p>"
           }
         }
@@ -6525,6 +7368,63 @@
       }
     },
     "com.amazonaws.sesv2#PutConfigurationSetTrackingOptionsResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#documentation": "<p>An HTTP 200 response if the request succeeds, or an error message if the request\n            fails.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#PutConfigurationSetVdmOptions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sesv2#PutConfigurationSetVdmOptionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sesv2#PutConfigurationSetVdmOptionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sesv2#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.sesv2#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.sesv2#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Specify VDM preferences for email that you send using the configuration set.</p>\n        <p>You can execute this operation no more than once per second.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/v2/email/configuration-sets/{ConfigurationSetName}/vdm-options",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.sesv2#PutConfigurationSetVdmOptionsRequest": {
+      "type": "structure",
+      "members": {
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.sesv2#ConfigurationSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the configuration set.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "VdmOptions": {
+          "target": "com.amazonaws.sesv2#VdmOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The VDM options to apply to the configuration set.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A request to add specific VDM settings to a configuration set.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#PutConfigurationSetVdmOptionsResponse": {
       "type": "structure",
       "members": {},
       "traits": {
@@ -6687,6 +7587,7 @@
         "DashboardEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this\n            value to <code>true</code>.</p>",
             "smithy.api#required": {}
           }
@@ -6808,6 +7709,7 @@
         "SigningEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Sets the DKIM signing configuration for the identity.</p>\n        <p>When you set this value <code>true</code>, then the messages that are sent from the\n            identity are signed using DKIM. If you set this value to <code>false</code>, your\n            messages are sent without DKIM signing.</p>"
           }
         }
@@ -6872,7 +7774,7 @@
         "SigningAttributes": {
           "target": "com.amazonaws.sesv2#DkimSigningAttributes",
           "traits": {
-            "smithy.api#documentation": "<p>An object that contains information about the private key and selector that you want\n            to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or,\n            configures the key length to be used for\n            <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Easy DKIM</a>.</p>"
+            "smithy.api#documentation": "<p>An object that contains information about the private key and selector that you want\n            to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the\n            identity, or, configures the key length to be used for <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Easy DKIM</a>.</p>"
           }
         }
       },
@@ -6942,6 +7844,7 @@
         "EmailForwardingEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Sets the feedback forwarding configuration for the identity.</p>\n        <p>If the value is <code>true</code>, you receive email notifications when bounce or\n            complaint events occur. These notifications are sent to the address that you specified\n            in the <code>Return-Path</code> header of the original email.</p>\n        <p>You're required to have a method of tracking bounces and complaints. If you haven't\n            set up another mechanism for receiving bounce or complaint notifications (for example,\n            by setting up an event destination), you receive an email notification when these events\n            occur (even if this setting is disabled).</p>"
           }
         }
@@ -7074,6 +7977,35 @@
         "smithy.api#documentation": "<p>An HTTP 200 response if the request succeeds, or an error message if the request\n            fails.</p>"
       }
     },
+    "com.amazonaws.sesv2#QueryErrorCode": {
+      "type": "enum",
+      "members": {
+        "INTERNAL_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERNAL_FAILURE"
+          }
+        },
+        "ACCESS_DENIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCESS_DENIED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sesv2#QueryErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.sesv2#QueryIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        }
+      }
+    },
     "com.amazonaws.sesv2#RawMessage": {
       "type": "structure",
       "members": {
@@ -7099,6 +8031,122 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The name of a blacklist that an IP address was found on.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#Recommendation": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.sesv2#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource affected by the recommendation,\n            with values like <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.sesv2#RecommendationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommendation type, with values like <code>DKIM</code>,\n            <code>SPF</code> or <code>DMARC</code>.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.sesv2#RecommendationDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommendation description / disambiguator - e.g. <code>DKIM1</code> and <code>DKIM2</code>\n              are different recommendations about your DKIM setup.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.sesv2#RecommendationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommendation status, with values like\n            <code>OPEN</code> or <code>FIXED</code>.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.sesv2#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The first time this issue was encountered and the recommendation was generated.</p>"
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.sesv2#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The last time the recommendation was updated.</p>"
+          }
+        },
+        "Impact": {
+          "target": "com.amazonaws.sesv2#RecommendationImpact",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommendation impact, with values like\n            <code>HIGH</code> or <code>LOW</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A recommendation generated for your account.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#RecommendationDescription": {
+      "type": "string"
+    },
+    "com.amazonaws.sesv2#RecommendationImpact": {
+      "type": "enum",
+      "members": {
+        "LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LOW"
+          }
+        },
+        "HIGH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HIGH"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sesv2#RecommendationStatus": {
+      "type": "enum",
+      "members": {
+        "OPEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN"
+          }
+        },
+        "FIXED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FIXED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sesv2#RecommendationType": {
+      "type": "enum",
+      "members": {
+        "DKIM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DKIM"
+          }
+        },
+        "DMARC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DMARC"
+          }
+        },
+        "SPF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SPF"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sesv2#RecommendationsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sesv2#Recommendation"
       }
     },
     "com.amazonaws.sesv2#RenderedEmailTemplate": {
@@ -7153,6 +8201,7 @@
         "ReputationMetricsEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration\n            set. If <code>false</code>, tracking of reputation metrics is disabled for the\n            configuration set.</p>"
           }
         },
@@ -7188,26 +8237,32 @@
       }
     },
     "com.amazonaws.sesv2#ReviewStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "GRANTED",
-            "name": "GRANTED"
-          },
-          {
-            "value": "DENIED",
-            "name": "DENIED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "GRANTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GRANTED"
+          }
+        },
+        "DENIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DENIED"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#S3Url": {
@@ -7215,6 +8270,23 @@
       "traits": {
         "smithy.api#documentation": "<p>An Amazon S3 URL in the format\n                s3://<i><bucket_name></i>/<i><object></i>.</p>",
         "smithy.api#pattern": "^s3:\\/\\/([^\\/]+)\\/(.*?([^\\/]+)\\/?)$"
+      }
+    },
+    "com.amazonaws.sesv2#ScalingMode": {
+      "type": "enum",
+      "members": {
+        "STANDARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STANDARD"
+          }
+        },
+        "MANAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MANAGED"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#Selector": {
@@ -7381,7 +8453,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds an email address to the list of identities for your Amazon SES account in the current\n            Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a\n            customized verification email is sent to the specified address.</p>\n        <p>To use this operation, you must first create a custom verification email template. For\n            more information about creating and using custom verification email templates, see\n                <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
+        "smithy.api#documentation": "<p>Adds an email address to the list of identities for your Amazon SES account in the current\n                Amazon Web Services Region and attempts to verify it. As a result of executing this\n            operation, a customized verification email is sent to the specified address.</p>\n        <p>To use this operation, you must first create a custom verification email template. For\n            more information about creating and using custom verification email templates, see\n                <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using\n                custom verification email templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v2/email/outbound-custom-verification-emails",
@@ -7563,18 +8635,21 @@
         "Max24HourSend": {
           "target": "com.amazonaws.sesv2#Max24HourSend",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of emails that you can send in the current Amazon Web Services Region over a\n            24-hour period. This value is also called your <i>sending\n            quota</i>.</p>"
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The maximum number of emails that you can send in the current Amazon Web Services Region over a\n            24-hour period. A value of -1 signifies an unlimited quota. (This value is also referred\n            to as your <i>sending quota</i>.)</p>"
           }
         },
         "MaxSendRate": {
           "target": "com.amazonaws.sesv2#MaxSendRate",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of emails that you can send per second in the current Amazon Web Services Region.\n            This value is also called your <i>maximum sending rate</i> or your\n                <i>maximum TPS (transactions per second) rate</i>.</p>"
           }
         },
         "SentLast24Hours": {
           "target": "com.amazonaws.sesv2#SentLast24Hours",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of emails sent from your Amazon SES account in the current Amazon Web Services Region over the\n            past 24 hours.</p>"
           }
         }
@@ -7589,6 +8664,7 @@
         "SendingEnabled": {
           "target": "com.amazonaws.sesv2#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If <code>true</code>, email sending is enabled for the configuration set. If\n                <code>false</code>, email sending is disabled for the configuration set.</p>"
           }
         }
@@ -7617,12 +8693,18 @@
       }
     },
     "com.amazonaws.sesv2#SentLast24Hours": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.sesv2#SimpleEmailService_v2": {
       "type": "service",
       "version": "2019-09-27",
       "operations": [
+        {
+          "target": "com.amazonaws.sesv2#BatchGetMetricData"
+        },
         {
           "target": "com.amazonaws.sesv2#CreateConfigurationSet"
         },
@@ -7711,6 +8793,9 @@
           "target": "com.amazonaws.sesv2#GetDedicatedIp"
         },
         {
+          "target": "com.amazonaws.sesv2#GetDedicatedIpPool"
+        },
+        {
           "target": "com.amazonaws.sesv2#GetDedicatedIps"
         },
         {
@@ -7771,6 +8856,9 @@
           "target": "com.amazonaws.sesv2#ListImportJobs"
         },
         {
+          "target": "com.amazonaws.sesv2#ListRecommendations"
+        },
+        {
           "target": "com.amazonaws.sesv2#ListSuppressedDestinations"
         },
         {
@@ -7789,6 +8877,9 @@
           "target": "com.amazonaws.sesv2#PutAccountSuppressionAttributes"
         },
         {
+          "target": "com.amazonaws.sesv2#PutAccountVdmAttributes"
+        },
+        {
           "target": "com.amazonaws.sesv2#PutConfigurationSetDeliveryOptions"
         },
         {
@@ -7802,6 +8893,9 @@
         },
         {
           "target": "com.amazonaws.sesv2#PutConfigurationSetTrackingOptions"
+        },
+        {
+          "target": "com.amazonaws.sesv2#PutConfigurationSetVdmOptions"
         },
         {
           "target": "com.amazonaws.sesv2#PutDedicatedIpInPool"
@@ -7880,7 +8974,1561 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<fullname>Amazon SES API v2</fullname>\n        \n        <p>\n            <a href=\"http://aws.amazon.com/ses\">Amazon SES</a> is an Amazon Web Services service that\n            you can use to send email messages to your customers.</p>\n        <p>If you're new to Amazon SES API v2, you might find it helpful to review the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/\">Amazon Simple Email Service Developer\n                Guide</a>. The <i>Amazon SES Developer Guide</i> provides information\n            and code samples that demonstrate how to use Amazon SES API v2 features programmatically.</p>",
-        "smithy.api#title": "Amazon Simple Email Service"
+        "smithy.api#title": "Amazon Simple Email Service",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://email-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://email-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://email.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://email.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ca-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ca-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ca-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ca-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "af-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "af-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "af-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "af-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-north-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-north-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-north-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-north-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "me-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "me-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "me-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "me-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "sa-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "sa-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "sa-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "sa-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-gov-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-gov-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-gov-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-gov-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "cn-northwest-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email-fips.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "cn-northwest-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "cn-northwest-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://email.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "cn-northwest-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
       }
     },
     "com.amazonaws.sesv2#SnsDestination": {
@@ -7902,18 +10550,20 @@
       "type": "string"
     },
     "com.amazonaws.sesv2#SubscriptionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OPT_IN",
-            "name": "OPT_IN"
-          },
-          {
-            "value": "OPT_OUT",
-            "name": "OPT_OUT"
+      "type": "enum",
+      "members": {
+        "OPT_IN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPT_IN"
           }
-        ]
+        },
+        "OPT_OUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPT_OUT"
+          }
+        }
       }
     },
     "com.amazonaws.sesv2#SuccessRedirectionURL": {
@@ -8042,35 +10692,43 @@
       }
     },
     "com.amazonaws.sesv2#SuppressionListImportAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The type of action to perform on the address. The following are possible values:</p>\n        <ul>\n            <li>\n                <p>PUT: add the addresses to the suppression list.</p>\n            </li>\n            <li>\n                <p>DELETE: remove the address from the suppression list.</p>\n            </li>\n         </ul>",
-        "smithy.api#enum": [
-          {
-            "value": "DELETE",
-            "name": "DELETE"
-          },
-          {
-            "value": "PUT",
-            "name": "PUT"
+      "type": "enum",
+      "members": {
+        "DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE"
           }
-        ]
+        },
+        "PUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PUT"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The type of action to perform on the address. The following are possible values:</p>\n        <ul>\n            <li>\n                <p>PUT: add the addresses to the suppression list.</p>\n            </li>\n            <li>\n                <p>DELETE: remove the address from the suppression list.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.sesv2#SuppressionListReason": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The reason that the address was added to the suppression list for your account. The\n            value can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>COMPLAINT</code> – Amazon SES added an email address to the suppression\n                    list for your account because a message sent to that address results in a\n                    complaint.</p>\n            </li>\n            <li>\n                <p>\n                  <code>BOUNCE</code> – Amazon SES added an email address to the suppression\n                    list for your account because a message sent to that address results in a hard\n                    bounce.</p>\n            </li>\n         </ul>",
-        "smithy.api#enum": [
-          {
-            "value": "BOUNCE",
-            "name": "BOUNCE"
-          },
-          {
-            "value": "COMPLAINT",
-            "name": "COMPLAINT"
+      "type": "enum",
+      "members": {
+        "BOUNCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOUNCE"
           }
-        ]
+        },
+        "COMPLAINT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLAINT"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The reason that the address was added to the suppression list for your account. The\n            value can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>COMPLAINT</code> – Amazon SES added an email address to the suppression\n                    list for your account because a message sent to that address results in a\n                    complaint.</p>\n            </li>\n            <li>\n                <p>\n                  <code>BOUNCE</code> – Amazon SES added an email address to the suppression\n                    list for your account because a message sent to that address results in a hard\n                    bounce.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.sesv2#SuppressionListReasons": {
@@ -8288,20 +10946,30 @@
     "com.amazonaws.sesv2#Timestamp": {
       "type": "timestamp"
     },
+    "com.amazonaws.sesv2#TimestampList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sesv2#Timestamp"
+      }
+    },
     "com.amazonaws.sesv2#TlsPolicy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>Specifies whether messages that use the configuration set are required to use\n            Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only\n            delivered if a TLS connection can be established. If the value is <code>Optional</code>,\n            messages can be delivered in plain text if a TLS connection can't be established.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "REQUIRE",
-            "name": "REQUIRE"
-          },
-          {
-            "value": "OPTIONAL",
-            "name": "OPTIONAL"
+      "type": "enum",
+      "members": {
+        "REQUIRE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REQUIRE"
           }
-        ]
+        },
+        "OPTIONAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIONAL"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies whether messages that use the configuration set are required to use\n            Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only\n            delivered if a TLS connection can be established. If the value is <code>Optional</code>,\n            messages can be delivered in plain text if a TLS connection can't be established.</p>"
       }
     },
     "com.amazonaws.sesv2#TooManyRequestsException": {
@@ -8364,6 +11032,7 @@
         "UseDefaultIfPreferenceUnavailable": {
           "target": "com.amazonaws.sesv2#UseDefaultIfPreferenceUnavailable",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Notes that the default subscription status should be applied to a contact because the\n            contact has not noted their preference for subscribing to a topic.</p>"
           }
         }
@@ -8425,7 +11094,10 @@
       }
     },
     "com.amazonaws.sesv2#UnsubscribeAll": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.sesv2#UntagResource": {
       "type": "operation",
@@ -8668,6 +11340,7 @@
         "UnsubscribeAll": {
           "target": "com.amazonaws.sesv2#UnsubscribeAll",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value status noting if the contact is unsubscribed from all contact list\n            topics.</p>"
           }
         },
@@ -8703,7 +11376,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates an existing custom verification email template.</p>\n        <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
+        "smithy.api#documentation": "<p>Updates an existing custom verification email template.</p>\n        <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using\n                custom verification email templates</a> in the <i>Amazon SES Developer\n                Guide</i>.</p>\n        <p>You can execute this operation no more than once per second.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v2/email/custom-verification-email-templates/{TemplateName}",
@@ -8739,7 +11412,7 @@
         "TemplateContent": {
           "target": "com.amazonaws.sesv2#TemplateContent",
           "traits": {
-            "smithy.api#documentation": "<p>The content of the custom verification email. The total size of the email must be less\n            than 10 MB. The message body may contain HTML, with some limitations. For more\n            information, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq\">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES\n                Developer Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The content of the custom verification email. The total size of the email must be less\n            than 10 MB. The message body may contain HTML, with some limitations. For more\n            information, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom-faq\">Custom verification email frequently asked questions</a> in the <i>Amazon SES\n                Developer Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8904,12 +11577,96 @@
       }
     },
     "com.amazonaws.sesv2#UseDefaultIfPreferenceUnavailable": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.sesv2#VdmAttributes": {
+      "type": "structure",
+      "members": {
+        "VdmEnabled": {
+          "target": "com.amazonaws.sesv2#FeatureStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the status of your VDM configuration. Can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>ENABLED</code> – Amazon SES enables VDM for your account.</p>\n            </li>\n            <li>\n                <p>\n                  <code>DISABLED</code> – Amazon SES disables VDM for your account.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "DashboardAttributes": {
+          "target": "com.amazonaws.sesv2#DashboardAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>"
+          }
+        },
+        "GuardianAttributes": {
+          "target": "com.amazonaws.sesv2#GuardianAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The VDM attributes that apply to your Amazon SES account.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#VdmOptions": {
+      "type": "structure",
+      "members": {
+        "DashboardOptions": {
+          "target": "com.amazonaws.sesv2#DashboardOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>"
+          }
+        },
+        "GuardianOptions": {
+          "target": "com.amazonaws.sesv2#GuardianOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that defines the VDM settings that apply to emails that you send\n            using the configuration set.</p>"
+      }
+    },
+    "com.amazonaws.sesv2#VerificationStatus": {
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
+          }
+        },
+        "SUCCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCESS"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "TEMPORARY_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TEMPORARY_FAILURE"
+          }
+        },
+        "NOT_STARTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_STARTED"
+          }
+        }
+      }
     },
     "com.amazonaws.sesv2#Volume": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>An object that contains information about inbox placement volume.</p>"
       }
     },
@@ -8946,19 +11703,23 @@
       }
     },
     "com.amazonaws.sesv2#WarmupStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The warmup status of a dedicated IP.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "DONE",
-            "name": "DONE"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "DONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DONE"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The warmup status of a dedicated IP.</p>"
       }
     },
     "com.amazonaws.sesv2#WebsiteURL": {

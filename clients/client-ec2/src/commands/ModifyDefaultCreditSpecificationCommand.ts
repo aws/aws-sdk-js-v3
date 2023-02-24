@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyDefaultCreditSpecificationRequestFilterSensitiveLog,
   ModifyDefaultCreditSpecificationResult,
   ModifyDefaultCreditSpecificationResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyDefaultCreditSpecificationCommand,
   serializeAws_ec2ModifyDefaultCreditSpecificationCommand,
@@ -34,7 +35,7 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
  *             The default credit option is set at the account level per Amazon Web Services Region, and
  *             is specified per instance family. All new burstable performance instances in the account
  *             launch using the default credit option.</p>
- *         <p>
+ *          <p>
  *             <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which
  *             works at an Amazon Web Services Region level and modifies the credit option for each
  *             Availability Zone. All zones in a Region are updated within five minutes. But if
@@ -42,7 +43,7 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
  *             until the zone is updated. To verify whether the update has occurred, you can call
  *                 <code>GetDefaultCreditSpecification</code> and check
  *                 <code>DefaultCreditSpecification</code> for updates.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
  *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +68,15 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyDefaultCreditSpecificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,9 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyDefaultCreditSpecificationCommandInput, ModifyDefaultCreditSpecificationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyDefaultCreditSpecificationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

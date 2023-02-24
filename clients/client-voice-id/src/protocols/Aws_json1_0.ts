@@ -132,6 +132,7 @@ import {
   UpdateDomainRequest,
   UpdateDomainResponse,
   ValidationException,
+  VoiceSpoofingRisk,
 } from "../models/models_0";
 import { VoiceIDServiceException as __BaseException } from "../models/VoiceIDServiceException";
 
@@ -431,7 +432,7 @@ const deserializeAws_json1_0CreateDomainCommandError = async (
 ): Promise<CreateDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -487,7 +488,7 @@ const deserializeAws_json1_0DeleteDomainCommandError = async (
 ): Promise<DeleteDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -540,7 +541,7 @@ const deserializeAws_json1_0DeleteFraudsterCommandError = async (
 ): Promise<DeleteFraudsterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -593,7 +594,7 @@ const deserializeAws_json1_0DeleteSpeakerCommandError = async (
 ): Promise<DeleteSpeakerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -649,7 +650,7 @@ const deserializeAws_json1_0DescribeDomainCommandError = async (
 ): Promise<DescribeDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -702,7 +703,7 @@ const deserializeAws_json1_0DescribeFraudsterCommandError = async (
 ): Promise<DescribeFraudsterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -755,7 +756,7 @@ const deserializeAws_json1_0DescribeFraudsterRegistrationJobCommandError = async
 ): Promise<DescribeFraudsterRegistrationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -808,7 +809,7 @@ const deserializeAws_json1_0DescribeSpeakerCommandError = async (
 ): Promise<DescribeSpeakerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -861,7 +862,7 @@ const deserializeAws_json1_0DescribeSpeakerEnrollmentJobCommandError = async (
 ): Promise<DescribeSpeakerEnrollmentJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -914,7 +915,7 @@ const deserializeAws_json1_0EvaluateSessionCommandError = async (
 ): Promise<EvaluateSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -970,7 +971,7 @@ const deserializeAws_json1_0ListDomainsCommandError = async (
 ): Promise<ListDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1020,7 +1021,7 @@ const deserializeAws_json1_0ListFraudsterRegistrationJobsCommandError = async (
 ): Promise<ListFraudsterRegistrationJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1073,7 +1074,7 @@ const deserializeAws_json1_0ListSpeakerEnrollmentJobsCommandError = async (
 ): Promise<ListSpeakerEnrollmentJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1126,7 +1127,7 @@ const deserializeAws_json1_0ListSpeakersCommandError = async (
 ): Promise<ListSpeakersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1179,7 +1180,7 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1232,7 +1233,7 @@ const deserializeAws_json1_0OptOutSpeakerCommandError = async (
 ): Promise<OptOutSpeakerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1248,6 +1249,9 @@ const deserializeAws_json1_0OptOutSpeakerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.voiceid#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
@@ -1288,7 +1292,7 @@ const deserializeAws_json1_0StartFraudsterRegistrationJobCommandError = async (
 ): Promise<StartFraudsterRegistrationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1347,7 +1351,7 @@ const deserializeAws_json1_0StartSpeakerEnrollmentJobCommandError = async (
 ): Promise<StartSpeakerEnrollmentJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1406,7 +1410,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1462,7 +1466,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1518,7 +1522,7 @@ const deserializeAws_json1_0UpdateDomainCommandError = async (
 ): Promise<UpdateDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2174,6 +2178,10 @@ const deserializeAws_json1_0FraudRiskDetails = (output: any, context: __SerdeCon
       output.KnownFraudsterRisk != null
         ? deserializeAws_json1_0KnownFraudsterRisk(output.KnownFraudsterRisk, context)
         : undefined,
+    VoiceSpoofingRisk:
+      output.VoiceSpoofingRisk != null
+        ? deserializeAws_json1_0VoiceSpoofingRisk(output.VoiceSpoofingRisk, context)
+        : undefined,
   } as any;
 };
 
@@ -2570,9 +2578,16 @@ const deserializeAws_json1_0ValidationException = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_0VoiceSpoofingRisk = (output: any, context: __SerdeContext): VoiceSpoofingRisk => {
+  return {
+    RiskScore: __expectInt32(output.RiskScore),
+  } as any;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2622,6 +2637,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2632,6 +2653,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

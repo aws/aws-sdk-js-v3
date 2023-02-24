@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,13 +29,10 @@ export interface CreateCodeReviewCommandInput extends CreateCodeReviewRequest {}
 export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">
- *                <code>CodeReviewType</code>
- *             </a>
- *          of <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a specified branch in an associated repository.
- *          <code>PullRequest</code> code reviews are automatically triggered by a pull request.
- *       </p>
+ * <p>Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">CodeReviewType</a> of
+ *             <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a
+ *          specified branch in an associated repository. <code>PullRequest</code> code reviews are
+ *          automatically triggered by a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +56,15 @@ export class CreateCodeReviewCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateCodeReviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +80,9 @@ export class CreateCodeReviewCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateCodeReviewCommandInput, CreateCodeReviewCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateCodeReviewCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

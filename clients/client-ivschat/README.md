@@ -34,8 +34,12 @@ Amazon IVS Chat Messaging API. We refer to these as <i>clients</i>. </p>
 <p>
 <b>Resources</b>
 </p>
-<p>The following resource is part of Amazon IVS Chat:</p>
+<p>The following resources are part of Amazon IVS Chat:</p>
 <ul>
+<li>
+<p>
+<b>LoggingConfiguration</b> — A configuration that allows customers to store and record sent messages in a chat room. See the Logging Configuration endpoints for more information.</p>
+</li>
 <li>
 <p>
 <b>Room</b> — The central Amazon IVS Chat resource through
@@ -43,6 +47,21 @@ which clients connect to and exchange chat messages. See the Room endpoints for 
 information.</p>
 </li>
 </ul>
+<p>
+<b>Tagging</b>
+</p>
+<p>A <i>tag</i> is a metadata label that you assign to an AWS resource. A tag
+comprises a <i>key</i> and a <i>value</i>, both set by you. For
+example, you might set a tag as <code>topic:nature</code> to label a particular video
+category. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a> for more information, including restrictions that apply to
+tags and "Tag naming limits and requirements"; Amazon IVS Chat has no service-specific
+constraints beyond what is documented there.</p>
+<p>Tags can help you identify and organize your AWS resources. For example, you can use the
+same tag for different resources to indicate that they are related. You can also use tags to
+manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Access Tags</a>).</p>
+<p>The Amazon IVS Chat API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and
+<a>ListTagsForResource</a>. The following resource supports tagging: Room.</p>
+<p>At most 50 tags can be applied to a resource.</p>
 <p>
 <b>API Access Security</b>
 </p>
@@ -88,6 +107,13 @@ the Security page of the <i>Amazon IVS User Guide</i>.</p>
 </li>
 </ul>
 <p>
+<b>Amazon Resource Names (ARNs)</b>
+</p>
+<p>ARNs uniquely identify AWS resources. An ARN is required when you need to specify a
+resource unambiguously across all of AWS, such as in IAM policies and API calls. For more
+information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names</a> in the <i>AWS General
+Reference</i>.</p>
+<p>
 <b>Messaging Endpoints</b>
 </p>
 <ul>
@@ -118,10 +144,10 @@ to change the way the chat UI is rendered.</p>
 <ul>
 <li>
 <p>
-<a>CreateChatToken</a> — Creates an encrypted token that is used to
-establish an individual WebSocket connection to a room. The token is valid for one minute,
-and a connection (session) established with the token is valid for the specified
-duration.</p>
+<a>CreateChatToken</a> — Creates an encrypted token that is used by a chat participant to establish an
+individual WebSocket chat connection to a room. When the token is used to connect to chat,
+the connection is valid for the session duration specified in the request. The token
+becomes invalid at the token-expiration timestamp included in the response.</p>
 </li>
 </ul>
 <p>
@@ -149,6 +175,34 @@ the AWS region where the API request is processed. </p>
 <li>
 <p>
 <a>UpdateRoom</a> — Updates a room’s configuration.</p>
+</li>
+</ul>
+<p>
+<b>Logging Configuration Endpoints</b>
+</p>
+<ul>
+<li>
+<p>
+<a>CreateLoggingConfiguration</a> — Creates a logging configuration that allows clients to store and record sent messages.</p>
+</li>
+<li>
+<p>
+<a>DeleteLoggingConfiguration</a> — Deletes the specified logging
+configuration.</p>
+</li>
+<li>
+<p>
+<a>GetLoggingConfiguration</a> — Gets the specified logging
+configuration.</p>
+</li>
+<li>
+<p>
+<a>ListLoggingConfigurations</a> — Gets summary information about all
+your logging configurations in the AWS region where the API request is processed.</p>
+</li>
+<li>
+<p>
+<a>UpdateLoggingConfiguration</a> — Updates a specified logging configuration.</p>
 </li>
 </ul>
 <p>

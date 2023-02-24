@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,9 +35,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
 /**
  * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
  *       Balancer.</p>
- *
- *
- *
  *          <p>For more information, see the following:</p>
  *          <ul>
  *             <li>
@@ -57,7 +55,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <p>This operation is idempotent, which means that it completes at most one time. If you
  *       attempt to create multiple load balancers with the same settings, each call succeeds.</p>
  * @example
@@ -83,6 +80,15 @@ export class CreateLoadBalancerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,6 +104,9 @@ export class CreateLoadBalancerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLoadBalancerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

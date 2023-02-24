@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,8 @@ export interface ListJobRunsCommandInput extends ListJobRunsRequest {}
 export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists job runs based on a set of parameters. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
+ * <p>Lists job runs based on a set of parameters. A job run is a unit of work, such as a
+ *          Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +54,15 @@ export class ListJobRunsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListJobRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +78,7 @@ export class ListJobRunsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListJobRunsCommandInput, ListJobRunsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListJobRunsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

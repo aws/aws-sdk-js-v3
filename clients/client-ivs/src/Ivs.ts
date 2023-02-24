@@ -199,7 +199,9 @@ import { IvsClient } from "./IvsClient";
  *       resource. A tag comprises a <i>key</i> and a <i>value</i>, both
  *       set by you. For example, you might set a tag as <code>topic:nature</code> to label a
  *       particular video category. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
- *       more information, including restrictions that apply to tags.</p>
+ *       more information, including restrictions that apply to tags and "Tag naming limits and
+ *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+ *       there.</p>
  *          <p>Tags can help you identify and organize your Amazon Web Services resources. For example,
  *       you can use the same tag for different resources to indicate that they are related. You can
  *       also use tags to manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html"> Access Tags</a>). </p>
@@ -219,9 +221,11 @@ import { IvsClient } from "./IvsClient";
  *             </li>
  *             <li>
  *                <p>
- *                   <i>Authorization</i> is about granting permissions. You need to be
- *           authorized to view <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Amazon IVS private channels</a>.
- *           (Private channels are channels that are enabled for "playback authorization.")</p>
+ *                   <i>Authorization</i> is about granting permissions. Your IAM roles need
+ *           to have permissions for Amazon IVS API requests. In addition, authorization is needed to
+ *           view <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Amazon
+ *             IVS private channels</a>. (Private channels are channels that are enabled for
+ *           "playback authorization.")</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -233,7 +237,7 @@ import { IvsClient } from "./IvsClient";
  *       responsibility to sign the requests.</p>
  *          <p>You generate a signature using valid Amazon Web Services credentials that have permission
  *       to perform the requested action. For example, you must sign PutMetadata requests with a
- *       signature generated from an IAM user account that has the <code>ivs:PutMetadata</code>
+ *       signature generated from a user account that has the <code>ivs:PutMetadata</code>
  *       permission.</p>
  *          <p>For more information:</p>
  *          <ul>
@@ -248,6 +252,13 @@ import { IvsClient } from "./IvsClient";
  *             </li>
  *          </ul>
  *          <p>
+ *             <b>Amazon Resource Names (ARNs)</b>
+ *          </p>
+ *          <p>ARNs uniquely identify AWS resources. An ARN is required when you need to specify a
+ *       resource unambiguously across all of AWS, such as in IAM policies and API calls. For more
+ *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names</a> in the <i>AWS General
+ *       Reference</i>.</p>
+ *          <p>
  *             <b>Channel Endpoints</b>
  *          </p>
  *          <ul>
@@ -259,7 +270,7 @@ import { IvsClient } from "./IvsClient";
  *             <li>
  *                <p>
  *                   <a>GetChannel</a> — Gets the channel configuration for the specified
- *           channel ARN (Amazon Resource Name).</p>
+ *           channel ARN.</p>
  *             </li>
  *             <li>
  *                <p>

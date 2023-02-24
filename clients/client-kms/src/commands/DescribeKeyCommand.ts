@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,9 +34,15 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *         key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
  *          <p>This detailed information includes the key ARN, creation date (and deletion date, if
  *       applicable), the key state, and the origin and expiration date (if any) of the key material.
- *       It includes fields, like <code>KeySpec</code>, that help you distinguish different types of KMS keys. It also displays the key usage (encryption, signing, or generating and verifying MACs) and the algorithms that the KMS key supports. For KMS keys in custom key stores, it includes
- *       information about the custom key store, such as the key store ID and the CloudHSM cluster ID. For
- *       multi-Region keys, it displays the primary key and all related replica keys. </p>
+ *       It includes fields, like <code>KeySpec</code>, that help you distinguish different types of
+ *       KMS keys. It also displays the key usage (encryption, signing, or generating and verifying
+ *       MACs) and the algorithms that the KMS key supports. </p>
+ *          <p>For <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region keys</a>,
+ *         <code>DescribeKey</code> displays the primary key and all related replica keys. For KMS keys
+ *       in <a href="kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>, it includes
+ *       information about the key store, such as the key store ID and the CloudHSM cluster ID. For KMS
+ *       keys in <a href="kms/latest/developerguide/keystore-external.html">external key stores</a>, it
+ *       includes the custom key store ID and the ID of the external key.</p>
  *          <p>
  *             <code>DescribeKey</code> does not return the following information:</p>
  *          <ul>
@@ -129,6 +136,15 @@ export class DescribeKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +160,7 @@ export class DescribeKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeKeyCommandInput, DescribeKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeKeyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

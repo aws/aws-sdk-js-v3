@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,13 +27,13 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
 
 /**
  * <p>Moves the specified instances into the standby state.</p>
- *         <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can
+ *          <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can
  *             enter standby as long as the desired capacity of the Auto Scaling group after the instances are
  *             placed into standby is equal to or greater than the minimum capacity of the
  *             group.</p>
- *         <p>If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group
+ *          <p>If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group
  *             launches new instances to replace the instances on standby.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing
  *                 instances from your Auto Scaling group</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
@@ -58,6 +59,15 @@ export class EnterStandbyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EnterStandbyCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,7 @@ export class EnterStandbyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnterStandbyCommandInput, EnterStandbyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, EnterStandbyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

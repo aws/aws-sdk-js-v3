@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,7 +35,7 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  *             when actions were received by Amazon Kendra, the latest action that should process
  *             and apply after other actions, and useful error messages if an action could
  *             not be processed.</p>
- *         <p>
+ *          <p>
  *             <code>DescribePrincipalMapping</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
@@ -60,6 +61,15 @@ export class DescribePrincipalMappingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribePrincipalMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class DescribePrincipalMappingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribePrincipalMappingCommandInput, DescribePrincipalMappingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribePrincipalMappingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

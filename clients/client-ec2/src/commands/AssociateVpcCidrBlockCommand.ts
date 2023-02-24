@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,9 +33,9 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  *             an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that
  *             you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). The IPv6 CIDR block size is fixed
  *             at /56.</p>
- *         <p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6
+ *          <p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6
  *             pool, or an Amazon-provided IPv6 CIDR block.</p>
- *         <p>For more information about associating CIDR blocks with your VPC and applicable
+ *          <p>For more information about associating CIDR blocks with your VPC and applicable
  *             restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing">VPC and subnet sizing</a> in the
  *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
@@ -60,6 +61,15 @@ export class AssociateVpcCidrBlockCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AssociateVpcCidrBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class AssociateVpcCidrBlockCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateVpcCidrBlockCommandInput, AssociateVpcCidrBlockCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateVpcCidrBlockCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

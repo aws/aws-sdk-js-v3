@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,11 +29,11 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
  *             specified, the operation returns all users in the Amazon Web Services account. If there are none, the
  *             operation returns an empty list.</p>
- *         <note>
+ *          <note>
  *             <p>IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a user, see <a>GetUser</a>.</p>
- *         </note>
- *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          </note>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +54,15 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,7 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
     options?: __HttpHandlerOptions
   ): Handler<ListUsersCommandInput, ListUsersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListUsersCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

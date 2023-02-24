@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,11 @@ export interface EvaluateMappingTemplateCommandInput extends EvaluateMappingTemp
 export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Evaluates a given template and returns the response. The mapping template can be a
- *          request or response template.</p>
- *          <p>Request templates take the incoming request after a GraphQL operation is parsed and
- *          convert it into a request configuration for the selected data source operation. Response
- *          templates interpret responses from the data source and map it to the shape of the GraphQL
- *          field output type.</p>
+ * <p>Evaluates a given template and returns the response. The mapping template can be a request or response
+ *          template.</p>
+ *          <p>Request templates take the incoming request after a GraphQL operation is parsed and convert it into a
+ *          request configuration for the selected data source operation. Response templates interpret responses from the
+ *          data source and map it to the shape of the GraphQL field output type.</p>
  *          <p>Mapping templates are written in the Apache Velocity Template Language (VTL).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +58,15 @@ export class EvaluateMappingTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EvaluateMappingTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +82,9 @@ export class EvaluateMappingTemplateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EvaluateMappingTemplateCommandInput, EvaluateMappingTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EvaluateMappingTemplateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

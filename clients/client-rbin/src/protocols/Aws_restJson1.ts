@@ -4,10 +4,12 @@ import {
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
+  parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -25,17 +27,22 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { LockRuleCommandInput, LockRuleCommandOutput } from "../commands/LockRuleCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UnlockRuleCommandInput, UnlockRuleCommandOutput } from "../commands/UnlockRuleCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "../commands/UpdateRuleCommand";
 import {
+  ConflictException,
   InternalServerException,
+  LockConfiguration,
   ResourceNotFoundException,
   ResourceTag,
   RetentionPeriod,
   RuleSummary,
   ServiceQuotaExceededException,
   Tag,
+  UnlockDelay,
   ValidationException,
 } from "../models/models_0";
 import { RbinServiceException as __BaseException } from "../models/RbinServiceException";
@@ -52,6 +59,9 @@ export const serializeAws_restJson1CreateRuleCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.LockConfiguration != null && {
+      LockConfiguration: serializeAws_restJson1LockConfiguration(input.LockConfiguration, context),
+    }),
     ...(input.ResourceTags != null && {
       ResourceTags: serializeAws_restJson1ResourceTags(input.ResourceTags, context),
     }),
@@ -123,6 +133,7 @@ export const serializeAws_restJson1ListRulesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-rules";
   let body: any;
   body = JSON.stringify({
+    ...(input.LockState != null && { LockState: input.LockState }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceTags != null && {
@@ -161,6 +172,33 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1LockRuleCommand = async (
+  input: LockRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{Identifier}/lock";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.LockConfiguration != null && {
+      LockConfiguration: serializeAws_restJson1LockConfiguration(input.LockConfiguration, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -186,6 +224,27 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1UnlockRuleCommand = async (
+  input: UnlockRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{Identifier}/unlock";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
@@ -195,7 +254,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -259,6 +321,12 @@ export const deserializeAws_restJson1CreateRuleCommand = async (
   if (data.Identifier != null) {
     contents.Identifier = __expectString(data.Identifier);
   }
+  if (data.LockConfiguration != null) {
+    contents.LockConfiguration = deserializeAws_restJson1LockConfiguration(data.LockConfiguration, context);
+  }
+  if (data.LockState != null) {
+    contents.LockState = __expectString(data.LockState);
+  }
   if (data.ResourceTags != null) {
     contents.ResourceTags = deserializeAws_restJson1ResourceTags(data.ResourceTags, context);
   }
@@ -283,7 +351,7 @@ const deserializeAws_restJson1CreateRuleCommandError = async (
 ): Promise<CreateRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -327,10 +395,13 @@ const deserializeAws_restJson1DeleteRuleCommandError = async (
 ): Promise<DeleteRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.rbin#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.rbin#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -368,6 +439,15 @@ export const deserializeAws_restJson1GetRuleCommand = async (
   if (data.Identifier != null) {
     contents.Identifier = __expectString(data.Identifier);
   }
+  if (data.LockConfiguration != null) {
+    contents.LockConfiguration = deserializeAws_restJson1LockConfiguration(data.LockConfiguration, context);
+  }
+  if (data.LockEndTime != null) {
+    contents.LockEndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LockEndTime)));
+  }
+  if (data.LockState != null) {
+    contents.LockState = __expectString(data.LockState);
+  }
   if (data.ResourceTags != null) {
     contents.ResourceTags = deserializeAws_restJson1ResourceTags(data.ResourceTags, context);
   }
@@ -389,7 +469,7 @@ const deserializeAws_restJson1GetRuleCommandError = async (
 ): Promise<GetRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -439,7 +519,7 @@ const deserializeAws_restJson1ListRulesCommandError = async (
 ): Promise<ListRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -483,10 +563,81 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.rbin#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rbin#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rbin#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1LockRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<LockRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1LockRuleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Description != null) {
+    contents.Description = __expectString(data.Description);
+  }
+  if (data.Identifier != null) {
+    contents.Identifier = __expectString(data.Identifier);
+  }
+  if (data.LockConfiguration != null) {
+    contents.LockConfiguration = deserializeAws_restJson1LockConfiguration(data.LockConfiguration, context);
+  }
+  if (data.LockState != null) {
+    contents.LockState = __expectString(data.LockState);
+  }
+  if (data.ResourceTags != null) {
+    contents.ResourceTags = deserializeAws_restJson1ResourceTags(data.ResourceTags, context);
+  }
+  if (data.ResourceType != null) {
+    contents.ResourceType = __expectString(data.ResourceType);
+  }
+  if (data.RetentionPeriod != null) {
+    contents.RetentionPeriod = deserializeAws_restJson1RetentionPeriod(data.RetentionPeriod, context);
+  }
+  if (data.Status != null) {
+    contents.Status = __expectString(data.Status);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1LockRuleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<LockRuleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.rbin#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.rbin#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -527,7 +678,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -540,6 +691,80 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.rbin#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rbin#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UnlockRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnlockRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UnlockRuleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Description != null) {
+    contents.Description = __expectString(data.Description);
+  }
+  if (data.Identifier != null) {
+    contents.Identifier = __expectString(data.Identifier);
+  }
+  if (data.LockConfiguration != null) {
+    contents.LockConfiguration = deserializeAws_restJson1LockConfiguration(data.LockConfiguration, context);
+  }
+  if (data.LockEndTime != null) {
+    contents.LockEndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LockEndTime)));
+  }
+  if (data.LockState != null) {
+    contents.LockState = __expectString(data.LockState);
+  }
+  if (data.ResourceTags != null) {
+    contents.ResourceTags = deserializeAws_restJson1ResourceTags(data.ResourceTags, context);
+  }
+  if (data.ResourceType != null) {
+    contents.ResourceType = __expectString(data.ResourceType);
+  }
+  if (data.RetentionPeriod != null) {
+    contents.RetentionPeriod = deserializeAws_restJson1RetentionPeriod(data.RetentionPeriod, context);
+  }
+  if (data.Status != null) {
+    contents.Status = __expectString(data.Status);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UnlockRuleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnlockRuleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.rbin#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.rbin#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rbin#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rbin#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -574,7 +799,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -615,6 +840,12 @@ export const deserializeAws_restJson1UpdateRuleCommand = async (
   if (data.Identifier != null) {
     contents.Identifier = __expectString(data.Identifier);
   }
+  if (data.LockEndTime != null) {
+    contents.LockEndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LockEndTime)));
+  }
+  if (data.LockState != null) {
+    contents.LockState = __expectString(data.LockState);
+  }
   if (data.ResourceTags != null) {
     contents.ResourceTags = deserializeAws_restJson1ResourceTags(data.ResourceTags, context);
   }
@@ -636,10 +867,13 @@ const deserializeAws_restJson1UpdateRuleCommandError = async (
 ): Promise<UpdateRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.rbin#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.rbin#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -661,6 +895,25 @@ const deserializeAws_restJson1UpdateRuleCommandError = async (
 };
 
 const map = __map;
+const deserializeAws_restJson1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.Reason != null) {
+    contents.Reason = __expectString(data.Reason);
+  }
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1InternalServerExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -734,6 +987,12 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1LockConfiguration = (input: LockConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.UnlockDelay != null && { UnlockDelay: serializeAws_restJson1UnlockDelay(input.UnlockDelay, context) }),
+  };
+};
+
 const serializeAws_restJson1ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
   return {
     ...(input.ResourceTagKey != null && { ResourceTagKey: input.ResourceTagKey }),
@@ -771,6 +1030,20 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
     });
 };
 
+const serializeAws_restJson1UnlockDelay = (input: UnlockDelay, context: __SerdeContext): any => {
+  return {
+    ...(input.UnlockDelayUnit != null && { UnlockDelayUnit: input.UnlockDelayUnit }),
+    ...(input.UnlockDelayValue != null && { UnlockDelayValue: input.UnlockDelayValue }),
+  };
+};
+
+const deserializeAws_restJson1LockConfiguration = (output: any, context: __SerdeContext): LockConfiguration => {
+  return {
+    UnlockDelay:
+      output.UnlockDelay != null ? deserializeAws_restJson1UnlockDelay(output.UnlockDelay, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
   return {
     ResourceTagKey: __expectString(output.ResourceTagKey),
@@ -801,6 +1074,7 @@ const deserializeAws_restJson1RuleSummary = (output: any, context: __SerdeContex
   return {
     Description: __expectString(output.Description),
     Identifier: __expectString(output.Identifier),
+    LockState: __expectString(output.LockState),
     RetentionPeriod:
       output.RetentionPeriod != null
         ? deserializeAws_restJson1RetentionPeriod(output.RetentionPeriod, context)
@@ -839,9 +1113,17 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+const deserializeAws_restJson1UnlockDelay = (output: any, context: __SerdeContext): UnlockDelay => {
+  return {
+    UnlockDelayUnit: __expectString(output.UnlockDelayUnit),
+    UnlockDelayValue: __expectInt32(output.UnlockDelayValue),
+  } as any;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -873,6 +1155,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -883,6 +1171,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

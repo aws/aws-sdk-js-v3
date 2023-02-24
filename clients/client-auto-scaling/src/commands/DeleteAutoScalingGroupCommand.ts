@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,15 +25,20 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Auto Scaling group.</p>
- *         <p>If the group has instances or scaling activities in progress, you must specify the
- *             option to force the deletion in order for it to succeed.</p>
- *         <p>If the group has policies, deleting the group deletes the policies, the underlying
- *             alarm actions, and any alarm that no longer has an associated action.</p>
- *         <p>To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a> API with the list of instances and the option to
+ *          <p>If the group has instances or scaling activities in progress, you must specify the
+ *             option to force the deletion in order for it to succeed. The force delete operation will
+ *             also terminate the EC2 instances. If the group has a warm pool, the force delete option
+ *             also deletes the warm pool.</p>
+ *          <p>To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a> API with the list of instances and the option to
  *             decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement
  *             instances.</p>
- *         <p>To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity
- *             of the Auto Scaling group to zero.</p>
+ *          <p>To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity
+ *             of the Auto Scaling group to
+ *             zero.</p>
+ *          <p>If the group has scaling policies, deleting the group deletes the policies, the
+ *             underlying alarm actions, and any alarm that no longer has an associated action.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html">Delete your Auto Scaling
+ *                 infrastructure</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +62,15 @@ export class DeleteAutoScalingGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteAutoScalingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +86,9 @@ export class DeleteAutoScalingGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteAutoScalingGroupCommandInput, DeleteAutoScalingGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteAutoScalingGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

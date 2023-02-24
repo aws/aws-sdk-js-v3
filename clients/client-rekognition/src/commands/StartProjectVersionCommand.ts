@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,9 +37,7 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  *             <p>You are charged for the amount of time that the model is running. To stop a running
  *       model, call <a>StopProjectVersion</a>.</p>
  *          </note>
- *
  *          <p>For more information, see <i>Running a trained Amazon Rekognition Custom Labels model</i> in the Amazon Rekognition Custom Labels Guide.</p>
- *
  *          <p>This operation requires permissions to perform the
  *          <code>rekognition:StartProjectVersion</code> action.</p>
  * @example
@@ -64,6 +63,15 @@ export class StartProjectVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +87,9 @@ export class StartProjectVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartProjectVersionCommandInput, StartProjectVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartProjectVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

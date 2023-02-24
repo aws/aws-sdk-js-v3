@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -41,8 +42,6 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  *          <p>To get the results of the segment detection operation, first check that the status value published to the Amazon SNS
  *       topic is <code>SUCCEEDED</code>. if so, call <a>GetSegmentDetection</a> and pass the job identifier (<code>JobId</code>)
  *       from the initial call to <code>StartSegmentDetection</code>. </p>
- *
- *
  *          <p>For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,15 @@ export class StartSegmentDetectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartSegmentDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +90,9 @@ export class StartSegmentDetectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartSegmentDetectionCommandInput, StartSegmentDetectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartSegmentDetectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

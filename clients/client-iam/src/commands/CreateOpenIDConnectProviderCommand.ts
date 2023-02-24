@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,43 +32,44 @@ export interface CreateOpenIDConnectProviderCommandOutput
 
 /**
  * <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>
- *         <p>The OIDC provider that you create with this operation can be used as a principal in a
+ *          <p>The OIDC provider that you create with this operation can be used as a principal in a
  *             role's trust policy. Such a policy establishes a trust relationship between Amazon Web Services and
  *             the OIDC provider.</p>
- *         <p>If you are using an OIDC identity provider from Google, Facebook, or Amazon Cognito, you don't
+ *          <p>If you are using an OIDC identity provider from Google, Facebook, or Amazon Cognito, you don't
  *             need to create a separate IAM identity provider. These OIDC identity providers are
  *             already built-in to Amazon Web Services and are available for your use. Instead, you can move directly
  *             to creating new roles using your identity provider. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html">Creating
  *                 a role for web identity or OpenID connect federation</a> in the <i>IAM
  *                 User Guide</i>.</p>
- *         <p>When you create the IAM OIDC provider, you specify the following:</p>
- *         <ul>
+ *          <p>When you create the IAM OIDC provider, you specify the following:</p>
+ *          <ul>
  *             <li>
- *                 <p>The URL of the OIDC identity provider (IdP) to trust</p>
+ *                <p>The URL of the OIDC identity provider (IdP) to trust</p>
  *             </li>
  *             <li>
- *                 <p>A list of client IDs (also known as audiences) that identify the application
+ *                <p>A list of client IDs (also known as audiences) that identify the application
  *                     or applications allowed to authenticate using the OIDC provider</p>
  *             </li>
  *             <li>
- *                 <p>A list of thumbprints of one or more server certificates that the IdP
+ *                <p>A list of thumbprints of one or more server certificates that the IdP
  *                     uses</p>
  *             </li>
  *          </ul>
- *         <p>You get all of this information from the OIDC IdP you want to use to access
+ *          <p>You get all of this information from the OIDC IdP you want to use to access
  *             Amazon Web Services.</p>
- *         <note>
+ *          <note>
  *             <p>Amazon Web Services secures communication with some OIDC identity providers (IdPs) through our
  *             library of trusted certificate authorities (CAs) instead of using a certificate
- *             thumbprint to verify your IdP server certificate. These OIDC IdPs include Google, and
- *             those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint. In these
- *             cases, your legacy thumbprint remains in your configuration, but is no longer used for validation.</p>
+ *             thumbprint to verify your IdP server certificate. These OIDC IdPs include Google, Auth0,
+ *             and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint. In these
+ *             cases, your legacy thumbprint remains in your configuration, but is no longer used for
+ *             validation.</p>
  *          </note>
- *         <note>
+ *          <note>
  *             <p>The trust for the OIDC provider is derived from the IAM provider that this
  *                 operation creates. Therefore, it is best to limit access to the <a>CreateOpenIDConnectProvider</a> operation to highly privileged
  *                 users.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +93,15 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,6 +117,9 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateOpenIDConnectProviderCommandInput, CreateOpenIDConnectProviderCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateOpenIDConnectProviderCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ValidateMatchmakingRuleSetInputFilterSensitiveLog,
   ValidateMatchmakingRuleSetOutput,
   ValidateMatchmakingRuleSetOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ValidateMatchmakingRuleSetCommand,
   serializeAws_json1_1ValidateMatchmakingRuleSetCommand,
@@ -28,9 +29,9 @@ export interface ValidateMatchmakingRuleSetCommandInput extends ValidateMatchmak
 export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
- * <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that
- *             the rule set is using syntactically correct JSON and that it conforms to allowed
- *             property expressions. To validate syntax, provide a rule set JSON string.</p>
+ * <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that the
+ *             rule set is using syntactically correct JSON and that it conforms to allowed property
+ *             expressions. To validate syntax, provide a rule set JSON string.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
@@ -42,20 +43,6 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  *                </p>
  *             </li>
  *          </ul>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateMatchmakingConfiguration</a> |
- *                     <a>DescribeMatchmakingConfigurations</a> |
- *                     <a>UpdateMatchmakingConfiguration</a> |
- *                     <a>DeleteMatchmakingConfiguration</a> |
- *                     <a>CreateMatchmakingRuleSet</a> |
- *                     <a>DescribeMatchmakingRuleSets</a> |
- *                     <a>ValidateMatchmakingRuleSet</a> |
- *                     <a>DeleteMatchmakingRuleSet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +66,15 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ValidateMatchmakingRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,6 +90,9 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ValidateMatchmakingRuleSetCommandInput, ValidateMatchmakingRuleSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ValidateMatchmakingRuleSetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

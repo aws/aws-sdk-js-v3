@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,13 +30,13 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
 
 /**
  * <p>Updates stream metadata, such as the device name and media type.</p>
- *         <p>You must provide the stream name or the Amazon Resource Name (ARN) of the
+ *          <p>You must provide the stream name or the Amazon Resource Name (ARN) of the
  *             stream.</p>
- *         <p>To make sure that you have the latest version of the stream before updating it, you
+ *          <p>To make sure that you have the latest version of the stream before updating it, you
  *             can specify the stream version. Kinesis Video Streams assigns a version to each stream.
  *             When you update a stream, Kinesis Video Streams assigns a new version number. To get the
  *             latest stream version, use the <code>DescribeStream</code> API. </p>
- *         <p>
+ *          <p>
  *             <code>UpdateStream</code> is an asynchronous operation, and takes time to
  *             complete.</p>
  * @example
@@ -61,6 +62,15 @@ export class UpdateStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,7 @@ export class UpdateStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateStreamCommandInput, UpdateStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateStreamCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

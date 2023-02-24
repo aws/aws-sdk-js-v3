@@ -22,6 +22,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { BatchGetMetricDataCommandInput, BatchGetMetricDataCommandOutput } from "../commands/BatchGetMetricDataCommand";
 import {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -111,6 +112,7 @@ import {
   GetCustomVerificationEmailTemplateCommandOutput,
 } from "../commands/GetCustomVerificationEmailTemplateCommand";
 import { GetDedicatedIpCommandInput, GetDedicatedIpCommandOutput } from "../commands/GetDedicatedIpCommand";
+import { GetDedicatedIpPoolCommandInput, GetDedicatedIpPoolCommandOutput } from "../commands/GetDedicatedIpPoolCommand";
 import { GetDedicatedIpsCommandInput, GetDedicatedIpsCommandOutput } from "../commands/GetDedicatedIpsCommand";
 import {
   GetDeliverabilityDashboardOptionsCommandInput,
@@ -168,6 +170,10 @@ import {
 import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "../commands/ListEmailTemplatesCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "../commands/ListImportJobsCommand";
 import {
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "../commands/ListRecommendationsCommand";
+import {
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
 } from "../commands/ListSuppressedDestinationsCommand";
@@ -189,6 +195,10 @@ import {
   PutAccountSuppressionAttributesCommandOutput,
 } from "../commands/PutAccountSuppressionAttributesCommand";
 import {
+  PutAccountVdmAttributesCommandInput,
+  PutAccountVdmAttributesCommandOutput,
+} from "../commands/PutAccountVdmAttributesCommand";
+import {
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "../commands/PutConfigurationSetDeliveryOptionsCommand";
@@ -208,6 +218,10 @@ import {
   PutConfigurationSetTrackingOptionsCommandInput,
   PutConfigurationSetTrackingOptionsCommandOutput,
 } from "../commands/PutConfigurationSetTrackingOptionsCommand";
+import {
+  PutConfigurationSetVdmOptionsCommandInput,
+  PutConfigurationSetVdmOptionsCommandOutput,
+} from "../commands/PutConfigurationSetVdmOptionsCommand";
 import {
   PutDedicatedIpInPoolCommandInput,
   PutDedicatedIpInPoolCommandOutput,
@@ -279,6 +293,7 @@ import {
   AccountSuspendedException,
   AlreadyExistsException,
   BadRequestException,
+  BatchGetMetricDataQuery,
   BlacklistEntry,
   Body,
   BulkEmailContent,
@@ -294,7 +309,10 @@ import {
   Content,
   CustomVerificationEmailTemplateMetadata,
   DailyVolume,
+  DashboardAttributes,
+  DashboardOptions,
   DedicatedIp,
+  DedicatedIpPool,
   DeliverabilityTestReport,
   DeliveryOptions,
   Destination,
@@ -310,27 +328,35 @@ import {
   EventDestinationDefinition,
   EventType,
   FailureInfo,
+  GuardianAttributes,
+  GuardianOptions,
   IdentityInfo,
   ImportDataSource,
   ImportDestination,
   ImportJobSummary,
   InboxPlacementTrackingOption,
+  InternalServiceErrorException,
   InvalidNextTokenException,
   IspPlacement,
   KinesisFirehoseDestination,
   LimitExceededException,
   ListContactsFilter,
   ListManagementOptions,
+  ListRecommendationsFilterKey,
   MailFromAttributes,
   MailFromDomainNotVerifiedException,
   Message,
   MessageRejected,
   MessageTag,
+  MetricDataError,
+  MetricDataResult,
+  MetricDimensionName,
   NotFoundException,
   OverallVolume,
   PinpointDestination,
   PlacementStatistics,
   RawMessage,
+  Recommendation,
   ReplacementEmailContent,
   ReplacementTemplate,
   ReputationOptions,
@@ -353,9 +379,36 @@ import {
   TopicFilter,
   TopicPreference,
   TrackingOptions,
+  VdmAttributes,
+  VdmOptions,
   VolumeStatistics,
 } from "../models/models_0";
 import { SESv2ServiceException as __BaseException } from "../models/SESv2ServiceException";
+
+export const serializeAws_restJson1BatchGetMetricDataCommand = async (
+  input: BatchGetMetricDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/metrics/batch";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Queries != null && { Queries: serializeAws_restJson1BatchGetMetricDataQueries(input.Queries, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
@@ -386,6 +439,7 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
     ...(input.TrackingOptions != null && {
       TrackingOptions: serializeAws_restJson1TrackingOptions(input.TrackingOptions, context),
     }),
+    ...(input.VdmOptions != null && { VdmOptions: serializeAws_restJson1VdmOptions(input.VdmOptions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -546,6 +600,7 @@ export const serializeAws_restJson1CreateDedicatedIpPoolCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.PoolName != null && { PoolName: input.PoolName }),
+    ...(input.ScalingMode != null && { ScalingMode: input.ScalingMode }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -1036,7 +1091,7 @@ export const serializeAws_restJson1GetBlacklistReportsCommand = async (
     "/v2/email/deliverability-dashboard/blacklist-report";
   const query: any = map({
     BlacklistItemNames: [
-      () => input.BlacklistItemNames !== void 0,
+      __expectNonNull(input.BlacklistItemNames, `BlacklistItemNames`) != null,
       () => (input.BlacklistItemNames! || []).map((_entry) => _entry as any),
     ],
   });
@@ -1226,6 +1281,27 @@ export const serializeAws_restJson1GetDedicatedIpCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetDedicatedIpPoolCommand = async (
+  input: GetDedicatedIpPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ip-pools/{PoolName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "PoolName", () => input.PoolName!, "{PoolName}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetDedicatedIpsCommand = async (
   input: GetDedicatedIpsCommandInput,
   context: __SerdeContext
@@ -1331,10 +1407,13 @@ export const serializeAws_restJson1GetDomainStatisticsReportCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Domain", () => input.Domain!, "{Domain}", false);
   const query: any = map({
     StartDate: [
-      () => input.StartDate !== void 0,
+      __expectNonNull(input.StartDate, `StartDate`) != null,
       () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    EndDate: [() => input.EndDate !== void 0, () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString()],
+    EndDate: [
+      __expectNonNull(input.EndDate, `EndDate`) != null,
+      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1669,10 +1748,13 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
   );
   const query: any = map({
     StartDate: [
-      () => input.StartDate !== void 0,
+      __expectNonNull(input.StartDate, `StartDate`) != null,
       () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    EndDate: [() => input.EndDate !== void 0, () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString()],
+    EndDate: [
+      __expectNonNull(input.EndDate, `EndDate`) != null,
+      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     NextToken: [, input.NextToken!],
     PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
   });
@@ -1766,6 +1848,33 @@ export const serializeAws_restJson1ListImportJobsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListRecommendationsCommand = async (
+  input: ListRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/vdm/recommendations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filter != null && { Filter: serializeAws_restJson1ListRecommendationsFilter(input.Filter, context) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListSuppressedDestinationsCommand = async (
   input: ListSuppressedDestinationsCommandInput,
   context: __SerdeContext
@@ -1805,7 +1914,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/tags";
   const query: any = map({
-    ResourceArn: [, input.ResourceArn!],
+    ResourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1919,6 +2028,32 @@ export const serializeAws_restJson1PutAccountSuppressionAttributesCommand = asyn
   body = JSON.stringify({
     ...(input.SuppressedReasons != null && {
       SuppressedReasons: serializeAws_restJson1SuppressionListReasons(input.SuppressedReasons, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutAccountVdmAttributesCommand = async (
+  input: PutAccountVdmAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/vdm";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.VdmAttributes != null && {
+      VdmAttributes: serializeAws_restJson1VdmAttributes(input.VdmAttributes, context),
     }),
   });
   return new __HttpRequest({
@@ -2093,6 +2228,40 @@ export const serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand = a
   let body: any;
   body = JSON.stringify({
     ...(input.CustomRedirectDomain != null && { CustomRedirectDomain: input.CustomRedirectDomain }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutConfigurationSetVdmOptionsCommand = async (
+  input: PutConfigurationSetVdmOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v2/email/configuration-sets/{ConfigurationSetName}/vdm-options";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.VdmOptions != null && { VdmOptions: serializeAws_restJson1VdmOptions(input.VdmOptions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2569,8 +2738,11 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/tags";
   const query: any = map({
-    ResourceArn: [, input.ResourceArn!],
-    TagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    ResourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+    TagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -2817,6 +2989,59 @@ export const serializeAws_restJson1UpdateEmailTemplateCommand = async (
   });
 };
 
+export const deserializeAws_restJson1BatchGetMetricDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetMetricDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchGetMetricDataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Errors != null) {
+    contents.Errors = deserializeAws_restJson1MetricDataErrorList(data.Errors, context);
+  }
+  if (data.Results != null) {
+    contents.Results = deserializeAws_restJson1MetricDataResultList(data.Results, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchGetMetricDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetMetricDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.sesv2#InternalServiceErrorException":
+      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1CreateConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2837,7 +3062,7 @@ const deserializeAws_restJson1CreateConfigurationSetCommandError = async (
 ): Promise<CreateConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2890,7 +3115,7 @@ const deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2940,7 +3165,7 @@ const deserializeAws_restJson1CreateContactCommandError = async (
 ): Promise<CreateContactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2987,7 +3212,7 @@ const deserializeAws_restJson1CreateContactListCommandError = async (
 ): Promise<CreateContactListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3034,7 +3259,7 @@ const deserializeAws_restJson1CreateCustomVerificationEmailTemplateCommandError 
 ): Promise<CreateCustomVerificationEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3084,7 +3309,7 @@ const deserializeAws_restJson1CreateDedicatedIpPoolCommandError = async (
 ): Promise<CreateDedicatedIpPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3140,7 +3365,7 @@ const deserializeAws_restJson1CreateDeliverabilityTestReportCommandError = async
 ): Promise<CreateDeliverabilityTestReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3211,7 +3436,7 @@ const deserializeAws_restJson1CreateEmailIdentityCommandError = async (
 ): Promise<CreateEmailIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3264,7 +3489,7 @@ const deserializeAws_restJson1CreateEmailIdentityPolicyCommandError = async (
 ): Promise<CreateEmailIdentityPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3314,7 +3539,7 @@ const deserializeAws_restJson1CreateEmailTemplateCommandError = async (
 ): Promise<CreateEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3364,7 +3589,7 @@ const deserializeAws_restJson1CreateImportJobCommandError = async (
 ): Promise<CreateImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3408,7 +3633,7 @@ const deserializeAws_restJson1DeleteConfigurationSetCommandError = async (
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3455,7 +3680,7 @@ const deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3499,7 +3724,7 @@ const deserializeAws_restJson1DeleteContactCommandError = async (
 ): Promise<DeleteContactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3543,7 +3768,7 @@ const deserializeAws_restJson1DeleteContactListCommandError = async (
 ): Promise<DeleteContactListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3590,7 +3815,7 @@ const deserializeAws_restJson1DeleteCustomVerificationEmailTemplateCommandError 
 ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3634,7 +3859,7 @@ const deserializeAws_restJson1DeleteDedicatedIpPoolCommandError = async (
 ): Promise<DeleteDedicatedIpPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3681,7 +3906,7 @@ const deserializeAws_restJson1DeleteEmailIdentityCommandError = async (
 ): Promise<DeleteEmailIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3728,7 +3953,7 @@ const deserializeAws_restJson1DeleteEmailIdentityPolicyCommandError = async (
 ): Promise<DeleteEmailIdentityPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3772,7 +3997,7 @@ const deserializeAws_restJson1DeleteEmailTemplateCommandError = async (
 ): Promise<DeleteEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3816,7 +4041,7 @@ const deserializeAws_restJson1DeleteSuppressedDestinationCommandError = async (
 ): Promise<DeleteSuppressedDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3872,6 +4097,9 @@ export const deserializeAws_restJson1GetAccountCommand = async (
   if (data.SuppressionAttributes != null) {
     contents.SuppressionAttributes = deserializeAws_restJson1SuppressionAttributes(data.SuppressionAttributes, context);
   }
+  if (data.VdmAttributes != null) {
+    contents.VdmAttributes = deserializeAws_restJson1VdmAttributes(data.VdmAttributes, context);
+  }
   return contents;
 };
 
@@ -3881,7 +4109,7 @@ const deserializeAws_restJson1GetAccountCommandError = async (
 ): Promise<GetAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3925,7 +4153,7 @@ const deserializeAws_restJson1GetBlacklistReportsCommandError = async (
 ): Promise<GetBlacklistReportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3981,6 +4209,9 @@ export const deserializeAws_restJson1GetConfigurationSetCommand = async (
   if (data.TrackingOptions != null) {
     contents.TrackingOptions = deserializeAws_restJson1TrackingOptions(data.TrackingOptions, context);
   }
+  if (data.VdmOptions != null) {
+    contents.VdmOptions = deserializeAws_restJson1VdmOptions(data.VdmOptions, context);
+  }
   return contents;
 };
 
@@ -3990,7 +4221,7 @@ const deserializeAws_restJson1GetConfigurationSetCommandError = async (
 ): Promise<GetConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4037,7 +4268,7 @@ const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError =
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4108,7 +4339,7 @@ const deserializeAws_restJson1GetContactCommandError = async (
 ): Promise<GetContactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4170,7 +4401,7 @@ const deserializeAws_restJson1GetContactListCommandError = async (
 ): Promise<GetContactListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4232,7 +4463,7 @@ const deserializeAws_restJson1GetCustomVerificationEmailTemplateCommandError = a
 ): Promise<GetCustomVerificationEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4279,7 +4510,54 @@ const deserializeAws_restJson1GetDedicatedIpCommandError = async (
 ): Promise<GetDedicatedIpCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetDedicatedIpPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDedicatedIpPoolCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetDedicatedIpPoolCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DedicatedIpPool != null) {
+    contents.DedicatedIpPool = deserializeAws_restJson1DedicatedIpPool(data.DedicatedIpPool, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetDedicatedIpPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDedicatedIpPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4329,7 +4607,7 @@ const deserializeAws_restJson1GetDedicatedIpsCommandError = async (
 ): Promise<GetDedicatedIpsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4396,7 +4674,7 @@ const deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommandError = as
 ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4458,7 +4736,7 @@ const deserializeAws_restJson1GetDeliverabilityTestReportCommandError = async (
 ): Promise<GetDeliverabilityTestReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4508,7 +4786,7 @@ const deserializeAws_restJson1GetDomainDeliverabilityCampaignCommandError = asyn
 ): Promise<GetDomainDeliverabilityCampaignCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4558,7 +4836,7 @@ const deserializeAws_restJson1GetDomainStatisticsReportCommandError = async (
 ): Promise<GetDomainStatisticsReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4614,6 +4892,9 @@ export const deserializeAws_restJson1GetEmailIdentityCommand = async (
   if (data.Tags != null) {
     contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
   }
+  if (data.VerificationStatus != null) {
+    contents.VerificationStatus = __expectString(data.VerificationStatus);
+  }
   if (data.VerifiedForSendingStatus != null) {
     contents.VerifiedForSendingStatus = __expectBoolean(data.VerifiedForSendingStatus);
   }
@@ -4626,7 +4907,7 @@ const deserializeAws_restJson1GetEmailIdentityCommandError = async (
 ): Promise<GetEmailIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4673,7 +4954,7 @@ const deserializeAws_restJson1GetEmailIdentityPoliciesCommandError = async (
 ): Promise<GetEmailIdentityPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4723,7 +5004,7 @@ const deserializeAws_restJson1GetEmailTemplateCommandError = async (
 ): Promise<GetEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4794,7 +5075,7 @@ const deserializeAws_restJson1GetImportJobCommandError = async (
 ): Promise<GetImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4841,7 +5122,7 @@ const deserializeAws_restJson1GetSuppressedDestinationCommandError = async (
 ): Promise<GetSuppressedDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4891,7 +5172,7 @@ const deserializeAws_restJson1ListConfigurationSetsCommandError = async (
 ): Promise<ListConfigurationSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4938,7 +5219,7 @@ const deserializeAws_restJson1ListContactListsCommandError = async (
 ): Promise<ListContactListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4985,7 +5266,7 @@ const deserializeAws_restJson1ListContactsCommandError = async (
 ): Promise<ListContactsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5038,7 +5319,7 @@ const deserializeAws_restJson1ListCustomVerificationEmailTemplatesCommandError =
 ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5085,7 +5366,7 @@ const deserializeAws_restJson1ListDedicatedIpPoolsCommandError = async (
 ): Promise<ListDedicatedIpPoolsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5135,7 +5416,7 @@ const deserializeAws_restJson1ListDeliverabilityTestReportsCommandError = async 
 ): Promise<ListDeliverabilityTestReportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5188,7 +5469,7 @@ const deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommandError = as
 ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5238,7 +5519,7 @@ const deserializeAws_restJson1ListEmailIdentitiesCommandError = async (
 ): Promise<ListEmailIdentitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5285,7 +5566,7 @@ const deserializeAws_restJson1ListEmailTemplatesCommandError = async (
 ): Promise<ListEmailTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5332,13 +5613,63 @@ const deserializeAws_restJson1ListImportJobsCommandError = async (
 ): Promise<ListImportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.sesv2#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRecommendationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.Recommendations != null) {
+    contents.Recommendations = deserializeAws_restJson1RecommendationsList(data.Recommendations, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.sesv2#TooManyRequestsException":
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
@@ -5382,7 +5713,7 @@ const deserializeAws_restJson1ListSuppressedDestinationsCommandError = async (
 ): Promise<ListSuppressedDestinationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5429,7 +5760,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5473,7 +5804,7 @@ const deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommandError 
 ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5514,7 +5845,7 @@ const deserializeAws_restJson1PutAccountDetailsCommandError = async (
 ): Promise<PutAccountDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5558,7 +5889,7 @@ const deserializeAws_restJson1PutAccountSendingAttributesCommandError = async (
 ): Promise<PutAccountSendingAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5599,7 +5930,48 @@ const deserializeAws_restJson1PutAccountSuppressionAttributesCommandError = asyn
 ): Promise<PutAccountSuppressionAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PutAccountVdmAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountVdmAttributesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutAccountVdmAttributesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1PutAccountVdmAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountVdmAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5640,7 +6012,7 @@ const deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommandError = a
 ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5684,7 +6056,7 @@ const deserializeAws_restJson1PutConfigurationSetReputationOptionsCommandError =
 ): Promise<PutConfigurationSetReputationOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5728,7 +6100,7 @@ const deserializeAws_restJson1PutConfigurationSetSendingOptionsCommandError = as
 ): Promise<PutConfigurationSetSendingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5772,7 +6144,7 @@ const deserializeAws_restJson1PutConfigurationSetSuppressionOptionsCommandError 
 ): Promise<PutConfigurationSetSuppressionOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5816,7 +6188,51 @@ const deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommandError = a
 ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PutConfigurationSetVdmOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationSetVdmOptionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutConfigurationSetVdmOptionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1PutConfigurationSetVdmOptionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationSetVdmOptionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5860,7 +6276,7 @@ const deserializeAws_restJson1PutDedicatedIpInPoolCommandError = async (
 ): Promise<PutDedicatedIpInPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5904,7 +6320,7 @@ const deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommandError = async
 ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5948,7 +6364,7 @@ const deserializeAws_restJson1PutDeliverabilityDashboardOptionCommandError = asy
 ): Promise<PutDeliverabilityDashboardOptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5998,7 +6414,7 @@ const deserializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommandE
 ): Promise<PutEmailIdentityConfigurationSetAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6042,7 +6458,7 @@ const deserializeAws_restJson1PutEmailIdentityDkimAttributesCommandError = async
 ): Promise<PutEmailIdentityDkimAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6092,7 +6508,7 @@ const deserializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommandError 
 ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6136,7 +6552,7 @@ const deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommandError = a
 ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6180,7 +6596,7 @@ const deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommandError = a
 ): Promise<PutEmailIdentityMailFromAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6224,7 +6640,7 @@ const deserializeAws_restJson1PutSuppressedDestinationCommandError = async (
 ): Promise<PutSuppressedDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6271,7 +6687,7 @@ const deserializeAws_restJson1SendBulkEmailCommandError = async (
 ): Promise<SendBulkEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6333,7 +6749,7 @@ const deserializeAws_restJson1SendCustomVerificationEmailCommandError = async (
 ): Promise<SendCustomVerificationEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6392,7 +6808,7 @@ const deserializeAws_restJson1SendEmailCommandError = async (
 ): Promise<SendEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6451,7 +6867,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6501,7 +6917,7 @@ const deserializeAws_restJson1TestRenderEmailTemplateCommandError = async (
 ): Promise<TestRenderEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6545,7 +6961,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6592,7 +7008,7 @@ const deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6636,7 +7052,7 @@ const deserializeAws_restJson1UpdateContactCommandError = async (
 ): Promise<UpdateContactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6683,7 +7099,7 @@ const deserializeAws_restJson1UpdateContactListCommandError = async (
 ): Promise<UpdateContactListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6730,7 +7146,7 @@ const deserializeAws_restJson1UpdateCustomVerificationEmailTemplateCommandError 
 ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6774,7 +7190,7 @@ const deserializeAws_restJson1UpdateEmailIdentityPolicyCommandError = async (
 ): Promise<UpdateEmailIdentityPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6818,7 +7234,7 @@ const deserializeAws_restJson1UpdateEmailTemplateCommandError = async (
 ): Promise<UpdateEmailTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6917,6 +7333,22 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
     contents.message = __expectString(data.message);
   }
   const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1InternalServiceErrorExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServiceErrorException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.message != null) {
+    contents.message = __expectString(data.message);
+  }
+  const exception = new InternalServiceErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -7043,6 +7475,31 @@ const serializeAws_restJson1AdditionalContactEmailAddresses = (input: string[], 
     });
 };
 
+const serializeAws_restJson1BatchGetMetricDataQueries = (
+  input: BatchGetMetricDataQuery[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1BatchGetMetricDataQuery(entry, context);
+    });
+};
+
+const serializeAws_restJson1BatchGetMetricDataQuery = (
+  input: BatchGetMetricDataQuery,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1Dimensions(input.Dimensions, context) }),
+    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000) }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Metric != null && { Metric: input.Metric }),
+    ...(input.Namespace != null && { Namespace: input.Namespace }),
+    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000) }),
+  };
+};
+
 const serializeAws_restJson1Body = (input: Body, context: __SerdeContext): any => {
   return {
     ...(input.Html != null && { Html: serializeAws_restJson1Content(input.Html, context) }),
@@ -7123,6 +7580,18 @@ const serializeAws_restJson1Content = (input: Content, context: __SerdeContext):
   };
 };
 
+const serializeAws_restJson1DashboardAttributes = (input: DashboardAttributes, context: __SerdeContext): any => {
+  return {
+    ...(input.EngagementMetrics != null && { EngagementMetrics: input.EngagementMetrics }),
+  };
+};
+
+const serializeAws_restJson1DashboardOptions = (input: DashboardOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.EngagementMetrics != null && { EngagementMetrics: input.EngagementMetrics }),
+  };
+};
+
 const serializeAws_restJson1DeliveryOptions = (input: DeliveryOptions, context: __SerdeContext): any => {
   return {
     ...(input.SendingPoolName != null && { SendingPoolName: input.SendingPoolName }),
@@ -7142,6 +7611,16 @@ const serializeAws_restJson1Destination = (input: Destination, context: __SerdeC
       ToAddresses: serializeAws_restJson1EmailAddressList(input.ToAddresses, context),
     }),
   };
+};
+
+const serializeAws_restJson1Dimensions = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [MetricDimensionName | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1DkimSigningAttributes = (input: DkimSigningAttributes, context: __SerdeContext): any => {
@@ -7240,6 +7719,18 @@ const serializeAws_restJson1EventTypes = (input: (EventType | string)[], context
     });
 };
 
+const serializeAws_restJson1GuardianAttributes = (input: GuardianAttributes, context: __SerdeContext): any => {
+  return {
+    ...(input.OptimizedSharedDelivery != null && { OptimizedSharedDelivery: input.OptimizedSharedDelivery }),
+  };
+};
+
+const serializeAws_restJson1GuardianOptions = (input: GuardianOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.OptimizedSharedDelivery != null && { OptimizedSharedDelivery: input.OptimizedSharedDelivery }),
+  };
+};
+
 const serializeAws_restJson1ImportDataSource = (input: ImportDataSource, context: __SerdeContext): any => {
   return {
     ...(input.DataFormat != null && { DataFormat: input.DataFormat }),
@@ -7301,6 +7792,22 @@ const serializeAws_restJson1ListManagementOptions = (input: ListManagementOption
     ...(input.ContactListName != null && { ContactListName: input.ContactListName }),
     ...(input.TopicName != null && { TopicName: input.TopicName }),
   };
+};
+
+const serializeAws_restJson1ListRecommendationsFilter = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [ListRecommendationsFilterKey | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = value;
+      return acc;
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
@@ -7473,6 +7980,29 @@ const serializeAws_restJson1TrackingOptions = (input: TrackingOptions, context: 
   };
 };
 
+const serializeAws_restJson1VdmAttributes = (input: VdmAttributes, context: __SerdeContext): any => {
+  return {
+    ...(input.DashboardAttributes != null && {
+      DashboardAttributes: serializeAws_restJson1DashboardAttributes(input.DashboardAttributes, context),
+    }),
+    ...(input.GuardianAttributes != null && {
+      GuardianAttributes: serializeAws_restJson1GuardianAttributes(input.GuardianAttributes, context),
+    }),
+    ...(input.VdmEnabled != null && { VdmEnabled: input.VdmEnabled }),
+  };
+};
+
+const serializeAws_restJson1VdmOptions = (input: VdmOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.DashboardOptions != null && {
+      DashboardOptions: serializeAws_restJson1DashboardOptions(input.DashboardOptions, context),
+    }),
+    ...(input.GuardianOptions != null && {
+      GuardianOptions: serializeAws_restJson1GuardianOptions(input.GuardianOptions, context),
+    }),
+  };
+};
+
 const deserializeAws_restJson1AccountDetails = (output: any, context: __SerdeContext): AccountDetails => {
   return {
     AdditionalContactEmailAddresses:
@@ -7531,10 +8061,8 @@ const deserializeAws_restJson1BlacklistReport = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1BlacklistEntries(value, context),
-    };
+    acc[key] = deserializeAws_restJson1BlacklistEntries(value, context);
+    return acc;
   }, {});
 };
 
@@ -7702,6 +8230,18 @@ const deserializeAws_restJson1DailyVolumes = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_restJson1DashboardAttributes = (output: any, context: __SerdeContext): DashboardAttributes => {
+  return {
+    EngagementMetrics: __expectString(output.EngagementMetrics),
+  } as any;
+};
+
+const deserializeAws_restJson1DashboardOptions = (output: any, context: __SerdeContext): DashboardOptions => {
+  return {
+    EngagementMetrics: __expectString(output.EngagementMetrics),
+  } as any;
+};
+
 const deserializeAws_restJson1DedicatedIp = (output: any, context: __SerdeContext): DedicatedIp => {
   return {
     Ip: __expectString(output.Ip),
@@ -7721,6 +8261,13 @@ const deserializeAws_restJson1DedicatedIpList = (output: any, context: __SerdeCo
       return deserializeAws_restJson1DedicatedIp(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1DedicatedIpPool = (output: any, context: __SerdeContext): DedicatedIpPool => {
+  return {
+    PoolName: __expectString(output.PoolName),
+    ScalingMode: __expectString(output.ScalingMode),
+  } as any;
 };
 
 const deserializeAws_restJson1DeliverabilityTestReport = (
@@ -7987,11 +8534,24 @@ const deserializeAws_restJson1FailureInfo = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1GuardianAttributes = (output: any, context: __SerdeContext): GuardianAttributes => {
+  return {
+    OptimizedSharedDelivery: __expectString(output.OptimizedSharedDelivery),
+  } as any;
+};
+
+const deserializeAws_restJson1GuardianOptions = (output: any, context: __SerdeContext): GuardianOptions => {
+  return {
+    OptimizedSharedDelivery: __expectString(output.OptimizedSharedDelivery),
+  } as any;
+};
+
 const deserializeAws_restJson1IdentityInfo = (output: any, context: __SerdeContext): IdentityInfo => {
   return {
     IdentityName: __expectString(output.IdentityName),
     IdentityType: __expectString(output.IdentityType),
     SendingEnabled: __expectBoolean(output.SendingEnabled),
+    VerificationStatus: __expectString(output.VerificationStatus),
   } as any;
 };
 
@@ -8033,12 +8593,14 @@ const deserializeAws_restJson1ImportJobSummary = (output: any, context: __SerdeC
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
+    FailedRecordsCount: __expectInt32(output.FailedRecordsCount),
     ImportDestination:
       output.ImportDestination != null
         ? deserializeAws_restJson1ImportDestination(output.ImportDestination, context)
         : undefined,
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
+    ProcessedRecordsCount: __expectInt32(output.ProcessedRecordsCount),
   } as any;
 };
 
@@ -8165,6 +8727,59 @@ const deserializeAws_restJson1MailFromAttributes = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1MetricDataError = (output: any, context: __SerdeContext): MetricDataError => {
+  return {
+    Code: __expectString(output.Code),
+    Id: __expectString(output.Id),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_restJson1MetricDataErrorList = (output: any, context: __SerdeContext): MetricDataError[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetricDataError(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricDataResult = (output: any, context: __SerdeContext): MetricDataResult => {
+  return {
+    Id: __expectString(output.Id),
+    Timestamps:
+      output.Timestamps != null ? deserializeAws_restJson1TimestampList(output.Timestamps, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1MetricValueList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MetricDataResultList = (output: any, context: __SerdeContext): MetricDataResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetricDataResult(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricValueList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectLong(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1OverallVolume = (output: any, context: __SerdeContext): OverallVolume => {
   return {
     DomainIspPlacements:
@@ -8200,11 +8815,39 @@ const deserializeAws_restJson1PolicyMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeContext): Recommendation => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    Description: __expectString(output.Description),
+    Impact: __expectString(output.Impact),
+    LastUpdatedTimestamp:
+      output.LastUpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
+        : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
+    Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1RecommendationsList = (output: any, context: __SerdeContext): Recommendation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Recommendation(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
@@ -8359,6 +9002,18 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+const deserializeAws_restJson1TimestampList = (output: any, context: __SerdeContext): Date[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1Topic = (output: any, context: __SerdeContext): Topic => {
   return {
     DefaultSubscriptionStatus: __expectString(output.DefaultSubscriptionStatus),
@@ -8405,6 +9060,33 @@ const deserializeAws_restJson1TrackingOptions = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1VdmAttributes = (output: any, context: __SerdeContext): VdmAttributes => {
+  return {
+    DashboardAttributes:
+      output.DashboardAttributes != null
+        ? deserializeAws_restJson1DashboardAttributes(output.DashboardAttributes, context)
+        : undefined,
+    GuardianAttributes:
+      output.GuardianAttributes != null
+        ? deserializeAws_restJson1GuardianAttributes(output.GuardianAttributes, context)
+        : undefined,
+    VdmEnabled: __expectString(output.VdmEnabled),
+  } as any;
+};
+
+const deserializeAws_restJson1VdmOptions = (output: any, context: __SerdeContext): VdmOptions => {
+  return {
+    DashboardOptions:
+      output.DashboardOptions != null
+        ? deserializeAws_restJson1DashboardOptions(output.DashboardOptions, context)
+        : undefined,
+    GuardianOptions:
+      output.GuardianOptions != null
+        ? deserializeAws_restJson1GuardianOptions(output.GuardianOptions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1VolumeStatistics = (output: any, context: __SerdeContext): VolumeStatistics => {
   return {
     InboxRawCount: __expectLong(output.InboxRawCount),
@@ -8416,7 +9098,8 @@ const deserializeAws_restJson1VolumeStatistics = (output: any, context: __SerdeC
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -8448,6 +9131,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -8458,6 +9147,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

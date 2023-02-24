@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   CreateDashboardRequestFilterSensitiveLog,
   CreateDashboardResponse,
   CreateDashboardResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateDashboardCommand,
   serializeAws_restJson1CreateDashboardCommand,
@@ -28,12 +29,12 @@ export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
 export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a dashboard from a template. To first create a template, see the
+ * <p>Creates a dashboard from either a template or directly with a <code>DashboardDefinition</code>. To first create a template, see the
  *         <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
  *             </code>
  *             API operation.</p>
- *         <p>A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created
+ *          <p>A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created
  *             from analyses. You can share Amazon QuickSight dashboards. With the right permissions, you can
  *             create scheduled email reports from them. If you have the correct permissions, you can
  *             create a dashboard from a template that exists in a different Amazon Web Services account.</p>
@@ -60,6 +61,15 @@ export class CreateDashboardCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class CreateDashboardCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDashboardCommandInput, CreateDashboardCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDashboardCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

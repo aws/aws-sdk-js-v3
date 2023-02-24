@@ -10,7 +10,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -237,7 +237,7 @@ export const serializeAws_restJson1CreateProfilingGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups";
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, __expectNonNull(input.clientToken!, `clientToken`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -460,10 +460,13 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   );
   const query: any = map({
     startTime: [
-      () => input.startTime !== void 0,
+      __expectNonNull(input.startTime, `startTime`) != null,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
+    endTime: [
+      __expectNonNull(input.endTime, `endTime`) != null,
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     locale: [, input.locale!],
   });
   let body: any;
@@ -498,10 +501,13 @@ export const serializeAws_restJson1ListFindingsReportsCommand = async (
   );
   const query: any = map({
     startTime: [
-      () => input.startTime !== void 0,
+      __expectNonNull(input.startTime, `startTime`) != null,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
+    endTime: [
+      __expectNonNull(input.endTime, `endTime`) != null,
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     dailyReportsOnly: [() => input.dailyReportsOnly !== void 0, () => input.dailyReportsOnly!.toString()],
@@ -538,11 +544,14 @@ export const serializeAws_restJson1ListProfileTimesCommand = async (
   );
   const query: any = map({
     startTime: [
-      () => input.startTime !== void 0,
+      __expectNonNull(input.startTime, `startTime`) != null,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
-    period: [, input.period!],
+    endTime: [
+      __expectNonNull(input.endTime, `endTime`) != null,
+      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    period: [, __expectNonNull(input.period!, `period`)],
     orderBy: [, input.orderBy!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
@@ -625,7 +634,7 @@ export const serializeAws_restJson1PostAgentProfileCommand = async (
     false
   );
   const query: any = map({
-    profileToken: [, input.profileToken!],
+    profileToken: [, input.profileToken ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.agentProfile !== undefined) {
@@ -728,7 +737,7 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "actionGroup", () => input.actionGroup!, "{actionGroup}", false);
   const query: any = map({
-    revisionId: [, input.revisionId!],
+    revisionId: [, __expectNonNull(input.revisionId!, `revisionId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -820,7 +829,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -896,7 +908,7 @@ const deserializeAws_restJson1AddNotificationChannelsCommandError = async (
 ): Promise<AddNotificationChannelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -941,7 +953,7 @@ export const deserializeAws_restJson1BatchGetFrameMetricDataCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.endTime != null) {
-    contents.endTime = __expectNonNull(__parseRfc3339DateTime(data.endTime));
+    contents.endTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.endTime));
   }
   if (data.endTimes != null) {
     contents.endTimes = deserializeAws_restJson1ListOfTimestamps(data.endTimes, context);
@@ -953,7 +965,7 @@ export const deserializeAws_restJson1BatchGetFrameMetricDataCommand = async (
     contents.resolution = __expectString(data.resolution);
   }
   if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseRfc3339DateTime(data.startTime));
+    contents.startTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.startTime));
   }
   if (data.unprocessedEndTimes != null) {
     contents.unprocessedEndTimes = deserializeAws_restJson1UnprocessedEndTimeMap(data.unprocessedEndTimes, context);
@@ -967,7 +979,7 @@ const deserializeAws_restJson1BatchGetFrameMetricDataCommandError = async (
 ): Promise<BatchGetFrameMetricDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1015,7 +1027,7 @@ const deserializeAws_restJson1ConfigureAgentCommandError = async (
 ): Promise<ConfigureAgentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1063,7 +1075,7 @@ const deserializeAws_restJson1CreateProfilingGroupCommandError = async (
 ): Promise<CreateProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1113,7 +1125,7 @@ const deserializeAws_restJson1DeleteProfilingGroupCommandError = async (
 ): Promise<DeleteProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1164,7 +1176,7 @@ const deserializeAws_restJson1DescribeProfilingGroupCommandError = async (
 ): Promise<DescribeProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1217,7 +1229,7 @@ const deserializeAws_restJson1GetFindingsReportAccountSummaryCommandError = asyn
 ): Promise<GetFindingsReportAccountSummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1267,7 +1279,7 @@ const deserializeAws_restJson1GetNotificationConfigurationCommandError = async (
 ): Promise<GetNotificationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1320,7 +1332,7 @@ const deserializeAws_restJson1GetPolicyCommandError = async (
 ): Promise<GetPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1367,7 +1379,7 @@ const deserializeAws_restJson1GetProfileCommandError = async (
 ): Promise<GetProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1409,10 +1421,10 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
     contents.anomalies = deserializeAws_restJson1Anomalies(data.anomalies, context);
   }
   if (data.profileEndTime != null) {
-    contents.profileEndTime = __expectNonNull(__parseRfc3339DateTime(data.profileEndTime));
+    contents.profileEndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.profileEndTime));
   }
   if (data.profileStartTime != null) {
-    contents.profileStartTime = __expectNonNull(__parseRfc3339DateTime(data.profileStartTime));
+    contents.profileStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.profileStartTime));
   }
   if (data.profilingGroupName != null) {
     contents.profilingGroupName = __expectString(data.profilingGroupName);
@@ -1429,7 +1441,7 @@ const deserializeAws_restJson1GetRecommendationsCommandError = async (
 ): Promise<GetRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1485,7 +1497,7 @@ const deserializeAws_restJson1ListFindingsReportsCommandError = async (
 ): Promise<ListFindingsReportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1538,7 +1550,7 @@ const deserializeAws_restJson1ListProfileTimesCommandError = async (
 ): Promise<ListProfileTimesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1594,7 +1606,7 @@ const deserializeAws_restJson1ListProfilingGroupsCommandError = async (
 ): Promise<ListProfilingGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1638,7 +1650,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1682,7 +1694,7 @@ const deserializeAws_restJson1PostAgentProfileCommandError = async (
 ): Promise<PostAgentProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1735,7 +1747,7 @@ const deserializeAws_restJson1PutPermissionCommandError = async (
 ): Promise<PutPermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1791,7 +1803,7 @@ const deserializeAws_restJson1RemoveNotificationChannelCommandError = async (
 ): Promise<RemoveNotificationChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1844,7 +1856,7 @@ const deserializeAws_restJson1RemovePermissionCommandError = async (
 ): Promise<RemovePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1894,7 +1906,7 @@ const deserializeAws_restJson1SubmitFeedbackCommandError = async (
 ): Promise<SubmitFeedbackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1941,7 +1953,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1985,7 +1997,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2030,7 +2042,7 @@ const deserializeAws_restJson1UpdateProfilingGroupCommandError = async (
 ): Promise<UpdateProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2215,10 +2227,8 @@ const serializeAws_restJson1Metadata = (input: Record<string, string>, context: 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2235,10 +2245,8 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2276,10 +2284,8 @@ const deserializeAws_restJson1AgentParameters = (output: any, context: __SerdeCo
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -2288,7 +2294,7 @@ const deserializeAws_restJson1AgentParameters = (output: any, context: __SerdeCo
 const deserializeAws_restJson1AggregatedProfileTime = (output: any, context: __SerdeContext): AggregatedProfileTime => {
   return {
     period: __expectString(output.period),
-    start: output.start != null ? __expectNonNull(__parseRfc3339DateTime(output.start)) : undefined,
+    start: output.start != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.start)) : undefined,
   } as any;
 };
 
@@ -2315,9 +2321,10 @@ const deserializeAws_restJson1Anomaly = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1AnomalyInstance = (output: any, context: __SerdeContext): AnomalyInstance => {
   return {
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     id: __expectString(output.id),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     userFeedback:
       output.userFeedback != null ? deserializeAws_restJson1UserFeedback(output.userFeedback, context) : undefined,
   } as any;
@@ -2389,9 +2396,13 @@ const deserializeAws_restJson1FindingsReportSummary = (output: any, context: __S
   return {
     id: __expectString(output.id),
     profileEndTime:
-      output.profileEndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.profileEndTime)) : undefined,
+      output.profileEndTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.profileEndTime))
+        : undefined,
     profileStartTime:
-      output.profileStartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.profileStartTime)) : undefined,
+      output.profileStartTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.profileStartTime))
+        : undefined,
     profilingGroupName: __expectString(output.profilingGroupName),
     totalNumberOfFindings: __expectInt32(output.totalNumberOfFindings),
   } as any;
@@ -2506,7 +2517,7 @@ const deserializeAws_restJson1Pattern = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1ProfileTime = (output: any, context: __SerdeContext): ProfileTime => {
   return {
-    start: output.start != null ? __expectNonNull(__parseRfc3339DateTime(output.start)) : undefined,
+    start: output.start != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.start)) : undefined,
   } as any;
 };
 
@@ -2533,14 +2544,16 @@ const deserializeAws_restJson1ProfilingGroupDescription = (
         : undefined,
     arn: __expectString(output.arn),
     computePlatform: __expectString(output.computePlatform),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     name: __expectString(output.name),
     profilingStatus:
       output.profilingStatus != null
         ? deserializeAws_restJson1ProfilingStatus(output.profilingStatus, context)
         : undefined,
     tags: output.tags != null ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -2575,11 +2588,11 @@ const deserializeAws_restJson1ProfilingStatus = (output: any, context: __SerdeCo
   return {
     latestAgentOrchestratedAt:
       output.latestAgentOrchestratedAt != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.latestAgentOrchestratedAt))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.latestAgentOrchestratedAt))
         : undefined,
     latestAgentProfileReportedAt:
       output.latestAgentProfileReportedAt != null
-        ? __expectNonNull(__parseRfc3339DateTime(output.latestAgentProfileReportedAt))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.latestAgentProfileReportedAt))
         : undefined,
     latestAggregatedProfile:
       output.latestAggregatedProfile != null
@@ -2592,9 +2605,10 @@ const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeCon
   return {
     allMatchesCount: __expectInt32(output.allMatchesCount),
     allMatchesSum: __limitedParseDouble(output.allMatchesSum),
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     pattern: output.pattern != null ? deserializeAws_restJson1Pattern(output.pattern, context) : undefined,
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     topMatches: output.topMatches != null ? deserializeAws_restJson1Matches(output.topMatches, context) : undefined,
   } as any;
 };
@@ -2628,10 +2642,8 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2673,7 +2685,7 @@ const deserializeAws_restJson1ThreadStates = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1TimestampStructure = (output: any, context: __SerdeContext): TimestampStructure => {
   return {
-    value: output.value != null ? __expectNonNull(__parseRfc3339DateTime(output.value)) : undefined,
+    value: output.value != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.value)) : undefined,
   } as any;
 };
 
@@ -2685,10 +2697,8 @@ const deserializeAws_restJson1UnprocessedEndTimeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ListOfTimestamps(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ListOfTimestamps(value, context);
+    return acc;
   }, {});
 };
 
@@ -2700,7 +2710,8 @@ const deserializeAws_restJson1UserFeedback = (output: any, context: __SerdeConte
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2732,6 +2743,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2742,6 +2759,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

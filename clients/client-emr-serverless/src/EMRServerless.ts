@@ -21,6 +21,11 @@ import {
   GetApplicationCommandInput,
   GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
+import {
+  GetDashboardForJobRunCommand,
+  GetDashboardForJobRunCommandInput,
+  GetDashboardForJobRunCommandOutput,
+} from "./commands/GetDashboardForJobRunCommand";
 import { GetJobRunCommand, GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
 import {
   ListApplicationsCommand,
@@ -198,6 +203,38 @@ export class EMRServerless extends EMRServerlessClient {
     cb?: (err: any, data?: GetApplicationCommandOutput) => void
   ): Promise<GetApplicationCommandOutput> | void {
     const command = new GetApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a URL to access the job run dashboard.</p>
+   */
+  public getDashboardForJobRun(
+    args: GetDashboardForJobRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDashboardForJobRunCommandOutput>;
+  public getDashboardForJobRun(
+    args: GetDashboardForJobRunCommandInput,
+    cb: (err: any, data?: GetDashboardForJobRunCommandOutput) => void
+  ): void;
+  public getDashboardForJobRun(
+    args: GetDashboardForJobRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDashboardForJobRunCommandOutput) => void
+  ): void;
+  public getDashboardForJobRun(
+    args: GetDashboardForJobRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDashboardForJobRunCommandOutput) => void),
+    cb?: (err: any, data?: GetDashboardForJobRunCommandOutput) => void
+  ): Promise<GetDashboardForJobRunCommandOutput> | void {
+    const command = new GetDashboardForJobRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

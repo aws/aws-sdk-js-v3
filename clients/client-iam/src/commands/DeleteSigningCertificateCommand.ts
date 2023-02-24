@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
 
 /**
  * <p>Deletes a signing certificate associated with the specified IAM user.</p>
- *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
+ *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
  *             the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
  *             user credentials even if the Amazon Web Services account has no associated IAM users.</p>
@@ -51,6 +52,15 @@ export class DeleteSigningCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteSigningCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +76,9 @@ export class DeleteSigningCertificateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSigningCertificateCommandInput, DeleteSigningCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteSigningCertificateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

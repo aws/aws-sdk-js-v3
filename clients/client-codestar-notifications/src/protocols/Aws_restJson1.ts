@@ -6,8 +6,10 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -361,15 +363,16 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagResource";
-  let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagResource/{Arn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  const query: any = map({
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -377,6 +380,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -436,7 +440,7 @@ const deserializeAws_restJson1CreateNotificationRuleCommandError = async (
 ): Promise<CreateNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -492,7 +496,7 @@ const deserializeAws_restJson1DeleteNotificationRuleCommandError = async (
 ): Promise<DeleteNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -536,7 +540,7 @@ const deserializeAws_restJson1DeleteTargetCommandError = async (
 ): Promise<DeleteTargetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -607,7 +611,7 @@ const deserializeAws_restJson1DescribeNotificationRuleCommandError = async (
 ): Promise<DescribeNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -654,7 +658,7 @@ const deserializeAws_restJson1ListEventTypesCommandError = async (
 ): Promise<ListEventTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -701,7 +705,7 @@ const deserializeAws_restJson1ListNotificationRulesCommandError = async (
 ): Promise<ListNotificationRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -745,7 +749,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -792,7 +796,7 @@ const deserializeAws_restJson1ListTargetsCommandError = async (
 ): Promise<ListTargetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -836,10 +840,13 @@ const deserializeAws_restJson1SubscribeCommandError = async (
 ): Promise<SubscribeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConfigurationException":
+    case "com.amazonaws.codestarnotifications#ConfigurationException":
+      throw await deserializeAws_restJson1ConfigurationExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -880,13 +887,16 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.codestarnotifications#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -927,7 +937,7 @@ const deserializeAws_restJson1UnsubscribeCommandError = async (
 ): Promise<UnsubscribeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -965,13 +975,16 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.codestarnotifications#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1009,10 +1022,13 @@ const deserializeAws_restJson1UpdateNotificationRuleCommandError = async (
 ): Promise<UpdateNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConfigurationException":
+    case "com.amazonaws.codestarnotifications#ConfigurationException":
+      throw await deserializeAws_restJson1ConfigurationExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1218,23 +1234,13 @@ const serializeAws_restJson1ListTargetsFilters = (input: ListTargetsFilter[], co
     });
 };
 
-const serializeAws_restJson1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
 const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1304,10 +1310,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1333,7 +1337,8 @@ const deserializeAws_restJson1TargetSummary = (output: any, context: __SerdeCont
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1365,6 +1370,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1375,6 +1386,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

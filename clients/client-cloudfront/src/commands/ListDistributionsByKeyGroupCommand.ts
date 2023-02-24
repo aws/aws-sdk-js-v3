@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface ListDistributionsByKeyGroupCommandInput extends ListDistributio
 export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributionsByKeyGroupResult, __MetadataBearer {}
 
 /**
- * <p>Gets a list of distribution IDs for distributions that have a cache behavior that references
- * 			the specified key group.</p>
- * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+ * <p>Gets a list of distribution IDs for distributions that have a cache behavior that
+ * 			references the specified key group.</p>
+ *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
  * 			default maximum, the response is paginated. To get the next page of items, send a
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
@@ -58,6 +59,15 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListDistributionsByKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDistributionsByKeyGroupCommandInput, ListDistributionsByKeyGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDistributionsByKeyGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

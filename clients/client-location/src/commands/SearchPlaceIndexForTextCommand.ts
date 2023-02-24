@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,14 +31,14 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
 /**
  * <p>Geocodes free-form text, such as an address, name, city, or region to allow you to
  *             search for Places or points of interest. </p>
- *         <p>Optional parameters let you narrow your search results by bounding box or country, or
+ *          <p>Optional parameters let you narrow your search results by bounding box or country, or
  *             bias your search toward a specific position on the globe.</p>
- *         <note>
+ *          <note>
  *             <p>You can search for places near a given position using <code>BiasPosition</code>,
  *                 or filter results within a bounding box using <code>FilterBBox</code>. Providing
  *                 both parameters simultaneously returns an error.</p>
- *         </note>
- *         <p>Search results are returned in order of highest to lowest relevance.</p>
+ *          </note>
+ *          <p>Search results are returned in order of highest to lowest relevance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,15 @@ export class SearchPlaceIndexForTextCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchPlaceIndexForTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class SearchPlaceIndexForTextCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchPlaceIndexForTextCommandInput, SearchPlaceIndexForTextCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchPlaceIndexForTextCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

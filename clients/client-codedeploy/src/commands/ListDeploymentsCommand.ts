@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,8 @@ export interface ListDeploymentsCommandInput extends ListDeploymentsInput {}
 export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the deployments in a deployment group for an application registered with the IAM
- *             user or AWS account.</p>
+ * <p>Lists the deployments in a deployment group for an application registered with the
+ *                 IAM user or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,15 @@ export class ListDeploymentsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class ListDeploymentsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDeploymentsCommandInput, ListDeploymentsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDeploymentsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

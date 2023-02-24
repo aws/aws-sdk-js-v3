@@ -156,7 +156,8 @@ export class ResourceNotFoundException extends __BaseException {
   ResourceType?: ResourceType | string;
 
   /**
-   * <p>A map indicating which parameters in the request reference the resource that was not found.</p>
+   * <p>A map indicating which parameters in the request reference the resource that was not
+   *          found.</p>
    */
   ReferencedBy?: Record<string, string>;
   /**
@@ -194,7 +195,7 @@ export interface StartConfigurationSessionRequest {
   /**
    * <p>Sets a constraint on a session. If you specify a value of, for example, 60 seconds, then
    *          the client that established the session can't call <a>GetLatestConfiguration</a>
-   *          more frequently then every 60 seconds.</p>
+   *          more frequently than every 60 seconds.</p>
    */
   RequiredMinimumPollIntervalInSeconds?: number;
 }
@@ -205,10 +206,15 @@ export interface StartConfigurationSessionResponse {
    *             <code>GetLatestConfiguration</code> API to retrieve configuration data.</p>
    *          <important>
    *             <p>This token should only be used once in your first call to
-   *                <code>GetLatestConfiguration</code>. You MUST use the new token in the
-   *                <code>GetLatestConfiguration</code> response
-   *             (<code>NextPollConfigurationToken</code>) in each subsequent call to
+   *                <code>GetLatestConfiguration</code>. You <i>must</i> use the new token
+   *             in the <code>GetLatestConfiguration</code> response
+   *                (<code>NextPollConfigurationToken</code>) in each subsequent call to
    *                <code>GetLatestConfiguration</code>.</p>
+   *             <p>The <code>InitialConfigurationToken</code> and
+   *             <code>NextPollConfigurationToken</code> should only be used once. To support long poll
+   *             use cases, the tokens are valid for up to 24 hours. If a
+   *             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
+   *             <code>BadRequestException</code>.</p>
    *          </important>
    */
   InitialConfigurationToken?: string;
@@ -240,17 +246,30 @@ export interface GetLatestConfigurationRequest {
    * <p>Token describing the current state of the configuration session. To obtain a token,
    *          first call the <a>StartConfigurationSession</a> API. Note that every call to
    *             <code>GetLatestConfiguration</code> will return a new <code>ConfigurationToken</code>
-   *             (<code>NextPollConfigurationToken</code> in the response) and MUST be provided to
-   *          subsequent <code>GetLatestConfiguration</code> API calls.</p>
+   *             (<code>NextPollConfigurationToken</code> in the response) and <i>must</i>
+   *          be provided to subsequent <code>GetLatestConfiguration</code> API calls.</p>
+   *          <important>
+   *             <p>This token should only be used once. To support long poll
+   *             use cases, the token is valid for up to 24 hours. If a
+   *             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
+   *             <code>BadRequestException</code>.</p>
+   *          </important>
    */
   ConfigurationToken: string | undefined;
 }
 
 export interface GetLatestConfigurationResponse {
   /**
-   * <p>The latest token describing the current state of the configuration session. This MUST be
-   *          provided to the next call to <code>GetLatestConfiguration.</code>
+   * <p>The latest token describing the current state of the configuration session. This
+   *             <i>must</i> be provided to the next call to
+   *             <code>GetLatestConfiguration.</code>
    *          </p>
+   *          <important>
+   *             <p>This token should only be used once. To support long poll
+   *             use cases, the token is valid for up to 24 hours. If a
+   *             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
+   *             <code>BadRequestException</code>.</p>
+   *          </important>
    */
   NextPollConfigurationToken?: string;
 
@@ -271,6 +290,11 @@ export interface GetLatestConfigurationResponse {
    *          version of configuration.</p>
    */
   Configuration?: Uint8Array;
+
+  /**
+   * <p>The user-defined label for the AppConfig hosted configuration version. This attribute doesn't apply if the configuration is not from an AppConfig hosted configuration version. If the client already has the latest version of the configuration data, this value is empty.</p>
+   */
+  VersionLabel?: string;
 }
 
 /**
@@ -287,10 +311,9 @@ export const BadRequestDetailsFilterSensitiveLog = (obj: BadRequestDetails): any
   if (obj.InvalidParameters !== undefined)
     return {
       InvalidParameters: Object.entries(obj.InvalidParameters).reduce(
-        (acc: any, [key, value]: [string, InvalidParameterDetail]) => ({
-          ...acc,
-          [key]: InvalidParameterDetailFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, InvalidParameterDetail]) => (
+          (acc[key] = InvalidParameterDetailFilterSensitiveLog(value)), acc
+        ),
         {}
       ),
     };

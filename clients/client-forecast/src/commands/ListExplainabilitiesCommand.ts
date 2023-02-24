@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesR
  * <p>Returns a list of Explainability resources created using the <a>CreateExplainability</a> operation. This operation returns a summary for
  *             each Explainability. You can filter the list using an array of <a>Filter</a>
  *             objects.</p>
- *         <p>To retrieve the complete set of properties for a particular Explainability resource,
+ *          <p>To retrieve the complete set of properties for a particular Explainability resource,
  *             use the ARN with the <a>DescribeExplainability</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +57,15 @@ export class ListExplainabilitiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListExplainabilitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class ListExplainabilitiesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListExplainabilitiesCommandInput, ListExplainabilitiesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListExplainabilitiesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

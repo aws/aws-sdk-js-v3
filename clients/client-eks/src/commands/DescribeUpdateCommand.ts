@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
 /**
  * <p>Returns descriptive information about an update against your Amazon EKS
  *             cluster or associated managed node group or Amazon EKS add-on.</p>
- *         <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an
+ *          <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an
  *             update fails, the status is <code>Failed</code>, and an error detail explains the reason
  *             for the failure.</p>
  * @example
@@ -56,6 +57,15 @@ export class DescribeUpdateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DescribeUpdateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeUpdateCommandInput, DescribeUpdateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeUpdateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

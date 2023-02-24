@@ -113,6 +113,7 @@ import {
   CreateFlowDefinitionCommandInput,
   CreateFlowDefinitionCommandOutput,
 } from "./commands/CreateFlowDefinitionCommand";
+import { CreateHubCommand, CreateHubCommandInput, CreateHubCommandOutput } from "./commands/CreateHubCommand";
 import {
   CreateHumanTaskUiCommand,
   CreateHumanTaskUiCommandInput,
@@ -130,6 +131,11 @@ import {
   CreateImageVersionCommandOutput,
 } from "./commands/CreateImageVersionCommand";
 import {
+  CreateInferenceExperimentCommand,
+  CreateInferenceExperimentCommandInput,
+  CreateInferenceExperimentCommandOutput,
+} from "./commands/CreateInferenceExperimentCommand";
+import {
   CreateInferenceRecommendationsJobCommand,
   CreateInferenceRecommendationsJobCommandInput,
   CreateInferenceRecommendationsJobCommandOutput,
@@ -144,6 +150,16 @@ import {
   CreateModelBiasJobDefinitionCommandInput,
   CreateModelBiasJobDefinitionCommandOutput,
 } from "./commands/CreateModelBiasJobDefinitionCommand";
+import {
+  CreateModelCardCommand,
+  CreateModelCardCommandInput,
+  CreateModelCardCommandOutput,
+} from "./commands/CreateModelCardCommand";
+import {
+  CreateModelCardExportJobCommand,
+  CreateModelCardExportJobCommandInput,
+  CreateModelCardExportJobCommandOutput,
+} from "./commands/CreateModelCardExportJobCommand";
 import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
   CreateModelExplainabilityJobDefinitionCommand,
@@ -205,6 +221,7 @@ import {
   CreateProjectCommandInput,
   CreateProjectCommandOutput,
 } from "./commands/CreateProjectCommand";
+import { CreateSpaceCommand, CreateSpaceCommandInput, CreateSpaceCommandOutput } from "./commands/CreateSpaceCommand";
 import {
   CreateStudioLifecycleConfigCommand,
   CreateStudioLifecycleConfigCommandInput,
@@ -327,6 +344,12 @@ import {
   DeleteFlowDefinitionCommandInput,
   DeleteFlowDefinitionCommandOutput,
 } from "./commands/DeleteFlowDefinitionCommand";
+import { DeleteHubCommand, DeleteHubCommandInput, DeleteHubCommandOutput } from "./commands/DeleteHubCommand";
+import {
+  DeleteHubContentCommand,
+  DeleteHubContentCommandInput,
+  DeleteHubContentCommandOutput,
+} from "./commands/DeleteHubContentCommand";
 import {
   DeleteHumanTaskUiCommand,
   DeleteHumanTaskUiCommandInput,
@@ -339,10 +362,20 @@ import {
   DeleteImageVersionCommandOutput,
 } from "./commands/DeleteImageVersionCommand";
 import {
+  DeleteInferenceExperimentCommand,
+  DeleteInferenceExperimentCommandInput,
+  DeleteInferenceExperimentCommandOutput,
+} from "./commands/DeleteInferenceExperimentCommand";
+import {
   DeleteModelBiasJobDefinitionCommand,
   DeleteModelBiasJobDefinitionCommandInput,
   DeleteModelBiasJobDefinitionCommandOutput,
 } from "./commands/DeleteModelBiasJobDefinitionCommand";
+import {
+  DeleteModelCardCommand,
+  DeleteModelCardCommandInput,
+  DeleteModelCardCommandOutput,
+} from "./commands/DeleteModelCardCommand";
 import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
   DeleteModelExplainabilityJobDefinitionCommand,
@@ -394,6 +427,7 @@ import {
   DeleteProjectCommandInput,
   DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
+import { DeleteSpaceCommand, DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
 import {
   DeleteStudioLifecycleConfigCommand,
   DeleteStudioLifecycleConfigCommandInput,
@@ -527,6 +561,12 @@ import {
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
 } from "./commands/DescribeFlowDefinitionCommand";
+import { DescribeHubCommand, DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand";
+import {
+  DescribeHubContentCommand,
+  DescribeHubContentCommandInput,
+  DescribeHubContentCommandOutput,
+} from "./commands/DescribeHubContentCommand";
 import {
   DescribeHumanTaskUiCommand,
   DescribeHumanTaskUiCommandInput,
@@ -548,6 +588,11 @@ import {
   DescribeImageVersionCommandOutput,
 } from "./commands/DescribeImageVersionCommand";
 import {
+  DescribeInferenceExperimentCommand,
+  DescribeInferenceExperimentCommandInput,
+  DescribeInferenceExperimentCommandOutput,
+} from "./commands/DescribeInferenceExperimentCommand";
+import {
   DescribeInferenceRecommendationsJobCommand,
   DescribeInferenceRecommendationsJobCommandInput,
   DescribeInferenceRecommendationsJobCommandOutput,
@@ -567,6 +612,16 @@ import {
   DescribeModelBiasJobDefinitionCommandInput,
   DescribeModelBiasJobDefinitionCommandOutput,
 } from "./commands/DescribeModelBiasJobDefinitionCommand";
+import {
+  DescribeModelCardCommand,
+  DescribeModelCardCommandInput,
+  DescribeModelCardCommandOutput,
+} from "./commands/DescribeModelCardCommand";
+import {
+  DescribeModelCardExportJobCommand,
+  DescribeModelCardExportJobCommandInput,
+  DescribeModelCardExportJobCommandOutput,
+} from "./commands/DescribeModelCardExportJobCommand";
 import {
   DescribeModelCommand,
   DescribeModelCommandInput,
@@ -632,6 +687,11 @@ import {
   DescribeProjectCommandInput,
   DescribeProjectCommandOutput,
 } from "./commands/DescribeProjectCommand";
+import {
+  DescribeSpaceCommand,
+  DescribeSpaceCommandInput,
+  DescribeSpaceCommandOutput,
+} from "./commands/DescribeSpaceCommand";
 import {
   DescribeStudioLifecycleConfigCommand,
   DescribeStudioLifecycleConfigCommandInput,
@@ -717,12 +777,18 @@ import {
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput,
 } from "./commands/GetSearchSuggestionsCommand";
+import {
+  ImportHubContentCommand,
+  ImportHubContentCommandInput,
+  ImportHubContentCommandOutput,
+} from "./commands/ImportHubContentCommand";
 import { ListActionsCommand, ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import {
   ListAlgorithmsCommand,
   ListAlgorithmsCommandInput,
   ListAlgorithmsCommandOutput,
 } from "./commands/ListAlgorithmsCommand";
+import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
   ListAppImageConfigsCommand,
   ListAppImageConfigsCommandInput,
@@ -812,6 +878,17 @@ import {
   ListFlowDefinitionsCommandOutput,
 } from "./commands/ListFlowDefinitionsCommand";
 import {
+  ListHubContentsCommand,
+  ListHubContentsCommandInput,
+  ListHubContentsCommandOutput,
+} from "./commands/ListHubContentsCommand";
+import {
+  ListHubContentVersionsCommand,
+  ListHubContentVersionsCommandInput,
+  ListHubContentVersionsCommandOutput,
+} from "./commands/ListHubContentVersionsCommand";
+import { ListHubsCommand, ListHubsCommandInput, ListHubsCommandOutput } from "./commands/ListHubsCommand";
+import {
   ListHumanTaskUisCommand,
   ListHumanTaskUisCommandInput,
   ListHumanTaskUisCommandOutput,
@@ -828,10 +905,20 @@ import {
   ListImageVersionsCommandOutput,
 } from "./commands/ListImageVersionsCommand";
 import {
+  ListInferenceExperimentsCommand,
+  ListInferenceExperimentsCommandInput,
+  ListInferenceExperimentsCommandOutput,
+} from "./commands/ListInferenceExperimentsCommand";
+import {
   ListInferenceRecommendationsJobsCommand,
   ListInferenceRecommendationsJobsCommandInput,
   ListInferenceRecommendationsJobsCommandOutput,
 } from "./commands/ListInferenceRecommendationsJobsCommand";
+import {
+  ListInferenceRecommendationsJobStepsCommand,
+  ListInferenceRecommendationsJobStepsCommandInput,
+  ListInferenceRecommendationsJobStepsCommandOutput,
+} from "./commands/ListInferenceRecommendationsJobStepsCommand";
 import {
   ListLabelingJobsCommand,
   ListLabelingJobsCommandInput,
@@ -852,6 +939,21 @@ import {
   ListModelBiasJobDefinitionsCommandInput,
   ListModelBiasJobDefinitionsCommandOutput,
 } from "./commands/ListModelBiasJobDefinitionsCommand";
+import {
+  ListModelCardExportJobsCommand,
+  ListModelCardExportJobsCommandInput,
+  ListModelCardExportJobsCommandOutput,
+} from "./commands/ListModelCardExportJobsCommand";
+import {
+  ListModelCardsCommand,
+  ListModelCardsCommandInput,
+  ListModelCardsCommandOutput,
+} from "./commands/ListModelCardsCommand";
+import {
+  ListModelCardVersionsCommand,
+  ListModelCardVersionsCommandInput,
+  ListModelCardVersionsCommandOutput,
+} from "./commands/ListModelCardVersionsCommand";
 import {
   ListModelExplainabilityJobDefinitionsCommand,
   ListModelExplainabilityJobDefinitionsCommandInput,
@@ -878,6 +980,16 @@ import {
   ListModelQualityJobDefinitionsCommandOutput,
 } from "./commands/ListModelQualityJobDefinitionsCommand";
 import { ListModelsCommand, ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
+import {
+  ListMonitoringAlertHistoryCommand,
+  ListMonitoringAlertHistoryCommandInput,
+  ListMonitoringAlertHistoryCommandOutput,
+} from "./commands/ListMonitoringAlertHistoryCommand";
+import {
+  ListMonitoringAlertsCommand,
+  ListMonitoringAlertsCommandInput,
+  ListMonitoringAlertsCommandOutput,
+} from "./commands/ListMonitoringAlertsCommand";
 import {
   ListMonitoringExecutionsCommand,
   ListMonitoringExecutionsCommandInput,
@@ -928,6 +1040,7 @@ import {
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
+import { ListSpacesCommand, ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
 import {
   ListStageDevicesCommand,
   ListStageDevicesCommandInput,
@@ -1022,6 +1135,11 @@ import {
   StartEdgeDeploymentStageCommandOutput,
 } from "./commands/StartEdgeDeploymentStageCommand";
 import {
+  StartInferenceExperimentCommand,
+  StartInferenceExperimentCommandInput,
+  StartInferenceExperimentCommandOutput,
+} from "./commands/StartInferenceExperimentCommand";
+import {
   StartMonitoringScheduleCommand,
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
@@ -1061,6 +1179,11 @@ import {
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput,
 } from "./commands/StopHyperParameterTuningJobCommand";
+import {
+  StopInferenceExperimentCommand,
+  StopInferenceExperimentCommandInput,
+  StopInferenceExperimentCommandOutput,
+} from "./commands/StopInferenceExperimentCommand";
 import {
   StopInferenceRecommendationsJobCommand,
   StopInferenceRecommendationsJobCommandInput,
@@ -1166,12 +1289,33 @@ import {
   UpdateFeatureMetadataCommandInput,
   UpdateFeatureMetadataCommandOutput,
 } from "./commands/UpdateFeatureMetadataCommand";
+import { UpdateHubCommand, UpdateHubCommandInput, UpdateHubCommandOutput } from "./commands/UpdateHubCommand";
 import { UpdateImageCommand, UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
+import {
+  UpdateImageVersionCommand,
+  UpdateImageVersionCommandInput,
+  UpdateImageVersionCommandOutput,
+} from "./commands/UpdateImageVersionCommand";
+import {
+  UpdateInferenceExperimentCommand,
+  UpdateInferenceExperimentCommandInput,
+  UpdateInferenceExperimentCommandOutput,
+} from "./commands/UpdateInferenceExperimentCommand";
+import {
+  UpdateModelCardCommand,
+  UpdateModelCardCommandInput,
+  UpdateModelCardCommandOutput,
+} from "./commands/UpdateModelCardCommand";
 import {
   UpdateModelPackageCommand,
   UpdateModelPackageCommandInput,
   UpdateModelPackageCommandOutput,
 } from "./commands/UpdateModelPackageCommand";
+import {
+  UpdateMonitoringAlertCommand,
+  UpdateMonitoringAlertCommandInput,
+  UpdateMonitoringAlertCommandOutput,
+} from "./commands/UpdateMonitoringAlertCommand";
 import {
   UpdateMonitoringScheduleCommand,
   UpdateMonitoringScheduleCommandInput,
@@ -1202,6 +1346,7 @@ import {
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
+import { UpdateSpaceCommand, UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
 import {
   UpdateTrainingJobCommand,
   UpdateTrainingJobCommandInput,
@@ -1232,16 +1377,16 @@ import { SageMakerClient } from "./SageMakerClient";
 
 /**
  * <p>Provides APIs for creating and managing SageMaker resources. </p>
- *         <p>Other Resources:</p>
- *         <ul>
+ *          <p>Other Resources:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user">SageMaker Developer
  *                         Guide</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html">Amazon Augmented AI
  *                         Runtime API Reference</a>
  *                </p>
@@ -1290,10 +1435,9 @@ export class SageMaker extends SageMakerClient {
    *             tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform
    *             jobs, models, labeling jobs, work teams, endpoint configurations, and
    *             endpoints.</p>
-   *         <p>Each tag consists of a key and an optional value. Tag keys must be unique per
-   *             resource. For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Amazon Web Services
-   *                 Tagging Strategies</a>.</p>
-   *         <note>
+   *          <p>Each tag consists of a key and an optional value. Tag keys must be unique per
+   *             resource. For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Amazon Web Services Tagging Strategies</a>.</p>
+   *          <note>
    *             <p>Tags that you add to a hyperparameter tuning job by calling this API are also
    *                 added to any training jobs that the hyperparameter tuning job launches after you
    *                 call this API, but not to training jobs that the hyperparameter tuning job launched
@@ -1302,8 +1446,8 @@ export class SageMaker extends SageMakerClient {
    *                 hyperparameter tuning job launches, add the tags when you first create the tuning
    *                 job by specifying them in the <code>Tags</code> parameter of <a>CreateHyperParameterTuningJob</a>
    *             </p>
-   *         </note>
-   *         <note>
+   *          </note>
+   *          <note>
    *             <p>Tags that you add to a SageMaker Studio Domain or User Profile by calling this API
    *                 are also added to any Apps that the Domain or User Profile launches after you call
    *                 this API, but not to Apps that the Domain or User Profile launched before you called
@@ -1311,7 +1455,7 @@ export class SageMaker extends SageMakerClient {
    *                 also added to all Apps that the Domain or User Profile launches, add the tags when
    *                 you first create the Domain or User Profile by specifying them in the
    *                     <code>Tags</code> parameter of <a>CreateDomain</a> or <a>CreateUserProfile</a>.</p>
-   *         </note>
+   *          </note>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
   public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
@@ -1435,8 +1579,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Create a machine learning algorithm that you can use in SageMaker and list in the Amazon Web Services
-   *             Marketplace.</p>
+   * <p>Create a machine learning algorithm that you can use in SageMaker and list in the Amazon Web Services Marketplace.</p>
    */
   public createAlgorithm(
     args: CreateAlgorithmCommandInput,
@@ -1468,8 +1611,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates a running app for the specified UserProfile. Supported apps are
-   *       <code>JupyterServer</code> and <code>KernelGateway</code>. This operation is automatically
+   * <p>Creates a running app for the specified UserProfile. This operation is automatically
    *       invoked by Amazon SageMaker Studio upon access to the associated Domain, and when new kernel
    *       configurations are selected by the user. A user may have multiple Apps active simultaneously.</p>
    */
@@ -1607,8 +1749,8 @@ export class SageMaker extends SageMakerClient {
    *             notebooks you create. The Git repository is a resource in your SageMaker account, so it can
    *             be associated with more than one notebook instance, and it persists independently from
    *             the lifecycle of any notebook instances it is associated with.</p>
-   *         <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository.</p>
+   *          <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository.</p>
    */
   public createCodeRepository(
     args: CreateCodeRepositoryCommandInput,
@@ -1642,34 +1784,34 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker saves the
    *             resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket that you specify. </p>
-   *         <p>If
+   *          <p>If
    *             you choose to host your model using Amazon SageMaker hosting services, you can use the resulting
    *             model artifacts as part of the model. You can also use the artifacts with
    *             Amazon Web Services
    *             IoT Greengrass. In that case, deploy them as an ML
    *             resource.</p>
-   *         <p>In the request body, you provide the following:</p>
-   *         <ul>
+   *          <p>In the request body, you provide the following:</p>
+   *          <ul>
    *             <li>
-   *                 <p>A name for the compilation job</p>
+   *                <p>A name for the compilation job</p>
    *             </li>
    *             <li>
-   *                 <p> Information about the input model artifacts </p>
+   *                <p> Information about the input model artifacts </p>
    *             </li>
    *             <li>
-   *                 <p>The output location for the compiled model and the device (target) that the
+   *                <p>The output location for the compiled model and the device (target) that the
    *                     model runs on </p>
    *             </li>
    *             <li>
-   *                 <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes to perform
+   *                <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes to perform
    *                     the model compilation job. </p>
    *             </li>
    *          </ul>
-   *         <p>You can also provide a <code>Tag</code> to track the model compilation job's resource
+   *          <p>You can also provide a <code>Tag</code> to track the model compilation job's resource
    *             use and costs. The response body contains the
    *                 <code>CompilationJobArn</code>
    *             for the compiled job.</p>
-   *         <p>To stop a model compilation job, use <a>StopCompilationJob</a>. To get
+   *          <p>To stop a model compilation job, use <a>StopCompilationJob</a>. To get
    *             information about a particular model compilation job, use <a>DescribeCompilationJob</a>. To get information about multiple model
    *             compilation jobs, use <a>ListCompilationJobs</a>.</p>
    */
@@ -1806,9 +1948,8 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of an associated
    *     Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application,
-   *     policy, and Amazon Virtual Private Cloud (VPC) configurations. An Amazon Web Services account is limited to one domain per region.
+   *     policy, and Amazon Virtual Private Cloud (VPC) configurations.
    *     Users within a domain can share notebook files and other artifacts with each other.</p>
-   *
    *          <p>
    *             <b>EFS storage</b>
    *          </p>
@@ -1820,7 +1961,6 @@ export class SageMaker extends SageMakerClient {
    *      customer managed key. For more information, see
    *     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html">Protect Data at
    *       Rest Using Encryption</a>.</p>
-   *
    *          <p>
    *             <b>VPC configuration</b>
    *          </p>
@@ -1978,21 +2118,21 @@ export class SageMaker extends SageMakerClient {
    * <p>Creates an endpoint using the endpoint configuration specified in the request. SageMaker
    *             uses the endpoint to provision resources and deploy models. You create the endpoint
    *             configuration with the <a>CreateEndpointConfig</a> API. </p>
-   *         <p> Use this API to deploy models using SageMaker hosting services. </p>
-   *         <p>For an example that calls this method when deploying a model to SageMaker hosting services,
+   *          <p> Use this API to deploy models using SageMaker hosting services. </p>
+   *          <p>For an example that calls this method when deploying a model to SageMaker hosting services,
    *             see the <a href="https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb">Create Endpoint example notebook.</a>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p> You must not delete an <code>EndpointConfig</code> that is in use by an endpoint
    *                 that is live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code>
    *                 operations are being performed on the endpoint. To update an endpoint, you must
    *                 create a new <code>EndpointConfig</code>.</p>
-   *         </note>
-   *         <p>The endpoint name must be unique within an Amazon Web Services Region in your Amazon Web Services account. </p>
-   *         <p>When it receives the request, SageMaker creates the endpoint, launches the resources (ML
+   *          </note>
+   *          <p>The endpoint name must be unique within an Amazon Web Services Region in your
+   *                 Amazon Web Services account. </p>
+   *          <p>When it receives the request, SageMaker creates the endpoint, launches the resources (ML
    *             compute instances), and deploys the model(s) on them. </p>
-   *
-   *         <note>
+   *          <note>
    *             <p>When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to
    *                 verify that your endpoint configuration exists. When you read data from a DynamoDB
    *                 table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html">
@@ -2003,55 +2143,55 @@ export class SageMaker extends SageMakerClient {
    *                 causes a validation error. If you repeat your read request after a short time, the
    *                 response should return the latest data. So retry logic is recommended to handle
    *                 these possible issues. We also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a> to minimize the potential impact of a DynamoDB eventually consistent read.</p>
-   *         </note>
-   *         <p>When SageMaker receives the request, it sets the endpoint status to
+   *          </note>
+   *          <p>When SageMaker receives the request, it sets the endpoint status to
    *                 <code>Creating</code>. After it creates the endpoint, it sets the status to
    *                 <code>InService</code>. SageMaker can then process incoming requests for inferences. To
    *             check the status of an endpoint, use the <a>DescribeEndpoint</a>
    *             API.</p>
-   *         <p>If any of the models hosted at this endpoint get model data from an Amazon S3 location,
-   *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the S3 path you
-   *             provided. Amazon Web Services STS is activated in your IAM user account by default. If you previously
-   *             deactivated Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS for that region. For
-   *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
-   *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>Amazon Web Services Identity and Access Management User
+   *          <p>If any of the models hosted at this endpoint get model data from an Amazon S3 location,
+   *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the
+   *             S3 path you provided. Amazon Web Services STS is activated in your Amazon Web Services account by
+   *             default. If you previously deactivated Amazon Web Services STS for a region, you need to
+   *             reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+   *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
+   *                     <i>Amazon Web Services Identity and Access Management User
    *                 Guide</i>.</p>
-   *         <note>
+   *          <note>
    *             <p> To add the IAM role policies for using this API operation, go to the <a href="https://console.aws.amazon.com/iam/">IAM console</a>, and choose
    *                 Roles in the left navigation pane. Search the IAM role that you want to grant
    *                 access to use the <a>CreateEndpoint</a> and <a>CreateEndpointConfig</a> API operations, add the following policies to
    *                 the role. </p>
    *             <ul>
    *                <li>
-   *                     <p>Option 1: For a full SageMaker access, search and attach the
+   *                   <p>Option 1: For a full SageMaker access, search and attach the
    *                             <code>AmazonSageMakerFullAccess</code> policy.</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>Option 2: For granting a limited access to an IAM role, paste the
+   *                   <p>Option 2: For granting a limited access to an IAM role, paste the
    *                         following Action elements manually into the JSON file of the IAM role: </p>
-   *                     <p>
+   *                   <p>
    *                      <code>"Action": ["sagemaker:CreateEndpoint",
    *                             "sagemaker:CreateEndpointConfig"]</code>
    *                   </p>
-   *                     <p>
+   *                   <p>
    *                      <code>"Resource": [</code>
    *                   </p>
-   *                     <p>
+   *                   <p>
    *                      <code>"arn:aws:sagemaker:region:account-id:endpoint/endpointName"</code>
    *                   </p>
-   *                     <p>
+   *                   <p>
    *                      <code>"arn:aws:sagemaker:region:account-id:endpoint-config/endpointConfigName"</code>
    *                   </p>
-   *                     <p>
+   *                   <p>
    *                      <code>]</code>
    *                   </p>
-   *                     <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">SageMaker API
+   *                   <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">SageMaker API
    *                             Permissions: Actions, Permissions, and Resources
    *                         Reference</a>.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *
-   *         </note>
+   *          </note>
    */
   public createEndpoint(
     args: CreateEndpointCommandInput,
@@ -2087,20 +2227,20 @@ export class SageMaker extends SageMakerClient {
    *             the configuration, you identify one or more models, created using the
    *                 <code>CreateModel</code> API, to deploy and the resources that you want SageMaker to
    *             provision. Then you call the <a>CreateEndpoint</a> API.</p>
-   *         <note>
+   *          <note>
    *             <p> Use this API if you want to use SageMaker hosting services to deploy models into
    *                 production. </p>
-   *         </note>
-   *         <p>In the request, you define a <code>ProductionVariant</code>, for each model that you
+   *          </note>
+   *          <p>In the request, you define a <code>ProductionVariant</code>, for each model that you
    *             want to deploy. Each <code>ProductionVariant</code> parameter also describes the
    *             resources that you want SageMaker to provision. This includes the number and type of ML
    *             compute instances to deploy. </p>
-   *         <p>If you are hosting multiple models, you also assign a <code>VariantWeight</code> to
+   *          <p>If you are hosting multiple models, you also assign a <code>VariantWeight</code> to
    *             specify how much traffic you want to allocate to each model. For example, suppose that
    *             you want to host two models, A and B, and you assign traffic weight 2 for model A and 1
    *             for model B. SageMaker distributes two-thirds of the traffic to Model A, and one-third to
    *             model B. </p>
-   *         <note>
+   *          <note>
    *             <p>When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to
    *                 verify that your endpoint configuration exists. When you read data from a DynamoDB
    *                 table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html">
@@ -2111,7 +2251,7 @@ export class SageMaker extends SageMakerClient {
    *                 causes a validation error. If you repeat your read request after a short time, the
    *                 response should return the latest data. So retry logic is recommended to handle
    *                 these possible issues. We also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a> to minimize the potential impact of a DynamoDB eventually consistent read.</p>
-   *         </note>
+   *          </note>
    */
   public createEndpointConfig(
     args: CreateEndpointConfigCommandInput,
@@ -2143,10 +2283,14 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates an SageMaker <i>experiment</i>. An experiment is a collection of
+   * <p>Creates a SageMaker <i>experiment</i>. An experiment is a collection of
    *         <i>trials</i> that are observed, compared and evaluated as a group. A trial is
    *       a set of steps, called <i>trial components</i>, that produce a machine learning
    *       model.</p>
+   *          <note>
+   *             <p>In the Studio UI, trials are referred to as <i>run groups</i> and trial
+   *         components are referred to as <i>runs</i>.</p>
+   *          </note>
    *          <p>The goal of an experiment is to determine the components that produce the best model.
    *       Multiple trials are performed, each one isolating and measuring the impact of a change to one
    *       or more inputs, while keeping the remaining inputs constant.</p>
@@ -2267,6 +2411,35 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Create a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
+   */
+  public createHub(args: CreateHubCommandInput, options?: __HttpHandlerOptions): Promise<CreateHubCommandOutput>;
+  public createHub(args: CreateHubCommandInput, cb: (err: any, data?: CreateHubCommandOutput) => void): void;
+  public createHub(
+    args: CreateHubCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHubCommandOutput) => void
+  ): void;
+  public createHub(
+    args: CreateHubCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHubCommandOutput) => void),
+    cb?: (err: any, data?: CreateHubCommandOutput) => void
+  ): Promise<CreateHubCommandOutput> | void {
+    const command = new CreateHubCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.</p>
    */
   public createHumanTaskUi(
@@ -2304,6 +2477,16 @@ export class SageMaker extends SageMakerClient {
    *             and values for hyperparameters within ranges that you specify. It then chooses the
    *             hyperparameter values that result in a model that performs the best, as measured by an
    *             objective metric that you choose.</p>
+   *          <p>A hyperparameter tuning job automatically creates Amazon SageMaker experiments, trials, and
+   *             trial components for each training job that it runs. You can view these entities in
+   *             Amazon SageMaker Studio. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-view-compare.html#experiments-view">View
+   *                 Experiments, Trials, and Trial Components</a>.</p>
+   *          <important>
+   *             <p>Do not include any security-sensitive information including account access IDs,
+   *                 secrets or tokens in any hyperparameter field. If the use of security-sensitive
+   *                 credentials are detected, SageMaker will reject your training job request and return an
+   *                 exception error.</p>
+   *          </important>
    */
   public createHyperParameterTuningJob(
     args: CreateHyperParameterTuningJobCommandInput,
@@ -2396,6 +2579,52 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>
+   *            Creates an inference experiment using the configurations specified in the request.
+   *        </p>
+   *          <p>
+   *            Use this API to setup and schedule an experiment to compare model variants on a Amazon SageMaker inference endpoint. For
+   *            more information about inference experiments, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html">Shadow tests</a>.
+   *        </p>
+   *          <p>
+   *            Amazon SageMaker begins your experiment at the scheduled time and routes traffic to your endpoint's model variants based
+   *            on your specified configuration.
+   *        </p>
+   *          <p>
+   *            While the experiment is in progress or after it has concluded, you can view metrics that compare your model
+   *            variants. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests-view-monitor-edit.html">View, monitor, and edit shadow tests</a>.
+   *        </p>
+   */
+  public createInferenceExperiment(
+    args: CreateInferenceExperimentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInferenceExperimentCommandOutput>;
+  public createInferenceExperiment(
+    args: CreateInferenceExperimentCommandInput,
+    cb: (err: any, data?: CreateInferenceExperimentCommandOutput) => void
+  ): void;
+  public createInferenceExperiment(
+    args: CreateInferenceExperimentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInferenceExperimentCommandOutput) => void
+  ): void;
+  public createInferenceExperiment(
+    args: CreateInferenceExperimentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInferenceExperimentCommandOutput) => void),
+    cb?: (err: any, data?: CreateInferenceExperimentCommandOutput) => void
+  ): Promise<CreateInferenceExperimentCommandOutput> | void {
+    const command = new CreateInferenceExperimentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts a recommendation job. You can create either an instance
    *           recommendation or load test job.</p>
    */
@@ -2431,34 +2660,34 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Creates a job that uses workers to label the data objects in your input dataset. You
    *             can use the labeled data to train machine learning models. </p>
-   *         <p>You can select your workforce from one of three providers:</p>
-   *         <ul>
+   *          <p>You can select your workforce from one of three providers:</p>
+   *          <ul>
    *             <li>
-   *                 <p>A private workforce that you create. It can include employees, contractors,
+   *                <p>A private workforce that you create. It can include employees, contractors,
    *                     and outside experts. Use a private workforce when want the data to stay within
    *                     your organization or when a specific set of skills is required.</p>
    *             </li>
    *             <li>
-   *                 <p>One or more vendors that you select from the Amazon Web Services Marketplace. Vendors provide
+   *                <p>One or more vendors that you select from the Amazon Web Services Marketplace. Vendors provide
    *                     expertise in specific areas. </p>
    *             </li>
    *             <li>
-   *                 <p>The Amazon Mechanical Turk workforce. This is the largest workforce, but it
+   *                <p>The Amazon Mechanical Turk workforce. This is the largest workforce, but it
    *                     should only be used for public data or data that has been stripped of any
    *                     personally identifiable information.</p>
    *             </li>
    *          </ul>
-   *         <p>You can also use <i>automated data labeling</i> to reduce the number of
+   *          <p>You can also use <i>automated data labeling</i> to reduce the number of
    *             data objects that need to be labeled by a human. Automated data labeling uses
    *                 <i>active learning</i> to determine if a data object can be labeled by
    *             machine or if it needs to be sent to a human worker. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-automated-labeling.html">Using
    *                 Automated Data Labeling</a>.</p>
-   *         <p>The data objects to be labeled are contained in an Amazon S3 bucket. You create a
+   *          <p>The data objects to be labeled are contained in an Amazon S3 bucket. You create a
    *                 <i>manifest file</i> that describes the location of each object. For
    *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-data.html">Using Input and Output Data</a>.</p>
-   *         <p>The output can be used as the manifest file for another labeling job or as training
+   *          <p>The output can be used as the manifest file for another labeling job or as training
    *             data for your machine learning models.</p>
-   *         <p>You can use this operation to create a static labeling job or a streaming labeling
+   *          <p>You can use this operation to create a static labeling job or a streaming labeling
    *             job. A static labeling job stops if all data objects in the input manifest file
    *             identified in <code>ManifestS3Uri</code> have been labeled. A streaming labeling job
    *             runs perpetually until it is manually stopped, or remains idle for 10 days. You can send
@@ -2502,24 +2731,22 @@ export class SageMaker extends SageMakerClient {
    *             container. For the primary container, you specify the Docker image that
    *             contains inference code, artifacts (from prior training), and a custom environment map
    *             that the inference code uses when you deploy the model for predictions.</p>
-   *         <p>Use this API to create a model if you want to use SageMaker hosting services or run a batch
+   *          <p>Use this API to create a model if you want to use SageMaker hosting services or run a batch
    *             transform job.</p>
-   *         <p>To host your model, you create an endpoint configuration with the
+   *          <p>To host your model, you create an endpoint configuration with the
    *                 <code>CreateEndpointConfig</code> API, and then create an endpoint with the
    *                 <code>CreateEndpoint</code> API. SageMaker then deploys all of the containers that you
    *             defined for the model in the hosting environment. </p>
-   *         <p>For an example that calls this method when deploying a model to SageMaker hosting services,
-   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deployment.html#realtime-endpoints-deployment-create-model">Create a Model (Amazon Web Services SDK for Python (Boto
-   *             3)).</a>
+   *          <p>For an example that calls this method when deploying a model to SageMaker hosting services,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deployment.html#realtime-endpoints-deployment-create-model">Create a Model (Amazon Web Services SDK for Python (Boto 3)).</a>
    *          </p>
-   *         <p>To run a batch transform using your model, you start a job with the
+   *          <p>To run a batch transform using your model, you start a job with the
    *                 <code>CreateTransformJob</code> API. SageMaker uses your model and your dataset to get
    *             inferences which are then saved to a specified S3 location.</p>
-   *         <p>In the request, you also provide an IAM role that SageMaker can assume to access model
+   *          <p>In the request, you also provide an IAM role that SageMaker can assume to access model
    *             artifacts and docker image for deployment on ML compute hosting instances or for batch
    *             transform jobs. In addition, you also use the IAM role to manage permissions the
-   *             inference code needs. For example, if the inference code access any other Amazon Web Services resources,
-   *             you grant necessary permissions via this role.</p>
+   *             inference code needs. For example, if the inference code access any other Amazon Web Services resources, you grant necessary permissions via this role.</p>
    */
   public createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
   public createModel(args: CreateModelCommandInput, cb: (err: any, data?: CreateModelCommandOutput) => void): void;
@@ -2577,6 +2804,71 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Creates an Amazon SageMaker Model Card.</p>
+   *          <p>For information about how to use model cards, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html">Amazon SageMaker Model Card</a>.</p>
+   */
+  public createModelCard(
+    args: CreateModelCardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateModelCardCommandOutput>;
+  public createModelCard(
+    args: CreateModelCardCommandInput,
+    cb: (err: any, data?: CreateModelCardCommandOutput) => void
+  ): void;
+  public createModelCard(
+    args: CreateModelCardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateModelCardCommandOutput) => void
+  ): void;
+  public createModelCard(
+    args: CreateModelCardCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelCardCommandOutput) => void),
+    cb?: (err: any, data?: CreateModelCardCommandOutput) => void
+  ): Promise<CreateModelCardCommandOutput> | void {
+    const command = new CreateModelCardCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an Amazon SageMaker Model Card export job.</p>
+   */
+  public createModelCardExportJob(
+    args: CreateModelCardExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateModelCardExportJobCommandOutput>;
+  public createModelCardExportJob(
+    args: CreateModelCardExportJobCommandInput,
+    cb: (err: any, data?: CreateModelCardExportJobCommandOutput) => void
+  ): void;
+  public createModelCardExportJob(
+    args: CreateModelCardExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateModelCardExportJobCommandOutput) => void
+  ): void;
+  public createModelCardExportJob(
+    args: CreateModelCardExportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelCardExportJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateModelCardExportJobCommandOutput) => void
+  ): Promise<CreateModelCardExportJobCommandOutput> | void {
+    const command = new CreateModelCardExportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates the definition for a model explainability job.</p>
    */
   public createModelExplainabilityJobDefinition(
@@ -2614,23 +2906,23 @@ export class SageMaker extends SageMakerClient {
    * <p>Creates a model package that you can use to create SageMaker models or list on Amazon Web Services
    *             Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to
    *             model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
-   *         <p>To create a model package by specifying a Docker container that contains your
+   *          <p>To create a model package by specifying a Docker container that contains your
    *             inference code and the Amazon S3 location of your model artifacts, provide values for
    *             <code>InferenceSpecification</code>. To create a model from an algorithm resource
    *             that you created or subscribed to in Amazon Web Services Marketplace, provide a value for
    *             <code>SourceAlgorithmSpecification</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>There are two types of model packages:</p>
    *             <ul>
    *                <li>
-   *                     <p>Versioned - a model that is part of a model group in the model
+   *                   <p>Versioned - a model that is part of a model group in the model
    *                         registry.</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>Unversioned - a model package that is not part of a model group.</p>
-   *                 </li>
+   *                   <p>Unversioned - a model package that is not part of a model group.</p>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   public createModelPackage(
     args: CreateModelPackageCommandInput,
@@ -2762,41 +3054,39 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Creates an SageMaker notebook instance. A notebook instance is a machine learning (ML)
    *             compute instance running on a Jupyter notebook. </p>
-   *         <p>In a <code>CreateNotebookInstance</code> request, specify the type of ML compute
+   *          <p>In a <code>CreateNotebookInstance</code> request, specify the type of ML compute
    *             instance that you want to run. SageMaker launches the instance, installs common libraries
    *             that you can use to explore datasets for model training, and attaches an ML storage
    *             volume to the notebook instance. </p>
-   *         <p>SageMaker also provides a set of example notebooks. Each notebook demonstrates how to
+   *          <p>SageMaker also provides a set of example notebooks. Each notebook demonstrates how to
    *             use SageMaker with a specific algorithm or with a machine learning framework. </p>
-   *         <p>After receiving the request, SageMaker does the following:</p>
-   *         <ol>
+   *          <p>After receiving the request, SageMaker does the following:</p>
+   *          <ol>
    *             <li>
-   *                 <p>Creates a network interface in the SageMaker VPC.</p>
+   *                <p>Creates a network interface in the SageMaker VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>(Option) If you specified <code>SubnetId</code>, SageMaker creates a network
+   *                <p>(Option) If you specified <code>SubnetId</code>, SageMaker creates a network
    *                     interface in your own VPC, which is inferred from the subnet ID that you provide
    *                     in the input. When creating this network interface, SageMaker attaches the security
    *                     group that you specified in the request to the network interface that it creates
    *                     in your VPC.</p>
-   *
    *             </li>
    *             <li>
-   *                 <p>Launches an EC2 instance of the type specified in the request in the SageMaker
+   *                <p>Launches an EC2 instance of the type specified in the request in the SageMaker
    *                     VPC. If you specified <code>SubnetId</code> of your VPC, SageMaker specifies both
    *                     network interfaces when launching this instance. This enables inbound traffic
    *                     from your own VPC to the notebook instance, assuming that the security groups
    *                     allow it.</p>
    *             </li>
    *          </ol>
-   *
-   *         <p>After creating the notebook instance, SageMaker returns its Amazon Resource Name (ARN).
+   *          <p>After creating the notebook instance, SageMaker returns its Amazon Resource Name (ARN).
    *             You can't change the name of a notebook instance after you create it.</p>
-   *         <p>After SageMaker creates the notebook instance, you can connect to the Jupyter server and
+   *          <p>After SageMaker creates the notebook instance, you can connect to the Jupyter server and
    *             work in Jupyter notebooks. For example, you can write code to explore a dataset that you
    *             can use for model training, train a model, host models by creating SageMaker endpoints, and
    *             validate hosted models. </p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
    */
   public createNotebookInstance(
     args: CreateNotebookInstanceCommandInput,
@@ -2831,16 +3121,16 @@ export class SageMaker extends SageMakerClient {
    * <p>Creates a lifecycle configuration that you can associate with a notebook instance. A
    *                 <i>lifecycle configuration</i> is a collection of shell scripts that
    *             run when you create or start a notebook instance.</p>
-   *         <p>Each lifecycle configuration script has a limit of 16384 characters.</p>
-   *         <p>The value of the <code>$PATH</code> environment variable that is available to both
+   *          <p>Each lifecycle configuration script has a limit of 16384 characters.</p>
+   *          <p>The value of the <code>$PATH</code> environment variable that is available to both
    *             scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p>
-   *         <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group
+   *          <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group
    *                 <code>/aws/sagemaker/NotebookInstances</code> in log stream
    *                 <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p>
-   *         <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs
+   *          <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs
    *             for longer than 5 minutes, it fails and the notebook instance is not created or
    *             started.</p>
-   *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+   *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
    *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
    */
   public createNotebookInstanceLifecycleConfig(
@@ -2912,7 +3202,7 @@ export class SageMaker extends SageMakerClient {
    *        the Apps and files associated with the Domain's Amazon Elastic File System (EFS) volume.
    *        This operation can only be called when the authentication mode equals IAM.
    *    </p>
-   *          <p>The IAM role or user used to call this API defines the permissions to access the app. Once
+   *          <p>The IAM role or user passed to this API defines the permissions to access the app. Once
    *       the presigned URL is created, no additional permission is required to access this URL. IAM
    *          authorization policies for this API are also enforced for every HTTP request and WebSocket
    *          frame that attempts to connect to the app.</p>
@@ -2959,20 +3249,20 @@ export class SageMaker extends SageMakerClient {
    *             instance. In the SageMaker console, when you choose <code>Open</code> next to a notebook
    *             instance, SageMaker opens a new tab showing the Jupyter server home page from the notebook
    *             instance. The console uses this API to get the URL and show the page.</p>
-   *         <p> The IAM role or user used to call this API defines the permissions to access the
+   *          <p> The IAM role or user used to call this API defines the permissions to access the
    *             notebook instance. Once the presigned URL is created, no additional permission is
    *             required to access this URL. IAM authorization policies for this API are also enforced
    *             for every HTTP request and WebSocket frame that attempts to connect to the notebook
    *             instance.</p>
-   *         <p>You can restrict access to this API and to the URL that it returns to a list of IP
+   *          <p>You can restrict access to this API and to the URL that it returns to a list of IP
    *             addresses that you specify. Use the <code>NotIpAddress</code> condition operator and the
    *                 <code>aws:SourceIP</code> condition context key to specify the list of IP addresses
    *             that you want to have access to the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#nbi-ip-filter">Limit Access to a Notebook Instance by IP Address</a>.</p>
-   *         <note>
+   *          <note>
    *             <p>The URL that you get from a call to <a>CreatePresignedNotebookInstanceUrl</a> is valid only for 5 minutes. If
    *                 you try to use the URL after the 5-minute limit expires, you are directed to the
-   *                 Amazon Web Services console sign-in page.</p>
-   *         </note>
+   *                     Amazon Web Services console sign-in page.</p>
+   *          </note>
    */
   public createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
@@ -3069,6 +3359,32 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Creates a space used for real time collaboration in a Domain.</p>
+   */
+  public createSpace(args: CreateSpaceCommandInput, options?: __HttpHandlerOptions): Promise<CreateSpaceCommandOutput>;
+  public createSpace(args: CreateSpaceCommandInput, cb: (err: any, data?: CreateSpaceCommandOutput) => void): void;
+  public createSpace(
+    args: CreateSpaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSpaceCommandOutput) => void
+  ): void;
+  public createSpace(
+    args: CreateSpaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSpaceCommandOutput) => void),
+    cb?: (err: any, data?: CreateSpaceCommandOutput) => void
+  ): Promise<CreateSpaceCommandOutput> | void {
+    const command = new CreateSpaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new Studio Lifecycle Configuration.</p>
    */
   public createStudioLifecycleConfig(
@@ -3103,52 +3419,57 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Starts a model training job. After training completes, SageMaker saves the resulting
    *             model artifacts to an Amazon S3 location that you specify. </p>
-   *         <p>If you choose to host your model using SageMaker hosting services, you can use the
+   *          <p>If you choose to host your model using SageMaker hosting services, you can use the
    *             resulting model artifacts as part of the model. You can also use the artifacts in a
    *             machine learning service other than SageMaker, provided that you know how to use them for
    *             inference.
    *         </p>
-   *         <p>In the request body, you provide the following: </p>
-   *         <ul>
+   *          <p>In the request body, you provide the following: </p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AlgorithmSpecification</code> - Identifies the training algorithm to
    *                     use.
    *                     </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>HyperParameters</code> - Specify these algorithm-specific parameters to
+   *                <p>
+   *                   <code>HyperParameters</code> - Specify these algorithm-specific parameters to
    *                     enable the estimation of model parameters during training. Hyperparameters can
    *                     be tuned to optimize this learning process. For a list of hyperparameters for
    *                     each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
+   *                <important>
+   *                   <p>Do not include any security-sensitive information including account access
+   *                         IDs, secrets or tokens in any hyperparameter field. If the use of
+   *                         security-sensitive credentials are detected, SageMaker will reject your training
+   *                         job request and return an exception error.</p>
+   *                </important>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>InputDataConfig</code> - Describes the training dataset and the Amazon S3,
-   *                     EFS, or FSx location where it is stored.</p>
+   *                <p>
+   *                   <code>InputDataConfig</code> - Describes the input required by the training
+   *                     job and the Amazon S3, EFS, or FSx location where it is stored.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>OutputDataConfig</code> - Identifies the Amazon S3 bucket where you want
    *                     SageMaker to save the results of model training. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ResourceConfig</code> - Identifies the resources, ML compute
    *                     instances, and ML storage volumes to deploy for model training. In distributed
    *                     training, you specify more than one instance. </p>
-   *
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>EnableManagedSpotTraining</code> - Optimize the cost of training machine
    *                     learning models by up to 80% by using Amazon EC2 Spot instances. For more
    *                     information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html">Managed Spot
    *                         Training</a>. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RoleArn</code> - The Amazon Resource Name (ARN) that SageMaker assumes to perform tasks on
    *                     your behalf during model training.
    *
@@ -3156,24 +3477,24 @@ export class SageMaker extends SageMakerClient {
    *                     complete model training. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>StoppingCondition</code> - To help cap training costs, use
    *                         <code>MaxRuntimeInSeconds</code> to set a time limit for training. Use
    *                         <code>MaxWaitTimeInSeconds</code> to specify how long a managed spot
    *                     training job has to complete. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Environment</code> - The environment variables to set in the Docker
    *                     container.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RetryStrategy</code> - The number of times to retry the job when the job
    *                     fails due to an <code>InternalServerError</code>.</p>
    *             </li>
    *          </ul>
-   *         <p> For more information about SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
+   *          <p> For more information about SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
    */
   public createTrainingJob(
     args: CreateTrainingJobCommandInput,
@@ -3207,38 +3528,38 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Starts a transform job. A transform job uses a trained model to get inferences on a
    *             dataset and saves these results to an Amazon S3 location that you specify.</p>
-   *         <p>To perform batch transformations, you create a transform job and use the data that you
+   *          <p>To perform batch transformations, you create a transform job and use the data that you
    *             have readily available.</p>
-   *         <p>In the request body, you provide the following:</p>
-   *         <ul>
+   *          <p>In the request body, you provide the following:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TransformJobName</code> - Identifies the transform job. The name must be
    *                     unique within an Amazon Web Services Region in an Amazon Web Services account.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ModelName</code> - Identifies the model to use. <code>ModelName</code>
    *                     must be the name of an existing Amazon SageMaker model in the same Amazon Web Services Region and Amazon Web Services
    * 		    account. For information on creating a model, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html">CreateModel</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TransformInput</code> - Describes the dataset to be transformed and the
    *                     Amazon S3 location where it is stored.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TransformOutput</code> - Identifies the Amazon S3 location where you want
    *                     Amazon SageMaker to save the results from the transform job.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TransformResources</code> - Identifies the ML compute instances for the
    *                     transform job.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information about how batch transformation works, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Batch
+   *          <p>For more information about how batch transformation works, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Batch
    *                 Transform</a>.</p>
    */
   public createTransformJob(
@@ -3351,7 +3672,7 @@ export class SageMaker extends SageMakerClient {
    * <p>Creates a user profile. A user profile represents a single user within a domain, and is
    *      the main way to reference a "person" for the purposes of sharing, reporting, and other
    *      user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an
-   *      administrator invites a person by email or imports them from SSO, a user profile is
+   *      administrator invites a person by email or imports them from IAM Identity Center, a user profile is
    *      automatically created. A user profile is the primary holder of settings for an individual
    *      user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
    *    </p>
@@ -3389,19 +3710,16 @@ export class SageMaker extends SageMakerClient {
    * <p>Use this operation to create a workforce. This operation will return an error
    *           if a workforce already exists in the Amazon Web Services Region that you specify. You can only
    *           create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p>
-   *
-   *         <p>If you want to create a new workforce in an Amazon Web Services Region where
+   *          <p>If you want to create a new workforce in an Amazon Web Services Region where
    *       a workforce already exists, use the  API
    *       operation to delete the existing workforce and then use <code>CreateWorkforce</code>
    *       to create a new workforce.</p>
-   *
    *          <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool
    *     in <code>CognitoConfig</code>.
    *     You can also create an Amazon Cognito workforce using the Amazon SageMaker console.
    *     For more information, see
    *       <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">
    *       Create a Private Workforce (Amazon Cognito)</a>.</p>
-   *
    *          <p>To create a private workforce using your own OIDC Identity Provider (IdP), specify your IdP
    *       configuration in <code>OidcConfig</code>. Your OIDC IdP must support <i>groups</i>
    *       because groups are used by Ground Truth and Amazon A2I to create work teams.
@@ -3441,7 +3759,7 @@ export class SageMaker extends SageMakerClient {
    * <p>Creates a new work team for labeling your data. A work team is defined by one or more
    *             Amazon Cognito user pools. You must first create the user pools before you can create a work
    *             team.</p>
-   *         <p>You cannot create more than 25 work teams in an account and region.</p>
+   *          <p>You cannot create more than 25 work teams in an account and region.</p>
    */
   public createWorkteam(
     args: CreateWorkteamCommandInput,
@@ -3786,7 +4104,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Used to delete a domain.
-   *      If you onboarded with IAM mode, you will need to delete your domain to onboard again using SSO.
+   *       If you onboarded with IAM mode, you will need to delete your domain to onboard again using IAM Identity Center.
    *      Use with caution. All of the members of the domain will lose access to their EFS volume,
    *      including data, notebooks, and other artifacts.
    *    </p>
@@ -3884,15 +4202,15 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Deletes an endpoint. SageMaker frees up all of the resources that were deployed when the
    *             endpoint was created. </p>
-   *         <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
+   *          <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
    *             need to use the <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> API call.</p>
-   *         <p>When you delete your endpoint, SageMaker asynchronously deletes associated endpoint resources such as KMS key grants.
-   *             You might still see these resources in your account for a few minutes after deleting your endpoint.
-   *             Do not delete or revoke the permissions for your
-   *             <code>
+   *          <p>When you delete your endpoint, SageMaker asynchronously deletes associated endpoint
+   *             resources such as KMS key grants. You might still see these resources in your account
+   *             for a few minutes after deleting your endpoint. Do not delete or revoke the permissions
+   *             for your <code>
    *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn">ExecutionRoleArn</a>
-   *             </code>,
-   *             otherwise SageMaker cannot delete these resources.</p>
+   *             </code>, otherwise SageMaker cannot delete these
+   *             resources.</p>
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -3927,7 +4245,7 @@ export class SageMaker extends SageMakerClient {
    * <p>Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API
    *             deletes only the specified configuration. It does not delete endpoints created using the
    *             configuration. </p>
-   *         <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is
+   *          <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is
    *             live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code> operations
    *             are being performed on the endpoint. If you delete the <code>EndpointConfig</code> of an
    *             endpoint that is active or being created or updated you may lose visibility into the
@@ -4067,6 +4385,70 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Delete a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
+   */
+  public deleteHub(args: DeleteHubCommandInput, options?: __HttpHandlerOptions): Promise<DeleteHubCommandOutput>;
+  public deleteHub(args: DeleteHubCommandInput, cb: (err: any, data?: DeleteHubCommandOutput) => void): void;
+  public deleteHub(
+    args: DeleteHubCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHubCommandOutput) => void
+  ): void;
+  public deleteHub(
+    args: DeleteHubCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHubCommandOutput) => void),
+    cb?: (err: any, data?: DeleteHubCommandOutput) => void
+  ): Promise<DeleteHubCommandOutput> | void {
+    const command = new DeleteHubCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete the contents of a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
+   */
+  public deleteHubContent(
+    args: DeleteHubContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHubContentCommandOutput>;
+  public deleteHubContent(
+    args: DeleteHubContentCommandInput,
+    cb: (err: any, data?: DeleteHubContentCommandOutput) => void
+  ): void;
+  public deleteHubContent(
+    args: DeleteHubContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHubContentCommandOutput) => void
+  ): void;
+  public deleteHubContent(
+    args: DeleteHubContentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHubContentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteHubContentCommandOutput) => void
+  ): Promise<DeleteHubContentCommandOutput> | void {
+    const command = new DeleteHubContentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Use this operation to delete a human task user interface (worker task template).</p>
    *          <p>
    *       To see a list of human task user interfaces
@@ -4163,10 +4545,48 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Deletes an inference experiment.</p>
+   *          <note>
+   *             <p>
+   *                This operation does not delete your endpoint, variants, or any underlying resources. This operation only
+   *                deletes the metadata of your experiment.
+   *            </p>
+   *          </note>
+   */
+  public deleteInferenceExperiment(
+    args: DeleteInferenceExperimentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInferenceExperimentCommandOutput>;
+  public deleteInferenceExperiment(
+    args: DeleteInferenceExperimentCommandInput,
+    cb: (err: any, data?: DeleteInferenceExperimentCommandOutput) => void
+  ): void;
+  public deleteInferenceExperiment(
+    args: DeleteInferenceExperimentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInferenceExperimentCommandOutput) => void
+  ): void;
+  public deleteInferenceExperiment(
+    args: DeleteInferenceExperimentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInferenceExperimentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteInferenceExperimentCommandOutput) => void
+  ): Promise<DeleteInferenceExperimentCommandOutput> | void {
+    const command = new DeleteInferenceExperimentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
-   *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not
-   *             delete model artifacts, inference code, or the IAM role that you specified when
-   *             creating the model. </p>
+   *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not delete
+   *             model artifacts, inference code, or the IAM role that you specified when creating the
+   *             model. </p>
    */
   public deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
   public deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
@@ -4224,6 +4644,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Deletes an Amazon SageMaker Model Card.</p>
+   */
+  public deleteModelCard(
+    args: DeleteModelCardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteModelCardCommandOutput>;
+  public deleteModelCard(
+    args: DeleteModelCardCommandInput,
+    cb: (err: any, data?: DeleteModelCardCommandOutput) => void
+  ): void;
+  public deleteModelCard(
+    args: DeleteModelCardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteModelCardCommandOutput) => void
+  ): void;
+  public deleteModelCard(
+    args: DeleteModelCardCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelCardCommandOutput) => void),
+    cb?: (err: any, data?: DeleteModelCardCommandOutput) => void
+  ): Promise<DeleteModelCardCommandOutput> | void {
+    const command = new DeleteModelCardCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an Amazon SageMaker model explainability job definition.</p>
    */
   public deleteModelExplainabilityJobDefinition(
@@ -4259,7 +4711,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Deletes a model package.</p>
-   *         <p>A model package is used to create SageMaker models or list on Amazon Web Services Marketplace. Buyers can
+   *          <p>A model package is used to create SageMaker models or list on Amazon Web Services Marketplace. Buyers can
    *             subscribe to model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
    */
   public deleteModelPackage(
@@ -4423,11 +4875,11 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p> Deletes an SageMaker notebook instance. Before you can delete a notebook instance, you
    *             must call the <code>StopNotebookInstance</code> API. </p>
-   *         <important>
+   *          <important>
    *             <p>When you delete a notebook instance, you lose all of your data. SageMaker removes
    *                 the ML compute instance, and deletes the ML storage volume and the network interface
    *                 associated with the notebook instance. </p>
-   *         </important>
+   *          </important>
    */
   public deleteNotebookInstance(
     args: DeleteNotebookInstanceCommandInput,
@@ -4560,6 +5012,32 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Used to delete a space.</p>
+   */
+  public deleteSpace(args: DeleteSpaceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSpaceCommandOutput>;
+  public deleteSpace(args: DeleteSpaceCommandInput, cb: (err: any, data?: DeleteSpaceCommandOutput) => void): void;
+  public deleteSpace(
+    args: DeleteSpaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSpaceCommandOutput) => void
+  ): void;
+  public deleteSpace(
+    args: DeleteSpaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSpaceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSpaceCommandOutput) => void
+  ): Promise<DeleteSpaceCommandOutput> | void {
+    const command = new DeleteSpaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the Studio Lifecycle Configuration. In order to delete the Lifecycle Configuration, there must be no running apps using the Lifecycle Configuration. You must also remove the Lifecycle Configuration from UserSettings in all Domains and UserProfiles.</p>
    */
   public deleteStudioLifecycleConfig(
@@ -4593,17 +5071,17 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Deletes the specified tags from an SageMaker resource.</p>
-   *         <p>To list a resource's tags, use the <code>ListTags</code> API. </p>
-   *         <note>
+   *          <p>To list a resource's tags, use the <code>ListTags</code> API. </p>
+   *          <note>
    *             <p>When you call this API to delete tags from a hyperparameter tuning job, the
    *                 deleted tags are not removed from training jobs that the hyperparameter tuning job
    *                 launched before you called this API.</p>
-   *         </note>
-   *         <note>
+   *          </note>
+   *          <note>
    *             <p>When you call this API to delete tags from a SageMaker Studio Domain or User
    *                 Profile, the deleted tags are not removed from Apps that the SageMaker Studio Domain
    *                 or User Profile launched before you called this API.</p>
-   *         </note>
+   *          </note>
    */
   public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
   public deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
@@ -4725,7 +5203,6 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Use this operation to delete a workforce.</p>
-   *
    *          <p>If you want to create a new workforce in an Amazon Web Services Region where
    *       a workforce already exists, use this operation to delete the
    *       existing workforce and then use
@@ -4736,7 +5213,7 @@ export class SageMaker extends SageMakerClient {
    *             operation to delete all work teams before you delete the workforce.
    *             If you try to delete a workforce that contains one or more work teams,
    *             you will recieve a <code>ResourceInUse</code> error.</p>
-   *         </important>
+   *          </important>
    */
   public deleteWorkforce(
     args: DeleteWorkforceCommandInput,
@@ -5051,7 +5528,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Returns information about a model compilation job.</p>
-   *         <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
+   *          <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
    *             information about multiple model compilation jobs, use <a>ListCompilationJobs</a>.</p>
    */
   public describeCompilationJob(
@@ -5503,6 +5980,70 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Describe a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
+   */
+  public describeHub(args: DescribeHubCommandInput, options?: __HttpHandlerOptions): Promise<DescribeHubCommandOutput>;
+  public describeHub(args: DescribeHubCommandInput, cb: (err: any, data?: DescribeHubCommandOutput) => void): void;
+  public describeHub(
+    args: DescribeHubCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeHubCommandOutput) => void
+  ): void;
+  public describeHub(
+    args: DescribeHubCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHubCommandOutput) => void),
+    cb?: (err: any, data?: DescribeHubCommandOutput) => void
+  ): Promise<DescribeHubCommandOutput> | void {
+    const command = new DescribeHubCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describe the content of a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
+   */
+  public describeHubContent(
+    args: DescribeHubContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHubContentCommandOutput>;
+  public describeHubContent(
+    args: DescribeHubContentCommandInput,
+    cb: (err: any, data?: DescribeHubContentCommandOutput) => void
+  ): void;
+  public describeHubContent(
+    args: DescribeHubContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeHubContentCommandOutput) => void
+  ): void;
+  public describeHubContent(
+    args: DescribeHubContentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHubContentCommandOutput) => void),
+    cb?: (err: any, data?: DescribeHubContentCommandOutput) => void
+  ): Promise<DescribeHubContentCommandOutput> | void {
+    const command = new DescribeHubContentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about the requested human task user interface (worker task template).</p>
    */
   public describeHumanTaskUi(
@@ -5621,6 +6162,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeImageVersionCommandOutput) => void
   ): Promise<DescribeImageVersionCommandOutput> | void {
     const command = new DescribeImageVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns details about an inference experiment.</p>
+   */
+  public describeInferenceExperiment(
+    args: DescribeInferenceExperimentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInferenceExperimentCommandOutput>;
+  public describeInferenceExperiment(
+    args: DescribeInferenceExperimentCommandInput,
+    cb: (err: any, data?: DescribeInferenceExperimentCommandOutput) => void
+  ): void;
+  public describeInferenceExperiment(
+    args: DescribeInferenceExperimentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInferenceExperimentCommandOutput) => void
+  ): void;
+  public describeInferenceExperiment(
+    args: DescribeInferenceExperimentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInferenceExperimentCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInferenceExperimentCommandOutput) => void
+  ): Promise<DescribeInferenceExperimentCommandOutput> | void {
+    const command = new DescribeInferenceExperimentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5796,6 +6369,70 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Describes the content, creation time, and security configuration of an Amazon SageMaker Model Card.</p>
+   */
+  public describeModelCard(
+    args: DescribeModelCardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeModelCardCommandOutput>;
+  public describeModelCard(
+    args: DescribeModelCardCommandInput,
+    cb: (err: any, data?: DescribeModelCardCommandOutput) => void
+  ): void;
+  public describeModelCard(
+    args: DescribeModelCardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeModelCardCommandOutput) => void
+  ): void;
+  public describeModelCard(
+    args: DescribeModelCardCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeModelCardCommandOutput) => void),
+    cb?: (err: any, data?: DescribeModelCardCommandOutput) => void
+  ): Promise<DescribeModelCardCommandOutput> | void {
+    const command = new DescribeModelCardCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an Amazon SageMaker Model Card export job.</p>
+   */
+  public describeModelCardExportJob(
+    args: DescribeModelCardExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeModelCardExportJobCommandOutput>;
+  public describeModelCardExportJob(
+    args: DescribeModelCardExportJobCommandInput,
+    cb: (err: any, data?: DescribeModelCardExportJobCommandOutput) => void
+  ): void;
+  public describeModelCardExportJob(
+    args: DescribeModelCardExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeModelCardExportJobCommandOutput) => void
+  ): void;
+  public describeModelCardExportJob(
+    args: DescribeModelCardExportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeModelCardExportJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeModelCardExportJobCommandOutput) => void
+  ): Promise<DescribeModelCardExportJobCommandOutput> | void {
+    const command = new DescribeModelCardExportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a description of a model explainability job definition.</p>
    */
   public describeModelExplainabilityJobDefinition(
@@ -5832,7 +6469,7 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Returns a description of the specified model package, which is used to create SageMaker
    *             models or list them on Amazon Web Services Marketplace.</p>
-   *         <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
+   *          <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
    *             Marketplace.</p>
    */
   public describeModelPackage(
@@ -5994,7 +6631,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Returns a description of a notebook instance lifecycle configuration.</p>
-   *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+   *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
    *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
    */
   public describeNotebookInstanceLifecycleConfig(
@@ -6191,6 +6828,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Describes the space.</p>
+   */
+  public describeSpace(
+    args: DescribeSpaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSpaceCommandOutput>;
+  public describeSpace(
+    args: DescribeSpaceCommandInput,
+    cb: (err: any, data?: DescribeSpaceCommandOutput) => void
+  ): void;
+  public describeSpace(
+    args: DescribeSpaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSpaceCommandOutput) => void
+  ): void;
+  public describeSpace(
+    args: DescribeSpaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSpaceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSpaceCommandOutput) => void
+  ): Promise<DescribeSpaceCommandOutput> | void {
+    const command = new DescribeSpaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the Studio Lifecycle Configuration.</p>
    */
   public describeStudioLifecycleConfig(
@@ -6257,7 +6926,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Returns information about a training job. </p>
-   *         <p>Some of the attributes below only appear if the training job successfully starts.
+   *          <p>Some of the attributes below only appear if the training job successfully starts.
    *             If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
    *             depending on the <code>FailureReason</code>, attributes like
    *                 <code>TrainingStartTime</code>, <code>TrainingTimeInSeconds</code>,
@@ -6425,9 +7094,9 @@ export class SageMaker extends SageMakerClient {
    * <p>Lists private workforce information, including workforce name, Amazon Resource Name
    *             (ARN), and, if applicable, allowed IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Allowable IP address
    *             ranges are the IP addresses that workers can use to access tasks. </p>
-   *         <important>
+   *          <important>
    *             <p>This operation applies only to private workforces.</p>
-   *         </important>
+   *          </important>
    */
   public describeWorkforce(
     args: DescribeWorkforceCommandInput,
@@ -6769,6 +7438,41 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Import hub content.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
+   */
+  public importHubContent(
+    args: ImportHubContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportHubContentCommandOutput>;
+  public importHubContent(
+    args: ImportHubContentCommandInput,
+    cb: (err: any, data?: ImportHubContentCommandOutput) => void
+  ): void;
+  public importHubContent(
+    args: ImportHubContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportHubContentCommandOutput) => void
+  ): void;
+  public importHubContent(
+    args: ImportHubContentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportHubContentCommandOutput) => void),
+    cb?: (err: any, data?: ImportHubContentCommandOutput) => void
+  ): Promise<ImportHubContentCommandOutput> | void {
+    const command = new ImportHubContentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the actions in your account and their properties.</p>
    */
   public listActions(args: ListActionsCommandInput, options?: __HttpHandlerOptions): Promise<ListActionsCommandOutput>;
@@ -6816,6 +7520,32 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListAlgorithmsCommandOutput) => void
   ): Promise<ListAlgorithmsCommandOutput> | void {
     const command = new ListAlgorithmsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the aliases of a specified image or image version.</p>
+   */
+  public listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
+  public listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
+  public listAliases(
+    args: ListAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAliasesCommandOutput) => void
+  ): void;
+  public listAliases(
+    args: ListAliasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
+    cb?: (err: any, data?: ListAliasesCommandOutput) => void
+  ): Promise<ListAliasesCommandOutput> | void {
+    const command = new ListAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7048,7 +7778,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Lists model compilation jobs that satisfy various filters.</p>
-   *         <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
+   *          <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
    *             information about a particular model compilation job you have created, use <a>DescribeCompilationJob</a>.</p>
    */
   public listCompilationJobs(
@@ -7452,6 +8182,105 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>List the contents of a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
+   */
+  public listHubContents(
+    args: ListHubContentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHubContentsCommandOutput>;
+  public listHubContents(
+    args: ListHubContentsCommandInput,
+    cb: (err: any, data?: ListHubContentsCommandOutput) => void
+  ): void;
+  public listHubContents(
+    args: ListHubContentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHubContentsCommandOutput) => void
+  ): void;
+  public listHubContents(
+    args: ListHubContentsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHubContentsCommandOutput) => void),
+    cb?: (err: any, data?: ListHubContentsCommandOutput) => void
+  ): Promise<ListHubContentsCommandOutput> | void {
+    const command = new ListHubContentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List hub content versions.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
+   */
+  public listHubContentVersions(
+    args: ListHubContentVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHubContentVersionsCommandOutput>;
+  public listHubContentVersions(
+    args: ListHubContentVersionsCommandInput,
+    cb: (err: any, data?: ListHubContentVersionsCommandOutput) => void
+  ): void;
+  public listHubContentVersions(
+    args: ListHubContentVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHubContentVersionsCommandOutput) => void
+  ): void;
+  public listHubContentVersions(
+    args: ListHubContentVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHubContentVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListHubContentVersionsCommandOutput) => void
+  ): Promise<ListHubContentVersionsCommandOutput> | void {
+    const command = new ListHubContentVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List all existing hubs.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
+   */
+  public listHubs(args: ListHubsCommandInput, options?: __HttpHandlerOptions): Promise<ListHubsCommandOutput>;
+  public listHubs(args: ListHubsCommandInput, cb: (err: any, data?: ListHubsCommandOutput) => void): void;
+  public listHubs(
+    args: ListHubsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHubsCommandOutput) => void
+  ): void;
+  public listHubs(
+    args: ListHubsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHubsCommandOutput) => void),
+    cb?: (err: any, data?: ListHubsCommandOutput) => void
+  ): Promise<ListHubsCommandOutput> | void {
+    const command = new ListHubsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about the human task user interfaces in your account.</p>
    */
   public listHumanTaskUis(
@@ -7578,6 +8407,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Returns the list of all inference experiments.</p>
+   */
+  public listInferenceExperiments(
+    args: ListInferenceExperimentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInferenceExperimentsCommandOutput>;
+  public listInferenceExperiments(
+    args: ListInferenceExperimentsCommandInput,
+    cb: (err: any, data?: ListInferenceExperimentsCommandOutput) => void
+  ): void;
+  public listInferenceExperiments(
+    args: ListInferenceExperimentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInferenceExperimentsCommandOutput) => void
+  ): void;
+  public listInferenceExperiments(
+    args: ListInferenceExperimentsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInferenceExperimentsCommandOutput) => void),
+    cb?: (err: any, data?: ListInferenceExperimentsCommandOutput) => void
+  ): Promise<ListInferenceExperimentsCommandOutput> | void {
+    const command = new ListInferenceExperimentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists recommendation jobs that satisfy various filters.</p>
    */
   public listInferenceRecommendationsJobs(
@@ -7599,6 +8460,39 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListInferenceRecommendationsJobsCommandOutput) => void
   ): Promise<ListInferenceRecommendationsJobsCommandOutput> | void {
     const command = new ListInferenceRecommendationsJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of the subtasks for an Inference Recommender job.</p>
+   *          <p>The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.</p>
+   */
+  public listInferenceRecommendationsJobSteps(
+    args: ListInferenceRecommendationsJobStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInferenceRecommendationsJobStepsCommandOutput>;
+  public listInferenceRecommendationsJobSteps(
+    args: ListInferenceRecommendationsJobStepsCommandInput,
+    cb: (err: any, data?: ListInferenceRecommendationsJobStepsCommandOutput) => void
+  ): void;
+  public listInferenceRecommendationsJobSteps(
+    args: ListInferenceRecommendationsJobStepsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInferenceRecommendationsJobStepsCommandOutput) => void
+  ): void;
+  public listInferenceRecommendationsJobSteps(
+    args: ListInferenceRecommendationsJobStepsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInferenceRecommendationsJobStepsCommandOutput) => void),
+    cb?: (err: any, data?: ListInferenceRecommendationsJobStepsCommandOutput) => void
+  ): Promise<ListInferenceRecommendationsJobStepsCommandOutput> | void {
+    const command = new ListInferenceRecommendationsJobStepsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7729,6 +8623,102 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListModelBiasJobDefinitionsCommandOutput) => void
   ): Promise<ListModelBiasJobDefinitionsCommandOutput> | void {
     const command = new ListModelBiasJobDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List the export jobs for the Amazon SageMaker Model Card.</p>
+   */
+  public listModelCardExportJobs(
+    args: ListModelCardExportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelCardExportJobsCommandOutput>;
+  public listModelCardExportJobs(
+    args: ListModelCardExportJobsCommandInput,
+    cb: (err: any, data?: ListModelCardExportJobsCommandOutput) => void
+  ): void;
+  public listModelCardExportJobs(
+    args: ListModelCardExportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelCardExportJobsCommandOutput) => void
+  ): void;
+  public listModelCardExportJobs(
+    args: ListModelCardExportJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListModelCardExportJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListModelCardExportJobsCommandOutput) => void
+  ): Promise<ListModelCardExportJobsCommandOutput> | void {
+    const command = new ListModelCardExportJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List existing model cards.</p>
+   */
+  public listModelCards(
+    args: ListModelCardsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelCardsCommandOutput>;
+  public listModelCards(
+    args: ListModelCardsCommandInput,
+    cb: (err: any, data?: ListModelCardsCommandOutput) => void
+  ): void;
+  public listModelCards(
+    args: ListModelCardsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelCardsCommandOutput) => void
+  ): void;
+  public listModelCards(
+    args: ListModelCardsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListModelCardsCommandOutput) => void),
+    cb?: (err: any, data?: ListModelCardsCommandOutput) => void
+  ): Promise<ListModelCardsCommandOutput> | void {
+    const command = new ListModelCardsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List existing versions of an Amazon SageMaker Model Card.</p>
+   */
+  public listModelCardVersions(
+    args: ListModelCardVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelCardVersionsCommandOutput>;
+  public listModelCardVersions(
+    args: ListModelCardVersionsCommandInput,
+    cb: (err: any, data?: ListModelCardVersionsCommandOutput) => void
+  ): void;
+  public listModelCardVersions(
+    args: ListModelCardVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelCardVersionsCommandOutput) => void
+  ): void;
+  public listModelCardVersions(
+    args: ListModelCardVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListModelCardVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListModelCardVersionsCommandOutput) => void
+  ): Promise<ListModelCardVersionsCommandOutput> | void {
+    const command = new ListModelCardVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7929,6 +8919,70 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Gets a list of past alerts in a model monitoring schedule.</p>
+   */
+  public listMonitoringAlertHistory(
+    args: ListMonitoringAlertHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMonitoringAlertHistoryCommandOutput>;
+  public listMonitoringAlertHistory(
+    args: ListMonitoringAlertHistoryCommandInput,
+    cb: (err: any, data?: ListMonitoringAlertHistoryCommandOutput) => void
+  ): void;
+  public listMonitoringAlertHistory(
+    args: ListMonitoringAlertHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMonitoringAlertHistoryCommandOutput) => void
+  ): void;
+  public listMonitoringAlertHistory(
+    args: ListMonitoringAlertHistoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMonitoringAlertHistoryCommandOutput) => void),
+    cb?: (err: any, data?: ListMonitoringAlertHistoryCommandOutput) => void
+  ): Promise<ListMonitoringAlertHistoryCommandOutput> | void {
+    const command = new ListMonitoringAlertHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the alerts for a single monitoring schedule.</p>
+   */
+  public listMonitoringAlerts(
+    args: ListMonitoringAlertsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMonitoringAlertsCommandOutput>;
+  public listMonitoringAlerts(
+    args: ListMonitoringAlertsCommandInput,
+    cb: (err: any, data?: ListMonitoringAlertsCommandOutput) => void
+  ): void;
+  public listMonitoringAlerts(
+    args: ListMonitoringAlertsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMonitoringAlertsCommandOutput) => void
+  ): void;
+  public listMonitoringAlerts(
+    args: ListMonitoringAlertsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMonitoringAlertsCommandOutput) => void),
+    cb?: (err: any, data?: ListMonitoringAlertsCommandOutput) => void
+  ): Promise<ListMonitoringAlertsCommandOutput> | void {
+    const command = new ListMonitoringAlertsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns list of all monitoring job executions.</p>
    */
   public listMonitoringExecutions(
@@ -8025,8 +9079,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Returns a list of the SageMaker notebook instances in the requester's account in an Amazon Web Services
-   *             Region. </p>
+   * <p>Returns a list of the SageMaker notebook instances in the requester's account in an
+   *                 Amazon Web Services Region. </p>
    */
   public listNotebookInstances(
     args: ListNotebookInstancesCommandInput,
@@ -8247,6 +9301,32 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Lists spaces.</p>
+   */
+  public listSpaces(args: ListSpacesCommandInput, options?: __HttpHandlerOptions): Promise<ListSpacesCommandOutput>;
+  public listSpaces(args: ListSpacesCommandInput, cb: (err: any, data?: ListSpacesCommandOutput) => void): void;
+  public listSpaces(
+    args: ListSpacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSpacesCommandOutput) => void
+  ): void;
+  public listSpaces(
+    args: ListSpacesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSpacesCommandOutput) => void),
+    cb?: (err: any, data?: ListSpacesCommandOutput) => void
+  ): Promise<ListSpacesCommandOutput> | void {
+    const command = new ListSpacesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists devices allocated to the stage, containing detailed device information and deployment status.</p>
    */
   public listStageDevices(
@@ -8372,7 +9452,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Lists training jobs.</p>
-   *         <note>
+   *          <note>
    *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
    *                 time, the <code>MaxResults</code> number of training jobs are first retrieved
    *                 ignoring the <code>StatusEquals</code> parameter and then they are filtered by the
@@ -8386,12 +9466,13 @@ export class SageMaker extends SageMakerClient {
    *                     <code>InProgress</code>, are selected (sorted according to the creation time,
    *                 from the most current to the oldest). Next, those with a status of
    *                     <code>InProgress</code> are returned.</p>
-   *             <p>You can quickly test the API using the following Amazon Web Services CLI code.</p>
+   *             <p>You can quickly test the API using the following Amazon Web Services CLI
+   *                 code.</p>
    *             <p>
    *                <code>aws sagemaker list-training-jobs --max-results 100 --status-equals
    *                     InProgress</code>
    *             </p>
-   *         </note>
+   *          </note>
    */
   public listTrainingJobs(
     args: ListTrainingJobsCommandInput,
@@ -8961,6 +10042,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Starts an inference experiment.</p>
+   */
+  public startInferenceExperiment(
+    args: StartInferenceExperimentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartInferenceExperimentCommandOutput>;
+  public startInferenceExperiment(
+    args: StartInferenceExperimentCommandInput,
+    cb: (err: any, data?: StartInferenceExperimentCommandOutput) => void
+  ): void;
+  public startInferenceExperiment(
+    args: StartInferenceExperimentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartInferenceExperimentCommandOutput) => void
+  ): void;
+  public startInferenceExperiment(
+    args: StartInferenceExperimentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartInferenceExperimentCommandOutput) => void),
+    cb?: (err: any, data?: StartInferenceExperimentCommandOutput) => void
+  ): Promise<StartInferenceExperimentCommandOutput> | void {
+    const command = new StartInferenceExperimentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts a previously stopped monitoring schedule.</p>
    *          <note>
    *             <p>By default, when you successfully create a new schedule, the status of a monitoring
@@ -9064,7 +10177,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>A method for forcing the termination of a running job.</p>
+   * <p>A method for forcing a running job to shut down.</p>
    */
   public stopAutoMLJob(
     args: StopAutoMLJobCommandInput,
@@ -9097,9 +10210,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Stops a model compilation job.</p>
-   *         <p> To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This gracefully shuts the
+   *          <p> To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This gracefully shuts the
    *             job down. If the job hasn't stopped, it sends the SIGKILL signal.</p>
-   *         <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker changes the <a>CompilationJobSummary$CompilationJobStatus</a> of the job to
+   *          <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker changes the <a>CompilationJobSummary$CompilationJobStatus</a> of the job to
    *             <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <a>CompilationJobSummary$CompilationJobStatus</a> to <code>Stopped</code>.
    *         </p>
    */
@@ -9199,7 +10312,7 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Stops a running hyperparameter tuning job and all running training jobs that the
    *             tuning job launched.</p>
-   *         <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All
+   *          <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All
    *             data that the training jobs write to Amazon CloudWatch Logs are still available in CloudWatch. After the
    *             tuning job moves to the <code>Stopped</code> state, it releases all
    *             reserved
@@ -9224,6 +10337,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: StopHyperParameterTuningJobCommandOutput) => void
   ): Promise<StopHyperParameterTuningJobCommandOutput> | void {
     const command = new StopHyperParameterTuningJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops an inference experiment.</p>
+   */
+  public stopInferenceExperiment(
+    args: StopInferenceExperimentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopInferenceExperimentCommandOutput>;
+  public stopInferenceExperiment(
+    args: StopInferenceExperimentCommandInput,
+    cb: (err: any, data?: StopInferenceExperimentCommandOutput) => void
+  ): void;
+  public stopInferenceExperiment(
+    args: StopInferenceExperimentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopInferenceExperimentCommandOutput) => void
+  ): void;
+  public stopInferenceExperiment(
+    args: StopInferenceExperimentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopInferenceExperimentCommandOutput) => void),
+    cb?: (err: any, data?: StopInferenceExperimentCommandOutput) => void
+  ): Promise<StopInferenceExperimentCommandOutput> | void {
+    const command = new StopInferenceExperimentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -9336,7 +10481,7 @@ export class SageMaker extends SageMakerClient {
    *             disconnects the ML storage volume from it. SageMaker preserves the ML storage volume. SageMaker
    *             stops charging you for the ML compute instance when you call
    *                 <code>StopNotebookInstance</code>.</p>
-   *         <p>To access data on the ML storage volume for a notebook instance that has been
+   *          <p>To access data on the ML storage volume for a notebook instance that has been
    *             terminated, call the <code>StartNotebookInstance</code> API.
    *                 <code>StartNotebookInstance</code> launches another ML compute instance, configures
    *             it, and attaches the preserved ML storage volume so you can continue your work.
@@ -9373,7 +10518,6 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Stops a pipeline execution.</p>
-   *
    *          <p>
    *             <b>Callback Step</b>
    *          </p>
@@ -9387,7 +10531,6 @@ export class SageMaker extends SageMakerClient {
    *         <code>SendPipelineExecutionStepSuccess</code> or
    *         <code>SendPipelineExecutionStepFailure</code>.</p>
    *          <p>Only when SageMaker Pipelines receives one of these calls will it stop the pipeline execution.</p>
-   *
    *          <p>
    *             <b>Lambda Step</b>
    *          </p>
@@ -9464,7 +10607,7 @@ export class SageMaker extends SageMakerClient {
    *                 <code>SIGTERM</code> signal, which delays job termination for 120 seconds.
    *             Algorithms might use this 120-second window to save the model artifacts, so the results
    *             of the training is not lost. </p>
-   *         <p>When it receives a <code>StopTrainingJob</code> request, SageMaker changes the status of
+   *          <p>When it receives a <code>StopTrainingJob</code> request, SageMaker changes the status of
    *             the job to <code>Stopping</code>. After SageMaker stops the job, it sets the status to
    *                 <code>Stopped</code>.</p>
    */
@@ -9499,7 +10642,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Stops a batch transform job.</p>
-   *         <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
+   *          <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
    *             changes to <code>Stopping</code>. After Amazon SageMaker
    *             stops
    *             the job, the status is set to <code>Stopped</code>. When you stop a batch transform job before
@@ -9788,12 +10931,12 @@ export class SageMaker extends SageMakerClient {
    * <p>Deploys the new <code>EndpointConfig</code> specified in the request, switches to
    *             using newly created endpoint, and then deletes resources provisioned for the endpoint
    *             using the previous <code>EndpointConfig</code> (there is no availability loss). </p>
-   *         <p>When SageMaker receives the request, it sets the endpoint status to
+   *          <p>When SageMaker receives the request, it sets the endpoint status to
    *                 <code>Updating</code>. After updating the endpoint, it sets the status to
    *                 <code>InService</code>. To check the status of an endpoint, use the <a>DescribeEndpoint</a> API.
    *
    *         </p>
-   *         <note>
+   *          <note>
    *             <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is
    *                 live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code>
    *                 operations are being performed on the endpoint. To update an endpoint, you must
@@ -9801,7 +10944,7 @@ export class SageMaker extends SageMakerClient {
    *             <p>If you delete the <code>EndpointConfig</code> of an endpoint that is active or
    *                 being created or updated you may lose visibility into the instance type the endpoint
    *                 is using. The endpoint must be deleted in order to stop incurring charges.</p>
-   *         </note>
+   *          </note>
    */
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
@@ -9966,6 +11109,35 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Update a hub.</p>
+   *          <note>
+   *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+   *          </note>
+   */
+  public updateHub(args: UpdateHubCommandInput, options?: __HttpHandlerOptions): Promise<UpdateHubCommandOutput>;
+  public updateHub(args: UpdateHubCommandInput, cb: (err: any, data?: UpdateHubCommandOutput) => void): void;
+  public updateHub(
+    args: UpdateHubCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHubCommandOutput) => void
+  ): void;
+  public updateHub(
+    args: UpdateHubCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHubCommandOutput) => void),
+    cb?: (err: any, data?: UpdateHubCommandOutput) => void
+  ): Promise<UpdateHubCommandOutput> | void {
+    const command = new UpdateHubCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the properties of a SageMaker image. To change the image's tags, use the
    *         <a>AddTags</a> and <a>DeleteTags</a> APIs.</p>
    */
@@ -9982,6 +11154,109 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: UpdateImageCommandOutput) => void
   ): Promise<UpdateImageCommandOutput> | void {
     const command = new UpdateImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the properties of a SageMaker image version.</p>
+   */
+  public updateImageVersion(
+    args: UpdateImageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateImageVersionCommandOutput>;
+  public updateImageVersion(
+    args: UpdateImageVersionCommandInput,
+    cb: (err: any, data?: UpdateImageVersionCommandOutput) => void
+  ): void;
+  public updateImageVersion(
+    args: UpdateImageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateImageVersionCommandOutput) => void
+  ): void;
+  public updateImageVersion(
+    args: UpdateImageVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateImageVersionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateImageVersionCommandOutput) => void
+  ): Promise<UpdateImageVersionCommandOutput> | void {
+    const command = new UpdateImageVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *            Updates an inference experiment that you created. The status of the inference experiment has to be either
+   *            <code>Created</code>, <code>Running</code>. For more information on the status of an inference experiment,
+   *            see <a>DescribeInferenceExperimentResponse$Status</a>.
+   *        </p>
+   */
+  public updateInferenceExperiment(
+    args: UpdateInferenceExperimentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInferenceExperimentCommandOutput>;
+  public updateInferenceExperiment(
+    args: UpdateInferenceExperimentCommandInput,
+    cb: (err: any, data?: UpdateInferenceExperimentCommandOutput) => void
+  ): void;
+  public updateInferenceExperiment(
+    args: UpdateInferenceExperimentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInferenceExperimentCommandOutput) => void
+  ): void;
+  public updateInferenceExperiment(
+    args: UpdateInferenceExperimentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInferenceExperimentCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInferenceExperimentCommandOutput) => void
+  ): Promise<UpdateInferenceExperimentCommandOutput> | void {
+    const command = new UpdateInferenceExperimentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update an Amazon SageMaker Model Card.</p>
+   *          <important>
+   *             <p>You cannot update both model card content and model card status in a single call.</p>
+   *          </important>
+   */
+  public updateModelCard(
+    args: UpdateModelCardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateModelCardCommandOutput>;
+  public updateModelCard(
+    args: UpdateModelCardCommandInput,
+    cb: (err: any, data?: UpdateModelCardCommandOutput) => void
+  ): void;
+  public updateModelCard(
+    args: UpdateModelCardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateModelCardCommandOutput) => void
+  ): void;
+  public updateModelCard(
+    args: UpdateModelCardCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateModelCardCommandOutput) => void),
+    cb?: (err: any, data?: UpdateModelCardCommandOutput) => void
+  ): Promise<UpdateModelCardCommandOutput> | void {
+    const command = new UpdateModelCardCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -10014,6 +11289,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: UpdateModelPackageCommandOutput) => void
   ): Promise<UpdateModelPackageCommandOutput> | void {
     const command = new UpdateModelPackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update the parameters of a model monitor alert.</p>
+   */
+  public updateMonitoringAlert(
+    args: UpdateMonitoringAlertCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMonitoringAlertCommandOutput>;
+  public updateMonitoringAlert(
+    args: UpdateMonitoringAlertCommandInput,
+    cb: (err: any, data?: UpdateMonitoringAlertCommandOutput) => void
+  ): void;
+  public updateMonitoringAlert(
+    args: UpdateMonitoringAlertCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMonitoringAlertCommandOutput) => void
+  ): void;
+  public updateMonitoringAlert(
+    args: UpdateMonitoringAlertCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMonitoringAlertCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMonitoringAlertCommandOutput) => void
+  ): Promise<UpdateMonitoringAlertCommandOutput> | void {
+    const command = new UpdateMonitoringAlertCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -10191,12 +11498,12 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Updates a machine learning (ML) project that is created from a template that
    *             sets up an ML pipeline from training to deploying an approved model.</p>
-   *         <note>
+   *          <note>
    *             <p>You must not update a project that is in use. If you update the
    *                     <code>ServiceCatalogProvisioningUpdateDetails</code> of a project that is active
    *                 or being created, or updated, you may lose resources already created by the
    *                 project.</p>
-   *             </note>
+   *          </note>
    */
   public updateProject(
     args: UpdateProjectCommandInput,
@@ -10228,7 +11535,34 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Update a model training job to request a new Debugger profiling configuration.</p>
+   * <p>Updates the settings of a space.</p>
+   */
+  public updateSpace(args: UpdateSpaceCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSpaceCommandOutput>;
+  public updateSpace(args: UpdateSpaceCommandInput, cb: (err: any, data?: UpdateSpaceCommandOutput) => void): void;
+  public updateSpace(
+    args: UpdateSpaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSpaceCommandOutput) => void
+  ): void;
+  public updateSpace(
+    args: UpdateSpaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSpaceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSpaceCommandOutput) => void
+  ): Promise<UpdateSpaceCommandOutput> | void {
+    const command = new UpdateSpaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update a model training job to request a new Debugger profiling configuration or to
+   *             change warm pool retention length.</p>
    */
   public updateTrainingJob(
     args: UpdateTrainingJobCommandInput,
@@ -10353,31 +11687,29 @@ export class SageMaker extends SageMakerClient {
    * <p>Use this operation to update your workforce. You can use this operation to
    *         require that workers use specific IP addresses to work on tasks
    *         and to update your OpenID Connect (OIDC) Identity Provider (IdP) workforce configuration.</p>
-   *         <p>The worker portal is now supported in VPC and public internet.</p>
-   *
-   *
-   *         <p> Use <code>SourceIpConfig</code> to restrict worker access to tasks to a specific range of IP addresses.
+   *          <p>The worker portal is now supported in VPC and public internet.</p>
+   *          <p> Use <code>SourceIpConfig</code> to restrict worker access to tasks to a specific range of IP addresses.
    *         You specify allowed IP addresses by creating a list of up to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>.
    *         By default, a workforce isn't restricted to specific IP addresses. If you specify a
    *             range of IP addresses, workers who attempt to access tasks using any IP address outside
    *             the specified range are denied and get a <code>Not Found</code> error message on
    *             the worker portal.</p>
    *          <p>To restrict access to all the workers in public internet, add the <code>SourceIpConfig</code> CIDR value as "0.0.0.0/0".</p>
-   *         <important>
+   *          <important>
    *             <p>Amazon SageMaker does not support Source Ip restriction for worker portals in VPC.</p>
-   *         </important>
-   *         <p>Use <code>OidcConfig</code> to update the configuration of a workforce created using
+   *          </important>
+   *          <p>Use <code>OidcConfig</code> to update the configuration of a workforce created using
    *             your own OIDC IdP. </p>
-   *         <important>
+   *          <important>
    *             <p>You can only update your OIDC IdP configuration when there are no work teams
    *                 associated with your workforce. You can delete work teams using the  operation.</p>
-   *         </important>
-   *         <p>After restricting access to a range of IP addresses or updating your OIDC IdP configuration with this operation, you
+   *          </important>
+   *          <p>After restricting access to a range of IP addresses or updating your OIDC IdP configuration with this operation, you
    *         can view details about your update workforce using the
    *             operation.</p>
-   *         <important>
+   *          <important>
    *             <p>This operation only applies to private workforces.</p>
-   *         </important>
+   *          </important>
    */
   public updateWorkforce(
     args: UpdateWorkforceCommandInput,

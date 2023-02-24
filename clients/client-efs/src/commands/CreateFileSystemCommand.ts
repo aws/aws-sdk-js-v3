@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -57,14 +58,12 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *          <p>For more information, see
  *       <a href="https://docs.aws.amazon.com/efs/latest/ug/creating-using-create-fs.html#creating-using-create-fs-part1">Creating a file system</a>
  *      in the <i>Amazon EFS User Guide</i>.</p>
- *
  *          <note>
  *             <p>The <code>CreateFileSystem</code> call returns while the file system's lifecycle
  *         state is still <code>creating</code>. You can check the file system creation status by
  *         calling the <a>DescribeFileSystems</a> operation, which among other things returns the file
  *         system state.</p>
  *          </note>
- *
  *          <p>This operation accepts an optional <code>PerformanceMode</code> parameter that you
  *       choose for your file system. We recommend <code>generalPurpose</code> performance mode for
  *       most file systems. File systems using the <code>maxIO</code> performance mode can scale to
@@ -72,14 +71,11 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *       higher latencies for most file operations. The performance mode can't be changed after
  *       the file system has been created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS performance
  *         modes</a>.</p>
- *
  *          <p>You can set the throughput mode for the file system using the <code>ThroughputMode</code> parameter.</p>
- *
  *          <p>After the file system is fully created, Amazon EFS sets its lifecycle state to
  *         <code>available</code>, at which point you can create one or more mount targets for the file
  *       system in your VPC. For more information, see <a>CreateMountTarget</a>. You mount your Amazon EFS file system on an EC2 instances in
  *       your VPC by using the mount target. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How it Works</a>. </p>
- *
  *          <p> This operation requires permissions for the
  *         <code>elasticfilesystem:CreateFileSystem</code> action. </p>
  * @example
@@ -105,6 +101,15 @@ export class CreateFileSystemCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +125,9 @@ export class CreateFileSystemCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateFileSystemCommandInput, CreateFileSystemCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateFileSystemCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -19,3 +19,5 @@ export * from "./GetTraceGraphPaginator";
 export * from "./GetTraceSummariesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListResourcePoliciesPaginator";
+export * from "./ListTagsForResourcePaginator";

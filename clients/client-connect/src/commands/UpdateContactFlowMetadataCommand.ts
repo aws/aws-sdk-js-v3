@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -16,6 +17,8 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import {
   UpdateContactFlowMetadataRequest,
   UpdateContactFlowMetadataRequestFilterSensitiveLog,
+  UpdateContactFlowMetadataResponse,
+  UpdateContactFlowMetadataResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateContactFlowMetadataCommand,
@@ -23,10 +26,10 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface UpdateContactFlowMetadataCommandInput extends UpdateContactFlowMetadataRequest {}
-export interface UpdateContactFlowMetadataCommandOutput extends __MetadataBearer {}
+export interface UpdateContactFlowMetadataCommandOutput extends UpdateContactFlowMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Updates metadata about specified contact flow.</p>
+ * <p>Updates metadata about specified flow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +53,15 @@ export class UpdateContactFlowMetadataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateContactFlowMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +77,9 @@ export class UpdateContactFlowMetadataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateContactFlowMetadataCommandInput, UpdateContactFlowMetadataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateContactFlowMetadataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,7 +91,7 @@ export class UpdateContactFlowMetadataCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateContactFlowMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: UpdateContactFlowMetadataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

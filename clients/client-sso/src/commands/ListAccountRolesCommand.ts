@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface ListAccountRolesCommandInput extends ListAccountRolesRequest {}
 export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all roles that are assigned to the user for a given Amazon Web Services account.</p>
+ * <p>Lists all roles that are assigned to the user for a given AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +53,15 @@ export class ListAccountRolesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListAccountRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,9 @@ export class ListAccountRolesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAccountRolesCommandInput, ListAccountRolesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListAccountRolesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

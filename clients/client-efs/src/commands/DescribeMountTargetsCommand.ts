@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,6 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * <p>Returns the descriptions of all the current mount targets, or a specific mount target,
  *       for a file system. When requesting all of the current mount targets, the order of mount
  *       targets returned in the response is unspecified.</p>
- *
  *          <p>This operation requires permissions for the
  *         <code>elasticfilesystem:DescribeMountTargets</code> action, on either the file system ID
  *       that you specify in <code>FileSystemId</code>, or on the file system of the mount target that
@@ -59,6 +59,15 @@ export class DescribeMountTargetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeMountTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +83,9 @@ export class DescribeMountTargetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeMountTargetsCommandInput, DescribeMountTargetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeMountTargetsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

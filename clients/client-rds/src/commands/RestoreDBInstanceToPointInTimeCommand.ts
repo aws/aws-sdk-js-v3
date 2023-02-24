@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,15 +32,15 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
 
 /**
  * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.</p>
- *         <p>The target database is created with most of the original configuration, but in a
+ *          <p>The target database is created with most of the original configuration, but in a
  *             system-selected Availability Zone, with the default security group, the default subnet
  *             group, and the default DB parameter group. By default, the new DB instance is created as
  *             a single-AZ deployment except when the instance is a SQL Server instance that has an
  *             option group that is associated with mirroring; in this case, the instance becomes a
  *             mirrored deployment and not a single-AZ deployment.</p>
- *         <note>
+ *          <note>
  *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterToPointInTime</code>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +64,15 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RestoreDBInstanceToPointInTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RestoreDBInstanceToPointInTimeCommandInput, RestoreDBInstanceToPointInTimeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RestoreDBInstanceToPointInTimeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

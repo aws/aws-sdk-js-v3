@@ -1,8 +1,10 @@
 // smithy-typescript generated code
-import { Logger as __Logger } from "@aws-sdk/types";
+import { NoOpLogger } from "@aws-sdk/smithy-client";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { KafkaClientConfig } from "./KafkaClient";
 
 /**
@@ -10,9 +12,13 @@ import { KafkaClientConfig } from "./KafkaClient";
  */
 export const getRuntimeConfig = (config: KafkaClientConfig) => ({
   apiVersion: "2018-11-14",
+  base64Decoder: config?.base64Decoder ?? fromBase64,
+  base64Encoder: config?.base64Encoder ?? toBase64,
   disableHostPrefix: config?.disableHostPrefix ?? false,
-  logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
+  logger: config?.logger ?? new NoOpLogger(),
   serviceId: config?.serviceId ?? "Kafka",
   urlParser: config?.urlParser ?? parseUrl,
+  utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+  utf8Encoder: config?.utf8Encoder ?? toUtf8,
 });

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface UnsubscribeCommandInput extends UnsubscribeRequest {}
 export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataBearer {}
 
 /**
- * <p>Removes an association between a notification rule and an Amazon SNS topic so that
+ * <p>Removes an association between a notification rule and an Chatbot topic so that
  *             subscribers to that topic stop receiving notifications when the events described in the
  *             rule are triggered.</p>
  * @example
@@ -58,6 +59,15 @@ export class UnsubscribeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UnsubscribeCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,7 @@ export class UnsubscribeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UnsubscribeCommandInput, UnsubscribeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UnsubscribeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

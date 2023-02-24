@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `JsonProtocolClient` and
-the commands you need, for example `EmptyOperationCommand`:
+the commands you need, for example `DatetimeOffsetsCommand`:
 
 ```js
 // ES5 example
-const { JsonProtocolClient, EmptyOperationCommand } = require("@aws-sdk/aws-protocoltests-json");
+const { JsonProtocolClient, DatetimeOffsetsCommand } = require("@aws-sdk/aws-protocoltests-json");
 ```
 
 ```ts
 // ES6+ example
-import { JsonProtocolClient, EmptyOperationCommand } from "@aws-sdk/aws-protocoltests-json";
+import { JsonProtocolClient, DatetimeOffsetsCommand } from "@aws-sdk/aws-protocoltests-json";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new JsonProtocolClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new EmptyOperationCommand(params);
+const command = new DatetimeOffsetsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.JsonProtocol({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.emptyOperation(params);
+  const data = await client.datetimeOffsets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .emptyOperation(params)
+  .datetimeOffsets(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.emptyOperation(params, (err, data) => {
+client.datetimeOffsets(params, (err, data) => {
   // process err and data.
 });
 ```

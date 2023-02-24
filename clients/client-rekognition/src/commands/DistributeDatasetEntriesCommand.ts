@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -38,7 +39,6 @@ export interface DistributeDatasetEntriesCommandOutput extends DistributeDataset
  *          <p>Distributing a dataset takes a while to complete. To check the status call <code>DescribeDataset</code>. The operation
  *          is complete when the <code>Status</code> field for the training dataset and the test dataset is <code>UPDATE_COMPLETE</code>.
  *          If the dataset split fails, the value of <code>Status</code> is <code>UPDATE_FAILED</code>.</p>
- *
  *          <p>This operation requires permissions to perform the <code>rekognition:DistributeDatasetEntries</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +63,15 @@ export class DistributeDatasetEntriesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DistributeDatasetEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +87,9 @@ export class DistributeDatasetEntriesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DistributeDatasetEntriesCommandInput, DistributeDatasetEntriesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DistributeDatasetEntriesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

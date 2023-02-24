@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,12 +32,12 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  * <p>Returns the <code>UnlockCode</code> code value for the specified job. A particular
  *         <code>UnlockCode</code> value can be accessed for up to 360 days after the associated job
  *       has been created.</p>
- *
  *          <p>The <code>UnlockCode</code> value is a 29-character code with 25 alphanumeric
  *       characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed
  *       along with the manifest to the Snow device through the Snowball client when the client is
- *       started for the first time.</p>
- *
+ *       started for the first time. The only valid status for calling this API is
+ *         <code>WithCustomer</code> as the manifest and <code>Unlock</code> code values are used for
+ *       securing your device and should only be used when you have the device.</p>
  *          <p>As a best practice, we recommend that you don't save a copy of the
  *         <code>UnlockCode</code> in the same location as the manifest file for that job. Saving these
  *       separately helps prevent unauthorized parties from gaining access to the Snow device
@@ -64,6 +65,15 @@ export class GetJobUnlockCodeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetJobUnlockCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +89,9 @@ export class GetJobUnlockCodeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetJobUnlockCodeCommandInput, GetJobUnlockCodeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetJobUnlockCodeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -39,7 +40,6 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  *      at the time of the API call.</p>
  *             </li>
  *          </ul>
- *
  *          <p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to
  *    stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios
  *    where the recording has started and you want to suspend and resume it, such as when collecting
@@ -71,6 +71,15 @@ export class StartContactRecordingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartContactRecordingCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +95,9 @@ export class StartContactRecordingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartContactRecordingCommandInput, StartContactRecordingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartContactRecordingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

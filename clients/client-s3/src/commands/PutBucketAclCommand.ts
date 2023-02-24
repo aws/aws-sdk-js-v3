@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -28,7 +28,6 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * <p>Sets the permissions on an existing bucket using access control lists (ACL). For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. To set
  *          the ACL of a bucket, you must have <code>WRITE_ACP</code> permission.</p>
- *
  *          <p>You can use one of the following two ways to set a bucket's permissions:</p>
  *          <ul>
  *             <li>
@@ -38,17 +37,14 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *                <p>Specify permissions using request headers</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>You cannot specify access permission using both the body and the request
  *             headers.</p>
  *          </note>
- *
  *          <p>Depending on your application needs, you may choose to set the ACL on a bucket using
  *          either the request body or the headers. For example, if you have an existing application
  *          that updates a bucket ACL using the request body, then you can continue to use that
  *          approach.</p>
- *
  *          <important>
  *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions.
  *             You must use policies to grant access to your bucket and the objects in it. Requests to set ACLs or update ACLs fail and
@@ -132,7 +128,6 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *                   <code>x-amz-grant-write: uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
  *                   id="111122223333", id="555566667777" </code>
  *                </p>
- *
  *             </li>
  *          </ul>
  *          <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do
@@ -199,8 +194,6 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *                </note>
  *             </li>
  *          </ul>
- *
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>
@@ -244,6 +237,21 @@ export class PutBucketAclCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutBucketAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -259,7 +267,7 @@ export class PutBucketAclCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutBucketAclCommandInput, PutBucketAclCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutBucketAclCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,

@@ -623,7 +623,7 @@ export interface ColumnStatisticsConfiguration {
 export interface EntityDetectorConfiguration {
   /**
    * <p>Entity types to detect. Can be any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>USA_SSN</p>
    *             </li>
@@ -682,7 +682,7 @@ export interface EntityDetectorConfiguration {
    *                <p>DATE</p>
    *             </li>
    *          </ul>
-   *         <p>The Entity type group USA_ALL is also supported, and includes all of the
+   *          <p>The Entity type group USA_ALL is also supported, and includes all of the
    *             above entity types except PERSON_NAME and DATE.</p>
    */
   EntityTypes: string[] | undefined;
@@ -752,12 +752,12 @@ export interface JobSample {
   /**
    * <p>A value that determines whether the profile job is run on the entire dataset or a
    *             specified number of rows. This value must be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>FULL_DATASET - The profile job is run on the entire dataset.</p>
+   *                <p>FULL_DATASET - The profile job is run on the entire dataset.</p>
    *             </li>
    *             <li>
-   *                 <p>CUSTOM_ROWS - The profile job is run on the number of rows specified in the
+   *                <p>CUSTOM_ROWS - The profile job is run on the number of rows specified in the
    *                     <code>Size</code> parameter.</p>
    *             </li>
    *          </ul>
@@ -768,7 +768,7 @@ export interface JobSample {
    * <p>The <code>Size</code> parameter is only required when the mode is CUSTOM_ROWS. The
    *             profile job is run on the specified number of rows. The maximum value for size is
    *             Long.MAX_VALUE.</p>
-   *         <p>Long.MAX_VALUE = 9223372036854775807</p>
+   *          <p>Long.MAX_VALUE = 9223372036854775807</p>
    */
   Size?: number;
 }
@@ -816,14 +816,14 @@ export interface CreateProfileJobRequest {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - <code>SSE-KMS</code> - Server-side encryption with
    *                     KMS-managed keys.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
    *             </li>
    *          </ul>
@@ -1007,9 +1007,9 @@ export interface RecipeAction {
 
 /**
  * <p>Represents an individual condition that evaluates to true or false.</p>
- *         <p>Conditions are used with recipe actions. The action is only performed for column values where the
+ *          <p>Conditions are used with recipe actions. The action is only performed for column values where the
  *             condition evaluates to true.</p>
- *         <p>If a recipe requires more than one condition, then the recipe must specify multiple
+ *          <p>If a recipe requires more than one condition, then the recipe must specify multiple
  *             <code>ConditionExpression</code> elements. Each condition is applied to the rows in a dataset first, before
  *             the recipe action is performed.</p>
  */
@@ -1043,10 +1043,10 @@ export interface RecipeStep {
 
   /**
    * <p>One or more conditions that must be met for the recipe step to succeed.</p>
-   *         <note>
+   *          <note>
    *             <p>All of the conditions in the array must be met. In other words, all of the
    *                 conditions must be combined using a logical AND operation.</p>
-   *         </note>
+   *          </note>
    */
   ConditionExpressions?: ConditionExpression[];
 }
@@ -1295,13 +1295,13 @@ export interface CreateRecipeJobRequest {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
    *             </li>
    *          </ul>
@@ -1447,7 +1447,7 @@ export interface Rule {
    *             column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors
    *             has been defined, then there should be no column reference in the left side of a
    *             condition, for example, <code>is_between :val1 and :val2</code>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/profile.data-quality-available-checks.html">Available checks</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/profile.data-quality-available-checks.html">Available checks</a>
    *          </p>
    */
   CheckExpression: string | undefined;
@@ -1757,13 +1757,13 @@ export interface DescribeJobResponse {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon
    *                     S3.</p>
    *             </li>
@@ -1778,14 +1778,14 @@ export interface DescribeJobResponse {
 
   /**
    * <p>The job type, which must be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PROFILE</code> - The job analyzes the dataset to determine its size,
    *                     data types, data distribution, and more.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RECIPE</code> - The job applies one or more transformations to a
    *                     dataset.</p>
    *             </li>
@@ -2092,17 +2092,17 @@ export interface DescribeProjectResponse {
 
   /**
    * <p>Describes the current state of the session:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PROVISIONING</code> - allocating resources for the session.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>INITIALIZING</code> - getting the session ready for first use.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ASSIGNED</code> - the session is ready for use.</p>
    *             </li>
    *          </ul>
@@ -2606,13 +2606,13 @@ export interface Job {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
    *             </li>
    *          </ul>
@@ -2626,14 +2626,14 @@ export interface Job {
 
   /**
    * <p>The job type of the job, which must be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PROFILE</code> - A job to analyze a dataset, to determine its size, data
    *                     types, data distribution, and more.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RECIPE</code> - A job to apply one or more transformations to a
    *                     dataset.</p>
    *             </li>
@@ -2859,7 +2859,7 @@ export interface ListRecipesRequest {
    *                 <code>LATEST_PUBLISHED</code>. If <code>RecipeVersion</code> is omitted,
    *                 <code>ListRecipes</code> returns all of the <code>LATEST_PUBLISHED</code> recipe
    *             versions.</p>
-   *         <p>Valid values: <code>LATEST_WORKING</code> | <code>LATEST_PUBLISHED</code>
+   *          <p>Valid values: <code>LATEST_WORKING</code> | <code>LATEST_PUBLISHED</code>
    *          </p>
    */
   RecipeVersion?: string;
@@ -2931,20 +2931,20 @@ export interface Recipe {
 
   /**
    * <p>The identifier for the version for the recipe. Must be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Numeric version (<code>X.Y</code>) - <code>X</code> and <code>Y</code> stand
+   *                <p>Numeric version (<code>X.Y</code>) - <code>X</code> and <code>Y</code> stand
    *                     for major and minor version numbers. The maximum length of each is 6 digits, and
    *                     neither can be negative values. Both <code>X</code> and <code>Y</code> are
    *                     required, and "0.0" isn't a valid version.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LATEST_WORKING</code> - the most recent valid version being developed in
    *                     a DataBrew project.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LATEST_PUBLISHED</code> - the most recent published version.</p>
    *             </li>
    *          </ul>
@@ -3441,13 +3441,13 @@ export interface UpdateProfileJobRequest {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon
    *                     S3.</p>
    *             </li>
@@ -3580,13 +3580,13 @@ export interface UpdateRecipeJobRequest {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
    *             </li>
    *          </ul>

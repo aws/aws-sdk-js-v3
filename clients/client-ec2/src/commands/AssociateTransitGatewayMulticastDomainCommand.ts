@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface AssociateTransitGatewayMulticastDomainCommandOutput
 
 /**
  * <p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p>
- *         <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a>
+ *          <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a>
  *             to see the state of the attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +58,15 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AssociateTransitGatewayMulticastDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateTransitGatewayMulticastDomainCommandInput, AssociateTransitGatewayMulticastDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateTransitGatewayMulticastDomainCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

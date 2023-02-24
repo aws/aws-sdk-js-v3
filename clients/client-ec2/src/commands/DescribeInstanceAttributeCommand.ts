@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,7 +36,7 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  *             | <code>rootDeviceName</code> | <code>blockDeviceMapping</code> |
  *                 <code>productCodes</code> | <code>sourceDestCheck</code> | <code>groupSet</code> |
  *                 <code>ebsOptimized</code> | <code>sriovNetSupport</code>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,15 @@ export class DescribeInstanceAttributeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class DescribeInstanceAttributeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeInstanceAttributeCommandInput, DescribeInstanceAttributeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeInstanceAttributeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

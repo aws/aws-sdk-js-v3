@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,26 +32,26 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * <p>Returns the current list of Amazon Web Services services and a list of service categories for each
  *             service. You then use service names and categories in your <a>CreateCase</a>
  *             requests. Each Amazon Web Services service has its own set of categories.</p>
- *         <p>The service codes and category codes correspond to the values that appear in the
+ *          <p>The service codes and category codes correspond to the values that appear in the
  *                 <b>Service</b> and <b>Category</b> lists on the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page. The values in those fields
  *             don't necessarily match the service codes and categories returned by the
  *                 <code>DescribeServices</code> operation. Always use the service codes and categories
  *             that the <code>DescribeServices</code> operation returns, so that you have the most
  *             recent set of service and category codes.</p>
- *         <note>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
  *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +75,15 @@ export class DescribeServicesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,6 +99,9 @@ export class DescribeServicesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeServicesCommandInput, DescribeServicesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeServicesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

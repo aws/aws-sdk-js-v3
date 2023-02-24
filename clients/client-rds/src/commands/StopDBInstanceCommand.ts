@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,15 +32,15 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * <p>Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint,
  *             DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if
  *             necessary.</p>
- *         <p>For more information, see
+ *          <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
  *                 Stopping an Amazon RDS DB Instance Temporarily</a> in the
  *             <i>Amazon RDS User Guide.</i>
  *          </p>
- *         <note>
+ *          <note>
  *             <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
  *             For Aurora clusters, use <code>StopDBCluster</code> instead.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +64,15 @@ export class StopDBInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class StopDBInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopDBInstanceCommandInput, StopDBInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopDBInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

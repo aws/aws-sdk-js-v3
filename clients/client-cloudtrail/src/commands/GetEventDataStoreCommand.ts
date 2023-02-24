@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,8 @@ export interface GetEventDataStoreCommandInput extends GetEventDataStoreRequest 
 export interface GetEventDataStoreCommandOutput extends GetEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about an event data store specified as either an ARN or the ID portion of the ARN.</p>
+ * <p>Returns information about an event data store specified as either an ARN or the ID
+ *          portion of the ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +54,15 @@ export class GetEventDataStoreCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +78,9 @@ export class GetEventDataStoreCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetEventDataStoreCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

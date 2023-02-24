@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,8 +34,8 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  *             <p>A repository sync status isn't tied to the Proton Repository resource (or any other Proton resource). Therefore, tags on an Proton Repository resource
  *         have no effect on this action. Specifically, you can't use these tags to control access to this action using Attribute-based access control
  *         (ABAC).</p>
- *             <p>For more information about ABAC, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">ABAC</a> in the <i>Proton
- *           Administrator Guide</i>.</p>
+ *             <p>For more information about ABAC, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">ABAC</a> in the <i>Proton User
+ *           Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +60,15 @@ export class GetRepositorySyncStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetRepositorySyncStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class GetRepositorySyncStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRepositorySyncStatusCommandInput, GetRepositorySyncStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetRepositorySyncStatusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

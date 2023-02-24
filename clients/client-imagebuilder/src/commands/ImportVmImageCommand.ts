@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,8 +35,8 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
  * 			action uses those files to import your VM and create an AMI. To import using the
  * 			CLI command, see <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html">import-image</a>
- * 		       </p>
- * 		       <p>You can reference the task ID from the VM import to pull in the AMI that
+ *          </p>
+ *          <p>You can reference the task ID from the VM import to pull in the AMI that
  * 			the import created as the base image for your Image Builder recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +61,15 @@ export class ImportVmImageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ImportVmImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,7 @@ export class ImportVmImageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ImportVmImageCommandInput, ImportVmImageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ImportVmImageCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

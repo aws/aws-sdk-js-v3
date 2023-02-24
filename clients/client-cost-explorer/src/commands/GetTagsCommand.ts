@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,7 +26,8 @@ export interface GetTagsCommandInput extends GetTagsRequest {}
 export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Queries for available tag keys and tag values for a specified period. You can search the tag values for an arbitrary string. </p>
+ * <p>Queries for available tag keys and tag values for a specified period. You can search
+ *       the tag values for an arbitrary string. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +51,15 @@ export class GetTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +75,7 @@ export class GetTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetTagsCommandInput, GetTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

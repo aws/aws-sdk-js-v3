@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,11 +36,8 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *       action will enable GuardDuty in the added member accounts, with the exception of the
  *       organization delegated administrator account, which must enable GuardDuty prior to being added as a
  *       member.</p>
- *          <p>If you are adding accounts by invitation use this action after GuardDuty has been enabled
- *       in potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">
- *                <code>Invite
- *         Members</code>
- *             </a>.</p>
+ *          <p>If you are adding accounts by invitation, use this action after GuardDuty has bee enabled in
+ *     potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +61,15 @@ export class CreateMembersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +85,7 @@ export class CreateMembersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateMembersCommandInput, CreateMembersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateMembersCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

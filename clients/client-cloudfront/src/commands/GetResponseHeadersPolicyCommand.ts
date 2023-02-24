@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,11 +29,11 @@ export interface GetResponseHeadersPolicyCommandInput extends GetResponseHeaders
 export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Gets a response headers policy, including metadata (the policy’s identifier and the date and
- * 			time when the policy was last modified).</p>
- * 		       <p>To get a response headers policy, you must provide the policy’s identifier. If the
- * 			response headers policy is attached to a distribution’s cache behavior, you can get the
- * 			policy’s identifier using <code>ListDistributions</code> or
+ * <p>Gets a response headers policy, including metadata (the policy's identifier and the
+ * 			date and time when the policy was last modified).</p>
+ *          <p>To get a response headers policy, you must provide the policy's identifier. If the
+ * 			response headers policy is attached to a distribution's cache behavior, you can get the
+ * 			policy's identifier using <code>ListDistributions</code> or
  * 			<code>GetDistribution</code>. If the response headers policy is not attached to a cache
  * 			behavior, you can get the identifier using
  * 			<code>ListResponseHeadersPolicies</code>.</p>
@@ -59,6 +60,15 @@ export class GetResponseHeadersPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetResponseHeadersPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class GetResponseHeadersPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetResponseHeadersPolicyCommandInput, GetResponseHeadersPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetResponseHeadersPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

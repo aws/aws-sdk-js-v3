@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,12 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
 
 /**
  * <p>Deletes the Amazon EKS cluster control plane.</p>
- *         <p>If you have active services in your cluster that are associated with a load balancer,
+ *          <p>If you have active services in your cluster that are associated with a load balancer,
  *             you must delete those services before deleting the cluster so that the load balancers
  *             are deleted properly. Otherwise, you can have orphaned resources in your VPC that
  *             prevent you from being able to delete the VPC. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html">Deleting a
  *                 Cluster</a> in the <i>Amazon EKS User Guide</i>.</p>
- *         <p>If you have managed node groups or Fargate profiles attached to the
+ *          <p>If you have managed node groups or Fargate profiles attached to the
  *             cluster, you must delete them first. For more information, see <a>DeleteNodegroup</a> and <a>DeleteFargateProfile</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +60,15 @@ export class DeleteClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,7 @@ export class DeleteClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteClusterCommandInput, DeleteClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteClusterCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

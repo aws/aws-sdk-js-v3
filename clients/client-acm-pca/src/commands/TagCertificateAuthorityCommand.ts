@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,8 +30,15 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  * 			by using a key-value pair. You can apply a tag to just one private CA if you want to
  * 			identify a specific characteristic of that CA, or you can apply the same tag to multiple
  * 			private CAs if you want to filter for a common relationship among those CAs. To remove
- * 			one or more tags, use the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UntagCertificateAuthority.html">UntagCertificateAuthority</a> action. Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html">ListTags</a> action to see what tags are
+ * 			one or more tags, use the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html">UntagCertificateAuthority</a> action. Call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListTags.html">ListTags</a> action to see what tags are
  * 			associated with your CA. </p>
+ *          <note>
+ *             <p>To attach tags to a private CA during the creation procedure, a CA administrator
+ * 				must first associate an inline IAM policy with the
+ * 					<code>CreateCertificateAuthority</code> action and explicitly allow tagging. For
+ * 				more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/auth-InlinePolicies.html#policy-tag-ca">Attaching tags to a CA
+ * 					at the time of creation</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +62,15 @@ export class TagCertificateAuthorityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TagCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +86,9 @@ export class TagCertificateAuthorityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TagCertificateAuthorityCommandInput, TagCertificateAuthorityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, TagCertificateAuthorityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

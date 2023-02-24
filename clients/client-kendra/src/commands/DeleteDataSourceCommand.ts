@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,11 +24,10 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
 export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the
- *       data source is already being deleted. While the data source is being
- *       deleted, the <code>Status</code> field returned by a call to the
- *         <code>DescribeDataSource</code> API is set to
- *         <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting Data Sources</a>.</p>
+ * <p>Deletes an Amazon Kendra data source connector. An exception is not thrown if the
+ *       data source is already being deleted. While the data source is being deleted, the
+ *         <code>Status</code> field returned by a call to the <code>DescribeDataSource</code> API is
+ *       set to <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting Data Sources</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +51,15 @@ export class DeleteDataSourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +75,9 @@ export class DeleteDataSourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteDataSourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

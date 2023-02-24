@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,8 +30,9 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
 
 /**
  * <p>Detects text in the input document. Amazon Textract can detect lines of text and the
- *          words that make up a line of text. The input document must be an image in JPEG, PNG, PDF, or TIFF
- *          format. <code>DetectDocumentText</code> returns the detected text in an array of <a>Block</a> objects. </p>
+ *          words that make up a line of text. The input document must be in one of the following image
+ *          formats:  JPEG, PNG, PDF, or TIFF. <code>DetectDocumentText</code> returns the detected
+ *          text in an array of <a>Block</a> objects. </p>
  *          <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object
  *          is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is
  *          a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p>
@@ -62,6 +64,15 @@ export class DetectDocumentTextCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetectDocumentTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +88,9 @@ export class DetectDocumentTextCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetectDocumentTextCommandInput, DetectDocumentTextCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetectDocumentTextCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

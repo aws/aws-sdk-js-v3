@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,14 +35,14 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  *             attached to the specified IAM entity. The entity can be an IAM user, group, or role.
  *             If you specify a user, then the request also includes all of the policies attached to
  *             groups that the user is a member of.</p>
- *         <p>You can optionally include a list of one or more additional policies, specified as
+ *          <p>You can optionally include a list of one or more additional policies, specified as
  *             strings. If you want to include <i>only</i> a list of policies by string,
  *             use <a>GetContextKeysForCustomPolicy</a> instead.</p>
- *         <p>
+ *          <p>
  *             <b>Note:</b> This operation discloses information about the
  *             permissions granted to other users. If you do not want users to see other user's
  *             permissions, then consider allowing them to use <a>GetContextKeysForCustomPolicy</a> instead.</p>
- *         <p>Context keys are variables maintained by Amazon Web Services and its services that provide details
+ *          <p>Context keys are variables maintained by Amazon Web Services and its services that provide details
  *             about the context of an API query request. Context keys can be evaluated by testing
  *             against a value in an IAM policy. Use <a>GetContextKeysForPrincipalPolicy</a> to understand what key names and values you must supply when you call <a>SimulatePrincipalPolicy</a>.</p>
  * @example
@@ -67,6 +68,15 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetContextKeysForPrincipalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,9 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetContextKeysForPrincipalPolicyCommandInput, GetContextKeysForPrincipalPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetContextKeysForPrincipalPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

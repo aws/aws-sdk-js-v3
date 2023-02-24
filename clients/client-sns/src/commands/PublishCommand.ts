@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,20 +29,21 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * <p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone
  *             number, or a message to a mobile platform endpoint (when you specify the
  *                 <code>TargetArn</code>).</p>
- *         <p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is
+ *          <p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is
  *             subscribed to the topic. The format of the message depends on the notification protocol
  *             for each subscribed endpoint.</p>
- *         <p>When a <code>messageId</code> is returned, the message is saved and Amazon SNS
- *             immediately delivers it to subscribers.</p>
- *         <p>To use the <code>Publish</code> action for publishing a message to a mobile endpoint,
+ *          <p>When a <code>messageId</code> is returned, the message is saved and Amazon SNS immediately
+ *             delivers it to subscribers.</p>
+ *          <p>To use the <code>Publish</code> action for publishing a message to a mobile endpoint,
  *             such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for
  *             the TargetArn parameter. The EndpointArn is returned when making a call with the
  *                 <code>CreatePlatformEndpoint</code> action. </p>
- *         <p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom
+ *          <p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom
  *                 Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
- *         <important>
- *             <p>You can publish messages only to topics and endpoints in the same Amazon Web Services Region.</p>
- *         </important>
+ *          <important>
+ *             <p>You can publish messages only to topics and endpoints in the same
+ *                 Amazon Web Services Region.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +63,15 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PublishCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +87,7 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
     options?: __HttpHandlerOptions
   ): Handler<PublishCommandInput, PublishCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PublishCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,5 +1,5 @@
 import { getProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/shared-ini-file-loader";
-import { CredentialProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 import { resolveProcessCredentials } from "./resolveProcessCredentials";
 
@@ -10,7 +10,7 @@ export interface FromProcessInit extends SourceProfileInit {}
  * in ini files.
  */
 export const fromProcess =
-  (init: FromProcessInit = {}): CredentialProvider =>
+  (init: FromProcessInit = {}): AwsCredentialIdentityProvider =>
   async () => {
     const profiles = await parseKnownFiles(init);
     return resolveProcessCredentials(getProfileName(init), profiles);

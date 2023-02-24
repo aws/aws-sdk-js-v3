@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -92,7 +92,6 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *                   Server-Side Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *          </ul>
- *
  *          <p>
  *             <b>Working with the Response Body</b>
  *          </p>
@@ -100,7 +99,6 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *          messages and includes a <code>Transfer-Encoding</code> header with <code>chunked</code> as
  *          its value in the response. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html">Appendix: SelectObjectContent
  *             Response</a>.</p>
- *
  *          <p></p>
  *          <p>
  *             <b>GetObject Support</b>
@@ -125,7 +123,6 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *          <p>
  *             <b>Special Errors</b>
  *          </p>
- *
  *          <p>For a list of special errors for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList">List of
  *             SELECT Object Content Error Codes</a>
  *          </p>
@@ -172,6 +169,21 @@ export class SelectObjectContentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SelectObjectContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,8 +199,10 @@ export class SelectObjectContentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SelectObjectContentCommandInput, SelectObjectContentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SelectObjectContentCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

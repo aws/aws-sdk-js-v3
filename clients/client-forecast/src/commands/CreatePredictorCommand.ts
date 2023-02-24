@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -81,9 +82,6 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *                </p>
  *             </li>
  *          </ul>
- *
- *
- *
  *          <p>To get a list of all of your predictors, use the <a>ListPredictors</a>
  *       operation.</p>
  *          <note>
@@ -114,6 +112,15 @@ export class CreatePredictorCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreatePredictorCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +136,9 @@ export class CreatePredictorCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePredictorCommandInput, CreatePredictorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePredictorCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

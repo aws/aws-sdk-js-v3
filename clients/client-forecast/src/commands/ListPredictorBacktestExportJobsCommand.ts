@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface ListPredictorBacktestExportJobsCommandOutput
 /**
  * <p>Returns a list of predictor backtest export jobs created using the <a>CreatePredictorBacktestExportJob</a> operation. This operation returns a
  *             summary for each backtest export job. You can filter the list using an array of <a>Filter</a> objects.</p>
- *         <p>To retrieve the complete set of properties for a particular backtest export job, use
+ *          <p>To retrieve the complete set of properties for a particular backtest export job, use
  *             the ARN with the <a>DescribePredictorBacktestExportJob</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +58,15 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListPredictorBacktestExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListPredictorBacktestExportJobsCommandInput, ListPredictorBacktestExportJobsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListPredictorBacktestExportJobsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

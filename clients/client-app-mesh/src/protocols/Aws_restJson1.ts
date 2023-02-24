@@ -169,6 +169,7 @@ import {
   HttpRouteMatch,
   HttpTimeout,
   InternalServerErrorException,
+  JsonFormatRef,
   LimitExceededException,
   Listener,
   ListenerTimeout,
@@ -180,6 +181,7 @@ import {
   ListenerTlsValidationContext,
   ListenerTlsValidationContextTrust,
   Logging,
+  LoggingFormat,
   MatchRange,
   MeshData,
   MeshRef,
@@ -204,6 +206,7 @@ import {
   TcpRetryPolicyEvent,
   TcpRoute,
   TcpRouteAction,
+  TcpRouteMatch,
   TcpTimeout,
   TlsValidationContext,
   TlsValidationContextAcmTrust,
@@ -1089,7 +1092,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/tags";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
     nextToken: [, input.nextToken!],
     limit: [() => input.limit !== void 0, () => input.limit!.toString()],
   });
@@ -1227,7 +1230,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/tag";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -1255,7 +1258,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/untag";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -1570,7 +1573,7 @@ const deserializeAws_restJson1CreateGatewayRouteCommandError = async (
 ): Promise<CreateGatewayRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1630,7 +1633,7 @@ const deserializeAws_restJson1CreateMeshCommandError = async (
 ): Promise<CreateMeshCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1690,7 +1693,7 @@ const deserializeAws_restJson1CreateRouteCommandError = async (
 ): Promise<CreateRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1750,7 +1753,7 @@ const deserializeAws_restJson1CreateVirtualGatewayCommandError = async (
 ): Promise<CreateVirtualGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1810,7 +1813,7 @@ const deserializeAws_restJson1CreateVirtualNodeCommandError = async (
 ): Promise<CreateVirtualNodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1870,7 +1873,7 @@ const deserializeAws_restJson1CreateVirtualRouterCommandError = async (
 ): Promise<CreateVirtualRouterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1930,7 +1933,7 @@ const deserializeAws_restJson1CreateVirtualServiceCommandError = async (
 ): Promise<CreateVirtualServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1990,7 +1993,7 @@ const deserializeAws_restJson1DeleteGatewayRouteCommandError = async (
 ): Promise<DeleteGatewayRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2047,7 +2050,7 @@ const deserializeAws_restJson1DeleteMeshCommandError = async (
 ): Promise<DeleteMeshCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2104,7 +2107,7 @@ const deserializeAws_restJson1DeleteRouteCommandError = async (
 ): Promise<DeleteRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2161,7 +2164,7 @@ const deserializeAws_restJson1DeleteVirtualGatewayCommandError = async (
 ): Promise<DeleteVirtualGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2218,7 +2221,7 @@ const deserializeAws_restJson1DeleteVirtualNodeCommandError = async (
 ): Promise<DeleteVirtualNodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2275,7 +2278,7 @@ const deserializeAws_restJson1DeleteVirtualRouterCommandError = async (
 ): Promise<DeleteVirtualRouterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2332,7 +2335,7 @@ const deserializeAws_restJson1DeleteVirtualServiceCommandError = async (
 ): Promise<DeleteVirtualServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2389,7 +2392,7 @@ const deserializeAws_restJson1DescribeGatewayRouteCommandError = async (
 ): Promise<DescribeGatewayRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2443,7 +2446,7 @@ const deserializeAws_restJson1DescribeMeshCommandError = async (
 ): Promise<DescribeMeshCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2497,7 +2500,7 @@ const deserializeAws_restJson1DescribeRouteCommandError = async (
 ): Promise<DescribeRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2551,7 +2554,7 @@ const deserializeAws_restJson1DescribeVirtualGatewayCommandError = async (
 ): Promise<DescribeVirtualGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2605,7 +2608,7 @@ const deserializeAws_restJson1DescribeVirtualNodeCommandError = async (
 ): Promise<DescribeVirtualNodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2659,7 +2662,7 @@ const deserializeAws_restJson1DescribeVirtualRouterCommandError = async (
 ): Promise<DescribeVirtualRouterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2713,7 +2716,7 @@ const deserializeAws_restJson1DescribeVirtualServiceCommandError = async (
 ): Promise<DescribeVirtualServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2772,7 +2775,7 @@ const deserializeAws_restJson1ListGatewayRoutesCommandError = async (
 ): Promise<ListGatewayRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2831,7 +2834,7 @@ const deserializeAws_restJson1ListMeshesCommandError = async (
 ): Promise<ListMeshesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2890,7 +2893,7 @@ const deserializeAws_restJson1ListRoutesCommandError = async (
 ): Promise<ListRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2949,7 +2952,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3008,7 +3011,7 @@ const deserializeAws_restJson1ListVirtualGatewaysCommandError = async (
 ): Promise<ListVirtualGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3067,7 +3070,7 @@ const deserializeAws_restJson1ListVirtualNodesCommandError = async (
 ): Promise<ListVirtualNodesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3126,7 +3129,7 @@ const deserializeAws_restJson1ListVirtualRoutersCommandError = async (
 ): Promise<ListVirtualRoutersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3185,7 +3188,7 @@ const deserializeAws_restJson1ListVirtualServicesCommandError = async (
 ): Promise<ListVirtualServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3238,7 +3241,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3294,7 +3297,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3348,7 +3351,7 @@ const deserializeAws_restJson1UpdateGatewayRouteCommandError = async (
 ): Promise<UpdateGatewayRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3408,7 +3411,7 @@ const deserializeAws_restJson1UpdateMeshCommandError = async (
 ): Promise<UpdateMeshCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3465,7 +3468,7 @@ const deserializeAws_restJson1UpdateRouteCommandError = async (
 ): Promise<UpdateRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3525,7 +3528,7 @@ const deserializeAws_restJson1UpdateVirtualGatewayCommandError = async (
 ): Promise<UpdateVirtualGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3585,7 +3588,7 @@ const deserializeAws_restJson1UpdateVirtualNodeCommandError = async (
 ): Promise<UpdateVirtualNodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3645,7 +3648,7 @@ const deserializeAws_restJson1UpdateVirtualRouterCommandError = async (
 ): Promise<UpdateVirtualRouterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3705,7 +3708,7 @@ const deserializeAws_restJson1UpdateVirtualServiceCommandError = async (
 ): Promise<UpdateVirtualServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4028,6 +4031,7 @@ const serializeAws_restJson1EgressFilter = (input: EgressFilter, context: __Serd
 
 const serializeAws_restJson1FileAccessLog = (input: FileAccessLog, context: __SerdeContext): any => {
   return {
+    ...(input.format != null && { format: serializeAws_restJson1LoggingFormat(input.format, context) }),
     ...(input.path != null && { path: input.path }),
   };
 };
@@ -4062,6 +4066,7 @@ const serializeAws_restJson1GatewayRouteSpec = (input: GatewayRouteSpec, context
 
 const serializeAws_restJson1GatewayRouteTarget = (input: GatewayRouteTarget, context: __SerdeContext): any => {
   return {
+    ...(input.port != null && { port: input.port }),
     ...(input.virtualService != null && {
       virtualService: serializeAws_restJson1GatewayRouteVirtualService(input.virtualService, context),
     }),
@@ -4099,6 +4104,7 @@ const serializeAws_restJson1GrpcGatewayRouteMatch = (input: GrpcGatewayRouteMatc
     ...(input.metadata != null && {
       metadata: serializeAws_restJson1GrpcGatewayRouteMetadataList(input.metadata, context),
     }),
+    ...(input.port != null && { port: input.port }),
     ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
@@ -4202,6 +4208,7 @@ const serializeAws_restJson1GrpcRouteMatch = (input: GrpcRouteMatch, context: __
   return {
     ...(input.metadata != null && { metadata: serializeAws_restJson1GrpcRouteMetadataList(input.metadata, context) }),
     ...(input.methodName != null && { methodName: input.methodName }),
+    ...(input.port != null && { port: input.port }),
     ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
@@ -4307,6 +4314,7 @@ const serializeAws_restJson1HttpGatewayRouteMatch = (input: HttpGatewayRouteMatc
     }),
     ...(input.method != null && { method: input.method }),
     ...(input.path != null && { path: serializeAws_restJson1HttpPathMatch(input.path, context) }),
+    ...(input.port != null && { port: input.port }),
     ...(input.prefix != null && { prefix: input.prefix }),
     ...(input.queryParameters != null && {
       queryParameters: serializeAws_restJson1HttpQueryParameters(input.queryParameters, context),
@@ -4431,6 +4439,7 @@ const serializeAws_restJson1HttpRouteMatch = (input: HttpRouteMatch, context: __
     ...(input.headers != null && { headers: serializeAws_restJson1HttpRouteHeaders(input.headers, context) }),
     ...(input.method != null && { method: input.method }),
     ...(input.path != null && { path: serializeAws_restJson1HttpPathMatch(input.path, context) }),
+    ...(input.port != null && { port: input.port }),
     ...(input.prefix != null && { prefix: input.prefix }),
     ...(input.queryParameters != null && {
       queryParameters: serializeAws_restJson1HttpQueryParameters(input.queryParameters, context),
@@ -4443,6 +4452,21 @@ const serializeAws_restJson1HttpTimeout = (input: HttpTimeout, context: __SerdeC
   return {
     ...(input.idle != null && { idle: serializeAws_restJson1Duration(input.idle, context) }),
     ...(input.perRequest != null && { perRequest: serializeAws_restJson1Duration(input.perRequest, context) }),
+  };
+};
+
+const serializeAws_restJson1JsonFormat = (input: JsonFormatRef[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1JsonFormatRef(entry, context);
+    });
+};
+
+const serializeAws_restJson1JsonFormatRef = (input: JsonFormatRef, context: __SerdeContext): any => {
+  return {
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -4559,6 +4583,14 @@ const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext):
   return {
     ...(input.accessLog != null && { accessLog: serializeAws_restJson1AccessLog(input.accessLog, context) }),
   };
+};
+
+const serializeAws_restJson1LoggingFormat = (input: LoggingFormat, context: __SerdeContext): any => {
+  return LoggingFormat.visit(input, {
+    json: (value) => ({ json: serializeAws_restJson1JsonFormat(value, context) }),
+    text: (value) => ({ text: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1MatchRange = (input: MatchRange, context: __SerdeContext): any => {
@@ -4698,6 +4730,7 @@ const serializeAws_restJson1TcpRetryPolicyEvents = (
 const serializeAws_restJson1TcpRoute = (input: TcpRoute, context: __SerdeContext): any => {
   return {
     ...(input.action != null && { action: serializeAws_restJson1TcpRouteAction(input.action, context) }),
+    ...(input.match != null && { match: serializeAws_restJson1TcpRouteMatch(input.match, context) }),
     ...(input.timeout != null && { timeout: serializeAws_restJson1TcpTimeout(input.timeout, context) }),
   };
 };
@@ -4707,6 +4740,12 @@ const serializeAws_restJson1TcpRouteAction = (input: TcpRouteAction, context: __
     ...(input.weightedTargets != null && {
       weightedTargets: serializeAws_restJson1WeightedTargets(input.weightedTargets, context),
     }),
+  };
+};
+
+const serializeAws_restJson1TcpRouteMatch = (input: TcpRouteMatch, context: __SerdeContext): any => {
+  return {
+    ...(input.port != null && { port: input.port }),
   };
 };
 
@@ -4851,6 +4890,7 @@ const serializeAws_restJson1VirtualGatewayFileAccessLog = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.format != null && { format: serializeAws_restJson1LoggingFormat(input.format, context) }),
     ...(input.path != null && { path: input.path }),
   };
 };
@@ -5221,6 +5261,7 @@ const serializeAws_restJson1VirtualServiceSpec = (input: VirtualServiceSpec, con
 
 const serializeAws_restJson1WeightedTarget = (input: WeightedTarget, context: __SerdeContext): any => {
   return {
+    ...(input.port != null && { port: input.port }),
     ...(input.virtualNode != null && { virtualNode: input.virtualNode }),
     ...(input.weight != null && { weight: input.weight }),
   };
@@ -5379,6 +5420,8 @@ const deserializeAws_restJson1EgressFilter = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1FileAccessLog = (output: any, context: __SerdeContext): FileAccessLog => {
   return {
+    format:
+      output.format != null ? deserializeAws_restJson1LoggingFormat(__expectUnion(output.format), context) : undefined,
     path: __expectString(output.path),
   } as any;
 };
@@ -5463,6 +5506,7 @@ const deserializeAws_restJson1GatewayRouteStatus = (output: any, context: __Serd
 
 const deserializeAws_restJson1GatewayRouteTarget = (output: any, context: __SerdeContext): GatewayRouteTarget => {
   return {
+    port: __expectInt32(output.port),
     virtualService:
       output.virtualService != null
         ? deserializeAws_restJson1GatewayRouteVirtualService(output.virtualService, context)
@@ -5505,6 +5549,7 @@ const deserializeAws_restJson1GrpcGatewayRouteMatch = (output: any, context: __S
       output.metadata != null
         ? deserializeAws_restJson1GrpcGatewayRouteMetadataList(output.metadata, context)
         : undefined,
+    port: __expectInt32(output.port),
     serviceName: __expectString(output.serviceName),
   } as any;
 };
@@ -5633,6 +5678,7 @@ const deserializeAws_restJson1GrpcRouteMatch = (output: any, context: __SerdeCon
     metadata:
       output.metadata != null ? deserializeAws_restJson1GrpcRouteMetadataList(output.metadata, context) : undefined,
     methodName: __expectString(output.methodName),
+    port: __expectInt32(output.port),
     serviceName: __expectString(output.serviceName),
   } as any;
 };
@@ -5779,6 +5825,7 @@ const deserializeAws_restJson1HttpGatewayRouteMatch = (output: any, context: __S
       output.hostname != null ? deserializeAws_restJson1GatewayRouteHostnameMatch(output.hostname, context) : undefined,
     method: __expectString(output.method),
     path: output.path != null ? deserializeAws_restJson1HttpPathMatch(output.path, context) : undefined,
+    port: __expectInt32(output.port),
     prefix: __expectString(output.prefix),
     queryParameters:
       output.queryParameters != null
@@ -5922,6 +5969,7 @@ const deserializeAws_restJson1HttpRouteMatch = (output: any, context: __SerdeCon
     headers: output.headers != null ? deserializeAws_restJson1HttpRouteHeaders(output.headers, context) : undefined,
     method: __expectString(output.method),
     path: output.path != null ? deserializeAws_restJson1HttpPathMatch(output.path, context) : undefined,
+    port: __expectInt32(output.port),
     prefix: __expectString(output.prefix),
     queryParameters:
       output.queryParameters != null
@@ -5935,6 +5983,25 @@ const deserializeAws_restJson1HttpTimeout = (output: any, context: __SerdeContex
   return {
     idle: output.idle != null ? deserializeAws_restJson1Duration(output.idle, context) : undefined,
     perRequest: output.perRequest != null ? deserializeAws_restJson1Duration(output.perRequest, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1JsonFormat = (output: any, context: __SerdeContext): JsonFormatRef[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JsonFormatRef(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1JsonFormatRef = (output: any, context: __SerdeContext): JsonFormatRef => {
+  return {
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -6100,6 +6167,18 @@ const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1AccessLog(__expectUnion(output.accessLog), context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1LoggingFormat = (output: any, context: __SerdeContext): LoggingFormat => {
+  if (output.json != null) {
+    return {
+      json: deserializeAws_restJson1JsonFormat(output.json, context),
+    };
+  }
+  if (__expectString(output.text) !== undefined) {
+    return { text: __expectString(output.text) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1MatchRange = (output: any, context: __SerdeContext): MatchRange => {
@@ -6361,6 +6440,7 @@ const deserializeAws_restJson1TcpRetryPolicyEvents = (
 const deserializeAws_restJson1TcpRoute = (output: any, context: __SerdeContext): TcpRoute => {
   return {
     action: output.action != null ? deserializeAws_restJson1TcpRouteAction(output.action, context) : undefined,
+    match: output.match != null ? deserializeAws_restJson1TcpRouteMatch(output.match, context) : undefined,
     timeout: output.timeout != null ? deserializeAws_restJson1TcpTimeout(output.timeout, context) : undefined,
   } as any;
 };
@@ -6371,6 +6451,12 @@ const deserializeAws_restJson1TcpRouteAction = (output: any, context: __SerdeCon
       output.weightedTargets != null
         ? deserializeAws_restJson1WeightedTargets(output.weightedTargets, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TcpRouteMatch = (output: any, context: __SerdeContext): TcpRouteMatch => {
+  return {
+    port: __expectInt32(output.port),
   } as any;
 };
 
@@ -6565,6 +6651,8 @@ const deserializeAws_restJson1VirtualGatewayFileAccessLog = (
   context: __SerdeContext
 ): VirtualGatewayFileAccessLog => {
   return {
+    format:
+      output.format != null ? deserializeAws_restJson1LoggingFormat(__expectUnion(output.format), context) : undefined,
     path: __expectString(output.path),
   } as any;
 };
@@ -7181,6 +7269,7 @@ const deserializeAws_restJson1VirtualServiceStatus = (output: any, context: __Se
 
 const deserializeAws_restJson1WeightedTarget = (output: any, context: __SerdeContext): WeightedTarget => {
   return {
+    port: __expectInt32(output.port),
     virtualNode: __expectString(output.virtualNode),
     weight: __expectInt32(output.weight),
   } as any;
@@ -7200,7 +7289,8 @@ const deserializeAws_restJson1WeightedTargets = (output: any, context: __SerdeCo
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -7232,6 +7322,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -7242,6 +7338,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

@@ -10,7 +10,7 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -529,7 +529,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTagsForResource";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -732,7 +732,7 @@ const deserializeAws_restJson1CreateProfileCommandError = async (
 ): Promise<CreateProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -776,7 +776,7 @@ const deserializeAws_restJson1CreateTrustAnchorCommandError = async (
 ): Promise<CreateTrustAnchorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -820,7 +820,7 @@ const deserializeAws_restJson1DeleteCrlCommandError = async (
 ): Promise<DeleteCrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -864,7 +864,7 @@ const deserializeAws_restJson1DeleteProfileCommandError = async (
 ): Promise<DeleteProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -908,7 +908,7 @@ const deserializeAws_restJson1DeleteTrustAnchorCommandError = async (
 ): Promise<DeleteTrustAnchorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -952,7 +952,7 @@ const deserializeAws_restJson1DisableCrlCommandError = async (
 ): Promise<DisableCrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -996,7 +996,7 @@ const deserializeAws_restJson1DisableProfileCommandError = async (
 ): Promise<DisableProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1040,7 +1040,7 @@ const deserializeAws_restJson1DisableTrustAnchorCommandError = async (
 ): Promise<DisableTrustAnchorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1084,7 +1084,7 @@ const deserializeAws_restJson1EnableCrlCommandError = async (
 ): Promise<EnableCrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1128,7 +1128,7 @@ const deserializeAws_restJson1EnableProfileCommandError = async (
 ): Promise<EnableProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1172,7 +1172,7 @@ const deserializeAws_restJson1EnableTrustAnchorCommandError = async (
 ): Promise<EnableTrustAnchorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1216,7 +1216,7 @@ const deserializeAws_restJson1GetCrlCommandError = async (
 ): Promise<GetCrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1257,7 +1257,7 @@ const deserializeAws_restJson1GetProfileCommandError = async (
 ): Promise<GetProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1301,7 +1301,7 @@ const deserializeAws_restJson1GetSubjectCommandError = async (
 ): Promise<GetSubjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1345,7 +1345,7 @@ const deserializeAws_restJson1GetTrustAnchorCommandError = async (
 ): Promise<GetTrustAnchorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1392,7 +1392,7 @@ const deserializeAws_restJson1ImportCrlCommandError = async (
 ): Promise<ImportCrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1439,7 +1439,7 @@ const deserializeAws_restJson1ListCrlsCommandError = async (
 ): Promise<ListCrlsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1486,7 +1486,7 @@ const deserializeAws_restJson1ListProfilesCommandError = async (
 ): Promise<ListProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1533,7 +1533,7 @@ const deserializeAws_restJson1ListSubjectsCommandError = async (
 ): Promise<ListSubjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1577,7 +1577,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1627,7 +1627,7 @@ const deserializeAws_restJson1ListTrustAnchorsCommandError = async (
 ): Promise<ListTrustAnchorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1668,7 +1668,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1715,7 +1715,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1762,7 +1762,7 @@ const deserializeAws_restJson1UpdateCrlCommandError = async (
 ): Promise<UpdateCrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1809,7 +1809,7 @@ const deserializeAws_restJson1UpdateProfileCommandError = async (
 ): Promise<UpdateProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1856,7 +1856,7 @@ const deserializeAws_restJson1UpdateTrustAnchorCommandError = async (
 ): Promise<UpdateTrustAnchorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2016,7 +2016,7 @@ const deserializeAws_restJson1CredentialSummary = (output: any, context: __Serde
     enabled: __expectBoolean(output.enabled),
     failed: __expectBoolean(output.failed),
     issuer: __expectString(output.issuer),
-    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.seenAt)) : undefined,
+    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.seenAt)) : undefined,
     serialNumber: __expectString(output.serialNumber),
     x509CertificateData: __expectString(output.x509CertificateData),
   } as any;
@@ -2024,14 +2024,16 @@ const deserializeAws_restJson1CredentialSummary = (output: any, context: __Serde
 
 const deserializeAws_restJson1CrlDetail = (output: any, context: __SerdeContext): CrlDetail => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     crlArn: __expectString(output.crlArn),
     crlData: output.crlData != null ? context.base64Decoder(output.crlData) : undefined,
     crlId: __expectString(output.crlId),
     enabled: __expectBoolean(output.enabled),
     name: __expectString(output.name),
     trustAnchorArn: __expectString(output.trustAnchorArn),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -2064,7 +2066,7 @@ const deserializeAws_restJson1InstanceProperty = (output: any, context: __SerdeC
     failed: __expectBoolean(output.failed),
     properties:
       output.properties != null ? deserializeAws_restJson1InstancePropertyMap(output.properties, context) : undefined,
-    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.seenAt)) : undefined,
+    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.seenAt)) : undefined,
   } as any;
 };
 
@@ -2073,10 +2075,8 @@ const deserializeAws_restJson1InstancePropertyMap = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2094,7 +2094,8 @@ const deserializeAws_restJson1ManagedPolicyList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ProfileDetail = (output: any, context: __SerdeContext): ProfileDetail => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     durationSeconds: __expectInt32(output.durationSeconds),
     enabled: __expectBoolean(output.enabled),
@@ -2108,7 +2109,8 @@ const deserializeAws_restJson1ProfileDetail = (output: any, context: __SerdeCont
     requireInstanceProperties: __expectBoolean(output.requireInstanceProperties),
     roleArns: output.roleArns != null ? deserializeAws_restJson1RoleArnList(output.roleArns, context) : undefined,
     sessionPolicy: __expectString(output.sessionPolicy),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -2158,7 +2160,8 @@ const deserializeAws_restJson1SourceData = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SubjectDetail = (output: any, context: __SerdeContext): SubjectDetail => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     credentials:
       output.credentials != null ? deserializeAws_restJson1CredentialSummaries(output.credentials, context) : undefined,
     enabled: __expectBoolean(output.enabled),
@@ -2166,10 +2169,12 @@ const deserializeAws_restJson1SubjectDetail = (output: any, context: __SerdeCont
       output.instanceProperties != null
         ? deserializeAws_restJson1InstanceProperties(output.instanceProperties, context)
         : undefined,
-    lastSeenAt: output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.lastSeenAt)) : undefined,
+    lastSeenAt:
+      output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastSeenAt)) : undefined,
     subjectArn: __expectString(output.subjectArn),
     subjectId: __expectString(output.subjectId),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     x509Subject: __expectString(output.x509Subject),
   } as any;
 };
@@ -2188,12 +2193,15 @@ const deserializeAws_restJson1SubjectSummaries = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SubjectSummary = (output: any, context: __SerdeContext): SubjectSummary => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     enabled: __expectBoolean(output.enabled),
-    lastSeenAt: output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.lastSeenAt)) : undefined,
+    lastSeenAt:
+      output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastSeenAt)) : undefined,
     subjectArn: __expectString(output.subjectArn),
     subjectId: __expectString(output.subjectId),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     x509Subject: __expectString(output.x509Subject),
   } as any;
 };
@@ -2219,13 +2227,15 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1TrustAnchorDetail = (output: any, context: __SerdeContext): TrustAnchorDetail => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     enabled: __expectBoolean(output.enabled),
     name: __expectString(output.name),
     source: output.source != null ? deserializeAws_restJson1Source(output.source, context) : undefined,
     trustAnchorArn: __expectString(output.trustAnchorArn),
     trustAnchorId: __expectString(output.trustAnchorId),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -2243,7 +2253,8 @@ const deserializeAws_restJson1TrustAnchorDetails = (output: any, context: __Serd
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2275,6 +2286,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2285,6 +2302,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

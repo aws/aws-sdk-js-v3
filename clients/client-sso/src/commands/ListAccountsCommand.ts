@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,8 @@ export interface ListAccountsCommandInput extends ListAccountsRequest {}
 export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all Amazon Web Services accounts assigned to the user. These Amazon Web Services accounts are assigned by the
- *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>Amazon Web Services SSO User Guide</i>. This operation
+ * <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
+ *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>IAM Identity Center User Guide</i>. This operation
  *       returns a paginated response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +55,15 @@ export class ListAccountsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,7 @@ export class ListAccountsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAccountsCommandInput, ListAccountsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListAccountsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

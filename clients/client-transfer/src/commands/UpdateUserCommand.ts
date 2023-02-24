@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,6 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:
  *       the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code>
  *       you specify.</p>
- *
  *          <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the
  *       updated user.</p>
  * @example
@@ -57,6 +57,15 @@ export class UpdateUserCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +81,7 @@ export class UpdateUserCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateUserCommandInput, UpdateUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateUserCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

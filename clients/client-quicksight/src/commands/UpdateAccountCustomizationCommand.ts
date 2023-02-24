@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   UpdateAccountCustomizationRequestFilterSensitiveLog,
   UpdateAccountCustomizationResponse,
   UpdateAccountCustomizationResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateAccountCustomizationCommand,
   serializeAws_restJson1UpdateAccountCustomizationCommand,
@@ -29,7 +30,7 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
 
 /**
  * <p>Updates Amazon QuickSight customizations for the current Amazon Web Services Region. Currently, the only customization that you can use is a theme.</p>
- *         <p>You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a
+ *          <p>You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a
  *             Amazon QuickSight namespace instead. Customizations that apply to a namespace override
  *             customizations that apply to an Amazon Web Services account. To find out which customizations apply, use
  *             the <code>DescribeAccountCustomization</code> API operation. </p>
@@ -56,6 +57,15 @@ export class UpdateAccountCustomizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateAccountCustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class UpdateAccountCustomizationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateAccountCustomizationCommandInput, UpdateAccountCustomizationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateAccountCustomizationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   UpdateRevealConfigurationRequestFilterSensitiveLog,
   UpdateRevealConfigurationResponse,
   UpdateRevealConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateRevealConfigurationCommand,
   serializeAws_restJson1UpdateRevealConfigurationCommand,
@@ -28,7 +29,7 @@ export interface UpdateRevealConfigurationCommandInput extends UpdateRevealConfi
 export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the status and configuration settings for retrieving (revealing) occurrences of sensitive data reported by findings.</p>
+ * <p>Updates the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +53,15 @@ export class UpdateRevealConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateRevealConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,9 @@ export class UpdateRevealConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateRevealConfigurationCommandInput, UpdateRevealConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateRevealConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

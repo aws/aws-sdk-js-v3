@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -327,7 +328,7 @@ const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
 ): Promise<AddTagsToCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -383,10 +384,16 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
 ): Promise<DeleteCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.acm#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.acm#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
       throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
@@ -396,6 +403,9 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.acm#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -430,7 +440,7 @@ const deserializeAws_json1_1DescribeCertificateCommandError = async (
 ): Promise<DescribeCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -474,7 +484,7 @@ const deserializeAws_json1_1ExportCertificateCommandError = async (
 ): Promise<ExportCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -521,7 +531,7 @@ const deserializeAws_json1_1GetAccountConfigurationCommandError = async (
 ): Promise<GetAccountConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -565,7 +575,7 @@ const deserializeAws_json1_1GetCertificateCommandError = async (
 ): Promise<GetCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -612,7 +622,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
 ): Promise<ImportCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -671,13 +681,16 @@ const deserializeAws_json1_1ListCertificatesCommandError = async (
 ): Promise<ListCertificatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgsException":
     case "com.amazonaws.acm#InvalidArgsException":
       throw await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.acm#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -712,7 +725,7 @@ const deserializeAws_json1_1ListTagsForCertificateCommandError = async (
 ): Promise<ListTagsForCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -753,7 +766,7 @@ const deserializeAws_json1_1PutAccountConfigurationCommandError = async (
 ): Promise<PutAccountConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -800,7 +813,7 @@ const deserializeAws_json1_1RemoveTagsFromCertificateCommandError = async (
 ): Promise<RemoveTagsFromCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -853,7 +866,7 @@ const deserializeAws_json1_1RenewCertificateCommandError = async (
 ): Promise<RenewCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -897,7 +910,7 @@ const deserializeAws_json1_1RequestCertificateCommandError = async (
 ): Promise<RequestCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -953,7 +966,7 @@ const deserializeAws_json1_1ResendValidationEmailCommandError = async (
 ): Promise<ResendValidationEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1000,7 +1013,7 @@ const deserializeAws_json1_1UpdateCertificateOptionsCommandError = async (
 ): Promise<UpdateCertificateOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1391,6 +1404,8 @@ const serializeAws_json1_1ListCertificatesRequest = (input: ListCertificatesRequ
     ...(input.Includes != null && { Includes: serializeAws_json1_1Filters(input.Includes, context) }),
     ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -1442,6 +1457,7 @@ const serializeAws_json1_1RequestCertificateRequest = (
       DomainValidationOptions: serializeAws_json1_1DomainValidationOptionList(input.DomainValidationOptions, context),
     }),
     ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.KeyAlgorithm != null && { KeyAlgorithm: input.KeyAlgorithm }),
     ...(input.Options != null && { Options: serializeAws_json1_1CertificateOptions(input.Options, context) }),
     ...(input.SubjectAlternativeNames != null && {
       SubjectAlternativeNames: serializeAws_json1_1DomainList(input.SubjectAlternativeNames, context),
@@ -1549,7 +1565,35 @@ const deserializeAws_json1_1CertificateOptions = (output: any, context: __SerdeC
 const deserializeAws_json1_1CertificateSummary = (output: any, context: __SerdeContext): CertificateSummary => {
   return {
     CertificateArn: __expectString(output.CertificateArn),
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DomainName: __expectString(output.DomainName),
+    Exported: __expectBoolean(output.Exported),
+    ExtendedKeyUsages:
+      output.ExtendedKeyUsages != null
+        ? deserializeAws_json1_1ExtendedKeyUsageNames(output.ExtendedKeyUsages, context)
+        : undefined,
+    HasAdditionalSubjectAlternativeNames: __expectBoolean(output.HasAdditionalSubjectAlternativeNames),
+    ImportedAt:
+      output.ImportedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImportedAt))) : undefined,
+    InUse: __expectBoolean(output.InUse),
+    IssuedAt:
+      output.IssuedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.IssuedAt))) : undefined,
+    KeyAlgorithm: __expectString(output.KeyAlgorithm),
+    KeyUsages: output.KeyUsages != null ? deserializeAws_json1_1KeyUsageNames(output.KeyUsages, context) : undefined,
+    NotAfter:
+      output.NotAfter != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter))) : undefined,
+    NotBefore:
+      output.NotBefore != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore))) : undefined,
+    RenewalEligibility: __expectString(output.RenewalEligibility),
+    RevokedAt:
+      output.RevokedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RevokedAt))) : undefined,
+    Status: __expectString(output.Status),
+    SubjectAlternativeNameSummaries:
+      output.SubjectAlternativeNameSummaries != null
+        ? deserializeAws_json1_1DomainList(output.SubjectAlternativeNameSummaries, context)
+        : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -1659,6 +1703,21 @@ const deserializeAws_json1_1ExtendedKeyUsageList = (output: any, context: __Serd
   return retVal;
 };
 
+const deserializeAws_json1_1ExtendedKeyUsageNames = (
+  output: any,
+  context: __SerdeContext
+): (ExtendedKeyUsageName | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1GetAccountConfigurationResponse = (
   output: any,
   context: __SerdeContext
@@ -1755,6 +1814,18 @@ const deserializeAws_json1_1KeyUsageList = (output: any, context: __SerdeContext
         return null as any;
       }
       return deserializeAws_json1_1KeyUsage(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1KeyUsageNames = (output: any, context: __SerdeContext): (KeyUsageName | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -1898,7 +1969,8 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1948,6 +2020,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1958,6 +2036,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

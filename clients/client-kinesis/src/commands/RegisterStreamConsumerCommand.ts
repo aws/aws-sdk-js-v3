@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,11 +34,11 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  *             from the stream using enhanced fan-out, at a rate of up to 2 MiB per second for every
  *             shard you subscribe to. This rate is unaffected by the total number of consumers that
  *             read from the same stream.</p>
- *         <p>You can register up to 20 consumers per stream. A given consumer can only be
+ *          <p>You can register up to 20 consumers per stream. A given consumer can only be
  *             registered with one stream at a time.</p>
- *         <p>For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
+ *          <p>For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
  *                 Using the Kinesis Data Streams API</a>.</p>
- *         <p>The use of this operation has a limit of five transactions per second per account.
+ *          <p>The use of this operation has a limit of five transactions per second per account.
  *             Also, only 5 consumers can be created simultaneously. In other words, you cannot have
  *             more than 5 consumers in a <code>CREATING</code> status at the same time. Registering a
  *             6th consumer while there are 5 in a <code>CREATING</code> status results in a
@@ -65,6 +66,17 @@ export class RegisterStreamConsumerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterStreamConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +92,9 @@ export class RegisterStreamConsumerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterStreamConsumerCommandInput, RegisterStreamConsumerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterStreamConsumerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,7 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
 
 /**
  * <p>Creates a notification rule for a resource. The rule specifies the events you want
- *             notifications about and the targets (such as SNS topics) where you want to receive
+ *             notifications about and the targets (such as Chatbot topics or Chatbot clients configured for Slack) where you want to receive
  *             them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +59,15 @@ export class CreateNotificationRuleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateNotificationRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class CreateNotificationRuleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateNotificationRuleCommandInput, CreateNotificationRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateNotificationRuleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

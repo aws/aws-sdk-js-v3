@@ -36,6 +36,7 @@ import {
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
 } from "./commands/CreateDetectorVersionCommand";
+import { CreateListCommand, CreateListCommandInput, CreateListCommandOutput } from "./commands/CreateListCommand";
 import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
   CreateModelVersionCommand,
@@ -90,6 +91,7 @@ import {
   DeleteExternalModelCommandOutput,
 } from "./commands/DeleteExternalModelCommand";
 import { DeleteLabelCommand, DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
+import { DeleteListCommand, DeleteListCommandInput, DeleteListCommandOutput } from "./commands/DeleteListCommand";
 import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
   DeleteModelVersionCommand,
@@ -174,6 +176,16 @@ import {
   GetKMSEncryptionKeyCommandOutput,
 } from "./commands/GetKMSEncryptionKeyCommand";
 import { GetLabelsCommand, GetLabelsCommandInput, GetLabelsCommandOutput } from "./commands/GetLabelsCommand";
+import {
+  GetListElementsCommand,
+  GetListElementsCommandInput,
+  GetListElementsCommandOutput,
+} from "./commands/GetListElementsCommand";
+import {
+  GetListsMetadataCommand,
+  GetListsMetadataCommandInput,
+  GetListsMetadataCommandOutput,
+} from "./commands/GetListsMetadataCommand";
 import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import {
   GetModelVersionCommand,
@@ -247,6 +259,7 @@ import {
   UpdateEventLabelCommandInput,
   UpdateEventLabelCommandOutput,
 } from "./commands/UpdateEventLabelCommand";
+import { UpdateListCommand, UpdateListCommandInput, UpdateListCommandOutput } from "./commands/UpdateListCommand";
 import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import {
   UpdateModelVersionCommand,
@@ -279,9 +292,8 @@ import { FraudDetectorClient } from "./FraudDetectorClient";
  * <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need
  *             detailed information about Amazon Fraud Detector API actions, data types, and errors. For
  *             more information about Amazon Fraud Detector features, see the <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/">Amazon Fraud Detector User Guide</a>.</p>
- *
- *         <p>We provide the Query API as well as AWS software development kits (SDK) for Amazon Fraud Detector in Java and Python programming languages.</p>
- *         <p>The Amazon Fraud Detector Query API provides HTTPS requests that use the HTTP verb GET or POST and a Query parameter <code>Action</code>. AWS SDK provides libraries,
+ *          <p>We provide the Query API as well as AWS software development kits (SDK) for Amazon Fraud Detector in Java and Python programming languages.</p>
+ *          <p>The Amazon Fraud Detector Query API provides HTTPS requests that use the HTTP verb GET or POST and a Query parameter <code>Action</code>. AWS SDK provides libraries,
  *             sample code, tutorials, and other resources for software developers who prefer to build applications using language-specific APIs instead of submitting a request over
  *             HTTP or HTTPS. These libraries provide basic functions that automatically take care of tasks such as cryptographically signing your requests, retrying requests, and
  *             handling error responses, so that it is easier for you to get started. For more information about the AWS SDKs, see <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/tools/">Tools to build on AWS</a>.
@@ -513,6 +525,36 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>
+   *             Creates a list.
+   *         </p>
+   *          <p>List is a set of input data for a variable in your event dataset. You use the input data in a rule that's associated with your detector.
+   *             For more information, see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/lists.html">Lists</a>.</p>
+   */
+  public createList(args: CreateListCommandInput, options?: __HttpHandlerOptions): Promise<CreateListCommandOutput>;
+  public createList(args: CreateListCommandInput, cb: (err: any, data?: CreateListCommandOutput) => void): void;
+  public createList(
+    args: CreateListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateListCommandOutput) => void
+  ): void;
+  public createList(
+    args: CreateListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateListCommandOutput) => void),
+    cb?: (err: any, data?: CreateListCommandOutput) => void
+  ): Promise<CreateListCommandOutput> | void {
+    const command = new CreateListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a model using the specified model type.</p>
    */
   public createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
@@ -695,7 +737,7 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.</p>
-   * 	        <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteDetector(
     args: DeleteDetectorCommandInput,
@@ -728,7 +770,7 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>
-   * 	  	     <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteDetectorVersion(
     args: DeleteDetectorVersionCommandInput,
@@ -761,8 +803,8 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes an entity type.</p>
-   * 	        <p>You cannot delete an entity type that is included in an event type.</p>
-   * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>You cannot delete an entity type that is included in an event type.</p>
+   *          <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteEntityType(
     args: DeleteEntityTypeCommandInput,
@@ -795,7 +837,7 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes the specified event.</p>
-   * 	        <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteEvent(args: DeleteEventCommandInput, options?: __HttpHandlerOptions): Promise<DeleteEventCommandOutput>;
   public deleteEvent(args: DeleteEventCommandInput, cb: (err: any, data?: DeleteEventCommandOutput) => void): void;
@@ -854,8 +896,8 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes an event type.</p>
-   * 	        <p>You cannot delete an event type that is used in a detector or a model.</p>
-   * 	        <p>When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>You cannot delete an event type that is used in a detector or a model.</p>
+   *          <p>When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteEventType(
     args: DeleteEventTypeCommandInput,
@@ -888,7 +930,7 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Removes a SageMaker model from Amazon Fraud Detector.</p>
-   * 	        <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>
+   *          <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>
    */
   public deleteExternalModel(
     args: DeleteExternalModelCommandInput,
@@ -921,9 +963,8 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes a label.</p>
-   * 	        <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>
+   *          <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>
    *          <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>
-   *
    *          <p>When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteLabel(args: DeleteLabelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLabelCommandOutput>;
@@ -950,9 +991,38 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>
+   *             Deletes the list, provided it is not used in a rule.
+   *         </p>
+   *          <p> When you delete a list, Amazon Fraud Detector permanently deletes that list and the elements in the list.</p>
+   */
+  public deleteList(args: DeleteListCommandInput, options?: __HttpHandlerOptions): Promise<DeleteListCommandOutput>;
+  public deleteList(args: DeleteListCommandInput, cb: (err: any, data?: DeleteListCommandOutput) => void): void;
+  public deleteList(
+    args: DeleteListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteListCommandOutput) => void
+  ): void;
+  public deleteList(
+    args: DeleteListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteListCommandOutput) => void),
+    cb?: (err: any, data?: DeleteListCommandOutput) => void
+  ): Promise<DeleteListCommandOutput> | void {
+    const command = new DeleteListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a model.</p>
-   * 	        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
-   * 	        <p> When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
+   *          <p> When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
   public deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
@@ -979,8 +1049,8 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes a model version.</p>
-   * 	        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
-   * 	        <p> When you delete a model version, Amazon Fraud Detector permanently deletes that model version and the data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
+   *          <p> When you delete a model version, Amazon Fraud Detector permanently deletes that model version and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteModelVersion(
     args: DeleteModelVersionCommandInput,
@@ -1013,8 +1083,8 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes an outcome.</p>
-   * 	        <p>You cannot delete an outcome that is used in a rule version.</p>
-   * 	        <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>You cannot delete an outcome that is used in a rule version.</p>
+   *          <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteOutcome(
     args: DeleteOutcomeCommandInput,
@@ -1047,7 +1117,7 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p>
-   * 	  	     <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
   public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
@@ -1074,9 +1144,9 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes a variable.</p>
-   * 	        <p>You can't delete variables that are included in an event type in Amazon Fraud Detector.</p>
-   * 	        <p>Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.</p>
-   * 	        <p>When you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>You can't delete variables that are included in an event type in Amazon Fraud Detector.</p>
+   *          <p>Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.</p>
+   *          <p>When you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteVariable(
     args: DeleteVariableCommandInput,
@@ -1603,6 +1673,74 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>
+   *             Gets all the elements in the specified list.
+   *         </p>
+   */
+  public getListElements(
+    args: GetListElementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetListElementsCommandOutput>;
+  public getListElements(
+    args: GetListElementsCommandInput,
+    cb: (err: any, data?: GetListElementsCommandOutput) => void
+  ): void;
+  public getListElements(
+    args: GetListElementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetListElementsCommandOutput) => void
+  ): void;
+  public getListElements(
+    args: GetListElementsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetListElementsCommandOutput) => void),
+    cb?: (err: any, data?: GetListElementsCommandOutput) => void
+  ): Promise<GetListElementsCommandOutput> | void {
+    const command = new GetListElementsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *            Gets the metadata of either all the lists under the account or the specified list.
+   *         </p>
+   */
+  public getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetListsMetadataCommandOutput>;
+  public getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    cb: (err: any, data?: GetListsMetadataCommandOutput) => void
+  ): void;
+  public getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetListsMetadataCommandOutput) => void
+  ): void;
+  public getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetListsMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetListsMetadataCommandOutput) => void
+  ): Promise<GetListsMetadataCommandOutput> | void {
+    const command = new GetListsMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified. </p>
    *          <p>This is a paginated API. If you
    *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
@@ -1761,14 +1899,12 @@ export class FraudDetector extends FraudDetectorClient {
   /**
    * <p>Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period.
    *     If filter is not specified, the most recent prediction is returned.</p>
-   *
    *          <p>For example, the following filter lists all past predictions for <code>xyz</code> event type -
    *     <code>{
    *         "eventType":{
    *         "value": "xyz" }”
    *         }  </code>
    *          </p>
-   *
    *          <p>This is a paginated API. If you provide a null <code>maxResults</code>, this action will retrieve a maximum of 10 records per page.
    *   If you provide a <code>maxResults</code>, the value must be between 50 and 100. To get the next page results, provide
    *   the <code>nextToken</code> from the response as part of your request. A null <code>nextToken</code> fetches the records from the beginning.
@@ -2244,6 +2380,34 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: UpdateEventLabelCommandOutput) => void
   ): Promise<UpdateEventLabelCommandOutput> | void {
     const command = new UpdateEventLabelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Updates a list.
+   *         </p>
+   */
+  public updateList(args: UpdateListCommandInput, options?: __HttpHandlerOptions): Promise<UpdateListCommandOutput>;
+  public updateList(args: UpdateListCommandInput, cb: (err: any, data?: UpdateListCommandOutput) => void): void;
+  public updateList(
+    args: UpdateListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateListCommandOutput) => void
+  ): void;
+  public updateList(
+    args: UpdateListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateListCommandOutput) => void),
+    cb?: (err: any, data?: UpdateListCommandOutput) => void
+  ): Promise<UpdateListCommandOutput> | void {
+    const command = new UpdateListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,6 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  *       part of the active learning workflow that starts with the
  *         <code>StartMLLabelingSetGenerationTaskRun</code> call and that ultimately results in
  *       improving the quality of your machine learning transform. </p>
- *
  *          <p>After the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue machine learning
  *       will have generated a series of questions for humans to answer. (Answering these questions is
  *       often called 'labeling' in the machine learning workflows). In the case of the
@@ -43,14 +43,12 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
  *       all future runs of the machine learning transform use the new and improved labels and perform
  *       a higher-quality transformation.</p>
- *
  *          <p>By default, <code>StartMLLabelingSetGenerationTaskRun</code> continually learns from and
  *       combines all labels that you upload unless you set <code>Replace</code> to true. If you set
  *         <code>Replace</code> to true, <code>StartImportLabelsTaskRun</code> deletes and forgets all
  *       previously uploaded labels and learns only from the exact set that you upload. Replacing
  *       labels can be helpful if you realize that you previously uploaded incorrect labels, and you
  *       believe that they are having a negative effect on your transform quality.</p>
- *
  *          <p>You can check on the status of your task run by calling the <code>GetMLTaskRun</code>
  *       operation. </p>
  * @example
@@ -76,6 +74,15 @@ export class StartImportLabelsTaskRunCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartImportLabelsTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +98,9 @@ export class StartImportLabelsTaskRunCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartImportLabelsTaskRunCommandInput, StartImportLabelsTaskRunCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartImportLabelsTaskRunCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

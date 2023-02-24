@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,29 +34,28 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *             cluster itself. When you receive a successful response from this operation,
  *             Amazon ElastiCache immediately begins deleting the cluster; you cannot cancel or revert
  *             this operation.</p>
- *         <p>This operation is not valid for:</p>
- *         <ul>
+ *          <p>This operation is not valid for:</p>
+ *          <ul>
  *             <li>
- *                 <p>Redis (cluster mode enabled) clusters</p>
+ *                <p>Redis (cluster mode enabled) clusters</p>
  *             </li>
  *             <li>
- *                 <p>Redis (cluster mode disabled) clusters</p>
+ *                <p>Redis (cluster mode disabled) clusters</p>
  *             </li>
  *             <li>
- *
- *                 <p>A cluster that is the last read replica of a replication group</p>
+ *                <p>A cluster that is the last read replica of a replication group</p>
  *             </li>
  *             <li>
- *                 <p>A cluster that is the primary node of a replication group</p>
+ *                <p>A cluster that is the primary node of a replication group</p>
  *             </li>
  *             <li>
- *                 <p>A node group (shard) that has Multi-AZ mode enabled</p>
+ *                <p>A node group (shard) that has Multi-AZ mode enabled</p>
  *             </li>
  *             <li>
- *                 <p>A cluster from a Redis (cluster mode enabled) replication group</p>
+ *                <p>A cluster from a Redis (cluster mode enabled) replication group</p>
  *             </li>
  *             <li>
- *                 <p>A cluster that is not in the <code>available</code> state</p>
+ *                <p>A cluster that is not in the <code>available</code> state</p>
  *             </li>
  *          </ul>
  * @example
@@ -81,6 +81,15 @@ export class DeleteCacheClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteCacheClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,6 +105,9 @@ export class DeleteCacheClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteCacheClusterCommandInput, DeleteCacheClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteCacheClusterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

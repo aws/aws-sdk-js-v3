@@ -8,6 +8,16 @@ import {
 } from "./commands/AddDraftAppVersionResourceMappingsCommand";
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
+  CreateAppVersionAppComponentCommand,
+  CreateAppVersionAppComponentCommandInput,
+  CreateAppVersionAppComponentCommandOutput,
+} from "./commands/CreateAppVersionAppComponentCommand";
+import {
+  CreateAppVersionResourceCommand,
+  CreateAppVersionResourceCommandInput,
+  CreateAppVersionResourceCommandOutput,
+} from "./commands/CreateAppVersionResourceCommand";
+import {
   CreateRecommendationTemplateCommand,
   CreateRecommendationTemplateCommandInput,
   CreateRecommendationTemplateCommandOutput,
@@ -24,6 +34,21 @@ import {
 } from "./commands/DeleteAppAssessmentCommand";
 import { DeleteAppCommand, DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
+  DeleteAppInputSourceCommand,
+  DeleteAppInputSourceCommandInput,
+  DeleteAppInputSourceCommandOutput,
+} from "./commands/DeleteAppInputSourceCommand";
+import {
+  DeleteAppVersionAppComponentCommand,
+  DeleteAppVersionAppComponentCommandInput,
+  DeleteAppVersionAppComponentCommandOutput,
+} from "./commands/DeleteAppVersionAppComponentCommand";
+import {
+  DeleteAppVersionResourceCommand,
+  DeleteAppVersionResourceCommandInput,
+  DeleteAppVersionResourceCommandOutput,
+} from "./commands/DeleteAppVersionResourceCommand";
+import {
   DeleteRecommendationTemplateCommand,
   DeleteRecommendationTemplateCommandInput,
   DeleteRecommendationTemplateCommandOutput,
@@ -39,6 +64,21 @@ import {
   DescribeAppAssessmentCommandOutput,
 } from "./commands/DescribeAppAssessmentCommand";
 import { DescribeAppCommand, DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
+import {
+  DescribeAppVersionAppComponentCommand,
+  DescribeAppVersionAppComponentCommandInput,
+  DescribeAppVersionAppComponentCommandOutput,
+} from "./commands/DescribeAppVersionAppComponentCommand";
+import {
+  DescribeAppVersionCommand,
+  DescribeAppVersionCommandInput,
+  DescribeAppVersionCommandOutput,
+} from "./commands/DescribeAppVersionCommand";
+import {
+  DescribeAppVersionResourceCommand,
+  DescribeAppVersionResourceCommandInput,
+  DescribeAppVersionResourceCommandOutput,
+} from "./commands/DescribeAppVersionResourceCommand";
 import {
   DescribeAppVersionResourcesResolutionStatusCommand,
   DescribeAppVersionResourcesResolutionStatusCommandInput,
@@ -84,7 +124,17 @@ import {
   ListAppComponentRecommendationsCommandInput,
   ListAppComponentRecommendationsCommandOutput,
 } from "./commands/ListAppComponentRecommendationsCommand";
+import {
+  ListAppInputSourcesCommand,
+  ListAppInputSourcesCommandInput,
+  ListAppInputSourcesCommandOutput,
+} from "./commands/ListAppInputSourcesCommand";
 import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import {
+  ListAppVersionAppComponentsCommand,
+  ListAppVersionAppComponentsCommandInput,
+  ListAppVersionAppComponentsCommandOutput,
+} from "./commands/ListAppVersionAppComponentsCommand";
 import {
   ListAppVersionResourceMappingsCommand,
   ListAppVersionResourceMappingsCommandInput,
@@ -168,6 +218,21 @@ import {
 } from "./commands/UntagResourceCommand";
 import { UpdateAppCommand, UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
 import {
+  UpdateAppVersionAppComponentCommand,
+  UpdateAppVersionAppComponentCommandInput,
+  UpdateAppVersionAppComponentCommandOutput,
+} from "./commands/UpdateAppVersionAppComponentCommand";
+import {
+  UpdateAppVersionCommand,
+  UpdateAppVersionCommandInput,
+  UpdateAppVersionCommandOutput,
+} from "./commands/UpdateAppVersionCommand";
+import {
+  UpdateAppVersionResourceCommand,
+  UpdateAppVersionResourceCommandInput,
+  UpdateAppVersionResourceCommandOutput,
+} from "./commands/UpdateAppVersionResourceCommand";
+import {
   UpdateResiliencyPolicyCommand,
   UpdateResiliencyPolicyCommandInput,
   UpdateResiliencyPolicyCommandOutput,
@@ -183,7 +248,7 @@ import { ResiliencehubClient } from "./ResiliencehubClient";
  */
 export class Resiliencehub extends ResiliencehubClient {
   /**
-   * <p>Adds the resource mapping for the draft application version.</p>
+   * <p>Adds the resource mapping for the draft application version. You can also update an existing resource mapping to a new physical resource.</p>
    */
   public addDraftAppVersionResourceMappings(
     args: AddDraftAppVersionResourceMappingsCommandInput,
@@ -215,12 +280,11 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Creates a Resilience Hub application. A Resilience Hub application is a collection of Amazon Web Services
+   * <p>Creates an AWS Resilience Hub application. An AWS Resilience Hub application is a collection of Amazon Web Services
    *       resources structured to prevent and recover Amazon Web Services application disruptions. To describe a
-   *       Resilience Hub application, you provide an application name, resources from one or more–up to
+   *       AWS Resilience Hub application, you provide an application name, resources from one or more–up to
    *       five–CloudFormation stacks, and an appropriate resiliency policy.</p>
-   *
-   *          <p>After you create a Resilience Hub application, you publish it so that you can run a resiliency
+   *          <p>After you create an AWS Resilience Hub application, you publish it so that you can run a resiliency
    *       assessment on it. You can then use recommendations from the assessment to improve resiliency
    *       by running another assessment, comparing results, and then iterating the process until you
    *       achieve your goals for recovery time objective (RTO) and recovery point objective
@@ -250,7 +314,92 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Creates a new recommendation template.</p>
+   * <p>Creates a new Application Component in the AWS Resilience Hub application.</p>
+   *          <note>
+   *             <p>This API updates the AWS Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+   *          </note>
+   */
+  public createAppVersionAppComponent(
+    args: CreateAppVersionAppComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppVersionAppComponentCommandOutput>;
+  public createAppVersionAppComponent(
+    args: CreateAppVersionAppComponentCommandInput,
+    cb: (err: any, data?: CreateAppVersionAppComponentCommandOutput) => void
+  ): void;
+  public createAppVersionAppComponent(
+    args: CreateAppVersionAppComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppVersionAppComponentCommandOutput) => void
+  ): void;
+  public createAppVersionAppComponent(
+    args: CreateAppVersionAppComponentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppVersionAppComponentCommandOutput) => void),
+    cb?: (err: any, data?: CreateAppVersionAppComponentCommandOutput) => void
+  ): Promise<CreateAppVersionAppComponentCommandOutput> | void {
+    const command = new CreateAppVersionAppComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds a resource to the AWS Resilience Hub applicationand assigns it to the specified
+   *       Application Components. If you specify a new Application Component, AWS Resilience Hub will automatically
+   *       create the Application Component.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>This action has no effect outside AWS Resilience Hub.</p>
+   *                </li>
+   *                <li>
+   *                   <p>This API updates the AWS Resilience Hub application draft version. To use this resource
+   *             for running resiliency assessments, you must publish the AWS Resilience Hub application using
+   *             the <code>PublishAppVersion</code> API.</p>
+   *                </li>
+   *                <li>
+   *                   <p>To update application version with new <code>physicalResourceID</code>, you must
+   *             call <code>ResolveAppVersionResources</code> API.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  public createAppVersionResource(
+    args: CreateAppVersionResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppVersionResourceCommandOutput>;
+  public createAppVersionResource(
+    args: CreateAppVersionResourceCommandInput,
+    cb: (err: any, data?: CreateAppVersionResourceCommandOutput) => void
+  ): void;
+  public createAppVersionResource(
+    args: CreateAppVersionResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppVersionResourceCommandOutput) => void
+  ): void;
+  public createAppVersionResource(
+    args: CreateAppVersionResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppVersionResourceCommandOutput) => void),
+    cb?: (err: any, data?: CreateAppVersionResourceCommandOutput) => void
+  ): Promise<CreateAppVersionResourceCommandOutput> | void {
+    const command = new CreateAppVersionResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new recommendation template for the AWS Resilience Hub application.</p>
    */
   public createRecommendationTemplate(
     args: CreateRecommendationTemplateCommandInput,
@@ -363,6 +512,125 @@ export class Resiliencehub extends ResiliencehubClient {
     cb?: (err: any, data?: DeleteAppAssessmentCommandOutput) => void
   ): Promise<DeleteAppAssessmentCommandOutput> | void {
     const command = new DeleteAppAssessmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the input source and all of its imported resources from the AWS Resilience Hub application.</p>
+   */
+  public deleteAppInputSource(
+    args: DeleteAppInputSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppInputSourceCommandOutput>;
+  public deleteAppInputSource(
+    args: DeleteAppInputSourceCommandInput,
+    cb: (err: any, data?: DeleteAppInputSourceCommandOutput) => void
+  ): void;
+  public deleteAppInputSource(
+    args: DeleteAppInputSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppInputSourceCommandOutput) => void
+  ): void;
+  public deleteAppInputSource(
+    args: DeleteAppInputSourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppInputSourceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppInputSourceCommandOutput) => void
+  ): Promise<DeleteAppInputSourceCommandOutput> | void {
+    const command = new DeleteAppInputSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an Application Component from the AWS Resilience Hub application.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>This API updates the AWS Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+   *                </li>
+   *                <li>
+   *                   <p>You will not be able to delete an Application Component if it has resources associated with it.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  public deleteAppVersionAppComponent(
+    args: DeleteAppVersionAppComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppVersionAppComponentCommandOutput>;
+  public deleteAppVersionAppComponent(
+    args: DeleteAppVersionAppComponentCommandInput,
+    cb: (err: any, data?: DeleteAppVersionAppComponentCommandOutput) => void
+  ): void;
+  public deleteAppVersionAppComponent(
+    args: DeleteAppVersionAppComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppVersionAppComponentCommandOutput) => void
+  ): void;
+  public deleteAppVersionAppComponent(
+    args: DeleteAppVersionAppComponentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppVersionAppComponentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppVersionAppComponentCommandOutput) => void
+  ): Promise<DeleteAppVersionAppComponentCommandOutput> | void {
+    const command = new DeleteAppVersionAppComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a resource from the AWS Resilience Hub application.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>You can only delete a manually added resource. To exclude non-manually added resources, use the <code>UpdateAppVersionResource</code> API.</p>
+   *                </li>
+   *                <li>
+   *                   <p>This action has no effect outside AWS Resilience Hub.</p>
+   *                </li>
+   *                <li>
+   *                   <p>This API updates the AWS Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  public deleteAppVersionResource(
+    args: DeleteAppVersionResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppVersionResourceCommandOutput>;
+  public deleteAppVersionResource(
+    args: DeleteAppVersionResourceCommandInput,
+    cb: (err: any, data?: DeleteAppVersionResourceCommandOutput) => void
+  ): void;
+  public deleteAppVersionResource(
+    args: DeleteAppVersionResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppVersionResourceCommandOutput) => void
+  ): void;
+  public deleteAppVersionResource(
+    args: DeleteAppVersionResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppVersionResourceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppVersionResourceCommandOutput) => void
+  ): Promise<DeleteAppVersionResourceCommandOutput> | void {
+    const command = new DeleteAppVersionResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -497,6 +765,122 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * <p>Describes the AWS Resilience Hub application version.</p>
+   */
+  public describeAppVersion(
+    args: DescribeAppVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppVersionCommandOutput>;
+  public describeAppVersion(
+    args: DescribeAppVersionCommandInput,
+    cb: (err: any, data?: DescribeAppVersionCommandOutput) => void
+  ): void;
+  public describeAppVersion(
+    args: DescribeAppVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppVersionCommandOutput) => void
+  ): void;
+  public describeAppVersion(
+    args: DescribeAppVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppVersionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAppVersionCommandOutput) => void
+  ): Promise<DescribeAppVersionCommandOutput> | void {
+    const command = new DescribeAppVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an Application Component in the AWS Resilience Hub application.</p>
+   */
+  public describeAppVersionAppComponent(
+    args: DescribeAppVersionAppComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppVersionAppComponentCommandOutput>;
+  public describeAppVersionAppComponent(
+    args: DescribeAppVersionAppComponentCommandInput,
+    cb: (err: any, data?: DescribeAppVersionAppComponentCommandOutput) => void
+  ): void;
+  public describeAppVersionAppComponent(
+    args: DescribeAppVersionAppComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppVersionAppComponentCommandOutput) => void
+  ): void;
+  public describeAppVersionAppComponent(
+    args: DescribeAppVersionAppComponentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppVersionAppComponentCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAppVersionAppComponentCommandOutput) => void
+  ): Promise<DescribeAppVersionAppComponentCommandOutput> | void {
+    const command = new DescribeAppVersionAppComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a resource of the AWS Resilience Hub application.</p>
+   *          <note>
+   *             <p>This API accepts only one of the following parameters to descibe the resource:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>resourceName</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>logicalResourceId</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>physicalResourceId</code> (Along with <code>physicalResourceId</code>, you can also
+   *             provide <code>awsAccountId</code>, and <code>awsRegion</code>)</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  public describeAppVersionResource(
+    args: DescribeAppVersionResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppVersionResourceCommandOutput>;
+  public describeAppVersionResource(
+    args: DescribeAppVersionResourceCommandInput,
+    cb: (err: any, data?: DescribeAppVersionResourceCommandOutput) => void
+  ): void;
+  public describeAppVersionResource(
+    args: DescribeAppVersionResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppVersionResourceCommandOutput) => void
+  ): void;
+  public describeAppVersionResource(
+    args: DescribeAppVersionResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppVersionResourceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAppVersionResourceCommandOutput) => void
+  ): Promise<DescribeAppVersionResourceCommandOutput> | void {
+    const command = new DescribeAppVersionResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the resolution status for the specified resolution identifier for an application
    *       version. If <code>resolutionId</code> is not specified, the current resolution status is
    *       returned.</p>
@@ -533,7 +917,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Describes details about an AWS Resilience Hub </p>
+   * <p>Describes details about an AWS Resilience Hub application.</p>
    */
   public describeAppVersionTemplate(
     args: DescribeAppVersionTemplateCommandInput,
@@ -566,6 +950,13 @@ export class Resiliencehub extends ResiliencehubClient {
 
   /**
    * <p>Describes the status of importing resources to an application version.</p>
+   *          <note>
+   *             <p>If you get a 404 error with
+   *           <code>ResourceImportStatusNotFoundAppMetadataException</code>, you must call
+   *           <code>importResourcesToDraftAppVersion</code>  after creating the application and before
+   *         calling <code>describeDraftAppVersionResourcesImportStatus</code> to obtain the
+   *         status.</p>
+   *          </note>
    */
   public describeDraftAppVersionResourcesImportStatus(
     args: DescribeDraftAppVersionResourcesImportStatusCommandInput,
@@ -633,8 +1024,8 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Imports resources from sources such as a CloudFormation stack, resource-groups, or application
-   *       registry app to a draft application version.</p>
+   * <p>Imports resources to AWS Resilience Hub application draft version from different input sources. For more information about the input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+   *         the structure and describe your Resilience Hub application</a>.</p>
    */
   public importResourcesToDraftAppVersion(
     args: ImportResourcesToDraftAppVersionCommandInput,
@@ -666,7 +1057,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists the alarm recommendations for a AWS Resilience Hub application.</p>
+   * <p>Lists the alarm recommendations for an AWS Resilience Hub application.</p>
    */
   public listAlarmRecommendations(
     args: ListAlarmRecommendationsCommandInput,
@@ -731,7 +1122,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists the compliances for an AWS Resilience Hub component.</p>
+   * <p>Lists the compliances for an AWS Resilience Hub Application Component.</p>
    */
   public listAppComponentCompliances(
     args: ListAppComponentCompliancesCommandInput,
@@ -763,7 +1154,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists the recommendations for an AWS Resilience Hub component.</p>
+   * <p>Lists the recommendations for an AWS Resilience Hub Application Component.</p>
    */
   public listAppComponentRecommendations(
     args: ListAppComponentRecommendationsCommandInput,
@@ -795,7 +1186,50 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists your Resilience Hub applications.</p>
+   * <p>Lists all the input sources of the AWS Resilience Hub application. For more information about the
+   *       input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+   *         the structure and describe your Resilience Hub application</a>.</p>
+   */
+  public listAppInputSources(
+    args: ListAppInputSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppInputSourcesCommandOutput>;
+  public listAppInputSources(
+    args: ListAppInputSourcesCommandInput,
+    cb: (err: any, data?: ListAppInputSourcesCommandOutput) => void
+  ): void;
+  public listAppInputSources(
+    args: ListAppInputSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppInputSourcesCommandOutput) => void
+  ): void;
+  public listAppInputSources(
+    args: ListAppInputSourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppInputSourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListAppInputSourcesCommandOutput) => void
+  ): Promise<ListAppInputSourcesCommandOutput> | void {
+    const command = new ListAppInputSourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists your AWS Resilience Hub applications.</p>
+   *          <note>
+   *             <p>You can filter applications using only one filter at a time or without using any filter.
+   *         If you try to filter applications using multiple filters, you will get the following
+   *         error:</p>
+   *             <p>
+   *                <code>An error occurred (ValidationException) when calling the ListApps operation: Only
+   *           one filter is supported for this operation.</code>
+   *             </p>
+   *          </note>
    */
   public listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
   public listApps(args: ListAppsCommandInput, cb: (err: any, data?: ListAppsCommandOutput) => void): void;
@@ -810,6 +1244,38 @@ export class Resiliencehub extends ResiliencehubClient {
     cb?: (err: any, data?: ListAppsCommandOutput) => void
   ): Promise<ListAppsCommandOutput> | void {
     const command = new ListAppsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the Application Components in the AWS Resilience Hub application.</p>
+   */
+  public listAppVersionAppComponents(
+    args: ListAppVersionAppComponentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppVersionAppComponentsCommandOutput>;
+  public listAppVersionAppComponents(
+    args: ListAppVersionAppComponentsCommandInput,
+    cb: (err: any, data?: ListAppVersionAppComponentsCommandOutput) => void
+  ): void;
+  public listAppVersionAppComponents(
+    args: ListAppVersionAppComponentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppVersionAppComponentsCommandOutput) => void
+  ): void;
+  public listAppVersionAppComponents(
+    args: ListAppVersionAppComponentsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppVersionAppComponentsCommandOutput) => void),
+    cb?: (err: any, data?: ListAppVersionAppComponentsCommandOutput) => void
+  ): Promise<ListAppVersionAppComponentsCommandOutput> | void {
+    const command = new ListAppVersionAppComponentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -855,7 +1321,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists all the resources in an application version.</p>
+   * <p>Lists all the resources in an AWS Resilience Hub application.</p>
    */
   public listAppVersionResources(
     args: ListAppVersionResourcesCommandInput,
@@ -887,7 +1353,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists the different versions for the Resilience Hub applications.</p>
+   * <p>Lists the different versions for the AWS Resilience Hub applications.</p>
    */
   public listAppVersions(
     args: ListAppVersionsCommandInput,
@@ -919,7 +1385,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists the recommendation templates for the Resilience Hub applications.</p>
+   * <p>Lists the recommendation templates for the AWS Resilience Hub applications.</p>
    */
   public listRecommendationTemplates(
     args: ListRecommendationTemplatesCommandInput,
@@ -951,7 +1417,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists the resiliency policies for the Resilience Hub applications.</p>
+   * <p>Lists the resiliency policies for the AWS Resilience Hub applications.</p>
    */
   public listResiliencyPolicies(
     args: ListResiliencyPoliciesCommandInput,
@@ -983,7 +1449,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists the standard operating procedure (SOP) recommendations for the Resilience Hub
+   * <p>Lists the standard operating procedure (SOP) recommendations for the AWS Resilience Hub
    *       applications.</p>
    */
   public listSopRecommendations(
@@ -1016,7 +1482,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists the suggested resiliency policies for the Resilience Hub applications.</p>
+   * <p>Lists the suggested resiliency policies for the AWS Resilience Hub applications.</p>
    */
   public listSuggestedResiliencyPolicies(
     args: ListSuggestedResiliencyPoliciesCommandInput,
@@ -1048,7 +1514,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists the tags for your resources in your Resilience Hub applications.</p>
+   * <p>Lists the tags for your resources in your AWS Resilience Hub applications.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1080,7 +1546,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Lists the test recommendations for the Resilience Hub application.</p>
+   * <p>Lists the test recommendations for the AWS Resilience Hub application.</p>
    */
   public listTestRecommendations(
     args: ListTestRecommendationsCommandInput,
@@ -1114,7 +1580,7 @@ export class Resiliencehub extends ResiliencehubClient {
   /**
    * <p>Lists the resources that are not currently supported in AWS Resilience Hub. An unsupported
    *       resource is a resource that exists in the object that was used to create an app, but is not
-   *       supported by Resilience Hub.</p>
+   *       supported by AWS Resilience Hub.</p>
    */
   public listUnsupportedAppVersionResources(
     args: ListUnsupportedAppVersionResourcesCommandInput,
@@ -1146,7 +1612,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Publishes a new version of a specific Resilience Hub application.</p>
+   * <p>Publishes a new version of a specific AWS Resilience Hub application.</p>
    */
   public publishAppVersion(
     args: PublishAppVersionCommandInput,
@@ -1178,7 +1644,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
-   * <p>Adds or updates the app template for a draft version of a Resilience Hub app.</p>
+   * <p>Adds or updates the app template for an AWS Resilience Hub application draft version.</p>
    */
   public putDraftAppVersionTemplate(
     args: PutDraftAppVersionTemplateCommandInput,
@@ -1381,6 +1847,124 @@ export class Resiliencehub extends ResiliencehubClient {
     cb?: (err: any, data?: UpdateAppCommandOutput) => void
   ): Promise<UpdateAppCommandOutput> | void {
     const command = new UpdateAppCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the AWS Resilience Hub application version.</p>
+   *          <note>
+   *             <p>This API updates the AWS Resilience Hub application draft version. To use this information
+   *         for running resiliency assessments, you must publish the AWS Resilience Hub application using the
+   *           <code>PublishAppVersion</code> API.</p>
+   *          </note>
+   */
+  public updateAppVersion(
+    args: UpdateAppVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppVersionCommandOutput>;
+  public updateAppVersion(
+    args: UpdateAppVersionCommandInput,
+    cb: (err: any, data?: UpdateAppVersionCommandOutput) => void
+  ): void;
+  public updateAppVersion(
+    args: UpdateAppVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppVersionCommandOutput) => void
+  ): void;
+  public updateAppVersion(
+    args: UpdateAppVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppVersionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAppVersionCommandOutput) => void
+  ): Promise<UpdateAppVersionCommandOutput> | void {
+    const command = new UpdateAppVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing Application Component in the AWS Resilience Hub application.</p>
+   *          <note>
+   *             <p>This API updates the AWS Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+   *          </note>
+   */
+  public updateAppVersionAppComponent(
+    args: UpdateAppVersionAppComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppVersionAppComponentCommandOutput>;
+  public updateAppVersionAppComponent(
+    args: UpdateAppVersionAppComponentCommandInput,
+    cb: (err: any, data?: UpdateAppVersionAppComponentCommandOutput) => void
+  ): void;
+  public updateAppVersionAppComponent(
+    args: UpdateAppVersionAppComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppVersionAppComponentCommandOutput) => void
+  ): void;
+  public updateAppVersionAppComponent(
+    args: UpdateAppVersionAppComponentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppVersionAppComponentCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAppVersionAppComponentCommandOutput) => void
+  ): Promise<UpdateAppVersionAppComponentCommandOutput> | void {
+    const command = new UpdateAppVersionAppComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the resource details in the AWS Resilience Hub application.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>This action has no effect outside AWS Resilience Hub.</p>
+   *                </li>
+   *                <li>
+   *                   <p>This API updates the AWS Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+   *                </li>
+   *                <li>
+   *                   <p>To update application version with new <code>physicalResourceID</code>, you must call
+   *               <code>ResolveAppVersionResources</code> API.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  public updateAppVersionResource(
+    args: UpdateAppVersionResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppVersionResourceCommandOutput>;
+  public updateAppVersionResource(
+    args: UpdateAppVersionResourceCommandInput,
+    cb: (err: any, data?: UpdateAppVersionResourceCommandOutput) => void
+  ): void;
+  public updateAppVersionResource(
+    args: UpdateAppVersionResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppVersionResourceCommandOutput) => void
+  ): void;
+  public updateAppVersionResource(
+    args: UpdateAppVersionResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppVersionResourceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAppVersionResourceCommandOutput) => void
+  ): Promise<UpdateAppVersionResourceCommandOutput> | void {
+    const command = new UpdateAppVersionResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

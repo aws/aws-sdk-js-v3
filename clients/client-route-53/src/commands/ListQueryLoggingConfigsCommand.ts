@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -32,7 +33,7 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * <p>Lists the configurations for DNS query logging that are associated with the current
  * 				Amazon Web Services account or the configuration that is associated with a specified
  * 			hosted zone.</p>
- * 		       <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>. Additional information, including the format of
+ *          <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>. Additional information, including the format of
  * 			DNS query logs, appears in <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a> in
  * 			the <i>Amazon Route 53 Developer Guide</i>.</p>
  * @example
@@ -58,6 +59,15 @@ export class ListQueryLoggingConfigsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListQueryLoggingConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class ListQueryLoggingConfigsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListQueryLoggingConfigsCommandInput, ListQueryLoggingConfigsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListQueryLoggingConfigsCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

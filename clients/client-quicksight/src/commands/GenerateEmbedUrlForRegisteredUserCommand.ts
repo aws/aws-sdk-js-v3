@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog,
   GenerateEmbedUrlForRegisteredUserResponse,
   GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand,
   serializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand,
@@ -32,25 +33,25 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
 /**
  * <p>Generates an embed URL that you can use to embed an Amazon QuickSight experience in your website. This action can be used for any type of user registered in an Amazon QuickSight account.
  *             Before you use this action, make sure that you have configured the relevant Amazon QuickSight resource and permissions.</p>
- *         <p>The following rules apply to the generated URL:</p>
- *         <ul>
+ *          <p>The following rules apply to the generated URL:</p>
+ *          <ul>
  *             <li>
- *                 <p>It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.</p>
+ *                <p>It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.</p>
  *             </li>
  *             <li>
- *                 <p>The URL validity period should not be confused with the actual session lifetime
+ *                <p>The URL validity period should not be confused with the actual session lifetime
  *         that can be customized using the <code>
  *                      <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a>
  *                   </code> parameter.</p>
- *                 <p>The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.</p>
+ *                <p>The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.</p>
  *             </li>
  *             <li>
- *                 <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
+ *                <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
  *             </li>
  *          </ul>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in the <i>Amazon QuickSight User
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in the <i>Amazon QuickSight User
  *             Guide</i>.</p>
- *             <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
+ *          <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +75,15 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GenerateEmbedUrlForRegisteredUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,6 +99,9 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GenerateEmbedUrlForRegisteredUserCommandInput, GenerateEmbedUrlForRegisteredUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GenerateEmbedUrlForRegisteredUserCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

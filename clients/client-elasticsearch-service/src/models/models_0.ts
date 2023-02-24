@@ -166,7 +166,11 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
+export enum OptionState {
+  Active = "Active",
+  Processing = "Processing",
+  RequiresIndexDocuments = "RequiresIndexDocuments",
+}
 
 /**
  * <p>Provides the current status of the entity.</p>
@@ -576,19 +580,22 @@ export interface AssociatePackageRequest {
   DomainName: string | undefined;
 }
 
-export type DomainPackageStatus =
-  | "ACTIVE"
-  | "ASSOCIATING"
-  | "ASSOCIATION_FAILED"
-  | "DISSOCIATING"
-  | "DISSOCIATION_FAILED";
+export enum DomainPackageStatus {
+  ACTIVE = "ACTIVE",
+  ASSOCIATING = "ASSOCIATING",
+  ASSOCIATION_FAILED = "ASSOCIATION_FAILED",
+  DISSOCIATING = "DISSOCIATING",
+  DISSOCIATION_FAILED = "DISSOCIATION_FAILED",
+}
 
 export interface ErrorDetails {
   ErrorType?: string;
   ErrorMessage?: string;
 }
 
-export type PackageType = "TXT-DICTIONARY";
+export enum PackageType {
+  TXT_DICTIONARY = "TXT-DICTIONARY",
+}
 
 /**
  * <p>Information on a package that is associated with a domain.</p>
@@ -672,6 +679,55 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * <p>Container for request parameters to the <code><a>AuthorizeVpcEndpointAccess</a></code> operation.
+ *           Specifies the account to be permitted to manage VPC endpoints against the domain.</p>
+ */
+export interface AuthorizeVpcEndpointAccessRequest {
+  /**
+   * <p>The name of the OpenSearch Service domain to provide access to.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The account ID to grant access to.</p>
+   */
+  Account: string | undefined;
+}
+
+export enum PrincipalType {
+  AWS_ACCOUNT = "AWS_ACCOUNT",
+  AWS_SERVICE = "AWS_SERVICE",
+}
+
+/**
+ * <p>Information about an  account or service that has access to an Amazon
+ *    OpenSearch Service domain through the use of an interface VPC endpoint.</p>
+ */
+export interface AuthorizedPrincipal {
+  /**
+   * <p>The type of principal.</p>
+   */
+  PrincipalType?: PrincipalType | string;
+
+  /**
+   * <p>The IAM principal that is allowed access to the domain.</p>
+   */
+  Principal?: string;
+}
+
+/**
+ * <p>Container for response parameters to the <code><a>AuthorizeVpcEndpointAccess</a></code> operation.
+ *           Contains the account ID and the type of the account being authorized to access the VPC endpoint.</p>
+ */
+export interface AuthorizeVpcEndpointAccessResponse {
+  /**
+   * <p>Information about the account or service that was provided access to the
+   *    domain.</p>
+   */
+  AuthorizedPrincipal: AuthorizedPrincipal | undefined;
+}
+
+/**
  * <p>Container for the parameters to the <code><a>CancelElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to cancel a service software update on.</p>
  */
 export interface CancelElasticsearchServiceSoftwareUpdateRequest {
@@ -681,7 +737,13 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
   DomainName: string | undefined;
 }
 
-export type DeploymentStatus = "COMPLETED" | "ELIGIBLE" | "IN_PROGRESS" | "NOT_ELIGIBLE" | "PENDING_UPDATE";
+export enum DeploymentStatus {
+  COMPLETED = "COMPLETED",
+  ELIGIBLE = "ELIGIBLE",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_ELIGIBLE = "NOT_ELIGIBLE",
+  PENDING_UPDATE = "PENDING_UPDATE",
+}
 
 /**
  * <p>The current options of an Elasticsearch domain service software options.</p>
@@ -863,7 +925,12 @@ export interface DomainEndpointOptions {
   CustomEndpointCertificateArn?: string;
 }
 
-export type VolumeType = "gp2" | "gp3" | "io1" | "standard";
+export enum VolumeType {
+  gp2 = "gp2",
+  gp3 = "gp3",
+  io1 = "io1",
+  standard = "standard",
+}
 
 /**
  * <p>Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.</p>
@@ -905,67 +972,71 @@ export interface ColdStorageOptions {
   Enabled: boolean | undefined;
 }
 
-export type ESPartitionInstanceType =
-  | "c4.2xlarge.elasticsearch"
-  | "c4.4xlarge.elasticsearch"
-  | "c4.8xlarge.elasticsearch"
-  | "c4.large.elasticsearch"
-  | "c4.xlarge.elasticsearch"
-  | "c5.18xlarge.elasticsearch"
-  | "c5.2xlarge.elasticsearch"
-  | "c5.4xlarge.elasticsearch"
-  | "c5.9xlarge.elasticsearch"
-  | "c5.large.elasticsearch"
-  | "c5.xlarge.elasticsearch"
-  | "d2.2xlarge.elasticsearch"
-  | "d2.4xlarge.elasticsearch"
-  | "d2.8xlarge.elasticsearch"
-  | "d2.xlarge.elasticsearch"
-  | "i2.2xlarge.elasticsearch"
-  | "i2.xlarge.elasticsearch"
-  | "i3.16xlarge.elasticsearch"
-  | "i3.2xlarge.elasticsearch"
-  | "i3.4xlarge.elasticsearch"
-  | "i3.8xlarge.elasticsearch"
-  | "i3.large.elasticsearch"
-  | "i3.xlarge.elasticsearch"
-  | "m3.2xlarge.elasticsearch"
-  | "m3.large.elasticsearch"
-  | "m3.medium.elasticsearch"
-  | "m3.xlarge.elasticsearch"
-  | "m4.10xlarge.elasticsearch"
-  | "m4.2xlarge.elasticsearch"
-  | "m4.4xlarge.elasticsearch"
-  | "m4.large.elasticsearch"
-  | "m4.xlarge.elasticsearch"
-  | "m5.12xlarge.elasticsearch"
-  | "m5.2xlarge.elasticsearch"
-  | "m5.4xlarge.elasticsearch"
-  | "m5.large.elasticsearch"
-  | "m5.xlarge.elasticsearch"
-  | "r3.2xlarge.elasticsearch"
-  | "r3.4xlarge.elasticsearch"
-  | "r3.8xlarge.elasticsearch"
-  | "r3.large.elasticsearch"
-  | "r3.xlarge.elasticsearch"
-  | "r4.16xlarge.elasticsearch"
-  | "r4.2xlarge.elasticsearch"
-  | "r4.4xlarge.elasticsearch"
-  | "r4.8xlarge.elasticsearch"
-  | "r4.large.elasticsearch"
-  | "r4.xlarge.elasticsearch"
-  | "r5.12xlarge.elasticsearch"
-  | "r5.2xlarge.elasticsearch"
-  | "r5.4xlarge.elasticsearch"
-  | "r5.large.elasticsearch"
-  | "r5.xlarge.elasticsearch"
-  | "t2.medium.elasticsearch"
-  | "t2.micro.elasticsearch"
-  | "t2.small.elasticsearch"
-  | "ultrawarm1.large.elasticsearch"
-  | "ultrawarm1.medium.elasticsearch";
+export enum ESPartitionInstanceType {
+  c4_2xlarge_elasticsearch = "c4.2xlarge.elasticsearch",
+  c4_4xlarge_elasticsearch = "c4.4xlarge.elasticsearch",
+  c4_8xlarge_elasticsearch = "c4.8xlarge.elasticsearch",
+  c4_large_elasticsearch = "c4.large.elasticsearch",
+  c4_xlarge_elasticsearch = "c4.xlarge.elasticsearch",
+  c5_18xlarge_elasticsearch = "c5.18xlarge.elasticsearch",
+  c5_2xlarge_elasticsearch = "c5.2xlarge.elasticsearch",
+  c5_4xlarge_elasticsearch = "c5.4xlarge.elasticsearch",
+  c5_9xlarge_elasticsearch = "c5.9xlarge.elasticsearch",
+  c5_large_elasticsearch = "c5.large.elasticsearch",
+  c5_xlarge_elasticsearch = "c5.xlarge.elasticsearch",
+  d2_2xlarge_elasticsearch = "d2.2xlarge.elasticsearch",
+  d2_4xlarge_elasticsearch = "d2.4xlarge.elasticsearch",
+  d2_8xlarge_elasticsearch = "d2.8xlarge.elasticsearch",
+  d2_xlarge_elasticsearch = "d2.xlarge.elasticsearch",
+  i2_2xlarge_elasticsearch = "i2.2xlarge.elasticsearch",
+  i2_xlarge_elasticsearch = "i2.xlarge.elasticsearch",
+  i3_16xlarge_elasticsearch = "i3.16xlarge.elasticsearch",
+  i3_2xlarge_elasticsearch = "i3.2xlarge.elasticsearch",
+  i3_4xlarge_elasticsearch = "i3.4xlarge.elasticsearch",
+  i3_8xlarge_elasticsearch = "i3.8xlarge.elasticsearch",
+  i3_large_elasticsearch = "i3.large.elasticsearch",
+  i3_xlarge_elasticsearch = "i3.xlarge.elasticsearch",
+  m3_2xlarge_elasticsearch = "m3.2xlarge.elasticsearch",
+  m3_large_elasticsearch = "m3.large.elasticsearch",
+  m3_medium_elasticsearch = "m3.medium.elasticsearch",
+  m3_xlarge_elasticsearch = "m3.xlarge.elasticsearch",
+  m4_10xlarge_elasticsearch = "m4.10xlarge.elasticsearch",
+  m4_2xlarge_elasticsearch = "m4.2xlarge.elasticsearch",
+  m4_4xlarge_elasticsearch = "m4.4xlarge.elasticsearch",
+  m4_large_elasticsearch = "m4.large.elasticsearch",
+  m4_xlarge_elasticsearch = "m4.xlarge.elasticsearch",
+  m5_12xlarge_elasticsearch = "m5.12xlarge.elasticsearch",
+  m5_2xlarge_elasticsearch = "m5.2xlarge.elasticsearch",
+  m5_4xlarge_elasticsearch = "m5.4xlarge.elasticsearch",
+  m5_large_elasticsearch = "m5.large.elasticsearch",
+  m5_xlarge_elasticsearch = "m5.xlarge.elasticsearch",
+  r3_2xlarge_elasticsearch = "r3.2xlarge.elasticsearch",
+  r3_4xlarge_elasticsearch = "r3.4xlarge.elasticsearch",
+  r3_8xlarge_elasticsearch = "r3.8xlarge.elasticsearch",
+  r3_large_elasticsearch = "r3.large.elasticsearch",
+  r3_xlarge_elasticsearch = "r3.xlarge.elasticsearch",
+  r4_16xlarge_elasticsearch = "r4.16xlarge.elasticsearch",
+  r4_2xlarge_elasticsearch = "r4.2xlarge.elasticsearch",
+  r4_4xlarge_elasticsearch = "r4.4xlarge.elasticsearch",
+  r4_8xlarge_elasticsearch = "r4.8xlarge.elasticsearch",
+  r4_large_elasticsearch = "r4.large.elasticsearch",
+  r4_xlarge_elasticsearch = "r4.xlarge.elasticsearch",
+  r5_12xlarge_elasticsearch = "r5.12xlarge.elasticsearch",
+  r5_2xlarge_elasticsearch = "r5.2xlarge.elasticsearch",
+  r5_4xlarge_elasticsearch = "r5.4xlarge.elasticsearch",
+  r5_large_elasticsearch = "r5.large.elasticsearch",
+  r5_xlarge_elasticsearch = "r5.xlarge.elasticsearch",
+  t2_medium_elasticsearch = "t2.medium.elasticsearch",
+  t2_micro_elasticsearch = "t2.micro.elasticsearch",
+  t2_small_elasticsearch = "t2.small.elasticsearch",
+  ultrawarm1_large_elasticsearch = "ultrawarm1.large.elasticsearch",
+  ultrawarm1_medium_elasticsearch = "ultrawarm1.medium.elasticsearch",
+}
 
-export type ESWarmPartitionInstanceType = "ultrawarm1.large.elasticsearch" | "ultrawarm1.medium.elasticsearch";
+export enum ESWarmPartitionInstanceType {
+  ultrawarm1_large_elasticsearch = "ultrawarm1.large.elasticsearch",
+  ultrawarm1_medium_elasticsearch = "ultrawarm1.medium.elasticsearch",
+}
 
 /**
  * <p>Specifies the zone awareness configuration for the domain cluster, such as the number of availability zones.</p>
@@ -1052,7 +1123,12 @@ export interface EncryptionAtRestOptions {
   KmsKeyId?: string;
 }
 
-export type LogType = "AUDIT_LOGS" | "ES_APPLICATION_LOGS" | "INDEX_SLOW_LOGS" | "SEARCH_SLOW_LOGS";
+export enum LogType {
+  AUDIT_LOGS = "AUDIT_LOGS",
+  ES_APPLICATION_LOGS = "ES_APPLICATION_LOGS",
+  INDEX_SLOW_LOGS = "INDEX_SLOW_LOGS",
+  SEARCH_SLOW_LOGS = "SEARCH_SLOW_LOGS",
+}
 
 /**
  * <p>Log Publishing option that is set for given domain.
@@ -1567,15 +1643,16 @@ export interface CreatePackageRequest {
   PackageSource: PackageSource | undefined;
 }
 
-export type PackageStatus =
-  | "AVAILABLE"
-  | "COPYING"
-  | "COPY_FAILED"
-  | "DELETED"
-  | "DELETE_FAILED"
-  | "DELETING"
-  | "VALIDATING"
-  | "VALIDATION_FAILED";
+export enum PackageStatus {
+  AVAILABLE = "AVAILABLE",
+  COPYING = "COPYING",
+  COPY_FAILED = "COPY_FAILED",
+  DELETED = "DELETED",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETING = "DELETING",
+  VALIDATING = "VALIDATING",
+  VALIDATION_FAILED = "VALIDATION_FAILED",
+}
 
 /**
  * <p>Basic information about a package.</p>
@@ -1633,6 +1710,83 @@ export interface CreatePackageResponse {
    * <p>Information about the package <code>PackageDetails</code>.</p>
    */
   PackageDetails?: PackageDetails;
+}
+
+/**
+ * <p>Container for the parameters to the <code><a>CreateVpcEndpointRequest</a></code> operation.</p>
+ */
+export interface CreateVpcEndpointRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain to grant access to.</p>
+   */
+  DomainArn: string | undefined;
+
+  /**
+   * <p>Options to specify the subnets and security groups for the endpoint.</p>
+   */
+  VpcOptions: VPCOptions | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   */
+  ClientToken?: string;
+}
+
+export enum VpcEndpointStatus {
+  ACTIVE = "ACTIVE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETING = "DELETING",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>The connection endpoint for connecting to an Amazon OpenSearch Service domain through a
+ *    proxy.</p>
+ */
+export interface VpcEndpoint {
+  /**
+   * <p>The unique identifier of the endpoint.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>The creator of the endpoint.</p>
+   */
+  VpcEndpointOwner?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain associated with the endpoint.</p>
+   */
+  DomainArn?: string;
+
+  /**
+   * <p>Options to specify the subnets and security groups for an Amazon OpenSearch Service VPC
+   *    endpoint.</p>
+   */
+  VpcOptions?: VPCDerivedInfo;
+
+  /**
+   * <p>The current status of the endpoint.</p>
+   */
+  Status?: VpcEndpointStatus | string;
+
+  /**
+   * <p>The connection endpoint ID for connecting to the domain.</p>
+   */
+  Endpoint?: string;
+}
+
+/**
+ * <p>Container for response parameters to the <code><a>CreateVpcEndpoint</a></code> operation. Contains the configuration and status of the VPC Endpoint being created.</p>
+ */
+export interface CreateVpcEndpointResponse {
+  /**
+   * <p>Information about the newly created VPC endpoint.</p>
+   */
+  VpcEndpoint: VpcEndpoint | undefined;
 }
 
 /**
@@ -1755,6 +1909,52 @@ export interface DeletePackageResponse {
    * <p><code>PackageDetails</code></p>
    */
   PackageDetails?: PackageDetails;
+}
+
+/**
+ * <p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
+ */
+export interface DeleteVpcEndpointRequest {
+  /**
+   * <p>The unique identifier of the endpoint to be deleted.</p>
+   */
+  VpcEndpointId: string | undefined;
+}
+
+/**
+ * <p>Summary information for an Amazon OpenSearch Service-managed VPC endpoint.</p>
+ */
+export interface VpcEndpointSummary {
+  /**
+   * <p>The unique identifier of the endpoint.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>The creator of the endpoint.</p>
+   */
+  VpcEndpointOwner?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain associated with the endpoint.</p>
+   */
+  DomainArn?: string;
+
+  /**
+   * <p>The current status of the endpoint.</p>
+   */
+  Status?: VpcEndpointStatus | string;
+}
+
+/**
+ * <p>Container for response parameters to the <code><a>DeleteVpcEndpoint</a></code> operation. Contains the summarized detail of the VPC Endpoint being deleted.</p>
+ */
+export interface DeleteVpcEndpointResponse {
+  /**
+   * <p>Information about the deleted endpoint, including its current status (<code>DELETING</code>
+   *    or <code>DELETE_FAILED</code>).</p>
+   */
+  VpcEndpointSummary: VpcEndpointSummary | undefined;
 }
 
 /**
@@ -2782,7 +2982,11 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
   NextToken?: string;
 }
 
-export type ReservedElasticsearchInstancePaymentOption = "ALL_UPFRONT" | "NO_UPFRONT" | "PARTIAL_UPFRONT";
+export enum ReservedElasticsearchInstancePaymentOption {
+  ALL_UPFRONT = "ALL_UPFRONT",
+  NO_UPFRONT = "NO_UPFRONT",
+  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
+}
 
 /**
  * <p>Contains the specific price and frequency of a recurring charges for a reserved Elasticsearch instance, or for a reserved Elasticsearch instance offering.</p>
@@ -2963,6 +3167,58 @@ export interface DescribeReservedElasticsearchInstancesResponse {
    * <p>List of reserved Elasticsearch instances.</p>
    */
   ReservedElasticsearchInstances?: ReservedElasticsearchInstance[];
+}
+
+/**
+ * <p>Container for request parameters to the <code><a>DescribeVpcEndpoints</a></code> operation. Specifies the list of VPC endpoints to be described.</p>
+ */
+export interface DescribeVpcEndpointsRequest {
+  /**
+   * <p>The unique identifiers of the endpoints to get information about.</p>
+   */
+  VpcEndpointIds: string[] | undefined;
+}
+
+export enum VpcEndpointErrorCode {
+  ENDPOINT_NOT_FOUND = "ENDPOINT_NOT_FOUND",
+  SERVER_ERROR = "SERVER_ERROR",
+}
+
+/**
+ * <p>Error information when attempting to describe an Amazon OpenSearch Service-managed VPC
+ *    endpoint.</p>
+ */
+export interface VpcEndpointError {
+  /**
+   * <p>The unique identifier of the endpoint. </p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>The code associated with the error.</p>
+   */
+  ErrorCode?: VpcEndpointErrorCode | string;
+
+  /**
+   * <p>A message describing the error.</p>
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * <p>Container for response parameters to the <code><a>DescribeVpcEndpoints</a></code> operation. Returns a list containing configuration details and
+ *           status of the VPC Endpoints as well as a list containing error responses of the endpoints that could not be described</p>
+ */
+export interface DescribeVpcEndpointsResponse {
+  /**
+   * <p>Information about each requested VPC endpoint.</p>
+   */
+  VpcEndpoints: VpcEndpoint[] | undefined;
+
+  /**
+   * <p>Any errors associated with the request.</p>
+   */
+  VpcEndpointErrors: VpcEndpointError[] | undefined;
 }
 
 /**
@@ -3162,9 +3418,18 @@ export interface GetUpgradeHistoryRequest {
   NextToken?: string;
 }
 
-export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
+export enum UpgradeStep {
+  PRE_UPGRADE_CHECK = "PRE_UPGRADE_CHECK",
+  SNAPSHOT = "SNAPSHOT",
+  UPGRADE = "UPGRADE",
+}
 
-export type UpgradeStatus = "FAILED" | "IN_PROGRESS" | "SUCCEEDED" | "SUCCEEDED_WITH_ISSUES";
+export enum UpgradeStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED",
+  SUCCEEDED_WITH_ISSUES = "SUCCEEDED_WITH_ISSUES",
+}
 
 /**
  * <p>Represents a single step of the Upgrade or Upgrade Eligibility Check workflow.</p>
@@ -3624,6 +3889,93 @@ export interface ListTagsResponse {
 }
 
 /**
+ * <p>Retrieves information about each principal that is allowed to access a
+ *    given Amazon OpenSearch Service domain through the use of an interface VPC endpoint</p>
+ */
+export interface ListVpcEndpointAccessRequest {
+  /**
+   * <p>The name of the OpenSearch Service domain to retrieve access information for.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Container for response parameters to the <code><a>ListVpcEndpointAccess</a></code> operation.
+ *           Returns a list of accounts id and account type authorized to manage VPC endpoints.</p>
+ */
+export interface ListVpcEndpointAccessResponse {
+  /**
+   * <p>List of <code>AuthorizedPrincipal</code> describing the details of the permissions to manage VPC endpoints against the specified domain.</p>
+   */
+  AuthorizedPrincipalList: AuthorizedPrincipal[] | undefined;
+
+  /**
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
+   */
+  NextToken: string | undefined;
+}
+
+/**
+ * <p>Container for request parameters to the <code><a>ListVpcEndpoints</a></code> operation.</p>
+ */
+export interface ListVpcEndpointsRequest {
+  /**
+   * <p>Identifier to allow retrieval of paginated results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Container for response parameters to the <code><a>ListVpcEndpoints</a></code> operation. Returns a list containing summarized details of the VPC endpoints.</p>
+ */
+export interface ListVpcEndpointsResponse {
+  /**
+   * <p>Information about each endpoint.</p>
+   */
+  VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
+
+  /**
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
+   */
+  NextToken: string | undefined;
+}
+
+/**
+ * <p>Container for request parameters to the <code><a>ListVpcEndpointsForDomain</a></code> operation. Specifies the domain whose VPC endpoints will be listed.</p>
+ */
+export interface ListVpcEndpointsForDomainRequest {
+  /**
+   * <p>Name of the ElasticSearch domain whose VPC endpoints are to be listed.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Container for response parameters to the <code><a>ListVpcEndpointsForDomain</a></code> operation. Returns a list containing summarized details of the VPC endpoints.</p>
+ */
+export interface ListVpcEndpointsForDomainResponse {
+  /**
+   * <p>Provides list of <code>VpcEndpointSummary</code> summarizing details of the VPC endpoints.</p>
+   */
+  VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
+
+  /**
+   * <p>Information about each endpoint associated with the domain.</p>
+   */
+  NextToken: string | undefined;
+}
+
+/**
  * <p>Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code></p>
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
@@ -3692,6 +4044,27 @@ export interface RemoveTagsRequest {
    */
   TagKeys: string[] | undefined;
 }
+
+/**
+ * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface
+ *    VPC endpoint.</p>
+ */
+export interface RevokeVpcEndpointAccessRequest {
+  /**
+   * <p>The name of the OpenSearch Service domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The account ID to revoke access from.</p>
+   */
+  Account: string | undefined;
+}
+
+/**
+ * <p>Container for response parameters to the <code><a>RevokeVpcEndpointAccess</a></code> operation. The response body for this operation is empty.</p>
+ */
+export interface RevokeVpcEndpointAccessResponse {}
 
 /**
  * <p>Container for the parameters to the <code><a>StartElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to schedule a service software update on.</p>
@@ -3877,6 +4250,31 @@ export interface UpdatePackageResponse {
    * <p>Information about the package <code>PackageDetails</code>.</p>
    */
   PackageDetails?: PackageDetails;
+}
+
+/**
+ * <p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
+ */
+export interface UpdateVpcEndpointRequest {
+  /**
+   * <p>Unique identifier of the VPC endpoint to be updated.</p>
+   */
+  VpcEndpointId: string | undefined;
+
+  /**
+   * <p>The security groups and/or subnets to add, remove, or modify.</p>
+   */
+  VpcOptions: VPCOptions | undefined;
+}
+
+/**
+ * <p>Contains the configuration and status of the VPC endpoint being updated.</p>
+ */
+export interface UpdateVpcEndpointResponse {
+  /**
+   * <p>The endpoint to be updated.</p>
+   */
+  VpcEndpoint: VpcEndpoint | undefined;
 }
 
 /**
@@ -4112,6 +4510,27 @@ export const AssociatePackageResponseFilterSensitiveLog = (obj: AssociatePackage
 /**
  * @internal
  */
+export const AuthorizeVpcEndpointAccessRequestFilterSensitiveLog = (obj: AuthorizeVpcEndpointAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizedPrincipalFilterSensitiveLog = (obj: AuthorizedPrincipal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizeVpcEndpointAccessResponseFilterSensitiveLog = (obj: AuthorizeVpcEndpointAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CancelElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog = (
   obj: CancelElasticsearchServiceSoftwareUpdateRequest
 ): any => ({
@@ -4335,6 +4754,27 @@ export const CreatePackageResponseFilterSensitiveLog = (obj: CreatePackageRespon
 /**
  * @internal
  */
+export const CreateVpcEndpointRequestFilterSensitiveLog = (obj: CreateVpcEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcEndpointFilterSensitiveLog = (obj: VpcEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcEndpointResponseFilterSensitiveLog = (obj: CreateVpcEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteElasticsearchDomainRequestFilterSensitiveLog = (obj: DeleteElasticsearchDomainRequest): any => ({
   ...obj,
 });
@@ -4402,6 +4842,27 @@ export const DeletePackageRequestFilterSensitiveLog = (obj: DeletePackageRequest
  * @internal
  */
 export const DeletePackageResponseFilterSensitiveLog = (obj: DeletePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcEndpointRequestFilterSensitiveLog = (obj: DeleteVpcEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcEndpointSummaryFilterSensitiveLog = (obj: VpcEndpointSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcEndpointResponseFilterSensitiveLog = (obj: DeleteVpcEndpointResponse): any => ({
   ...obj,
 });
 
@@ -4801,6 +5262,27 @@ export const DescribeReservedElasticsearchInstancesResponseFilterSensitiveLog = 
 /**
  * @internal
  */
+export const DescribeVpcEndpointsRequestFilterSensitiveLog = (obj: DescribeVpcEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcEndpointErrorFilterSensitiveLog = (obj: VpcEndpointError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcEndpointsResponseFilterSensitiveLog = (obj: DescribeVpcEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DissociatePackageRequestFilterSensitiveLog = (obj: DissociatePackageRequest): any => ({
   ...obj,
 });
@@ -4998,6 +5480,48 @@ export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any =
 /**
  * @internal
  */
+export const ListVpcEndpointAccessRequestFilterSensitiveLog = (obj: ListVpcEndpointAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVpcEndpointAccessResponseFilterSensitiveLog = (obj: ListVpcEndpointAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVpcEndpointsRequestFilterSensitiveLog = (obj: ListVpcEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVpcEndpointsResponseFilterSensitiveLog = (obj: ListVpcEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVpcEndpointsForDomainRequestFilterSensitiveLog = (obj: ListVpcEndpointsForDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVpcEndpointsForDomainResponseFilterSensitiveLog = (obj: ListVpcEndpointsForDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const PurchaseReservedElasticsearchInstanceOfferingRequestFilterSensitiveLog = (
   obj: PurchaseReservedElasticsearchInstanceOfferingRequest
 ): any => ({
@@ -5035,6 +5559,20 @@ export const RejectInboundCrossClusterSearchConnectionResponseFilterSensitiveLog
  * @internal
  */
 export const RemoveTagsRequestFilterSensitiveLog = (obj: RemoveTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeVpcEndpointAccessRequestFilterSensitiveLog = (obj: RevokeVpcEndpointAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeVpcEndpointAccessResponseFilterSensitiveLog = (obj: RevokeVpcEndpointAccessResponse): any => ({
   ...obj,
 });
 
@@ -5095,6 +5633,20 @@ export const UpdatePackageRequestFilterSensitiveLog = (obj: UpdatePackageRequest
  * @internal
  */
 export const UpdatePackageResponseFilterSensitiveLog = (obj: UpdatePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVpcEndpointRequestFilterSensitiveLog = (obj: UpdateVpcEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVpcEndpointResponseFilterSensitiveLog = (obj: UpdateVpcEndpointResponse): any => ({
   ...obj,
 });
 

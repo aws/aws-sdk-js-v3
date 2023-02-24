@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,9 +32,9 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
     __MetadataBearer {}
 
 /**
- * <p>Returns the list of Amazon Web Services SSO identity store attributes that have been configured to work
- *       with attributes-based access control (ABAC) for the specified Amazon Web Services SSO instance. This will not
- *       return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+ * <p>Returns the list of IAM Identity Center identity store attributes that have been configured to work
+ *       with attributes-based access control (ABAC) for the specified IAM Identity Center instance. This will not
+ *       return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class DescribeInstanceAccessControlAttributeConfigurationCommand extends 
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeInstanceAccessControlAttributeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,12 @@ export class DescribeInstanceAccessControlAttributeConfigurationCommand extends 
     DescribeInstanceAccessControlAttributeConfigurationCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DescribeInstanceAccessControlAttributeConfigurationCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

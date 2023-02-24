@@ -3,6 +3,258 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+
+### Features
+
+* **checksum:** replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/issues/4346)) ([172b4f3](https://github.com/aws/aws-sdk-js-v3/commit/172b4f3475370b386271750436004706b36bc056))
+
+
+
+
+
+# [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.222.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.221.0...v3.222.0) (2022-12-01)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.215.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.214.0...v3.215.0) (2022-11-21)
+
+
+### Features
+
+* **types:** update identity types ([#4189](https://github.com/aws/aws-sdk-js-v3/issues/4189)) ([aa73203](https://github.com/aws/aws-sdk-js-v3/commit/aa73203585d4b13367bd482c41fb48053bb9e628))
+
+
+
+
+
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.208.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.207.0...v3.208.0) (2022-11-10)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.201.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.200.0...v3.201.0) (2022-11-01)
+
+
+### Features
+
+* end support for Node.js 12.x ([#4123](https://github.com/aws/aws-sdk-js-v3/issues/4123)) ([83f913e](https://github.com/aws/aws-sdk-js-v3/commit/83f913ec2ac3878d8726c6964f585550dc5caf3e))
+
+
+
+
+
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.183.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.182.0...v3.183.0) (2022-10-03)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.169.0...v3.170.0) (2022-09-13)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.162.0...v3.163.0) (2022-09-01)
+
+
+### Features
+
+* **signature-v4:** validate credential is valid before signing ([#3892](https://github.com/aws/aws-sdk-js-v3/issues/3892)) ([065eb7f](https://github.com/aws/aws-sdk-js-v3/commit/065eb7f15944ecc069d9f0cb02c488a32db0db35))
+
+
+
+
+
+# [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
+# [3.159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.158.0...v3.159.0) (2022-08-26)
+
+**Note:** Version bump only for package @aws-sdk/signature-v4
+
+
+
+
+
 # [3.130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.129.0...v3.130.0) (2022-07-14)
 
 

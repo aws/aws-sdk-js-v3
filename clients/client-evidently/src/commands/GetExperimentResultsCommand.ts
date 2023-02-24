@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,10 @@ export interface GetExperimentResultsCommandOutput extends GetExperimentResultsR
 
 /**
  * <p>Retrieves the results of a running or completed experiment. No results are available until
- *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.</p>
+ *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.
+ *        To increase the statistical power, Evidently performs an additional offline p-value analysis at the end of the experiment.
+ *        Offline p-value analysis can detect statistical significance in some cases where the anytime p-values used during
+ *        the experiment do not find statistical significance.</p>
  *          <p>Experiment
  *        results are available up to 63 days after the start of the experiment. They are not available after that because
  *        of CloudWatch data retention policies.</p>
@@ -56,6 +60,15 @@ export class GetExperimentResultsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetExperimentResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +84,9 @@ export class GetExperimentResultsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetExperimentResultsCommandInput, GetExperimentResultsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetExperimentResultsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

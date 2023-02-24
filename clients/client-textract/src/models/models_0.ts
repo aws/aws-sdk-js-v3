@@ -97,6 +97,7 @@ export interface Document {
 export enum FeatureType {
   FORMS = "FORMS",
   QUERIES = "QUERIES",
+  SIGNATURES = "SIGNATURES",
   TABLES = "TABLES",
 }
 
@@ -154,7 +155,8 @@ export interface Query {
   Alias?: string;
 
   /**
-   * <p>List of pages associated with the query. The following is a list of rules for using this parameter.</p>
+   * <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a
+   *          list of rules for using this parameter.</p>
    *          <ul>
    *             <li>
    *                <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p>
@@ -164,8 +166,7 @@ export interface Query {
    *                <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p>
    *             </li>
    *             <li>
-   *                <p>When using <code>*</code> to indicate all pages, it must be the only element
-   *                in the string.</p>
+   *                <p>When using * to indicate all pages, it must be the only element in the list.</p>
    *             </li>
    *             <li>
    *                <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of
@@ -191,9 +192,9 @@ export interface QueriesConfig {
 
 export interface AnalyzeDocumentRequest {
   /**
-   * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
-   *          to call Amazon Textract operations, you can't pass image bytes. The document must be an image
-   *          in JPEG, PNG, PDF, or TIFF format.</p>
+   * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS
+   *          CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an
+   *          image in JPEG, PNG, PDF, or TIFF format.</p>
    *          <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode
    *          image bytes that are passed using the <code>Bytes</code> field. </p>
    */
@@ -201,15 +202,18 @@ export interface AnalyzeDocumentRequest {
 
   /**
    * <p>A list of the types of analysis to perform. Add TABLES to the list to return information
-   *          about the tables that are detected in the input document. Add FORMS to return detected form data.
-   *          To perform both types of analysis, add TABLES and FORMS to
-   *             <code>FeatureTypes</code>. All lines and words detected in the document are included in
-   *          the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
+   *          about the tables that are detected in the input document. Add FORMS to return detected form
+   *          data. Add SIGNATURES to return the locations of detected signatures. To perform both forms
+   *          and table analysis, add TABLES and FORMS to <code>FeatureTypes</code>. To detect signatures within
+   *          form data and table data, add SIGNATURES to either TABLES or FORMS.
+   *          All lines and words detected in the document are included in the response (including text
+   *          that isn't related to the value of <code>FeatureTypes</code>). </p>
    */
   FeatureTypes: (FeatureType | string)[] | undefined;
 
   /**
-   * <p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>
+   * <p>Sets the configuration for the human in the loop workflow for analyzing
+   *          documents.</p>
    */
   HumanLoopConfig?: HumanLoopConfig;
 
@@ -228,6 +232,7 @@ export enum BlockType {
   QUERY = "QUERY",
   QUERY_RESULT = "QUERY_RESULT",
   SELECTION_ELEMENT = "SELECTION_ELEMENT",
+  SIGNATURE = "SIGNATURE",
   TABLE = "TABLE",
   TITLE = "TITLE",
   WORD = "WORD",
@@ -443,8 +448,13 @@ export interface Block {
    *             </li>
    *             <li>
    *                <p>
+   *                   <i>SIGNATURE</i> - The location and confidene score of a signature detected on a
+   *                document page. Can be returned as part of a Key-Value pair or a detected cell.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <i>QUERY</i> - A question asked during the call of AnalyzeDocument. Contains an
-   *                alias and an ID that attachs it to its answer.</p>
+   *                alias and an ID that attaches it to its answer.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -555,12 +565,13 @@ export interface Block {
   SelectionStatus?: SelectionStatus | string;
 
   /**
-   * <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous
-   *          operations. Page values greater than 1 are only returned for multipage documents that are
-   *          in PDF or TIFF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is
-   *          considered to be a single-page document. The value of <code>Page</code> is always 1.
-   *          Synchronous operations don't return <code>Page</code> because every input document is
-   *          considered to be a single-page document.</p>
+   * <p>The page on which a block was detected. <code>Page</code> is returned by synchronous and
+   *          asynchronous operations. Page values greater than 1 are only returned for multipage
+   *          documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an
+   *          asynchronous operation, even if it contains multiple document pages, is considered a
+   *          single-page document. This means that for scanned images the value of <code>Page</code> is
+   *          always 1. Synchronous operations operations will also return a <code>Page</code> value of 1
+   *          because every input document is considered to be a single-page document.</p>
    */
   Page?: number;
 
@@ -885,6 +896,76 @@ export interface AnalyzeExpenseRequest {
 }
 
 /**
+ * <p>Returns the kind of currency detected.</p>
+ */
+export interface ExpenseCurrency {
+  /**
+   * <p>Currency code for detected currency. the current supported codes are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>USD</p>
+   *             </li>
+   *             <li>
+   *                <p>EUR</p>
+   *             </li>
+   *             <li>
+   *                <p>GBP</p>
+   *             </li>
+   *             <li>
+   *                <p>CAD</p>
+   *             </li>
+   *             <li>
+   *                <p>INR</p>
+   *             </li>
+   *             <li>
+   *                <p>JPY</p>
+   *             </li>
+   *             <li>
+   *                <p>CHF</p>
+   *             </li>
+   *             <li>
+   *                <p>AUD</p>
+   *             </li>
+   *             <li>
+   *                <p>CNY</p>
+   *             </li>
+   *             <li>
+   *                <p>BZR</p>
+   *             </li>
+   *             <li>
+   *                <p>SEK</p>
+   *             </li>
+   *             <li>
+   *                <p>HKD</p>
+   *             </li>
+   *          </ul>
+   */
+  Code?: string;
+
+  /**
+   * <p>Percentage confideence in the detected currency.</p>
+   */
+  Confidence?: number;
+}
+
+/**
+ * <p>Shows the group that a certain key belongs to. This helps differentiate between
+ *          names and addresses for different organizations, that can be hard to determine
+ *          via JSON response.</p>
+ */
+export interface ExpenseGroupProperty {
+  /**
+   * <p>Informs you on whether the expense group is a name or an address.</p>
+   */
+  Types?: string[];
+
+  /**
+   * <p>Provides a group Id number, which will be the same for each in the group.</p>
+   */
+  Id?: string;
+}
+
+/**
  * <p>An object used to store information about the Value or Label detected by Amazon Textract.</p>
  */
 export interface ExpenseDetection {
@@ -944,6 +1025,18 @@ export interface ExpenseField {
    * <p>The page number the value was detected on.</p>
    */
   PageNumber?: number;
+
+  /**
+   * <p>Shows the kind of currency, both the code and confidence associated with any monatary value
+   *          detected.</p>
+   */
+  Currency?: ExpenseCurrency;
+
+  /**
+   * <p>Shows which group a response object belongs to, such as whether an address line
+   *          belongs to the vendor's address or the recipent's address.</p>
+   */
+  GroupProperties?: ExpenseGroupProperty[];
 }
 
 /**
@@ -990,6 +1083,12 @@ export interface ExpenseDocument {
    * <p>Information detected on each table of a document, seperated into <code>LineItems</code>.</p>
    */
   LineItemGroups?: LineItemGroup[];
+
+  /**
+   * <p>This is a block object, the same as reported when DetectDocumentText is run on a document.
+   *       It provides word level recognition of text.</p>
+   */
+  Blocks?: Block[];
 }
 
 export interface AnalyzeExpenseResponse {
@@ -1083,12 +1182,17 @@ export interface IdentityDocument {
    *          Contains both normalized field and value of the extracted text.</p>
    */
   IdentityDocumentFields?: IdentityDocumentField[];
+
+  /**
+   * <p>Individual word recognition, as returned by document detection.</p>
+   */
+  Blocks?: Block[];
 }
 
 export interface AnalyzeIDResponse {
   /**
-   * <p>The list of documents processed by AnalyzeID. Includes a number denoting their
-   *          place in the list and the response structure for the document.</p>
+   * <p>The list of documents processed by AnalyzeID. Includes a number denoting their place in
+   *          the list and the response structure for the document.</p>
    */
   IdentityDocuments?: IdentityDocument[];
 
@@ -1134,8 +1238,68 @@ export interface DetectDocumentTextResponse {
 }
 
 /**
+ * <p>A structure that holds information regarding a detected signature on a page.</p>
+ */
+export interface DetectedSignature {
+  /**
+   * <p>The page a detected signature was found on.</p>
+   */
+  Page?: number;
+}
+
+/**
+ * <p>Contains information about the pages of a document, defined by logical boundary.</p>
+ */
+export interface SplitDocument {
+  /**
+   * <p>The index for a given document in a DocumentGroup of a specific Type.</p>
+   */
+  Index?: number;
+
+  /**
+   * <p>An array of page numbers for a for a given document, ordered by logical boundary.</p>
+   */
+  Pages?: number[];
+}
+
+/**
+ * <p>A structure containing information about an undetected signature on a page where it was expected but not found.</p>
+ */
+export interface UndetectedSignature {
+  /**
+   * <p>The page where a signature was expected but not found.</p>
+   */
+  Page?: number;
+}
+
+/**
+ * <p>Summary information about documents grouped by the same document type.</p>
+ */
+export interface DocumentGroup {
+  /**
+   * <p>The type of document that Amazon Textract has detected. See LINK for a list of all types returned by Textract.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>An array that contains information about the pages of a document, defined by logical boundary.</p>
+   */
+  SplitDocuments?: SplitDocument[];
+
+  /**
+   * <p>A list of the detected signatures found in a document group.</p>
+   */
+  DetectedSignatures?: DetectedSignature[];
+
+  /**
+   * <p>A list of any expected signatures not found in a document group.</p>
+   */
+  UndetectedSignatures?: UndetectedSignature[];
+}
+
+/**
  * <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous
- *          operations such as <a>StartDocumentTextDetection</a>.</p>
+ *          operations.</p>
  *          <p>The input document can be an image file in JPEG or PNG format. It can also be a file in
  *          PDF format.</p>
  */
@@ -1146,10 +1310,108 @@ export interface DocumentLocation {
   S3Object?: S3Object;
 }
 
+/**
+ * <p>The results extracted for a lending document.</p>
+ */
+export interface LendingDetection {
+  /**
+   * <p>The text extracted for a detected value in a lending document.</p>
+   */
+  Text?: string;
+
+  /**
+   * <p>The selection status of a selection element, such as an option button or check box.</p>
+   */
+  SelectionStatus?: SelectionStatus | string;
+
+  /**
+   * <p>Information about where the following items are located on a document page: detected
+   *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
+   */
+  Geometry?: Geometry;
+
+  /**
+   * <p>The confidence level for the text of a detected value in a lending document.</p>
+   */
+  Confidence?: number;
+}
+
+/**
+ * <p>Holds the normalized key-value pairs returned by AnalyzeDocument, including the document type, detected text, and geometry.</p>
+ */
+export interface LendingField {
+  /**
+   * <p>The type of the lending document.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The results extracted for a lending document.</p>
+   */
+  KeyDetection?: LendingDetection;
+
+  /**
+   * <p>An array of LendingDetection objects.</p>
+   */
+  ValueDetections?: LendingDetection[];
+}
+
+/**
+ * <p>Information regarding a detected signature on a page.</p>
+ */
+export interface SignatureDetection {
+  /**
+   * <p>The confidence, from 0 to 100, in the predicted values for a detected signature.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>Information about where the following items are located on a document page: detected
+   *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
+   */
+  Geometry?: Geometry;
+}
+
+/**
+ * <p>Holds the structured data returned by AnalyzeDocument for lending documents.</p>
+ */
+export interface LendingDocument {
+  /**
+   * <p>An array of LendingField objects.</p>
+   */
+  LendingFields?: LendingField[];
+
+  /**
+   * <p>A list of signatures detected in a lending document.</p>
+   */
+  SignatureDetections?: SignatureDetection[];
+}
+
+/**
+ * <p>Contains information extracted by an analysis operation after using StartLendingAnalysis.</p>
+ */
+export interface Extraction {
+  /**
+   * <p>Holds the structured data returned by AnalyzeDocument for lending documents.</p>
+   */
+  LendingDocument?: LendingDocument;
+
+  /**
+   * <p>The structure holding all the information returned by AnalyzeExpense</p>
+   */
+  ExpenseDocument?: ExpenseDocument;
+
+  /**
+   * <p>The structure that lists each document processed in an AnalyzeID operation.</p>
+   */
+  IdentityDocument?: IdentityDocument;
+}
+
 export interface GetDocumentAnalysisRequest {
   /**
    * <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from
-   *          <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
+   *             <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7
+   *          days.</p>
    */
   JobId: string | undefined;
 
@@ -1161,8 +1423,9 @@ export interface GetDocumentAnalysisRequest {
   MaxResults?: number;
 
   /**
-   * <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination
-   *          token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
+   * <p>If the previous response was incomplete (because there are more blocks to retrieve),
+   *          Amazon Textract returns a pagination token in the response. You can use this pagination
+   *          token to retrieve the next set of blocks.</p>
    */
   NextToken?: string;
 }
@@ -1191,8 +1454,9 @@ export interface Warning {
 
 export interface GetDocumentAnalysisResponse {
   /**
-   * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
-   *          returned in every page of paginated responses from an Amazon Textract video operation.</p>
+   * <p>Information about a document that Amazon Textract processed.
+   *             <code>DocumentMetadata</code> is returned in every page of paginated responses from an
+   *          Amazon Textract video operation.</p>
    */
   DocumentMetadata?: DocumentMetadata;
 
@@ -1202,8 +1466,8 @@ export interface GetDocumentAnalysisResponse {
   JobStatus?: JobStatus | string;
 
   /**
-   * <p>If the response is truncated, Amazon Textract returns this token. You can use this token in
-   *          the subsequent request to retrieve the next set of text detection results.</p>
+   * <p>If the response is truncated, Amazon Textract returns this token. You can use this token
+   *          in the subsequent request to retrieve the next set of text detection results.</p>
    */
   NextToken?: string;
 
@@ -1218,7 +1482,8 @@ export interface GetDocumentAnalysisResponse {
   Warnings?: Warning[];
 
   /**
-   * <p>Returns if the detection job could not be completed. Contains explanation for what error occured.</p>
+   * <p>Returns if the detection job could not be completed. Contains explanation for what error
+   *          occured.</p>
    */
   StatusMessage?: string;
 
@@ -1229,8 +1494,7 @@ export interface GetDocumentAnalysisResponse {
 }
 
 /**
- * <p>An invalid job identifier was passed to <a>GetDocumentAnalysis</a> or to
- *       <a>GetDocumentAnalysis</a>.</p>
+ * <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
  */
 export class InvalidJobIdException extends __BaseException {
   readonly name: "InvalidJobIdException" = "InvalidJobIdException";
@@ -1398,6 +1662,179 @@ export interface GetExpenseAnalysisResponse {
   AnalyzeExpenseModelVersion?: string;
 }
 
+export interface GetLendingAnalysisRequest {
+  /**
+   * <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is
+   *             returned from <code>StartLendingAnalysis</code>. A <code>JobId</code> value is only
+   *             valid for 7 days.</p>
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per paginated call. The largest value that you
+   *             can specify is 30. If you specify a value greater than 30, a maximum of 30 results is
+   *             returned. The default value is 30.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous response was incomplete, Amazon Textract returns a pagination token in
+   *             the response. You can use this pagination token to retrieve the next set of lending
+   *             results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Contains information regarding predicted values returned by Amazon Textract operations, including the
+ *          predicted value and the confidence in the predicted value.</p>
+ */
+export interface Prediction {
+  /**
+   * <p>The predicted value of a detected object.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>Amazon Textract's confidence in its predicted value.</p>
+   */
+  Confidence?: number;
+}
+
+/**
+ * <p>The class assigned to a Page object detected in an input document.
+ *          Contains information regarding the predicted type/class of a document's page and the
+ *          page number that the Page object was detected on.</p>
+ */
+export interface PageClassification {
+  /**
+   * <p>The class, or document type, assigned to a detected Page object. The class, or document type,
+   *          assigned to a detected Page object.</p>
+   */
+  PageType: Prediction[] | undefined;
+
+  /**
+   * <p> The page number the value was detected on, relative to Amazon Textract's starting position.</p>
+   */
+  PageNumber: Prediction[] | undefined;
+}
+
+/**
+ * <p>Contains the detections for each page analyzed through the Analyze Lending API.</p>
+ */
+export interface LendingResult {
+  /**
+   * <p>The page number for a page, with regard to whole submission.</p>
+   */
+  Page?: number;
+
+  /**
+   * <p>The classifier result for a given page.</p>
+   */
+  PageClassification?: PageClassification;
+
+  /**
+   * <p>An array of Extraction to hold structured data. e.g. normalized key value pairs instead of raw OCR detections .</p>
+   */
+  Extractions?: Extraction[];
+}
+
+export interface GetLendingAnalysisResponse {
+  /**
+   * <p>Information about the input document.</p>
+   */
+  DocumentMetadata?: DocumentMetadata;
+
+  /**
+   * <p> The current status of the lending analysis job.</p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p>If the response is truncated, Amazon Textract returns this token.
+   *             You can use this token in the subsequent request to retrieve the next set of lending results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p> Holds the information returned by one of AmazonTextract's document analysis
+   *             operations for the pinstripe.</p>
+   */
+  Results?: LendingResult[];
+
+  /**
+   * <p> A list of warnings that occurred during the lending analysis operation. </p>
+   */
+  Warnings?: Warning[];
+
+  /**
+   * <p>  Returns if the lending analysis job could not be completed. Contains explanation for
+   *             what error occurred. </p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p> The current model version of the Analyze Lending API.</p>
+   */
+  AnalyzeLendingModelVersion?: string;
+}
+
+export interface GetLendingAnalysisSummaryRequest {
+  /**
+   * <p> A unique identifier for the lending or text-detection job. The <code>JobId</code> is
+   *    returned from StartLendingAnalysis. A <code>JobId</code> value is only valid for 7 days.</p>
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * <p>Contains information regarding DocumentGroups and UndetectedDocumentTypes.</p>
+ */
+export interface LendingSummary {
+  /**
+   * <p>Contains an array of all DocumentGroup objects.</p>
+   */
+  DocumentGroups?: DocumentGroup[];
+
+  /**
+   * <p>UndetectedDocumentTypes.</p>
+   */
+  UndetectedDocumentTypes?: string[];
+}
+
+export interface GetLendingAnalysisSummaryResponse {
+  /**
+   * <p>Information about the input document.</p>
+   */
+  DocumentMetadata?: DocumentMetadata;
+
+  /**
+   * <p> The current status of the lending analysis job. </p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p> Contains summary information for documents grouped by type.</p>
+   */
+  Summary?: LendingSummary;
+
+  /**
+   * <p>A list of warnings that occurred during the lending analysis operation.</p>
+   */
+  Warnings?: Warning[];
+
+  /**
+   * <p>Returns if the lending analysis could not be completed. Contains explanation for what error
+   *    occurred.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The current model version of the Analyze Lending API.</p>
+   */
+  AnalyzeLendingModelVersion?: string;
+}
+
 /**
  * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at
  *          least one of the other input parameters is different from the previous call to the
@@ -1452,7 +1889,7 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of
- *          an asynchronous document operation, such as <a>StartDocumentTextDetection</a>. </p>
+ *          an asynchronous document operation. </p>
  */
 export interface NotificationChannel {
   /**
@@ -1470,12 +1907,13 @@ export interface NotificationChannel {
  * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
  *          of the bucket, and the prefix on the output file.</p>
  *          <p>
- *             <code>OutputConfig</code> is an optional parameter which lets you adjust where your output will be placed.
- *          By default, Amazon Textract will store the results internally and can only be accessed by the Get
- *          API operations. With OutputConfig enabled, you can set the name of the bucket the output will be
- *          sent to and the file prefix of the results where you can download your results. Additionally, you
- *          can set the <code>KMSKeyID</code> parameter to a customer master key (CMK) to encrypt your output. Without this
- *          parameter set Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p>
+ *             <code>OutputConfig</code> is an optional parameter which lets you adjust where your
+ *          output will be placed. By default, Amazon Textract will store the results internally and can
+ *          only be accessed by the Get API operations. With <code>OutputConfig</code> enabled, you can
+ *          set the name of the bucket the output will be sent to the file prefix of the results where
+ *          you can download your results. Additionally, you can set the <code>KMSKeyID</code>
+ *          parameter to a customer master key (CMK) to encrypt your output. Without this parameter set
+ *          Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p>
  *          <p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account
  *          is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after
  *          the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a>
@@ -1673,6 +2111,76 @@ export interface StartExpenseAnalysisResponse {
   JobId?: string;
 }
 
+export interface StartLendingAnalysisRequest {
+  /**
+   * <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous
+   *          operations.</p>
+   *          <p>The input document can be an image file in JPEG or PNG format. It can also be a file in
+   *          PDF format.</p>
+   */
+  DocumentLocation: DocumentLocation | undefined;
+
+  /**
+   * <p>The idempotent token that you use to identify the start request. If you use the same token
+   *    with multiple <code>StartLendingAnalysis</code> requests, the same <code>JobId</code> is
+   *    returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally
+   *    started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-sync.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>An identifier that you specify to be included in the completion notification published to
+   *    the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of
+   *    document that the completion notification corresponds to (such as a tax form or a
+   *    receipt).</p>
+   */
+  JobTag?: string;
+
+  /**
+   * <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of
+   *          an asynchronous document operation. </p>
+   */
+  NotificationChannel?: NotificationChannel;
+
+  /**
+   * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
+   *          of the bucket, and the prefix on the output file.</p>
+   *          <p>
+   *             <code>OutputConfig</code> is an optional parameter which lets you adjust where your
+   *          output will be placed. By default, Amazon Textract will store the results internally and can
+   *          only be accessed by the Get API operations. With <code>OutputConfig</code> enabled, you can
+   *          set the name of the bucket the output will be sent to the file prefix of the results where
+   *          you can download your results. Additionally, you can set the <code>KMSKeyID</code>
+   *          parameter to a customer master key (CMK) to encrypt your output. Without this parameter set
+   *          Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p>
+   *          <p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account
+   *          is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after
+   *          the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a>
+   *          </p>
+   *          <p>For more information on data privacy,
+   *          see the <a href="https://aws.amazon.com/compliance/data-privacy-faq/">Data Privacy
+   *             FAQ</a>.</p>
+   */
+  OutputConfig?: OutputConfig;
+
+  /**
+   * <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key
+   *    Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of
+   *    the objects in the customer bucket. When this parameter is not enabled, the result will be
+   *    encrypted server side, using SSE-S3. </p>
+   */
+  KMSKeyId?: string;
+}
+
+export interface StartLendingAnalysisResponse {
+  /**
+   * <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is
+   *    returned from <code>StartLendingAnalysis</code>. A <code>JobId</code> value is only valid for 7
+   *    days.</p>
+   */
+  JobId?: string;
+}
+
 /**
  * @internal
  */
@@ -1788,6 +2296,20 @@ export const AnalyzeExpenseRequestFilterSensitiveLog = (obj: AnalyzeExpenseReque
 /**
  * @internal
  */
+export const ExpenseCurrencyFilterSensitiveLog = (obj: ExpenseCurrency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpenseGroupPropertyFilterSensitiveLog = (obj: ExpenseGroupProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ExpenseDetectionFilterSensitiveLog = (obj: ExpenseDetection): any => ({
   ...obj,
 });
@@ -1893,7 +2415,70 @@ export const DetectDocumentTextResponseFilterSensitiveLog = (obj: DetectDocument
 /**
  * @internal
  */
+export const DetectedSignatureFilterSensitiveLog = (obj: DetectedSignature): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SplitDocumentFilterSensitiveLog = (obj: SplitDocument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UndetectedSignatureFilterSensitiveLog = (obj: UndetectedSignature): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentGroupFilterSensitiveLog = (obj: DocumentGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DocumentLocationFilterSensitiveLog = (obj: DocumentLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LendingDetectionFilterSensitiveLog = (obj: LendingDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LendingFieldFilterSensitiveLog = (obj: LendingField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignatureDetectionFilterSensitiveLog = (obj: SignatureDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LendingDocumentFilterSensitiveLog = (obj: LendingDocument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtractionFilterSensitiveLog = (obj: Extraction): any => ({
   ...obj,
 });
 
@@ -1943,6 +2528,62 @@ export const GetExpenseAnalysisRequestFilterSensitiveLog = (obj: GetExpenseAnaly
  * @internal
  */
 export const GetExpenseAnalysisResponseFilterSensitiveLog = (obj: GetExpenseAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLendingAnalysisRequestFilterSensitiveLog = (obj: GetLendingAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictionFilterSensitiveLog = (obj: Prediction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PageClassificationFilterSensitiveLog = (obj: PageClassification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LendingResultFilterSensitiveLog = (obj: LendingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLendingAnalysisResponseFilterSensitiveLog = (obj: GetLendingAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLendingAnalysisSummaryRequestFilterSensitiveLog = (obj: GetLendingAnalysisSummaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LendingSummaryFilterSensitiveLog = (obj: LendingSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLendingAnalysisSummaryResponseFilterSensitiveLog = (obj: GetLendingAnalysisSummaryResponse): any => ({
   ...obj,
 });
 
@@ -1999,5 +2640,19 @@ export const StartExpenseAnalysisRequestFilterSensitiveLog = (obj: StartExpenseA
  * @internal
  */
 export const StartExpenseAnalysisResponseFilterSensitiveLog = (obj: StartExpenseAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartLendingAnalysisRequestFilterSensitiveLog = (obj: StartLendingAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartLendingAnalysisResponseFilterSensitiveLog = (obj: StartLendingAnalysisResponse): any => ({
   ...obj,
 });

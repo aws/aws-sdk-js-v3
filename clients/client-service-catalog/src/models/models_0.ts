@@ -217,6 +217,7 @@ export class DuplicateResourceException extends __BaseException {
 
 export enum PrincipalType {
   IAM = "IAM",
+  IAM_PATTERN = "IAM_PATTERN",
 }
 
 export interface AssociatePrincipalWithPortfolioInput {
@@ -245,12 +246,17 @@ export interface AssociatePrincipalWithPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (IAM user, role, or group).</p>
+   * <p>The ARN of the principal (IAM user, role, or group). This field allows an ARN with no <code>accountID</code> if
+   *       <code>PrincipalType</code> is <code>IAM_PATTERN</code>. </p>
+   *          <p>You can associate multiple <code>IAM</code> patterns even if the account has no principal with that name.
+   *       This is useful in Principal Name Sharing if you want to share a principal without creating it in the
+   *       account that owns the portfolio. </p>
    */
   PrincipalARN: string | undefined;
 
   /**
-   * <p>The principal type. The supported value is <code>IAM</code>.</p>
+   * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN,
+   *          or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>. </p>
    */
   PrincipalType: PrincipalType | string | undefined;
 }
@@ -371,7 +377,7 @@ export class InvalidStateException extends __BaseException {
 
 /**
  * <p>An operation requiring TagOptions failed because the TagOptions migration process has
- *          not been performed for this account. Please use the AWS console to perform the migration
+ *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  */
 export class TagOptionNotMigratedException extends __BaseException {
@@ -660,7 +666,7 @@ export interface CreateConstraintInput {
    *                </p>
    *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
    *                <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
-   *                <p>Products with a <code>STACKSET</code> constraint will launch an AWS CloudFormation stack set.</p>
+   *                <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p>
    *             </dd>
    *             <dt>TEMPLATE</dt>
    *             <dd>
@@ -934,24 +940,33 @@ export interface CreatePortfolioShareInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The AWS account ID. For example, <code>123456789012</code>.</p>
+   * <p>The Amazon Web Services account ID. For example, <code>123456789012</code>.</p>
    */
   AccountId?: string;
 
   /**
-   * <p>The organization node to whom you are going to share. If <code>OrganizationNode</code>
-   *          is passed in, <code>PortfolioShare</code> will be created for the node an
-   *          ListOrganizationPortfolioAccessd its children (when applies), and a
-   *             <code>PortfolioShareToken</code> will be returned in the output in order for the
-   *          administrator to monitor the status of the <code>PortfolioShare</code> creation
-   *          process.</p>
+   * <p>The organization node to whom you are going to share. When you pass <code>OrganizationNode</code>, it creates <code>PortfolioShare</code> for all of the Amazon Web Services accounts that are associated to the <code>OrganizationNode</code>.
+   *       The output returns a <code>PortfolioShareToken</code>, which enables the administrator to monitor the status of the <code>PortfolioShare</code> creation process.</p>
    */
   OrganizationNode?: OrganizationNode;
 
   /**
-   * <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not provided, TagOptions sharing is disabled.</p>
+   * <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not
+   *          provided, TagOptions sharing is disabled.</p>
    */
   ShareTagOptions?: boolean;
+
+  /**
+   * <p>Enables or disables <code>Principal</code> sharing when creating the portfolio share. If this flag is not provided,
+   *          principal sharing is disabled. </p>
+   *          <p>When you enable Principal Name Sharing for a portfolio share, the share recipient
+   *          account end users with a principal that matches any of the associated IAM
+   *          patterns can provision products from the portfolio. Once
+   *          shared, the share recipient can view associations of <code>PrincipalType</code>:
+   *          <code>IAM_PATTERN</code> on their portfolio. You can create the principals in the recipient account before or
+   *          after creating the share. </p>
+   */
+  SharePrincipals?: boolean;
 }
 
 export interface CreatePortfolioShareOutput {
@@ -1010,7 +1025,8 @@ export interface ProvisioningArtifactProperties {
   /**
    * <p>Specify the template source with one of the following options, but not both.
    *          Keys accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</p>
-   *          <p>The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:</p>
+   *          <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.
+   *        Specify the URL in JSON format as follows:</p>
    *          <p>
    *             <code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code>
    *          </p>
@@ -1020,31 +1036,91 @@ export interface ProvisioningArtifactProperties {
    *          format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code>
    *          </p>
    */
-  Info: Record<string, string> | undefined;
+  Info?: Record<string, string>;
 
   /**
    * <p>The type of provisioning artifact.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - AWS CloudFormation template</p>
+   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MARKETPLACE_AMI</code> - AWS Marketplace AMI</p>
+   *                   <code>MARKETPLACE_AMI</code> - Amazon Web Services Marketplace AMI</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MARKETPLACE_CAR</code> - AWS Marketplace Clusters and AWS Resources</p>
+   *                   <code>MARKETPLACE_CAR</code> - Amazon Web Services Marketplace Clusters and Amazon Web Services Resources</p>
    *             </li>
    *          </ul>
    */
   Type?: ProvisioningArtifactType | string;
 
   /**
-   * <p>If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>
+   * <p>If set to true, Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>
    */
   DisableTemplateValidation?: boolean;
+}
+
+/**
+ * <p>The subtype containing details about the Codestar connection <code>Type</code>. </p>
+ */
+export interface CodeStarParameters {
+  /**
+   * <p>The CodeStar ARN, which is the connection between Service Catalog and the external repository.</p>
+   */
+  ConnectionArn: string | undefined;
+
+  /**
+   * <p>The specific repository where the product’s artifact-to-be-synced resides, formatted as
+   *          "Account/Repo." </p>
+   */
+  Repository: string | undefined;
+
+  /**
+   * <p>The specific branch where the artifact resides. </p>
+   */
+  Branch: string | undefined;
+
+  /**
+   * <p>The absolute path wehre the artifact resides within the repo and branch, formatted as
+   *          "folder/file.json." </p>
+   */
+  ArtifactPath: string | undefined;
+}
+
+/**
+ * <p>Provides connection details.</p>
+ */
+export interface SourceConnectionParameters {
+  /**
+   * <p>Provides <code>ConnectionType</code> details.</p>
+   */
+  CodeStar?: CodeStarParameters;
+}
+
+export enum SourceType {
+  CODESTAR = "CODESTAR",
+}
+
+/**
+ * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
+ *          Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>,
+ *          <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs.
+ *          This response contains the same fields as the <code>ConnectionParameters</code> request, with the
+ *          addition of the <code>LastSync</code> response.</p>
+ */
+export interface SourceConnection {
+  /**
+   * <p>The only supported <code>SourceConnection</code> type is Codestar. </p>
+   */
+  Type?: SourceType | string;
+
+  /**
+   * <p>The connection details based on the connection <code>Type</code>. </p>
+   */
+  ConnectionParameters: SourceConnectionParameters | undefined;
 }
 
 export interface CreateProductInput {
@@ -1117,13 +1193,32 @@ export interface CreateProductInput {
   /**
    * <p>The configuration of the provisioning artifact. </p>
    */
-  ProvisioningArtifactParameters: ProvisioningArtifactProperties | undefined;
+  ProvisioningArtifactParameters?: ProvisioningArtifactProperties;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
+
+  /**
+   * <p>Specifies connection details for the created product and syncs the product to the connection source
+   *          artifact. This automatically manages the product's artifacts based on changes to the source.
+   *          The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConnectionParamters</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  SourceConnection?: SourceConnection;
 }
 
 /**
@@ -1158,8 +1253,7 @@ export interface ProductViewSummary {
 
   /**
    * <p>The product type. Contact the product administrator for the significance of this
-   *          value. If this value is <code>MARKETPLACE</code>, the product was created by AWS
-   *          Marketplace.</p>
+   *          value. If this value is <code>MARKETPLACE</code>, the product was created by Amazon Web Services Marketplace.</p>
    */
   Type?: ProductType | string;
 
@@ -1192,6 +1286,115 @@ export interface ProductViewSummary {
    * <p>The URL information to obtain support for this Product.</p>
    */
   SupportUrl?: string;
+}
+
+export enum LastSyncStatus {
+  FAILED = "FAILED",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LastSyncTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSyncStatus</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSyncStatusMessage</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSuccessfulSyncTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSuccessfulSyncProvisioningArtifactID</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface LastSync {
+  /**
+   * <p>The time of the last attempted sync from the repository to the Service Catalog product. </p>
+   */
+  LastSyncTime?: Date;
+
+  /**
+   * <p>The current status of the sync. Responses include <code>SUCCEEDED</code> or <code>FAILED</code>. </p>
+   */
+  LastSyncStatus?: LastSyncStatus | string;
+
+  /**
+   * <p>The sync's status message. </p>
+   */
+  LastSyncStatusMessage?: string;
+
+  /**
+   * <p>The time of the latest successful sync from the source repo artifact to the Service Catalog product.</p>
+   */
+  LastSuccessfulSyncTime?: Date;
+
+  /**
+   * <p>The ProvisioningArtifactID of the ProvisioningArtifact created from the latest successful sync. </p>
+   */
+  LastSuccessfulSyncProvisioningArtifactId?: string;
+}
+
+/**
+ * <p>Provides details about the configured <code>SourceConnection</code>. </p>
+ */
+export interface SourceConnectionDetail {
+  /**
+   * <p>The only supported <code>SourceConnection</code> type is Codestar.</p>
+   */
+  Type?: SourceType | string;
+
+  /**
+   * <p>The connection details based on the connection <code>Type</code>.</p>
+   */
+  ConnectionParameters?: SourceConnectionParameters;
+
+  /**
+   * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LastSyncTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSyncStatus</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSyncStatusMessage</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSuccessfulSyncTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSuccessfulSyncProvisioningArtifactID</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  LastSync?: LastSync;
 }
 
 /**
@@ -1231,6 +1434,15 @@ export interface ProductViewDetail {
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
+
+  /**
+   * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
+   *          Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>,
+   *          <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs.
+   *          This response contains the same fields as the <code>ConnectionParameters</code> request, with the
+   *          addition of the <code>LastSync</code> response.</p>
+   */
+  SourceConnection?: SourceConnectionDetail;
 }
 
 export enum ProvisioningArtifactGuidance {
@@ -1262,15 +1474,15 @@ export interface ProvisioningArtifactDetail {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - AWS CloudFormation template</p>
+   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MARKETPLACE_AMI</code> - AWS Marketplace AMI</p>
+   *                   <code>MARKETPLACE_AMI</code> - Amazon Web Services Marketplace AMI</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MARKETPLACE_CAR</code> - AWS Marketplace Clusters and AWS Resources</p>
+   *                   <code>MARKETPLACE_CAR</code> - Amazon Web Services Marketplace Clusters and Amazon Web Services Resources</p>
    *             </li>
    *          </ul>
    */
@@ -1290,6 +1502,17 @@ export interface ProvisioningArtifactDetail {
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    */
   Guidance?: ProvisioningArtifactGuidance | string;
+
+  /**
+   * <p>Specifies the revision of the external artifact that was used to automatically sync the Service Catalog product
+   *          and create the provisioning artifact. Service Catalog includes this response parameter as a high level
+   *          field to the existing <code>ProvisioningArtifactDetail</code> type, which is returned as part of the
+   *          response for <code>CreateProduct</code>, <code>UpdateProduct</code>, <code>DescribeProductAsAdmin</code>,
+   *          <code>DescribeProvisioningArtifact</code>, <code>ListProvisioningArtifact</code>,
+   *          and <code>UpdateProvisioningArticat</code> APIs. </p>
+   *          <p>This field only exists for Repo-Synced products. </p>
+   */
+  SourceRevision?: string;
 }
 
 export interface CreateProductOutput {
@@ -1383,7 +1606,7 @@ export interface CreateProvisionedProductPlanInput {
 
   /**
    * <p>A user-friendly name for the provisioned product. This value must be
-   *          unique for the AWS account and cannot be updated after the product is provisioned.</p>
+   *          unique for the Amazon Web Services account and cannot be updated after the product is provisioned.</p>
    */
   ProvisionedProductName: string | undefined;
 
@@ -1484,16 +1707,15 @@ export interface CreateProvisioningArtifactOutput {
   /**
    * <p>Specify the template source with one of the following options, but not both. Keys
    *          accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ].</p>
-   *          <p>The URL of the CloudFormation template in Amazon S3, in JSON format. </p>
+   *          <p>Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format. </p>
    *          <p>
    *             <code>LoadTemplateFromURL</code>
    *          </p>
-   *          <p>Use the URL of the CloudFormation template in Amazon S3 in JSON format.</p>
+   *          <p>Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    *          <p>
    *             <code>ImportFromPhysicalId</code>
    *          </p>
-   *          <p>Use the physical id of the resource that contains the template; currently supports
-   *          CloudFormation stack ARN.</p>
+   *          <p>Use the physical id of the resource that contains the template; currently supports CloudFormation stack ARN.</p>
    */
   Info?: Record<string, string>;
 
@@ -1530,12 +1752,12 @@ export interface CreateServiceActionInput {
    *          <dl>
    *             <dt>Name</dt>
    *             <dd>
-   *                <p>The name of the AWS Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p>
+   *                <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p>
    *                <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p>
    *             </dd>
    *             <dt>Version</dt>
    *             <dd>
-   *                <p>The AWS Systems Manager automation document version. For example, <code>"Version": "1"</code>
+   *                <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code>
    *                </p>
    *             </dd>
    *             <dt>AssumeRole</dt>
@@ -1667,7 +1889,7 @@ export interface TagOptionDetail {
   Id?: string;
 
   /**
-   * <p>The AWS account Id of the owner account that created the TagOption.</p>
+   * <p>The Amazon Web Services account Id of the owner account that created the TagOption.</p>
    */
   Owner?: string;
 }
@@ -1782,7 +2004,7 @@ export interface DeletePortfolioShareInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AccountId?: string;
 
@@ -1853,7 +2075,7 @@ export interface DeleteProvisionedProductPlanInput {
   PlanId: string | undefined;
 
   /**
-   * <p>If set to true, AWS Service Catalog stops managing the specified provisioned product even
+   * <p>If set to true, Service Catalog stops managing the specified provisioned product even
    *          if it cannot delete the underlying resources.</p>
    */
   IgnoreErrors?: boolean;
@@ -2120,8 +2342,7 @@ export interface DescribePortfolioSharesInput {
 export interface PortfolioShareDetail {
   /**
    * <p>The identifier of the recipient entity that received the portfolio share.
-   *          The recipient entities can be one of the following:
-   *       </p>
+   *          The recipient entity can be one of the following:</p>
    *          <p>1. An external account.</p>
    *          <p>2. An organziation member account.</p>
    *          <p>3. An organzational unit (OU).</p>
@@ -2143,6 +2364,11 @@ export interface PortfolioShareDetail {
    * <p>Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.</p>
    */
   ShareTagOptions?: boolean;
+
+  /**
+   * <p>Indicates if <code>Principal</code> sharing is enabled or disabled for the portfolio share. </p>
+   */
+  SharePrincipals?: boolean;
 }
 
 export interface DescribePortfolioSharesOutput {
@@ -2398,7 +2624,7 @@ export interface ProvisioningArtifactSummary {
   CreatedTime?: Date;
 
   /**
-   * <p>The metadata for the provisioning artifact. This is used with AWS Marketplace products.</p>
+   * <p>The metadata for the provisioning artifact. This is used with Amazon Web Services Marketplace products.</p>
    */
   ProvisioningArtifactMetadata?: Record<string, string>;
 }
@@ -2793,7 +3019,7 @@ export interface ProvisionedProductPlanDetails {
   Status?: ProvisionedProductPlanStatus | string;
 
   /**
-   * <p>The time when the plan was last updated.</p>
+   * <p>The UTC time stamp when the plan was last updated.</p>
    */
   UpdatedTime?: Date;
 
@@ -3006,7 +3232,7 @@ export interface DescribeProvisioningArtifactOutput {
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
 
   /**
-   * <p>The URL of the CloudFormation template in Amazon S3.</p>
+   * <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    */
   Info?: Record<string, string>;
 
@@ -3207,17 +3433,17 @@ export interface ProvisioningArtifactParameter {
 
 /**
  * <p>The user-defined preferences that will be applied during product provisioning, unless overridden by <code>ProvisioningPreferences</code> or <code>UpdateProvisioningPreferences</code>.</p>
- *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+ *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a> in the <i>CloudFormation User Guide</i>.</p>
  */
 export interface ProvisioningArtifactPreferences {
   /**
-   * <p>One or more AWS accounts where stack instances are deployed from the stack set. These accounts can be scoped in <code>ProvisioningPreferences$StackSetAccounts</code> and <code>UpdateProvisioningPreferences$StackSetAccounts</code>.</p>
+   * <p>One or more Amazon Web Services accounts where stack instances are deployed from the stack set. These accounts can be scoped in <code>ProvisioningPreferences$StackSetAccounts</code> and <code>UpdateProvisioningPreferences$StackSetAccounts</code>.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    */
   StackSetAccounts?: string[];
 
   /**
-   * <p>One or more AWS Regions where stack instances are deployed from the stack set. These regions can be scoped in <code>ProvisioningPreferences$StackSetRegions</code> and <code>UpdateProvisioningPreferences$StackSetRegions</code>.</p>
+   * <p>One or more Amazon Web Services Regions where stack instances are deployed from the stack set. These Regions can be scoped in <code>ProvisioningPreferences$StackSetRegions</code> and <code>UpdateProvisioningPreferences$StackSetRegions</code>.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    */
   StackSetRegions?: string[];
@@ -3276,7 +3502,7 @@ export interface DescribeProvisioningParametersOutput {
   TagOptions?: TagOptionSummary[];
 
   /**
-   * <p>An object that contains information about preferences, such as regions and accounts, for the provisioning artifact.</p>
+   * <p>An object that contains information about preferences, such as Regions and accounts, for the provisioning artifact.</p>
    */
   ProvisioningArtifactPreferences?: ProvisioningArtifactPreferences;
 
@@ -3672,9 +3898,16 @@ export interface DisassociatePrincipalFromPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (IAM user, role, or group).</p>
+   * <p>The ARN of the principal (IAM user, role, or group). This field allows an ARN with no <code>accountID</code> if
+   *          <code>PrincipalType</code> is <code>IAM_PATTERN</code>.</p>
    */
   PrincipalARN: string | undefined;
+
+  /**
+   * <p>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code>
+   *          if you use no <code>accountID</code>. </p>
+   */
+  PrincipalType?: PrincipalType | string;
 }
 
 export interface DisassociatePrincipalFromPortfolioOutput {}
@@ -3844,7 +4077,7 @@ export interface ExecuteProvisionedProductServiceActionInput {
 
   /**
    * <p>A map of all self-service action parameters and their values. If a provided parameter is of a special type, such as <code>TARGET</code>, the provided value will
-   *             override the default value generated by AWS Service Catalog. If the parameters field is not provided, no additional parameters are passed and default values will be used for
+   *             override the default value generated by Service Catalog. If the parameters field is not provided, no additional parameters are passed and default values will be used for
    *             any special parameters such as <code>TARGET</code>.</p>
    */
   Parameters?: Record<string, string[]>;
@@ -3956,8 +4189,7 @@ export interface ImportAsProvisionedProductInput {
   ProvisioningArtifactId: string | undefined;
 
   /**
-   * <p>The user-friendly name of the provisioned product. The value must be unique for the AWS
-   *          account. The name cannot be updated after the product is provisioned. </p>
+   * <p>The user-friendly name of the provisioned product. The value must be unique for the Amazon Web Services account. The name cannot be updated after the product is provisioned. </p>
    */
   ProvisionedProductName: string | undefined;
 
@@ -4328,7 +4560,7 @@ export interface ListPortfolioAccessInput {
 
 export interface ListPortfolioAccessOutput {
   /**
-   * <p>Information about the AWS accounts with access to the portfolio.</p>
+   * <p>Information about the Amazon Web Services accounts with access to the portfolio.</p>
    */
   AccountIds?: string[];
 
@@ -4470,19 +4702,21 @@ export interface ListPrincipalsForPortfolioInput {
  */
 export interface Principal {
   /**
-   * <p>The ARN of the principal (IAM user, role, or group).</p>
+   * <p>The ARN of the principal (IAM user, role, or group). This field allows for an ARN with no <code>accountID</code> if the
+   *       <code>PrincipalType</code> is an <code>IAM_PATTERN</code>. </p>
    */
   PrincipalARN?: string;
 
   /**
-   * <p>The principal type. The supported value is <code>IAM</code>.</p>
+   * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN, or
+   *       <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>. </p>
    */
   PrincipalType?: PrincipalType | string;
 }
 
 export interface ListPrincipalsForPortfolioOutput {
   /**
-   * <p>The IAM principals (users or roles) associated with the portfolio.</p>
+   * <p>The <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the portfolio.</p>
    */
   Principals?: Principal[];
 
@@ -4974,16 +5208,16 @@ export enum StackInstanceStatus {
 }
 
 /**
- * <p>An AWS CloudFormation stack, in a specific account and region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. </p>
+ * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given Region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. </p>
  */
 export interface StackInstance {
   /**
-   * <p>The name of the AWS account that the stack instance is associated with.</p>
+   * <p>The name of the Amazon Web Services account that the stack instance is associated with.</p>
    */
   Account?: string;
 
   /**
-   * <p>The name of the AWS region that the stack instance is associated with.</p>
+   * <p>The name of the Amazon Web Services Region that the stack instance is associated with.</p>
    */
   Region?: string;
 
@@ -5088,9 +5322,9 @@ export interface ProvisioningParameter {
 /**
  * <p>The user-defined preferences that will be applied when updating a provisioned
  *          product. Not all preferences are applicable to all provisioned product type</p>
- *          <p>One or more AWS accounts that will have access to the provisioned product.</p>
+ *          <p>One or more Amazon Web Services accounts that will have access to the provisioned product.</p>
  *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
- *          <p>The AWS accounts specified should be within the list of accounts in the
+ *          <p>The Amazon Web Services accounts specified should be within the list of accounts in the
  *             <code>STACKSET</code> constraint. To get the list of accounts in the
  *             <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code>
  *          operation.</p>
@@ -5099,7 +5333,7 @@ export interface ProvisioningParameter {
  */
 export interface ProvisioningPreferences {
   /**
-   * <p>One or more AWS accounts where the provisioned product will be available.</p>
+   * <p>One or more Amazon Web Services accounts where the provisioned product will be available.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>The specified accounts should be within the list of accounts from the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
    *          <p>If no values are specified, the default value is all acounts from the <code>STACKSET</code> constraint.</p>
@@ -5107,15 +5341,15 @@ export interface ProvisioningPreferences {
   StackSetAccounts?: string[];
 
   /**
-   * <p>One or more AWS Regions where the provisioned product will be available.</p>
+   * <p>One or more Amazon Web Services Regions where the provisioned product will be available.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The specified regions should be within the list of regions from the <code>STACKSET</code> constraint. To get the list of regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
-   *          <p>If no values are specified, the default value is all regions from the <code>STACKSET</code> constraint.</p>
+   *          <p>The specified Regions should be within the list of Regions from the <code>STACKSET</code> constraint. To get the list of Regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
+   *          <p>If no values are specified, the default value is all Regions from the <code>STACKSET</code> constraint.</p>
    */
   StackSetRegions?: string[];
 
   /**
-   * <p>The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p>
+   * <p>The number of accounts, per Region, for which this operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
    *          <p>The default value is <code>0</code> if no value is specified.</p>
@@ -5123,8 +5357,8 @@ export interface ProvisioningPreferences {
   StackSetFailureToleranceCount?: number;
 
   /**
-   * <p>The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.</p>
+   * <p>The percentage of accounts, per Region, for which this stack operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
    */
@@ -5140,7 +5374,7 @@ export interface ProvisioningPreferences {
 
   /**
    * <p>The maximum percentage of accounts in which to perform this operation at one time.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as <code>1</code> instead.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, Service Catalog sets the number as <code>1</code> instead.</p>
    *          <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
@@ -5202,7 +5436,7 @@ export interface ProvisionProductInput {
 
   /**
    * <p>A user-friendly name for the provisioned product. This value must be
-   *          unique for the AWS account and cannot be updated after the product is provisioned.</p>
+   *          unique for the Amazon Web Services account and cannot be updated after the product is provisioned.</p>
    */
   ProvisionedProductName: string | undefined;
 
@@ -5786,7 +6020,7 @@ export interface TerminateProvisionedProductInput {
   TerminateToken?: string;
 
   /**
-   * <p>If set to true, AWS Service Catalog stops managing the specified provisioned product even
+   * <p>If set to true, Service Catalog stops managing the specified provisioned product even
    *          if it cannot delete the underlying resources.</p>
    */
   IgnoreErrors?: boolean;
@@ -5901,7 +6135,7 @@ export interface UpdateConstraintInput {
    *                </p>
    *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
    *                <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
-   *                <p>Products with a <code>STACKSET</code> constraint will launch an AWS CloudFormation stack set.</p>
+   *                <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p>
    *             </dd>
    *             <dt>TEMPLATE</dt>
    *             <dd>
@@ -6019,7 +6253,7 @@ export interface UpdatePortfolioShareInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The AWS Account Id of the recipient account. This field is required when updating an external account to account type share.</p>
+   * <p>The Amazon Web Services account Id of the recipient account. This field is required when updating an external account to account type share.</p>
    */
   AccountId?: string;
 
@@ -6029,9 +6263,16 @@ export interface UpdatePortfolioShareInput {
   OrganizationNode?: OrganizationNode;
 
   /**
-   * <p>A flag to enable or disable TagOptions sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.</p>
+   * <p>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this field is not provided, the current state of
+   *          TagOptions sharing on the portfolio share will not be modified.</p>
    */
   ShareTagOptions?: boolean;
+
+  /**
+   * <p>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If this field is not provided,
+   *          the current state of the <code>Principals</code> sharing on the portfolio share will not be modified. </p>
+   */
+  SharePrincipals?: boolean;
 }
 
 export interface UpdatePortfolioShareOutput {
@@ -6117,6 +6358,25 @@ export interface UpdateProductInput {
    * <p>The tags to remove from the product.</p>
    */
   RemoveTags?: string[];
+
+  /**
+   * <p>Specifies connection details for the updated product and syncs the product to the connection source
+   *          artifact. This automatically manages the product's artifacts based on changes to the source.
+   *          The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConnectionParamters</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  SourceConnection?: SourceConnection;
 }
 
 export interface UpdateProductOutput {
@@ -6131,30 +6391,34 @@ export interface UpdateProductOutput {
   Tags?: Tag[];
 }
 
-export type StackSetOperationType = "CREATE" | "DELETE" | "UPDATE";
+export enum StackSetOperationType {
+  CREATE = "CREATE",
+  DELETE = "DELETE",
+  UPDATE = "UPDATE",
+}
 
 /**
  * <p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>
  */
 export interface UpdateProvisioningPreferences {
   /**
-   * <p>One or more AWS accounts that will have access to the provisioned product.</p>
+   * <p>One or more Amazon Web Services accounts that will have access to the provisioned product.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The AWS accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
+   *          <p>The Amazon Web Services accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
    *          <p>If no values are specified, the default value is all accounts from the <code>STACKSET</code> constraint.</p>
    */
   StackSetAccounts?: string[];
 
   /**
-   * <p>One or more AWS Regions where the provisioned product will be available.</p>
+   * <p>One or more Amazon Web Services Regions where the provisioned product will be available.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The specified regions should be within the list of regions from the <code>STACKSET</code> constraint. To get the list of regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
-   *          <p>If no values are specified, the default value is all regions from the <code>STACKSET</code> constraint.</p>
+   *          <p>The specified Regions should be within the list of Regions from the <code>STACKSET</code> constraint. To get the list of Regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
+   *          <p>If no values are specified, the default value is all Regions from the <code>STACKSET</code> constraint.</p>
    */
   StackSetRegions?: string[];
 
   /**
-   * <p>The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p>
+   * <p>The number of accounts, per Region, for which this operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
    *          <p>The default value is <code>0</code> if no value is specified.</p>
@@ -6162,8 +6426,8 @@ export interface UpdateProvisioningPreferences {
   StackSetFailureToleranceCount?: number;
 
   /**
-   * <p>The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.</p>
+   * <p>The percentage of accounts, per Region, for which this stack operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
    */
@@ -6179,7 +6443,7 @@ export interface UpdateProvisioningPreferences {
 
   /**
    * <p>The maximum percentage of accounts in which to perform this operation at one time.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as <code>1</code> instead.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, Service Catalog sets the number as <code>1</code> instead.</p>
    *          <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
@@ -6187,12 +6451,12 @@ export interface UpdateProvisioningPreferences {
   StackSetMaxConcurrencyPercentage?: number;
 
   /**
-   * <p>Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is <code>UPDATE</code> if nothing is specified.</p>
+   * <p>Determines what action Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is <code>UPDATE</code> if nothing is specified.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <dl>
    *             <dt>CREATE</dt>
    *             <dd>
-   *                <p>Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.</p>
+   *                <p>Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.</p>
    *             </dd>
    *             <dt>UPDATE</dt>
    *             <dd>
@@ -6336,13 +6600,15 @@ export interface UpdateProvisionedProductPropertiesInput {
    *             <code>TerminateProvisionedProduct</code>, or
    *             <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN is valid. A user ARN is invalid. </p>
    *
-   *          <p>The <code>OWNER</code> key accepts user ARNs and role ARNs. The owner is the user
-   *          that has permission to see, update, terminate, and execute service actions in the
-   *          provisioned product.</p>
-   *          <p>The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and
-   *          administrators can see ownership history of the provisioned product using the <code>ListRecordHistory</code> API. The new owner can
-   *       describe all past records for the provisioned product using the <code>DescribeRecord</code> API. The previous owner can no longer use <code>DescribeRecord</code>,
-   *       but can still see the product's history from when he was an owner using <code>ListRecordHistory</code>.</p>
+   *          <p>The <code>OWNER</code> key accepts IAM user ARNs, IAM role ARNs, and STS
+   *          assumed-role ARNs. The owner is the user that has permission to see, update, terminate, and
+   *          execute service actions in the provisioned product.</p>
+   *          <p>The administrator can change the owner of a provisioned product to another IAM or STS entity within the
+   *          same account. Both end user owners and administrators can see ownership history of the provisioned
+   *          product using the <code>ListRecordHistory</code> API. The new owner can describe all past records
+   *          for the provisioned product using the <code>DescribeRecord</code> API. The previous owner can no
+   *          longer use <code>DescribeRecord</code>, but can still see the product's history from when he was
+   *          an owner using <code>ListRecordHistory</code>.</p>
    *          <p>If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or
    *          Service Catalog console such as update, terminate, and execute service actions.
    *          If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through
@@ -6441,7 +6707,7 @@ export interface UpdateProvisioningArtifactOutput {
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
 
   /**
-   * <p>The URL of the CloudFormation template in Amazon S3.</p>
+   * <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    */
   Info?: Record<string, string>;
 
@@ -6772,6 +7038,27 @@ export const ProvisioningArtifactPropertiesFilterSensitiveLog = (obj: Provisioni
 /**
  * @internal
  */
+export const CodeStarParametersFilterSensitiveLog = (obj: CodeStarParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConnectionParametersFilterSensitiveLog = (obj: SourceConnectionParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConnectionFilterSensitiveLog = (obj: SourceConnection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateProductInputFilterSensitiveLog = (obj: CreateProductInput): any => ({
   ...obj,
 });
@@ -6780,6 +7067,20 @@ export const CreateProductInputFilterSensitiveLog = (obj: CreateProductInput): a
  * @internal
  */
 export const ProductViewSummaryFilterSensitiveLog = (obj: ProductViewSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LastSyncFilterSensitiveLog = (obj: LastSync): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConnectionDetailFilterSensitiveLog = (obj: SourceConnectionDetail): any => ({
   ...obj,
 });
 

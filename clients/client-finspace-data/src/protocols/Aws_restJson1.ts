@@ -317,7 +317,7 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2/{datasetId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -349,7 +349,7 @@ export const serializeAws_restJson1DeletePermissionGroupCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -408,7 +408,7 @@ export const serializeAws_restJson1DisassociateUserFromPermissionGroupCommand = 
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -575,7 +575,7 @@ export const serializeAws_restJson1GetProgrammaticAccessCredentialsCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/credentials/programmatic";
   const query: any = map({
     durationInMinutes: [() => input.durationInMinutes !== void 0, () => input.durationInMinutes!.toString()],
-    environmentId: [, input.environmentId!],
+    environmentId: [, __expectNonNull(input.environmentId!, `environmentId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -719,7 +719,7 @@ export const serializeAws_restJson1ListPermissionGroupsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group";
   const query: any = map({
     nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -745,7 +745,7 @@ export const serializeAws_restJson1ListPermissionGroupsByUserCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   const query: any = map({
     nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -769,7 +769,7 @@ export const serializeAws_restJson1ListUsersCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user";
   const query: any = map({
     nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -803,7 +803,7 @@ export const serializeAws_restJson1ListUsersByPermissionGroupCommand = async (
   );
   const query: any = map({
     nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -1000,7 +1000,7 @@ const deserializeAws_restJson1AssociateUserToPermissionGroupCommandError = async
 ): Promise<AssociateUserToPermissionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1059,7 +1059,7 @@ const deserializeAws_restJson1CreateChangesetCommandError = async (
 ): Promise<CreateChangesetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1118,7 +1118,7 @@ const deserializeAws_restJson1CreateDatasetCommandError = async (
 ): Promise<CreateDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1180,7 +1180,7 @@ const deserializeAws_restJson1CreateDataViewCommandError = async (
 ): Promise<CreateDataViewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1236,7 +1236,7 @@ const deserializeAws_restJson1CreatePermissionGroupCommandError = async (
 ): Promise<CreatePermissionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1292,7 +1292,7 @@ const deserializeAws_restJson1CreateUserCommandError = async (
 ): Promise<CreateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1348,7 +1348,7 @@ const deserializeAws_restJson1DeleteDatasetCommandError = async (
 ): Promise<DeleteDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1407,7 +1407,7 @@ const deserializeAws_restJson1DeletePermissionGroupCommandError = async (
 ): Promise<DeletePermissionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1466,7 +1466,7 @@ const deserializeAws_restJson1DisableUserCommandError = async (
 ): Promise<DisableUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1522,7 +1522,7 @@ const deserializeAws_restJson1DisassociateUserFromPermissionGroupCommandError = 
 ): Promise<DisassociateUserFromPermissionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1578,7 +1578,7 @@ const deserializeAws_restJson1EnableUserCommandError = async (
 ): Promise<EnableUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1673,7 +1673,7 @@ const deserializeAws_restJson1GetChangesetCommandError = async (
 ): Promise<GetChangesetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1756,7 +1756,7 @@ const deserializeAws_restJson1GetDatasetCommandError = async (
 ): Promise<GetDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1848,7 +1848,7 @@ const deserializeAws_restJson1GetDataViewCommandError = async (
 ): Promise<GetDataViewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1904,7 +1904,7 @@ const deserializeAws_restJson1GetExternalDataViewAccessDetailsCommandError = asy
 ): Promise<GetExternalDataViewAccessDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1957,7 +1957,7 @@ const deserializeAws_restJson1GetPermissionGroupCommandError = async (
 ): Promise<GetPermissionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2013,7 +2013,7 @@ const deserializeAws_restJson1GetProgrammaticAccessCredentialsCommandError = asy
 ): Promise<GetProgrammaticAccessCredentialsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2099,7 +2099,7 @@ const deserializeAws_restJson1GetUserCommandError = async (
 ): Promise<GetUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2158,7 +2158,7 @@ const deserializeAws_restJson1GetWorkingLocationCommandError = async (
 ): Promise<GetWorkingLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2211,7 +2211,7 @@ const deserializeAws_restJson1ListChangesetsCommandError = async (
 ): Promise<ListChangesetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2270,7 +2270,7 @@ const deserializeAws_restJson1ListDatasetsCommandError = async (
 ): Promise<ListDatasetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2326,7 +2326,7 @@ const deserializeAws_restJson1ListDataViewsCommandError = async (
 ): Promise<ListDataViewsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2382,7 +2382,7 @@ const deserializeAws_restJson1ListPermissionGroupsCommandError = async (
 ): Promise<ListPermissionGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2435,7 +2435,7 @@ const deserializeAws_restJson1ListPermissionGroupsByUserCommandError = async (
 ): Promise<ListPermissionGroupsByUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2491,7 +2491,7 @@ const deserializeAws_restJson1ListUsersCommandError = async (
 ): Promise<ListUsersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2544,7 +2544,7 @@ const deserializeAws_restJson1ListUsersByPermissionGroupCommandError = async (
 ): Promise<ListUsersByPermissionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2600,7 +2600,7 @@ const deserializeAws_restJson1ResetUserPasswordCommandError = async (
 ): Promise<ResetUserPasswordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2659,7 +2659,7 @@ const deserializeAws_restJson1UpdateChangesetCommandError = async (
 ): Promise<UpdateChangesetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2715,7 +2715,7 @@ const deserializeAws_restJson1UpdateDatasetCommandError = async (
 ): Promise<UpdateDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2771,7 +2771,7 @@ const deserializeAws_restJson1UpdatePermissionGroupCommandError = async (
 ): Promise<UpdatePermissionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2827,7 +2827,7 @@ const deserializeAws_restJson1UpdateUserCommandError = async (
 ): Promise<UpdateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3045,10 +3045,8 @@ const serializeAws_restJson1FormatParams = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3091,10 +3089,8 @@ const serializeAws_restJson1S3DestinationFormatOptions = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3128,10 +3124,8 @@ const serializeAws_restJson1SourceParams = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3341,10 +3335,8 @@ const deserializeAws_restJson1FormatParams = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3418,10 +3410,8 @@ const deserializeAws_restJson1S3DestinationFormatOptions = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3468,10 +3458,8 @@ const deserializeAws_restJson1SourceParams = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3536,7 +3524,8 @@ const deserializeAws_restJson1UserList = (output: any, context: __SerdeContext):
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3568,6 +3557,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3578,6 +3573,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,25 +31,25 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
 /**
  * <p>Gets information about whether a specified geographic location is supported for Amazon
  * 			Route 53 geolocation resource record sets.</p>
- * 		       <p>Route 53 does not perform authorization for this API because it retrieves information
+ *          <p>Route 53 does not perform authorization for this API because it retrieves information
  * 			that is already available to the public.</p>
- * 		       <p>Use the following syntax to determine whether a continent is supported for
+ *          <p>Use the following syntax to determine whether a continent is supported for
  * 			geolocation:</p>
- * 		       <p>
+ *          <p>
  *             <code>GET /2013-04-01/geolocation?continentcode=<i>two-letter abbreviation for
  * 					a continent</i>
  *             </code>
  *          </p>
- * 		       <p>Use the following syntax to determine whether a country is supported for
+ *          <p>Use the following syntax to determine whether a country is supported for
  * 			geolocation:</p>
- * 		       <p>
+ *          <p>
  *             <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country
  * 					code</i>
  *             </code>
  *          </p>
- * 		       <p>Use the following syntax to determine whether a subdivision of a country is supported
+ *          <p>Use the following syntax to determine whether a subdivision of a country is supported
  * 			for geolocation:</p>
- * 		       <p>
+ *          <p>
  *             <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country
  * 					code</i>&subdivisioncode=<i>subdivision
  * 			code</i>
@@ -77,6 +78,15 @@ export class GetGeoLocationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetGeoLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +102,9 @@ export class GetGeoLocationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetGeoLocationCommandInput, GetGeoLocationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetGeoLocationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,19 +29,7 @@ export interface CreateDistributionCommandInput extends CreateDistributionReques
 export interface CreateDistributionCommandOutput extends CreateDistributionResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new web distribution. You create a CloudFront distribution to tell CloudFront where you
- * 			want content to be delivered from, and the details about how to track and manage content delivery. Send a <code>POST</code> request to the
- * 			<code>/<i>CloudFront API version</i>/distribution</code>/<code>distribution ID</code> resource.</p>
- * 		       <important>
- *             <p>When you update a distribution, there are more required fields than when you create a distribution.
- * 			When you update your distribution by using
- * 			<a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>,
- * 			follow the steps included
- * 			in the documentation to get the current configuration
- * 			and then make your updates. This helps to make sure that you include all of the required fields. To view a summary,
- * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html">Required
- * 				Fields for Create Distribution and Update Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
- *          </important>
+ * <p>Creates a CloudFront distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +53,15 @@ export class CreateDistributionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +77,9 @@ export class CreateDistributionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDistributionCommandInput, CreateDistributionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDistributionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

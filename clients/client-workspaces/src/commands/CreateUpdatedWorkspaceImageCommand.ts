@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,15 +30,15 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
 
 /**
  * <p>Creates a new updated WorkSpace image based on the specified source image. The new
- *          updated WorkSpace image has the latest drivers and other updates required by the Amazon
- *          WorkSpaces components.</p>
+ *          updated WorkSpace image has the latest drivers and other updates required by the
+ *          Amazon WorkSpaces components.</p>
  *          <p>To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces
  *          requirements, use <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">
  *             DescribeWorkspaceImages</a>.</p>
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>Only Windows 10, Windows Sever 2016, and Windows Server 2019 WorkSpace images
+ *                   <p>Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images
  *                   can be programmatically updated at this time.</p>
  *                </li>
  *                <li>
@@ -73,6 +74,15 @@ export class CreateUpdatedWorkspaceImageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateUpdatedWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,6 +98,9 @@ export class CreateUpdatedWorkspaceImageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateUpdatedWorkspaceImageCommandInput, CreateUpdatedWorkspaceImageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateUpdatedWorkspaceImageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

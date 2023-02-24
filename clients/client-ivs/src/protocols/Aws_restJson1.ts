@@ -3,13 +3,14 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -199,6 +200,9 @@ export const serializeAws_restJson1CreateRecordingConfigurationCommand = async (
       destinationConfiguration: serializeAws_restJson1DestinationConfiguration(input.destinationConfiguration, context),
     }),
     ...(input.name != null && { name: input.name }),
+    ...(input.recordingReconnectWindowSeconds != null && {
+      recordingReconnectWindowSeconds: input.recordingReconnectWindowSeconds,
+    }),
     ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
     ...(input.thumbnailConfiguration != null && {
       thumbnailConfiguration: serializeAws_restJson1ThumbnailConfiguration(input.thumbnailConfiguration, context),
@@ -770,7 +774,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -840,7 +847,7 @@ const deserializeAws_restJson1BatchGetChannelCommandError = async (
 ): Promise<BatchGetChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -878,7 +885,7 @@ const deserializeAws_restJson1BatchGetStreamKeyCommandError = async (
 ): Promise<BatchGetStreamKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -916,7 +923,7 @@ const deserializeAws_restJson1CreateChannelCommandError = async (
 ): Promise<CreateChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -972,7 +979,7 @@ const deserializeAws_restJson1CreateRecordingConfigurationCommandError = async (
 ): Promise<CreateRecordingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1028,7 +1035,7 @@ const deserializeAws_restJson1CreateStreamKeyCommandError = async (
 ): Promise<CreateStreamKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1078,7 +1085,7 @@ const deserializeAws_restJson1DeleteChannelCommandError = async (
 ): Promise<DeleteChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1128,7 +1135,7 @@ const deserializeAws_restJson1DeletePlaybackKeyPairCommandError = async (
 ): Promise<DeletePlaybackKeyPairCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1175,7 +1182,7 @@ const deserializeAws_restJson1DeleteRecordingConfigurationCommandError = async (
 ): Promise<DeleteRecordingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1225,7 +1232,7 @@ const deserializeAws_restJson1DeleteStreamKeyCommandError = async (
 ): Promise<DeleteStreamKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1275,7 +1282,7 @@ const deserializeAws_restJson1GetChannelCommandError = async (
 ): Promise<GetChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1322,7 +1329,7 @@ const deserializeAws_restJson1GetPlaybackKeyPairCommandError = async (
 ): Promise<GetPlaybackKeyPairCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1372,7 +1379,7 @@ const deserializeAws_restJson1GetRecordingConfigurationCommandError = async (
 ): Promise<GetRecordingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1422,7 +1429,7 @@ const deserializeAws_restJson1GetStreamCommandError = async (
 ): Promise<GetStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1472,7 +1479,7 @@ const deserializeAws_restJson1GetStreamKeyCommandError = async (
 ): Promise<GetStreamKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1519,7 +1526,7 @@ const deserializeAws_restJson1GetStreamSessionCommandError = async (
 ): Promise<GetStreamSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1566,7 +1573,7 @@ const deserializeAws_restJson1ImportPlaybackKeyPairCommandError = async (
 ): Promise<ImportPlaybackKeyPairCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1622,7 +1629,7 @@ const deserializeAws_restJson1ListChannelsCommandError = async (
 ): Promise<ListChannelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1672,7 +1679,7 @@ const deserializeAws_restJson1ListPlaybackKeyPairsCommandError = async (
 ): Promise<ListPlaybackKeyPairsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1722,7 +1729,7 @@ const deserializeAws_restJson1ListRecordingConfigurationsCommandError = async (
 ): Promise<ListRecordingConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1772,7 +1779,7 @@ const deserializeAws_restJson1ListStreamKeysCommandError = async (
 ): Promise<ListStreamKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1822,7 +1829,7 @@ const deserializeAws_restJson1ListStreamsCommandError = async (
 ): Promise<ListStreamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1869,7 +1876,7 @@ const deserializeAws_restJson1ListStreamSessionsCommandError = async (
 ): Promise<ListStreamSessionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1916,7 +1923,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1960,7 +1967,7 @@ const deserializeAws_restJson1PutMetadataCommandError = async (
 ): Promise<PutMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2010,7 +2017,7 @@ const deserializeAws_restJson1StopStreamCommandError = async (
 ): Promise<StopStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2060,7 +2067,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2104,7 +2111,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2151,7 +2158,7 @@ const deserializeAws_restJson1UpdateChannelCommandError = async (
 ): Promise<UpdateChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2387,10 +2394,8 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2541,6 +2546,7 @@ const deserializeAws_restJson1RecordingConfiguration = (
         ? deserializeAws_restJson1DestinationConfiguration(output.destinationConfiguration, context)
         : undefined,
     name: __expectString(output.name),
+    recordingReconnectWindowSeconds: __expectInt32(output.recordingReconnectWindowSeconds),
     state: __expectString(output.state),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     thumbnailConfiguration:
@@ -2595,7 +2601,8 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
     channelArn: __expectString(output.channelArn),
     health: __expectString(output.health),
     playbackUrl: __expectString(output.playbackUrl),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     state: __expectString(output.state),
     streamId: __expectString(output.streamId),
     viewerCount: __expectLong(output.viewerCount),
@@ -2604,7 +2611,8 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1StreamEvent = (output: any, context: __SerdeContext): StreamEvent => {
   return {
-    eventTime: output.eventTime != null ? __expectNonNull(__parseRfc3339DateTime(output.eventTime)) : undefined,
+    eventTime:
+      output.eventTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.eventTime)) : undefined,
     name: __expectString(output.name),
     type: __expectString(output.type),
   } as any;
@@ -2678,7 +2686,7 @@ const deserializeAws_restJson1StreamList = (output: any, context: __SerdeContext
 const deserializeAws_restJson1StreamSession = (output: any, context: __SerdeContext): StreamSession => {
   return {
     channel: output.channel != null ? deserializeAws_restJson1Channel(output.channel, context) : undefined,
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     ingestConfiguration:
       output.ingestConfiguration != null
         ? deserializeAws_restJson1IngestConfiguration(output.ingestConfiguration, context)
@@ -2687,7 +2695,8 @@ const deserializeAws_restJson1StreamSession = (output: any, context: __SerdeCont
       output.recordingConfiguration != null
         ? deserializeAws_restJson1RecordingConfiguration(output.recordingConfiguration, context)
         : undefined,
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     streamId: __expectString(output.streamId),
     truncatedEvents:
       output.truncatedEvents != null
@@ -2710,9 +2719,10 @@ const deserializeAws_restJson1StreamSessionList = (output: any, context: __Serde
 
 const deserializeAws_restJson1StreamSessionSummary = (output: any, context: __SerdeContext): StreamSessionSummary => {
   return {
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     hasErrorEvent: __expectBoolean(output.hasErrorEvent),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     streamId: __expectString(output.streamId),
   } as any;
 };
@@ -2721,7 +2731,8 @@ const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeCont
   return {
     channelArn: __expectString(output.channelArn),
     health: __expectString(output.health),
-    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
     state: __expectString(output.state),
     streamId: __expectString(output.streamId),
     viewerCount: __expectLong(output.viewerCount),
@@ -2733,10 +2744,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2765,7 +2774,8 @@ const deserializeAws_restJson1VideoConfiguration = (output: any, context: __Serd
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2797,6 +2807,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2807,6 +2823,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

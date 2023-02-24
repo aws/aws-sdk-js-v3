@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,11 +29,12 @@ export interface OptOutSpeakerCommandInput extends OptOutSpeakerRequest {}
 export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __MetadataBearer {}
 
 /**
- * <p>Opts out a speaker from Voice ID. A speaker can be opted out regardless of whether or not they
- *             already exist in Voice ID. If they don't yet exist, a new speaker is created in an opted out state.
- *             If they already exist, their existing status is overridden and they are opted out. Enrollment and
- *             evaluation authentication requests are rejected for opted out speakers, and opted out speakers have
- *             no voice embeddings stored in Voice ID.</p>
+ * <p>Opts out a speaker from Voice ID. A speaker can be opted out regardless of whether or
+ *             not they already exist in Voice ID. If they don't yet exist, a new speaker is created
+ *             in an opted out state. If they already exist, their existing status is overridden and
+ *             they are opted out. Enrollment and evaluation authentication requests are rejected for
+ *             opted out speakers, and opted out speakers have no voice embeddings stored in
+ *             Voice ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +58,15 @@ export class OptOutSpeakerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: OptOutSpeakerCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +82,7 @@ export class OptOutSpeakerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<OptOutSpeakerCommandInput, OptOutSpeakerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, OptOutSpeakerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

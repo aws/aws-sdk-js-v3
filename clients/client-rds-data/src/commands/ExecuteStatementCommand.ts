@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,12 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
 
 /**
  * <p>Runs a SQL statement against a database.</p>
- *         <important>
+ *         <note>
  *             <p>If a call isn't part of a transaction because it doesn't include the
  *                     <code>transactionID</code> parameter, changes that result from the call are
  *                 committed automatically.</p>
  *             <p>If the binary response data from the database is more than 1 MB, the call is terminated.</p>
- *         </important>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class ExecuteStatementCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class ExecuteStatementCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ExecuteStatementCommandInput, ExecuteStatementCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ExecuteStatementCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

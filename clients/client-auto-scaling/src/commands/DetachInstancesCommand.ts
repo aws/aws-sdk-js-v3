@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,14 +30,14 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
 
 /**
  * <p>Removes one or more instances from the specified Auto Scaling group.</p>
- *         <p>After the instances are detached, you can manage them independent of the Auto Scaling
+ *          <p>After the instances are detached, you can manage them independent of the Auto Scaling
  *             group.</p>
- *         <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches
+ *          <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches
  *             instances to replace the ones that are detached.</p>
- *         <p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are
+ *          <p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are
  *             deregistered from the load balancer. If there are target groups attached to the Auto Scaling
  *             group, the instances are deregistered from the target groups.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html">Detach EC2 instances from
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html">Detach EC2 instances from
  *                 your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +62,15 @@ export class DetachInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetachInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class DetachInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetachInstancesCommandInput, DetachInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetachInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

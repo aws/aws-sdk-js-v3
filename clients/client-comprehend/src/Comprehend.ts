@@ -27,6 +27,11 @@ import {
   BatchDetectSyntaxCommandOutput,
 } from "./commands/BatchDetectSyntaxCommand";
 import {
+  BatchDetectTargetedSentimentCommand,
+  BatchDetectTargetedSentimentCommandInput,
+  BatchDetectTargetedSentimentCommandOutput,
+} from "./commands/BatchDetectTargetedSentimentCommand";
+import {
   ClassifyDocumentCommand,
   ClassifyDocumentCommandInput,
   ClassifyDocumentCommandOutput,
@@ -166,6 +171,11 @@ import {
   DetectSyntaxCommandInput,
   DetectSyntaxCommandOutput,
 } from "./commands/DetectSyntaxCommand";
+import {
+  DetectTargetedSentimentCommand,
+  DetectTargetedSentimentCommandInput,
+  DetectTargetedSentimentCommandOutput,
+} from "./commands/DetectTargetedSentimentCommand";
 import { ImportModelCommand, ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
 import {
   ListDocumentClassificationJobsCommand,
@@ -393,8 +403,9 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Inspects the text of a batch of documents for named entities and returns information
-   *       about them. For more information about named entities, see <a>how-entities</a>
-   *          </p>
+   *       about them. For more information about named entities, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   public batchDetectEntities(
     args: BatchDetectEntitiesCommandInput,
@@ -493,7 +504,9 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Inspects the text of a batch of documents for the syntax and part of speech of the words
-   *       in the document and returns information about them. For more information, see <a>how-syntax</a>.</p>
+   *       in the document and returns information about them. For more information, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   public batchDetectSyntax(
     args: BatchDetectSyntaxCommandInput,
@@ -525,8 +538,51 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Inspects a batch of documents and returns a sentiment analysis
+   *       for each entity identified in the documents.</p>
+   *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+   */
+  public batchDetectTargetedSentiment(
+    args: BatchDetectTargetedSentimentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDetectTargetedSentimentCommandOutput>;
+  public batchDetectTargetedSentiment(
+    args: BatchDetectTargetedSentimentCommandInput,
+    cb: (err: any, data?: BatchDetectTargetedSentimentCommandOutput) => void
+  ): void;
+  public batchDetectTargetedSentiment(
+    args: BatchDetectTargetedSentimentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDetectTargetedSentimentCommandOutput) => void
+  ): void;
+  public batchDetectTargetedSentiment(
+    args: BatchDetectTargetedSentimentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectTargetedSentimentCommandOutput) => void),
+    cb?: (err: any, data?: BatchDetectTargetedSentimentCommandOutput) => void
+  ): Promise<BatchDetectTargetedSentimentCommandOutput> | void {
+    const command = new BatchDetectTargetedSentimentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new document classification request to analyze a single document in real-time,
    *       using a previously created and trained custom model and an endpoint.</p>
+   *          <p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p>
+   *          <p>If the system detects errors while processing a page in the input document,
+   *       the API response includes an entry in <code>Errors</code> that describes the errors.</p>
+   *          <p>If the system detects a document-level error in your input document, the API returns an
+   *       <code>InvalidRequestException</code> error response.
+   *       For details about this exception, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html">
+   *         Errors in semi-structured documents</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   public classifyDocument(
     args: ClassifyDocumentCommandInput,
@@ -595,7 +651,9 @@ export class Comprehend extends ComprehendClient {
    * <p>Creates a new document classifier that you can use to categorize documents. To create a
    *       classifier, you provide a set of training documents that labeled with the categories that you
    *       want to use. After the classifier is trained you can use it to categorize a set of labeled
-   *       documents into the categories. For more information, see <a>how-document-classification</a>.</p>
+   *       documents into the categories. For more information, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Document Classification</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   public createDocumentClassifier(
     args: CreateDocumentClassifierCommandInput,
@@ -1300,8 +1358,22 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Inspects text for named entities, and returns information about them. For more
-   *       information, about named entities, see <a>how-entities</a>. </p>
+   * <p>Detects named entities in input text when you use the pre-trained model.
+   *       Detects custom entities if you have a custom entity recognition model. </p>
+   *          <p>
+   *       When detecting named entities using the pre-trained model, use plain text as the input.
+   *       For more information about named entities, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p>
+   *          <p>When you use a custom entity recognition model,
+   *       you can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p>
+   *          <p>If the system detects errors while processing a page in the input document, the API response
+   *        includes an entry in <code>Errors</code> for each error. </p>
+   *          <p>If the system detects a document-level error in your input document, the API returns an
+   *        <code>InvalidRequestException</code> error response.
+   *       For details about this exception, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html">
+   *         Errors in semi-structured documents</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   public detectEntities(
     args: DetectEntitiesCommandInput,
@@ -1432,7 +1504,9 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Inspects text for syntax and the part of speech of words in the document. For more
-   *       information, <a>how-syntax</a>.</p>
+   *       information, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   public detectSyntax(
     args: DetectSyntaxCommandInput,
@@ -1450,6 +1524,39 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: DetectSyntaxCommandOutput) => void
   ): Promise<DetectSyntaxCommandOutput> | void {
     const command = new DetectSyntaxCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p>
+   *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+   */
+  public detectTargetedSentiment(
+    args: DetectTargetedSentimentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectTargetedSentimentCommandOutput>;
+  public detectTargetedSentiment(
+    args: DetectTargetedSentimentCommandInput,
+    cb: (err: any, data?: DetectTargetedSentimentCommandOutput) => void
+  ): void;
+  public detectTargetedSentiment(
+    args: DetectTargetedSentimentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetectTargetedSentimentCommandOutput) => void
+  ): void;
+  public detectTargetedSentiment(
+    args: DetectTargetedSentimentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectTargetedSentimentCommandOutput) => void),
+    cb?: (err: any, data?: DetectTargetedSentimentCommandOutput) => void
+  ): Promise<DetectTargetedSentimentCommandOutput> | void {
+    const command = new DetectTargetedSentimentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

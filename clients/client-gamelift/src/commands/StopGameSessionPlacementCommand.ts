@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,23 +30,8 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
 
 /**
  * <p>Cancels a game session placement that is in <code>PENDING</code> status. To stop a
- *         placement, provide the placement ID values. If successful, the placement is moved to
- *         <code>CANCELLED</code> status.</p>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameSession</a> |
- *                     <a>DescribeGameSessions</a> |
- *                     <a>DescribeGameSessionDetails</a> |
- *                     <a>SearchGameSessions</a> |
- *                     <a>UpdateGameSession</a> |
- *                     <a>GetGameSessionLogUrl</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
- *                     <a>StopGameSessionPlacement</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ *             placement, provide the placement ID values. If successful, the placement is moved to
+ *                 <code>CANCELLED</code> status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +55,15 @@ export class StopGameSessionPlacementCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopGameSessionPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +79,9 @@ export class StopGameSessionPlacementCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopGameSessionPlacementCommandInput, StopGameSessionPlacementCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopGameSessionPlacementCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

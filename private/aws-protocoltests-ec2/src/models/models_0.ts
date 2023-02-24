@@ -3,6 +3,17 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { EC2ProtocolServiceException as __BaseException } from "./EC2ProtocolServiceException";
 
+export interface DatetimeOffsetsOutput {
+  datetime?: Date;
+}
+
+/**
+ * @internal
+ */
+export const DatetimeOffsetsOutputFilterSensitiveLog = (obj: DatetimeOffsetsOutput): any => ({
+  ...obj,
+});
+
 export interface EmptyInputAndEmptyOutputInput {}
 
 /**
@@ -239,6 +250,12 @@ export const XmlBlobsOutputFilterSensitiveLog = (obj: XmlBlobsOutput): any => ({
   ...obj,
 });
 
+export enum IntegerEnum {
+  A = 1,
+  B = 2,
+  C = 3,
+}
+
 export interface StructureListMember {
   a?: string;
   b?: string;
@@ -258,6 +275,7 @@ export interface XmlListsOutput {
   booleanList?: boolean[];
   timestampList?: Date[];
   enumList?: (FooEnum | string)[];
+  intEnumList?: (IntegerEnum | number)[];
   /**
    * A list of lists of strings.
    */
@@ -294,6 +312,22 @@ export const XmlEnumsOutputFilterSensitiveLog = (obj: XmlEnumsOutput): any => ({
   ...obj,
 });
 
+export interface XmlIntEnumsOutput {
+  intEnum1?: IntegerEnum | number;
+  intEnum2?: IntegerEnum | number;
+  intEnum3?: IntegerEnum | number;
+  intEnumList?: (IntegerEnum | number)[];
+  intEnumSet?: (IntegerEnum | number)[];
+  intEnumMap?: Record<string, IntegerEnum | number>;
+}
+
+/**
+ * @internal
+ */
+export const XmlIntEnumsOutputFilterSensitiveLog = (obj: XmlIntEnumsOutput): any => ({
+  ...obj,
+});
+
 export interface XmlNamespaceNested {
   foo?: string;
   values?: string[];
@@ -320,8 +354,11 @@ export const XmlNamespacesOutputFilterSensitiveLog = (obj: XmlNamespacesOutput):
 export interface XmlTimestampsOutput {
   normal?: Date;
   dateTime?: Date;
+  dateTimeOnTarget?: Date;
   epochSeconds?: Date;
+  epochSecondsOnTarget?: Date;
   httpDate?: Date;
+  httpDateOnTarget?: Date;
 }
 
 /**

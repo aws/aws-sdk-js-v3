@@ -28,6 +28,10 @@ import { CancelJobRunCommandInput, CancelJobRunCommandOutput } from "../commands
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "../commands/GetApplicationCommand";
+import {
+  GetDashboardForJobRunCommandInput,
+  GetDashboardForJobRunCommandOutput,
+} from "../commands/GetDashboardForJobRunCommand";
 import { GetJobRunCommandInput, GetJobRunCommandOutput } from "../commands/GetJobRunCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "../commands/ListJobRunsCommand";
@@ -51,6 +55,8 @@ import {
   ConfigurationOverrides,
   ConflictException,
   Hive,
+  ImageConfiguration,
+  ImageConfigurationInput,
   InitialCapacityConfig,
   InternalServerException,
   JobDriver,
@@ -67,6 +73,8 @@ import {
   TotalResourceUtilization,
   ValidationException,
   WorkerResourceConfig,
+  WorkerTypeSpecification,
+  WorkerTypeSpecificationInput,
 } from "../models/models_0";
 
 export const serializeAws_restJson1CancelJobRunCommand = async (
@@ -110,6 +118,7 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
   body = JSON.stringify({
+    ...(input.architecture != null && { architecture: input.architecture }),
     ...(input.autoStartConfiguration != null && {
       autoStartConfiguration: serializeAws_restJson1AutoStartConfig(input.autoStartConfiguration, context),
     }),
@@ -117,6 +126,9 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
       autoStopConfiguration: serializeAws_restJson1AutoStopConfig(input.autoStopConfiguration, context),
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.imageConfiguration != null && {
+      imageConfiguration: serializeAws_restJson1ImageConfigurationInput(input.imageConfiguration, context),
+    }),
     ...(input.initialCapacity != null && {
       initialCapacity: serializeAws_restJson1InitialCapacityConfigMap(input.initialCapacity, context),
     }),
@@ -130,6 +142,12 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
     ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.type != null && { type: input.type }),
+    ...(input.workerTypeSpecifications != null && {
+      workerTypeSpecifications: serializeAws_restJson1WorkerTypeSpecificationInputMap(
+        input.workerTypeSpecifications,
+        context
+      ),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -198,6 +216,36 @@ export const serializeAws_restJson1GetApplicationCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetDashboardForJobRunCommand = async (
+  input: GetDashboardForJobRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{applicationId}/jobruns/{jobRunId}/dashboard";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "applicationId",
+    () => input.applicationId!,
+    "{applicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "jobRunId", () => input.jobRunId!, "{jobRunId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetJobRunCommand = async (
   input: GetJobRunCommandInput,
   context: __SerdeContext
@@ -238,10 +286,7 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   const query: any = map({
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    states: [
-      () => input.states !== void 0,
-      () => (Array.from(input.states!.values()) || []).map((_entry) => _entry as any),
-    ],
+    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -283,10 +328,7 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
       () => input.createdAtBefore !== void 0,
       () => (input.createdAtBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    states: [
-      () => input.states !== void 0,
-      () => (Array.from(input.states!.values()) || []).map((_entry) => _entry as any),
-    ],
+    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -452,7 +494,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -487,6 +532,7 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   );
   let body: any;
   body = JSON.stringify({
+    ...(input.architecture != null && { architecture: input.architecture }),
     ...(input.autoStartConfiguration != null && {
       autoStartConfiguration: serializeAws_restJson1AutoStartConfig(input.autoStartConfiguration, context),
     }),
@@ -494,6 +540,9 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
       autoStopConfiguration: serializeAws_restJson1AutoStopConfig(input.autoStopConfiguration, context),
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.imageConfiguration != null && {
+      imageConfiguration: serializeAws_restJson1ImageConfigurationInput(input.imageConfiguration, context),
+    }),
     ...(input.initialCapacity != null && {
       initialCapacity: serializeAws_restJson1InitialCapacityConfigMap(input.initialCapacity, context),
     }),
@@ -502,6 +551,12 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
     }),
     ...(input.networkConfiguration != null && {
       networkConfiguration: serializeAws_restJson1NetworkConfiguration(input.networkConfiguration, context),
+    }),
+    ...(input.workerTypeSpecifications != null && {
+      workerTypeSpecifications: serializeAws_restJson1WorkerTypeSpecificationInputMap(
+        input.workerTypeSpecifications,
+        context
+      ),
     }),
   });
   return new __HttpRequest({
@@ -541,7 +596,7 @@ const deserializeAws_restJson1CancelJobRunCommandError = async (
 ): Promise<CancelJobRunCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -594,7 +649,7 @@ const deserializeAws_restJson1CreateApplicationCommandError = async (
 ): Promise<CreateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -604,6 +659,9 @@ const deserializeAws_restJson1CreateApplicationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.emrserverless#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.emrserverless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrserverless#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -638,7 +696,7 @@ const deserializeAws_restJson1DeleteApplicationCommandError = async (
 ): Promise<DeleteApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -685,7 +743,54 @@ const deserializeAws_restJson1GetApplicationCommandError = async (
 ): Promise<GetApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emrserverless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.emrserverless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.emrserverless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetDashboardForJobRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDashboardForJobRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetDashboardForJobRunCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.url != null) {
+    contents.url = __expectString(data.url);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetDashboardForJobRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDashboardForJobRunCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -732,7 +837,7 @@ const deserializeAws_restJson1GetJobRunCommandError = async (
 ): Promise<GetJobRunCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -782,7 +887,7 @@ const deserializeAws_restJson1ListApplicationsCommandError = async (
 ): Promise<ListApplicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -829,7 +934,7 @@ const deserializeAws_restJson1ListJobRunsCommandError = async (
 ): Promise<ListJobRunsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -873,7 +978,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -917,7 +1022,7 @@ const deserializeAws_restJson1StartApplicationCommandError = async (
 ): Promise<StartApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -973,7 +1078,7 @@ const deserializeAws_restJson1StartJobRunCommandError = async (
 ): Promise<StartJobRunCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1020,7 +1125,7 @@ const deserializeAws_restJson1StopApplicationCommandError = async (
 ): Promise<StopApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1064,7 +1169,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1108,7 +1213,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1155,7 +1260,7 @@ const deserializeAws_restJson1UpdateApplicationCommandError = async (
 ): Promise<UpdateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1320,6 +1425,15 @@ const serializeAws_restJson1Hive = (input: Hive, context: __SerdeContext): any =
   };
 };
 
+const serializeAws_restJson1ImageConfigurationInput = (
+  input: ImageConfigurationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.imageUri != null && { imageUri: input.imageUri }),
+  };
+};
+
 const serializeAws_restJson1InitialCapacityConfig = (input: InitialCapacityConfig, context: __SerdeContext): any => {
   return {
     ...(input.workerConfiguration != null && {
@@ -1337,10 +1451,8 @@ const serializeAws_restJson1InitialCapacityConfigMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1InitialCapacityConfig(value, context),
-    };
+    acc[key] = serializeAws_restJson1InitialCapacityConfig(value, context);
+    return acc;
   }, {});
 };
 
@@ -1425,10 +1537,8 @@ const serializeAws_restJson1SensitivePropertiesMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1455,10 +1565,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1470,9 +1578,34 @@ const serializeAws_restJson1WorkerResourceConfig = (input: WorkerResourceConfig,
   };
 };
 
+const serializeAws_restJson1WorkerTypeSpecificationInput = (
+  input: WorkerTypeSpecificationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.imageConfiguration != null && {
+      imageConfiguration: serializeAws_restJson1ImageConfigurationInput(input.imageConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1WorkerTypeSpecificationInputMap = (
+  input: Record<string, WorkerTypeSpecificationInput>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1WorkerTypeSpecificationInput(value, context);
+    return acc;
+  }, {});
+};
+
 const deserializeAws_restJson1Application = (output: any, context: __SerdeContext): Application => {
   return {
     applicationId: __expectString(output.applicationId),
+    architecture: __expectString(output.architecture),
     arn: __expectString(output.arn),
     autoStartConfiguration:
       output.autoStartConfiguration != null
@@ -1484,6 +1617,10 @@ const deserializeAws_restJson1Application = (output: any, context: __SerdeContex
         : undefined,
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
+    imageConfiguration:
+      output.imageConfiguration != null
+        ? deserializeAws_restJson1ImageConfiguration(output.imageConfiguration, context)
+        : undefined,
     initialCapacity:
       output.initialCapacity != null
         ? deserializeAws_restJson1InitialCapacityConfigMap(output.initialCapacity, context)
@@ -1504,6 +1641,10 @@ const deserializeAws_restJson1Application = (output: any, context: __SerdeContex
     type: __expectString(output.type),
     updatedAt:
       output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
+    workerTypeSpecifications:
+      output.workerTypeSpecifications != null
+        ? deserializeAws_restJson1WorkerTypeSpecificationMap(output.workerTypeSpecifications, context)
+        : undefined,
   } as any;
 };
 
@@ -1521,6 +1662,7 @@ const deserializeAws_restJson1ApplicationList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
   return {
+    architecture: __expectString(output.architecture),
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
@@ -1610,6 +1752,13 @@ const deserializeAws_restJson1Hive = (output: any, context: __SerdeContext): Hiv
   } as any;
 };
 
+const deserializeAws_restJson1ImageConfiguration = (output: any, context: __SerdeContext): ImageConfiguration => {
+  return {
+    imageUri: __expectString(output.imageUri),
+    resolvedImageDigest: __expectString(output.resolvedImageDigest),
+  } as any;
+};
+
 const deserializeAws_restJson1InitialCapacityConfig = (output: any, context: __SerdeContext): InitialCapacityConfig => {
   return {
     workerConfiguration:
@@ -1628,10 +1777,8 @@ const deserializeAws_restJson1InitialCapacityConfigMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1InitialCapacityConfig(value, context),
-    };
+    acc[key] = deserializeAws_restJson1InitialCapacityConfig(value, context);
+    return acc;
   }, {});
 };
 
@@ -1796,10 +1943,8 @@ const deserializeAws_restJson1SensitivePropertiesMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1831,10 +1976,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1857,9 +2000,35 @@ const deserializeAws_restJson1WorkerResourceConfig = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_restJson1WorkerTypeSpecification = (
+  output: any,
+  context: __SerdeContext
+): WorkerTypeSpecification => {
+  return {
+    imageConfiguration:
+      output.imageConfiguration != null
+        ? deserializeAws_restJson1ImageConfiguration(output.imageConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorkerTypeSpecificationMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, WorkerTypeSpecification> => {
+  return Object.entries(output).reduce((acc: Record<string, WorkerTypeSpecification>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = deserializeAws_restJson1WorkerTypeSpecification(value, context);
+    return acc;
+  }, {});
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1891,6 +2060,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1901,6 +2076,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

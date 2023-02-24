@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,17 +30,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
 
 /**
  * <p>Retrieves a set of one or more game sessions in a specific fleet location. You can
- *             optionally filter the results by current game session status. Alternatively, use <a>SearchGameSessions</a> to request a set of active game sessions that are
- *             filtered by certain criteria. To retrieve the protection policy for game sessions, use
- *                 <a>DescribeGameSessionDetails</a>.</p>
- *         <p>This operation is not designed to be continually called to track game session status.
- *             This practice can cause you to exceed your API limit, which results in errors. Instead,
- *             you must configure configure an
- *             Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or queues. Continuously polling
- *             with <code>DescribeGameSessions</code> should only be used for games in development with
- *             low game session usage.
- *         </p>
- *
+ *             optionally filter the results by current game session status.</p>
  *         <p>This operation can be used in the following ways: </p>
  *         <ul>
  *             <li>
@@ -63,34 +54,21 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *         <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
  *         <p>If successful, a <code>GameSession</code> object is returned for each game session
  *             that matches the request.</p>
- *         <p>This operation is not designed to be continually called to track matchmaking ticket
- *             status. This practice can cause you to exceed your API limit, which results in errors.
- *             Instead, as a best practice, set up an Amazon Simple Notification Service to receive notifications, and provide
- *             the topic ARN in the matchmaking configuration. Continuously poling ticket status with
- *             <a>DescribeGameSessions</a> should only be used for games in development
- *             with low matchmaking usage.</p>
+ *         <p>This operation is not designed to be continually called to track game session status.
+ *             This practice can cause you to exceed your API limit, which results in errors. Instead,
+ *             you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or
+ *             queues. Continuously polling with <code>DescribeGameSessions</code> should only be used
+ *             for games in development with low game session usage. </p>
  *         <p>
  *             <i>Available in Amazon GameLift Local.</i>
  *          </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find">Find a game session</a>
  *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameSession</a> |
- *                     <a>DescribeGameSessions</a> |
- *                     <a>DescribeGameSessionDetails</a> |
- *                     <a>SearchGameSessions</a> |
- *                     <a>UpdateGameSession</a> |
- *                     <a>GetGameSessionLogUrl</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
- *                     <a>StopGameSessionPlacement</a> |
+ *          <p>
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -116,6 +94,15 @@ export class DescribeGameSessionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeGameSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +118,9 @@ export class DescribeGameSessionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeGameSessionsCommandInput, DescribeGameSessionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeGameSessionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

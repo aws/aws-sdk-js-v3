@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,8 +30,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
 
 /**
  * <p>Deletes a repository in a public registry. If the repository contains images, you must
- *          either delete all images in the repository or use the <code>force</code> option which
- *          deletes all images on your behalf before deleting the repository.</p>
+ *          either manually delete all images in the repository or use the <code>force</code> option.
+ *          This option deletes all images on your behalf before deleting the repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class DeleteRepositoryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class DeleteRepositoryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteRepositoryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

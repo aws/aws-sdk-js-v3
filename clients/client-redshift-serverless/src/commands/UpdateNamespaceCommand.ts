@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,9 @@ export interface UpdateNamespaceCommandInput extends UpdateNamespaceRequest {}
 export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a namespace with the specified settings.</p>
+ * <p>Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example,
+ *       you must specify both <code>adminUsername</code> and <code>adminUserPassword</code> to update either field, but you can't update both <code>kmsKeyId</code>
+ *       and <code>logExports</code> in a single request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +59,15 @@ export class UpdateNamespaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +83,9 @@ export class UpdateNamespaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateNamespaceCommandInput, UpdateNamespaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateNamespaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

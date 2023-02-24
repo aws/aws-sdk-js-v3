@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,17 +29,17 @@ export interface CreatePlaceIndexCommandInput extends CreatePlaceIndexRequest {}
 export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a place index resource in your AWS account. Use a place index resource to
+ * <p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to
  *             geocode addresses and other text queries by using the
  *                 <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by
  *             using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions
  *             by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
- *         <note>
+ *          <note>
  *             <p>If your application is tracking or routing assets you use in your business, such
- *                 as delivery vehicles or employees, you may only use HERE as your geolocation
- *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+ *                 as delivery vehicles or employees, you must not use Esri as your geolocation
+ *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
  *                     service terms</a> for more details.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +63,15 @@ export class CreatePlaceIndexCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreatePlaceIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +87,9 @@ export class CreatePlaceIndexCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePlaceIndexCommandInput, CreatePlaceIndexCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePlaceIndexCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

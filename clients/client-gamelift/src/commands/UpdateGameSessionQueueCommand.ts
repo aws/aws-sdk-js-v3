@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   UpdateGameSessionQueueInputFilterSensitiveLog,
   UpdateGameSessionQueueOutput,
   UpdateGameSessionQueueOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateGameSessionQueueCommand,
   serializeAws_json1_1UpdateGameSessionQueueCommand,
@@ -37,22 +38,8 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
- *             Using Multi-Region Queues</a>
+ *                 Using Multi-Region Queues</a>
  *         </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html">CreateGameSessionQueue</a>
- *                     |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html">DescribeGameSessionQueues</a>
- *                     |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html">UpdateGameSessionQueue</a>
- *                     |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html">DeleteGameSessionQueue</a>
- *                     |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +63,15 @@ export class UpdateGameSessionQueueCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateGameSessionQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +87,9 @@ export class UpdateGameSessionQueueCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateGameSessionQueueCommandInput, UpdateGameSessionQueueCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateGameSessionQueueCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

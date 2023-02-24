@@ -19,11 +19,14 @@ import {
   ContainerService,
   ContainerServicePowerName,
   Disk,
+  DistributionMetricName,
+  Domain,
   DomainEntry,
   ExportSnapshotRecord,
   InputOrigin,
   IpAddressType,
   KeyPair,
+  LightsailDistribution,
   MetricDatapoint,
   MetricName,
   MetricStatistic,
@@ -38,6 +41,262 @@ import {
   Tag,
   TreatMissingData,
 } from "./models_0";
+
+export interface GetDistributionMetricDataRequest {
+  /**
+   * <p>The name of the distribution for which to get metric data.</p>
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   */
+  distributionName: string | undefined;
+
+  /**
+   * <p>The metric for which you want to return information.</p>
+   *          <p>Valid distribution metric names are listed below, along with the most useful
+   *         <code>statistics</code> to include in your request, and the published <code>unit</code>
+   *       value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Requests</code>
+   *                   </b> - The total number of viewer
+   *           requests received by your Lightsail distribution, for all HTTP methods, and for both
+   *           HTTP and HTTPS requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BytesDownloaded</code>
+   *                   </b> - The number of bytes
+   *           downloaded by viewers for GET, HEAD, and OPTIONS requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BytesUploaded </code>
+   *                   </b> - The number of bytes
+   *           uploaded to your origin by your Lightsail distribution, using POST and PUT
+   *           requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>TotalErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status code was 4xx or 5xx.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>4xxErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status cod was 4xx. In these cases, the
+   *           client or client viewer may have made an error. For example, a status code of 404 (Not
+   *           Found) means that the client requested an object that could not be found.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>5xxErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status code was 5xx. In these cases, the
+   *           origin server did not satisfy the requests. For example, a status code of 503 (Service
+   *           Unavailable) means that the origin server is currently unavailable.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  metricName: DistributionMetricName | string | undefined;
+
+  /**
+   * <p>The start of the time interval for which to get metric data.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
+   *             <code>1538424000</code> as the start time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end of the time interval for which to get metric data.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
+   *             <code>1538427600</code> as the end time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The granularity, in seconds, for the metric data points that will be returned.</p>
+   */
+  period: number | undefined;
+
+  /**
+   * <p>The unit for the metric data request.</p>
+   *          <p>Valid units depend on the metric data being requested. For the valid units with each
+   *       available metric, see the <code>metricName</code> parameter.</p>
+   */
+  unit: MetricUnit | string | undefined;
+
+  /**
+   * <p>The statistic for the metric.</p>
+   *          <p>The following statistics are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
+   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
+   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistics: (MetricStatistic | string)[] | undefined;
+}
+
+export interface GetDistributionMetricDataResult {
+  /**
+   * <p>The name of the metric returned.</p>
+   */
+  metricName?: DistributionMetricName | string;
+
+  /**
+   * <p>An array of objects that describe the metric data returned.</p>
+   */
+  metricData?: MetricDatapoint[];
+}
+
+export interface GetDistributionsRequest {
+  /**
+   * <p>The name of the distribution for which to return information.</p>
+   *          <p>When omitted, the response includes all of your distributions in the Amazon Web Services
+   *       Region where the request is made.</p>
+   */
+  distributionName?: string;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDistributions</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+export interface GetDistributionsResult {
+  /**
+   * <p>An array of objects that describe your distributions.</p>
+   */
+  distributions?: LightsailDistribution[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDistributions</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+export interface GetDomainRequest {
+  /**
+   * <p>The domain name for which your want to return information about.</p>
+   */
+  domainName: string | undefined;
+}
+
+export interface GetDomainResult {
+  /**
+   * <p>An array of key-value pairs containing information about your get domain request.</p>
+   */
+  domain?: Domain;
+}
+
+export interface GetDomainsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDomains</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+export interface GetDomainsResult {
+  /**
+   * <p>An array of key-value pairs containing information about each of the domain entries in the
+   *       user's account.</p>
+   */
+  domains?: Domain[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDomains</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
 
 export interface GetExportSnapshotRecordsRequest {
   /**
@@ -89,6 +348,87 @@ export interface InstanceHardware {
    * <p>The amount of RAM in GB on the instance (e.g., <code>1.0</code>).</p>
    */
   ramSizeInGb?: number;
+}
+
+export enum HttpEndpoint {
+  disabled = "disabled",
+  enabled = "enabled",
+}
+
+export enum HttpProtocolIpv6 {
+  disabled = "disabled",
+  enabled = "enabled",
+}
+
+export enum HttpTokens {
+  optional = "optional",
+  required = "required",
+}
+
+export enum InstanceMetadataState {
+  applied = "applied",
+  pending = "pending",
+}
+
+/**
+ * <p>The metadata options for the instance.</p>
+ */
+export interface InstanceMetadataOptions {
+  /**
+   * <p>The state of the metadata option changes.</p>
+   *          <p>The following states are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The metadata options are being updated. The instance is not yet
+   *           ready to process metadata traffic with the new selection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>applied</code> - The metadata options have been successfully applied to the
+   *           instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  state?: InstanceMetadataState | string;
+
+  /**
+   * <p>The state of token usage for your instance metadata requests.</p>
+   *          <p>If the state is <code>optional</code>, you can choose whether to retrieve instance
+   *       metadata with a signed token header on your request. If you retrieve the IAM role credentials
+   *       without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role
+   *       credentials by using a valid signed token, the version 2.0 role credentials are
+   *       returned.</p>
+   *          <p>If the state is <code>required</code>, you must send a signed token header with all
+   *       instance metadata retrieval requests. In this state, retrieving the IAM role credential always
+   *       returns the version 2.0 credentials. The version 1.0 credentials are not available.</p>
+   *          <important>
+   *             <p>Not all instance blueprints in Lightsail support version 2.0 credentials.
+   *         Use the <code>MetadataNoToken</code> instance metric to track the number of calls to the
+   *         instance metadata service that are using version 1.0 credentials. For more information, see
+   *           <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-health-metrics">Viewing instance metrics in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   *          </important>
+   */
+  httpTokens?: HttpTokens | string;
+
+  /**
+   * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or
+   *       disabled.</p>
+   *          <p>If the value is <code>disabled</code>, you cannot access your instance metadata.</p>
+   */
+  httpEndpoint?: HttpEndpoint | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. A larger number
+   *       means that the instance metadata requests can travel farther.</p>
+   */
+  httpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
+   *       disabled.</p>
+   */
+  httpProtocolIpv6?: HttpProtocolIpv6 | string;
 }
 
 /**
@@ -370,7 +710,6 @@ export interface Instance {
 
   /**
    * <p>The IP address type of the instance.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
@@ -402,6 +741,11 @@ export interface Instance {
    *         <code>LightsailDefaultKeyPair</code>).</p>
    */
   sshKeyName?: string;
+
+  /**
+   * <p>The metadata options for the Amazon Lightsail instance.</p>
+   */
+  metadataOptions?: InstanceMetadataOptions;
 }
 
 export interface GetInstanceResult {
@@ -615,6 +959,7 @@ export enum InstanceMetricName {
   BurstCapacityPercentage = "BurstCapacityPercentage",
   BurstCapacityTime = "BurstCapacityTime",
   CPUUtilization = "CPUUtilization",
+  MetadataNoToken = "MetadataNoToken",
   NetworkIn = "NetworkIn",
   NetworkOut = "NetworkOut",
   StatusCheckFailed = "StatusCheckFailed",
@@ -745,6 +1090,20 @@ export interface GetInstanceMetricDataRequest {
    *           whether the instance passed or failed the system status check. This metric can be either 0
    *           (passed) or 1 (failed). This metric data is available in 1-minute (60 seconds)
    *           granularity.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>MetadataNoToken</code>
+   *                   </b> - Reports the number of
+   *           times that the instance metadata service was successfully accessed without a token. This
+   *           metric determines if there are any processes accessing instance metadata by using Instance
+   *           Metadata Service Version 1, which doesn't use a token. If all requests use token-backed
+   *           sessions, such as Instance Metadata Service Version 2, then the value is 0.</p>
    *                <p>
    *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
    *                <p>
@@ -1515,7 +1874,6 @@ export interface LoadBalancer {
 
   /**
    * <p>The IP address type of the load balancer.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
@@ -1836,6 +2194,44 @@ export interface GetLoadBalancerTlsCertificatesRequest {
   loadBalancerName: string | undefined;
 }
 
+export enum LoadBalancerTlsCertificateDnsRecordCreationStateCode {
+  Failed = "FAILED",
+  Started = "STARTED",
+  Succeeded = "SUCCEEDED",
+}
+
+/**
+ * <p>An object that describes the state of the canonical name (CNAME) records that are
+ *       automatically added by Lightsail to the DNS of the domain to validate domain
+ *       ownership.</p>
+ */
+export interface LoadBalancerTlsCertificateDnsRecordCreationState {
+  /**
+   * <p>The status code for the automated DNS record creation.</p>
+   *          <p>Following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code> - The validation records were successfully added.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STARTED</code> - The automatic DNS record creation has started.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The validation record addition failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  code?: LoadBalancerTlsCertificateDnsRecordCreationStateCode | string;
+
+  /**
+   * <p>The message that describes the reason for the status code.</p>
+   */
+  message?: string;
+}
+
 export enum LoadBalancerTlsCertificateDomainStatus {
   Failed = "FAILED",
   PendingValidation = "PENDING_VALIDATION",
@@ -1872,6 +2268,13 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
    * <p>The domain name against which your SSL/TLS certificate was validated.</p>
    */
   domainName?: string;
+
+  /**
+   * <p>An object that describes the state of the canonical name (CNAME) records that are
+   *       automatically added by Lightsail to the DNS of a domain to validate domain
+   *       ownership.</p>
+   */
+  dnsRecordCreationState?: LoadBalancerTlsCertificateDnsRecordCreationState;
 }
 
 export enum LoadBalancerTlsCertificateFailureReason {
@@ -2052,7 +2455,8 @@ export interface LoadBalancerTlsCertificate {
   createdAt?: Date;
 
   /**
-   * <p>The AWS Region and Availability Zone where you created your certificate.</p>
+   * <p>The Amazon Web Services Region and Availability Zone where you created your
+   *       certificate.</p>
    */
   location?: ResourceLocation;
 
@@ -2165,7 +2569,6 @@ export interface LoadBalancerTlsCertificate {
 
   /**
    * <p>The validation failure reason, if any, of the certificate.</p>
-   *
    *          <p>The following failure reasons are possible:</p>
    *          <ul>
    *             <li>
@@ -2308,7 +2711,6 @@ export interface GetLoadBalancerTlsCertificatesResult {
 export interface GetLoadBalancerTlsPoliciesRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
-   *
    *          <p>To get a page token, perform an initial <code>GetLoadBalancerTlsPolicies</code> request.
    *       If your results are paginated, the response will return a next page token that you can specify
    *       as the page token in a subsequent request.</p>
@@ -2319,7 +2721,6 @@ export interface GetLoadBalancerTlsPoliciesRequest {
 /**
  * <p>Describes the TLS security policies that are available for Lightsail load
  *       balancers.</p>
- *
  *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
  *         balancers</a> in the <i>Amazon Lightsail Developer
  *       Guide</i>.</p>
@@ -2360,9 +2761,7 @@ export interface GetLoadBalancerTlsPoliciesResult {
 
   /**
    * <p>The token to advance to the next page of results from your request.</p>
-   *
    *          <p>A next page token is not returned if there are no more results to display.</p>
-   *
    *          <p>To get the next page of results, perform another <code>GetLoadBalancerTlsPolicies</code>
    *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
    */
@@ -2469,7 +2868,7 @@ export interface GetRegionsRequest {
 }
 
 /**
- * <p>Describes the AWS Region.</p>
+ * <p>Describes the Amazon Web Services Region.</p>
  */
 export interface Region {
   /**
@@ -2478,8 +2877,8 @@ export interface Region {
   continentCode?: string;
 
   /**
-   * <p>The description of the AWS Region (e.g., <code>This region is recommended to serve users
-   *         in the eastern United States and eastern Canada</code>).</p>
+   * <p>The description of the Amazon Web Services Region (e.g., <code>This region is recommended
+   *         to serve users in the eastern United States and eastern Canada</code>).</p>
    */
   description?: string;
 
@@ -3005,7 +3404,6 @@ export interface GetRelationalDatabaseLogEventsRequest {
    *                <p>Specified in the Unix time format.</p>
    *                <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you
    *           input <code>1538424000</code> as the end time.</p>
-   *
    *             </li>
    *          </ul>
    */
@@ -3231,7 +3629,6 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *                <p>Specified in the Unix time format.</p>
    *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you
    *           input <code>1538424000</code> as the start time.</p>
-   *
    *             </li>
    *          </ul>
    */
@@ -3248,7 +3645,6 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *                <p>Specified in the Unix time format.</p>
    *                <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you
    *           input <code>1538424000</code> as the end time.</p>
-   *
    *             </li>
    *          </ul>
    */
@@ -3929,10 +4325,8 @@ export interface RegisterContainerImageRequest {
 
   /**
    * <p>The label for the container image when it's registered to the container service.</p>
-   *
    *          <p>Use a descriptive label that you can use to track the different versions of your
    *       registered container images.</p>
-   *
    *          <p>Use the <code>GetContainerImages</code> action to return the container images registered
    *       to a Lightsail container service. The label is the <code><imagelabel></code> portion
    *       of the following image name example:</p>
@@ -3943,11 +4337,9 @@ export interface RegisterContainerImageRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the name of your container service is <code>mycontainerservice</code>, and the label
    *       that you specify is <code>mystaticwebsite</code>, then the name of the registered container
    *       image will be <code>:mycontainerservice.mystaticwebsite.1</code>.</p>
-   *
    *          <p>The number at the end of these image name examples represents the version of the
    *       registered container image. If you push and register another container image to the same
    *       Lightsail container service, with the same label, then the version number for the new
@@ -4049,7 +4441,6 @@ export interface SetIpAddressTypeRequest {
 
   /**
    * <p>The IP address type to set for the specified resource.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
@@ -4083,9 +4474,7 @@ export interface SetResourceAccessForBucketRequest {
 
   /**
    * <p>The access setting.</p>
-   *
    *          <p>The following access settings are available:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -4295,7 +4684,6 @@ export interface UpdateBucketRequest {
 
   /**
    * <p>Specifies whether to enable or suspend versioning of objects in the bucket.</p>
-   *
    *          <p>The following options can be specified:</p>
    *          <ul>
    *             <li>
@@ -4314,7 +4702,6 @@ export interface UpdateBucketRequest {
   /**
    * <p>An array of strings to specify the Amazon Web Services account IDs that can access the
    *       bucket.</p>
-   *
    *          <p>You can give a maximum of 10 Amazon Web Services accounts access to a bucket.</p>
    */
   readonlyAccessAccounts?: string[];
@@ -4346,7 +4733,6 @@ export interface UpdateBucketBundleRequest {
 
   /**
    * <p>The ID of the new bundle to apply to the bucket.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html">GetBucketBundles</a> action to get a list of
    *       bundle IDs that you can specify.</p>
    */
@@ -4369,13 +4755,11 @@ export interface UpdateContainerServiceRequest {
 
   /**
    * <p>The power for the container service.</p>
-   *
    *          <p>The power specifies the amount of memory, vCPUs, and base monthly cost of each node of the
    *       container service. The <code>power</code> and <code>scale</code> of a container service makes
    *       up its configured capacity. To determine the monthly price of your container service, multiply
    *       the base price of the <code>power</code> with the <code>scale</code> (the number of nodes) of
    *       the service.</p>
-   *
    *          <p>Use the <code>GetContainerServicePowers</code> action to view the specifications of each
    *       power option.</p>
    */
@@ -4383,7 +4767,6 @@ export interface UpdateContainerServiceRequest {
 
   /**
    * <p>The scale for the container service.</p>
-   *
    *          <p>The scale specifies the allocated compute nodes of the container service. The
    *         <code>power</code> and <code>scale</code> of a container service makes up its configured
    *       capacity. To determine the monthly price of your container service, multiply the base price of
@@ -4400,20 +4783,16 @@ export interface UpdateContainerServiceRequest {
   /**
    * <p>The public domain names to use with the container service, such as
    *         <code>example.com</code> and <code>www.example.com</code>.</p>
-   *
    *          <p>You can specify up to four public domain names for a container service. The domain names
    *       that you specify are used when you create a deployment with a container configured as the
    *       public endpoint of your container service.</p>
-   *
    *          <p>If you don't specify public domain names, then you can use the default domain of the
    *       container service.</p>
-   *
    *          <important>
    *             <p>You must create and validate an SSL/TLS certificate before you can use public domain
    *         names with your container service. Use the <code>CreateCertificate</code> action to create a
    *         certificate for the public domain names you want to use with your container service.</p>
    *          </important>
-   *
    *          <p>You can specify public domain names using a string to array map as shown in the example
    *       later on this page.</p>
    */
@@ -4423,7 +4802,6 @@ export interface UpdateContainerServiceRequest {
    * <p>An object to describe the configuration for the container service to access private
    *       container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private
    *       repositories.</p>
-   *
    *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    */
   privateRegistryAccess?: PrivateRegistryAccessRequest;
@@ -4527,6 +4905,59 @@ export interface UpdateDomainEntryResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
+}
+
+export interface UpdateInstanceMetadataOptionsRequest {
+  /**
+   * <p>The name of the instance for which to update metadata parameters.</p>
+   */
+  instanceName: string | undefined;
+
+  /**
+   * <p>The state of token usage for your instance metadata requests. If the parameter is not
+   *       specified in the request, the default state is <code>optional</code>.</p>
+   *          <p>If the state is <code>optional</code>, you can choose whether to retrieve instance
+   *       metadata with a signed token header on your request. If you retrieve the IAM role credentials
+   *       without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role
+   *       credentials by using a valid signed token, the version 2.0 role credentials are
+   *       returned.</p>
+   *          <p>If the state is <code>required</code>, you must send a signed token header with all
+   *       instance metadata retrieval requests. In this state, retrieving the IAM role credential always
+   *       returns the version 2.0 credentials. The version 1.0 credentials are not available.</p>
+   */
+  httpTokens?: HttpTokens | string;
+
+  /**
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. If this parameter is not
+   *       specified, the existing state is maintained.</p>
+   *          <p>If you specify a value of <code>disabled</code>, you cannot access your instance
+   *       metadata.</p>
+   */
+  httpEndpoint?: HttpEndpoint | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. A larger number
+   *       means that the instance metadata requests can travel farther. If no parameter is specified,
+   *       the existing state is maintained.</p>
+   */
+  httpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service. This setting
+   *       applies only when the HTTP metadata endpoint is enabled.</p>
+   *          <note>
+   *             <p>This parameter is available only for instances in the Europe (Stockholm) Amazon Web Services Region (<code>eu-north-1</code>).</p>
+   *          </note>
+   */
+  httpProtocolIpv6?: HttpProtocolIpv6 | string;
+}
+
+export interface UpdateInstanceMetadataOptionsResult {
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operation?: Operation;
 }
 
 export interface UpdateLoadBalancerAttributeRequest {
@@ -4642,7 +5073,7 @@ export interface UpdateRelationalDatabaseRequest {
   /**
    * <p>The weekly time range during which system maintenance can occur on your database.</p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       AWS Region, occurring on a random day of the week.</p>
+   *         Amazon Web Services Region, occurring on a random day of the week.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -4735,6 +5166,62 @@ export interface UpdateRelationalDatabaseParametersResult {
 /**
  * @internal
  */
+export const GetDistributionMetricDataRequestFilterSensitiveLog = (obj: GetDistributionMetricDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionMetricDataResultFilterSensitiveLog = (obj: GetDistributionMetricDataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionsRequestFilterSensitiveLog = (obj: GetDistributionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionsResultFilterSensitiveLog = (obj: GetDistributionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainRequestFilterSensitiveLog = (obj: GetDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainResultFilterSensitiveLog = (obj: GetDomainResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainsRequestFilterSensitiveLog = (obj: GetDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainsResultFilterSensitiveLog = (obj: GetDomainsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetExportSnapshotRecordsRequestFilterSensitiveLog = (obj: GetExportSnapshotRecordsRequest): any => ({
   ...obj,
 });
@@ -4757,6 +5244,13 @@ export const GetInstanceRequestFilterSensitiveLog = (obj: GetInstanceRequest): a
  * @internal
  */
 export const InstanceHardwareFilterSensitiveLog = (obj: InstanceHardware): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceMetadataOptionsFilterSensitiveLog = (obj: InstanceMetadataOptions): any => ({
   ...obj,
 });
 
@@ -5031,6 +5525,15 @@ export const GetLoadBalancersResultFilterSensitiveLog = (obj: GetLoadBalancersRe
  */
 export const GetLoadBalancerTlsCertificatesRequestFilterSensitiveLog = (
   obj: GetLoadBalancerTlsCertificatesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerTlsCertificateDnsRecordCreationStateFilterSensitiveLog = (
+  obj: LoadBalancerTlsCertificateDnsRecordCreationState
 ): any => ({
   ...obj,
 });
@@ -5872,6 +6375,24 @@ export const UpdateDomainEntryRequestFilterSensitiveLog = (obj: UpdateDomainEntr
  * @internal
  */
 export const UpdateDomainEntryResultFilterSensitiveLog = (obj: UpdateDomainEntryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInstanceMetadataOptionsRequestFilterSensitiveLog = (
+  obj: UpdateInstanceMetadataOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInstanceMetadataOptionsResultFilterSensitiveLog = (
+  obj: UpdateInstanceMetadataOptionsResult
+): any => ({
   ...obj,
 });
 

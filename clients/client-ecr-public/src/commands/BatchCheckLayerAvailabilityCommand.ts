@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,9 +31,9 @@ export interface BatchCheckLayerAvailabilityCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Checks the availability of one or more image layers within a repository in a public
- *          registry. When an image is pushed to a repository, each image layer is checked to verify if
- *          it has been uploaded before. If it has been uploaded, then the image layer is
+ * <p>Checks the availability of one or more image layers that are within a repository in a
+ *          public registry. When an image is pushed to a repository, each image layer is checked to
+ *          verify if it has been uploaded before. If it has been uploaded, then the image layer is
  *          skipped.</p>
  *          <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
@@ -60,6 +61,15 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchCheckLayerAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchCheckLayerAvailabilityCommandInput, BatchCheckLayerAvailabilityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchCheckLayerAvailabilityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   UpdateExportRequestFilterSensitiveLog,
   UpdateExportResponse,
   UpdateExportResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateExportCommand,
   serializeAws_restJson1UpdateExportCommand,
@@ -32,7 +33,7 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  *          <p>The password is not required. If you don't supply a password, Amazon Lex
  *          generates a zip file that is not protected by a password. This is the
  *          archive that is available at the pre-signed S3 URL provided by the
- *             <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">DescribeExport</a> operation.</p>
+ *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">DescribeExport</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class UpdateExportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,7 @@ export class UpdateExportCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateExportCommandInput, UpdateExportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateExportCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

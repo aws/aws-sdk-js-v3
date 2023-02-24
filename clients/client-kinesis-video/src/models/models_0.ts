@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import { KinesisVideoServiceException as __BaseException } from "./KinesisVideoServiceException";
 
@@ -168,6 +168,7 @@ export interface ChannelNameCondition {
 
 export enum ChannelProtocol {
   HTTPS = "HTTPS",
+  WEBRTC = "WEBRTC",
   WSS = "WSS",
 }
 
@@ -271,12 +272,24 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>The resource is currently not available for this operation. New resources cannot be
- *             created with the same name as existing resources. Also, resources cannot be updated or
- *             deleted unless they are in an <code>ACTIVE</code> state.</p>
- *         <p>If this exception is returned, do not use it to determine whether the requested
- *             resource already exists. Instead, it is recommended you use the resource-specific
- *             describe API, for example, <code>DescribeStream</code> for video streams.</p>
+ * <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
+ *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
+ *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
+ *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
+ *          <ol>
+ *             <li>
+ *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
+ *             </p>
+ *             </li>
+ *          </ol>
  */
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
@@ -321,16 +334,16 @@ export class TagsPerResourceExceededLimitException extends __BaseException {
 export interface CreateStreamInput {
   /**
    * <p>The name of the device that is writing to the stream. </p>
-   *         <note>
+   *          <note>
    *             <p>In the current implementation, Kinesis Video Streams does not use this
    *                 name.</p>
-   *         </note>
+   *          </note>
    */
   DeviceName?: string;
 
   /**
    * <p>A name for the stream that you are creating.</p>
-   *         <p>The stream name is an identifier for the stream, and must be unique for each
+   *          <p>The stream name is an identifier for the stream, and must be unique for each
    *             account and region.</p>
    */
   StreamName: string | undefined;
@@ -340,9 +353,8 @@ export interface CreateStreamInput {
    *             processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
    *                 Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>
    *             for guidelines.</p>
-   *
-   *         <p>Example valid values include "video/h264" and "video/h264,audio/aac".</p>
-   *         <p>This parameter is optional; the default value is <code>null</code> (or empty in
+   *          <p>Example valid values include "video/h264" and "video/h264,audio/aac".</p>
+   *          <p>This parameter is optional; the default value is <code>null</code> (or empty in
    *             JSON).</p>
    */
   MediaType?: string;
@@ -350,16 +362,16 @@ export interface CreateStreamInput {
   /**
    * <p>The ID of the Key Management Service (KMS) key that you want Kinesis Video
    *             Streams to use to encrypt stream data.</p>
-   *         <p>If no key ID is specified, the default, Kinesis Video-managed key
+   *          <p>If no key ID is specified, the default, Kinesis Video-managed key
    *                 (<code>aws/kinesisvideo</code>) is used.</p>
-   *         <p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
+   *          <p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p>
-   *         <p>The default value is 0, indicating that the stream does not persist data.</p>
-   *         <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume
+   *          <p>The default value is 0, indicating that the stream does not persist data.</p>
+   *          <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume
    *             the fragments that remain in the service host buffer, which has a retention time limit
    *             of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the
    *             buffer when either limit is reached.</p>
@@ -492,9 +504,9 @@ export interface DeleteStreamInput {
 
   /**
    * <p>Optional: The version of the stream that you want to delete. </p>
-   *         <p>Specify the version as a safeguard to ensure that your are deleting the correct
+   *          <p>Specify the version as a safeguard to ensure that your are deleting the correct
    *             stream. To get the stream version, use the <code>DescribeStream</code> API.</p>
-   *         <p>If not specified, only the <code>CreationTime</code> is checked before deleting the
+   *          <p>If not specified, only the <code>CreationTime</code> is checked before deleting the
    *             stream.</p>
    */
   CurrentVersion?: string;
@@ -523,6 +535,261 @@ export class NotAuthorizedException extends __BaseException {
   }
 }
 
+export enum StrategyOnFullSize {
+  DELETE_OLDEST_MEDIA = "DELETE_OLDEST_MEDIA",
+  DENY_NEW_MEDIA = "DENY_NEW_MEDIA",
+}
+
+/**
+ * <p>The configuration details that include the maximum size of the media
+ *             (<code>MaxLocalMediaSizeInMB</code>) that you want to
+ *             store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's
+ *             maximum size has been reached.</p>
+ */
+export interface LocalSizeConfig {
+  /**
+   * <p>The overall maximum size of the media that you want to store for a stream on the Edge Agent. </p>
+   */
+  MaxLocalMediaSizeInMB?: number;
+
+  /**
+   * <p>The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is reached.</p>
+   */
+  StrategyOnFullSize?: StrategyOnFullSize | string;
+}
+
+/**
+ * <p>The configuration details required to delete the connection of the stream from the Edge Agent.</p>
+ */
+export interface DeletionConfig {
+  /**
+   * <p>The number of hours that you want to retain the data in the stream on the Edge Agent. The default value of the retention
+   *             time is 720 hours, which translates to 30 days.</p>
+   */
+  EdgeRetentionInHours?: number;
+
+  /**
+   * <p>The value of the local size required in order to delete the edge configuration.</p>
+   */
+  LocalSizeConfig?: LocalSizeConfig;
+
+  /**
+   * <p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to
+   *             the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are
+   *             set to <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>, or the
+   *             <code>MaxLocalMediaSizeInMB</code>, has been reached.
+   *         </p>
+   *          <p>Since the default value is set to <code>true</code>, configure the uploader schedule such
+   *             that the media files are not being deleted before they are initially uploaded to AWS cloud.</p>
+   */
+  DeleteAfterUpload?: boolean;
+}
+
+export interface DescribeEdgeConfigurationInput {
+  /**
+   * <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code> or
+   *             the <code>StreamARN</code>.
+   *         </p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code>or the <code>StreamARN</code>.</p>
+   */
+  StreamARN?: string;
+}
+
+export enum MediaUriType {
+  FILE_URI = "FILE_URI",
+  RTSP_URI = "RTSP_URI",
+}
+
+/**
+ * <p>The configuration details that consist of the credentials required
+ *             (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are
+ *             streamed to the camera.</p>
+ */
+export interface MediaSourceConfig {
+  /**
+   * <p>The AWS Secrets Manager ARN for the username and password of the camera, or a local media file location.</p>
+   */
+  MediaUriSecretArn: string | undefined;
+
+  /**
+   * <p>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be used to stream
+   *             local media files.</p>
+   *          <note>
+   *             <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p>
+   *          </note>
+   */
+  MediaUriType: MediaUriType | string | undefined;
+}
+
+/**
+ * <p>This API enables you to specify the duration that the camera,
+ *             or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the
+ *             <code>DurationInMinutes</code> attributes. </p>
+ *          <p>If the <code>ScheduleExpression</code> is not provided,
+ *                 then the Edge Agent will always be set to recording mode.</p>
+ */
+export interface ScheduleConfig {
+  /**
+   * <p>The Quartz cron expression that takes care of scheduling jobs to record from the
+   *             camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided for the <code>RecorderConfig</code>,
+   *             then the Edge Agent will always be set to recording mode.</p>
+   *          <p>For more information about Quartz, refer to the
+   *             <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html">
+   *                <i>Cron Trigger Tutorial</i>
+   *             </a> page to understand the valid expressions and its use.</p>
+   */
+  ScheduleExpression: string | undefined;
+
+  /**
+   * <p>The total duration to record the media. If the <code>ScheduleExpression</code> attribute is provided, then the
+   *         <code>DurationInSeconds</code> attribute should also be specified.</p>
+   */
+  DurationInSeconds: number | undefined;
+}
+
+/**
+ * <p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as
+ *             credentials to accesss the local media files streamed on the camera. </p>
+ */
+export interface RecorderConfig {
+  /**
+   * <p>The configuration details that consist of the credentials required
+   *             (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files
+   *             streamed to the camera.
+   *             </p>
+   */
+  MediaSourceConfig: MediaSourceConfig | undefined;
+
+  /**
+   * <p>The configuration that consists of the <code>ScheduleExpression</code> and the
+   *             <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or
+   *         local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> attribute is not provided,
+   *         then the Edge Agent will always be set to recording mode.</p>
+   */
+  ScheduleConfig?: ScheduleConfig;
+}
+
+/**
+ * <p>The configuration that consists of the <code>ScheduleExpression</code>
+ *             and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera,
+ *             or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code>
+ *             is not provided, then the Edge Agent will always be in upload mode.
+ *         </p>
+ */
+export interface UploaderConfig {
+  /**
+   * <p>The configuration that consists of the <code>ScheduleExpression</code> and the
+   *             <code>DurationInMinutes</code>details that specify the scheduling to record from a camera, or
+   *             local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided,
+   *             then the Edge Agent will always be in recording mode.</p>
+   */
+  ScheduleConfig: ScheduleConfig | undefined;
+}
+
+/**
+ * <p>A description of the stream's edge configuration that will be used to sync
+ *             with the Edge Agent IoT Greengrass component. The Edge Agent component will run
+ *             on an IoT Hub Device setup at your premise.</p>
+ */
+export interface EdgeConfig {
+  /**
+   * <p>The "<b>Internet of Things (IoT) Thing</b>" Arn of the stream.</p>
+   */
+  HubDeviceArn: string | undefined;
+
+  /**
+   * <p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details, that are used as
+   *             credentials to access the local media files streamed on the camera. </p>
+   */
+  RecorderConfig: RecorderConfig | undefined;
+
+  /**
+   * <p>The uploader configuration contains the <code>ScheduleExpression</code> details that are used to
+   *             schedule upload jobs for the recorded media files from the Edge Agent to a Kinesis Video Stream.</p>
+   */
+  UploaderConfig?: UploaderConfig;
+
+  /**
+   * <p>The deletion configuration is made up of the retention time (<code>EdgeRetentionInHours</code>) and local size configuration
+   *         (<code>LocalSizeConfig</code>) details that are used to make the deletion.</p>
+   */
+  DeletionConfig?: DeletionConfig;
+}
+
+export enum SyncStatus {
+  ACKNOWLEDGED = "ACKNOWLEDGED",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETING = "DELETING",
+  IN_SYNC = "IN_SYNC",
+  SYNCING = "SYNCING",
+  SYNC_FAILED = "SYNC_FAILED",
+}
+
+export interface DescribeEdgeConfigurationOutput {
+  /**
+   * <p>The name of the stream from which the edge configuration was updated.</p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   */
+  StreamARN?: string;
+
+  /**
+   * <p>The timestamp at which a stream’s edge configuration was first created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The timestamp at which a stream’s edge configuration was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The latest status of the edge configuration update.</p>
+   */
+  SyncStatus?: SyncStatus | string;
+
+  /**
+   * <p>A description of the generated failure status.</p>
+   */
+  FailedStatusDetails?: string;
+
+  /**
+   * <p>A description of the stream's edge configuration that will be used to sync
+   *             with the Edge Agent IoT Greengrass component. The Edge Agent component will run
+   *             on an IoT Hub Device setup at your premise.</p>
+   */
+  EdgeConfig?: EdgeConfig;
+}
+
+/**
+ * <p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration
+ *          that you specified. </p>
+ */
+export class StreamEdgeConfigurationNotFoundException extends __BaseException {
+  readonly name: "StreamEdgeConfigurationNotFoundException" = "StreamEdgeConfigurationNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StreamEdgeConfigurationNotFoundException, __BaseException>) {
+    super({
+      name: "StreamEdgeConfigurationNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StreamEdgeConfigurationNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export interface DescribeImageGenerationConfigurationInput {
   /**
    * <p>The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.  </p>
@@ -540,7 +807,7 @@ export interface DescribeImageGenerationConfigurationInput {
  */
 export interface ImageGenerationDestinationConfig {
   /**
-   * <p>The Uniform Resource Idenifier (URI) that identifies where the images will be delivered.</p>
+   * <p>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</p>
    */
   Uri: string | undefined;
 
@@ -627,6 +894,94 @@ export interface DescribeImageGenerationConfigurationOutput {
   ImageGenerationConfiguration?: ImageGenerationConfiguration;
 }
 
+export interface DescribeMappedResourceConfigurationInput {
+  /**
+   * <p>The name of the stream.</p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   */
+  StreamARN?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to provide in your next request, to get another batch of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ */
+export interface MappedResourceConfigurationListItem {
+  /**
+   * <p>The type of the associated resource for the kinesis video stream.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.</p>
+   */
+  ARN?: string;
+}
+
+export interface DescribeMappedResourceConfigurationOutput {
+  /**
+   * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+   */
+  MappedResourceConfigurationList?: MappedResourceConfigurationListItem[];
+
+  /**
+   * <p>The token that was used in the <code>NextToken</code>request to fetch the next set of results. </p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeMediaStorageConfigurationInput {
+  /**
+   * <p>The name of the channel.</p>
+   */
+  ChannelName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel.</p>
+   */
+  ChannelARN?: string;
+}
+
+export enum MediaStorageConfigurationStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ */
+export interface MediaStorageConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream </p>
+   */
+  StreamARN?: string;
+
+  /**
+   * <p>The status of the media storage configuration.</p>
+   */
+  Status: MediaStorageConfigurationStatus | string | undefined;
+}
+
+export interface DescribeMediaStorageConfigurationOutput {
+  /**
+   * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+   */
+  MediaStorageConfiguration?: MediaStorageConfiguration;
+}
+
 export interface DescribeNotificationConfigurationInput {
   /**
    * <p>The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -644,7 +999,7 @@ export interface DescribeNotificationConfigurationInput {
  */
 export interface NotificationDestinationConfig {
   /**
-   * <p>The Uniform Resource Idenifier (URI) that identifies where the images will be delivered.</p>
+   * <p>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</p>
    */
   Uri: string | undefined;
 }
@@ -1021,6 +1376,87 @@ export interface ListTagsForStreamOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * <p>The Stream data retention in hours is equal to zero.</p>
+ */
+export class NoDataRetentionException extends __BaseException {
+  readonly name: "NoDataRetentionException" = "NoDataRetentionException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoDataRetentionException, __BaseException>) {
+    super({
+      name: "NoDataRetentionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoDataRetentionException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface StartEdgeConfigurationUpdateInput {
+  /**
+   * <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code>
+   *             or the <code>StreamARN</code>.</p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the stream. Specify either the
+   *             <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   */
+  StreamARN?: string;
+
+  /**
+   * <p>The edge configuration details required to invoke the update process.</p>
+   */
+  EdgeConfig: EdgeConfig | undefined;
+}
+
+export interface StartEdgeConfigurationUpdateOutput {
+  /**
+   * <p>The name of the stream from which the edge configuration was updated.</p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   */
+  StreamARN?: string;
+
+  /**
+   * <p>The timestamp at which a stream’s edge configuration was first created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The timestamp at which a stream’s edge configuration was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p> The current sync status of the stream's edge configuration. When you invoke this API, the sync
+   *             status will be set to the <code>SYNCING</code> state. Use the <code>DescribeEdgeConfiguration</code> API
+   *             to get the latest status of the edge configuration.</p>
+   */
+  SyncStatus?: SyncStatus | string;
+
+  /**
+   * <p>A description of the generated failure status.</p>
+   */
+  FailedStatusDetails?: string;
+
+  /**
+   * <p>A description of the stream's edge configuration that will be used to sync
+   *             with the Edge Agent IoT Greengrass component. The Edge Agent component will run
+   *             on an IoT Hub Device setup at your premise.</p>
+   */
+  EdgeConfig?: EdgeConfig;
+}
+
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add
@@ -1131,27 +1567,6 @@ export interface UpdateDataRetentionInput {
 
 export interface UpdateDataRetentionOutput {}
 
-/**
- * <p>The Stream data retention in hours is equal to zero.</p>
- */
-export class NoDataRetentionException extends __BaseException {
-  readonly name: "NoDataRetentionException" = "NoDataRetentionException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoDataRetentionException, __BaseException>) {
-    super({
-      name: "NoDataRetentionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoDataRetentionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
 export interface UpdateImageGenerationConfigurationInput {
   /**
    * <p>The name of the stream from which to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -1171,6 +1586,20 @@ export interface UpdateImageGenerationConfigurationInput {
 }
 
 export interface UpdateImageGenerationConfigurationOutput {}
+
+export interface UpdateMediaStorageConfigurationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel.</p>
+   */
+  ChannelARN: string | undefined;
+
+  /**
+   * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+   */
+  MediaStorageConfiguration: MediaStorageConfiguration | undefined;
+}
+
+export interface UpdateMediaStorageConfigurationOutput {}
 
 export interface UpdateNotificationConfigurationInput {
   /**
@@ -1215,7 +1644,7 @@ export interface UpdateSignalingChannelOutput {}
 export interface UpdateStreamInput {
   /**
    * <p>The name of the stream whose metadata you want to update.</p>
-   *         <p>The stream name is an identifier for the stream, and must be unique for each
+   *          <p>The stream name is an identifier for the stream, and must be unique for each
    *             account and region.</p>
    */
   StreamName?: string;
@@ -1232,10 +1661,10 @@ export interface UpdateStreamInput {
 
   /**
    * <p>The name of the device that is writing to the stream. </p>
-   *         <note>
+   *          <note>
    *             <p> In the current implementation, Kinesis Video Streams does not use this name.
    *             </p>
-   *         </note>
+   *          </note>
    */
   DeviceName?: string;
 
@@ -1245,7 +1674,7 @@ export interface UpdateStreamInput {
    *             media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
    *                 Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming
    *             Requirements</a>.</p>
-   *         <p>To play video on the console, you must specify the correct video type. For example,
+   *          <p>To play video on the console, you must specify the correct video type. For example,
    *             if the video in the stream is H.264, specify <code>video/h264</code> as the
    *                 <code>MediaType</code>.</p>
    */
@@ -1341,6 +1770,73 @@ export const DeleteStreamOutputFilterSensitiveLog = (obj: DeleteStreamOutput): a
 /**
  * @internal
  */
+export const LocalSizeConfigFilterSensitiveLog = (obj: LocalSizeConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletionConfigFilterSensitiveLog = (obj: DeletionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEdgeConfigurationInputFilterSensitiveLog = (obj: DescribeEdgeConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaSourceConfigFilterSensitiveLog = (obj: MediaSourceConfig): any => ({
+  ...obj,
+  ...(obj.MediaUriSecretArn && { MediaUriSecretArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ScheduleConfigFilterSensitiveLog = (obj: ScheduleConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecorderConfigFilterSensitiveLog = (obj: RecorderConfig): any => ({
+  ...obj,
+  ...(obj.MediaSourceConfig && { MediaSourceConfig: MediaSourceConfigFilterSensitiveLog(obj.MediaSourceConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const UploaderConfigFilterSensitiveLog = (obj: UploaderConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EdgeConfigFilterSensitiveLog = (obj: EdgeConfig): any => ({
+  ...obj,
+  ...(obj.RecorderConfig && { RecorderConfig: RecorderConfigFilterSensitiveLog(obj.RecorderConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeEdgeConfigurationOutputFilterSensitiveLog = (obj: DescribeEdgeConfigurationOutput): any => ({
+  ...obj,
+  ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
+});
+
+/**
+ * @internal
+ */
 export const DescribeImageGenerationConfigurationInputFilterSensitiveLog = (
   obj: DescribeImageGenerationConfigurationInput
 ): any => ({
@@ -1366,6 +1862,58 @@ export const ImageGenerationConfigurationFilterSensitiveLog = (obj: ImageGenerat
  */
 export const DescribeImageGenerationConfigurationOutputFilterSensitiveLog = (
   obj: DescribeImageGenerationConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMappedResourceConfigurationInputFilterSensitiveLog = (
+  obj: DescribeMappedResourceConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MappedResourceConfigurationListItemFilterSensitiveLog = (
+  obj: MappedResourceConfigurationListItem
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMappedResourceConfigurationOutputFilterSensitiveLog = (
+  obj: DescribeMappedResourceConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMediaStorageConfigurationInputFilterSensitiveLog = (
+  obj: DescribeMediaStorageConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaStorageConfigurationFilterSensitiveLog = (obj: MediaStorageConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMediaStorageConfigurationOutputFilterSensitiveLog = (
+  obj: DescribeMediaStorageConfigurationOutput
 ): any => ({
   ...obj,
 });
@@ -1547,6 +2095,22 @@ export const ListTagsForStreamOutputFilterSensitiveLog = (obj: ListTagsForStream
 /**
  * @internal
  */
+export const StartEdgeConfigurationUpdateInputFilterSensitiveLog = (obj: StartEdgeConfigurationUpdateInput): any => ({
+  ...obj,
+  ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const StartEdgeConfigurationUpdateOutputFilterSensitiveLog = (obj: StartEdgeConfigurationUpdateOutput): any => ({
+  ...obj,
+  ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
+});
+
+/**
+ * @internal
+ */
 export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
   ...obj,
 });
@@ -1628,6 +2192,24 @@ export const UpdateImageGenerationConfigurationInputFilterSensitiveLog = (
  */
 export const UpdateImageGenerationConfigurationOutputFilterSensitiveLog = (
   obj: UpdateImageGenerationConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMediaStorageConfigurationInputFilterSensitiveLog = (
+  obj: UpdateMediaStorageConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMediaStorageConfigurationOutputFilterSensitiveLog = (
+  obj: UpdateMediaStorageConfigurationOutput
 ): any => ({
   ...obj,
 });

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessR
  * <p>Removes the ability of the specified  Amazon Web Services account to restore the specified
  *             snapshot. If the account is currently restoring the snapshot, the restore will run to
  *             completion.</p>
- *         <p>
+ *          <p>
  * For more information about working with snapshots, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -58,6 +59,15 @@ export class RevokeSnapshotAccessCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RevokeSnapshotAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class RevokeSnapshotAccessCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RevokeSnapshotAccessCommandInput, RevokeSnapshotAccessCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RevokeSnapshotAccessCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

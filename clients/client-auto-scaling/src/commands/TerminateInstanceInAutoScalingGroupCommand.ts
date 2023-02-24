@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,13 +31,13 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
 /**
  * <p>Terminates the specified instance and optionally adjusts the desired group size. This
  *             operation cannot be called on instances in a warm pool.</p>
- *         <p>This call simply makes a termination request. The instance is not terminated
+ *          <p>This call simply makes a termination request. The instance is not terminated
  *             immediately. When an instance is terminated, the instance status changes to
  *                 <code>terminated</code>. You can't connect to or start an instance after you've
  *             terminated it.</p>
- *         <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches
+ *          <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches
  *             instances to replace the ones that are terminated. </p>
- *         <p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you
+ *          <p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you
  *             decrement the desired capacity, your Auto Scaling group can become unbalanced between
  *             Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might
  *             terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage">Rebalancing activities</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -63,6 +64,15 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TerminateInstanceInAutoScalingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TerminateInstanceInAutoScalingGroupCommandInput, TerminateInstanceInAutoScalingGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, TerminateInstanceInAutoScalingGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

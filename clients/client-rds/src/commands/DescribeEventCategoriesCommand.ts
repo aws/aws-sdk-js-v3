@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,10 +31,10 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
 /**
  * <p>Displays a list of categories for all event source types, or, if specified, for a specified source type.
  *             You can also see this list in the "Amazon RDS event categories and event messages" section of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html">
- *                 <i>Amazon RDS User Guide</i>
+ *                <i>Amazon RDS User Guide</i>
  *             </a> or the
  *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html">
- *                 <i>Amazon Aurora User Guide</i>
+ *                <i>Amazon Aurora User Guide</i>
  *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +59,15 @@ export class DescribeEventCategoriesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeEventCategoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class DescribeEventCategoriesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventCategoriesCommandInput, DescribeEventCategoriesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeEventCategoriesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

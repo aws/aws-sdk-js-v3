@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,14 +30,14 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
 /**
  * <p>Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling
  *             <code>DescribeDBEngineVersions</code>.</p>
- *         <note>
+ *          <note>
  *             <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with
  *                 Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the
  *                 <code>ModifyCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the
  *                 API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
  *                 the <code>ModifyCustomDbEngineVersion</code> event.</p>
- *         </note>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify">Modifying CEV status</a>
+ *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify">Modifying CEV status</a>
  *             in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +62,15 @@ export class ModifyCustomDBEngineVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyCustomDBEngineVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class ModifyCustomDBEngineVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyCustomDBEngineVersionCommandInput, ModifyCustomDBEngineVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyCustomDBEngineVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

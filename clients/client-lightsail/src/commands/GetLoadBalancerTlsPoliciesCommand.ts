@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,6 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
 /**
  * <p>Returns a list of TLS security policies that you can apply to Lightsail load
  *       balancers.</p>
- *
  *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
  *         balancers</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
  * @example
@@ -56,6 +56,15 @@ export class GetLoadBalancerTlsPoliciesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetLoadBalancerTlsPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +80,9 @@ export class GetLoadBalancerTlsPoliciesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetLoadBalancerTlsPoliciesCommandInput, GetLoadBalancerTlsPoliciesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetLoadBalancerTlsPoliciesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

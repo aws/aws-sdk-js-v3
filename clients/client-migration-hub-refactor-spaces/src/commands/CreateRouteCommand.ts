@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -71,6 +72,10 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  *       specified ARN exists. If it does not exist, the health check fails. For public URLs, a
  *       connection is opened to the public endpoint. If the URL is not reachable, the health check
  *       fails. </p>
+ *          <p>Refactor Spaces automatically resolves the public Domain Name System (DNS) names that are set in
+ *         <a>CreateServiceRequest$UrlEndpoint</a> when you create a service. The DNS names
+ *       resolve when the DNS time-to-live (TTL) expires, or every 60 seconds for TTLs less than 60
+ *       seconds. This periodic DNS resolution ensures that the route configuration remains up-to-date. </p>
  *          <p>For private URLS, a target group is created on the Elastic Load Balancing and the target
  *       group health check is run. The <code>HealthCheckProtocol</code>, <code>HealthCheckPort</code>,
  *       and <code>HealthCheckPath</code> are the same protocol, port, and path specified in the URL or
@@ -103,6 +108,15 @@ export class CreateRouteCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +132,7 @@ export class CreateRouteCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateRouteCommandInput, CreateRouteCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateRouteCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

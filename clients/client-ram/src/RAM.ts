@@ -132,16 +132,15 @@ import { RAMClient } from "./RAMClient";
  *             accounts. If you use Organizations to manage your accounts, then you share your resources
  *             with your organization or organizational units (OUs). For supported resource types, you
  *             can also share resources with individual Identity and Access Management (IAM) roles an users. </p>
- *
- *         <p>To learn more about RAM, see the following resources:</p>
- *         <ul>
+ *          <p>To learn more about RAM, see the following resources:</p>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <a href="http://aws.amazon.com/ram">Resource Access Manager product page</a>
+ *                <p>
+ *                   <a href="http://aws.amazon.com/ram">Resource Access Manager product page</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/ram/latest/userguide/">Resource Access Manager User
  *                         Guide</a>
  *                </p>
@@ -256,11 +255,11 @@ export class RAM extends RAMClient {
    * <p>Creates a resource share. You can provide a list of the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> for the resources that you
    *             want to share, a list of principals you want to share the resources with, and the
    *             permissions to grant those principals.</p>
-   *         <note>
+   *          <note>
    *             <p>Sharing a resource makes it available for use by principals outside of the
    *                 Amazon Web Services account that created the resource. Sharing doesn't change any permissions or
    *                 quotas that apply to the resource in the account that created it.</p>
-   *         </note>
+   *          </note>
    */
   public createResourceShare(
     args: CreateResourceShareCommandInput,
@@ -399,7 +398,7 @@ export class RAM extends RAMClient {
    *             the OU's ID. Until you enable sharing within the organization, you can specify only
    *             individual Amazon Web Services accounts, or for supported resource types, IAM users and
    *             roles.</p>
-   *         <p>You must call this operation from an IAM user or role in the organization's
+   *          <p>You must call this operation from an IAM user or role in the organization's
    *             management account.</p>
    */
   public enableSharingWithAwsOrganization(
@@ -825,7 +824,7 @@ export class RAM extends RAMClient {
    * <p>When you attach a resource-based permission policy to a resource, it automatically
    *             creates a resource share. However, resource shares created this way are visible only to the resource share owner, and
    *             the resource share can't be modified in RAM.</p>
-   *         <p>You can use this operation to promote the resource share to a full RAM resource share. When you promote
+   *          <p>You can use this operation to promote the resource share to a full RAM resource share. When you promote
    *             a resource share, you can then manage the resource share in RAM and it becomes visible to all of the
    *             principals you shared it with.</p>
    */

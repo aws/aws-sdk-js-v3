@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,6 @@ export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer
  *       you do not specify the value portion of the tag when calling this function, the tag will be
  *       removed regardless of value. If you specify a value, the tag is removed only if it is
  *       associated with the specified value. </p>
- *
  *          <p>To add tags to a certificate, use the <a>AddTagsToCertificate</a> action. To
  *       view all of the tags that have been applied to a specific ACM certificate, use the <a>ListTagsForCertificate</a> action. </p>
  * @example
@@ -56,6 +56,15 @@ export class RemoveTagsFromCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RemoveTagsFromCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +80,9 @@ export class RemoveTagsFromCertificateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RemoveTagsFromCertificateCommandInput, RemoveTagsFromCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RemoveTagsFromCertificateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

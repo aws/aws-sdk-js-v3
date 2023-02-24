@@ -193,7 +193,7 @@ export interface MalwareProtectionDataSourceFreeTrial {
  */
 export interface DataSourcesFreeTrial {
   /**
-   * <p>Describes whether any AWS CloudTrail management event logs are enabled as data sources.</p>
+   * <p>Describes whether any Amazon Web Services CloudTrail management event logs are enabled as data sources.</p>
    */
   CloudTrail?: DataSourceFreeTrial;
 
@@ -1020,6 +1020,9 @@ export interface CreateDetectorRequest {
 
   /**
    * <p>Describes which data sources will be enabled for the detector.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   DataSources?: DataSourceConfigurations;
 
@@ -1029,11 +1032,67 @@ export interface CreateDetectorRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
+ */
+export interface EbsVolumesResult {
+  /**
+   * <p>Describes whether scanning EBS volumes is enabled as a data source.</p>
+   */
+  Status?: DataSourceStatus | string;
+
+  /**
+   * <p>Specifies the reason why scanning EBS volumes (Malware Protection) was not enabled as a data source.</p>
+   */
+  Reason?: string;
+}
+
+/**
+ * <p>An object that contains information on the status of whether Malware Protection for EC2 instances with findings will be enabled as a data source.</p>
+ */
+export interface ScanEc2InstanceWithFindingsResult {
+  /**
+   * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
+   */
+  EbsVolumes?: EbsVolumesResult;
+}
+
+/**
+ * <p>An object that contains information on the status of all Malware Protection data sources.</p>
+ */
+export interface MalwareProtectionConfigurationResult {
+  /**
+   * <p>Describes the configuration of Malware Protection for EC2 instances with findings.</p>
+   */
+  ScanEc2InstanceWithFindings?: ScanEc2InstanceWithFindingsResult;
+
+  /**
+   * <p>The GuardDuty Malware Protection service role.</p>
+   */
+  ServiceRole?: string;
+}
+
+/**
+ * <p>Specifies the names of the data sources that couldn't be enabled.</p>
+ */
+export interface UnprocessedDataSourcesResult {
+  /**
+   * <p>An object that contains information on the status of all Malware Protection data sources.</p>
+   */
+  MalwareProtection?: MalwareProtectionConfigurationResult;
+}
+
 export interface CreateDetectorResponse {
   /**
    * <p>The unique ID of the created detector.</p>
    */
   DetectorId?: string;
+
+  /**
+   * <p>Specifies the data sources that couldn't be enabled when GuardDuty was enabled for the
+   *     first time.</p>
+   */
+  UnprocessedDataSources?: UnprocessedDataSourcesResult;
 }
 
 export enum FilterAction {
@@ -1060,12 +1119,16 @@ export interface CreateFilterRequest {
   DetectorId: string | undefined;
 
   /**
-   * <p>The name of the filter. Minimum length of 3. Maximum length of 64. Valid characters include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not allowed.</p>
+   * <p>The name of the filter. Valid characters include period (.), underscore (_),
+   *       dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the filter.</p>
+   * <p>The description of the filter. Valid characters include alphanumeric characters, and special
+   *       characters such as <code>-</code>, <code>.</code>, <code>:</code>, <code>{ }</code>, <code>[ ]</code>,
+   *       <code>( )</code>, <code>/</code>, <code>\t</code>, <code>\n</code>, <code>\x0B</code>, <code>\f</code>,
+   *       <code>\r</code>, <code>_</code>, and whitespace.</p>
    */
   Description?: string;
 
@@ -1089,9 +1152,6 @@ export interface CreateFilterRequest {
    *             </li>
    *             <li>
    *                <p>region</p>
-   *             </li>
-   *             <li>
-   *                <p>confidence</p>
    *             </li>
    *             <li>
    *                <p>id</p>
@@ -1241,12 +1301,6 @@ export interface CreateFilterRequest {
    *                <p>resource.s3BucketDetails.type</p>
    *             </li>
    *             <li>
-   *                <p>service.archived</p>
-   *                <p>When this attribute is set to TRUE, only archived findings are listed. When it's set
-   *           to FALSE, only unarchived findings are listed. When this attribute is not set, all
-   *           existing findings are listed.</p>
-   *             </li>
-   *             <li>
    *                <p>service.resourceRole</p>
    *             </li>
    *             <li>
@@ -1300,7 +1354,7 @@ export interface CreateIPSetRequest {
 
   /**
    * <p>The user-friendly name to identify the IPSet.</p>
-   *          <p> Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).</p>
+   *          <p> Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).</p>
    */
   Name: string | undefined;
 
@@ -1558,41 +1612,6 @@ export interface KubernetesConfigurationResult {
 }
 
 /**
- * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
- */
-export interface EbsVolumesResult {
-  /**
-   * <p>Describes whether scanning EBS volumes is enabled as a data source.</p>
-   */
-  Status?: DataSourceStatus | string;
-}
-
-/**
- * <p>An object that contains information on the status of whether Malware Protection for EC2 instances with findings will be enabled as a data source.</p>
- */
-export interface ScanEc2InstanceWithFindingsResult {
-  /**
-   * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
-   */
-  EbsVolumes?: EbsVolumesResult;
-}
-
-/**
- * <p>An object that contains information on the status of all Malware Protection data sources.</p>
- */
-export interface MalwareProtectionConfigurationResult {
-  /**
-   * <p>Describes the configuration of Malware Protection for EC2 instances with findings.</p>
-   */
-  ScanEc2InstanceWithFindings?: ScanEc2InstanceWithFindingsResult;
-
-  /**
-   * <p>The GuardDuty Malware Protection service role.</p>
-   */
-  ServiceRole?: string;
-}
-
-/**
  * <p>Describes whether S3 data event logs will be enabled as a data source.</p>
  */
 export interface S3LogsConfigurationResult {
@@ -1800,7 +1819,10 @@ export interface FilterCondition {
 }
 
 /**
- * <p>Represents a condition that when matched will be added to the response of the operation.</p>
+ * <p>Represents a condition that when matched will be added to the response of the operation.
+ *       Irrespective of using any filter criteria, an administrator account can view the scan
+ *       entries for all of its member accounts.
+ *       However, each member account can view the scan entries only for their own account.</p>
  */
 export interface FilterCriterion {
   /**
@@ -1834,7 +1856,8 @@ export enum OrderBy {
  */
 export interface SortCriteria {
   /**
-   * <p>Represents the finding attribute (for example, accountId) to sort findings by.</p>
+   * <p>Represents the finding attribute, such as <code>accountId</code>, that sorts the
+   *       findings.</p>
    */
   AttributeName?: string;
 
@@ -1870,7 +1893,9 @@ export interface DescribeMalwareScansRequest {
   FilterCriteria?: FilterCriteria;
 
   /**
-   * <p>Represents the criteria used for sorting scan entries.</p>
+   * <p>Represents the criteria used for sorting scan entries. The <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_SortCriteria.html#guardduty-Type-SortCriteria-attributeName">
+   *                <code>attributeName</code>
+   *             </a> is required and it must be <code>scanStartTime</code>.</p>
    */
   SortCriteria?: SortCriteria;
 }
@@ -1951,7 +1976,7 @@ export enum ScanStatus {
  */
 export interface TriggerDetails {
   /**
-   * <p>The ID of the GuardDuty finding that triggered the BirdDog scan.</p>
+   * <p>The ID of the GuardDuty finding that triggered the malware scan.</p>
    */
   GuardDutyFindingId?: string;
 
@@ -2002,7 +2027,7 @@ export interface Scan {
   ScanEndTime?: Date;
 
   /**
-   * <p>Represents the reason the scan was triggered.</p>
+   * <p>Specifies the reason why the scan was initiated.</p>
    */
   TriggerDetails?: TriggerDetails;
 
@@ -3065,7 +3090,7 @@ export interface S3BucketDetail {
  */
 export interface Resource {
   /**
-   * <p>The IAM access key details (IAM user information) of a user that engaged in the activity
+   * <p>The IAM access key details (user information) of a user that engaged in the activity
    *       that prompted GuardDuty to generate a finding.</p>
    */
   AccessKeyDetails?: AccessKeyDetails;
@@ -3569,7 +3594,7 @@ export interface GetMalwareScanSettingsResponse {
   ScanResourceCriteria?: ScanResourceCriteria;
 
   /**
-   * <p>An enum value representing possible snapshot preservations.</p>
+   * <p>An enum value representing possible snapshot preservation settings.</p>
    */
   EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
 }
@@ -4366,7 +4391,12 @@ export interface ListMembersRequest {
 
   /**
    * <p>Specifies whether to only return associated members or to return all members (including
-   *       members who haven't been invited yet or have been disassociated).</p>
+   *       members who haven't been invited yet or have been disassociated).
+   *       Member accounts must have been previously associated with the GuardDuty administrator account using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">
+   *                <code>Create
+   *         Members</code>
+   *             </a>.
+   *     </p>
    */
   OnlyAssociated?: string;
 }
@@ -4600,6 +4630,9 @@ export interface UpdateDetectorRequest {
 
   /**
    * <p>Describes which data sources will be updated.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   DataSources?: DataSourceConfigurations;
 }
@@ -4619,7 +4652,9 @@ export interface UpdateFilterRequest {
   FilterName: string | undefined;
 
   /**
-   * <p>The description of the filter.</p>
+   * <p>The description of the filter. Valid characters include alphanumeric characters, and special
+   *       characters such as hyphen, period, colon, underscore, parentheses (<code>{ }</code>, <code>[ ]</code>, and
+   *       <code>( )</code>), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.</p>
    */
   Description?: string;
 
@@ -4713,7 +4748,7 @@ export interface UpdateMalwareScanSettingsRequest {
   ScanResourceCriteria?: ScanResourceCriteria;
 
   /**
-   * <p>An enum value representing possible snapshot preservations.</p>
+   * <p>An enum value representing possible snapshot preservation settings.</p>
    */
   EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
 }
@@ -5252,6 +5287,36 @@ export const CreateDetectorRequestFilterSensitiveLog = (obj: CreateDetectorReque
 /**
  * @internal
  */
+export const EbsVolumesResultFilterSensitiveLog = (obj: EbsVolumesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanEc2InstanceWithFindingsResultFilterSensitiveLog = (obj: ScanEc2InstanceWithFindingsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MalwareProtectionConfigurationResultFilterSensitiveLog = (
+  obj: MalwareProtectionConfigurationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedDataSourcesResultFilterSensitiveLog = (obj: UnprocessedDataSourcesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateDetectorResponseFilterSensitiveLog = (obj: CreateDetectorResponse): any => ({
   ...obj,
 });
@@ -5390,29 +5455,6 @@ export const KubernetesAuditLogsConfigurationResultFilterSensitiveLog = (
  * @internal
  */
 export const KubernetesConfigurationResultFilterSensitiveLog = (obj: KubernetesConfigurationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsVolumesResultFilterSensitiveLog = (obj: EbsVolumesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScanEc2InstanceWithFindingsResultFilterSensitiveLog = (obj: ScanEc2InstanceWithFindingsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MalwareProtectionConfigurationResultFilterSensitiveLog = (
-  obj: MalwareProtectionConfigurationResult
-): any => ({
   ...obj,
 });
 

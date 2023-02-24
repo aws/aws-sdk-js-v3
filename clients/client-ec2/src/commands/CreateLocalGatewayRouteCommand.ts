@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,20 @@ export interface CreateLocalGatewayRouteCommandInput extends CreateLocalGatewayR
 export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
- * <p>Creates a static route for the specified local gateway route table.</p>
+ * <p>Creates a static route for the specified local gateway route table. You must specify one of the
+ *          following targets: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LocalGatewayVirtualInterfaceGroupId</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>NetworkInterfaceId</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +66,15 @@ export class CreateLocalGatewayRouteCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateLocalGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +90,9 @@ export class CreateLocalGatewayRouteCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLocalGatewayRouteCommandInput, CreateLocalGatewayRouteCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLocalGatewayRouteCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

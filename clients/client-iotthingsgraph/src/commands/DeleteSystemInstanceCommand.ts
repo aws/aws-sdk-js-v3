@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,6 +29,8 @@ export interface DeleteSystemInstanceCommandInput extends DeleteSystemInstanceRe
 export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Deletes a system instance.
  *          Only system instances that have never been deployed, or that have been undeployed can be deleted.</p>
  *          <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>
@@ -54,6 +57,15 @@ export class DeleteSystemInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteSystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +81,9 @@ export class DeleteSystemInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSystemInstanceCommandInput, DeleteSystemInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteSystemInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

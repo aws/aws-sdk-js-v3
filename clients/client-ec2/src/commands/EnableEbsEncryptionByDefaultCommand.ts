@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   EnableEbsEncryptionByDefaultRequestFilterSensitiveLog,
   EnableEbsEncryptionByDefaultResult,
   EnableEbsEncryptionByDefaultResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2EnableEbsEncryptionByDefaultCommand,
   serializeAws_ec2EnableEbsEncryptionByDefaultCommand,
@@ -35,7 +36,7 @@ export interface EnableEbsEncryptionByDefaultCommandOutput
  *     	always encrypted, either using the default KMS key or the KMS key that you specified
  *       when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
  *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *   	      <p>You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
+ *          <p>You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
  *       or <a>ResetEbsDefaultKmsKeyId</a>.</p>
  *          <p>Enabling encryption by default has no effect on the encryption status of your
  *       existing volumes.</p>
@@ -65,6 +66,15 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EnableEbsEncryptionByDefaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +90,9 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableEbsEncryptionByDefaultCommandInput, EnableEbsEncryptionByDefaultCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableEbsEncryptionByDefaultCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

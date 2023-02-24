@@ -8,7 +8,7 @@ describe("S3Control Client", () => {
   // Middleware intercept request and return it before reaching the HTTP client. It records the request and context
   // and return them in the Metadata.
   const interceptionMiddleware: FinalizeRequestMiddleware<any, any> = (next, context) => (args) => {
-    return Promise.resolve({ output: { $metadata: { request: args.request } }, response: "" as any });
+    return Promise.resolve({ output: { $metadata: { request: args.request, context } }, response: "" as any });
   };
   const region = "us-east-1";
   const credentials = { accessKeyId: "AKID", secretAccessKey: "SECRET" };
@@ -37,6 +37,7 @@ describe("S3Control Client", () => {
         $metadata: { request },
       } = await s3Control.createBucket({ Bucket: "Bucket", OutpostId });
       expect(request.hostname).eql(`s3-outposts.${region}.amazonaws.com`);
+
       expect(request.headers[HEADER_OUTPOST_ID]).eql(OutpostId);
       expect(request.headers["authorization"]).contains(
         `Credential=${credentials.accessKeyId}/${dateStr}/${region}/s3-outposts/aws4_request`
@@ -63,7 +64,7 @@ describe("S3Control Client", () => {
         // @ts-ignore request is set in $metadata by interception middleware.
         $metadata: { request },
       } = await s3Control.listRegionalBuckets({ AccountId, OutpostId });
-      expect(request.hostname).eql(`s3-outposts.${region}.amazonaws.com`);
+      expect(request.hostname).contains(`s3-outposts.${region}.amazonaws.com`);
       expect(request.headers[HEADER_OUTPOST_ID]).eql(OutpostId);
       expect(request.headers[HEADER_ACCOUNT_ID]).eql(AccountId);
       expect(request.headers["authorization"]).contains(
@@ -92,12 +93,13 @@ describe("S3Control Client", () => {
       const {
         // @ts-ignore request is set in $metadata by interception middleware.
         $metadata: { request },
-      } = await s3Control.getAccessPoint({ Name: accesspointArn });
+      } = await s3Control.getAccessPoint({ Name: accesspointArn, AccountId });
+
       expect(request.hostname).eql(`s3-outposts.${region}.amazonaws.com`);
       expect(request.headers[HEADER_OUTPOST_ID]).eql(OutpostId);
       expect(request.headers[HEADER_ACCOUNT_ID]).eql(AccountId);
       expect(request.headers["authorization"]).contains(
-        `Credential=${credentials.accessKeyId}/${dateStr}/${region}/s3-outposts/aws4_request`
+        `Credential=${credentials.accessKeyId}/${dateStr}/${region}/s3/aws4_request`
       );
     });
   });
@@ -123,11 +125,12 @@ describe("S3Control Client", () => {
         // @ts-ignore request is set in $metadata by interception middleware.
         $metadata: { request },
       } = await s3Control.getBucket({ Bucket: bucketArn });
+
       expect(request.hostname).eql(`s3-outposts.${region}.amazonaws.com`);
       expect(request.headers[HEADER_OUTPOST_ID]).eql(OutpostId);
       expect(request.headers[HEADER_ACCOUNT_ID]).eql(AccountId);
       expect(request.headers["authorization"]).contains(
-        `Credential=${credentials.accessKeyId}/${dateStr}/${region}/s3-outposts/aws4_request`
+        `Credential=${credentials.accessKeyId}/${dateStr}/${region}/s3/aws4_request`
       );
     });
   });

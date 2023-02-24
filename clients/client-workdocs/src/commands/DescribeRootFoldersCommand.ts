@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersRes
  *                 <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and
  *             folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid
  *             action for SigV4 (administrative API) clients.</p>
- *         <p>This action requires an authentication token. To get an authentication token,
+ *          <p>This action requires an authentication token. To get an authentication token,
  *             register an application with Amazon WorkDocs. For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html">Authentication and Access
  *                 Control for User Applications</a> in the
  *             <i>Amazon
@@ -60,6 +61,15 @@ export class DescribeRootFoldersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeRootFoldersCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class DescribeRootFoldersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeRootFoldersCommandInput, DescribeRootFoldersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeRootFoldersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

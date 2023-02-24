@@ -2,10 +2,31 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  ArchiveApplicationCommand,
+  ArchiveApplicationCommandInput,
+  ArchiveApplicationCommandOutput,
+} from "./commands/ArchiveApplicationCommand";
+import { ArchiveWaveCommand, ArchiveWaveCommandInput, ArchiveWaveCommandOutput } from "./commands/ArchiveWaveCommand";
+import {
+  AssociateApplicationsCommand,
+  AssociateApplicationsCommandInput,
+  AssociateApplicationsCommandOutput,
+} from "./commands/AssociateApplicationsCommand";
+import {
+  AssociateSourceServersCommand,
+  AssociateSourceServersCommandInput,
+  AssociateSourceServersCommandOutput,
+} from "./commands/AssociateSourceServersCommand";
+import {
   ChangeServerLifeCycleStateCommand,
   ChangeServerLifeCycleStateCommandInput,
   ChangeServerLifeCycleStateCommandOutput,
 } from "./commands/ChangeServerLifeCycleStateCommand";
+import {
+  CreateApplicationCommand,
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
 import {
   CreateLaunchConfigurationTemplateCommand,
   CreateLaunchConfigurationTemplateCommandInput,
@@ -16,6 +37,12 @@ import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
+import { CreateWaveCommand, CreateWaveCommandInput, CreateWaveCommandOutput } from "./commands/CreateWaveCommand";
+import {
+  DeleteApplicationCommand,
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
 import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteLaunchConfigurationTemplateCommand,
@@ -37,6 +64,7 @@ import {
   DeleteVcenterClientCommandInput,
   DeleteVcenterClientCommandOutput,
 } from "./commands/DeleteVcenterClientCommand";
+import { DeleteWaveCommand, DeleteWaveCommandInput, DeleteWaveCommandOutput } from "./commands/DeleteWaveCommand";
 import {
   DescribeJobLogItemsCommand,
   DescribeJobLogItemsCommandInput,
@@ -68,6 +96,16 @@ import {
   DescribeVcenterClientsCommandOutput,
 } from "./commands/DescribeVcenterClientsCommand";
 import {
+  DisassociateApplicationsCommand,
+  DisassociateApplicationsCommandInput,
+  DisassociateApplicationsCommandOutput,
+} from "./commands/DisassociateApplicationsCommand";
+import {
+  DisassociateSourceServersCommand,
+  DisassociateSourceServersCommandInput,
+  DisassociateSourceServersCommandOutput,
+} from "./commands/DisassociateSourceServersCommand";
+import {
   DisconnectFromServiceCommand,
   DisconnectFromServiceCommandInput,
   DisconnectFromServiceCommandOutput,
@@ -93,15 +131,51 @@ import {
   InitializeServiceCommandOutput,
 } from "./commands/InitializeServiceCommand";
 import {
+  ListApplicationsCommand,
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput,
+} from "./commands/ListApplicationsCommand";
+import {
+  ListSourceServerActionsCommand,
+  ListSourceServerActionsCommandInput,
+  ListSourceServerActionsCommandOutput,
+} from "./commands/ListSourceServerActionsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTemplateActionsCommand,
+  ListTemplateActionsCommandInput,
+  ListTemplateActionsCommandOutput,
+} from "./commands/ListTemplateActionsCommand";
+import { ListWavesCommand, ListWavesCommandInput, ListWavesCommandOutput } from "./commands/ListWavesCommand";
+import {
   MarkAsArchivedCommand,
   MarkAsArchivedCommandInput,
   MarkAsArchivedCommandOutput,
 } from "./commands/MarkAsArchivedCommand";
+import {
+  PutSourceServerActionCommand,
+  PutSourceServerActionCommandInput,
+  PutSourceServerActionCommandOutput,
+} from "./commands/PutSourceServerActionCommand";
+import {
+  PutTemplateActionCommand,
+  PutTemplateActionCommandInput,
+  PutTemplateActionCommandOutput,
+} from "./commands/PutTemplateActionCommand";
+import {
+  RemoveSourceServerActionCommand,
+  RemoveSourceServerActionCommandInput,
+  RemoveSourceServerActionCommandOutput,
+} from "./commands/RemoveSourceServerActionCommand";
+import {
+  RemoveTemplateActionCommand,
+  RemoveTemplateActionCommandInput,
+  RemoveTemplateActionCommandOutput,
+} from "./commands/RemoveTemplateActionCommand";
 import {
   RetryDataReplicationCommand,
   RetryDataReplicationCommandInput,
@@ -125,10 +199,25 @@ import {
   TerminateTargetInstancesCommandOutput,
 } from "./commands/TerminateTargetInstancesCommand";
 import {
+  UnarchiveApplicationCommand,
+  UnarchiveApplicationCommandInput,
+  UnarchiveApplicationCommandOutput,
+} from "./commands/UnarchiveApplicationCommand";
+import {
+  UnarchiveWaveCommand,
+  UnarchiveWaveCommandInput,
+  UnarchiveWaveCommandOutput,
+} from "./commands/UnarchiveWaveCommand";
+import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateApplicationCommand,
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
 import {
   UpdateLaunchConfigurationCommand,
   UpdateLaunchConfigurationCommandInput,
@@ -154,12 +243,135 @@ import {
   UpdateSourceServerReplicationTypeCommandInput,
   UpdateSourceServerReplicationTypeCommandOutput,
 } from "./commands/UpdateSourceServerReplicationTypeCommand";
+import { UpdateWaveCommand, UpdateWaveCommandInput, UpdateWaveCommandOutput } from "./commands/UpdateWaveCommand";
 import { MgnClient } from "./MgnClient";
 
 /**
  * <p>The Application Migration Service service.</p>
  */
 export class Mgn extends MgnClient {
+  /**
+   * <p>Archive application.</p>
+   */
+  public archiveApplication(
+    args: ArchiveApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ArchiveApplicationCommandOutput>;
+  public archiveApplication(
+    args: ArchiveApplicationCommandInput,
+    cb: (err: any, data?: ArchiveApplicationCommandOutput) => void
+  ): void;
+  public archiveApplication(
+    args: ArchiveApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ArchiveApplicationCommandOutput) => void
+  ): void;
+  public archiveApplication(
+    args: ArchiveApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ArchiveApplicationCommandOutput) => void),
+    cb?: (err: any, data?: ArchiveApplicationCommandOutput) => void
+  ): Promise<ArchiveApplicationCommandOutput> | void {
+    const command = new ArchiveApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Archive wave.</p>
+   */
+  public archiveWave(args: ArchiveWaveCommandInput, options?: __HttpHandlerOptions): Promise<ArchiveWaveCommandOutput>;
+  public archiveWave(args: ArchiveWaveCommandInput, cb: (err: any, data?: ArchiveWaveCommandOutput) => void): void;
+  public archiveWave(
+    args: ArchiveWaveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ArchiveWaveCommandOutput) => void
+  ): void;
+  public archiveWave(
+    args: ArchiveWaveCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ArchiveWaveCommandOutput) => void),
+    cb?: (err: any, data?: ArchiveWaveCommandOutput) => void
+  ): Promise<ArchiveWaveCommandOutput> | void {
+    const command = new ArchiveWaveCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associate applications to wave.</p>
+   */
+  public associateApplications(
+    args: AssociateApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateApplicationsCommandOutput>;
+  public associateApplications(
+    args: AssociateApplicationsCommandInput,
+    cb: (err: any, data?: AssociateApplicationsCommandOutput) => void
+  ): void;
+  public associateApplications(
+    args: AssociateApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateApplicationsCommandOutput) => void
+  ): void;
+  public associateApplications(
+    args: AssociateApplicationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateApplicationsCommandOutput) => void),
+    cb?: (err: any, data?: AssociateApplicationsCommandOutput) => void
+  ): Promise<AssociateApplicationsCommandOutput> | void {
+    const command = new AssociateApplicationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associate source servers to application.</p>
+   */
+  public associateSourceServers(
+    args: AssociateSourceServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSourceServersCommandOutput>;
+  public associateSourceServers(
+    args: AssociateSourceServersCommandInput,
+    cb: (err: any, data?: AssociateSourceServersCommandOutput) => void
+  ): void;
+  public associateSourceServers(
+    args: AssociateSourceServersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSourceServersCommandOutput) => void
+  ): void;
+  public associateSourceServers(
+    args: AssociateSourceServersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateSourceServersCommandOutput) => void),
+    cb?: (err: any, data?: AssociateSourceServersCommandOutput) => void
+  ): Promise<AssociateSourceServersCommandOutput> | void {
+    const command = new AssociateSourceServersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Allows the user to set the SourceServer.LifeCycle.state property for specific Source Server IDs to one of the following: READY_FOR_TEST or READY_FOR_CUTOVER. This command only works if the Source Server is already launchable (dataReplicationInfo.lagDuration is not null.)</p>
    */
@@ -193,7 +405,39 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Creates a new ReplicationConfigurationTemplate.</p>
+   * <p>Create application.</p>
+   */
+  public createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  public createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  public createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  public createApplication(
+    args: CreateApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
+    cb?: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): Promise<CreateApplicationCommandOutput> | void {
+    const command = new CreateApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new Launch Configuration Template.</p>
    */
   public createLaunchConfigurationTemplate(
     args: CreateLaunchConfigurationTemplateCommandInput,
@@ -259,6 +503,64 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * <p>Create wave.</p>
+   */
+  public createWave(args: CreateWaveCommandInput, options?: __HttpHandlerOptions): Promise<CreateWaveCommandOutput>;
+  public createWave(args: CreateWaveCommandInput, cb: (err: any, data?: CreateWaveCommandOutput) => void): void;
+  public createWave(
+    args: CreateWaveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWaveCommandOutput) => void
+  ): void;
+  public createWave(
+    args: CreateWaveCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWaveCommandOutput) => void),
+    cb?: (err: any, data?: CreateWaveCommandOutput) => void
+  ): Promise<CreateWaveCommandOutput> | void {
+    const command = new CreateWaveCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete application.</p>
+   */
+  public deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  public deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  public deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  public deleteApplication(
+    args: DeleteApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): Promise<DeleteApplicationCommandOutput> | void {
+    const command = new DeleteApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a single Job by ID.</p>
    */
   public deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
@@ -285,7 +587,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Creates a new ReplicationConfigurationTemplate.</p>
+   * <p>Deletes a single Launch Configuration Template by ID.</p>
    */
   public deleteLaunchConfigurationTemplate(
     args: DeleteLaunchConfigurationTemplateCommandInput,
@@ -415,6 +717,32 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * <p>Delete wave.</p>
+   */
+  public deleteWave(args: DeleteWaveCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWaveCommandOutput>;
+  public deleteWave(args: DeleteWaveCommandInput, cb: (err: any, data?: DeleteWaveCommandOutput) => void): void;
+  public deleteWave(
+    args: DeleteWaveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWaveCommandOutput) => void
+  ): void;
+  public deleteWave(
+    args: DeleteWaveCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWaveCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWaveCommandOutput) => void
+  ): Promise<DeleteWaveCommandOutput> | void {
+    const command = new DeleteWaveCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves detailed job log items with paging.</p>
    */
   public describeJobLogItems(
@@ -476,7 +804,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Creates a new ReplicationConfigurationTemplate.</p>
+   * <p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>
    */
   public describeLaunchConfigurationTemplates(
     args: DescribeLaunchConfigurationTemplatesCommandInput,
@@ -595,6 +923,70 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: DescribeVcenterClientsCommandOutput) => void
   ): Promise<DescribeVcenterClientsCommandOutput> | void {
     const command = new DescribeVcenterClientsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociate applications from wave.</p>
+   */
+  public disassociateApplications(
+    args: DisassociateApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateApplicationsCommandOutput>;
+  public disassociateApplications(
+    args: DisassociateApplicationsCommandInput,
+    cb: (err: any, data?: DisassociateApplicationsCommandOutput) => void
+  ): void;
+  public disassociateApplications(
+    args: DisassociateApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateApplicationsCommandOutput) => void
+  ): void;
+  public disassociateApplications(
+    args: DisassociateApplicationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateApplicationsCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateApplicationsCommandOutput) => void
+  ): Promise<DisassociateApplicationsCommandOutput> | void {
+    const command = new DisassociateApplicationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociate source servers from application.</p>
+   */
+  public disassociateSourceServers(
+    args: DisassociateSourceServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSourceServersCommandOutput>;
+  public disassociateSourceServers(
+    args: DisassociateSourceServersCommandInput,
+    cb: (err: any, data?: DisassociateSourceServersCommandOutput) => void
+  ): void;
+  public disassociateSourceServers(
+    args: DisassociateSourceServersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSourceServersCommandOutput) => void
+  ): void;
+  public disassociateSourceServers(
+    args: DisassociateSourceServersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateSourceServersCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateSourceServersCommandOutput) => void
+  ): Promise<DisassociateSourceServersCommandOutput> | void {
+    const command = new DisassociateSourceServersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -766,6 +1158,70 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * <p>Retrieves all applications or multiple applications by ID.</p>
+   */
+  public listApplications(
+    args: ListApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationsCommandOutput>;
+  public listApplications(
+    args: ListApplicationsCommandInput,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  public listApplications(
+    args: ListApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  public listApplications(
+    args: ListApplicationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
+    cb?: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): Promise<ListApplicationsCommandOutput> | void {
+    const command = new ListApplicationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List source server post migration custom actions.</p>
+   */
+  public listSourceServerActions(
+    args: ListSourceServerActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSourceServerActionsCommandOutput>;
+  public listSourceServerActions(
+    args: ListSourceServerActionsCommandInput,
+    cb: (err: any, data?: ListSourceServerActionsCommandOutput) => void
+  ): void;
+  public listSourceServerActions(
+    args: ListSourceServerActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSourceServerActionsCommandOutput) => void
+  ): void;
+  public listSourceServerActions(
+    args: ListSourceServerActionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSourceServerActionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSourceServerActionsCommandOutput) => void
+  ): Promise<ListSourceServerActionsCommandOutput> | void {
+    const command = new ListSourceServerActionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List all tags for your Application Migration Service resources.</p>
    */
   public listTagsForResource(
@@ -798,6 +1254,64 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * <p>List template post migration custom actions.</p>
+   */
+  public listTemplateActions(
+    args: ListTemplateActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplateActionsCommandOutput>;
+  public listTemplateActions(
+    args: ListTemplateActionsCommandInput,
+    cb: (err: any, data?: ListTemplateActionsCommandOutput) => void
+  ): void;
+  public listTemplateActions(
+    args: ListTemplateActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTemplateActionsCommandOutput) => void
+  ): void;
+  public listTemplateActions(
+    args: ListTemplateActionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTemplateActionsCommandOutput) => void),
+    cb?: (err: any, data?: ListTemplateActionsCommandOutput) => void
+  ): Promise<ListTemplateActionsCommandOutput> | void {
+    const command = new ListTemplateActionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves all waves or multiple waves by ID.</p>
+   */
+  public listWaves(args: ListWavesCommandInput, options?: __HttpHandlerOptions): Promise<ListWavesCommandOutput>;
+  public listWaves(args: ListWavesCommandInput, cb: (err: any, data?: ListWavesCommandOutput) => void): void;
+  public listWaves(
+    args: ListWavesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWavesCommandOutput) => void
+  ): void;
+  public listWaves(
+    args: ListWavesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWavesCommandOutput) => void),
+    cb?: (err: any, data?: ListWavesCommandOutput) => void
+  ): Promise<ListWavesCommandOutput> | void {
+    const command = new ListWavesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle. state which equals DISCONNECTED or CUTOVER.</p>
    */
   public markAsArchived(
@@ -819,6 +1333,134 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: MarkAsArchivedCommandOutput) => void
   ): Promise<MarkAsArchivedCommandOutput> | void {
     const command = new MarkAsArchivedCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Put source server post migration custom action.</p>
+   */
+  public putSourceServerAction(
+    args: PutSourceServerActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSourceServerActionCommandOutput>;
+  public putSourceServerAction(
+    args: PutSourceServerActionCommandInput,
+    cb: (err: any, data?: PutSourceServerActionCommandOutput) => void
+  ): void;
+  public putSourceServerAction(
+    args: PutSourceServerActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSourceServerActionCommandOutput) => void
+  ): void;
+  public putSourceServerAction(
+    args: PutSourceServerActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSourceServerActionCommandOutput) => void),
+    cb?: (err: any, data?: PutSourceServerActionCommandOutput) => void
+  ): Promise<PutSourceServerActionCommandOutput> | void {
+    const command = new PutSourceServerActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Put template post migration custom action.</p>
+   */
+  public putTemplateAction(
+    args: PutTemplateActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTemplateActionCommandOutput>;
+  public putTemplateAction(
+    args: PutTemplateActionCommandInput,
+    cb: (err: any, data?: PutTemplateActionCommandOutput) => void
+  ): void;
+  public putTemplateAction(
+    args: PutTemplateActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTemplateActionCommandOutput) => void
+  ): void;
+  public putTemplateAction(
+    args: PutTemplateActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutTemplateActionCommandOutput) => void),
+    cb?: (err: any, data?: PutTemplateActionCommandOutput) => void
+  ): Promise<PutTemplateActionCommandOutput> | void {
+    const command = new PutTemplateActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove source server post migration custom action.</p>
+   */
+  public removeSourceServerAction(
+    args: RemoveSourceServerActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveSourceServerActionCommandOutput>;
+  public removeSourceServerAction(
+    args: RemoveSourceServerActionCommandInput,
+    cb: (err: any, data?: RemoveSourceServerActionCommandOutput) => void
+  ): void;
+  public removeSourceServerAction(
+    args: RemoveSourceServerActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveSourceServerActionCommandOutput) => void
+  ): void;
+  public removeSourceServerAction(
+    args: RemoveSourceServerActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveSourceServerActionCommandOutput) => void),
+    cb?: (err: any, data?: RemoveSourceServerActionCommandOutput) => void
+  ): Promise<RemoveSourceServerActionCommandOutput> | void {
+    const command = new RemoveSourceServerActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove template post migration custom action.</p>
+   */
+  public removeTemplateAction(
+    args: RemoveTemplateActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTemplateActionCommandOutput>;
+  public removeTemplateAction(
+    args: RemoveTemplateActionCommandInput,
+    cb: (err: any, data?: RemoveTemplateActionCommandOutput) => void
+  ): void;
+  public removeTemplateAction(
+    args: RemoveTemplateActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveTemplateActionCommandOutput) => void
+  ): void;
+  public removeTemplateAction(
+    args: RemoveTemplateActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTemplateActionCommandOutput) => void),
+    cb?: (err: any, data?: RemoveTemplateActionCommandOutput) => void
+  ): Promise<RemoveTemplateActionCommandOutput> | void {
+    const command = new RemoveTemplateActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1007,6 +1649,70 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * <p>Unarchive application.</p>
+   */
+  public unarchiveApplication(
+    args: UnarchiveApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnarchiveApplicationCommandOutput>;
+  public unarchiveApplication(
+    args: UnarchiveApplicationCommandInput,
+    cb: (err: any, data?: UnarchiveApplicationCommandOutput) => void
+  ): void;
+  public unarchiveApplication(
+    args: UnarchiveApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnarchiveApplicationCommandOutput) => void
+  ): void;
+  public unarchiveApplication(
+    args: UnarchiveApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnarchiveApplicationCommandOutput) => void),
+    cb?: (err: any, data?: UnarchiveApplicationCommandOutput) => void
+  ): Promise<UnarchiveApplicationCommandOutput> | void {
+    const command = new UnarchiveApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Unarchive wave.</p>
+   */
+  public unarchiveWave(
+    args: UnarchiveWaveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnarchiveWaveCommandOutput>;
+  public unarchiveWave(
+    args: UnarchiveWaveCommandInput,
+    cb: (err: any, data?: UnarchiveWaveCommandOutput) => void
+  ): void;
+  public unarchiveWave(
+    args: UnarchiveWaveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnarchiveWaveCommandOutput) => void
+  ): void;
+  public unarchiveWave(
+    args: UnarchiveWaveCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnarchiveWaveCommandOutput) => void),
+    cb?: (err: any, data?: UnarchiveWaveCommandOutput) => void
+  ): Promise<UnarchiveWaveCommandOutput> | void {
+    const command = new UnarchiveWaveCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified set of tags from the specified set of Application Migration Service resources.</p>
    */
   public untagResource(
@@ -1028,6 +1734,38 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update application.</p>
+   */
+  public updateApplication(
+    args: UpdateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationCommandOutput>;
+  public updateApplication(
+    args: UpdateApplicationCommandInput,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  public updateApplication(
+    args: UpdateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  public updateApplication(
+    args: UpdateApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): Promise<UpdateApplicationCommandOutput> | void {
+    const command = new UpdateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1071,7 +1809,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Creates a new ReplicationConfigurationTemplate.</p>
+   * <p>Updates an existing Launch Configuration Template by ID.</p>
    */
   public updateLaunchConfigurationTemplate(
     args: UpdateLaunchConfigurationTemplateCommandInput,
@@ -1190,6 +1928,32 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: UpdateSourceServerReplicationTypeCommandOutput) => void
   ): Promise<UpdateSourceServerReplicationTypeCommandOutput> | void {
     const command = new UpdateSourceServerReplicationTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update wave.</p>
+   */
+  public updateWave(args: UpdateWaveCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWaveCommandOutput>;
+  public updateWave(args: UpdateWaveCommandInput, cb: (err: any, data?: UpdateWaveCommandOutput) => void): void;
+  public updateWave(
+    args: UpdateWaveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWaveCommandOutput) => void
+  ): void;
+  public updateWave(
+    args: UpdateWaveCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWaveCommandOutput) => void),
+    cb?: (err: any, data?: UpdateWaveCommandOutput) => void
+  ): Promise<UpdateWaveCommandOutput> | void {
+    const command = new UpdateWaveCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

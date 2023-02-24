@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,16 +27,10 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * <p>Deletes an alias. This operation removes all record of the alias. Game clients
  *             attempting to access a server process using the deleted alias receive an error. To
  *             delete an alias, specify the alias ID to be deleted.</p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateAlias</a> |
- *                     <a>ListAliases</a> |
- *                     <a>DescribeAlias</a> |
- *                     <a>UpdateAlias</a> |
- *                     <a>DeleteAlias</a> |
- *                     <a>ResolveAlias</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -61,6 +56,15 @@ export class DeleteAliasCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +80,7 @@ export class DeleteAliasCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteAliasCommandInput, DeleteAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteAliasCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

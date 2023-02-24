@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DeleteMediaCapturePipelineCommandInput extends DeleteMediaCaptu
 export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the media capture pipeline.</p>
+ * <p>Deletes the media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class DeleteMediaCapturePipelineCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteMediaCapturePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class DeleteMediaCapturePipelineCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteMediaCapturePipelineCommandInput, DeleteMediaCapturePipelineCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteMediaCapturePipelineCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

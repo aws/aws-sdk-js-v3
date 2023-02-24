@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,19 +24,19 @@ export interface DeleteLoginProfileCommandInput extends DeleteLoginProfileReques
 export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the password for the specified IAM user, which terminates the user's ability
- *             to access Amazon Web Services services through the Amazon Web Services Management Console.</p>
- *         <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
+ * <p>Deletes the password for the specified IAM user, For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
+ *                 passwords for IAM users</a>.</p>
+ *          <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
  *             page in the IAM console to delete a password for any IAM user. You can use <a>ChangePassword</a> to update, but not delete, your own password in the
  *                 <b>My Security Credentials</b> page in the
  *             Amazon Web Services Management Console.</p>
- *         <important>
- *             <p> Deleting a user's password does not prevent a user from accessing Amazon Web Services through
+ *          <important>
+ *             <p>Deleting a user's password does not prevent a user from accessing Amazon Web Services through
  *                 the command line interface or the API. To prevent all user access, you must also
  *                 either make any access keys inactive or delete them. For more information about
  *                 making keys inactive or deleting them, see <a>UpdateAccessKey</a> and
- *                     <a>DeleteAccessKey</a>. </p>
- *         </important>
+ *                     <a>DeleteAccessKey</a>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,15 @@ export class DeleteLoginProfileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteLoginProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class DeleteLoginProfileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLoginProfileCommandInput, DeleteLoginProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteLoginProfileCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

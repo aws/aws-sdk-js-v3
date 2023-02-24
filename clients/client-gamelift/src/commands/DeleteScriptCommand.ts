@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,7 +27,7 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  * <p>Deletes a Realtime script. This operation permanently deletes the script record. If
  *             script files were uploaded, they are also deleted (files stored in an S3 bucket are not
  *             deleted). </p>
- *         <p>To delete a script, specify the script ID.  Before deleting a script, be sure to
+ *         <p>To delete a script, specify the script ID. Before deleting a script, be sure to
  *             terminate all fleets that are deployed with the script being deleted. Fleet instances
  *             periodically check for script updates, and if the script record no longer exists, the
  *             instance will go into an error state and be unable to host game sessions.</p>
@@ -36,15 +37,10 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
  *         </p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateScript</a> |
- *                     <a>ListScripts</a> |
- *                     <a>DescribeScript</a> |
- *                     <a>UpdateScript</a> |
- *                     <a>DeleteScript</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -70,6 +66,15 @@ export class DeleteScriptCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +90,7 @@ export class DeleteScriptCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteScriptCommandInput, DeleteScriptCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteScriptCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

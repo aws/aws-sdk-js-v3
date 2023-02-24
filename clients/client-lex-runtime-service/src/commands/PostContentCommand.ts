@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -9,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -38,7 +42,9 @@ type PostContentCommandInputType = Omit<PostContentRequest, "inputStream"> & {
  * This interface extends from `PostContentRequest` interface. There are more parameters than `inputStream` defined in {@link PostContentRequest}
  */
 export interface PostContentCommandInput extends PostContentCommandInputType {}
-export interface PostContentCommandOutput extends PostContentResponse, __MetadataBearer {}
+export interface PostContentCommandOutput
+  extends __WithSdkStreamMixin<PostContentResponse, "audioStream">,
+    __MetadataBearer {}
 
 /**
  * <p> Sends user input (text or speech) to Amazon Lex. Clients use this API to
@@ -141,6 +147,15 @@ export class PostContentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PostContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,6 +171,7 @@ export class PostContentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PostContentCommandInput, PostContentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PostContentCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -181,7 +197,10 @@ export class PostContentCommand extends $Command<
     return serializeAws_restJson1PostContentCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostContentCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<PostContentCommandOutput> {
     return deserializeAws_restJson1PostContentCommand(output, context);
   }
 

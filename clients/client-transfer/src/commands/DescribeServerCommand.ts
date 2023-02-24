@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,6 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
 /**
  * <p>Describes a file transfer protocol-enabled server that you specify by passing the
  *         <code>ServerId</code> parameter.</p>
- *
  *          <p>The response contains a description of a server's properties. When you set
  *         <code>EndpointType</code> to VPC, the response will contain the
  *       <code>EndpointDetails</code>.</p>
@@ -57,6 +57,15 @@ export class DescribeServerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +81,9 @@ export class DescribeServerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeServerCommandInput, DescribeServerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeServerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

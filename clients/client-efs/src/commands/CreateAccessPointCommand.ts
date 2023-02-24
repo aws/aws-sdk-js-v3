@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,6 +36,12 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  *       as the access point's root directory. Applications using the access point can only access data in
  *       the application's own directory and any subdirectories. To learn more, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting a file system using EFS access
  *         points</a>.</p>
+ *          <note>
+ *             <p>If multiple requests to create access points on the same file system are sent in quick
+ *         succession, and the file system is near the limit of 1000 access points, you may experience
+ *         a throttling response for these requests. This is to ensure that the file system does not
+ *         exceed the stated access point limit.</p>
+ *          </note>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +66,15 @@ export class CreateAccessPointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +90,9 @@ export class CreateAccessPointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAccessPointCommandInput, CreateAccessPointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateAccessPointCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,11 +28,11 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
 
 /**
  * <p>Deletes the permissions boundary for the specified IAM user.</p>
- *         <important>
+ *          <important>
  *             <p>Deleting the permissions boundary for a user might increase its permissions by
  *                 allowing the user to perform all the actions granted in its permissions policies.
  *             </p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteUserPermissionsBoundaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteUserPermissionsBoundaryCommandInput, DeleteUserPermissionsBoundaryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteUserPermissionsBoundaryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

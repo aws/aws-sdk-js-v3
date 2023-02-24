@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -30,11 +31,11 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
 
 /**
  * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p>
- *         <p>You can copy a snapshot from one Amazon Web Services Region to another. In that case, the
+ *          <p>You can copy a snapshot from one Amazon Web Services Region to another. In that case, the
  *             Amazon Web Services Region where you call the <code>CopyDBSnapshot</code> operation is the destination
  *             Amazon Web Services Region for the DB snapshot copy.</p>
- *         <p>This command doesn't apply to RDS Custom.</p>
- *         <p>For more information about copying snapshots, see
+ *          <p>This command doesn't apply to RDS Custom.</p>
+ *          <p>For more information about copying snapshots, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying a DB Snapshot</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +60,15 @@ export class CopyDBSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CopyDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class CopyDBSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CopyDBSnapshotCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

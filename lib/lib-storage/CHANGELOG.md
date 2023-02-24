@@ -3,6 +3,600 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.278.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.277.0...v3.278.0) (2023-02-23)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.276.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.275.0...v3.276.0) (2023-02-21)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.264.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.263.0...v3.264.0) (2023-02-02)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.262.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.261.0...v3.262.0) (2023-01-31)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.258.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.257.0...v3.258.0) (2023-01-25)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.256.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.255.0...v3.256.0) (2023-01-23)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.245.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.244.0...v3.245.0) (2023-01-05)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.241.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.240.0...v3.241.0) (2022-12-29)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.238.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.237.0...v3.238.0) (2022-12-23)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.223.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.222.0...v3.223.0) (2022-12-02)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.222.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.221.0...v3.222.0) (2022-12-01)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.218.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.217.0...v3.218.0) (2022-11-28)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.216.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.215.0...v3.216.0) (2022-11-22)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.215.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.214.0...v3.215.0) (2022-11-21)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.213.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.212.0...v3.213.0) (2022-11-17)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.209.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.208.0...v3.209.0) (2022-11-11)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.208.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.207.0...v3.208.0) (2022-11-10)
+
+
+### Bug Fixes
+
+* **types:** add client config interface test with s3 example ([#4156](https://github.com/aws/aws-sdk-js-v3/issues/4156)) ([7811cd9](https://github.com/aws/aws-sdk-js-v3/commit/7811cd959b611e13466c7c1f0469947ef32a3695))
+
+
+
+
+
+# [3.207.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.206.0...v3.207.0) (2022-11-09)
+
+
+### Bug Fixes
+
+* **lib-storage:** fix bucket duplication in hostname ([#4157](https://github.com/aws/aws-sdk-js-v3/issues/4157)) ([004d6c0](https://github.com/aws/aws-sdk-js-v3/commit/004d6c0fe5228417dced299d899ee1f75e694429))
+
+
+
+
+
+# [3.204.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.203.0...v3.204.0) (2022-11-04)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.202.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.201.0...v3.202.0) (2022-11-02)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.201.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.200.0...v3.201.0) (2022-11-01)
+
+
+### Features
+
+* end support for Node.js 12.x ([#4123](https://github.com/aws/aws-sdk-js-v3/issues/4123)) ([83f913e](https://github.com/aws/aws-sdk-js-v3/commit/83f913ec2ac3878d8726c6964f585550dc5caf3e))
+
+
+
+
+
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.196.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.195.0...v3.196.0) (2022-10-25)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.194.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.193.0...v3.194.0) (2022-10-21)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.185.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.184.0...v3.185.0) (2022-10-05)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.183.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.182.0...v3.183.0) (2022-10-03)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.182.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.181.0...v3.182.0) (2022-09-30)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.181.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.180.0...v3.181.0) (2022-09-29)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.180.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.179.0...v3.180.0) (2022-09-27)
+
+
+### Features
+
+* **upload-abort-controller:** add optional abortController param for Upload ([#3873](https://github.com/aws/aws-sdk-js-v3/issues/3873)) ([90c6b11](https://github.com/aws/aws-sdk-js-v3/commit/90c6b118ea176ca5ed0d5c32c383da4d6848d9f8))
+
+
+
+
+
+# [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
+
+
+### Features
+
+* **endpoint:** endpoints 2.0 existing package changes ([#3947](https://github.com/aws/aws-sdk-js-v3/issues/3947)) ([df99fc3](https://github.com/aws/aws-sdk-js-v3/commit/df99fc33a43982e1c59000721a535f6fe77a3c23))
+
+
+
+
+
+# [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
+
+
+### Features
+
+* **endpoint:** endpoints v2 codegen ([#3942](https://github.com/aws/aws-sdk-js-v3/issues/3942)) ([4b32da4](https://github.com/aws/aws-sdk-js-v3/commit/4b32da42011194d4eefe32eb6f7035872fb163c2))
+
+
+
+
+
+# [3.170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.169.0...v3.170.0) (2022-09-13)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.168.0...v3.169.0) (2022-09-12)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.162.0...v3.163.0) (2022-09-01)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.160.0...v3.161.0) (2022-08-30)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.158.0...v3.159.0) (2022-08-26)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.156.0...v3.157.0) (2022-08-24)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
+# [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
+
+**Note:** Version bump only for package @aws-sdk/lib-storage
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage

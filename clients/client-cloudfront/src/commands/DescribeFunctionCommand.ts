@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,10 +29,10 @@ export interface DescribeFunctionCommandInput extends DescribeFunctionRequest {}
 export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, __MetadataBearer {}
 
 /**
- * <p>Gets configuration information and metadata about a CloudFront function, but not the function’s
- * 			code. To get a function’s code, use <code>GetFunction</code>.</p>
- * 		       <p>To get configuration information and metadata about a function, you must provide the
- * 			function’s name and stage. To get these values, you can use
+ * <p>Gets configuration information and metadata about a CloudFront function, but not the
+ * 			function's code. To get a function's code, use <code>GetFunction</code>.</p>
+ *          <p>To get configuration information and metadata about a function, you must provide the
+ * 			function's name and stage. To get these values, you can use
  * 			<code>ListFunctions</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +57,15 @@ export class DescribeFunctionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DescribeFunctionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeFunctionCommandInput, DescribeFunctionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeFunctionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

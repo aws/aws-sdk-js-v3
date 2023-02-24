@@ -51,6 +51,14 @@ import {
 } from "../commands/DescribeParameterGroupsCommand";
 import { DescribeParametersCommandInput, DescribeParametersCommandOutput } from "../commands/DescribeParametersCommand";
 import {
+  DescribeReservedNodesCommandInput,
+  DescribeReservedNodesCommandOutput,
+} from "../commands/DescribeReservedNodesCommand";
+import {
+  DescribeReservedNodesOfferingsCommandInput,
+  DescribeReservedNodesOfferingsCommandOutput,
+} from "../commands/DescribeReservedNodesOfferingsCommand";
+import {
   DescribeServiceUpdatesCommandInput,
   DescribeServiceUpdatesCommandOutput,
 } from "../commands/DescribeServiceUpdatesCommand";
@@ -66,6 +74,10 @@ import {
   ListAllowedNodeTypeUpdatesCommandOutput,
 } from "../commands/ListAllowedNodeTypeUpdatesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
+import {
+  PurchaseReservedNodesOfferingCommandInput,
+  PurchaseReservedNodesOfferingCommandOutput,
+} from "../commands/PurchaseReservedNodesOfferingCommand";
 import {
   ResetParameterGroupCommandInput,
   ResetParameterGroupCommandOutput,
@@ -139,6 +151,10 @@ import {
   DescribeParameterGroupsResponse,
   DescribeParametersRequest,
   DescribeParametersResponse,
+  DescribeReservedNodesOfferingsRequest,
+  DescribeReservedNodesOfferingsResponse,
+  DescribeReservedNodesRequest,
+  DescribeReservedNodesResponse,
   DescribeServiceUpdatesRequest,
   DescribeServiceUpdatesResponse,
   DescribeSnapshotsRequest,
@@ -183,7 +199,16 @@ import {
   ParameterGroupQuotaExceededFault,
   ParameterNameValue,
   PendingModifiedServiceUpdate,
+  PurchaseReservedNodesOfferingRequest,
+  PurchaseReservedNodesOfferingResponse,
+  RecurringCharge,
   ReplicaConfigurationRequest,
+  ReservedNode,
+  ReservedNodeAlreadyExistsFault,
+  ReservedNodeNotFoundFault,
+  ReservedNodeQuotaExceededFault,
+  ReservedNodesOffering,
+  ReservedNodesOfferingNotFoundFault,
   ResetParameterGroupRequest,
   ResetParameterGroupResponse,
   ReshardingStatus,
@@ -498,6 +523,32 @@ export const serializeAws_json1_1DescribeParametersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeReservedNodesCommand = async (
+  input: DescribeReservedNodesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonMemoryDB.DescribeReservedNodes",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeReservedNodesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeReservedNodesOfferingsCommand = async (
+  input: DescribeReservedNodesOfferingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonMemoryDB.DescribeReservedNodesOfferings",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeReservedNodesOfferingsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeServiceUpdatesCommand = async (
   input: DescribeServiceUpdatesCommandInput,
   context: __SerdeContext
@@ -586,6 +637,19 @@ export const serializeAws_json1_1ListTagsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PurchaseReservedNodesOfferingCommand = async (
+  input: PurchaseReservedNodesOfferingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonMemoryDB.PurchaseReservedNodesOffering",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PurchaseReservedNodesOfferingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -716,7 +780,7 @@ const deserializeAws_json1_1BatchUpdateClusterCommandError = async (
 ): Promise<BatchUpdateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -760,7 +824,7 @@ const deserializeAws_json1_1CopySnapshotCommandError = async (
 ): Promise<CopySnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -822,7 +886,7 @@ const deserializeAws_json1_1CreateACLCommandError = async (
 ): Promise<CreateACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -881,7 +945,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
 ): Promise<CreateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -967,7 +1031,7 @@ const deserializeAws_json1_1CreateParameterGroupCommandError = async (
 ): Promise<CreateParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1026,7 +1090,7 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
 ): Promise<CreateSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1088,7 +1152,7 @@ const deserializeAws_json1_1CreateSubnetGroupCommandError = async (
 ): Promise<CreateSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1147,7 +1211,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
 ): Promise<CreateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1203,7 +1267,7 @@ const deserializeAws_json1_1DeleteACLCommandError = async (
 ): Promise<DeleteACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1250,7 +1314,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
 ): Promise<DeleteClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1306,7 +1370,7 @@ const deserializeAws_json1_1DeleteParameterGroupCommandError = async (
 ): Promise<DeleteParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1359,7 +1423,7 @@ const deserializeAws_json1_1DeleteSnapshotCommandError = async (
 ): Promise<DeleteSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1412,7 +1476,7 @@ const deserializeAws_json1_1DeleteSubnetGroupCommandError = async (
 ): Promise<DeleteSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1459,7 +1523,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
 ): Promise<DeleteUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1506,7 +1570,7 @@ const deserializeAws_json1_1DescribeACLsCommandError = async (
 ): Promise<DescribeACLsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1550,7 +1614,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
 ): Promise<DescribeClustersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1600,7 +1664,7 @@ const deserializeAws_json1_1DescribeEngineVersionsCommandError = async (
 ): Promise<DescribeEngineVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1647,7 +1711,7 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
 ): Promise<DescribeEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1694,7 +1758,7 @@ const deserializeAws_json1_1DescribeParameterGroupsCommandError = async (
 ): Promise<DescribeParameterGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1744,7 +1808,7 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
 ): Promise<DescribeParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1757,6 +1821,106 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
     case "ParameterGroupNotFoundFault":
     case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
       throw await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
+      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeReservedNodesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeReservedNodesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeReservedNodesResponse(data, context);
+  const response: DescribeReservedNodesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeReservedNodesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
+      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.memorydb#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ReservedNodeNotFoundFault":
+    case "com.amazonaws.memorydb#ReservedNodeNotFoundFault":
+      throw await deserializeAws_json1_1ReservedNodeNotFoundFaultResponse(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
+      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeReservedNodesOfferingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodesOfferingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeReservedNodesOfferingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeReservedNodesOfferingsResponse(data, context);
+  const response: DescribeReservedNodesOfferingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeReservedNodesOfferingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodesOfferingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
+      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.memorydb#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ReservedNodesOfferingNotFoundFault":
+    case "com.amazonaws.memorydb#ReservedNodesOfferingNotFoundFault":
+      throw await deserializeAws_json1_1ReservedNodesOfferingNotFoundFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
       throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
@@ -1794,7 +1958,7 @@ const deserializeAws_json1_1DescribeServiceUpdatesCommandError = async (
 ): Promise<DescribeServiceUpdatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1838,7 +2002,7 @@ const deserializeAws_json1_1DescribeSnapshotsCommandError = async (
 ): Promise<DescribeSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1888,7 +2052,7 @@ const deserializeAws_json1_1DescribeSubnetGroupsCommandError = async (
 ): Promise<DescribeSubnetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1932,7 +2096,7 @@ const deserializeAws_json1_1DescribeUsersCommandError = async (
 ): Promise<DescribeUsersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1976,7 +2140,7 @@ const deserializeAws_json1_1FailoverShardCommandError = async (
 ): Promise<FailoverShardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2038,7 +2202,7 @@ const deserializeAws_json1_1ListAllowedNodeTypeUpdatesCommandError = async (
 ): Promise<ListAllowedNodeTypeUpdatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2088,7 +2252,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
 ): Promise<ListTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2130,6 +2294,65 @@ const deserializeAws_json1_1ListTagsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1PurchaseReservedNodesOfferingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PurchaseReservedNodesOfferingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PurchaseReservedNodesOfferingCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PurchaseReservedNodesOfferingResponse(data, context);
+  const response: PurchaseReservedNodesOfferingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PurchaseReservedNodesOfferingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PurchaseReservedNodesOfferingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
+      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.memorydb#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ReservedNodeAlreadyExistsFault":
+    case "com.amazonaws.memorydb#ReservedNodeAlreadyExistsFault":
+      throw await deserializeAws_json1_1ReservedNodeAlreadyExistsFaultResponse(parsedOutput, context);
+    case "ReservedNodeQuotaExceededFault":
+    case "com.amazonaws.memorydb#ReservedNodeQuotaExceededFault":
+      throw await deserializeAws_json1_1ReservedNodeQuotaExceededFaultResponse(parsedOutput, context);
+    case "ReservedNodesOfferingNotFoundFault":
+    case "com.amazonaws.memorydb#ReservedNodesOfferingNotFoundFault":
+      throw await deserializeAws_json1_1ReservedNodesOfferingNotFoundFaultResponse(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
+      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.memorydb#TagQuotaPerResourceExceeded":
+      throw await deserializeAws_json1_1TagQuotaPerResourceExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ResetParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2153,7 +2376,7 @@ const deserializeAws_json1_1ResetParameterGroupCommandError = async (
 ): Promise<ResetParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2206,7 +2429,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2274,7 +2497,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2342,7 +2565,7 @@ const deserializeAws_json1_1UpdateACLCommandError = async (
 ): Promise<UpdateACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2401,7 +2624,7 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
 ): Promise<UpdateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2435,15 +2658,15 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.memorydb#InvalidVPCNetworkStateFault":
       throw await deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse(parsedOutput, context);
+    case "NoOperationFault":
+    case "com.amazonaws.memorydb#NoOperationFault":
+      throw await deserializeAws_json1_1NoOperationFaultResponse(parsedOutput, context);
     case "NodeQuotaForClusterExceededFault":
     case "com.amazonaws.memorydb#NodeQuotaForClusterExceededFault":
       throw await deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.memorydb#NodeQuotaForCustomerExceededFault":
       throw await deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
-    case "NoOperationFault":
-    case "com.amazonaws.memorydb#NoOperationFault":
-      throw await deserializeAws_json1_1NoOperationFaultResponse(parsedOutput, context);
     case "ParameterGroupNotFoundFault":
     case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
       throw await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(parsedOutput, context);
@@ -2487,7 +2710,7 @@ const deserializeAws_json1_1UpdateParameterGroupCommandError = async (
 ): Promise<UpdateParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2540,7 +2763,7 @@ const deserializeAws_json1_1UpdateSubnetGroupCommandError = async (
 ): Promise<UpdateSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2596,7 +2819,7 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
 ): Promise<UpdateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3000,6 +3223,58 @@ const deserializeAws_json1_1ParameterGroupQuotaExceededFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1ReservedNodeAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReservedNodeAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ReservedNodeAlreadyExistsFault(body, context);
+  const exception = new ReservedNodeAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ReservedNodeNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReservedNodeNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ReservedNodeNotFoundFault(body, context);
+  const exception = new ReservedNodeNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ReservedNodeQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReservedNodeQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ReservedNodeQuotaExceededFault(body, context);
+  const exception = new ReservedNodeQuotaExceededFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ReservedNodesOfferingNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReservedNodesOfferingNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ReservedNodesOfferingNotFoundFault(body, context);
+  const exception = new ReservedNodesOfferingNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3312,6 +3587,7 @@ const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, c
     ...(input.ACLName != null && { ACLName: input.ACLName }),
     ...(input.AutoMinorVersionUpgrade != null && { AutoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
     ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
+    ...(input.DataTiering != null && { DataTiering: input.DataTiering }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.EngineVersion != null && { EngineVersion: input.EngineVersion }),
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
@@ -3488,6 +3764,35 @@ const serializeAws_json1_1DescribeParametersRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeReservedNodesOfferingsRequest = (
+  input: DescribeReservedNodesOfferingsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Duration != null && { Duration: input.Duration }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.NodeType != null && { NodeType: input.NodeType }),
+    ...(input.OfferingType != null && { OfferingType: input.OfferingType }),
+    ...(input.ReservedNodesOfferingId != null && { ReservedNodesOfferingId: input.ReservedNodesOfferingId }),
+  };
+};
+
+const serializeAws_json1_1DescribeReservedNodesRequest = (
+  input: DescribeReservedNodesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Duration != null && { Duration: input.Duration }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.NodeType != null && { NodeType: input.NodeType }),
+    ...(input.OfferingType != null && { OfferingType: input.OfferingType }),
+    ...(input.ReservationId != null && { ReservationId: input.ReservationId }),
+    ...(input.ReservedNodesOfferingId != null && { ReservedNodesOfferingId: input.ReservedNodesOfferingId }),
+  };
+};
+
 const serializeAws_json1_1DescribeServiceUpdatesRequest = (
   input: DescribeServiceUpdatesRequest,
   context: __SerdeContext
@@ -3619,6 +3924,18 @@ const serializeAws_json1_1PasswordListInput = (input: string[], context: __Serde
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_1PurchaseReservedNodesOfferingRequest = (
+  input: PurchaseReservedNodesOfferingRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NodeCount != null && { NodeCount: input.NodeCount }),
+    ...(input.ReservationId != null && { ReservationId: input.ReservationId }),
+    ...(input.ReservedNodesOfferingId != null && { ReservedNodesOfferingId: input.ReservedNodesOfferingId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
 };
 
 const serializeAws_json1_1ReplicaConfigurationRequest = (
@@ -3932,6 +4249,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
     AvailabilityMode: __expectString(output.AvailabilityMode),
     ClusterEndpoint:
       output.ClusterEndpoint != null ? deserializeAws_json1_1Endpoint(output.ClusterEndpoint, context) : undefined,
+    DataTiering: __expectString(output.DataTiering),
     Description: __expectString(output.Description),
     EnginePatchVersion: __expectString(output.EnginePatchVersion),
     EngineVersion: __expectString(output.EngineVersion),
@@ -4186,6 +4504,30 @@ const deserializeAws_json1_1DescribeParametersResponse = (
     NextToken: __expectString(output.NextToken),
     Parameters:
       output.Parameters != null ? deserializeAws_json1_1ParametersList(output.Parameters, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeReservedNodesOfferingsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeReservedNodesOfferingsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    ReservedNodesOfferings:
+      output.ReservedNodesOfferings != null
+        ? deserializeAws_json1_1ReservedNodesOfferingList(output.ReservedNodesOfferings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeReservedNodesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeReservedNodesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    ReservedNodes:
+      output.ReservedNodes != null ? deserializeAws_json1_1ReservedNodeList(output.ReservedNodes, context) : undefined,
   } as any;
 };
 
@@ -4575,6 +4917,132 @@ const deserializeAws_json1_1PendingModifiedServiceUpdateList = (
   return retVal;
 };
 
+const deserializeAws_json1_1PurchaseReservedNodesOfferingResponse = (
+  output: any,
+  context: __SerdeContext
+): PurchaseReservedNodesOfferingResponse => {
+  return {
+    ReservedNode:
+      output.ReservedNode != null ? deserializeAws_json1_1ReservedNode(output.ReservedNode, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
+  return {
+    RecurringChargeAmount: __limitedParseDouble(output.RecurringChargeAmount),
+    RecurringChargeFrequency: __expectString(output.RecurringChargeFrequency),
+  } as any;
+};
+
+const deserializeAws_json1_1RecurringChargeList = (output: any, context: __SerdeContext): RecurringCharge[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RecurringCharge(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ReservedNode = (output: any, context: __SerdeContext): ReservedNode => {
+  return {
+    ARN: __expectString(output.ARN),
+    Duration: __expectInt32(output.Duration),
+    FixedPrice: __limitedParseDouble(output.FixedPrice),
+    NodeCount: __expectInt32(output.NodeCount),
+    NodeType: __expectString(output.NodeType),
+    OfferingType: __expectString(output.OfferingType),
+    RecurringCharges:
+      output.RecurringCharges != null
+        ? deserializeAws_json1_1RecurringChargeList(output.RecurringCharges, context)
+        : undefined,
+    ReservationId: __expectString(output.ReservationId),
+    ReservedNodesOfferingId: __expectString(output.ReservedNodesOfferingId),
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+    State: __expectString(output.State),
+  } as any;
+};
+
+const deserializeAws_json1_1ReservedNodeAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeAlreadyExistsFault => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1ReservedNodeList = (output: any, context: __SerdeContext): ReservedNode[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReservedNode(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ReservedNodeNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeNotFoundFault => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1ReservedNodeQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeQuotaExceededFault => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1ReservedNodesOffering = (output: any, context: __SerdeContext): ReservedNodesOffering => {
+  return {
+    Duration: __expectInt32(output.Duration),
+    FixedPrice: __limitedParseDouble(output.FixedPrice),
+    NodeType: __expectString(output.NodeType),
+    OfferingType: __expectString(output.OfferingType),
+    RecurringCharges:
+      output.RecurringCharges != null
+        ? deserializeAws_json1_1RecurringChargeList(output.RecurringCharges, context)
+        : undefined,
+    ReservedNodesOfferingId: __expectString(output.ReservedNodesOfferingId),
+  } as any;
+};
+
+const deserializeAws_json1_1ReservedNodesOfferingList = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodesOffering[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReservedNodesOffering(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ReservedNodesOfferingNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodesOfferingNotFoundFault => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_json1_1ResetParameterGroupResponse = (
   output: any,
   context: __SerdeContext
@@ -4750,6 +5218,7 @@ const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): S
       output.ClusterConfiguration != null
         ? deserializeAws_json1_1ClusterConfiguration(output.ClusterConfiguration, context)
         : undefined,
+    DataTiering: __expectString(output.DataTiering),
     KmsKeyId: __expectString(output.KmsKeyId),
     Name: __expectString(output.Name),
     Source: __expectString(output.Source),
@@ -5061,7 +5530,8 @@ const deserializeAws_json1_1UserQuotaExceededFault = (output: any, context: __Se
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -5111,6 +5581,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -5121,6 +5597,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

@@ -15,7 +15,11 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
+import java.util.TreeMap;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryTrait;
 import software.amazon.smithy.codegen.core.SymbolReference;
 import software.amazon.smithy.model.shapes.OperationShape;
@@ -41,7 +45,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * @see QueryMemberSerVisitor
  * @see XmlMemberDeserVisitor
  * @see AwsProtocolUtils
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
 @SmithyInternalApi
 final class AwsQuery extends HttpRpcProtocolGenerator {
@@ -85,6 +89,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateXmlParseBody(context);
+        AwsProtocolUtils.generateXmlParseErrorBody(context);
         AwsProtocolUtils.generateBuildFormUrlencodedString(context);
         AwsProtocolUtils.addItempotencyAutofillImport(context);
 
@@ -98,9 +103,10 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
                        + "  data: any\n"
                        + "): string | undefined => {", "};", responseType, () -> {
             // Attempt to fetch the error code from the specific location.
-            String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
-            writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
-                writer.write("return $L;", errorCodeLocation);
+            String errorCodeCheckLocation = getErrorBodyLocation(context, "data") + "?.Code";
+            String errorCodeAccessLocation = getErrorBodyLocation(context, "data") + ".Code";
+            writer.openBlock("if ($L !== undefined) {", "}", errorCodeCheckLocation, () -> {
+                writer.write("return $L;", errorCodeAccessLocation);
             });
 
             // Default a 404 status code to the NotFound code.
@@ -169,5 +175,24 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     @Override
     public void generateProtocolTests(GenerationContext context) {
         AwsProtocolUtils.generateProtocolTests(this, context);
+    }
+
+    @Override
+    public Map<String, ShapeId> getOperationErrors(GenerationContext context, OperationShape operation) {
+        Map<String, ShapeId> errors = new TreeMap<>();
+
+        operation.getErrors().forEach(shapeId -> {
+            Shape errorShape = context.getModel().expectShape(shapeId);
+            String errorName = shapeId.getName(context.getService());
+
+            Optional<AwsQueryErrorTrait> errorShapeTrait = errorShape.getTrait(AwsQueryErrorTrait.class);
+            if (errorShapeTrait.isPresent()) {
+                errors.put(errorShapeTrait.get().getCode(), shapeId);
+            } else {
+                errors.put(errorName, shapeId);
+            }
+        });
+
+        return errors;
     }
 }

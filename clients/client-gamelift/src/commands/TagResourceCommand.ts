@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,8 +32,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p> Assigns a tag to a GameLift resource. Amazon Web Services resource tags provide an additional
  *             management tool set. You can use tags to organize resources, create IAM permissions
  *             policies to manage access to groups of resources, customize Amazon Web Services cost breakdowns, etc.
- *             This operation handles the permissions necessary to manage tags for the following GameLift
- *             resource types:</p>
+ *             This operation handles the permissions necessary to manage tags for the following
+ *             GameLift resource types:</p>
  *         <ul>
  *             <li>
  *                 <p>Build</p>
@@ -63,21 +64,18 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in the
- *             <i>Amazon Web Services General Reference</i>
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+ *                 Resources</a> in the <i>Amazon Web Services General Reference</i>
  *          </p>
  *         <p>
  *             <a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
- *             Amazon Web Services Tagging Strategies</a>
+ *                 Amazon Web Services Tagging Strategies</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>TagResource</a> |
- *                     <a>UntagResource</a> |
- *                     <a>ListTagsForResource</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +100,15 @@ export class TagResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +124,7 @@ export class TagResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

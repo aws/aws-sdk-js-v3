@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,12 +27,14 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * <p>Changes the status of the specified access key from Active to Inactive, or vice versa.
  *             This operation can be used to disable a user's key as part of a key rotation
  *             workflow.</p>
- *         <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
- *             based on the Amazon Web Services access key ID used to sign the request. This operation works for
- *             access keys under the Amazon Web Services account. Consequently, you can use this operation to manage
+ *          <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
+ *             based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is
+ *             used, then <code>UserName</code> is required. If a long-term key is assigned to the
+ *             user, then <code>UserName</code> is not required. This operation works for access keys
+ *             under the Amazon Web Services account. Consequently, you can use this operation to manage
  *             Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
  *             users.</p>
- *         <p>For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing keys and certificates</a>
+ *          <p>For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing keys and certificates</a>
  *             in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +59,15 @@ export class UpdateAccessKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +83,9 @@ export class UpdateAccessKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateAccessKeyCommandInput, UpdateAccessKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateAccessKeyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBear
 /**
  * <p>Stops a running hyperparameter tuning job and all running training jobs that the
  *             tuning job launched.</p>
- *         <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All
+ *          <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All
  *             data that the training jobs write to Amazon CloudWatch Logs are still available in CloudWatch. After the
  *             tuning job moves to the <code>Stopped</code> state, it releases all
  *             reserved
@@ -56,6 +57,15 @@ export class StopHyperParameterTuningJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopHyperParameterTuningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class StopHyperParameterTuningJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopHyperParameterTuningJobCommandInput, StopHyperParameterTuningJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopHyperParameterTuningJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

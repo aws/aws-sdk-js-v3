@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes metadata tags from an Amazon RDS resource.</p>
- *         <p>For an overview on tagging an Amazon RDS resource,
+ *          <p>For an overview on tagging an Amazon RDS resource,
  *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
  *           in the <i>Amazon RDS User Guide.</i>
  *          </p>
@@ -51,6 +52,15 @@ export class RemoveTagsFromResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RemoveTagsFromResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +76,9 @@ export class RemoveTagsFromResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RemoveTagsFromResourceCommandInput, RemoveTagsFromResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RemoveTagsFromResourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

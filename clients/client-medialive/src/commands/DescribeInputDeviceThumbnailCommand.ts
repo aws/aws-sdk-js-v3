@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -9,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
@@ -26,7 +30,7 @@ import {
 
 export interface DescribeInputDeviceThumbnailCommandInput extends DescribeInputDeviceThumbnailRequest {}
 export interface DescribeInputDeviceThumbnailCommandOutput
-  extends DescribeInputDeviceThumbnailResponse,
+  extends __WithSdkStreamMixin<DescribeInputDeviceThumbnailResponse, "Body">,
     __MetadataBearer {}
 
 /**
@@ -54,6 +58,15 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeInputDeviceThumbnailCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +82,9 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeInputDeviceThumbnailCommandInput, DescribeInputDeviceThumbnailCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeInputDeviceThumbnailCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -96,7 +112,7 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: __SerdeContext
+    context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<DescribeInputDeviceThumbnailCommandOutput> {
     return deserializeAws_restJson1DescribeInputDeviceThumbnailCommand(output, context);
   }

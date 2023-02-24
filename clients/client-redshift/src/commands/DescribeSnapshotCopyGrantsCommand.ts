@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
 /**
  * <p>Returns a list of snapshot copy grants owned by the Amazon Web Services account in the destination
  *             region.</p>
- *         <p>
+ *          <p>
  * For more information about managing snapshot copy grants, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
@@ -58,6 +59,15 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeSnapshotCopyGrantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeSnapshotCopyGrantsCommandInput, DescribeSnapshotCopyGrantsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeSnapshotCopyGrantsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

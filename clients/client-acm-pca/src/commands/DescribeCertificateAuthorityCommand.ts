@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,43 +34,43 @@ export interface DescribeCertificateAuthorityCommandOutput
  * <p>Lists information about your private certificate authority (CA) or one that has been
  * 			shared with you. You specify the private CA on input by its ARN (Amazon Resource Name).
  * 			The output contains the status of your CA. This can be any of the following: </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>
- *                   <code>CREATING</code> - ACM Private CA is creating your private certificate
+ *                <p>
+ *                   <code>CREATING</code> - Amazon Web Services Private CA is creating your private certificate
  * 					authority.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>PENDING_CERTIFICATE</code> - The certificate is pending. You must use
- * 					your ACM Private CA-hosted or on-premises root or subordinate CA to sign your
- * 					private CA CSR and then import it into PCA. </p>
- * 			         </li>
+ * 					your Amazon Web Services Private CA-hosted or on-premises root or subordinate CA to sign your
+ * 					private CA CSR and then import it into Amazon Web Services Private CA. </p>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>ACTIVE</code> - Your private CA is active.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>DISABLED</code> - Your private CA has been disabled.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>EXPIRED</code> - Your private CA certificate has expired.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>FAILED</code> - Your private CA has failed. Your CA can fail because of
  * 					problems such a network outage or back-end Amazon Web Services failure or other errors. A
  * 					failed CA can never return to the pending state. You must create a new CA.
  * 				</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>DELETED</code> - Your private CA is within the restoration period, after
  * 					which it is permanently deleted. The length of time remaining in the CA's
  * 					restoration period is also included in this action's output.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +95,15 @@ export class DescribeCertificateAuthorityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,6 +119,9 @@ export class DescribeCertificateAuthorityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeCertificateAuthorityCommandInput, DescribeCertificateAuthorityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeCertificateAuthorityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,9 +34,6 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
 
 /**
  * <p>Creates a target group.</p>
- *
- *
- *
  *          <p>For more information, see the following:</p>
  *          <ul>
  *             <li>
@@ -57,7 +55,6 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <p>This operation is idempotent, which means that it completes at most one time. If you
  *       attempt to create multiple target groups with the same settings, each call succeeds.</p>
  * @example
@@ -83,6 +80,15 @@ export class CreateTargetGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateTargetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,6 +104,9 @@ export class CreateTargetGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateTargetGroupCommandInput, CreateTargetGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateTargetGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

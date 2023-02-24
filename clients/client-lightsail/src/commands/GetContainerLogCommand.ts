@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,15 +30,14 @@ export interface GetContainerLogCommandOutput extends GetContainerLogResult, __M
 
 /**
  * <p>Returns the log events of a container of your Amazon Lightsail container service.</p>
- *
  *          <p>If your container service has more than one node (i.e., a scale greater than 1), then the
  *       log events that are returned for the specified container are merged from all nodes on your
  *       container service.</p>
- *
  *          <note>
  *             <p>Container logs are retained for a certain amount of time. For more information, see
  *           <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
- *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
+ *           endpoints and quotas</a> in the <i>Amazon Web Services General
+ *           Reference</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +62,15 @@ export class GetContainerLogCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetContainerLogCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +86,9 @@ export class GetContainerLogCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetContainerLogCommandInput, GetContainerLogCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetContainerLogCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

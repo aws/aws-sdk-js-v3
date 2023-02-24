@@ -171,8 +171,8 @@ export interface DescribeChangeSetRequest {
 }
 
 /**
- * <p>An entity contains data that describes your product, its supported features,
- *             and how it can be used or launched by your customer. </p>
+ * <p>An entity contains data that describes your product, its supported features, and how
+ *             it can be used or launched by your customer. </p>
  */
 export interface Entity {
   /**
@@ -284,9 +284,9 @@ export interface DescribeChangeSetResponse {
 
   /**
    * <p>Returned if the change set is in <code>FAILED</code> status. Can be either
-   *             <code>CLIENT_ERROR</code>, which means that there are issues with the request (see the
-   *             <code>ErrorDetailList</code>), or <code>SERVER_FAULT</code>, which means that there is a
-   *             problem in the system, and you should retry your request.</p>
+   *                 <code>CLIENT_ERROR</code>, which means that there are issues with the request (see
+   *             the <code>ErrorDetailList</code>), or <code>SERVER_FAULT</code>, which means that there
+   *             is a problem in the system, and you should retry your request.</p>
    */
   FailureCode?: FailureCode | string;
 
@@ -382,7 +382,6 @@ export interface Filter {
   /**
    * <p>
    *             <code>ListEntities</code> - This is a list of unique <code>EntityId</code>s.</p>
-   *
    *         <p>
    *             <code>ListChangeSets</code> - The supported filter names and associated
    *                 <code>ValueList</code>s is as follows:</p>
@@ -442,7 +441,6 @@ export interface Sort {
    * <p>For <code>ListEntities</code>, supported attributes include
    *                 <code>LastModifiedDate</code> (default), <code>Visibility</code>,
    *                 <code>EntityId</code>, and <code>Name</code>.</p>
-   *
    *         <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
    *             and <code>EndTime</code>.</p>
    */
@@ -533,9 +531,10 @@ export interface ChangeSetSummaryListItem {
 
   /**
    * <p>Returned if the change set is in <code>FAILED</code> status. Can be either
-   *             <code>CLIENT_ERROR</code>, which means that there are issues with the request (see the
-   *             <code>ErrorDetailList</code> of <code>DescribeChangeSet</code>), or <code>SERVER_FAULT</code>,
-   *         which means that there is a problem in the system, and you should retry your request.</p>
+   *                 <code>CLIENT_ERROR</code>, which means that there are issues with the request (see
+   *             the <code>ErrorDetailList</code> of <code>DescribeChangeSet</code>), or
+   *                 <code>SERVER_FAULT</code>, which means that there is a problem in the system, and
+   *             you should retry your request.</p>
    */
   FailureCode?: FailureCode | string;
 }
@@ -595,8 +594,7 @@ export interface ListEntitiesRequest {
  */
 export interface EntitySummary {
   /**
-   * <p>The name for the entity. This value is not unique. It is defined by the
-   *             seller.</p>
+   * <p>The name for the entity. This value is not unique. It is defined by the seller.</p>
    */
   Name?: string;
 
@@ -622,14 +620,10 @@ export interface EntitySummary {
   LastModifiedDate?: string;
 
   /**
-   * <p>The visibility status of the entity to
-   *             buyers.
-   *             This value can be <code>Public</code> (everyone can view the entity),
-   *                 <code>Limited</code> (the entity is visible to limited accounts only), or
-   *                 <code>Restricted</code> (the entity was published and then unpublished and only
-   *             existing
-   *             buyers
-   *             can view it). </p>
+   * <p>The visibility status of the entity to buyers. This value can be <code>Public</code>
+   *             (everyone can view the entity), <code>Limited</code> (the entity is visible to limited
+   *             accounts only), or <code>Restricted</code> (the entity was published and then
+   *             unpublished and only existing buyers can view it). </p>
    */
   Visibility?: string;
 }
@@ -644,6 +638,42 @@ export interface ListEntitiesResponse {
    * <p>The value of the next token if it exists. Null if there is no more result.</p>
    */
   NextToken?: string;
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to list
+   *             tags on.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * <p>A list of objects specifying each key name and value.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The key associated with the tag.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value associated with the tag.</p>
+   */
+  Value: string | undefined;
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>Required. The ARN associated with the resource you want to list tags on.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>Required. A list of objects specifying each key name and value. Number of objects
+   *             allowed: 1-50.</p>
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -685,6 +715,11 @@ export interface Change {
   Entity: Entity | undefined;
 
   /**
+   * <p>The tags associated with the change.</p>
+   */
+  EntityTags?: Tag[];
+
+  /**
    * <p>This object contains details specific to the change type of the requested
    *             change.</p>
    */
@@ -718,6 +753,12 @@ export interface StartChangeSetRequest {
    * <p>A unique token to identify the request to ensure idempotency.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>A list of objects specifying each key name and value for the
+   *                 <code>ChangeSetTags</code> property.</p>
+   */
+  ChangeSetTags?: Tag[];
 }
 
 export interface StartChangeSetResponse {
@@ -731,6 +772,38 @@ export interface StartChangeSetResponse {
    */
   ChangeSetArn?: string;
 }
+
+export interface TagResourceRequest {
+  /**
+   * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to
+   *             tag.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Required. A list of objects specifying each key name and value. Number of objects
+   *             allowed: 1-50.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export interface TagResourceResponse {}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to
+   *             remove the tag from.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Required. A list of key names of tags to be removed. Number of strings allowed:
+   *             0-256.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export interface UntagResourceResponse {}
 
 /**
  * @internal
@@ -854,6 +927,27 @@ export const ListEntitiesResponseFilterSensitiveLog = (obj: ListEntitiesResponse
 /**
  * @internal
  */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ChangeFilterSensitiveLog = (obj: Change): any => ({
   ...obj,
 });
@@ -869,5 +963,33 @@ export const StartChangeSetRequestFilterSensitiveLog = (obj: StartChangeSetReque
  * @internal
  */
 export const StartChangeSetResponseFilterSensitiveLog = (obj: StartChangeSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
   ...obj,
 });

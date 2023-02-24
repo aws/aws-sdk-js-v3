@@ -118,6 +118,10 @@ import {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
 } from "../commands/GetProvisionedConcurrencyConfigCommand";
+import {
+  GetRuntimeManagementConfigCommandInput,
+  GetRuntimeManagementConfigCommandOutput,
+} from "../commands/GetRuntimeManagementConfigCommand";
 import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "../commands/InvokeAsyncCommand";
 import { InvokeCommandInput, InvokeCommandOutput } from "../commands/InvokeCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
@@ -175,6 +179,10 @@ import {
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "../commands/PutProvisionedConcurrencyConfigCommand";
 import {
+  PutRuntimeManagementConfigCommandInput,
+  PutRuntimeManagementConfigCommandOutput,
+} from "../commands/PutRuntimeManagementConfigCommand";
+import {
   RemoveLayerVersionPermissionCommandInput,
   RemoveLayerVersionPermissionCommandOutput,
 } from "../commands/RemoveLayerVersionPermissionCommand";
@@ -210,6 +218,7 @@ import {
   AliasConfiguration,
   AliasRoutingConfiguration,
   AllowedPublishers,
+  AmazonManagedKafkaEventSourceConfig,
   Architecture,
   CodeSigningConfig,
   CodeSigningConfigNotFoundException,
@@ -274,8 +283,17 @@ import {
   ResourceNotFoundException,
   ResourceNotReadyException,
   Runtime,
+  RuntimeVersionConfig,
+  RuntimeVersionError,
+  ScalingConfig,
   SelfManagedEventSource,
+  SelfManagedKafkaEventSourceConfig,
   ServiceException,
+  SnapStart,
+  SnapStartException,
+  SnapStartNotReadyException,
+  SnapStartResponse,
+  SnapStartTimeoutException,
   SourceAccessConfiguration,
   SubnetIPAddressLimitReachedException,
   TooManyRequestsException,
@@ -456,6 +474,12 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings";
   let body: any;
   body = JSON.stringify({
+    ...(input.AmazonManagedKafkaEventSourceConfig != null && {
+      AmazonManagedKafkaEventSourceConfig: serializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+        input.AmazonManagedKafkaEventSourceConfig,
+        context
+      ),
+    }),
     ...(input.BatchSize != null && { BatchSize: input.BatchSize }),
     ...(input.BisectBatchOnFunctionError != null && { BisectBatchOnFunctionError: input.BisectBatchOnFunctionError }),
     ...(input.DestinationConfig != null && {
@@ -477,8 +501,17 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     ...(input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
     ...(input.ParallelizationFactor != null && { ParallelizationFactor: input.ParallelizationFactor }),
     ...(input.Queues != null && { Queues: serializeAws_restJson1Queues(input.Queues, context) }),
+    ...(input.ScalingConfig != null && {
+      ScalingConfig: serializeAws_restJson1ScalingConfig(input.ScalingConfig, context),
+    }),
     ...(input.SelfManagedEventSource != null && {
       SelfManagedEventSource: serializeAws_restJson1SelfManagedEventSource(input.SelfManagedEventSource, context),
+    }),
+    ...(input.SelfManagedKafkaEventSourceConfig != null && {
+      SelfManagedKafkaEventSourceConfig: serializeAws_restJson1SelfManagedKafkaEventSourceConfig(
+        input.SelfManagedKafkaEventSourceConfig,
+        context
+      ),
     }),
     ...(input.SourceAccessConfigurations != null && {
       SourceAccessConfigurations: serializeAws_restJson1SourceAccessConfigurations(
@@ -541,6 +574,7 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
     ...(input.Publish != null && { Publish: input.Publish }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.Runtime != null && { Runtime: input.Runtime }),
+    ...(input.SnapStart != null && { SnapStart: serializeAws_restJson1SnapStart(input.SnapStart, context) }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
     ...(input.Timeout != null && { Timeout: input.Timeout }),
     ...(input.TracingConfig != null && {
@@ -880,7 +914,7 @@ export const serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand = a
     false
   );
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    Qualifier: [, __expectNonNull(input.Qualifier!, `Qualifier`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1225,7 +1259,7 @@ export const serializeAws_restJson1GetLayerVersionByArnCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers";
   const query: any = map({
     find: [, "LayerVersion"],
-    Arn: [, input.Arn!],
+    Arn: [, __expectNonNull(input.Arn!, `Arn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1312,6 +1346,39 @@ export const serializeAws_restJson1GetProvisionedConcurrencyConfigCommand = asyn
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "FunctionName",
+    () => input.FunctionName!,
+    "{FunctionName}",
+    false
+  );
+  const query: any = map({
+    Qualifier: [, __expectNonNull(input.Qualifier!, `Qualifier`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetRuntimeManagementConfigCommand = async (
+  input: GetRuntimeManagementConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-07-20/functions/{FunctionName}/runtime-management-config";
   resolvedPath = __resolvedPath(
     resolvedPath,
     input,
@@ -1971,13 +2038,52 @@ export const serializeAws_restJson1PutProvisionedConcurrencyConfigCommand = asyn
     false
   );
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    Qualifier: [, __expectNonNull(input.Qualifier!, `Qualifier`)],
   });
   let body: any;
   body = JSON.stringify({
     ...(input.ProvisionedConcurrentExecutions != null && {
       ProvisionedConcurrentExecutions: input.ProvisionedConcurrentExecutions,
     }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutRuntimeManagementConfigCommand = async (
+  input: PutRuntimeManagementConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-07-20/functions/{FunctionName}/runtime-management-config";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "FunctionName",
+    () => input.FunctionName!,
+    "{FunctionName}",
+    false
+  );
+  const query: any = map({
+    Qualifier: [, input.Qualifier!],
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.RuntimeVersionArn != null && { RuntimeVersionArn: input.RuntimeVersionArn }),
+    ...(input.UpdateRuntimeOn != null && { UpdateRuntimeOn: input.UpdateRuntimeOn }),
   });
   return new __HttpRequest({
     protocol,
@@ -2097,7 +2203,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Resource", () => input.Resource!, "{Resource}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -2224,6 +2333,9 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
     ...(input.MaximumRecordAgeInSeconds != null && { MaximumRecordAgeInSeconds: input.MaximumRecordAgeInSeconds }),
     ...(input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
     ...(input.ParallelizationFactor != null && { ParallelizationFactor: input.ParallelizationFactor }),
+    ...(input.ScalingConfig != null && {
+      ScalingConfig: serializeAws_restJson1ScalingConfig(input.ScalingConfig, context),
+    }),
     ...(input.SourceAccessConfigurations != null && {
       SourceAccessConfigurations: serializeAws_restJson1SourceAccessConfigurations(
         input.SourceAccessConfigurations,
@@ -2326,6 +2438,7 @@ export const serializeAws_restJson1UpdateFunctionConfigurationCommand = async (
     ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.Runtime != null && { Runtime: input.Runtime }),
+    ...(input.SnapStart != null && { SnapStart: serializeAws_restJson1SnapStart(input.SnapStart, context) }),
     ...(input.Timeout != null && { Timeout: input.Timeout }),
     ...(input.TracingConfig != null && {
       TracingConfig: serializeAws_restJson1TracingConfig(input.TracingConfig, context),
@@ -2449,7 +2562,7 @@ const deserializeAws_restJson1AddLayerVersionPermissionCommandError = async (
 ): Promise<AddLayerVersionPermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2508,7 +2621,7 @@ const deserializeAws_restJson1AddPermissionCommandError = async (
 ): Promise<AddPermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2582,7 +2695,7 @@ const deserializeAws_restJson1CreateAliasCommandError = async (
 ): Promise<CreateAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2635,7 +2748,7 @@ const deserializeAws_restJson1CreateCodeSigningConfigCommandError = async (
 ): Promise<CreateCodeSigningConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2667,6 +2780,12 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AmazonManagedKafkaEventSourceConfig != null) {
+    contents.AmazonManagedKafkaEventSourceConfig = deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+      data.AmazonManagedKafkaEventSourceConfig,
+      context
+    );
+  }
   if (data.BatchSize != null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -2712,9 +2831,18 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   if (data.Queues != null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
   }
+  if (data.ScalingConfig != null) {
+    contents.ScalingConfig = deserializeAws_restJson1ScalingConfig(data.ScalingConfig, context);
+  }
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
       data.SelfManagedEventSource,
+      context
+    );
+  }
+  if (data.SelfManagedKafkaEventSourceConfig != null) {
+    contents.SelfManagedKafkaEventSourceConfig = deserializeAws_restJson1SelfManagedKafkaEventSourceConfig(
+      data.SelfManagedKafkaEventSourceConfig,
       context
     );
   }
@@ -2756,7 +2884,7 @@ const deserializeAws_restJson1CreateEventSourceMappingCommandError = async (
 ): Promise<CreateEventSourceMappingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2869,11 +2997,17 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   if (data.Runtime != null) {
     contents.Runtime = __expectString(data.Runtime);
   }
+  if (data.RuntimeVersionConfig != null) {
+    contents.RuntimeVersionConfig = deserializeAws_restJson1RuntimeVersionConfig(data.RuntimeVersionConfig, context);
+  }
   if (data.SigningJobArn != null) {
     contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
   if (data.SigningProfileVersionArn != null) {
     contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
+  }
+  if (data.SnapStart != null) {
+    contents.SnapStart = deserializeAws_restJson1SnapStartResponse(data.SnapStart, context);
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -2905,7 +3039,7 @@ const deserializeAws_restJson1CreateFunctionCommandError = async (
 ): Promise<CreateFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2982,7 +3116,7 @@ const deserializeAws_restJson1CreateFunctionUrlConfigCommandError = async (
 ): Promise<CreateFunctionUrlConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3032,7 +3166,7 @@ const deserializeAws_restJson1DeleteAliasCommandError = async (
 ): Promise<DeleteAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3079,7 +3213,7 @@ const deserializeAws_restJson1DeleteCodeSigningConfigCommandError = async (
 ): Promise<DeleteCodeSigningConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3117,6 +3251,12 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AmazonManagedKafkaEventSourceConfig != null) {
+    contents.AmazonManagedKafkaEventSourceConfig = deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+      data.AmazonManagedKafkaEventSourceConfig,
+      context
+    );
+  }
   if (data.BatchSize != null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -3162,9 +3302,18 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   if (data.Queues != null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
   }
+  if (data.ScalingConfig != null) {
+    contents.ScalingConfig = deserializeAws_restJson1ScalingConfig(data.ScalingConfig, context);
+  }
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
       data.SelfManagedEventSource,
+      context
+    );
+  }
+  if (data.SelfManagedKafkaEventSourceConfig != null) {
+    contents.SelfManagedKafkaEventSourceConfig = deserializeAws_restJson1SelfManagedKafkaEventSourceConfig(
+      data.SelfManagedKafkaEventSourceConfig,
       context
     );
   }
@@ -3206,7 +3355,7 @@ const deserializeAws_restJson1DeleteEventSourceMappingCommandError = async (
 ): Promise<DeleteEventSourceMappingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3256,7 +3405,7 @@ const deserializeAws_restJson1DeleteFunctionCommandError = async (
 ): Promise<DeleteFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3306,7 +3455,7 @@ const deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommandError = asyn
 ): Promise<DeleteFunctionCodeSigningConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3359,7 +3508,7 @@ const deserializeAws_restJson1DeleteFunctionConcurrencyCommandError = async (
 ): Promise<DeleteFunctionConcurrencyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3409,7 +3558,7 @@ const deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommandError = asyn
 ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3459,7 +3608,7 @@ const deserializeAws_restJson1DeleteFunctionUrlConfigCommandError = async (
 ): Promise<DeleteFunctionUrlConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3506,7 +3655,7 @@ const deserializeAws_restJson1DeleteLayerVersionCommandError = async (
 ): Promise<DeleteLayerVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3547,7 +3696,7 @@ const deserializeAws_restJson1DeleteProvisionedConcurrencyConfigCommandError = a
 ): Promise<DeleteProvisionedConcurrencyConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3603,7 +3752,7 @@ const deserializeAws_restJson1GetAccountSettingsCommandError = async (
 ): Promise<GetAccountSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3662,7 +3811,7 @@ const deserializeAws_restJson1GetAliasCommandError = async (
 ): Promise<GetAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3712,7 +3861,7 @@ const deserializeAws_restJson1GetCodeSigningConfigCommandError = async (
 ): Promise<GetCodeSigningConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3747,6 +3896,12 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AmazonManagedKafkaEventSourceConfig != null) {
+    contents.AmazonManagedKafkaEventSourceConfig = deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+      data.AmazonManagedKafkaEventSourceConfig,
+      context
+    );
+  }
   if (data.BatchSize != null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -3792,9 +3947,18 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   if (data.Queues != null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
   }
+  if (data.ScalingConfig != null) {
+    contents.ScalingConfig = deserializeAws_restJson1ScalingConfig(data.ScalingConfig, context);
+  }
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
       data.SelfManagedEventSource,
+      context
+    );
+  }
+  if (data.SelfManagedKafkaEventSourceConfig != null) {
+    contents.SelfManagedKafkaEventSourceConfig = deserializeAws_restJson1SelfManagedKafkaEventSourceConfig(
+      data.SelfManagedKafkaEventSourceConfig,
       context
     );
   }
@@ -3836,7 +4000,7 @@ const deserializeAws_restJson1GetEventSourceMappingCommandError = async (
 ): Promise<GetEventSourceMappingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3895,7 +4059,7 @@ const deserializeAws_restJson1GetFunctionCommandError = async (
 ): Promise<GetFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3948,7 +4112,7 @@ const deserializeAws_restJson1GetFunctionCodeSigningConfigCommandError = async (
 ): Promise<GetFunctionCodeSigningConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3998,7 +4162,7 @@ const deserializeAws_restJson1GetFunctionConcurrencyCommandError = async (
 ): Promise<GetFunctionConcurrencyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4108,11 +4272,17 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   if (data.Runtime != null) {
     contents.Runtime = __expectString(data.Runtime);
   }
+  if (data.RuntimeVersionConfig != null) {
+    contents.RuntimeVersionConfig = deserializeAws_restJson1RuntimeVersionConfig(data.RuntimeVersionConfig, context);
+  }
   if (data.SigningJobArn != null) {
     contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
   if (data.SigningProfileVersionArn != null) {
     contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
+  }
+  if (data.SnapStart != null) {
+    contents.SnapStart = deserializeAws_restJson1SnapStartResponse(data.SnapStart, context);
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -4144,7 +4314,7 @@ const deserializeAws_restJson1GetFunctionConfigurationCommandError = async (
 ): Promise<GetFunctionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4206,7 +4376,7 @@ const deserializeAws_restJson1GetFunctionEventInvokeConfigCommandError = async (
 ): Promise<GetFunctionEventInvokeConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4271,7 +4441,7 @@ const deserializeAws_restJson1GetFunctionUrlConfigCommandError = async (
 ): Promise<GetFunctionUrlConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4348,7 +4518,7 @@ const deserializeAws_restJson1GetLayerVersionCommandError = async (
 ): Promise<GetLayerVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4425,7 +4595,7 @@ const deserializeAws_restJson1GetLayerVersionByArnCommandError = async (
 ): Promise<GetLayerVersionByArnCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4478,7 +4648,7 @@ const deserializeAws_restJson1GetLayerVersionPolicyCommandError = async (
 ): Promise<GetLayerVersionPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4531,7 +4701,7 @@ const deserializeAws_restJson1GetPolicyCommandError = async (
 ): Promise<GetPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4596,7 +4766,7 @@ const deserializeAws_restJson1GetProvisionedConcurrencyConfigCommandError = asyn
 ): Promise<GetProvisionedConcurrencyConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4606,6 +4776,59 @@ const deserializeAws_restJson1GetProvisionedConcurrencyConfigCommandError = asyn
     case "ProvisionedConcurrencyConfigNotFoundException":
     case "com.amazonaws.lambda#ProvisionedConcurrencyConfigNotFoundException":
       throw await deserializeAws_restJson1ProvisionedConcurrencyConfigNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetRuntimeManagementConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRuntimeManagementConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetRuntimeManagementConfigCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RuntimeVersionArn != null) {
+    contents.RuntimeVersionArn = __expectString(data.RuntimeVersionArn);
+  }
+  if (data.UpdateRuntimeOn != null) {
+    contents.UpdateRuntimeOn = __expectString(data.UpdateRuntimeOn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetRuntimeManagementConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRuntimeManagementConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lambda#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -4653,7 +4876,7 @@ const deserializeAws_restJson1InvokeCommandError = async (
 ): Promise<InvokeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4726,6 +4949,15 @@ const deserializeAws_restJson1InvokeCommandError = async (
     case "ServiceException":
     case "com.amazonaws.lambda#ServiceException":
       throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "SnapStartException":
+    case "com.amazonaws.lambda#SnapStartException":
+      throw await deserializeAws_restJson1SnapStartExceptionResponse(parsedOutput, context);
+    case "SnapStartNotReadyException":
+    case "com.amazonaws.lambda#SnapStartNotReadyException":
+      throw await deserializeAws_restJson1SnapStartNotReadyExceptionResponse(parsedOutput, context);
+    case "SnapStartTimeoutException":
+    case "com.amazonaws.lambda#SnapStartTimeoutException":
+      throw await deserializeAws_restJson1SnapStartTimeoutExceptionResponse(parsedOutput, context);
     case "SubnetIPAddressLimitReachedException":
     case "com.amazonaws.lambda#SubnetIPAddressLimitReachedException":
       throw await deserializeAws_restJson1SubnetIPAddressLimitReachedExceptionResponse(parsedOutput, context);
@@ -4769,7 +5001,7 @@ const deserializeAws_restJson1InvokeAsyncCommandError = async (
 ): Promise<InvokeAsyncCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4825,7 +5057,7 @@ const deserializeAws_restJson1ListAliasesCommandError = async (
 ): Promise<ListAliasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4878,7 +5110,7 @@ const deserializeAws_restJson1ListCodeSigningConfigsCommandError = async (
 ): Promise<ListCodeSigningConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4925,7 +5157,7 @@ const deserializeAws_restJson1ListEventSourceMappingsCommandError = async (
 ): Promise<ListEventSourceMappingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4981,7 +5213,7 @@ const deserializeAws_restJson1ListFunctionEventInvokeConfigsCommandError = async
 ): Promise<ListFunctionEventInvokeConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5034,7 +5266,7 @@ const deserializeAws_restJson1ListFunctionsCommandError = async (
 ): Promise<ListFunctionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5084,7 +5316,7 @@ const deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommandError = asy
 ): Promise<ListFunctionsByCodeSigningConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5134,7 +5366,7 @@ const deserializeAws_restJson1ListFunctionUrlConfigsCommandError = async (
 ): Promise<ListFunctionUrlConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5187,7 +5419,7 @@ const deserializeAws_restJson1ListLayersCommandError = async (
 ): Promise<ListLayersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5237,7 +5469,7 @@ const deserializeAws_restJson1ListLayerVersionsCommandError = async (
 ): Promise<ListLayerVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5293,7 +5525,7 @@ const deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommandError = as
 ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5343,7 +5575,7 @@ const deserializeAws_restJson1ListTagsCommandError = async (
 ): Promise<ListTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5396,7 +5628,7 @@ const deserializeAws_restJson1ListVersionsByFunctionCommandError = async (
 ): Promise<ListVersionsByFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5473,7 +5705,7 @@ const deserializeAws_restJson1PublishLayerVersionCommandError = async (
 ): Promise<PublishLayerVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5586,11 +5818,17 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   if (data.Runtime != null) {
     contents.Runtime = __expectString(data.Runtime);
   }
+  if (data.RuntimeVersionConfig != null) {
+    contents.RuntimeVersionConfig = deserializeAws_restJson1RuntimeVersionConfig(data.RuntimeVersionConfig, context);
+  }
   if (data.SigningJobArn != null) {
     contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
   if (data.SigningProfileVersionArn != null) {
     contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
+  }
+  if (data.SnapStart != null) {
+    contents.SnapStart = deserializeAws_restJson1SnapStartResponse(data.SnapStart, context);
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -5622,7 +5860,7 @@ const deserializeAws_restJson1PublishVersionCommandError = async (
 ): Promise<PublishVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5684,7 +5922,7 @@ const deserializeAws_restJson1PutFunctionCodeSigningConfigCommandError = async (
 ): Promise<PutFunctionCodeSigningConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5740,7 +5978,7 @@ const deserializeAws_restJson1PutFunctionConcurrencyCommandError = async (
 ): Promise<PutFunctionConcurrencyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5805,7 +6043,7 @@ const deserializeAws_restJson1PutFunctionEventInvokeConfigCommandError = async (
 ): Promise<PutFunctionEventInvokeConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5873,7 +6111,66 @@ const deserializeAws_restJson1PutProvisionedConcurrencyConfigCommandError = asyn
 ): Promise<PutProvisionedConcurrencyConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PutRuntimeManagementConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRuntimeManagementConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutRuntimeManagementConfigCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.FunctionArn != null) {
+    contents.FunctionArn = __expectString(data.FunctionArn);
+  }
+  if (data.RuntimeVersionArn != null) {
+    contents.RuntimeVersionArn = __expectString(data.RuntimeVersionArn);
+  }
+  if (data.UpdateRuntimeOn != null) {
+    contents.UpdateRuntimeOn = __expectString(data.UpdateRuntimeOn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PutRuntimeManagementConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRuntimeManagementConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5923,7 +6220,7 @@ const deserializeAws_restJson1RemoveLayerVersionPermissionCommandError = async (
 ): Promise<RemoveLayerVersionPermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5973,7 +6270,7 @@ const deserializeAws_restJson1RemovePermissionCommandError = async (
 ): Promise<RemovePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6023,7 +6320,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6073,7 +6370,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6141,7 +6438,7 @@ const deserializeAws_restJson1UpdateAliasCommandError = async (
 ): Promise<UpdateAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6197,7 +6494,7 @@ const deserializeAws_restJson1UpdateCodeSigningConfigCommandError = async (
 ): Promise<UpdateCodeSigningConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6232,6 +6529,12 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AmazonManagedKafkaEventSourceConfig != null) {
+    contents.AmazonManagedKafkaEventSourceConfig = deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+      data.AmazonManagedKafkaEventSourceConfig,
+      context
+    );
+  }
   if (data.BatchSize != null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -6277,9 +6580,18 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   if (data.Queues != null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
   }
+  if (data.ScalingConfig != null) {
+    contents.ScalingConfig = deserializeAws_restJson1ScalingConfig(data.ScalingConfig, context);
+  }
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
       data.SelfManagedEventSource,
+      context
+    );
+  }
+  if (data.SelfManagedKafkaEventSourceConfig != null) {
+    contents.SelfManagedKafkaEventSourceConfig = deserializeAws_restJson1SelfManagedKafkaEventSourceConfig(
+      data.SelfManagedKafkaEventSourceConfig,
       context
     );
   }
@@ -6321,7 +6633,7 @@ const deserializeAws_restJson1UpdateEventSourceMappingCommandError = async (
 ): Promise<UpdateEventSourceMappingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6437,11 +6749,17 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   if (data.Runtime != null) {
     contents.Runtime = __expectString(data.Runtime);
   }
+  if (data.RuntimeVersionConfig != null) {
+    contents.RuntimeVersionConfig = deserializeAws_restJson1RuntimeVersionConfig(data.RuntimeVersionConfig, context);
+  }
   if (data.SigningJobArn != null) {
     contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
   if (data.SigningProfileVersionArn != null) {
     contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
+  }
+  if (data.SnapStart != null) {
+    contents.SnapStart = deserializeAws_restJson1SnapStartResponse(data.SnapStart, context);
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -6473,7 +6791,7 @@ const deserializeAws_restJson1UpdateFunctionCodeCommandError = async (
 ): Promise<UpdateFunctionCodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6601,11 +6919,17 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   if (data.Runtime != null) {
     contents.Runtime = __expectString(data.Runtime);
   }
+  if (data.RuntimeVersionConfig != null) {
+    contents.RuntimeVersionConfig = deserializeAws_restJson1RuntimeVersionConfig(data.RuntimeVersionConfig, context);
+  }
   if (data.SigningJobArn != null) {
     contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
   if (data.SigningProfileVersionArn != null) {
     contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
+  }
+  if (data.SnapStart != null) {
+    contents.SnapStart = deserializeAws_restJson1SnapStartResponse(data.SnapStart, context);
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -6637,7 +6961,7 @@ const deserializeAws_restJson1UpdateFunctionConfigurationCommandError = async (
 ): Promise<UpdateFunctionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6714,7 +7038,7 @@ const deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommandError = asyn
 ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6782,7 +7106,7 @@ const deserializeAws_restJson1UpdateFunctionUrlConfigCommandError = async (
 ): Promise<UpdateFunctionUrlConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7405,6 +7729,63 @@ const deserializeAws_restJson1ServiceExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1SnapStartExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SnapStartException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.Type != null) {
+    contents.Type = __expectString(data.Type);
+  }
+  const exception = new SnapStartException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1SnapStartNotReadyExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SnapStartNotReadyException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.Type != null) {
+    contents.Type = __expectString(data.Type);
+  }
+  const exception = new SnapStartNotReadyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1SnapStartTimeoutExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SnapStartTimeoutException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.Type != null) {
+    contents.Type = __expectString(data.Type);
+  }
+  const exception = new SnapStartTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1SubnetIPAddressLimitReachedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -7475,10 +7856,8 @@ const serializeAws_restJson1AdditionalVersionWeights = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __serializeFloat(value),
-    };
+    acc[key] = __serializeFloat(value);
+    return acc;
   }, {});
 };
 
@@ -7518,6 +7897,15 @@ const serializeAws_restJson1AllowOriginsList = (input: string[], context: __Serd
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1AmazonManagedKafkaEventSourceConfig = (
+  input: AmazonManagedKafkaEventSourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConsumerGroupId != null && { ConsumerGroupId: input.ConsumerGroupId }),
+  };
 };
 
 const serializeAws_restJson1ArchitecturesList = (input: (Architecture | string)[], context: __SerdeContext): any => {
@@ -7598,10 +7986,8 @@ const serializeAws_restJson1Endpoints = (input: Record<string, string[]>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1EndpointLists(value, context),
-    };
+    acc[key] = serializeAws_restJson1EndpointLists(value, context);
+    return acc;
   }, {});
 };
 
@@ -7616,10 +8002,8 @@ const serializeAws_restJson1EnvironmentVariables = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7741,6 +8125,12 @@ const serializeAws_restJson1Queues = (input: string[], context: __SerdeContext):
     });
 };
 
+const serializeAws_restJson1ScalingConfig = (input: ScalingConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.MaximumConcurrency != null && { MaximumConcurrency: input.MaximumConcurrency }),
+  };
+};
+
 const serializeAws_restJson1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7755,12 +8145,27 @@ const serializeAws_restJson1SelfManagedEventSource = (input: SelfManagedEventSou
   };
 };
 
+const serializeAws_restJson1SelfManagedKafkaEventSourceConfig = (
+  input: SelfManagedKafkaEventSourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConsumerGroupId != null && { ConsumerGroupId: input.ConsumerGroupId }),
+  };
+};
+
 const serializeAws_restJson1SigningProfileVersionArns = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1SnapStart = (input: SnapStart, context: __SerdeContext): any => {
+  return {
+    ...(input.ApplyOn != null && { ApplyOn: input.ApplyOn }),
+  };
 };
 
 const serializeAws_restJson1SourceAccessConfiguration = (
@@ -7805,10 +8210,8 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7860,10 +8263,8 @@ const deserializeAws_restJson1AdditionalVersionWeights = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __limitedParseDouble(value) as any,
-    };
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7936,6 +8337,15 @@ const deserializeAws_restJson1AllowOriginsList = (output: any, context: __SerdeC
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig = (
+  output: any,
+  context: __SerdeContext
+): AmazonManagedKafkaEventSourceConfig => {
+  return {
+    ConsumerGroupId: __expectString(output.ConsumerGroupId),
+  } as any;
 };
 
 const deserializeAws_restJson1ArchitecturesList = (output: any, context: __SerdeContext): (Architecture | string)[] => {
@@ -8063,10 +8473,8 @@ const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1EndpointLists(value, context),
-    };
+    acc[key] = deserializeAws_restJson1EndpointLists(value, context);
+    return acc;
   }, {});
 };
 
@@ -8090,10 +8498,8 @@ const deserializeAws_restJson1EnvironmentVariables = (output: any, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8108,6 +8514,13 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
   context: __SerdeContext
 ): EventSourceMappingConfiguration => {
   return {
+    AmazonManagedKafkaEventSourceConfig:
+      output.AmazonManagedKafkaEventSourceConfig != null
+        ? deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+            output.AmazonManagedKafkaEventSourceConfig,
+            context
+          )
+        : undefined,
     BatchSize: __expectInt32(output.BatchSize),
     BisectBatchOnFunctionError: __expectBoolean(output.BisectBatchOnFunctionError),
     DestinationConfig:
@@ -8134,9 +8547,15 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
     MaximumRetryAttempts: __expectInt32(output.MaximumRetryAttempts),
     ParallelizationFactor: __expectInt32(output.ParallelizationFactor),
     Queues: output.Queues != null ? deserializeAws_restJson1Queues(output.Queues, context) : undefined,
+    ScalingConfig:
+      output.ScalingConfig != null ? deserializeAws_restJson1ScalingConfig(output.ScalingConfig, context) : undefined,
     SelfManagedEventSource:
       output.SelfManagedEventSource != null
         ? deserializeAws_restJson1SelfManagedEventSource(output.SelfManagedEventSource, context)
+        : undefined,
+    SelfManagedKafkaEventSourceConfig:
+      output.SelfManagedKafkaEventSourceConfig != null
+        ? deserializeAws_restJson1SelfManagedKafkaEventSourceConfig(output.SelfManagedKafkaEventSourceConfig, context)
         : undefined,
     SourceAccessConfigurations:
       output.SourceAccessConfigurations != null
@@ -8276,8 +8695,14 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
     RevisionId: __expectString(output.RevisionId),
     Role: __expectString(output.Role),
     Runtime: __expectString(output.Runtime),
+    RuntimeVersionConfig:
+      output.RuntimeVersionConfig != null
+        ? deserializeAws_restJson1RuntimeVersionConfig(output.RuntimeVersionConfig, context)
+        : undefined,
     SigningJobArn: __expectString(output.SigningJobArn),
     SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
+    SnapStart:
+      output.SnapStart != null ? deserializeAws_restJson1SnapStartResponse(output.SnapStart, context) : undefined,
     State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
     StateReasonCode: __expectString(output.StateReasonCode),
@@ -8552,6 +8977,26 @@ const deserializeAws_restJson1Queues = (output: any, context: __SerdeContext): s
   return retVal;
 };
 
+const deserializeAws_restJson1RuntimeVersionConfig = (output: any, context: __SerdeContext): RuntimeVersionConfig => {
+  return {
+    Error: output.Error != null ? deserializeAws_restJson1RuntimeVersionError(output.Error, context) : undefined,
+    RuntimeVersionArn: __expectString(output.RuntimeVersionArn),
+  } as any;
+};
+
+const deserializeAws_restJson1RuntimeVersionError = (output: any, context: __SerdeContext): RuntimeVersionError => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_restJson1ScalingConfig = (output: any, context: __SerdeContext): ScalingConfig => {
+  return {
+    MaximumConcurrency: __expectInt32(output.MaximumConcurrency),
+  } as any;
+};
+
 const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -8573,6 +9018,15 @@ const deserializeAws_restJson1SelfManagedEventSource = (
   } as any;
 };
 
+const deserializeAws_restJson1SelfManagedKafkaEventSourceConfig = (
+  output: any,
+  context: __SerdeContext
+): SelfManagedKafkaEventSourceConfig => {
+  return {
+    ConsumerGroupId: __expectString(output.ConsumerGroupId),
+  } as any;
+};
+
 const deserializeAws_restJson1SigningProfileVersionArns = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -8583,6 +9037,13 @@ const deserializeAws_restJson1SigningProfileVersionArns = (output: any, context:
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1SnapStartResponse = (output: any, context: __SerdeContext): SnapStartResponse => {
+  return {
+    ApplyOn: __expectString(output.ApplyOn),
+    OptimizationStatus: __expectString(output.OptimizationStatus),
+  } as any;
 };
 
 const deserializeAws_restJson1SourceAccessConfiguration = (
@@ -8639,10 +9100,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8677,7 +9136,8 @@ const deserializeAws_restJson1VpcConfigResponse = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -8709,6 +9169,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -8719,6 +9185,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

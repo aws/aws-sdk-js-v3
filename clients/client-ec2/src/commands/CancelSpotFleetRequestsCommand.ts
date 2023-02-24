@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
 
 /**
  * <p>Cancels the specified Spot Fleet requests.</p>
- *         <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
+ *          <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
  *             You must specify whether the Spot Fleet should also terminate its Spot Instances. If you
  *             terminate the instances, the Spot Fleet request enters the
  *                 <code>cancelled_terminating</code> state. Otherwise, the Spot Fleet request enters
@@ -58,6 +59,15 @@ export class CancelSpotFleetRequestsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CancelSpotFleetRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class CancelSpotFleetRequestsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelSpotFleetRequestsCommandInput, CancelSpotFleetRequestsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CancelSpotFleetRequestsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

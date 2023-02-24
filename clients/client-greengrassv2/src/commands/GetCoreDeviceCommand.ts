@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -50,6 +51,10 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval
  *             that you can configure</a>, which defaults to 24 hours</p>
  *                </li>
+ *                <li>
+ *                   <p>For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and
+ *             cloud deployment</p>
+ *                </li>
  *             </ul>
  *          </note>
  * @example
@@ -75,6 +80,15 @@ export class GetCoreDeviceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetCoreDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,6 +104,7 @@ export class GetCoreDeviceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetCoreDeviceCommandInput, GetCoreDeviceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetCoreDeviceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

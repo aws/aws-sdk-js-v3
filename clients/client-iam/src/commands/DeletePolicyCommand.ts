@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -21,29 +22,29 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified managed policy.</p>
- *         <p>Before you can delete a managed policy, you must first detach the policy from all
+ *          <p>Before you can delete a managed policy, you must first detach the policy from all
  *             users, groups, and roles that it is attached to. In addition, you must delete all the
  *             policy's versions. The following steps describe the process for deleting a managed
  *             policy:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Detach the policy from all users, groups, and roles that the policy is
+ *                <p>Detach the policy from all users, groups, and roles that the policy is
  *                     attached to, using <a>DetachUserPolicy</a>, <a>DetachGroupPolicy</a>, or <a>DetachRolePolicy</a>. To
  *                     list all the users, groups, and roles that a policy is attached to, use <a>ListEntitiesForPolicy</a>.</p>
  *             </li>
  *             <li>
- *                 <p>Delete all versions of the policy using <a>DeletePolicyVersion</a>.
+ *                <p>Delete all versions of the policy using <a>DeletePolicyVersion</a>.
  *                     To list the policy's versions, use <a>ListPolicyVersions</a>. You
  *                     cannot use <a>DeletePolicyVersion</a> to delete the version that is
  *                     marked as the default version. You delete the policy's default version in the
  *                     next step of the process.</p>
  *             </li>
  *             <li>
- *                 <p>Delete the policy (this automatically deletes the policy's default version)
+ *                <p>Delete the policy (this automatically deletes the policy's default version)
  *                     using this operation.</p>
  *             </li>
  *          </ul>
- *         <p>For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *          <p>For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +69,15 @@ export class DeletePolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeletePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +93,7 @@ export class DeletePolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeletePolicyCommandInput, DeletePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeletePolicyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

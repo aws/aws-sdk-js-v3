@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   DisassociateClientVpnTargetNetworkRequestFilterSensitiveLog,
   DisassociateClientVpnTargetNetworkResult,
   DisassociateClientVpnTargetNetworkResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateClientVpnTargetNetworkCommand,
   serializeAws_ec2DisassociateClientVpnTargetNetworkCommand,
@@ -32,20 +33,20 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
 /**
  * <p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the
  * 			last target network from a Client VPN, the following happens:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>The route that was automatically added for the VPC is deleted</p>
- * 			         </li>
+ *                <p>The route that was automatically added for the VPC is deleted</p>
+ *             </li>
  *             <li>
- * 				           <p>All active client connections are terminated</p>
- * 			         </li>
+ *                <p>All active client connections are terminated</p>
+ *             </li>
  *             <li>
- * 				           <p>New client connections are disallowed</p>
- * 			         </li>
+ *                <p>New client connections are disallowed</p>
+ *             </li>
  *             <li>
- * 				           <p>The Client VPN endpoint's status changes to <code>pending-associate</code>
+ *                <p>The Client VPN endpoint's status changes to <code>pending-associate</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +71,15 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisassociateClientVpnTargetNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +95,9 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateClientVpnTargetNetworkCommandInput, DisassociateClientVpnTargetNetworkCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateClientVpnTargetNetworkCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,14 +33,11 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
 /**
  * <p>Starts the active learning workflow for your machine learning transform to improve the
  *       transform's quality by generating label sets and adding labels.</p>
- *
- * 	        <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
+ *          <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
  *       generated a "labeling set" or a set of questions for humans to answer.</p>
- *
  *          <p>In the case of the <code>FindMatches</code> transform, these questions are of the form,
  *       “What is the correct way to group these rows together into groups composed entirely of
  *       matching records?” </p>
- *
  *          <p>After the labeling process is finished, you can upload your labels with a call to
  *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
  *       all future runs of the machine learning transform will use the new and improved labels and
@@ -67,6 +65,15 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartMLLabelingSetGenerationTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +89,9 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartMLLabelingSetGenerationTaskRunCommandInput, StartMLLabelingSetGenerationTaskRunCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartMLLabelingSetGenerationTaskRunCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

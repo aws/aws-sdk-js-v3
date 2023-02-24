@@ -37,6 +37,14 @@ export interface AggregationConfig {
    *       leave them unaggregated. </p>
    */
   aggregationType?: AggregationType | string;
+
+  /**
+   * <p>The desired file size, in MB, for each output file that Amazon AppFlow writes to the
+   *       flow destination. For each file, Amazon AppFlow attempts to achieve the size that you
+   *       specify. The actual file sizes might differ from this target based on the number and size of
+   *       the records that each file contains.</p>
+   */
+  targetFileSize?: number;
 }
 
 export enum AmplitudeConnectorOperator {
@@ -283,6 +291,10 @@ export interface BasicAuthCredentials {
   password: string | undefined;
 }
 
+export enum CatalogType {
+  GLUE = "GLUE",
+}
+
 /**
  * <p> There was a conflict when processing the request (for example, a flow with the given name
  *       already exists within the account. Check for conflicting resource names and try again. </p>
@@ -378,6 +390,11 @@ export interface InforNexusMetadata {}
 export interface MarketoMetadata {}
 
 /**
+ * <p>The connector metadata specific to Salesforce Pardot.</p>
+ */
+export interface PardotMetadata {}
+
+/**
  * <p> The connector metadata specific to Amazon Redshift. </p>
  */
 export interface RedshiftMetadata {}
@@ -387,6 +404,12 @@ export interface RedshiftMetadata {}
  */
 export interface S3Metadata {}
 
+export enum SalesforceDataTransferApi {
+  AUTOMATIC = "AUTOMATIC",
+  BULKV2 = "BULKV2",
+  REST_SYNC = "REST_SYNC",
+}
+
 /**
  * <p> The connector metadata specific to Salesforce. </p>
  */
@@ -395,6 +418,12 @@ export interface SalesforceMetadata {
    * <p> The desired authorization scope for the Salesforce account. </p>
    */
   oAuthScopes?: string[];
+
+  /**
+   * <p>The Salesforce APIs that you can have Amazon AppFlow use when your flows transfers
+   *       data to or from Salesforce.</p>
+   */
+  dataTransferApis?: (SalesforceDataTransferApi | string)[];
 }
 
 /**
@@ -566,6 +595,11 @@ export interface ConnectorMetadata {
    * <p> The connector metadata specific to SAPOData. </p>
    */
   SAPOData?: SAPODataMetadata;
+
+  /**
+   * <p>The connector metadata specific to Salesforce Pardot.</p>
+   */
+  Pardot?: PardotMetadata;
 }
 
 /**
@@ -648,6 +682,7 @@ export enum ConnectorType {
   INFORNEXUS = "Infornexus",
   LOOKOUTMETRICS = "LookoutMetrics",
   MARKETO = "Marketo",
+  PARDOT = "Pardot",
   REDSHIFT = "Redshift",
   S3 = "S3",
   SALESFORCE = "Salesforce",
@@ -1246,6 +1281,23 @@ export enum MarketoConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+export enum PardotConnectorOperator {
+  ADDITION = "ADDITION",
+  DIVISION = "DIVISION",
+  EQUAL_TO = "EQUAL_TO",
+  MASK_ALL = "MASK_ALL",
+  MASK_FIRST_N = "MASK_FIRST_N",
+  MASK_LAST_N = "MASK_LAST_N",
+  MULTIPLICATION = "MULTIPLICATION",
+  NO_OP = "NO_OP",
+  PROJECTION = "PROJECTION",
+  SUBTRACTION = "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
+}
+
 export enum S3ConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1521,6 +1573,11 @@ export interface ConnectorOperator {
    * <p>Operators supported by the custom connector.</p>
    */
   CustomConnector?: Operator | string;
+
+  /**
+   * <p>The operation to be performed on the provided Salesforce Pardot source fields.</p>
+   */
+  Pardot?: PardotConnectorOperator | string;
 }
 
 /**
@@ -1611,13 +1668,34 @@ export interface MarketoConnectorProfileProperties {
 }
 
 /**
+ * <p>The connector-specific profile properties required when using Salesforce Pardot.</p>
+ */
+export interface PardotConnectorProfileProperties {
+  /**
+   * <p>The location of the Salesforce Pardot resource.</p>
+   */
+  instanceUrl?: string;
+
+  /**
+   * <p>Indicates whether the connector profile applies to a sandbox or production
+   *       environment.</p>
+   */
+  isSandboxEnvironment?: boolean;
+
+  /**
+   * <p>The business unit id of Salesforce Pardot instance.</p>
+   */
+  businessUnitId?: string;
+}
+
+/**
  * <p> The connector-specific profile properties when using Amazon Redshift. </p>
  */
 export interface RedshiftConnectorProfileProperties {
   /**
    * <p> The JDBC URL of the Amazon Redshift cluster. </p>
    */
-  databaseUrl: string | undefined;
+  databaseUrl?: string;
 
   /**
    * <p> A name for the associated Amazon S3 bucket. </p>
@@ -1631,9 +1709,39 @@ export interface RedshiftConnectorProfileProperties {
   bucketPrefix?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the IAM role. </p>
+   * <p> The Amazon Resource Name (ARN) of IAM role that grants Amazon Redshift
+   *       read-only access to Amazon S3. For more information, and for the polices that you
+   *       attach to this role, see <a href="https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_service-role-policies.html#redshift-access-s3">Allow Amazon Redshift to access your Amazon AppFlow data in Amazon S3</a>.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that permits Amazon AppFlow to access your Amazon Redshift database through the Data API. For more
+   *       information, and for the polices that you attach to this role, see <a href="https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_service-role-policies.html#access-redshift">Allow Amazon AppFlow to access Amazon Redshift databases with the Data
+   *         API</a>.</p>
+   */
+  dataApiRoleArn?: string;
+
+  /**
+   * <p>Indicates whether the connector profile defines a connection to an Amazon Redshift
+   *       Serverless data warehouse.</p>
+   */
+  isRedshiftServerless?: boolean;
+
+  /**
+   * <p>The unique ID that's assigned to an Amazon Redshift cluster.</p>
+   */
+  clusterIdentifier?: string;
+
+  /**
+   * <p>The name of an Amazon Redshift workgroup.</p>
+   */
+  workgroupName?: string;
+
+  /**
+   * <p>The name of an Amazon Redshift database.</p>
+   */
+  databaseName?: string;
 }
 
 /**
@@ -1650,6 +1758,56 @@ export interface SalesforceConnectorProfileProperties {
    *     </p>
    */
   isSandboxEnvironment?: boolean;
+
+  /**
+   * <p>If the connection mode for the connector profile is private, this parameter sets whether
+   *         Amazon AppFlow uses the private network to send metadata and authorization calls to
+   *       Salesforce. Amazon AppFlow sends private calls through Amazon Web Services PrivateLink. These
+   *       calls travel through Amazon Web Services infrastructure without being exposed to the public
+   *       internet.</p>
+   *          <p>Set either of the following values:</p>
+   *          <dl>
+   *             <dt>true</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow sends all calls to Salesforce over the private network.</p>
+   *                <p>These private calls are:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Calls to get metadata about your Salesforce records. This metadata describes
+   *                 your Salesforce objects and their fields.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Calls to get or refresh access tokens that allow Amazon AppFlow to access
+   *                 your Salesforce records.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Calls to transfer your Salesforce records as part of a flow run.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>false</dt>
+   *             <dd>
+   *                <p>The default value. Amazon AppFlow sends some calls to Salesforce privately and
+   *             other calls over the public internet.</p>
+   *                <p>The public calls are: </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Calls to get metadata about your Salesforce records.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Calls to get or refresh access tokens.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>The private calls are:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Calls to transfer your Salesforce records as part of a flow run.</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *          </dl>
+   */
+  usePrivateLinkForMetadataAndAuthorization?: boolean;
 }
 
 /**
@@ -1899,6 +2057,11 @@ export interface ConnectorProfileProperties {
    * <p>The properties required by the custom connector.</p>
    */
   CustomConnector?: CustomConnectorProfileProperties;
+
+  /**
+   * <p>The connector-specific properties required by Salesforce Pardot.</p>
+   */
+  Pardot?: PardotConnectorProfileProperties;
 }
 
 export enum PrivateConnectionProvisioningFailureCause {
@@ -2210,19 +2373,45 @@ export interface MarketoConnectorProfileCredentials {
 }
 
 /**
- * <p> The connector-specific profile credentials required when using Amazon Redshift.
- *     </p>
+ * <p>The connector-specific profile credentials required when using Salesforce Pardot.</p>
+ */
+export interface PardotConnectorProfileCredentials {
+  /**
+   * <p>The credentials used to access protected Salesforce Pardot resources.</p>
+   */
+  accessToken?: string;
+
+  /**
+   * <p>The credentials used to acquire new access tokens.</p>
+   */
+  refreshToken?: string;
+
+  /**
+   * <p> Used by select connectors for which the OAuth workflow is supported, such as Salesforce,
+   *       Google Analytics, Marketo, Zendesk, and Slack. </p>
+   */
+  oAuthRequest?: ConnectorOAuthRequest;
+
+  /**
+   * <p>The secret manager ARN, which contains the client ID and client secret of the connected
+   *       app.</p>
+   */
+  clientCredentialsArn?: string;
+}
+
+/**
+ * <p> The connector-specific profile credentials required when using Amazon Redshift. </p>
  */
 export interface RedshiftConnectorProfileCredentials {
   /**
    * <p> The name of the user. </p>
    */
-  username: string | undefined;
+  username?: string;
 
   /**
    * <p> The password that corresponds to the user name. </p>
    */
-  password: string | undefined;
+  password?: string;
 }
 
 /**
@@ -2513,6 +2702,11 @@ export interface ConnectorProfileCredentials {
    *       connector.</p>
    */
   CustomConnector?: CustomConnectorProfileCredentials;
+
+  /**
+   * <p>The connector-specific credentials required when using Salesforce Pardot.</p>
+   */
+  Pardot?: PardotConnectorProfileCredentials;
 }
 
 /**
@@ -2528,7 +2722,7 @@ export interface ConnectorProfileConfig {
   /**
    * <p> The connector-specific credentials required by each connector. </p>
    */
-  connectorProfileCredentials: ConnectorProfileCredentials | undefined;
+  connectorProfileCredentials?: ConnectorProfileCredentials;
 }
 
 /**
@@ -2656,9 +2850,9 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> The settings that determine how Amazon AppFlow handles an error when placing data
- *       in the destination. For example, this setting would determine if the flow should fail after
- *       one insertion error, or continue and attempt to insert every record regardless of the initial
+ * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
+ *       the destination. For example, this setting would determine if the flow should fail after one
+ *       insertion error, or continue and attempt to insert every record regardless of the initial
  *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
  *     </p>
  */
@@ -2743,9 +2937,9 @@ export interface EventBridgeDestinationProperties {
   object: string | undefined;
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
-   *       in the destination. For example, this setting would determine if the flow should fail after
-   *       one insertion error, or continue and attempt to insert every record regardless of the initial
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
+   *       the destination. For example, this setting would determine if the flow should fail after one
+   *       insertion error, or continue and attempt to insert every record regardless of the initial
    *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *     </p>
    */
@@ -2762,9 +2956,9 @@ export interface HoneycodeDestinationProperties {
   object: string | undefined;
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
-   *       in the destination. For example, this setting would determine if the flow should fail after
-   *       one insertion error, or continue and attempt to insert every record regardless of the initial
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
+   *       the destination. For example, this setting would determine if the flow should fail after one
+   *       insertion error, or continue and attempt to insert every record regardless of the initial
    *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *     </p>
    */
@@ -2788,9 +2982,9 @@ export interface MarketoDestinationProperties {
   object: string | undefined;
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
-   *       in the destination. For example, this setting would determine if the flow should fail after
-   *       one insertion error, or continue and attempt to insert every record regardless of the initial
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
+   *       the destination. For example, this setting would determine if the flow should fail after one
+   *       insertion error, or continue and attempt to insert every record regardless of the initial
    *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *     </p>
    */
@@ -2819,8 +3013,8 @@ export interface RedshiftDestinationProperties {
   bucketPrefix?: string;
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
-   *       in the Amazon Redshift destination. For example, this setting would determine if the flow
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
+   *       the Amazon Redshift destination. For example, this setting would determine if the flow
    *       should fail after one insertion error, or continue and attempt to insert every record
    *       regardless of the initial failure. <code>ErrorHandlingConfig</code> is a part of the
    *       destination connector details. </p>
@@ -2832,6 +3026,11 @@ export enum FileType {
   CSV = "CSV",
   JSON = "JSON",
   PARQUET = "PARQUET",
+}
+
+export enum PathPrefix {
+  EXECUTION_ID = "EXECUTION_ID",
+  SCHEMA_VERSION = "SCHEMA_VERSION",
 }
 
 export enum PrefixFormat {
@@ -2849,20 +3048,50 @@ export enum PrefixType {
 }
 
 /**
- * <p> Determines the prefix that Amazon AppFlow applies to the destination folder name.
- *       You can name your destination folders according to the flow frequency and date. </p>
+ * <p>Specifies elements that Amazon AppFlow includes in the file and folder names in the flow
+ *       destination.</p>
  */
 export interface PrefixConfig {
   /**
-   * <p> Determines the format of the prefix, and whether it applies to the file name, file path,
+   * <p>Determines the format of the prefix, and whether it applies to the file name, file path,
    *       or both. </p>
    */
   prefixType?: PrefixType | string;
 
   /**
-   * <p> Determines the level of granularity that's included in the prefix. </p>
+   * <p>Determines the level of granularity for the date and time that's included in the prefix.
+   *     </p>
    */
   prefixFormat?: PrefixFormat | string;
+
+  /**
+   * <p>Specifies whether the destination file path includes either or both of the following
+   *       elements:</p>
+   *          <dl>
+   *             <dt>EXECUTION_ID</dt>
+   *             <dd>
+   *                <p>The ID that Amazon AppFlow assigns to the flow run.</p>
+   *             </dd>
+   *             <dt>SCHEMA_VERSION</dt>
+   *             <dd>
+   *                <p>The version number of your data schema. Amazon AppFlow assigns this version
+   *             number. The version number increases by one when you change any of the following
+   *             settings in your flow configuration:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Source-to-destination field mappings</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Field data types</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Partition keys</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *          </dl>
+   */
+  pathPrefixHierarchy?: (PathPrefix | string)[];
 }
 
 /**
@@ -2871,8 +3100,8 @@ export interface PrefixConfig {
  */
 export interface S3OutputFormatConfig {
   /**
-   * <p> Indicates the file type that Amazon AppFlow places in the Amazon S3
-   *       bucket. </p>
+   * <p> Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
+   *     </p>
    */
   fileType?: FileType | string;
 
@@ -2946,10 +3175,10 @@ export interface SalesforceDestinationProperties {
   idFieldNames?: string[];
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
-   *       in the Salesforce destination. For example, this setting would determine if the flow should
-   *       fail after one insertion error, or continue and attempt to insert every record regardless of
-   *       the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
+   *       the Salesforce destination. For example, this setting would determine if the flow should fail
+   *       after one insertion error, or continue and attempt to insert every record regardless of the
+   *       initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector
    *       details. </p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
@@ -2959,6 +3188,47 @@ export interface SalesforceDestinationProperties {
    *       is <code>UPSERT</code>, then <code>idFieldNames</code> is required. </p>
    */
   writeOperationType?: WriteOperationType | string;
+
+  /**
+   * <p>Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers
+   *       data to Salesforce.</p>
+   *          <dl>
+   *             <dt>AUTOMATIC</dt>
+   *             <dd>
+   *                <p>The default. Amazon AppFlow selects which API to use based on the number of
+   *             records that your flow transfers to Salesforce. If your flow transfers fewer than 1,000
+   *             records, Amazon AppFlow uses Salesforce REST API. If your flow transfers 1,000
+   *             records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.</p>
+   *                <p>Each of these Salesforce APIs structures data differently. If Amazon AppFlow
+   *             selects the API automatically, be aware that, for recurring flows, the data output might
+   *             vary from one flow run to the next. For example, if a flow runs daily, it might use REST
+   *             API on one day to transfer 900 records, and it might use Bulk API 2.0 on the next day to
+   *             transfer 1,100 records. For each of these flow runs, the respective Salesforce API
+   *             formats the data differently. Some of the differences include how dates are formatted
+   *             and null values are represented. Also, Bulk API 2.0 doesn't transfer Salesforce compound
+   *             fields.</p>
+   *                <p>By choosing this option, you optimize flow performance for both small and large data
+   *             transfers, but the tradeoff is inconsistent formatting in the output.</p>
+   *             </dd>
+   *             <dt>BULKV2</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous
+   *             data transfers, and it's optimal for large sets of data. By choosing this option, you
+   *             ensure that your flow writes consistent output, but you optimize performance only for
+   *             large data transfers.</p>
+   *                <p>Note that Bulk API 2.0 does not transfer Salesforce compound fields.</p>
+   *             </dd>
+   *             <dt>REST_SYNC</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow uses only Salesforce REST API. By choosing this option, you
+   *             ensure that your flow writes consistent output, but you decrease performance for large
+   *             data transfers that are better suited for Bulk API 2.0. In some cases, if your flow
+   *             attempts to transfer a vary large set of data, it might fail with a timed out
+   *             error.</p>
+   *             </dd>
+   *          </dl>
+   */
+  dataTransferApi?: SalesforceDataTransferApi | string;
 }
 
 /**
@@ -3003,9 +3273,9 @@ export interface SAPODataDestinationProperties {
   idFieldNames?: string[];
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
-   *       in the destination. For example, this setting would determine if the flow should fail after
-   *       one insertion error, or continue and attempt to insert every record regardless of the initial
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
+   *       the destination. For example, this setting would determine if the flow should fail after one
+   *       insertion error, or continue and attempt to insert every record regardless of the initial
    *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *     </p>
    */
@@ -3040,10 +3310,10 @@ export interface SnowflakeDestinationProperties {
   bucketPrefix?: string;
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
-   *       in the Snowflake destination. For example, this setting would determine if the flow should
-   *       fail after one insertion error, or continue and attempt to insert every record regardless of
-   *       the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
+   *       the Snowflake destination. For example, this setting would determine if the flow should fail
+   *       after one insertion error, or continue and attempt to insert every record regardless of the
+   *       initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector
    *       details. </p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
@@ -3055,13 +3325,14 @@ export interface SnowflakeDestinationProperties {
  */
 export interface UpsolverS3OutputFormatConfig {
   /**
-   * <p> Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. </p>
+   * <p> Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3
+   *       bucket. </p>
    */
   fileType?: FileType | string;
 
   /**
-   * <p> Determines the prefix that Amazon AppFlow applies to the destination folder name.
-   *       You can name your destination folders according to the flow frequency and date. </p>
+   * <p>Specifies elements that Amazon AppFlow includes in the file and folder names in the flow
+   *       destination.</p>
    */
   prefixConfig: PrefixConfig | undefined;
 
@@ -3110,9 +3381,9 @@ export interface ZendeskDestinationProperties {
   idFieldNames?: string[];
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
-   *       in the destination. For example, this setting would determine if the flow should fail after
-   *       one insertion error, or continue and attempt to insert every record regardless of the initial
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
+   *       the destination. For example, this setting would determine if the flow should fail after one
+   *       insertion error, or continue and attempt to insert every record regardless of the initial
    *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *     </p>
    */
@@ -3223,6 +3494,54 @@ export interface DestinationFlowConfig {
 }
 
 /**
+ * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data with
+ *       the Glue Data Catalog. When Amazon AppFlow catalogs your data, it stores metadata
+ *       in Data Catalog tables. This metadata represents the data that's transferred by the
+ *       flow that you configure with these settings.</p>
+ *          <note>
+ *             <p>You can configure a flow with these settings only when the flow destination is Amazon S3.</p>
+ *          </note>
+ */
+export interface GlueDataCatalogConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that grants Amazon AppFlow the permissions it needs to create Data Catalog tables, databases, and
+   *       partitions.</p>
+   *          <p>For an example IAM policy that has the required permissions, see <a href="https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_id-based-policy-examples.html">Identity-based
+   *         policy examples for Amazon AppFlow</a>.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The name of the Data Catalog database that stores the metadata tables that Amazon AppFlow creates in your Amazon Web Services account. These tables contain metadata for
+   *       the data that's transferred by the flow that you configure with this parameter.</p>
+   *          <note>
+   *             <p>When you configure a new flow with this parameter, you must specify an existing
+   *         database.</p>
+   *          </note>
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p>A naming prefix for each Data Catalog table that Amazon AppFlow creates for
+   *       the flow that you configure with this setting. Amazon AppFlow adds the prefix to the
+   *       beginning of the each table name.</p>
+   */
+  tablePrefix: string | undefined;
+}
+
+/**
+ * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data. When
+ *         Amazon AppFlow catalogs your data, it stores metadata in a data catalog.</p>
+ */
+export interface MetadataCatalogConfig {
+  /**
+   * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data with
+   *       the Glue Data Catalog.</p>
+   */
+  glueDataCatalog?: GlueDataCatalogConfig;
+}
+
+/**
  * <p> Specifies the configuration used when importing incremental records from the source.
  *     </p>
  */
@@ -3300,6 +3619,16 @@ export interface MarketoSourceProperties {
   object: string | undefined;
 }
 
+/**
+ * <p>The properties that are applied when Salesforce Pardot is being used as a source.</p>
+ */
+export interface PardotSourceProperties {
+  /**
+   * <p>The object specified in the Salesforce Pardot flow source.</p>
+   */
+  object: string | undefined;
+}
+
 export enum S3InputFileType {
   CSV = "CSV",
   JSON = "JSON",
@@ -3358,6 +3687,47 @@ export interface SalesforceSourceProperties {
    * <p> Indicates whether Amazon AppFlow includes deleted files in the flow run. </p>
    */
   includeDeletedRecords?: boolean;
+
+  /**
+   * <p>Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers
+   *       data from Salesforce.</p>
+   *          <dl>
+   *             <dt>AUTOMATIC</dt>
+   *             <dd>
+   *                <p>The default. Amazon AppFlow selects which API to use based on the number of
+   *             records that your flow transfers from Salesforce. If your flow transfers fewer than
+   *             1,000,000 records, Amazon AppFlow uses Salesforce REST API. If your flow transfers
+   *             1,000,000 records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.</p>
+   *                <p>Each of these Salesforce APIs structures data differently. If Amazon AppFlow
+   *             selects the API automatically, be aware that, for recurring flows, the data output might
+   *             vary from one flow run to the next. For example, if a flow runs daily, it might use REST
+   *             API on one day to transfer 900,000 records, and it might use Bulk API 2.0 on the next
+   *             day to transfer 1,100,000 records. For each of these flow runs, the respective
+   *             Salesforce API formats the data differently. Some of the differences include how dates
+   *             are formatted and null values are represented. Also, Bulk API 2.0 doesn't transfer
+   *             Salesforce compound fields.</p>
+   *                <p>By choosing this option, you optimize flow performance for both small and large data
+   *             transfers, but the tradeoff is inconsistent formatting in the output.</p>
+   *             </dd>
+   *             <dt>BULKV2</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous
+   *             data transfers, and it's optimal for large sets of data. By choosing this option, you
+   *             ensure that your flow writes consistent output, but you optimize performance only for
+   *             large data transfers.</p>
+   *                <p>Note that Bulk API 2.0 does not transfer Salesforce compound fields.</p>
+   *             </dd>
+   *             <dt>REST_SYNC</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow uses only Salesforce REST API. By choosing this option, you
+   *             ensure that your flow writes consistent output, but you decrease performance for large
+   *             data transfers that are better suited for Bulk API 2.0. In some cases, if your flow
+   *             attempts to transfer a vary large set of data, it might fail wituh a timed out
+   *             error.</p>
+   *             </dd>
+   *          </dl>
+   */
+  dataTransferApi?: SalesforceDataTransferApi | string;
 }
 
 /**
@@ -3534,6 +3904,11 @@ export interface SourceConnectorProperties {
    *       source.</p>
    */
   CustomConnector?: CustomConnectorSourceProperties;
+
+  /**
+   * <p>Specifies the information that is required for querying Salesforce Pardot.</p>
+   */
+  Pardot?: PardotSourceProperties;
 }
 
 /**
@@ -3576,10 +3951,12 @@ export enum OperatorPropertiesKeys {
   DATA_TYPE = "DATA_TYPE",
   DESTINATION_DATA_TYPE = "DESTINATION_DATA_TYPE",
   EXCLUDE_SOURCE_FIELDS_LIST = "EXCLUDE_SOURCE_FIELDS_LIST",
+  INCLUDE_NEW_FIELDS = "INCLUDE_NEW_FIELDS",
   LOWER_BOUND = "LOWER_BOUND",
   MASK_LENGTH = "MASK_LENGTH",
   MASK_VALUE = "MASK_VALUE",
   MATH_OPERATION_FIELDS_ORDER = "MATH_OPERATION_FIELDS_ORDER",
+  ORDERED_PARTITION_KEYS_LIST = "ORDERED_PARTITION_KEYS_LIST",
   SOURCE_DATA_TYPE = "SOURCE_DATA_TYPE",
   SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP",
   TRUNCATE_LENGTH = "TRUNCATE_LENGTH",
@@ -3596,6 +3973,7 @@ export enum TaskType {
   MAP_ALL = "Map_all",
   MASK = "Mask",
   MERGE = "Merge",
+  PARTITION = "Partition",
   PASSTHROUGH = "Passthrough",
   TRUNCATE = "Truncate",
   VALIDATE = "Validate",
@@ -3670,11 +4048,13 @@ export interface ScheduledTriggerProperties {
 
   /**
    * <p>Specifies the time zone used when referring to the dates and times of a scheduled flow,
-   *       such as <code>America/New_York</code>. This time zone is only a descriptive label. It doesn't affect how
-   *       Amazon AppFlow interprets the timestamps that you specify to schedule the flow.</p>
-   *          <p>If you want to schedule a flow by using times in a particular time zone, indicate the time zone as a UTC
-   *       offset in your timestamps. For example, the UTC offsets for the <code>America/New_York</code> timezone are
-   *       <code>-04:00</code> EDT and <code>-05:00 EST</code>.</p>
+   *       such as <code>America/New_York</code>. This time zone is only a descriptive label. It doesn't
+   *       affect how Amazon AppFlow interprets the timestamps that you specify to schedule the
+   *       flow.</p>
+   *          <p>If you want to schedule a flow by using times in a particular time zone, indicate the time
+   *       zone as a UTC offset in your timestamps. For example, the UTC offsets for the
+   *         <code>America/New_York</code> timezone are <code>-04:00</code> EDT and <code>-05:00
+   *         EST</code>.</p>
    */
   timezone?: string;
 
@@ -3764,8 +4144,8 @@ export interface CreateFlowRequest {
   destinationFlowConfigList: DestinationFlowConfig[] | undefined;
 
   /**
-   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the
-   *       flow run. </p>
+   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the flow
+   *       run. </p>
    */
   tasks: Task[] | undefined;
 
@@ -3773,6 +4153,13 @@ export interface CreateFlowRequest {
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data that's
+   *       transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it
+   *       stores metadata in a data catalog.</p>
+   */
+  metadataCatalogConfig?: MetadataCatalogConfig;
 }
 
 export enum FlowStatus {
@@ -4016,6 +4403,72 @@ export interface ExecutionDetails {
   mostRecentExecutionStatus?: ExecutionStatus | string;
 }
 
+/**
+ * <p>Describes the status of an attempt from Amazon AppFlow to register a resource.</p>
+ *          <p>When you run a flow that you've configured to use a metadata catalog, Amazon AppFlow
+ *       registers a metadata table and data partitions with that catalog. This operation provides the
+ *       status of that registration attempt. The operation also indicates how many related resources
+ *         Amazon AppFlow created or updated.</p>
+ */
+export interface RegistrationOutput {
+  /**
+   * <p>Explains the status of the registration attempt from Amazon AppFlow. If the attempt
+   *       fails, the message explains why.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Indicates the number of resources that Amazon AppFlow created or updated. Possible
+   *       resources include metadata tables and data partitions.</p>
+   */
+  result?: string;
+
+  /**
+   * <p>Indicates the status of the registration attempt from Amazon AppFlow.</p>
+   */
+  status?: ExecutionStatus | string;
+}
+
+/**
+ * <p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>
+ */
+export interface MetadataCatalogDetail {
+  /**
+   * <p>The type of metadata catalog that Amazon AppFlow used for the associated flow run.
+   *       This parameter returns the following value:</p>
+   *          <dl>
+   *             <dt>GLUE</dt>
+   *             <dd>
+   *                <p>The metadata catalog is provided by the Glue Data Catalog. Glue
+   *             includes the Glue Data Catalog as a component.</p>
+   *             </dd>
+   *          </dl>
+   */
+  catalogType?: CatalogType | string;
+
+  /**
+   * <p>The name of the table that stores the metadata for the associated flow run. The table
+   *       stores metadata that represents the data that the flow transferred. Amazon AppFlow stores
+   *       the table in the metadata catalog.</p>
+   */
+  tableName?: string;
+
+  /**
+   * <p>Describes the status of the attempt from Amazon AppFlow to register the metadata
+   *       table with the metadata catalog. Amazon AppFlow creates or updates this table for the
+   *       associated flow run.</p>
+   */
+  tableRegistrationOutput?: RegistrationOutput;
+
+  /**
+   * <p>Describes the status of the attempt from Amazon AppFlow to register the data
+   *       partitions with the metadata catalog. The data partitions organize the flow output into a
+   *       hierarchical path, such as a folder path in an S3 bucket. Amazon AppFlow creates the
+   *       partitions (if they don't already exist) based on your flow configuration.</p>
+   */
+  partitionRegistrationOutput?: RegistrationOutput;
+}
+
 export interface DescribeFlowResponse {
   /**
    * <p> The flow's Amazon Resource Name (ARN). </p>
@@ -4058,8 +4511,8 @@ export interface DescribeFlowResponse {
   sourceFlowConfig?: SourceFlowConfig;
 
   /**
-   * <p> The configuration that controls how Amazon AppFlow transfers data to the
-   *       destination connector. </p>
+   * <p> The configuration that controls how Amazon AppFlow transfers data to the destination
+   *       connector. </p>
    */
   destinationFlowConfigList?: DestinationFlowConfig[];
 
@@ -4074,8 +4527,8 @@ export interface DescribeFlowResponse {
   triggerConfig?: TriggerConfig;
 
   /**
-   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the
-   *       flow run. </p>
+   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the flow
+   *       run. </p>
    */
   tasks?: Task[];
 
@@ -4103,6 +4556,36 @@ export interface DescribeFlowResponse {
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data that's
+   *       transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it
+   *       stores metadata in a data catalog.</p>
+   */
+  metadataCatalogConfig?: MetadataCatalogConfig;
+
+  /**
+   * <p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>
+   */
+  lastRunMetadataCatalogDetails?: MetadataCatalogDetail[];
+
+  /**
+   * <p>The version number of your data schema. Amazon AppFlow assigns this version number.
+   *       The version number increases by one when you change any of the following settings in your flow
+   *       configuration:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Source-to-destination field mappings</p>
+   *             </li>
+   *             <li>
+   *                <p>Field data types</p>
+   *             </li>
+   *             <li>
+   *                <p>Partition keys</p>
+   *             </li>
+   *          </ul>
+   */
+  schemaVersion?: number;
 }
 
 export interface DescribeFlowExecutionRecordsRequest {
@@ -4206,6 +4689,11 @@ export interface ExecutionRecord {
    *       run. </p>
    */
   dataPullEndTime?: Date;
+
+  /**
+   * <p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>
+   */
+  metadataCatalogDetails?: MetadataCatalogDetail[];
 }
 
 export interface DescribeFlowExecutionRecordsResponse {
@@ -4331,6 +4819,18 @@ export interface ListConnectorEntitiesRequest {
    * <p>The version of the API that's used by the connector.</p>
    */
   apiVersion?: string;
+
+  /**
+   * <p>The maximum number of items that the operation returns in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token that was provided by your prior <code>ListConnectorEntities</code> operation if
+   *       the response was too big for the page size. You specify this token to get the next page of
+   *       results in paginated response.</p>
+   */
+  nextToken?: string;
 }
 
 export interface ListConnectorEntitiesResponse {
@@ -4340,6 +4840,13 @@ export interface ListConnectorEntitiesResponse {
    *       belonging to that group. </p>
    */
   connectorEntityMap: Record<string, ConnectorEntity[]> | undefined;
+
+  /**
+   * <p>A token that you specify in your next <code>ListConnectorEntities</code> operation to get
+   *       the next page of results in paginated response. The <code>ListConnectorEntities</code>
+   *       operation provides this token if the response is too big for the page size.</p>
+   */
+  nextToken?: string;
 }
 
 export interface ListConnectorsRequest {
@@ -4592,6 +5099,31 @@ export interface UpdateConnectorProfileResponse {
   connectorProfileArn?: string;
 }
 
+export interface UpdateConnectorRegistrationRequest {
+  /**
+   * <p>The name of the connector. The name is unique for each connector registration in your AWS
+   *       account.</p>
+   */
+  connectorLabel: string | undefined;
+
+  /**
+   * <p>A description about the update that you're applying to the connector.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Contains information about the configuration of the connector being registered.</p>
+   */
+  connectorProvisioningConfig?: ConnectorProvisioningConfig;
+}
+
+export interface UpdateConnectorRegistrationResponse {
+  /**
+   * <p>The ARN of the connector being updated.</p>
+   */
+  connectorArn?: string;
+}
+
 export interface UpdateFlowRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
@@ -4616,16 +5148,23 @@ export interface UpdateFlowRequest {
   sourceFlowConfig: SourceFlowConfig | undefined;
 
   /**
-   * <p> The configuration that controls how Amazon AppFlow transfers data to the
-   *       destination connector. </p>
+   * <p> The configuration that controls how Amazon AppFlow transfers data to the destination
+   *       connector. </p>
    */
   destinationFlowConfigList: DestinationFlowConfig[] | undefined;
 
   /**
-   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the
-   *       flow run. </p>
+   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the flow
+   *       run. </p>
    */
   tasks: Task[] | undefined;
+
+  /**
+   * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data that's
+   *       transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it
+   *       stores metadata in a data catalog.</p>
+   */
+  metadataCatalogConfig?: MetadataCatalogConfig;
 }
 
 export interface UpdateFlowResponse {
@@ -4781,6 +5320,13 @@ export const InforNexusMetadataFilterSensitiveLog = (obj: InforNexusMetadata): a
  * @internal
  */
 export const MarketoMetadataFilterSensitiveLog = (obj: MarketoMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PardotMetadataFilterSensitiveLog = (obj: PardotMetadata): any => ({
   ...obj,
 });
 
@@ -5040,6 +5586,13 @@ export const MarketoConnectorProfilePropertiesFilterSensitiveLog = (obj: Marketo
 /**
  * @internal
  */
+export const PardotConnectorProfilePropertiesFilterSensitiveLog = (obj: PardotConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RedshiftConnectorProfilePropertiesFilterSensitiveLog = (obj: RedshiftConnectorProfileProperties): any => ({
   ...obj,
 });
@@ -5231,6 +5784,15 @@ export const MarketoConnectorProfileCredentialsFilterSensitiveLog = (obj: Market
 /**
  * @internal
  */
+export const PardotConnectorProfileCredentialsFilterSensitiveLog = (obj: PardotConnectorProfileCredentials): any => ({
+  ...obj,
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  ...(obj.clientCredentialsArn && { clientCredentialsArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const RedshiftConnectorProfileCredentialsFilterSensitiveLog = (
   obj: RedshiftConnectorProfileCredentials
 ): any => ({
@@ -5363,6 +5925,7 @@ export const ConnectorProfileCredentialsFilterSensitiveLog = (obj: ConnectorProf
   ...(obj.CustomConnector && {
     CustomConnector: CustomConnectorProfileCredentialsFilterSensitiveLog(obj.CustomConnector),
   }),
+  ...(obj.Pardot && { Pardot: PardotConnectorProfileCredentialsFilterSensitiveLog(obj.Pardot) }),
 });
 
 /**
@@ -5538,6 +6101,20 @@ export const DestinationFlowConfigFilterSensitiveLog = (obj: DestinationFlowConf
 /**
  * @internal
  */
+export const GlueDataCatalogConfigFilterSensitiveLog = (obj: GlueDataCatalogConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataCatalogConfigFilterSensitiveLog = (obj: MetadataCatalogConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const IncrementalPullConfigFilterSensitiveLog = (obj: IncrementalPullConfig): any => ({
   ...obj,
 });
@@ -5581,6 +6158,13 @@ export const InforNexusSourcePropertiesFilterSensitiveLog = (obj: InforNexusSour
  * @internal
  */
 export const MarketoSourcePropertiesFilterSensitiveLog = (obj: MarketoSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PardotSourcePropertiesFilterSensitiveLog = (obj: PardotSourceProperties): any => ({
   ...obj,
 });
 
@@ -5811,6 +6395,20 @@ export const ExecutionDetailsFilterSensitiveLog = (obj: ExecutionDetails): any =
 /**
  * @internal
  */
+export const RegistrationOutputFilterSensitiveLog = (obj: RegistrationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataCatalogDetailFilterSensitiveLog = (obj: MetadataCatalogDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeFlowResponseFilterSensitiveLog = (obj: DescribeFlowResponse): any => ({
   ...obj,
 });
@@ -6012,6 +6610,22 @@ export const UpdateConnectorProfileRequestFilterSensitiveLog = (obj: UpdateConne
  * @internal
  */
 export const UpdateConnectorProfileResponseFilterSensitiveLog = (obj: UpdateConnectorProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorRegistrationRequestFilterSensitiveLog = (obj: UpdateConnectorRegistrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorRegistrationResponseFilterSensitiveLog = (
+  obj: UpdateConnectorRegistrationResponse
+): any => ({
   ...obj,
 });
 

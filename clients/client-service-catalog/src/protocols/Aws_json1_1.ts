@@ -311,6 +311,7 @@ import {
   BatchDisassociateServiceActionFromProvisioningArtifactOutput,
   BudgetDetail,
   CloudWatchDashboard,
+  CodeStarParameters,
   ConstraintDetail,
   ConstraintSummary,
   CopyOption,
@@ -409,6 +410,7 @@ import {
   ImportAsProvisionedProductOutput,
   InvalidParametersException,
   InvalidStateException,
+  LastSync,
   LaunchPath,
   LaunchPathSummary,
   LimitExceededException,
@@ -506,6 +508,9 @@ import {
   ServiceActionSummary,
   ShareDetails,
   ShareError,
+  SourceConnection,
+  SourceConnectionDetail,
+  SourceConnectionParameters,
   StackInstance,
   Tag,
   TagOptionDetail,
@@ -1693,7 +1698,7 @@ const deserializeAws_json1_1AcceptPortfolioShareCommandError = async (
 ): Promise<AcceptPortfolioShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1740,7 +1745,7 @@ const deserializeAws_json1_1AssociateBudgetWithResourceCommandError = async (
 ): Promise<AssociateBudgetWithResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1790,7 +1795,7 @@ const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError = async 
 ): Promise<AssociatePrincipalWithPortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1837,7 +1842,7 @@ const deserializeAws_json1_1AssociateProductWithPortfolioCommandError = async (
 ): Promise<AssociateProductWithPortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1884,7 +1889,7 @@ const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactComman
 ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1931,7 +1936,7 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
 ): Promise<AssociateTagOptionWithResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1987,7 +1992,7 @@ const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactC
 ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2028,7 +2033,7 @@ const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifa
 ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2069,7 +2074,7 @@ const deserializeAws_json1_1CopyProductCommandError = async (
 ): Promise<CopyProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2113,7 +2118,7 @@ const deserializeAws_json1_1CreateConstraintCommandError = async (
 ): Promise<CreateConstraintCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2163,7 +2168,7 @@ const deserializeAws_json1_1CreatePortfolioCommandError = async (
 ): Promise<CreatePortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2210,7 +2215,7 @@ const deserializeAws_json1_1CreatePortfolioShareCommandError = async (
 ): Promise<CreatePortfolioShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2263,7 +2268,7 @@ const deserializeAws_json1_1CreateProductCommandError = async (
 ): Promise<CreateProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2310,7 +2315,7 @@ const deserializeAws_json1_1CreateProvisionedProductPlanCommandError = async (
 ): Promise<CreateProvisionedProductPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2357,7 +2362,7 @@ const deserializeAws_json1_1CreateProvisioningArtifactCommandError = async (
 ): Promise<CreateProvisioningArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2404,7 +2409,7 @@ const deserializeAws_json1_1CreateServiceActionCommandError = async (
 ): Promise<CreateServiceActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2448,7 +2453,7 @@ const deserializeAws_json1_1CreateTagOptionCommandError = async (
 ): Promise<CreateTagOptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2495,7 +2500,7 @@ const deserializeAws_json1_1DeleteConstraintCommandError = async (
 ): Promise<DeleteConstraintCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2539,7 +2544,7 @@ const deserializeAws_json1_1DeletePortfolioCommandError = async (
 ): Promise<DeletePortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2589,7 +2594,7 @@ const deserializeAws_json1_1DeletePortfolioShareCommandError = async (
 ): Promise<DeletePortfolioShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2639,7 +2644,7 @@ const deserializeAws_json1_1DeleteProductCommandError = async (
 ): Promise<DeleteProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2689,7 +2694,7 @@ const deserializeAws_json1_1DeleteProvisionedProductPlanCommandError = async (
 ): Promise<DeleteProvisionedProductPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2733,7 +2738,7 @@ const deserializeAws_json1_1DeleteProvisioningArtifactCommandError = async (
 ): Promise<DeleteProvisioningArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2780,7 +2785,7 @@ const deserializeAws_json1_1DeleteServiceActionCommandError = async (
 ): Promise<DeleteServiceActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2824,7 +2829,7 @@ const deserializeAws_json1_1DeleteTagOptionCommandError = async (
 ): Promise<DeleteTagOptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2871,7 +2876,7 @@ const deserializeAws_json1_1DescribeConstraintCommandError = async (
 ): Promise<DescribeConstraintCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2912,7 +2917,7 @@ const deserializeAws_json1_1DescribeCopyProductStatusCommandError = async (
 ): Promise<DescribeCopyProductStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2953,7 +2958,7 @@ const deserializeAws_json1_1DescribePortfolioCommandError = async (
 ): Promise<DescribePortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2994,7 +2999,7 @@ const deserializeAws_json1_1DescribePortfolioSharesCommandError = async (
 ): Promise<DescribePortfolioSharesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3038,7 +3043,7 @@ const deserializeAws_json1_1DescribePortfolioShareStatusCommandError = async (
 ): Promise<DescribePortfolioShareStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3085,7 +3090,7 @@ const deserializeAws_json1_1DescribeProductCommandError = async (
 ): Promise<DescribeProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3129,7 +3134,7 @@ const deserializeAws_json1_1DescribeProductAsAdminCommandError = async (
 ): Promise<DescribeProductAsAdminCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3173,7 +3178,7 @@ const deserializeAws_json1_1DescribeProductViewCommandError = async (
 ): Promise<DescribeProductViewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3217,7 +3222,7 @@ const deserializeAws_json1_1DescribeProvisionedProductCommandError = async (
 ): Promise<DescribeProvisionedProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3261,7 +3266,7 @@ const deserializeAws_json1_1DescribeProvisionedProductPlanCommandError = async (
 ): Promise<DescribeProvisionedProductPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3305,7 +3310,7 @@ const deserializeAws_json1_1DescribeProvisioningArtifactCommandError = async (
 ): Promise<DescribeProvisioningArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3349,7 +3354,7 @@ const deserializeAws_json1_1DescribeProvisioningParametersCommandError = async (
 ): Promise<DescribeProvisioningParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3393,7 +3398,7 @@ const deserializeAws_json1_1DescribeRecordCommandError = async (
 ): Promise<DescribeRecordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3434,7 +3439,7 @@ const deserializeAws_json1_1DescribeServiceActionCommandError = async (
 ): Promise<DescribeServiceActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3475,7 +3480,7 @@ const deserializeAws_json1_1DescribeServiceActionExecutionParametersCommandError
 ): Promise<DescribeServiceActionExecutionParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3519,7 +3524,7 @@ const deserializeAws_json1_1DescribeTagOptionCommandError = async (
 ): Promise<DescribeTagOptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3563,7 +3568,7 @@ const deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError = async (
 ): Promise<DisableAWSOrganizationsAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3610,7 +3615,7 @@ const deserializeAws_json1_1DisassociateBudgetFromResourceCommandError = async (
 ): Promise<DisassociateBudgetFromResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3651,7 +3656,7 @@ const deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandError = asy
 ): Promise<DisassociatePrincipalFromPortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3695,7 +3700,7 @@ const deserializeAws_json1_1DisassociateProductFromPortfolioCommandError = async
 ): Promise<DisassociateProductFromPortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3742,7 +3747,7 @@ const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCom
 ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3783,7 +3788,7 @@ const deserializeAws_json1_1DisassociateTagOptionFromResourceCommandError = asyn
 ): Promise<DisassociateTagOptionFromResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3827,7 +3832,7 @@ const deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError = async (
 ): Promise<EnableAWSOrganizationsAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3874,7 +3879,7 @@ const deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError = async (
 ): Promise<ExecuteProvisionedProductPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3921,7 +3926,7 @@ const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError =
 ): Promise<ExecuteProvisionedProductServiceActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3968,7 +3973,7 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError = async 
 ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4012,7 +4017,7 @@ const deserializeAws_json1_1GetProvisionedProductOutputsCommandError = async (
 ): Promise<GetProvisionedProductOutputsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4056,7 +4061,7 @@ const deserializeAws_json1_1ImportAsProvisionedProductCommandError = async (
 ): Promise<ImportAsProvisionedProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4106,7 +4111,7 @@ const deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError = async (
 ): Promise<ListAcceptedPortfolioSharesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4150,7 +4155,7 @@ const deserializeAws_json1_1ListBudgetsForResourceCommandError = async (
 ): Promise<ListBudgetsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4194,7 +4199,7 @@ const deserializeAws_json1_1ListConstraintsForPortfolioCommandError = async (
 ): Promise<ListConstraintsForPortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4238,7 +4243,7 @@ const deserializeAws_json1_1ListLaunchPathsCommandError = async (
 ): Promise<ListLaunchPathsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4282,7 +4287,7 @@ const deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError = async 
 ): Promise<ListOrganizationPortfolioAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4329,7 +4334,7 @@ const deserializeAws_json1_1ListPortfolioAccessCommandError = async (
 ): Promise<ListPortfolioAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4373,7 +4378,7 @@ const deserializeAws_json1_1ListPortfoliosCommandError = async (
 ): Promise<ListPortfoliosCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4414,7 +4419,7 @@ const deserializeAws_json1_1ListPortfoliosForProductCommandError = async (
 ): Promise<ListPortfoliosForProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4458,7 +4463,7 @@ const deserializeAws_json1_1ListPrincipalsForPortfolioCommandError = async (
 ): Promise<ListPrincipalsForPortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4502,7 +4507,7 @@ const deserializeAws_json1_1ListProvisionedProductPlansCommandError = async (
 ): Promise<ListProvisionedProductPlansCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4546,7 +4551,7 @@ const deserializeAws_json1_1ListProvisioningArtifactsCommandError = async (
 ): Promise<ListProvisioningArtifactsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4590,7 +4595,7 @@ const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommandErro
 ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4634,7 +4639,7 @@ const deserializeAws_json1_1ListRecordHistoryCommandError = async (
 ): Promise<ListRecordHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4675,7 +4680,7 @@ const deserializeAws_json1_1ListResourcesForTagOptionCommandError = async (
 ): Promise<ListResourcesForTagOptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4722,7 +4727,7 @@ const deserializeAws_json1_1ListServiceActionsCommandError = async (
 ): Promise<ListServiceActionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4763,7 +4768,7 @@ const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommandErro
 ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4807,7 +4812,7 @@ const deserializeAws_json1_1ListStackInstancesForProvisionedProductCommandError 
 ): Promise<ListStackInstancesForProvisionedProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4851,7 +4856,7 @@ const deserializeAws_json1_1ListTagOptionsCommandError = async (
 ): Promise<ListTagOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4895,7 +4900,7 @@ const deserializeAws_json1_1ProvisionProductCommandError = async (
 ): Promise<ProvisionProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4942,7 +4947,7 @@ const deserializeAws_json1_1RejectPortfolioShareCommandError = async (
 ): Promise<RejectPortfolioShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4983,7 +4988,7 @@ const deserializeAws_json1_1ScanProvisionedProductsCommandError = async (
 ): Promise<ScanProvisionedProductsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5024,7 +5029,7 @@ const deserializeAws_json1_1SearchProductsCommandError = async (
 ): Promise<SearchProductsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5065,7 +5070,7 @@ const deserializeAws_json1_1SearchProductsAsAdminCommandError = async (
 ): Promise<SearchProductsAsAdminCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5109,7 +5114,7 @@ const deserializeAws_json1_1SearchProvisionedProductsCommandError = async (
 ): Promise<SearchProvisionedProductsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5150,7 +5155,7 @@ const deserializeAws_json1_1TerminateProvisionedProductCommandError = async (
 ): Promise<TerminateProvisionedProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5191,7 +5196,7 @@ const deserializeAws_json1_1UpdateConstraintCommandError = async (
 ): Promise<UpdateConstraintCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5235,7 +5240,7 @@ const deserializeAws_json1_1UpdatePortfolioCommandError = async (
 ): Promise<UpdatePortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5285,7 +5290,7 @@ const deserializeAws_json1_1UpdatePortfolioShareCommandError = async (
 ): Promise<UpdatePortfolioShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5335,7 +5340,7 @@ const deserializeAws_json1_1UpdateProductCommandError = async (
 ): Promise<UpdateProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5382,7 +5387,7 @@ const deserializeAws_json1_1UpdateProvisionedProductCommandError = async (
 ): Promise<UpdateProvisionedProductCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5426,7 +5431,7 @@ const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError = asy
 ): Promise<UpdateProvisionedProductPropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5473,7 +5478,7 @@ const deserializeAws_json1_1UpdateProvisioningArtifactCommandError = async (
 ): Promise<UpdateProvisioningArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5517,7 +5522,7 @@ const deserializeAws_json1_1UpdateServiceActionCommandError = async (
 ): Promise<UpdateServiceActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5561,7 +5566,7 @@ const deserializeAws_json1_1UpdateTagOptionCommandError = async (
 ): Promise<UpdateTagOptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5804,6 +5809,15 @@ const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifact
   };
 };
 
+const serializeAws_json1_1CodeStarParameters = (input: CodeStarParameters, context: __SerdeContext): any => {
+  return {
+    ...(input.ArtifactPath != null && { ArtifactPath: input.ArtifactPath }),
+    ...(input.Branch != null && { Branch: input.Branch }),
+    ...(input.ConnectionArn != null && { ConnectionArn: input.ConnectionArn }),
+    ...(input.Repository != null && { Repository: input.Repository }),
+  };
+};
+
 const serializeAws_json1_1CopyOptions = (input: (CopyOption | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5863,6 +5877,7 @@ const serializeAws_json1_1CreatePortfolioShareInput = (
       OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
     }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.SharePrincipals != null && { SharePrincipals: input.SharePrincipals }),
     ...(input.ShareTagOptions != null && { ShareTagOptions: input.ShareTagOptions }),
   };
 };
@@ -5881,6 +5896,9 @@ const serializeAws_json1_1CreateProductInput = (input: CreateProductInput, conte
         input.ProvisioningArtifactParameters,
         context
       ),
+    }),
+    ...(input.SourceConnection != null && {
+      SourceConnection: serializeAws_json1_1SourceConnection(input.SourceConnection, context),
     }),
     ...(input.SupportDescription != null && { SupportDescription: input.SupportDescription }),
     ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
@@ -6210,6 +6228,7 @@ const serializeAws_json1_1DisassociatePrincipalFromPortfolioInput = (
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
     ...(input.PrincipalARN != null && { PrincipalARN: input.PrincipalARN }),
+    ...(input.PrincipalType != null && { PrincipalType: input.PrincipalType }),
   };
 };
 
@@ -6284,10 +6303,8 @@ const serializeAws_json1_1ExecutionParameterMap = (input: Record<string, string[
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ExecutionParameterValueList(value, context),
-    };
+    acc[key] = serializeAws_json1_1ExecutionParameterValueList(value, context);
+    return acc;
   }, {});
 };
 
@@ -6588,10 +6605,8 @@ const serializeAws_json1_1ProductViewFilters = (input: Record<string, string[]>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ProductViewFilterValues(value, context),
-    };
+    acc[key] = serializeAws_json1_1ProductViewFilterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -6612,10 +6627,8 @@ const serializeAws_json1_1ProvisionedProductFilters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1ProvisionedProductViewFilterValues(value, context),
-      };
+      acc[key] = serializeAws_json1_1ProvisionedProductViewFilterValues(value, context);
+      return acc;
     },
     {}
   );
@@ -6629,10 +6642,8 @@ const serializeAws_json1_1ProvisionedProductProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6649,10 +6660,8 @@ const serializeAws_json1_1ProvisioningArtifactInfo = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6831,13 +6840,29 @@ const serializeAws_json1_1ServiceActionDefinitionMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
+};
+
+const serializeAws_json1_1SourceConnection = (input: SourceConnection, context: __SerdeContext): any => {
+  return {
+    ...(input.ConnectionParameters != null && {
+      ConnectionParameters: serializeAws_json1_1SourceConnectionParameters(input.ConnectionParameters, context),
+    }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1SourceConnectionParameters = (
+  input: SourceConnectionParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CodeStar != null && { CodeStar: serializeAws_json1_1CodeStarParameters(input.CodeStar, context) }),
+  };
 };
 
 const serializeAws_json1_1SourceProvisioningArtifactProperties = (
@@ -6860,10 +6885,8 @@ const serializeAws_json1_1SourceProvisioningArtifactPropertiesMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
@@ -6954,6 +6977,7 @@ const serializeAws_json1_1UpdatePortfolioShareInput = (
       OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
     }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.SharePrincipals != null && { SharePrincipals: input.SharePrincipals }),
     ...(input.ShareTagOptions != null && { ShareTagOptions: input.ShareTagOptions }),
   };
 };
@@ -6968,6 +6992,9 @@ const serializeAws_json1_1UpdateProductInput = (input: UpdateProductInput, conte
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Owner != null && { Owner: input.Owner }),
     ...(input.RemoveTags != null && { RemoveTags: serializeAws_json1_1TagKeys(input.RemoveTags, context) }),
+    ...(input.SourceConnection != null && {
+      SourceConnection: serializeAws_json1_1SourceConnection(input.SourceConnection, context),
+    }),
     ...(input.SupportDescription != null && { SupportDescription: input.SupportDescription }),
     ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
     ...(input.SupportUrl != null && { SupportUrl: input.SupportUrl }),
@@ -7230,6 +7257,15 @@ const deserializeAws_json1_1CloudWatchDashboards = (output: any, context: __Serd
       return deserializeAws_json1_1CloudWatchDashboard(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1CodeStarParameters = (output: any, context: __SerdeContext): CodeStarParameters => {
+  return {
+    ArtifactPath: __expectString(output.ArtifactPath),
+    Branch: __expectString(output.Branch),
+    ConnectionArn: __expectString(output.ConnectionArn),
+    Repository: __expectString(output.Repository),
+  } as any;
 };
 
 const deserializeAws_json1_1ConstraintDetail = (output: any, context: __SerdeContext): ConstraintDetail => {
@@ -7850,6 +7886,22 @@ const deserializeAws_json1_1InvalidStateException = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1LastSync = (output: any, context: __SerdeContext): LastSync => {
+  return {
+    LastSuccessfulSyncProvisioningArtifactId: __expectString(output.LastSuccessfulSyncProvisioningArtifactId),
+    LastSuccessfulSyncTime:
+      output.LastSuccessfulSyncTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulSyncTime)))
+        : undefined,
+    LastSyncStatus: __expectString(output.LastSyncStatus),
+    LastSyncStatusMessage: __expectString(output.LastSyncStatusMessage),
+    LastSyncTime:
+      output.LastSyncTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSyncTime)))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1LaunchPath = (output: any, context: __SerdeContext): LaunchPath => {
   return {
     Id: __expectString(output.Id),
@@ -8206,6 +8258,7 @@ const deserializeAws_json1_1PortfolioShareDetail = (output: any, context: __Serd
   return {
     Accepted: __expectBoolean(output.Accepted),
     PrincipalId: __expectString(output.PrincipalId),
+    SharePrincipals: __expectBoolean(output.SharePrincipals),
     ShareTagOptions: __expectBoolean(output.ShareTagOptions),
     Type: __expectString(output.Type),
   } as any;
@@ -8251,10 +8304,8 @@ const deserializeAws_json1_1ProductViewAggregations = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1ProductViewAggregationValues(value, context),
-      };
+      acc[key] = deserializeAws_json1_1ProductViewAggregationValues(value, context);
+      return acc;
     },
     {}
   );
@@ -8295,6 +8346,10 @@ const deserializeAws_json1_1ProductViewDetail = (output: any, context: __SerdeCo
     ProductViewSummary:
       output.ProductViewSummary != null
         ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
+        : undefined,
+    SourceConnection:
+      output.SourceConnection != null
+        ? deserializeAws_json1_1SourceConnectionDetail(output.SourceConnection, context)
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -8497,10 +8552,8 @@ const deserializeAws_json1_1ProvisionedProductProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8531,6 +8584,7 @@ const deserializeAws_json1_1ProvisioningArtifactDetail = (
     Guidance: __expectString(output.Guidance),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
+    SourceRevision: __expectString(output.SourceRevision),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -8558,10 +8612,8 @@ const deserializeAws_json1_1ProvisioningArtifactInfo = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8995,10 +9047,8 @@ const deserializeAws_json1_1ServiceActionDefinitionMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -9067,6 +9117,26 @@ const deserializeAws_json1_1ShareErrors = (output: any, context: __SerdeContext)
       return deserializeAws_json1_1ShareError(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1SourceConnectionDetail = (output: any, context: __SerdeContext): SourceConnectionDetail => {
+  return {
+    ConnectionParameters:
+      output.ConnectionParameters != null
+        ? deserializeAws_json1_1SourceConnectionParameters(output.ConnectionParameters, context)
+        : undefined,
+    LastSync: output.LastSync != null ? deserializeAws_json1_1LastSync(output.LastSync, context) : undefined,
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1SourceConnectionParameters = (
+  output: any,
+  context: __SerdeContext
+): SourceConnectionParameters => {
+  return {
+    CodeStar: output.CodeStar != null ? deserializeAws_json1_1CodeStarParameters(output.CodeStar, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1StackInstance = (output: any, context: __SerdeContext): StackInstance => {
@@ -9364,7 +9434,8 @@ const deserializeAws_json1_1UsageInstructions = (output: any, context: __SerdeCo
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -9414,6 +9485,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -9424,6 +9501,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

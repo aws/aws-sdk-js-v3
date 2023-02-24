@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,9 +31,8 @@ export interface GetRightsizingRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates recommendations that
- *       help you save cost
- *       by identifying idle and underutilized Amazon EC2 instances.</p>
+ * <p>Creates recommendations that help you save cost by identifying idle and underutilized
+ *       Amazon EC2 instances.</p>
  *          <p>Recommendations are generated to either downsize or terminate instances, along with
  *       providing savings detail and metrics. For more information about calculation and function, see
  *         <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html">Optimizing Your Cost with Rightsizing Recommendations</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -59,6 +59,15 @@ export class GetRightsizingRecommendationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetRightsizingRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +83,9 @@ export class GetRightsizingRecommendationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRightsizingRecommendationCommandInput, GetRightsizingRecommendationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetRightsizingRecommendationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

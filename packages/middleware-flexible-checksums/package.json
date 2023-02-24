@@ -1,10 +1,11 @@
 {
   "name": "@aws-sdk/middleware-flexible-checksums",
-  "version": "3.127.0",
+  "version": "3.272.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
@@ -19,21 +20,22 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-crypto/crc32": "2.0.0",
-    "@aws-crypto/crc32c": "2.0.0",
+    "@aws-crypto/crc32": "3.0.0",
+    "@aws-crypto/crc32c": "3.0.0",
     "@aws-sdk/is-array-buffer": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
+    "@aws-sdk/util-utf8": "*",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
     "concurrently": "7.0.0",
-    "downlevel-dts": "0.7.0",
+    "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
     "typescript": "~4.6.2"
   },
   "engines": {
-    "node": ">= 12.0.0"
+    "node": ">=14.0.0"
   },
   "typesVersions": {
     "<4.0": {

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,11 +32,11 @@ export interface DescribeHostReservationOfferingsCommandOutput
 
 /**
  * <p>Describes the Dedicated Host reservations that are available to purchase.</p>
- *         <p>The results describe all of the Dedicated Host reservation offerings, including
- * 			offerings that might not match the instance family and Region of your Dedicated Hosts.
- * 			When purchasing an offering, ensure that the instance family and Region of the offering
- * 			matches that of the Dedicated Hosts with which it is to be associated. For more
- * 			information about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated Hosts</a>
+ *          <p>The results describe all of the Dedicated Host reservation offerings, including
+ *             offerings that might not match the instance family and Region of your Dedicated Hosts.
+ *             When purchasing an offering, ensure that the instance family and Region of the offering
+ *             matches that of the Dedicated Hosts with which it is to be associated. For more
+ *             information about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated Hosts</a>
  *             in the <i>Amazon EC2 User Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +61,15 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeHostReservationOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeHostReservationOfferingsCommandInput, DescribeHostReservationOfferingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeHostReservationOfferingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

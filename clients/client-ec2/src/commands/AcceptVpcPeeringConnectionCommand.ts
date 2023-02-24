@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  *       be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC.
  *       Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
  *       peering connection requests.</p>
- *   	      <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
+ *          <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
  *       connection in the Region of the accepter VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +58,15 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AcceptVpcPeeringConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AcceptVpcPeeringConnectionCommandInput, AcceptVpcPeeringConnectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AcceptVpcPeeringConnectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

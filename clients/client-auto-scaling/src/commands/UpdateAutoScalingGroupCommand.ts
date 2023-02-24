@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,12 +27,12 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * <p>
  *             <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
  *          </p>
- *         <p>Updates the configuration for the specified Auto Scaling group.</p>
- *         <p>To update an Auto Scaling group, specify the name of the group and the property that you want
+ *          <p>Updates the configuration for the specified Auto Scaling group.</p>
+ *          <p>To update an Auto Scaling group, specify the name of the group and the property that you want
  *             to change. Any properties that you don't specify are not changed by this update request.
  *             The new settings take effect on any scaling activities after this call returns.
  *             </p>
- *         <p>If you associate a new launch configuration or template with an Auto Scaling group, all new
+ *          <p>If you associate a new launch configuration or template with an Auto Scaling group, all new
  *             instances will get the updated configuration. Existing instances continue to run with
  *             the configuration that they were originally launched with. When you update a group to
  *             specify a mixed instances policy instead of a launch configuration or template, existing
@@ -41,29 +42,29 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches
  *             new instances before terminating the old ones, so that updating your group does not
  *             compromise the performance or availability of your application.</p>
- *         <p>Note the following about changing <code>DesiredCapacity</code>, <code>MaxSize</code>,
+ *          <p>Note the following about changing <code>DesiredCapacity</code>, <code>MaxSize</code>,
  *             or <code>MinSize</code>:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>If a scale-in activity occurs as a result of a new
+ *                <p>If a scale-in activity occurs as a result of a new
  *                         <code>DesiredCapacity</code> value that is lower than the current size of
  *                     the group, the Auto Scaling group uses its termination policy to determine which
  *                     instances to terminate.</p>
  *             </li>
  *             <li>
- *                 <p>If you specify a new value for <code>MinSize</code> without specifying a value
+ *                <p>If you specify a new value for <code>MinSize</code> without specifying a value
  *                     for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger
  *                     than the current size of the group, this sets the group's
  *                         <code>DesiredCapacity</code> to the new <code>MinSize</code> value.</p>
  *             </li>
  *             <li>
- *                 <p>If you specify a new value for <code>MaxSize</code> without specifying a value
+ *                <p>If you specify a new value for <code>MaxSize</code> without specifying a value
  *                     for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller
  *                     than the current size of the group, this sets the group's
  *                         <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p>
  *             </li>
  *          </ul>
- *         <p>To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling
+ *          <p>To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling
  *             group, call the <a>DescribePolicies</a> API. If the group has scaling
  *             policies, you can update them by calling the <a>PutScalingPolicy</a>
  *             API.</p>
@@ -90,6 +91,15 @@ export class UpdateAutoScalingGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateAutoScalingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,6 +115,9 @@ export class UpdateAutoScalingGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateAutoScalingGroupCommandInput, UpdateAutoScalingGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateAutoScalingGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

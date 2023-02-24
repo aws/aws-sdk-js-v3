@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,11 +30,11 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
 
 /**
  * <p>Gets information about the Auto Scaling groups in the account and Region.</p>
- *         <p>If you specify Auto Scaling group names, the output includes information for only the
+ *          <p>If you specify Auto Scaling group names, the output includes information for only the
  *             specified Auto Scaling groups. If you specify filters, the output includes information for only
  *             those Auto Scaling groups that meet the filter criteria. If you do not specify group names or
  *             filters, the output includes information for all Auto Scaling groups. </p>
- *         <p>This operation also returns information about instances in Auto Scaling groups. To retrieve
+ *          <p>This operation also returns information about instances in Auto Scaling groups. To retrieve
  *             information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a> API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +59,15 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeAutoScalingGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAutoScalingGroupsCommandInput, DescribeAutoScalingGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAutoScalingGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

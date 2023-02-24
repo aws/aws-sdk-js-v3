@@ -1,13 +1,7 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -32,22 +26,24 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -202,6 +198,12 @@ import {
   UpdateDeploymentGroupCommandInput,
   UpdateDeploymentGroupCommandOutput,
 } from "./commands/UpdateDeploymentGroupCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -309,11 +311,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -370,6 +372,39 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -385,58 +420,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type CodeDeployClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of CodeDeployClient class constructor that set the region, credentials and other options.
  */
@@ -445,41 +442,41 @@ export interface CodeDeployClientConfig extends CodeDeployClientConfigType {}
 type CodeDeployClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of CodeDeployClient class. This is resolved and normalized from the {@link CodeDeployClientConfig | constructor configuration interface}.
  */
 export interface CodeDeployClientResolvedConfig extends CodeDeployClientResolvedConfigType {}
 
 /**
- * <fullname>AWS CodeDeploy</fullname>
- *         <p>AWS CodeDeploy is a deployment service that automates application deployments to
- *             Amazon EC2 instances, on-premises instances running in your own facility, serverless AWS
- *             Lambda functions, or applications in an Amazon ECS service.</p>
+ * <p>CodeDeploy is a deployment service that automates application deployments
+ *             to Amazon EC2 instances, on-premises instances running in your own facility,
+ *             serverless Lambda functions, or applications in an Amazon ECS
+ *             service.</p>
  *         <p>You can deploy a nearly unlimited variety of application content, such as an updated
- *             Lambda function, updated applications in an Amazon ECS service, code, web and
- *             configuration files, executables, packages, scripts, multimedia files, and so on. AWS
- *             CodeDeploy can deploy application content stored in Amazon S3 buckets, GitHub
- *             repositories, or Bitbucket repositories. You do not need to make changes to your
- *             existing code before you can use AWS CodeDeploy.</p>
- *         <p>AWS CodeDeploy makes it easier for you to rapidly release new features, helps you
- *             avoid downtime during application deployment, and handles the complexity of updating
+ *                 Lambda function, updated applications in an Amazon ECS service,
+ *             code, web and configuration files, executables, packages, scripts, multimedia files, and
+ *             so on. CodeDeploy can deploy application content stored in Amazon S3
+ *             buckets, GitHub repositories, or Bitbucket repositories. You do not need to make changes
+ *             to your existing code before you can use CodeDeploy.</p>
+ *         <p>CodeDeploy makes it easier for you to rapidly release new features, helps
+ *             you avoid downtime during application deployment, and handles the complexity of updating
  *             your applications, without many of the risks associated with error-prone manual
  *             deployments.</p>
  *         <p>
- *             <b>AWS CodeDeploy Components</b>
+ *             <b>CodeDeploy Components</b>
  *         </p>
- *         <p>Use the information in this guide to help you work with the following AWS CodeDeploy
- *             components:</p>
+ *         <p>Use the information in this guide to help you work with the following CodeDeploy components:</p>
  *         <ul>
  *             <li>
  *                 <p>
  *                     <b>Application</b>: A name that uniquely identifies
- *                     the application you want to deploy. AWS CodeDeploy uses this name, which
+ *                     the application you want to deploy. CodeDeploy uses this name, which
  *                     functions as a container, to ensure the correct combination of revision,
  *                     deployment configuration, and deployment group are referenced during a
  *                     deployment.</p>
@@ -487,72 +484,66 @@ export interface CodeDeployClientResolvedConfig extends CodeDeployClientResolved
  *             <li>
  *                 <p>
  *                     <b>Deployment group</b>: A set of individual
- *                     instances, CodeDeploy Lambda deployment configuration settings, or an Amazon ECS
- *                     service and network details. A Lambda deployment group specifies how to route
- *                     traffic to a new version of a Lambda function. An Amazon ECS deployment group
- *                     specifies the service created in Amazon ECS to deploy, a load balancer, and a
- *                     listener to reroute production traffic to an updated containerized application.
- *                     An EC2/On-premises deployment group contains individually tagged instances,
- *                     Amazon EC2 instances in Amazon EC2 Auto Scaling groups, or both. All deployment
- *                     groups can specify optional trigger, alarm, and rollback settings.</p>
+ *                     instances, CodeDeploy
+ *                     Lambda deployment configuration settings, or an Amazon ECS
+ *                     service and network details. A Lambda deployment group specifies how
+ *                     to route traffic to a new version of a Lambda function. An Amazon ECS deployment group specifies the service created in Amazon ECS to deploy, a load balancer, and a listener to reroute production
+ *                     traffic to an updated containerized application. An Amazon EC2/On-premises deployment group contains individually tagged instances, Amazon EC2 instances in Amazon EC2 Auto Scaling groups, or both. All
+ *                     deployment groups can specify optional trigger, alarm, and rollback
+ *                     settings.</p>
  *             </li>
  *             <li>
  *                 <p>
  *                     <b>Deployment configuration</b>: A set of deployment
- *                     rules and deployment success and failure conditions used by AWS CodeDeploy
- *                     during a deployment.</p>
+ *                     rules and deployment success and failure conditions used by CodeDeploy during a deployment.</p>
  *             </li>
  *             <li>
  *                 <p>
  *                     <b>Deployment</b>: The process and the components used
- *                     when updating a Lambda function, a containerized application in an Amazon ECS
- *                     service, or of installing content on one or more instances. </p>
+ *                     when updating a Lambda function, a containerized application in an
+ *                         Amazon ECS service, or of installing content on one or more
+ *                     instances. </p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>Application revisions</b>: For an AWS Lambda
- *                     deployment, this is an AppSpec file that specifies the Lambda function to be
- *                     updated and one or more functions to validate deployment lifecycle events. For
- *                     an Amazon ECS deployment, this is an AppSpec file that specifies the Amazon ECS
- *                     task definition, container, and port where production traffic is rerouted. For
- *                     an EC2/On-premises deployment, this is an archive file that contains source
- *                     content—source code, webpages, executable files, and deployment scripts—along
- *                     with an AppSpec file. Revisions are stored in Amazon S3 buckets or GitHub
- *                     repositories. For Amazon S3, a revision is uniquely identified by its Amazon S3
- *                     object key and its ETag, version, or both. For GitHub, a revision is uniquely
+ *                     <b>Application revisions</b>: For an Lambda deployment, this is an AppSpec file that specifies the
+ *                         Lambda function to be updated and one or more functions to
+ *                     validate deployment lifecycle events. For an Amazon ECS deployment, this
+ *                     is an AppSpec file that specifies the Amazon ECS task definition,
+ *                     container, and port where production traffic is rerouted. For an EC2/On-premises
+ *                     deployment, this is an archive file that contains source content—source code,
+ *                     webpages, executable files, and deployment scripts—along with an AppSpec file.
+ *                     Revisions are stored in Amazon S3 buckets or GitHub repositories. For
+ *                         Amazon S3, a revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both. For GitHub, a revision is uniquely
  *                     identified by its commit ID.</p>
  *             </li>
  *          </ul>
  *         <p>This guide also contains information to help you get details about the instances in
- *             your deployments, to make on-premises instances available for AWS CodeDeploy
- *             deployments, to get details about a Lambda function deployment, and to get details about
- *             Amazon ECS service deployments.</p>
+ *             your deployments, to make on-premises instances available for CodeDeploy
+ *             deployments, to get details about a Lambda function deployment, and to get
+ *             details about Amazon ECS service deployments.</p>
  *         <p>
- *             <b>AWS CodeDeploy Information Resources</b>
+ *             <b>CodeDeploy Information Resources</b>
  *          </p>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide">AWS CodeDeploy
- *                         User Guide</a>
+ *                   <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide">CodeDeploy User Guide</a>
  *                </p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/">AWS
- *                         CodeDeploy API Reference Guide</a>
+ *                   <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/">CodeDeploy API Reference Guide</a>
  *                </p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html">AWS
- *                         CLI Reference for AWS CodeDeploy</a>
+ *                   <a href="https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html">CLI Reference for CodeDeploy</a>
  *                </p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <a href="https://forums.aws.amazon.com/forum.jspa?forumID=179">AWS CodeDeploy
- *                         Developer Forum</a>
+ *                     <a href="https://forums.aws.amazon.com/forum.jspa?forumID=179">CodeDeploy Developer Forum</a>
  *                 </p>
  *             </li>
  *          </ul>
@@ -570,14 +561,15 @@ export class CodeDeployClient extends __Client<
 
   constructor(configuration: CodeDeployClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

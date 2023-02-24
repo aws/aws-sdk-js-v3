@@ -9,7 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -33,7 +36,7 @@ type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMedi
  */
 export interface StreamingTraitsWithMediaTypeCommandInput extends StreamingTraitsWithMediaTypeCommandInputType {}
 export interface StreamingTraitsWithMediaTypeCommandOutput
-  extends StreamingTraitsWithMediaTypeInputOutput,
+  extends __WithSdkStreamMixin<StreamingTraitsWithMediaTypeInputOutput, "blob">,
     __MetadataBearer {}
 
 /**
@@ -106,7 +109,7 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: __SerdeContext
+    context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<StreamingTraitsWithMediaTypeCommandOutput> {
     return deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand(output, context);
   }

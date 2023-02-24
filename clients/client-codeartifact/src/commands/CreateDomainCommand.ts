@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,7 +35,6 @@ export interface CreateDomainCommandOutput extends CreateDomainResult, __Metadat
  *         repositories owned by different Amazon Web Services accounts. An asset is stored only once
  *         in a domain, even if it's in multiple repositories.
  *     </p>
- *
  *          <p>Although you can have multiple domains, we recommend a single production domain that contains all
  *         published artifacts so that your development teams can find and share packages. You can use a second
  *         pre-production domain to test changes to the production domain configuration.
@@ -62,6 +62,15 @@ export class CreateDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +86,7 @@ export class CreateDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDomainCommandInput, CreateDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateDomainCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

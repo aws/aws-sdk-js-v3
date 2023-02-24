@@ -133,7 +133,15 @@ import {
   GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "../commands/GetInterpolatedAssetPropertyValuesCommand";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "../commands/ListAccessPoliciesCommand";
+import {
+  ListAssetModelPropertiesCommandInput,
+  ListAssetModelPropertiesCommandOutput,
+} from "../commands/ListAssetModelPropertiesCommand";
 import { ListAssetModelsCommandInput, ListAssetModelsCommandOutput } from "../commands/ListAssetModelsCommand";
+import {
+  ListAssetPropertiesCommandInput,
+  ListAssetPropertiesCommandOutput,
+} from "../commands/ListAssetPropertiesCommand";
 import {
   ListAssetRelationshipsCommandInput,
   ListAssetRelationshipsCommandOutput,
@@ -197,9 +205,11 @@ import {
   AssetModelHierarchyDefinition,
   AssetModelProperty,
   AssetModelPropertyDefinition,
+  AssetModelPropertySummary,
   AssetModelStatus,
   AssetModelSummary,
   AssetProperty,
+  AssetPropertySummary,
   AssetPropertyValue,
   AssetRelationshipSummary,
   AssetStatus,
@@ -337,9 +347,9 @@ export const serializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand = a
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/timeseries/associate";
   const query: any = map({
-    alias: [, input.alias!],
-    assetId: [, input.assetId!],
-    propertyId: [, input.propertyId!],
+    alias: [, __expectNonNull(input.alias!, `alias`)],
+    assetId: [, __expectNonNull(input.assetId!, `assetId`)],
+    propertyId: [, __expectNonNull(input.propertyId!, `propertyId`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -896,7 +906,7 @@ export const serializeAws_restJson1DeleteAccessPolicyCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -927,7 +937,7 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -966,7 +976,7 @@ export const serializeAws_restJson1DeleteAssetModelCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -998,7 +1008,7 @@ export const serializeAws_restJson1DeleteDashboardCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards/{dashboardId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "dashboardId", () => input.dashboardId!, "{dashboardId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1057,7 +1067,7 @@ export const serializeAws_restJson1DeletePortalCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalId", () => input.portalId!, "{portalId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1088,7 +1098,7 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "projectId", () => input.projectId!, "{projectId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1190,6 +1200,9 @@ export const serializeAws_restJson1DescribeAssetCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
+  const query: any = map({
+    excludeProperties: [() => input.excludeProperties !== void 0, () => input.excludeProperties!.toString()],
+  });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1205,6 +1218,7 @@ export const serializeAws_restJson1DescribeAssetCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1225,6 +1239,9 @@ export const serializeAws_restJson1DescribeAssetModelCommand = async (
     "{assetModelId}",
     false
   );
+  const query: any = map({
+    excludeProperties: [() => input.excludeProperties !== void 0, () => input.excludeProperties!.toString()],
+  });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1240,6 +1257,7 @@ export const serializeAws_restJson1DescribeAssetModelCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1614,9 +1632,9 @@ export const serializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyComman
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/timeseries/disassociate";
   const query: any = map({
-    alias: [, input.alias!],
-    assetId: [, input.assetId!],
-    propertyId: [, input.propertyId!],
+    alias: [, __expectNonNull(input.alias!, `alias`)],
+    assetId: [, __expectNonNull(input.assetId!, `assetId`)],
+    propertyId: [, __expectNonNull(input.propertyId!, `propertyId`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -1653,16 +1671,19 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
     propertyId: [, input.propertyId!],
     propertyAlias: [, input.propertyAlias!],
     aggregateTypes: [
-      () => input.aggregateTypes !== void 0,
+      __expectNonNull(input.aggregateTypes, `aggregateTypes`) != null,
       () => (input.aggregateTypes! || []).map((_entry) => _entry as any),
     ],
-    resolution: [, input.resolution!],
+    resolution: [, __expectNonNull(input.resolution!, `resolution`)],
     qualities: [() => input.qualities !== void 0, () => (input.qualities! || []).map((_entry) => _entry as any)],
     startDate: [
-      () => input.startDate !== void 0,
+      __expectNonNull(input.startDate, `startDate`) != null,
       () => (input.startDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endDate: [() => input.endDate !== void 0, () => (input.endDate!.toISOString().split(".")[0] + "Z").toString()],
+    endDate: [
+      __expectNonNull(input.endDate, `endDate`) != null,
+      () => (input.endDate!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     timeOrdering: [, input.timeOrdering!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
@@ -1772,18 +1793,27 @@ export const serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand = a
     assetId: [, input.assetId!],
     propertyId: [, input.propertyId!],
     propertyAlias: [, input.propertyAlias!],
-    startTimeInSeconds: [() => input.startTimeInSeconds !== void 0, () => input.startTimeInSeconds!.toString()],
+    startTimeInSeconds: [
+      __expectNonNull(input.startTimeInSeconds, `startTimeInSeconds`) != null,
+      () => input.startTimeInSeconds!.toString(),
+    ],
     startTimeOffsetInNanos: [
       () => input.startTimeOffsetInNanos !== void 0,
       () => input.startTimeOffsetInNanos!.toString(),
     ],
-    endTimeInSeconds: [() => input.endTimeInSeconds !== void 0, () => input.endTimeInSeconds!.toString()],
+    endTimeInSeconds: [
+      __expectNonNull(input.endTimeInSeconds, `endTimeInSeconds`) != null,
+      () => input.endTimeInSeconds!.toString(),
+    ],
     endTimeOffsetInNanos: [() => input.endTimeOffsetInNanos !== void 0, () => input.endTimeOffsetInNanos!.toString()],
-    quality: [, input.quality!],
-    intervalInSeconds: [() => input.intervalInSeconds !== void 0, () => input.intervalInSeconds!.toString()],
+    quality: [, __expectNonNull(input.quality!, `quality`)],
+    intervalInSeconds: [
+      __expectNonNull(input.intervalInSeconds, `intervalInSeconds`) != null,
+      () => input.intervalInSeconds!.toString(),
+    ],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    type: [, input.type!],
+    type: [, __expectNonNull(input.type!, `type`)],
     intervalWindowInSeconds: [
       () => input.intervalWindowInSeconds !== void 0,
       () => input.intervalWindowInSeconds!.toString(),
@@ -1845,6 +1875,47 @@ export const serializeAws_restJson1ListAccessPoliciesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListAssetModelPropertiesCommand = async (
+  input: ListAssetModelPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/asset-models/{assetModelId}/properties";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelId",
+    () => input.assetModelId!,
+    "{assetModelId}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    filter: [, input.filter!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListAssetModelsCommand = async (
   input: ListAssetModelsCommandInput,
   context: __SerdeContext
@@ -1876,6 +1947,40 @@ export const serializeAws_restJson1ListAssetModelsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListAssetPropertiesCommand = async (
+  input: ListAssetPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/properties";
+  resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    filter: [, input.filter!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListAssetRelationshipsCommand = async (
   input: ListAssetRelationshipsCommandInput,
   context: __SerdeContext
@@ -1886,7 +1991,7 @@ export const serializeAws_restJson1ListAssetRelationshipsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/assetRelationships";
   resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
   const query: any = map({
-    traversalType: [, input.traversalType!],
+    traversalType: [, __expectNonNull(input.traversalType!, `traversalType`)],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -2018,7 +2123,7 @@ export const serializeAws_restJson1ListDashboardsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards";
   const query: any = map({
-    projectId: [, input.projectId!],
+    projectId: [, __expectNonNull(input.projectId!, `projectId`)],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -2145,7 +2250,7 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   const query: any = map({
-    portalId: [, input.portalId!],
+    portalId: [, __expectNonNull(input.portalId!, `portalId`)],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -2177,7 +2282,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2348,7 +2453,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -2381,8 +2486,11 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2556,6 +2664,7 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.propertyAlias != null && { propertyAlias: input.propertyAlias }),
     ...(input.propertyNotificationState != null && { propertyNotificationState: input.propertyNotificationState }),
+    ...(input.propertyUnit != null && { propertyUnit: input.propertyUnit }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2773,7 +2882,7 @@ const deserializeAws_restJson1AssociateAssetsCommandError = async (
 ): Promise<AssociateAssetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2789,6 +2898,9 @@ const deserializeAws_restJson1AssociateAssetsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iotsitewise#LimitExceededException":
       throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
+      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsitewise#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -2826,7 +2938,7 @@ const deserializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommandError = a
 ): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2879,7 +2991,7 @@ const deserializeAws_restJson1BatchAssociateProjectAssetsCommandError = async (
 ): Promise<BatchAssociateProjectAssetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2932,7 +3044,7 @@ const deserializeAws_restJson1BatchDisassociateProjectAssetsCommandError = async
 ): Promise<BatchDisassociateProjectAssetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3000,7 +3112,7 @@ const deserializeAws_restJson1BatchGetAssetPropertyAggregatesCommandError = asyn
 ): Promise<BatchGetAssetPropertyAggregatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3065,7 +3177,7 @@ const deserializeAws_restJson1BatchGetAssetPropertyValueCommandError = async (
 ): Promise<BatchGetAssetPropertyValueCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3133,7 +3245,7 @@ const deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommandError = as
 ): Promise<BatchGetAssetPropertyValueHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3183,7 +3295,7 @@ const deserializeAws_restJson1BatchPutAssetPropertyValueCommandError = async (
 ): Promise<BatchPutAssetPropertyValueCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3245,7 +3357,7 @@ const deserializeAws_restJson1CreateAccessPolicyCommandError = async (
 ): Promise<CreateAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3304,7 +3416,7 @@ const deserializeAws_restJson1CreateAssetCommandError = async (
 ): Promise<CreateAssetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3369,7 +3481,7 @@ const deserializeAws_restJson1CreateAssetModelCommandError = async (
 ): Promise<CreateAssetModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3434,7 +3546,7 @@ const deserializeAws_restJson1CreateBulkImportJobCommandError = async (
 ): Promise<CreateBulkImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3496,7 +3608,7 @@ const deserializeAws_restJson1CreateDashboardCommandError = async (
 ): Promise<CreateDashboardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3552,7 +3664,7 @@ const deserializeAws_restJson1CreateGatewayCommandError = async (
 ): Promise<CreateGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3617,7 +3729,7 @@ const deserializeAws_restJson1CreatePortalCommandError = async (
 ): Promise<CreatePortalCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3673,7 +3785,7 @@ const deserializeAws_restJson1CreateProjectCommandError = async (
 ): Promise<CreateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3723,7 +3835,7 @@ const deserializeAws_restJson1DeleteAccessPolicyCommandError = async (
 ): Promise<DeleteAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3773,7 +3885,7 @@ const deserializeAws_restJson1DeleteAssetCommandError = async (
 ): Promise<DeleteAssetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3826,7 +3938,7 @@ const deserializeAws_restJson1DeleteAssetModelCommandError = async (
 ): Promise<DeleteAssetModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3876,7 +3988,7 @@ const deserializeAws_restJson1DeleteDashboardCommandError = async (
 ): Promise<DeleteDashboardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3923,7 +4035,7 @@ const deserializeAws_restJson1DeleteGatewayCommandError = async (
 ): Promise<DeleteGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3973,7 +4085,7 @@ const deserializeAws_restJson1DeletePortalCommandError = async (
 ): Promise<DeletePortalCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4023,7 +4135,7 @@ const deserializeAws_restJson1DeleteProjectCommandError = async (
 ): Promise<DeleteProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4070,7 +4182,7 @@ const deserializeAws_restJson1DeleteTimeSeriesCommandError = async (
 ): Promise<DeleteTimeSeriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4145,7 +4257,7 @@ const deserializeAws_restJson1DescribeAccessPolicyCommandError = async (
 ): Promise<DescribeAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4225,7 +4337,7 @@ const deserializeAws_restJson1DescribeAssetCommandError = async (
 ): Promise<DescribeAssetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4309,7 +4421,7 @@ const deserializeAws_restJson1DescribeAssetModelCommandError = async (
 ): Promise<DescribeAssetModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4371,7 +4483,7 @@ const deserializeAws_restJson1DescribeAssetPropertyCommandError = async (
 ): Promise<DescribeAssetPropertyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4445,7 +4557,7 @@ const deserializeAws_restJson1DescribeBulkImportJobCommandError = async (
 ): Promise<DescribeBulkImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4518,7 +4630,7 @@ const deserializeAws_restJson1DescribeDashboardCommandError = async (
 ): Promise<DescribeDashboardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4574,7 +4686,7 @@ const deserializeAws_restJson1DescribeDefaultEncryptionConfigurationCommandError
 ): Promise<DescribeDefaultEncryptionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4642,7 +4754,7 @@ const deserializeAws_restJson1DescribeGatewayCommandError = async (
 ): Promise<DescribeGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4701,7 +4813,7 @@ const deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommandError
 ): Promise<DescribeGatewayCapabilityConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4751,7 +4863,7 @@ const deserializeAws_restJson1DescribeLoggingOptionsCommandError = async (
 ): Promise<DescribeLoggingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4843,7 +4955,7 @@ const deserializeAws_restJson1DescribePortalCommandError = async (
 ): Promise<DescribePortalCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4911,7 +5023,7 @@ const deserializeAws_restJson1DescribeProjectCommandError = async (
 ): Promise<DescribeProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4976,7 +5088,7 @@ const deserializeAws_restJson1DescribeStorageConfigurationCommandError = async (
 ): Promise<DescribeStorageConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5057,7 +5169,7 @@ const deserializeAws_restJson1DescribeTimeSeriesCommandError = async (
 ): Promise<DescribeTimeSeriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5104,7 +5216,7 @@ const deserializeAws_restJson1DisassociateAssetsCommandError = async (
 ): Promise<DisassociateAssetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5154,7 +5266,7 @@ const deserializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommandErro
 ): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5210,7 +5322,7 @@ const deserializeAws_restJson1GetAssetPropertyAggregatesCommandError = async (
 ): Promise<GetAssetPropertyAggregatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5263,7 +5375,7 @@ const deserializeAws_restJson1GetAssetPropertyValueCommandError = async (
 ): Promise<GetAssetPropertyValueCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5322,7 +5434,7 @@ const deserializeAws_restJson1GetAssetPropertyValueHistoryCommandError = async (
 ): Promise<GetAssetPropertyValueHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5381,7 +5493,7 @@ const deserializeAws_restJson1GetInterpolatedAssetPropertyValuesCommandError = a
 ): Promise<GetInterpolatedAssetPropertyValuesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5437,7 +5549,7 @@ const deserializeAws_restJson1ListAccessPoliciesCommandError = async (
 ): Promise<ListAccessPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5447,6 +5559,62 @@ const deserializeAws_restJson1ListAccessPoliciesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iotsitewise#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListAssetModelPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetModelPropertiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAssetModelPropertiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assetModelPropertySummaries != null) {
+    contents.assetModelPropertySummaries = deserializeAws_restJson1AssetModelPropertySummaries(
+      data.assetModelPropertySummaries,
+      context
+    );
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListAssetModelPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetModelPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotsitewise#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -5487,7 +5655,7 @@ const deserializeAws_restJson1ListAssetModelsCommandError = async (
 ): Promise<ListAssetModelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5497,6 +5665,62 @@ const deserializeAws_restJson1ListAssetModelsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iotsitewise#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListAssetPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetPropertiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAssetPropertiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assetPropertySummaries != null) {
+    contents.assetPropertySummaries = deserializeAws_restJson1AssetPropertySummaries(
+      data.assetPropertySummaries,
+      context
+    );
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListAssetPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotsitewise#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -5540,7 +5764,7 @@ const deserializeAws_restJson1ListAssetRelationshipsCommandError = async (
 ): Promise<ListAssetRelationshipsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5593,7 +5817,7 @@ const deserializeAws_restJson1ListAssetsCommandError = async (
 ): Promise<ListAssetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5646,7 +5870,7 @@ const deserializeAws_restJson1ListAssociatedAssetsCommandError = async (
 ): Promise<ListAssociatedAssetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5699,7 +5923,7 @@ const deserializeAws_restJson1ListBulkImportJobsCommandError = async (
 ): Promise<ListBulkImportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5752,7 +5976,7 @@ const deserializeAws_restJson1ListDashboardsCommandError = async (
 ): Promise<ListDashboardsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5802,7 +6026,7 @@ const deserializeAws_restJson1ListGatewaysCommandError = async (
 ): Promise<ListGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5852,7 +6076,7 @@ const deserializeAws_restJson1ListPortalsCommandError = async (
 ): Promise<ListPortalsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5902,7 +6126,7 @@ const deserializeAws_restJson1ListProjectAssetsCommandError = async (
 ): Promise<ListProjectAssetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5952,7 +6176,7 @@ const deserializeAws_restJson1ListProjectsCommandError = async (
 ): Promise<ListProjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5999,7 +6223,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6061,7 +6285,7 @@ const deserializeAws_restJson1ListTimeSeriesCommandError = async (
 ): Promise<ListTimeSeriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6117,7 +6341,7 @@ const deserializeAws_restJson1PutDefaultEncryptionConfigurationCommandError = as
 ): Promise<PutDefaultEncryptionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6167,7 +6391,7 @@ const deserializeAws_restJson1PutLoggingOptionsCommandError = async (
 ): Promise<PutLoggingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6232,7 +6456,7 @@ const deserializeAws_restJson1PutStorageConfigurationCommandError = async (
 ): Promise<PutStorageConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6288,7 +6512,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6347,7 +6571,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6403,7 +6627,7 @@ const deserializeAws_restJson1UpdateAccessPolicyCommandError = async (
 ): Promise<UpdateAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6453,7 +6677,7 @@ const deserializeAws_restJson1UpdateAssetCommandError = async (
 ): Promise<UpdateAssetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6509,7 +6733,7 @@ const deserializeAws_restJson1UpdateAssetModelCommandError = async (
 ): Promise<UpdateAssetModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6565,7 +6789,7 @@ const deserializeAws_restJson1UpdateAssetPropertyCommandError = async (
 ): Promise<UpdateAssetPropertyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6615,7 +6839,7 @@ const deserializeAws_restJson1UpdateDashboardCommandError = async (
 ): Promise<UpdateDashboardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6662,7 +6886,7 @@ const deserializeAws_restJson1UpdateGatewayCommandError = async (
 ): Promise<UpdateGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6718,7 +6942,7 @@ const deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommandError =
 ): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6774,7 +6998,7 @@ const deserializeAws_restJson1UpdatePortalCommandError = async (
 ): Promise<UpdatePortalCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6824,7 +7048,7 @@ const deserializeAws_restJson1UpdateProjectCommandError = async (
 ): Promise<UpdateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7048,6 +7272,7 @@ const serializeAws_restJson1AssetModelCompositeModel = (
 ): any => {
   return {
     ...(input.description != null && { description: input.description }),
+    ...(input.id != null && { id: input.id }),
     ...(input.name != null && { name: input.name }),
     ...(input.properties != null && {
       properties: serializeAws_restJson1AssetModelProperties(input.properties, context),
@@ -7555,10 +7780,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7691,6 +7914,7 @@ const deserializeAws_restJson1Alarms = (output: any, context: __SerdeContext): A
 const deserializeAws_restJson1AssetCompositeModel = (output: any, context: __SerdeContext): AssetCompositeModel => {
   return {
     description: __expectString(output.description),
+    id: __expectString(output.id),
     name: __expectString(output.name),
     properties:
       output.properties != null ? deserializeAws_restJson1AssetProperties(output.properties, context) : undefined,
@@ -7762,6 +7986,7 @@ const deserializeAws_restJson1AssetModelCompositeModel = (
 ): AssetModelCompositeModel => {
   return {
     description: __expectString(output.description),
+    id: __expectString(output.id),
     name: __expectString(output.name),
     properties:
       output.properties != null ? deserializeAws_restJson1AssetModelProperties(output.properties, context) : undefined,
@@ -7827,6 +8052,36 @@ const deserializeAws_restJson1AssetModelProperty = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1AssetModelPropertySummaries = (
+  output: any,
+  context: __SerdeContext
+): AssetModelPropertySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetModelPropertySummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AssetModelPropertySummary = (
+  output: any,
+  context: __SerdeContext
+): AssetModelPropertySummary => {
+  return {
+    assetModelCompositeModelId: __expectString(output.assetModelCompositeModelId),
+    dataType: __expectString(output.dataType),
+    dataTypeSpec: __expectString(output.dataTypeSpec),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    type: output.type != null ? deserializeAws_restJson1PropertyType(output.type, context) : undefined,
+    unit: __expectString(output.unit),
+  } as any;
+};
+
 const deserializeAws_restJson1AssetModelStatus = (output: any, context: __SerdeContext): AssetModelStatus => {
   return {
     error: output.error != null ? deserializeAws_restJson1ErrorDetails(output.error, context) : undefined,
@@ -7883,6 +8138,34 @@ const deserializeAws_restJson1AssetProperty = (output: any, context: __SerdeCont
     dataTypeSpec: __expectString(output.dataTypeSpec),
     id: __expectString(output.id),
     name: __expectString(output.name),
+    notification:
+      output.notification != null
+        ? deserializeAws_restJson1PropertyNotification(output.notification, context)
+        : undefined,
+    unit: __expectString(output.unit),
+  } as any;
+};
+
+const deserializeAws_restJson1AssetPropertySummaries = (
+  output: any,
+  context: __SerdeContext
+): AssetPropertySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetPropertySummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AssetPropertySummary = (output: any, context: __SerdeContext): AssetPropertySummary => {
+  return {
+    alias: __expectString(output.alias),
+    assetCompositeModelId: __expectString(output.assetCompositeModelId),
+    id: __expectString(output.id),
     notification:
       output.notification != null
         ? deserializeAws_restJson1PropertyNotification(output.notification, context)
@@ -8416,6 +8699,7 @@ const deserializeAws_restJson1CompositeModelProperty = (
   return {
     assetProperty:
       output.assetProperty != null ? deserializeAws_restJson1Property(output.assetProperty, context) : undefined,
+    id: __expectString(output.id),
     name: __expectString(output.name),
     type: __expectString(output.type),
   } as any;
@@ -8933,10 +9217,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -9046,7 +9328,8 @@ const deserializeAws_restJson1Variant = (output: any, context: __SerdeContext): 
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -9078,6 +9361,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -9088,6 +9377,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

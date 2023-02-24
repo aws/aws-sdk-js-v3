@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,6 +30,10 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
 
 /**
  * <p>Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
+ *          <note>
+ *             <p>If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
+ *         actually return a <code>Password</code>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +57,15 @@ export class DescribeLocationFsxOntapCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeLocationFsxOntapCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +81,9 @@ export class DescribeLocationFsxOntapCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeLocationFsxOntapCommandInput, DescribeLocationFsxOntapCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeLocationFsxOntapCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

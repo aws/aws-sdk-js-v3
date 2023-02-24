@@ -10,12 +10,10 @@ import { FetchHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/fe
 import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { Md5 } from "@aws-sdk/md5-js";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
-import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
-import { getAwsChunkedEncodingStream } from "@aws-sdk/util-stream-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
+import { getAwsChunkedEncodingStream, sdkStreamMixin } from "@aws-sdk/util-stream-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { S3ClientConfig } from "./S3Client";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
@@ -33,8 +31,6 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     ...config,
     runtime: "browser",
     defaultsMode,
-    base64Decoder: config?.base64Decoder ?? fromBase64,
-    base64Encoder: config?.base64Encoder ?? toBase64,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider:
       config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
@@ -48,13 +44,12 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
+    sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     sha1: config?.sha1 ?? Sha1,
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? (() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT)),
     useFipsEndpoint: config?.useFipsEndpoint ?? (() => Promise.resolve(DEFAULT_USE_FIPS_ENDPOINT)),
-    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
-    utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };
 };

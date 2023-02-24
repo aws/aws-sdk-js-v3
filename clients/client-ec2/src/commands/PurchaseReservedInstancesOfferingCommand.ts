@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   PurchaseReservedInstancesOfferingRequestFilterSensitiveLog,
   PurchaseReservedInstancesOfferingResult,
   PurchaseReservedInstancesOfferingResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2PurchaseReservedInstancesOfferingCommand,
   serializeAws_ec2PurchaseReservedInstancesOfferingCommand,
@@ -32,14 +33,17 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
 /**
  * <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower
  *        hourly rate compared to On-Demand instance pricing.</p>
- * 		       <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings
+ *          <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings
  * 			that match your specifications. After you've purchased a Reserved Instance, you can check for your
  * 			new Reserved Instance with <a>DescribeReservedInstances</a>.</p>
  *          <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a
  *       purchase time, the default is the current time.</p>
- *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and
  *    	   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
  *    	   in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <note>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +67,15 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PurchaseReservedInstancesOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +91,9 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PurchaseReservedInstancesOfferingCommandInput, PurchaseReservedInstancesOfferingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PurchaseReservedInstancesOfferingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

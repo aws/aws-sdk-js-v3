@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
 /**
  * <p>Returns a description of the specified model package, which is used to create SageMaker
  *             models or list them on Amazon Web Services Marketplace.</p>
- *         <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
+ *          <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
  *             Marketplace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +56,15 @@ export class DescribeModelPackageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeModelPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class DescribeModelPackageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeModelPackageCommandInput, DescribeModelPackageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeModelPackageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

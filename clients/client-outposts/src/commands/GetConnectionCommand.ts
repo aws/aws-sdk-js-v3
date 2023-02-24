@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,9 +33,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  *             <p>
  *       Amazon Web Services uses this action to install Outpost servers.</p>
  *          </note>
- *          <p>
- *       Gets information about a specified connection.
- *     </p>
+ *          <p> Gets information about the specified connection. </p>
  *          <p>
  *       Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
  *       more information, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html">
@@ -64,6 +63,15 @@ export class GetConnectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +87,7 @@ export class GetConnectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetConnectionCommandInput, GetConnectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetConnectionCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

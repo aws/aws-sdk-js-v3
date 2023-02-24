@@ -6,27 +6,27 @@ import { SSOAdminServiceException as __BaseException } from "./SSOAdminServiceEx
 /**
  * <p>The value used for mapping a specified attribute to an identity source. For more
  *       information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/attributemappingsconcept.html">Attribute mappings</a>
- *       in the <i>Amazon Web Services SSO User Guide</i>.</p>
+ *       in the <i>IAM Identity Center User Guide</i>.</p>
  */
 export interface AccessControlAttributeValue {
   /**
-   * <p>The identity source to use when mapping a specified attribute to Amazon Web Services SSO.</p>
+   * <p>The identity source to use when mapping a specified attribute to IAM Identity Center.</p>
    */
   Source: string[] | undefined;
 }
 
 /**
- * <p>These are Amazon Web Services SSO identity store attributes that you can configure for use in
+ * <p>These are IAM Identity Center identity store attributes that you can configure for use in
  *       attributes-based access control (ABAC). You can create permissions policies that determine who
- *       can access your Amazon Web Services resources based upon the configured attribute values. When you enable
- *       ABAC and specify <code>AccessControlAttributes</code>, Amazon Web Services SSO passes the attribute values of
+ *       can access your AWS resources based upon the configured attribute values. When you enable
+ *       ABAC and specify <code>AccessControlAttributes</code>, IAM Identity Center passes the attribute values of
  *       the authenticated user into IAM for use in policy evaluation.</p>
  */
 export interface AccessControlAttribute {
   /**
    * <p>The name of the attribute associated with your identities in your identity source. This is
    *       used to map a specified attribute in your identity source with an attribute in
-   *       Amazon Web Services SSO.</p>
+   *       IAM Identity Center.</p>
    */
   Key: string | undefined;
 
@@ -63,22 +63,22 @@ export enum PrincipalType {
 }
 
 /**
- * <p>The assignment that indicates a principal's limited access to a specified Amazon Web Services account
+ * <p>The assignment that indicates a principal's limited access to a specified AWS account
  *       with a specified permission set.</p>
  *          <note>
  *             <p>The term <i>principal</i> here refers to a user or group that is defined
- *         in Amazon Web Services SSO.</p>
+ *         in IAM Identity Center.</p>
  *          </note>
  */
 export interface AccountAssignment {
   /**
-   * <p>The identifier of the Amazon Web Services account.</p>
+   * <p>The identifier of the AWS account.</p>
    */
   AccountId?: string;
 
   /**
    * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   PermissionSetArn?: string;
 
@@ -88,7 +88,7 @@ export interface AccountAssignment {
   PrincipalType?: PrincipalType | string;
 
   /**
-   * <p>An identifier for an object in Amazon Web Services SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in Amazon Web Services SSO, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API Reference</a>.</p>
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    */
   PrincipalId?: string;
 }
@@ -125,7 +125,7 @@ export interface AccountAssignmentOperationStatus {
   FailureReason?: string;
 
   /**
-   * <p>TargetID is an Amazon Web Services account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
+   * <p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
    */
   TargetId?: string;
 
@@ -136,7 +136,7 @@ export interface AccountAssignmentOperationStatus {
 
   /**
    * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   PermissionSetArn?: string;
 
@@ -146,7 +146,7 @@ export interface AccountAssignmentOperationStatus {
   PrincipalType?: PrincipalType | string;
 
   /**
-   * <p>An identifier for an object in Amazon Web Services SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in Amazon Web Services SSO, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API Reference</a>.</p>
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    */
   PrincipalId?: string;
 
@@ -179,7 +179,7 @@ export interface AccountAssignmentOperationStatusMetadata {
 }
 
 /**
- * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
+ * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.</p>
  */
 export interface CustomerManagedPolicyReference {
   /**
@@ -189,15 +189,14 @@ export interface CustomerManagedPolicyReference {
 
   /**
    * <p>The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is <code>/</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
-   *         names and paths</a> in the <i>Identity and Access Management User
-   *       Guide</i>.</p>
+   *       names and paths</a> in the <i>IAM User Guide</i>.</p>
    */
   Path?: string;
 }
 
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. </p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
@@ -207,7 +206,7 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
+   * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.</p>
    */
   CustomerManagedPolicyReference: CustomerManagedPolicyReference | undefined;
 }
@@ -347,25 +346,25 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A structure that stores the details of the Amazon Web Services managed policy.</p>
+ * <p>A structure that stores the details of the AWS managed policy.</p>
  */
 export interface AttachedManagedPolicy {
   /**
-   * <p>The name of the Amazon Web Services managed policy.</p>
+   * <p>The name of the AWS managed policy.</p>
    */
   Name?: string;
 
   /**
-   * <p>The ARN of the Amazon Web Services managed policy. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the AWS managed policy. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   Arn?: string;
 }
 
 export interface AttachManagedPolicyToPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -376,7 +375,7 @@ export interface AttachManagedPolicyToPermissionSetRequest {
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services managed policy ARN to be attached to a permission set.</p>
+   * <p>The AWS managed policy ARN to be attached to a permission set.</p>
    */
   ManagedPolicyArn: string | undefined;
 }
@@ -385,13 +384,13 @@ export interface AttachManagedPolicyToPermissionSetResponse {}
 
 export interface CreateAccountAssignmentRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>TargetID is an Amazon Web Services account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
+   * <p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
    */
   TargetId: string | undefined;
 
@@ -412,7 +411,7 @@ export interface CreateAccountAssignmentRequest {
   PrincipalType: PrincipalType | string | undefined;
 
   /**
-   * <p>An identifier for an object in Amazon Web Services SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in Amazon Web Services SSO, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API Reference</a>.</p>
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    */
   PrincipalId: string | undefined;
 }
@@ -430,7 +429,7 @@ export interface CreateAccountAssignmentResponse {
  */
 export interface InstanceAccessControlAttributeConfiguration {
   /**
-   * <p>Lists the attributes that are configured for ABAC in the specified Amazon Web Services SSO
+   * <p>Lists the attributes that are configured for ABAC in the specified IAM Identity Center
    *       instance.</p>
    */
   AccessControlAttributes: AccessControlAttribute[] | undefined;
@@ -438,16 +437,16 @@ export interface InstanceAccessControlAttributeConfiguration {
 
 export interface CreateInstanceAccessControlAttributeConfigurationRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>Specifies the Amazon Web Services SSO identity store attributes to add to your ABAC configuration. When
+   * <p>Specifies the IAM Identity Center identity store attributes to add to your ABAC configuration. When
    *       using an external identity provider as an identity source, you can pass attributes through the
-   *       SAML assertion. Doing so provides an alternative to configuring attributes from the Amazon Web Services SSO
-   *       identity store. If a SAML assertion passes any of these attributes, Amazon Web Services SSO will replace the
-   *       attribute value with the value from the Amazon Web Services SSO identity store.</p>
+   *       SAML assertion. Doing so provides an alternative to configuring attributes from the IAM Identity Center
+   *       identity store. If a SAML assertion passes any of these attributes, IAM Identity Center will replace the
+   *       attribute value with the value from the IAM Identity Center identity store.</p>
    */
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration | undefined;
 }
@@ -456,7 +455,7 @@ export interface CreateInstanceAccessControlAttributeConfigurationResponse {}
 
 /**
  * <p>A set of key-value pairs that are used to manage the resource. Tags can only be applied to
- *       permission sets and cannot be applied to corresponding roles that Amazon Web Services SSO creates in Amazon Web Services
+ *       permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS
  *       accounts.</p>
  */
 export interface Tag {
@@ -483,8 +482,8 @@ export interface CreatePermissionSetRequest {
   Description?: string;
 
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -517,7 +516,7 @@ export interface PermissionSet {
 
   /**
    * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   PermissionSetArn?: string;
 
@@ -546,20 +545,20 @@ export interface PermissionSet {
 
 export interface CreatePermissionSetResponse {
   /**
-   * <p>Defines the level of access on an Amazon Web Services account.</p>
+   * <p>Defines the level of access on an AWS account.</p>
    */
   PermissionSet?: PermissionSet;
 }
 
 export interface DeleteAccountAssignmentRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>TargetID is an Amazon Web Services account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
+   * <p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
    */
   TargetId: string | undefined;
 
@@ -579,7 +578,7 @@ export interface DeleteAccountAssignmentRequest {
   PrincipalType: PrincipalType | string | undefined;
 
   /**
-   * <p>An identifier for an object in Amazon Web Services SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in Amazon Web Services SSO, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API Reference</a>.</p>
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    */
   PrincipalId: string | undefined;
 }
@@ -593,8 +592,8 @@ export interface DeleteAccountAssignmentResponse {
 
 export interface DeleteInlinePolicyFromPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -608,7 +607,7 @@ export interface DeleteInlinePolicyFromPermissionSetResponse {}
 
 export interface DeleteInstanceAccessControlAttributeConfigurationRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
    */
   InstanceArn: string | undefined;
 }
@@ -617,7 +616,7 @@ export interface DeleteInstanceAccessControlAttributeConfigurationResponse {}
 
 export interface DeletePermissionsBoundaryFromPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. </p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
@@ -631,8 +630,8 @@ export interface DeletePermissionsBoundaryFromPermissionSetResponse {}
 
 export interface DeletePermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -646,8 +645,8 @@ export interface DeletePermissionSetResponse {}
 
 export interface DescribeAccountAssignmentCreationStatusRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -666,8 +665,8 @@ export interface DescribeAccountAssignmentCreationStatusResponse {
 
 export interface DescribeAccountAssignmentDeletionStatusRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -686,7 +685,7 @@ export interface DescribeAccountAssignmentDeletionStatusResponse {
 
 export interface DescribeInstanceAccessControlAttributeConfigurationRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
    */
   InstanceArn: string | undefined;
 }
@@ -709,7 +708,7 @@ export interface DescribeInstanceAccessControlAttributeConfigurationResponse {
   StatusReason?: string;
 
   /**
-   * <p>Gets the list of Amazon Web Services SSO identity store attributes that have been added to your ABAC
+   * <p>Gets the list of IAM Identity Center identity store attributes that have been added to your ABAC
    *       configuration.</p>
    */
   InstanceAccessControlAttributeConfiguration?: InstanceAccessControlAttributeConfiguration;
@@ -717,8 +716,8 @@ export interface DescribeInstanceAccessControlAttributeConfigurationResponse {
 
 export interface DescribePermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -730,15 +729,15 @@ export interface DescribePermissionSetRequest {
 
 export interface DescribePermissionSetResponse {
   /**
-   * <p>Describes the level of access on an Amazon Web Services account.</p>
+   * <p>Describes the level of access on an AWS account.</p>
    */
   PermissionSet?: PermissionSet;
 }
 
 export interface DescribePermissionSetProvisioningStatusRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -766,13 +765,13 @@ export interface PermissionSetProvisioningStatus {
   RequestId?: string;
 
   /**
-   * <p>The identifier of the Amazon Web Services account from which to list the assignments.</p>
+   * <p>The identifier of the AWS account from which to list the assignments.</p>
    */
   AccountId?: string;
 
   /**
    * <p>The ARN of the permission set that is being provisioned. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   PermissionSetArn?: string;
 
@@ -796,7 +795,7 @@ export interface DescribePermissionSetProvisioningStatusResponse {
 
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. </p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
@@ -806,7 +805,7 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
+   * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.</p>
    */
   CustomerManagedPolicyReference: CustomerManagedPolicyReference | undefined;
 }
@@ -815,8 +814,8 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {
 
 export interface DetachManagedPolicyFromPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -827,7 +826,7 @@ export interface DetachManagedPolicyFromPermissionSetRequest {
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services managed policy ARN to be detached from a permission set.</p>
+   * <p>The AWS managed policy ARN to be detached from a permission set.</p>
    */
   ManagedPolicyArn: string | undefined;
 }
@@ -836,8 +835,8 @@ export interface DetachManagedPolicyFromPermissionSetResponse {}
 
 export interface GetInlinePolicyForPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -856,7 +855,7 @@ export interface GetInlinePolicyForPermissionSetResponse {
 
 export interface GetPermissionsBoundaryForPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. </p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
@@ -867,28 +866,27 @@ export interface GetPermissionsBoundaryForPermissionSetRequest {
 }
 
 /**
- * <p>Specifies the configuration of the Amazon Web Services managed or customer managed policy that you want
+ * <p>Specifies the configuration of the AWS managed or customer managed policy that you want
  *       to set as a permissions boundary. Specify either <code>CustomerManagedPolicyReference</code>
  *       to use the name and path of a customer managed policy, or <code>ManagedPolicyArn</code> to use
- *       the ARN of an Amazon Web Services managed policy. A permissions boundary represents the maximum permissions
+ *       the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions
  *       that any policy can grant your role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
- *         entities</a> in the <i>Identity and Access Management User Guide</i>.</p>
+ *         entities</a> in the <i>IAM User Guide</i>.</p>
  *          <important>
  *             <p>Policies used as permissions boundaries don't provide permissions. You must also attach
  *         an IAM policy to the role. To learn how the effective permissions for a role are
  *         evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON policy
- *           evaluation logic</a> in the <i>Identity and Access Management User
- *         Guide</i>.</p>
+ *           evaluation logic</a> in the <i>IAM User Guide</i>.</p>
  *          </important>
  */
 export interface PermissionsBoundary {
   /**
-   * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
+   * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.</p>
    */
   CustomerManagedPolicyReference?: CustomerManagedPolicyReference;
 
   /**
-   * <p>The Amazon Web Services managed policy ARN that you want to attach to a permission set as a permissions
+   * <p>The AWS managed policy ARN that you want to attach to a permission set as a permissions
    *       boundary.</p>
    */
   ManagedPolicyArn?: string;
@@ -902,17 +900,17 @@ export interface GetPermissionsBoundaryForPermissionSetResponse {
 }
 
 /**
- * <p>Provides information about the Amazon Web Services SSO instance.</p>
+ * <p>Provides information about the IAM Identity Center instance.</p>
  */
 export interface InstanceMetadata {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn?: string;
 
   /**
-   * <p>The identifier of the identity store that is connected to the Amazon Web Services SSO instance.</p>
+   * <p>The identifier of the identity store that is connected to the IAM Identity Center instance.</p>
    */
   IdentityStoreId?: string;
 }
@@ -929,8 +927,8 @@ export interface OperationStatusFilter {
 
 export interface ListAccountAssignmentCreationStatusRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -964,8 +962,8 @@ export interface ListAccountAssignmentCreationStatusResponse {
 
 export interface ListAccountAssignmentDeletionStatusRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -999,13 +997,13 @@ export interface ListAccountAssignmentDeletionStatusResponse {
 
 export interface ListAccountAssignmentsRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account from which to list the assignments.</p>
+   * <p>The identifier of the AWS account from which to list the assignments.</p>
    */
   AccountId: string | undefined;
 
@@ -1027,7 +1025,7 @@ export interface ListAccountAssignmentsRequest {
 
 export interface ListAccountAssignmentsResponse {
   /**
-   * <p>The list of assignments that match the input Amazon Web Services account and permission set.</p>
+   * <p>The list of assignments that match the input AWS account and permission set.</p>
    */
   AccountAssignments?: AccountAssignment[];
 
@@ -1044,19 +1042,19 @@ export enum ProvisioningStatus {
 
 export interface ListAccountsForProvisionedPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The ARN of the <a>PermissionSet</a> from which the associated Amazon Web Services accounts
+   * <p>The ARN of the <a>PermissionSet</a> from which the associated AWS accounts
    *       will be listed.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>The permission set provisioning status for an Amazon Web Services account.</p>
+   * <p>The permission set provisioning status for an AWS account.</p>
    */
   ProvisioningStatus?: ProvisioningStatus | string;
 
@@ -1073,7 +1071,7 @@ export interface ListAccountsForProvisionedPermissionSetRequest {
 
 export interface ListAccountsForProvisionedPermissionSetResponse {
   /**
-   * <p>The list of Amazon Web Services <code>AccountIds</code>.</p>
+   * <p>The list of AWS <code>AccountIds</code>.</p>
    */
   AccountIds?: string[];
 
@@ -1085,7 +1083,7 @@ export interface ListAccountsForProvisionedPermissionSetResponse {
 
 export interface ListCustomerManagedPolicyReferencesInPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. </p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
@@ -1134,7 +1132,7 @@ export interface ListInstancesRequest {
 
 export interface ListInstancesResponse {
   /**
-   * <p>Lists the Amazon Web Services SSO instances that the caller has access to.</p>
+   * <p>Lists the IAM Identity Center instances that the caller has access to.</p>
    */
   Instances?: InstanceMetadata[];
 
@@ -1146,8 +1144,8 @@ export interface ListInstancesResponse {
 
 export interface ListManagedPoliciesInPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -1182,8 +1180,8 @@ export interface ListManagedPoliciesInPermissionSetResponse {
 
 export interface ListPermissionSetProvisioningStatusRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -1238,8 +1236,8 @@ export interface ListPermissionSetProvisioningStatusResponse {
 
 export interface ListPermissionSetsRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -1256,7 +1254,7 @@ export interface ListPermissionSetsRequest {
 
 export interface ListPermissionSetsResponse {
   /**
-   * <p>Defines the level of access on an Amazon Web Services account.</p>
+   * <p>Defines the level of access on an AWS account.</p>
    */
   PermissionSets?: string[];
 
@@ -1268,13 +1266,13 @@ export interface ListPermissionSetsResponse {
 
 export interface ListPermissionSetsProvisionedToAccountRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account from which to list the assignments.</p>
+   * <p>The identifier of the AWS account from which to list the assignments.</p>
    */
   AccountId: string | undefined;
 
@@ -1301,15 +1299,15 @@ export interface ListPermissionSetsProvisionedToAccountResponse {
   NextToken?: string;
 
   /**
-   * <p>Defines the level of access that an Amazon Web Services account has.</p>
+   * <p>Defines the level of access that an AWS account has.</p>
    */
   PermissionSets?: string[];
 }
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -1343,8 +1341,8 @@ export enum ProvisionTargetType {
 
 export interface ProvisionPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -1354,7 +1352,7 @@ export interface ProvisionPermissionSetRequest {
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>TargetID is an Amazon Web Services account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
+   * <p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
    */
   TargetId?: string;
 
@@ -1373,8 +1371,8 @@ export interface ProvisionPermissionSetResponse {
 
 export interface PutInlinePolicyToPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -1393,7 +1391,7 @@ export interface PutInlinePolicyToPermissionSetResponse {}
 
 export interface PutPermissionsBoundaryToPermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. </p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
@@ -1412,8 +1410,8 @@ export interface PutPermissionsBoundaryToPermissionSetResponse {}
 
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -1432,8 +1430,8 @@ export interface TagResourceResponse {}
 
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
@@ -1452,7 +1450,7 @@ export interface UntagResourceResponse {}
 
 export interface UpdateInstanceAccessControlAttributeConfigurationRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
    */
   InstanceArn: string | undefined;
 
@@ -1466,8 +1464,8 @@ export interface UpdateInstanceAccessControlAttributeConfigurationResponse {}
 
 export interface UpdatePermissionSetRequest {
   /**
-   * <p>The ARN of the Amazon Web Services SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 

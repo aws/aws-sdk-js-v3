@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,17 +27,17 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * <p>
  *             <b>We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
  *          </p>
- *         <p>Creates an Auto Scaling group with the specified name and attributes. </p>
- *         <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit,
+ *          <p>Creates an Auto Scaling group with the specified name and attributes. </p>
+ *          <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit,
  *             call the <a>DescribeAccountLimits</a> API. For information about updating
  *             this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *         <p>For introductory exercises for creating an Auto Scaling group, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html">Getting started with
+ *          <p>For introductory exercises for creating an Auto Scaling group, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html">Getting started with
  *                 Amazon EC2 Auto Scaling</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html">Tutorial: Set up a
  *                 scaled and load-balanced application</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto Scaling
  *                 groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *         <p>Every Auto Scaling group has three size properties (<code>DesiredCapacity</code>,
+ *          <p>Every Auto Scaling group has three size properties (<code>DesiredCapacity</code>,
  *                 <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based
  *             on a specific number of instances. However, if you configure a mixed instances policy
  *             that defines weights for the instance types, you must specify these sizes with the same
@@ -64,6 +65,15 @@ export class CreateAutoScalingGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAutoScalingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +89,9 @@ export class CreateAutoScalingGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAutoScalingGroupCommandInput, CreateAutoScalingGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateAutoScalingGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

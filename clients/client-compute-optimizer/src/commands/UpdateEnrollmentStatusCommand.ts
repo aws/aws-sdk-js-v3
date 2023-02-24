@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,11 +30,11 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
 
 /**
  * <p>Updates the enrollment (opt in and opt out) status of an account to the Compute Optimizer service.</p>
- *         <p>If the account is a management account of an organization, this action can also be
+ *          <p>If the account is a management account of an organization, this action can also be
  *             used to enroll member accounts of the organization.</p>
- *         <p>You must have the appropriate permissions to opt in to Compute Optimizer, to view its
+ *          <p>You must have the appropriate permissions to opt in to Compute Optimizer, to view its
  *             recommendations, and to opt out. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html">Controlling access with Amazon Web Services Identity and Access Management</a> in the <i>Compute Optimizer User Guide</i>.</p>
- *         <p>When you opt in, Compute Optimizer automatically creates a service-linked role in your
+ *          <p>When you opt in, Compute Optimizer automatically creates a service-linked role in your
  *             account to access its data. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/using-service-linked-roles.html">Using
  *                 Service-Linked Roles for Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</p>
  * @example
@@ -59,6 +60,15 @@ export class UpdateEnrollmentStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateEnrollmentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class UpdateEnrollmentStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateEnrollmentStatusCommandInput, UpdateEnrollmentStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateEnrollmentStatusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

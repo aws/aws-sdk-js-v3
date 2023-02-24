@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   CreateDefaultSubnetRequestFilterSensitiveLog,
   CreateDefaultSubnetResult,
   CreateDefaultSubnetResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateDefaultSubnetCommand,
   serializeAws_ec2CreateDefaultSubnetCommand,
@@ -55,6 +56,15 @@ export class CreateDefaultSubnetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDefaultSubnetCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class CreateDefaultSubnetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDefaultSubnetCommandInput, CreateDefaultSubnetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDefaultSubnetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

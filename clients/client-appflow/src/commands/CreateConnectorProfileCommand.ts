@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,10 @@ export interface CreateConnectorProfileCommandInput extends CreateConnectorProfi
 export interface CreateConnectorProfileCommandOutput extends CreateConnectorProfileResponse, __MetadataBearer {}
 
 /**
- * <p> Creates a new connector profile associated with your Amazon Web Services account. There
- *       is a soft quota of 100 connector profiles per Amazon Web Services account. If you need more
- *       connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel. In each connector profile that you
+ * <p> Creates a new connector profile associated with your Amazon Web Services account. There is
+ *       a soft quota of 100 connector profiles per Amazon Web Services account. If you need more
+ *       connector profiles than this quota allows, you can submit a request to the Amazon AppFlow
+ *       team through the Amazon AppFlow support channel. In each connector profile that you
  *       create, you can provide the credentials and properties for only one connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +57,15 @@ export class CreateConnectorProfileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateConnectorProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +81,9 @@ export class CreateConnectorProfileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateConnectorProfileCommandInput, CreateConnectorProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateConnectorProfileCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

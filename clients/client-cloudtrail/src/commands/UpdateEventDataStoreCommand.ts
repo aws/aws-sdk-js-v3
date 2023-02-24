@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,17 @@ export interface UpdateEventDataStoreCommandInput extends UpdateEventDataStoreRe
 export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or the ID portion of the ARN.
- *          Other parameters are optional, but at least one optional parameter must be specified, or CloudTrail throws an error.
- *          <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and 2555.
- *          By default, <code>TerminationProtection</code> is enabled. <code>AdvancedEventSelectors</code> includes or excludes management
- *          and data events in your event data store; for more information about <code>AdvancedEventSelectors</code>, see
- *          <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>.</p>
+ * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or
+ *          the ID portion of the ARN. Other parameters are optional, but at least one optional
+ *          parameter must be specified, or CloudTrail throws an error.
+ *             <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and
+ *          2557. By default, <code>TerminationProtection</code> is enabled.</p>
+ *          <p>For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code>
+ *          includes or excludes management and data events in your event data store. For more
+ *          information about <code>AdvancedEventSelectors</code>, see <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>. </p>
+ *          <p> For event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events,
+ *             <code>AdvancedEventSelectors</code> includes events of that type in your event data
+ *          store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +63,15 @@ export class UpdateEventDataStoreCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +87,9 @@ export class UpdateEventDataStoreCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateEventDataStoreCommandInput, UpdateEventDataStoreCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateEventDataStoreCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

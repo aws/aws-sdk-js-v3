@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,7 +34,6 @@ export interface ListBucketMetricsConfigurationsCommandOutput
  * <p>Lists the metrics configurations for the bucket. The metrics configurations are only for
  *          the request metrics of the bucket and do not provide information on daily storage metrics.
  *          You can have up to 1,000 configurations per bucket.</p>
- *
  *          <p>This action supports list pagination and does not return more than 100 configurations
  *          at a time. Always check the <code>IsTruncated</code> element in the response. If there are
  *          no more configurations to list, <code>IsTruncated</code> is set to false. If there are more
@@ -42,17 +41,14 @@ export interface ListBucketMetricsConfigurationsCommandOutput
  *             <code>NextContinuationToken</code>. You use the <code>NextContinuationToken</code> value
  *          to continue the pagination of the list by passing the value in
  *             <code>continuation-token</code> in the request to <code>GET</code> the next page.</p>
- *
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:GetMetricsConfiguration</code> action. The bucket owner has this permission by
  *          default. The bucket owner can grant this permission to others. For more information about
  *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
  *             Resources</a>.</p>
- *
  *          <p>For more information about metrics configurations and CloudWatch request metrics, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring Metrics with Amazon
  *             CloudWatch</a>.</p>
- *
  *          <p>The following operations are related to
  *          <code>ListBucketMetricsConfigurations</code>:</p>
  *          <ul>
@@ -95,6 +91,21 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListBucketMetricsConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +121,9 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListBucketMetricsConfigurationsCommandInput, ListBucketMetricsConfigurationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListBucketMetricsConfigurationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

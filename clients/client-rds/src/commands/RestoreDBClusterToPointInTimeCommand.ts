@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,20 +36,20 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *                 <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the
  *             source DB cluster with the same configuration as the original DB cluster, except that
  *             the new DB cluster is created with the default DB security group.</p>
- *         <note>
+ *          <note>
  *             <p>For Aurora, this action only restores the DB cluster, not the DB instances for that DB
  *                 cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
  *                 instances for the restored DB cluster, specifying the identifier of the restored DB
  *                 cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
  *                 the <code>RestoreDBClusterToPointInTime</code> action has completed and the DB
  *                 cluster is available.</p>
- *         </note>
- *         <p>For more information on Amazon Aurora DB clusters, see
+ *          </note>
+ *          <p>For more information on Amazon Aurora DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *         <p>For more information on Multi-AZ DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+ *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+ *                 cluster deployments</a> in the <i>Amazon RDS User
+ *             Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +74,15 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RestoreDBClusterToPointInTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,6 +98,9 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RestoreDBClusterToPointInTimeCommandInput, RestoreDBClusterToPointInTimeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RestoreDBClusterToPointInTimeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

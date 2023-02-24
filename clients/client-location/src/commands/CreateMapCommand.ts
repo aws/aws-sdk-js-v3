@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,14 +29,14 @@ export interface CreateMapCommandInput extends CreateMapRequest {}
 export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a map resource in your AWS account, which provides map tiles of different
+ * <p>Creates a map resource in your Amazon Web Services account, which provides map tiles of different
  *             styles sourced from global location data providers.</p>
- *         <note>
+ *          <note>
  *             <p>If your application is tracking or routing assets you use in your business, such
- *                 as delivery vehicles or employees, you may only use HERE as your geolocation
- *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+ *                 as delivery vehicles or employees, you must not use Esri as your geolocation
+ *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
  *                     service terms</a> for more details.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,15 @@ export class CreateMapCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,7 @@ export class CreateMapCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateMapCommandInput, CreateMapCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateMapCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

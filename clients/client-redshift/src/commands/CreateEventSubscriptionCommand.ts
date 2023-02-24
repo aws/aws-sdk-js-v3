@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,13 +34,13 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *             the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you
  *             must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in
  *             the SNS console.</p>
- *         <p>You can specify the source type, and lists of Amazon Redshift source IDs, event
+ *          <p>You can specify the source type, and lists of Amazon Redshift source IDs, event
  *             categories, and event severities. Notifications will be sent for all events you want
  *             that match those criteria. For example, you can specify source type = cluster, source ID
  *             = my-cluster-1 and mycluster2, event categories = Availability, Backup, and severity =
  *             ERROR. The subscription will only send notifications for those ERROR events in the
  *             Availability and Backup categories for the specified clusters.</p>
- *         <p>If you specify both the source type and source IDs, such as source type = cluster
+ *          <p>If you specify both the source type and source IDs, such as source type = cluster
  *             and source identifier = my-cluster-1, notifications will be sent for all the cluster
  *             events for my-cluster-1. If you specify a source type but do not specify a source
  *             identifier, you will receive notice of the events for the objects of that type in your
@@ -68,6 +69,15 @@ export class CreateEventSubscriptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +93,9 @@ export class CreateEventSubscriptionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateEventSubscriptionCommandInput, CreateEventSubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateEventSubscriptionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

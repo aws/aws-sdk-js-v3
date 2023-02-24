@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
 /**
  * <p>Disables the automatic copying of snapshots from one region to another region for a
  *             specified cluster.</p>
- *         <p>If your cluster and its snapshots are encrypted using an encrypted symmetric key
+ *          <p>If your cluster and its snapshots are encrypted using an encrypted symmetric key
  *             from Key Management Service, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
  *             grants Amazon Redshift permission to the key in the destination region. </p>
  * @example
@@ -56,6 +57,15 @@ export class DisableSnapshotCopyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisableSnapshotCopyCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DisableSnapshotCopyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisableSnapshotCopyCommandInput, DisableSnapshotCopyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisableSnapshotCopyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

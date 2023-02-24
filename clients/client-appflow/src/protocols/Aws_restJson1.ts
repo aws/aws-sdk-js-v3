@@ -70,6 +70,10 @@ import {
   UpdateConnectorProfileCommandInput,
   UpdateConnectorProfileCommandOutput,
 } from "../commands/UpdateConnectorProfileCommand";
+import {
+  UpdateConnectorRegistrationCommandInput,
+  UpdateConnectorRegistrationCommandOutput,
+} from "../commands/UpdateConnectorRegistrationCommand";
 import { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "../commands/UpdateFlowCommand";
 import { AppflowServiceException as __BaseException } from "../models/AppflowServiceException";
 import {
@@ -128,6 +132,7 @@ import {
   ExecutionResult,
   FieldTypeDetails,
   FlowDefinition,
+  GlueDataCatalogConfig,
   GoogleAnalyticsConnectorProfileCredentials,
   GoogleAnalyticsConnectorProfileProperties,
   GoogleAnalyticsMetadata,
@@ -149,6 +154,8 @@ import {
   MarketoDestinationProperties,
   MarketoMetadata,
   MarketoSourceProperties,
+  MetadataCatalogConfig,
+  MetadataCatalogDetail,
   OAuth2Credentials,
   OAuth2CustomParameter,
   OAuth2Defaults,
@@ -159,6 +166,11 @@ import {
   Operator,
   OperatorPropertiesKeys,
   Operators,
+  PardotConnectorProfileCredentials,
+  PardotConnectorProfileProperties,
+  PardotMetadata,
+  PardotSourceProperties,
+  PathPrefix,
   PrefixConfig,
   PrivateConnectionProvisioningState,
   Range,
@@ -166,6 +178,7 @@ import {
   RedshiftConnectorProfileProperties,
   RedshiftDestinationProperties,
   RedshiftMetadata,
+  RegistrationOutput,
   ResourceNotFoundException,
   S3DestinationProperties,
   S3InputFormatConfig,
@@ -174,6 +187,7 @@ import {
   S3SourceProperties,
   SalesforceConnectorProfileCredentials,
   SalesforceConnectorProfileProperties,
+  SalesforceDataTransferApi,
   SalesforceDestinationProperties,
   SalesforceMetadata,
   SalesforceSourceProperties,
@@ -284,6 +298,9 @@ export const serializeAws_restJson1CreateFlowCommand = async (
     }),
     ...(input.flowName != null && { flowName: input.flowName }),
     ...(input.kmsArn != null && { kmsArn: input.kmsArn }),
+    ...(input.metadataCatalogConfig != null && {
+      metadataCatalogConfig: serializeAws_restJson1MetadataCatalogConfig(input.metadataCatalogConfig, context),
+    }),
     ...(input.sourceFlowConfig != null && {
       sourceFlowConfig: serializeAws_restJson1SourceFlowConfig(input.sourceFlowConfig, context),
     }),
@@ -534,6 +551,8 @@ export const serializeAws_restJson1ListConnectorEntitiesCommand = async (
     ...(input.connectorProfileName != null && { connectorProfileName: input.connectorProfileName }),
     ...(input.connectorType != null && { connectorType: input.connectorType }),
     ...(input.entitiesPath != null && { entitiesPath: input.entitiesPath }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -755,7 +774,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -799,6 +821,38 @@ export const serializeAws_restJson1UpdateConnectorProfileCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateConnectorRegistrationCommand = async (
+  input: UpdateConnectorRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-connector-registration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.connectorLabel != null && { connectorLabel: input.connectorLabel }),
+    ...(input.connectorProvisioningConfig != null && {
+      connectorProvisioningConfig: serializeAws_restJson1ConnectorProvisioningConfig(
+        input.connectorProvisioningConfig,
+        context
+      ),
+    }),
+    ...(input.description != null && { description: input.description }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateFlowCommand = async (
   input: UpdateFlowCommandInput,
   context: __SerdeContext
@@ -818,6 +872,9 @@ export const serializeAws_restJson1UpdateFlowCommand = async (
       ),
     }),
     ...(input.flowName != null && { flowName: input.flowName }),
+    ...(input.metadataCatalogConfig != null && {
+      metadataCatalogConfig: serializeAws_restJson1MetadataCatalogConfig(input.metadataCatalogConfig, context),
+    }),
     ...(input.sourceFlowConfig != null && {
       sourceFlowConfig: serializeAws_restJson1SourceFlowConfig(input.sourceFlowConfig, context),
     }),
@@ -860,7 +917,7 @@ const deserializeAws_restJson1CreateConnectorProfileCommandError = async (
 ): Promise<CreateConnectorProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -916,7 +973,7 @@ const deserializeAws_restJson1CreateFlowCommandError = async (
 ): Promise<CreateFlowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -972,7 +1029,7 @@ const deserializeAws_restJson1DeleteConnectorProfileCommandError = async (
 ): Promise<DeleteConnectorProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1016,7 +1073,7 @@ const deserializeAws_restJson1DeleteFlowCommandError = async (
 ): Promise<DeleteFlowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1066,7 +1123,7 @@ const deserializeAws_restJson1DescribeConnectorCommandError = async (
 ): Promise<DescribeConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1116,7 +1173,7 @@ const deserializeAws_restJson1DescribeConnectorEntityCommandError = async (
 ): Promise<DescribeConnectorEntityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1175,7 +1232,7 @@ const deserializeAws_restJson1DescribeConnectorProfilesCommandError = async (
 ): Promise<DescribeConnectorProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1228,7 +1285,7 @@ const deserializeAws_restJson1DescribeConnectorsCommandError = async (
 ): Promise<DescribeConnectorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1293,11 +1350,23 @@ export const deserializeAws_restJson1DescribeFlowCommand = async (
   if (data.lastRunExecutionDetails != null) {
     contents.lastRunExecutionDetails = deserializeAws_restJson1ExecutionDetails(data.lastRunExecutionDetails, context);
   }
+  if (data.lastRunMetadataCatalogDetails != null) {
+    contents.lastRunMetadataCatalogDetails = deserializeAws_restJson1MetadataCatalogDetails(
+      data.lastRunMetadataCatalogDetails,
+      context
+    );
+  }
   if (data.lastUpdatedAt != null) {
     contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.lastUpdatedBy != null) {
     contents.lastUpdatedBy = __expectString(data.lastUpdatedBy);
+  }
+  if (data.metadataCatalogConfig != null) {
+    contents.metadataCatalogConfig = deserializeAws_restJson1MetadataCatalogConfig(data.metadataCatalogConfig, context);
+  }
+  if (data.schemaVersion != null) {
+    contents.schemaVersion = __expectLong(data.schemaVersion);
   }
   if (data.sourceFlowConfig != null) {
     contents.sourceFlowConfig = deserializeAws_restJson1SourceFlowConfig(data.sourceFlowConfig, context);
@@ -1320,7 +1389,7 @@ const deserializeAws_restJson1DescribeFlowCommandError = async (
 ): Promise<DescribeFlowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1367,7 +1436,7 @@ const deserializeAws_restJson1DescribeFlowExecutionRecordsCommandError = async (
 ): Promise<DescribeFlowExecutionRecordsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1405,6 +1474,9 @@ export const deserializeAws_restJson1ListConnectorEntitiesCommand = async (
   if (data.connectorEntityMap != null) {
     contents.connectorEntityMap = deserializeAws_restJson1ConnectorEntityMap(data.connectorEntityMap, context);
   }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
   return contents;
 };
 
@@ -1414,7 +1486,7 @@ const deserializeAws_restJson1ListConnectorEntitiesCommandError = async (
 ): Promise<ListConnectorEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1470,7 +1542,7 @@ const deserializeAws_restJson1ListConnectorsCommandError = async (
 ): Promise<ListConnectorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1517,7 +1589,7 @@ const deserializeAws_restJson1ListFlowsCommandError = async (
 ): Promise<ListFlowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1561,7 +1633,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1608,7 +1680,7 @@ const deserializeAws_restJson1RegisterConnectorCommandError = async (
 ): Promise<RegisterConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1679,7 +1751,7 @@ const deserializeAws_restJson1StartFlowCommandError = async (
 ): Promise<StartFlowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1732,7 +1804,7 @@ const deserializeAws_restJson1StopFlowCommandError = async (
 ): Promise<StopFlowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1779,7 +1851,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1823,7 +1895,7 @@ const deserializeAws_restJson1UnregisterConnectorCommandError = async (
 ): Promise<UnregisterConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1867,7 +1939,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1914,7 +1986,7 @@ const deserializeAws_restJson1UpdateConnectorProfileCommandError = async (
 ): Promise<UpdateConnectorProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1930,6 +2002,71 @@ const deserializeAws_restJson1UpdateConnectorProfileCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.appflow#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.appflow#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateConnectorRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectorRegistrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateConnectorRegistrationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.connectorArn != null) {
+    contents.connectorArn = __expectString(data.connectorArn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateConnectorRegistrationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectorRegistrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appflow#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.appflow#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ConnectorAuthenticationException":
+    case "com.amazonaws.appflow#ConnectorAuthenticationException":
+      throw await deserializeAws_restJson1ConnectorAuthenticationExceptionResponse(parsedOutput, context);
+    case "ConnectorServerException":
+    case "com.amazonaws.appflow#ConnectorServerException":
+      throw await deserializeAws_restJson1ConnectorServerExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appflow#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appflow#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appflow#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.appflow#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.appflow#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -1967,7 +2104,7 @@ const deserializeAws_restJson1UpdateFlowCommandError = async (
 ): Promise<UpdateFlowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2167,6 +2304,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 const serializeAws_restJson1AggregationConfig = (input: AggregationConfig, context: __SerdeContext): any => {
   return {
     ...(input.aggregationType != null && { aggregationType: input.aggregationType }),
+    ...(input.targetFileSize != null && { targetFileSize: input.targetFileSize }),
   };
 };
 
@@ -2226,6 +2364,7 @@ const serializeAws_restJson1ConnectorOperator = (input: ConnectorOperator, conte
     ...(input.GoogleAnalytics != null && { GoogleAnalytics: input.GoogleAnalytics }),
     ...(input.InforNexus != null && { InforNexus: input.InforNexus }),
     ...(input.Marketo != null && { Marketo: input.Marketo }),
+    ...(input.Pardot != null && { Pardot: input.Pardot }),
     ...(input.S3 != null && { S3: input.S3 }),
     ...(input.SAPOData != null && { SAPOData: input.SAPOData }),
     ...(input.Salesforce != null && { Salesforce: input.Salesforce }),
@@ -2283,6 +2422,9 @@ const serializeAws_restJson1ConnectorProfileCredentials = (
     }),
     ...(input.Marketo != null && {
       Marketo: serializeAws_restJson1MarketoConnectorProfileCredentials(input.Marketo, context),
+    }),
+    ...(input.Pardot != null && {
+      Pardot: serializeAws_restJson1PardotConnectorProfileCredentials(input.Pardot, context),
     }),
     ...(input.Redshift != null && {
       Redshift: serializeAws_restJson1RedshiftConnectorProfileCredentials(input.Redshift, context),
@@ -2350,6 +2492,9 @@ const serializeAws_restJson1ConnectorProfileProperties = (
     ...(input.Marketo != null && {
       Marketo: serializeAws_restJson1MarketoConnectorProfileProperties(input.Marketo, context),
     }),
+    ...(input.Pardot != null && {
+      Pardot: serializeAws_restJson1PardotConnectorProfileProperties(input.Pardot, context),
+    }),
     ...(input.Redshift != null && {
       Redshift: serializeAws_restJson1RedshiftConnectorProfileProperties(input.Redshift, context),
     }),
@@ -2403,10 +2548,8 @@ const serializeAws_restJson1CredentialsMap = (input: Record<string, string>, con
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2492,10 +2635,8 @@ const serializeAws_restJson1CustomProperties = (input: Record<string, string>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2643,6 +2784,14 @@ const serializeAws_restJson1EventBridgeDestinationProperties = (
       errorHandlingConfig: serializeAws_restJson1ErrorHandlingConfig(input.errorHandlingConfig, context),
     }),
     ...(input.object != null && { object: input.object }),
+  };
+};
+
+const serializeAws_restJson1GlueDataCatalogConfig = (input: GlueDataCatalogConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.databaseName != null && { databaseName: input.databaseName }),
+    ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.tablePrefix != null && { tablePrefix: input.tablePrefix }),
   };
 };
 
@@ -2813,6 +2962,14 @@ const serializeAws_restJson1MarketoSourceProperties = (
   };
 };
 
+const serializeAws_restJson1MetadataCatalogConfig = (input: MetadataCatalogConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.glueDataCatalog != null && {
+      glueDataCatalog: serializeAws_restJson1GlueDataCatalogConfig(input.glueDataCatalog, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1OAuth2Credentials = (input: OAuth2Credentials, context: __SerdeContext): any => {
   return {
     ...(input.accessToken != null && { accessToken: input.accessToken }),
@@ -2863,8 +3020,50 @@ const serializeAws_restJson1OAuthScopeList = (input: string[], context: __SerdeC
     });
 };
 
+const serializeAws_restJson1PardotConnectorProfileCredentials = (
+  input: PardotConnectorProfileCredentials,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.accessToken != null && { accessToken: input.accessToken }),
+    ...(input.clientCredentialsArn != null && { clientCredentialsArn: input.clientCredentialsArn }),
+    ...(input.oAuthRequest != null && {
+      oAuthRequest: serializeAws_restJson1ConnectorOAuthRequest(input.oAuthRequest, context),
+    }),
+    ...(input.refreshToken != null && { refreshToken: input.refreshToken }),
+  };
+};
+
+const serializeAws_restJson1PardotConnectorProfileProperties = (
+  input: PardotConnectorProfileProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.businessUnitId != null && { businessUnitId: input.businessUnitId }),
+    ...(input.instanceUrl != null && { instanceUrl: input.instanceUrl }),
+    ...(input.isSandboxEnvironment != null && { isSandboxEnvironment: input.isSandboxEnvironment }),
+  };
+};
+
+const serializeAws_restJson1PardotSourceProperties = (input: PardotSourceProperties, context: __SerdeContext): any => {
+  return {
+    ...(input.object != null && { object: input.object }),
+  };
+};
+
+const serializeAws_restJson1PathPrefixHierarchy = (input: (PathPrefix | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1PrefixConfig = (input: PrefixConfig, context: __SerdeContext): any => {
   return {
+    ...(input.pathPrefixHierarchy != null && {
+      pathPrefixHierarchy: serializeAws_restJson1PathPrefixHierarchy(input.pathPrefixHierarchy, context),
+    }),
     ...(input.prefixFormat != null && { prefixFormat: input.prefixFormat }),
     ...(input.prefixType != null && { prefixType: input.prefixType }),
   };
@@ -2875,10 +3074,8 @@ const serializeAws_restJson1ProfilePropertiesMap = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2899,8 +3096,13 @@ const serializeAws_restJson1RedshiftConnectorProfileProperties = (
   return {
     ...(input.bucketName != null && { bucketName: input.bucketName }),
     ...(input.bucketPrefix != null && { bucketPrefix: input.bucketPrefix }),
+    ...(input.clusterIdentifier != null && { clusterIdentifier: input.clusterIdentifier }),
+    ...(input.dataApiRoleArn != null && { dataApiRoleArn: input.dataApiRoleArn }),
+    ...(input.databaseName != null && { databaseName: input.databaseName }),
     ...(input.databaseUrl != null && { databaseUrl: input.databaseUrl }),
+    ...(input.isRedshiftServerless != null && { isRedshiftServerless: input.isRedshiftServerless }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
@@ -2981,6 +3183,9 @@ const serializeAws_restJson1SalesforceConnectorProfileProperties = (
   return {
     ...(input.instanceUrl != null && { instanceUrl: input.instanceUrl }),
     ...(input.isSandboxEnvironment != null && { isSandboxEnvironment: input.isSandboxEnvironment }),
+    ...(input.usePrivateLinkForMetadataAndAuthorization != null && {
+      usePrivateLinkForMetadataAndAuthorization: input.usePrivateLinkForMetadataAndAuthorization,
+    }),
   };
 };
 
@@ -2989,6 +3194,7 @@ const serializeAws_restJson1SalesforceDestinationProperties = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.dataTransferApi != null && { dataTransferApi: input.dataTransferApi }),
     ...(input.errorHandlingConfig != null && {
       errorHandlingConfig: serializeAws_restJson1ErrorHandlingConfig(input.errorHandlingConfig, context),
     }),
@@ -3005,6 +3211,7 @@ const serializeAws_restJson1SalesforceSourceProperties = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.dataTransferApi != null && { dataTransferApi: input.dataTransferApi }),
     ...(input.enableDynamicFieldUpdate != null && { enableDynamicFieldUpdate: input.enableDynamicFieldUpdate }),
     ...(input.includeDeletedRecords != null && { includeDeletedRecords: input.includeDeletedRecords }),
     ...(input.object != null && { object: input.object }),
@@ -3236,6 +3443,7 @@ const serializeAws_restJson1SourceConnectorProperties = (
       InforNexus: serializeAws_restJson1InforNexusSourceProperties(input.InforNexus, context),
     }),
     ...(input.Marketo != null && { Marketo: serializeAws_restJson1MarketoSourceProperties(input.Marketo, context) }),
+    ...(input.Pardot != null && { Pardot: serializeAws_restJson1PardotSourceProperties(input.Pardot, context) }),
     ...(input.S3 != null && { S3: serializeAws_restJson1S3SourceProperties(input.S3, context) }),
     ...(input.SAPOData != null && {
       SAPOData: serializeAws_restJson1SAPODataSourceProperties(input.SAPOData, context),
@@ -3298,10 +3506,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3327,10 +3533,8 @@ const serializeAws_restJson1TaskPropertiesMap = (input: Record<string, string>, 
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
@@ -3352,10 +3556,8 @@ const serializeAws_restJson1TokenUrlCustomProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3509,6 +3711,7 @@ const serializeAws_restJson1ZendeskSourceProperties = (
 const deserializeAws_restJson1AggregationConfig = (output: any, context: __SerdeContext): AggregationConfig => {
   return {
     aggregationType: __expectString(output.aggregationType),
+    targetFileSize: __expectLong(output.targetFileSize),
   } as any;
 };
 
@@ -3666,10 +3869,8 @@ const deserializeAws_restJson1ConnectorConfigurationsMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1ConnectorConfiguration(value, context),
-      };
+      acc[key] = deserializeAws_restJson1ConnectorConfiguration(value, context);
+      return acc;
     },
     {}
   );
@@ -3768,10 +3969,8 @@ const deserializeAws_restJson1ConnectorEntityMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ConnectorEntityList(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ConnectorEntityList(value, context);
+    return acc;
   }, {});
 };
 
@@ -3809,6 +4008,7 @@ const deserializeAws_restJson1ConnectorMetadata = (output: any, context: __Serde
     InforNexus:
       output.InforNexus != null ? deserializeAws_restJson1InforNexusMetadata(output.InforNexus, context) : undefined,
     Marketo: output.Marketo != null ? deserializeAws_restJson1MarketoMetadata(output.Marketo, context) : undefined,
+    Pardot: output.Pardot != null ? deserializeAws_restJson1PardotMetadata(output.Pardot, context) : undefined,
     Redshift: output.Redshift != null ? deserializeAws_restJson1RedshiftMetadata(output.Redshift, context) : undefined,
     S3: output.S3 != null ? deserializeAws_restJson1S3Metadata(output.S3, context) : undefined,
     SAPOData: output.SAPOData != null ? deserializeAws_restJson1SAPODataMetadata(output.SAPOData, context) : undefined,
@@ -3849,6 +4049,7 @@ const deserializeAws_restJson1ConnectorOperator = (output: any, context: __Serde
     GoogleAnalytics: __expectString(output.GoogleAnalytics),
     InforNexus: __expectString(output.InforNexus),
     Marketo: __expectString(output.Marketo),
+    Pardot: __expectString(output.Pardot),
     S3: __expectString(output.S3),
     SAPOData: __expectString(output.SAPOData),
     Salesforce: __expectString(output.Salesforce),
@@ -3937,6 +4138,10 @@ const deserializeAws_restJson1ConnectorProfileProperties = (
     Marketo:
       output.Marketo != null
         ? deserializeAws_restJson1MarketoConnectorProfileProperties(output.Marketo, context)
+        : undefined,
+    Pardot:
+      output.Pardot != null
+        ? deserializeAws_restJson1PardotConnectorProfileProperties(output.Pardot, context)
         : undefined,
     Redshift:
       output.Redshift != null
@@ -4154,10 +4359,8 @@ const deserializeAws_restJson1CustomProperties = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4369,6 +4572,10 @@ const deserializeAws_restJson1ExecutionRecord = (output: any, context: __SerdeCo
       output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
+    metadataCatalogDetails:
+      output.metadataCatalogDetails != null
+        ? deserializeAws_restJson1MetadataCatalogDetails(output.metadataCatalogDetails, context)
+        : undefined,
     startedAt:
       output.startedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt))) : undefined,
   } as any;
@@ -4464,6 +4671,14 @@ const deserializeAws_restJson1FlowList = (output: any, context: __SerdeContext):
       return deserializeAws_restJson1FlowDefinition(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1GlueDataCatalogConfig = (output: any, context: __SerdeContext): GlueDataCatalogConfig => {
+  return {
+    databaseName: __expectString(output.databaseName),
+    roleArn: __expectString(output.roleArn),
+    tablePrefix: __expectString(output.tablePrefix),
+  } as any;
 };
 
 const deserializeAws_restJson1GoogleAnalyticsConnectorProfileProperties = (
@@ -4610,6 +4825,45 @@ const deserializeAws_restJson1MarketoSourceProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1MetadataCatalogConfig = (output: any, context: __SerdeContext): MetadataCatalogConfig => {
+  return {
+    glueDataCatalog:
+      output.glueDataCatalog != null
+        ? deserializeAws_restJson1GlueDataCatalogConfig(output.glueDataCatalog, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MetadataCatalogDetail = (output: any, context: __SerdeContext): MetadataCatalogDetail => {
+  return {
+    catalogType: __expectString(output.catalogType),
+    partitionRegistrationOutput:
+      output.partitionRegistrationOutput != null
+        ? deserializeAws_restJson1RegistrationOutput(output.partitionRegistrationOutput, context)
+        : undefined,
+    tableName: __expectString(output.tableName),
+    tableRegistrationOutput:
+      output.tableRegistrationOutput != null
+        ? deserializeAws_restJson1RegistrationOutput(output.tableRegistrationOutput, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MetadataCatalogDetails = (
+  output: any,
+  context: __SerdeContext
+): MetadataCatalogDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetadataCatalogDetail(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1OAuth2CustomParameter = (output: any, context: __SerdeContext): OAuth2CustomParameter => {
   return {
     connectorSuppliedValues:
@@ -4705,8 +4959,48 @@ const deserializeAws_restJson1OAuthScopeList = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_restJson1PardotConnectorProfileProperties = (
+  output: any,
+  context: __SerdeContext
+): PardotConnectorProfileProperties => {
+  return {
+    businessUnitId: __expectString(output.businessUnitId),
+    instanceUrl: __expectString(output.instanceUrl),
+    isSandboxEnvironment: __expectBoolean(output.isSandboxEnvironment),
+  } as any;
+};
+
+const deserializeAws_restJson1PardotMetadata = (output: any, context: __SerdeContext): PardotMetadata => {
+  return {} as any;
+};
+
+const deserializeAws_restJson1PardotSourceProperties = (
+  output: any,
+  context: __SerdeContext
+): PardotSourceProperties => {
+  return {
+    object: __expectString(output.object),
+  } as any;
+};
+
+const deserializeAws_restJson1PathPrefixHierarchy = (output: any, context: __SerdeContext): (PathPrefix | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1PrefixConfig = (output: any, context: __SerdeContext): PrefixConfig => {
   return {
+    pathPrefixHierarchy:
+      output.pathPrefixHierarchy != null
+        ? deserializeAws_restJson1PathPrefixHierarchy(output.pathPrefixHierarchy, context)
+        : undefined,
     prefixFormat: __expectString(output.prefixFormat),
     prefixType: __expectString(output.prefixType),
   } as any;
@@ -4728,10 +5022,8 @@ const deserializeAws_restJson1ProfilePropertiesMap = (output: any, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4749,8 +5041,13 @@ const deserializeAws_restJson1RedshiftConnectorProfileProperties = (
   return {
     bucketName: __expectString(output.bucketName),
     bucketPrefix: __expectString(output.bucketPrefix),
+    clusterIdentifier: __expectString(output.clusterIdentifier),
+    dataApiRoleArn: __expectString(output.dataApiRoleArn),
+    databaseName: __expectString(output.databaseName),
     databaseUrl: __expectString(output.databaseUrl),
+    isRedshiftServerless: __expectBoolean(output.isRedshiftServerless),
     roleArn: __expectString(output.roleArn),
+    workgroupName: __expectString(output.workgroupName),
   } as any;
 };
 
@@ -4783,6 +5080,14 @@ const deserializeAws_restJson1RegionList = (output: any, context: __SerdeContext
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1RegistrationOutput = (output: any, context: __SerdeContext): RegistrationOutput => {
+  return {
+    message: __expectString(output.message),
+    result: __expectString(output.result),
+    status: __expectString(output.status),
+  } as any;
 };
 
 const deserializeAws_restJson1S3DestinationProperties = (
@@ -4840,7 +5145,23 @@ const deserializeAws_restJson1SalesforceConnectorProfileProperties = (
   return {
     instanceUrl: __expectString(output.instanceUrl),
     isSandboxEnvironment: __expectBoolean(output.isSandboxEnvironment),
+    usePrivateLinkForMetadataAndAuthorization: __expectBoolean(output.usePrivateLinkForMetadataAndAuthorization),
   } as any;
+};
+
+const deserializeAws_restJson1SalesforceDataTransferApiList = (
+  output: any,
+  context: __SerdeContext
+): (SalesforceDataTransferApi | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1SalesforceDestinationProperties = (
@@ -4848,6 +5169,7 @@ const deserializeAws_restJson1SalesforceDestinationProperties = (
   context: __SerdeContext
 ): SalesforceDestinationProperties => {
   return {
+    dataTransferApi: __expectString(output.dataTransferApi),
     errorHandlingConfig:
       output.errorHandlingConfig != null
         ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
@@ -4861,6 +5183,10 @@ const deserializeAws_restJson1SalesforceDestinationProperties = (
 
 const deserializeAws_restJson1SalesforceMetadata = (output: any, context: __SerdeContext): SalesforceMetadata => {
   return {
+    dataTransferApis:
+      output.dataTransferApis != null
+        ? deserializeAws_restJson1SalesforceDataTransferApiList(output.dataTransferApis, context)
+        : undefined,
     oAuthScopes:
       output.oAuthScopes != null ? deserializeAws_restJson1OAuthScopeList(output.oAuthScopes, context) : undefined,
   } as any;
@@ -4871,6 +5197,7 @@ const deserializeAws_restJson1SalesforceSourceProperties = (
   context: __SerdeContext
 ): SalesforceSourceProperties => {
   return {
+    dataTransferApi: __expectString(output.dataTransferApi),
     enableDynamicFieldUpdate: __expectBoolean(output.enableDynamicFieldUpdate),
     includeDeletedRecords: __expectBoolean(output.includeDeletedRecords),
     object: __expectString(output.object),
@@ -5100,6 +5427,7 @@ const deserializeAws_restJson1SourceConnectorProperties = (
         : undefined,
     Marketo:
       output.Marketo != null ? deserializeAws_restJson1MarketoSourceProperties(output.Marketo, context) : undefined,
+    Pardot: output.Pardot != null ? deserializeAws_restJson1PardotSourceProperties(output.Pardot, context) : undefined,
     S3: output.S3 != null ? deserializeAws_restJson1S3SourceProperties(output.S3, context) : undefined,
     SAPOData:
       output.SAPOData != null ? deserializeAws_restJson1SAPODataSourceProperties(output.SAPOData, context) : undefined,
@@ -5238,10 +5566,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5268,10 +5594,8 @@ const deserializeAws_restJson1TaskPropertiesMap = (output: any, context: __Serde
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -5297,10 +5621,8 @@ const deserializeAws_restJson1TokenUrlCustomProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5466,7 +5788,8 @@ const deserializeAws_restJson1ZendeskSourceProperties = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -5498,6 +5821,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -5508,6 +5837,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

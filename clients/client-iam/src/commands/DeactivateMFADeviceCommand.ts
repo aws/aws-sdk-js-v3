@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,7 +26,7 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deactivates the specified MFA device and removes it from association with the user
  *             name for which it was originally enabled.</p>
- *         <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a virtual
+ *          <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a virtual
  *                 multi-factor authentication (MFA) device</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example
@@ -51,6 +52,15 @@ export class DeactivateMFADeviceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeactivateMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +76,9 @@ export class DeactivateMFADeviceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeactivateMFADeviceCommandInput, DeactivateMFADeviceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeactivateMFADeviceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -6,7 +6,7 @@ import { fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
 import { fromTokenFile, FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
 import { chain, CredentialsProviderError, memoize } from "@aws-sdk/property-provider";
 import { ENV_PROFILE } from "@aws-sdk/shared-ini-file-loader";
-import { Credentials, MemoizedProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentity, MemoizedProvider } from "@aws-sdk/types";
 
 import { remoteProvider } from "./remoteProvider";
 
@@ -46,7 +46,7 @@ export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcess
  * @see {@link fromContainerMetadata}   The function used to source credentials from the
  *                              ECS Container Metadata Service
  */
-export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<Credentials> =>
+export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<AwsCredentialIdentity> =>
   memoize(
     chain(
       ...(init.profile || process.env[ENV_PROFILE] ? [] : [fromEnv()]),

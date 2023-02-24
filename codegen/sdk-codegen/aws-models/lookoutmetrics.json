@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -169,6 +169,7 @@
         "AlertSensitivityThreshold": {
           "target": "com.amazonaws.lookoutmetrics#SensitivityThreshold",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The minimum severity for an anomaly to trigger the alert.</p>"
           }
         },
@@ -286,6 +287,7 @@
         "AlertSensitivityThreshold": {
           "target": "com.amazonaws.lookoutmetrics#SensitivityThreshold",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The minimum severity for an anomaly to trigger the alert.</p>"
           }
         },
@@ -408,6 +410,32 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains information about a detector's configuration.</p>"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#AnomalyDetectorDataQualityMetric": {
+      "type": "structure",
+      "members": {
+        "StartTimestamp": {
+          "target": "com.amazonaws.lookoutmetrics#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time for the data quality metrics collection.</p>"
+          }
+        },
+        "MetricSetDataQualityMetricList": {
+          "target": "com.amazonaws.lookoutmetrics#MetricSetDataQualityMetricList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <code>DataQualityMetricList</code> objects. Each object in the array contains information about a data quality metric.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Aggregated details about the data quality metrics collected for the <code>AnomalyDetectorArn</code> provided in the <a>GetDataQualityMetrics</a> object.</p>"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#AnomalyDetectorDataQualityMetricList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lookoutmetrics#AnomalyDetectorDataQualityMetric"
       }
     },
     "com.amazonaws.lookoutmetrics#AnomalyDetectorDescription": {
@@ -616,6 +644,7 @@
         "TotalCount": {
           "target": "com.amazonaws.lookoutmetrics#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of groups found.</p>"
           }
         },
@@ -1007,10 +1036,7 @@
       }
     },
     "com.amazonaws.lookoutmetrics#Boolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.lookoutmetrics#CSVFileCompression": {
       "type": "string",
@@ -1181,6 +1207,7 @@
         "AlertSensitivityThreshold": {
           "target": "com.amazonaws.lookoutmetrics#SensitivityThreshold",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>An integer from 0 to 100 specifying the alert sensitivity threshold.</p>"
           }
         },
@@ -1387,8 +1414,8 @@
         "Offset": {
           "target": "com.amazonaws.lookoutmetrics#Offset",
           "traits": {
-            "smithy.api#box": {},
-            "smithy.api#documentation": "<p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3 and Redshift datasources.</p>"
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3, Redshift, Athena and datasources.</p>"
           }
         },
         "TimestampColumn": {
@@ -1426,6 +1453,12 @@
           "target": "com.amazonaws.lookoutmetrics#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A list of <a href=\"https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html\">tags</a> to apply to the dataset.</p>"
+          }
+        },
+        "DimensionFilterList": {
+          "target": "com.amazonaws.lookoutmetrics#MetricSetDimensionFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of filters that specify which data is kept for anomaly detection.</p>"
           }
         }
       }
@@ -1488,6 +1521,101 @@
     "com.amazonaws.lookoutmetrics#DataItem": {
       "type": "string"
     },
+    "com.amazonaws.lookoutmetrics#DataQualityMetric": {
+      "type": "structure",
+      "members": {
+        "MetricType": {
+          "target": "com.amazonaws.lookoutmetrics#DataQualityMetricType",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the data quality metric.</p>"
+          }
+        },
+        "MetricDescription": {
+          "target": "com.amazonaws.lookoutmetrics#DataQualityMetricDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the data quality metric.</p>"
+          }
+        },
+        "RelatedColumnName": {
+          "target": "com.amazonaws.lookoutmetrics#RelatedColumnName",
+          "traits": {
+            "smithy.api#documentation": "<p>The column that is being monitored.</p>"
+          }
+        },
+        "MetricValue": {
+          "target": "com.amazonaws.lookoutmetrics#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the data quality metric.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An array that describes a data quality metric. Each <code>DataQualityMetric</code> object contains the data quality metric name, its value, a description of the metric, and the affected column.</p>"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#DataQualityMetricDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "\\S"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#DataQualityMetricList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lookoutmetrics#DataQualityMetric"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#DataQualityMetricType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "COLUMN_COMPLETENESS",
+            "name": "COLUMN_COMPLETENESS"
+          },
+          {
+            "value": "DIMENSION_UNIQUENESS",
+            "name": "DIMENSION_UNIQUENESS"
+          },
+          {
+            "value": "TIME_SERIES_COUNT",
+            "name": "TIME_SERIES_COUNT"
+          },
+          {
+            "value": "ROWS_PROCESSED",
+            "name": "ROWS_PROCESSED"
+          },
+          {
+            "value": "ROWS_PARTIAL_COMPLIANCE",
+            "name": "ROWS_PARTIAL_COMPLIANCE"
+          },
+          {
+            "value": "INVALID_ROWS_COMPLIANCE",
+            "name": "INVALID_ROWS_COMPLIANCE"
+          },
+          {
+            "value": "BACKTEST_TRAINING_DATA_START_TIME_STAMP",
+            "name": "BACKTEST_TRAINING_DATA_START_TIME_STAMP"
+          },
+          {
+            "value": "BACKTEST_TRAINING_DATA_END_TIME_STAMP",
+            "name": "BACKTEST_TRAINING_DATA_END_TIME_STAMP"
+          },
+          {
+            "value": "BACKTEST_INFERENCE_DATA_START_TIME_STAMP",
+            "name": "BACKTEST_INFERENCE_DATA_START_TIME_STAMP"
+          },
+          {
+            "value": "BACKTEST_INFERENCE_DATA_END_TIME_STAMP",
+            "name": "BACKTEST_INFERENCE_DATA_END_TIME_STAMP"
+          }
+        ]
+      }
+    },
     "com.amazonaws.lookoutmetrics#DatabaseHost": {
       "type": "string",
       "traits": {
@@ -1501,6 +1629,7 @@
     "com.amazonaws.lookoutmetrics#DatabasePort": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 65535
@@ -1798,7 +1927,7 @@
         "MaxResults": {
           "target": "com.amazonaws.lookoutmetrics#MaxResults",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The number of items to return in the response.</p>"
           }
         },
@@ -2026,8 +2155,8 @@
         "Offset": {
           "target": "com.amazonaws.lookoutmetrics#Offset",
           "traits": {
-            "smithy.api#box": {},
-            "smithy.api#documentation": "<p>The offset in seconds. Only supported for S3 and Redshift datasources.</p>"
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3, Redshift, Athena and datasources.</p>"
           }
         },
         "MetricList": {
@@ -2064,6 +2193,12 @@
           "target": "com.amazonaws.lookoutmetrics#MetricSource",
           "traits": {
             "smithy.api#documentation": "<p>Contains information about the dataset's source data.</p>"
+          }
+        },
+        "DimensionFilterList": {
+          "target": "com.amazonaws.lookoutmetrics#MetricSetDimensionFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The dimensions and their values that were used to filter the dataset.</p>"
           }
         }
       }
@@ -2434,6 +2569,9 @@
         }
       }
     },
+    "com.amazonaws.lookoutmetrics#Double": {
+      "type": "double"
+    },
     "com.amazonaws.lookoutmetrics#ErrorMessage": {
       "type": "string",
       "traits": {
@@ -2496,6 +2634,48 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains information about a source file's formatting.</p>"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#Filter": {
+      "type": "structure",
+      "members": {
+        "DimensionValue": {
+          "target": "com.amazonaws.lookoutmetrics#DimensionValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value that you want to include in the filter.</p>"
+          }
+        },
+        "FilterOperation": {
+          "target": "com.amazonaws.lookoutmetrics#FilterOperation",
+          "traits": {
+            "smithy.api#documentation": "<p>The condition to apply.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a filter for choosing a subset of dimension values. Each filter consists of the dimension that you want to include and the condition statement. The condition statement is specified in the <code>FilterOperation</code> object.</p>"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#FilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lookoutmetrics#Filter"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.lookoutmetrics#FilterOperation": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "EQUALS",
+            "name": "EQUALS"
+          }
+        ]
       }
     },
     "com.amazonaws.lookoutmetrics#FlowName": {
@@ -2595,6 +2775,69 @@
         }
       }
     },
+    "com.amazonaws.lookoutmetrics#GetDataQualityMetrics": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lookoutmetrics#GetDataQualityMetricsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lookoutmetrics#GetDataQualityMetricsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lookoutmetrics#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lookoutmetrics#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.lookoutmetrics#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lookoutmetrics#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.lookoutmetrics#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns details about the requested data quality metrics.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/GetDataQualityMetrics",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lookoutmetrics#GetDataQualityMetricsRequest": {
+      "type": "structure",
+      "members": {
+        "AnomalyDetectorArn": {
+          "target": "com.amazonaws.lookoutmetrics#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the anomaly detector that you want to investigate.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MetricSetArn": {
+          "target": "com.amazonaws.lookoutmetrics#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a specific data quality metric set.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.lookoutmetrics#GetDataQualityMetricsResponse": {
+      "type": "structure",
+      "members": {
+        "AnomalyDetectorDataQualityMetricList": {
+          "target": "com.amazonaws.lookoutmetrics#AnomalyDetectorDataQualityMetricList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the data quality metrics for the <code>AnomalyDetectorArn</code> that you requested.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.lookoutmetrics#GetFeedback": {
       "type": "operation",
       "input": {
@@ -2654,7 +2897,7 @@
         "MaxResults": {
           "target": "com.amazonaws.lookoutmetrics#MaxResults",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
@@ -2783,7 +3026,10 @@
       }
     },
     "com.amazonaws.lookoutmetrics#Integer": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.lookoutmetrics#InterMetricImpactDetails": {
       "type": "structure",
@@ -2851,6 +3097,7 @@
         "OccurrenceCount": {
           "target": "com.amazonaws.lookoutmetrics#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of times that the measure appears.</p>"
           }
         }
@@ -2989,7 +3236,7 @@
         "MaxResults": {
           "target": "com.amazonaws.lookoutmetrics#MaxResults",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum number of results that will be displayed by the request.</p>"
           }
         }
@@ -3057,7 +3304,7 @@
         "MaxResults": {
           "target": "com.amazonaws.lookoutmetrics#MaxResults",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
@@ -3151,7 +3398,7 @@
         "MaxResults": {
           "target": "com.amazonaws.lookoutmetrics#MaxResults",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
@@ -3232,6 +3479,7 @@
         "SensitivityThreshold": {
           "target": "com.amazonaws.lookoutmetrics#SensitivityThreshold",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The minimum severity score for inclusion in the output.</p>",
             "smithy.api#required": {}
           }
@@ -3239,7 +3487,7 @@
         "MaxResults": {
           "target": "com.amazonaws.lookoutmetrics#MaxResults",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
@@ -3340,7 +3588,7 @@
         "MaxResults": {
           "target": "com.amazonaws.lookoutmetrics#MaxResults",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
@@ -3438,7 +3686,7 @@
         "MaxResults": {
           "target": "com.amazonaws.lookoutmetrics#MaxResults",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
@@ -3523,21 +3771,6 @@
     },
     "com.amazonaws.lookoutmetrics#LookoutMetrics": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "LookoutMetrics",
-          "arnNamespace": "lookoutmetrics",
-          "cloudFormationName": "LookoutMetrics",
-          "cloudTrailEventSource": "lookoutmetrics.amazonaws.com",
-          "endpointPrefix": "lookoutmetrics"
-        },
-        "aws.auth#sigv4": {
-          "name": "lookoutmetrics"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>This is the <i>Amazon Lookout for Metrics API Reference</i>. For an introduction to the service\n      with tutorials for getting started, visit <a href=\"https://docs.aws.amazon.com/lookoutmetrics/latest/dev\">Amazon\n        Lookout for Metrics Developer Guide</a>.</p>",
-        "smithy.api#title": "Amazon Lookout for Metrics"
-      },
       "version": "2017-07-25",
       "operations": [
         {
@@ -3581,6 +3814,9 @@
         },
         {
           "target": "com.amazonaws.lookoutmetrics#GetAnomalyGroup"
+        },
+        {
+          "target": "com.amazonaws.lookoutmetrics#GetDataQualityMetrics"
         },
         {
           "target": "com.amazonaws.lookoutmetrics#GetFeedback"
@@ -3627,11 +3863,853 @@
         {
           "target": "com.amazonaws.lookoutmetrics#UpdateMetricSet"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "LookoutMetrics",
+          "arnNamespace": "lookoutmetrics",
+          "cloudFormationName": "LookoutMetrics",
+          "cloudTrailEventSource": "lookoutmetrics.amazonaws.com",
+          "endpointPrefix": "lookoutmetrics"
+        },
+        "aws.auth#sigv4": {
+          "name": "lookoutmetrics"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>This is the <i>Amazon Lookout for Metrics API Reference</i>. For an introduction to the service\n      with tutorials for getting started, visit <a href=\"https://docs.aws.amazon.com/lookoutmetrics/latest/dev\">Amazon\n        Lookout for Metrics Developer Guide</a>.</p>",
+        "smithy.api#title": "Amazon Lookout for Metrics",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://lookoutmetrics-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://lookoutmetrics-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://lookoutmetrics.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://lookoutmetrics.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://lookoutmetrics.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.lookoutmetrics#MaxResults": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -3672,10 +4750,9 @@
     "com.amazonaws.lookoutmetrics#MetricChangePercentage": {
       "type": "double",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
-          "min": 0.0,
-          "max": 100.0
+          "min": 0,
+          "max": 100
         }
       }
     },
@@ -3691,6 +4768,7 @@
         "NumTimeSeries": {
           "target": "com.amazonaws.lookoutmetrics#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of anomalous metrics for the measure.</p>"
           }
         },
@@ -3744,6 +4822,32 @@
         }
       }
     },
+    "com.amazonaws.lookoutmetrics#MetricSetDataQualityMetric": {
+      "type": "structure",
+      "members": {
+        "MetricSetArn": {
+          "target": "com.amazonaws.lookoutmetrics#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the data quality metric array.</p>"
+          }
+        },
+        "DataQualityMetricList": {
+          "target": "com.amazonaws.lookoutmetrics#DataQualityMetricList",
+          "traits": {
+            "smithy.api#documentation": "<p>The array of data quality metrics contained in the data quality metric set.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An array of <code>DataQualityMetric</code> objects that describes one or more data quality metrics.</p>"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#MetricSetDataQualityMetricList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lookoutmetrics#MetricSetDataQualityMetric"
+      }
+    },
     "com.amazonaws.lookoutmetrics#MetricSetDescription": {
       "type": "string",
       "traits": {
@@ -3752,6 +4856,32 @@
           "max": 256
         },
         "smithy.api#pattern": "\\S"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#MetricSetDimensionFilter": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.lookoutmetrics#ColumnName",
+          "traits": {
+            "smithy.api#documentation": "<p>The dimension that you want to filter on.</p>"
+          }
+        },
+        "FilterList": {
+          "target": "com.amazonaws.lookoutmetrics#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of filters that you are applying.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a list of filters for choosing a subset of dimension values. Each filter consists of the dimension and one of its values that you want to include. When multiple dimensions or values are specified, the dimensions are joined with an AND operation and the values are joined with an OR operation. </p>"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#MetricSetDimensionFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lookoutmetrics#MetricSetDimensionFilter"
       }
     },
     "com.amazonaws.lookoutmetrics#MetricSetName": {
@@ -3862,10 +4992,7 @@
       }
     },
     "com.amazonaws.lookoutmetrics#MetricValue": {
-      "type": "double",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "double"
     },
     "com.amazonaws.lookoutmetrics#MetricValueList": {
       "type": "list",
@@ -3905,6 +5032,7 @@
     "com.amazonaws.lookoutmetrics#Offset": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 432000
@@ -4029,7 +5157,7 @@
         "DatabasePort": {
           "target": "com.amazonaws.lookoutmetrics#DatabasePort",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The port number where the database can be accessed.</p>"
           }
         },
@@ -4106,7 +5234,7 @@
         "DatabasePort": {
           "target": "com.amazonaws.lookoutmetrics#DatabasePort",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The port number where the database can be accessed.</p>"
           }
         },
@@ -4143,6 +5271,16 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Provides information about the Amazon Redshift database configuration.</p>"
+      }
+    },
+    "com.amazonaws.lookoutmetrics#RelatedColumnName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "\\S"
       }
     },
     "com.amazonaws.lookoutmetrics#RelationshipType": {
@@ -4302,10 +5440,9 @@
     "com.amazonaws.lookoutmetrics#Score": {
       "type": "double",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
-          "min": 0.0,
-          "max": 100.0
+          "min": 0,
+          "max": 100
         }
       }
     },
@@ -4328,6 +5465,7 @@
     "com.amazonaws.lookoutmetrics#SensitivityThreshold": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -4806,6 +5944,7 @@
         "AlertSensitivityThreshold": {
           "target": "com.amazonaws.lookoutmetrics#SensitivityThreshold",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>An integer from 0 to 100 specifying the alert sensitivity threshold.</p>"
           }
         },
@@ -4971,8 +6110,8 @@
         "Offset": {
           "target": "com.amazonaws.lookoutmetrics#Offset",
           "traits": {
-            "smithy.api#box": {},
-            "smithy.api#documentation": "<p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3 and Redshift datasources.</p>"
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3, Redshift, Athena and datasources.</p>"
           }
         },
         "TimestampColumn": {
@@ -4995,6 +6134,12 @@
         },
         "MetricSource": {
           "target": "com.amazonaws.lookoutmetrics#MetricSource"
+        },
+        "DimensionFilterList": {
+          "target": "com.amazonaws.lookoutmetrics#MetricSetDimensionFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes a list of filters for choosing specific dimensions and specific values. Each\n      filter consists of the dimension and one of its values that you want to include. When\n      multiple dimensions or values are specified, the dimensions are joined with an AND operation\n      and the values are joined with an OR operation.</p>"
+          }
         }
       }
     },

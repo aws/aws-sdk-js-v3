@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,25 +29,23 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
 
 /**
  * <p>Updates <code>AttendeeCapabilities</code> except the capabilities listed in an <code>ExcludedAttendeeIds</code> table.</p>
- *
- *         <note>
+ *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
  *             .</p>
  *          </note>
- *
- *         <p>When using capabilities, be aware of these corner cases:</p>
- *         <ul>
+ *          <p>When using capabilities, be aware of these corner cases:</p>
+ *          <ul>
  *             <li>
- *                 <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+ *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
  *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
  *                     to receive and you set your <code>content</code> capability to not receive.</p>
  *             </li>
  *             <li>
- *                 <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+ *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
  *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
  *             </li>
  *             <li>
- *                 <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+ *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
  *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
  *             </li>
  *          </ul>
@@ -73,6 +72,15 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchUpdateAttendeeCapabilitiesExceptCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,6 +96,9 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchUpdateAttendeeCapabilitiesExceptCommandInput, BatchUpdateAttendeeCapabilitiesExceptCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchUpdateAttendeeCapabilitiesExceptCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

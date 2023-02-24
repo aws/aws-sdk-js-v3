@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  *             The database user is mapped 1:1 to the source Identity and Access Management (IAM) identity.
  *             For more information about IAM identities, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html">IAM Identities (users, user groups, and roles)</a> in the
  *             Amazon Web Services Identity and Access Management User Guide.</p>
- *         <p>The Identity and Access Management (IAM) identity that runs
+ *          <p>The Identity and Access Management (IAM) identity that runs
  *             this operation must have an IAM policy attached that allows access to all
  *             necessary actions and resources.
  *                 For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using identity-based policies (IAM policies)</a> in the
@@ -60,6 +61,15 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetClusterCredentialsWithIAMCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetClusterCredentialsWithIAMCommandInput, GetClusterCredentialsWithIAMCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetClusterCredentialsWithIAMCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

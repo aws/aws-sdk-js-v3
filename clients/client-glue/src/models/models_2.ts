@@ -7,6 +7,8 @@ import {
   Aggregate,
   AthenaConnectorSource,
   BasicCatalogTarget,
+  CatalogDeltaSource,
+  CatalogHudiSource,
   CatalogKafkaSource,
   CatalogKinesisSource,
   CatalogSource,
@@ -16,14 +18,20 @@ import {
   CrawlerTargets,
   CsvHeaderOption,
   CustomCode,
+  CustomEntityType,
   DatabaseInput,
+  DataQualityTargetTable,
+  DataSource,
+  DirectJDBCSource,
   DirectKafkaSource,
   DirectKinesisSource,
   DropDuplicates,
   DropFields,
   DropNullFields,
+  DynamicTransform,
   DynamoDBCatalogSource,
   ErrorDetail,
+  EvaluateDataQuality,
   EventBatchingCondition,
   ExecutionClass,
   ExecutionProperty,
@@ -56,39 +64,1336 @@ import {
   RegistryId,
   RelationalCatalogSource,
   RenameField,
+  S3CatalogDeltaSource,
+  S3CatalogHudiSource,
   S3CatalogSource,
   S3CatalogTarget,
   S3CsvSource,
+  S3DeltaCatalogTarget,
+  S3DeltaDirectTarget,
+  S3DeltaSource,
   S3DirectTarget,
   S3GlueParquetTarget,
+  S3HudiCatalogTarget,
+  S3HudiDirectTarget,
+  S3HudiSource,
   S3JsonSource,
   S3ParquetSource,
   SchemaChangePolicy,
   SchemaId,
-  SchemaVersionStatus,
   SelectFields,
   SelectFromCollection,
+  SourceControlAuthStrategy,
+  SourceControlDetails,
+  SourceControlProvider,
   SparkConnectorSource,
   SparkConnectorTarget,
   SparkSQL,
   Spigot,
   SplitFields,
-  TableInput,
+  TaskStatusType,
   TransformParameters,
   Trigger,
   Union,
-  UserDefinedFunctionInput,
   WorkerType,
 } from "./models_0";
 import {
   ColumnStatistics,
+  DataCatalogEncryptionSettings,
+  DataQualityEvaluationRunAdditionalRunOptions,
   JobBookmarkEntry,
-  MetadataInfo,
-  MetadataKeyValuePair,
+  RegistryStatus,
   ResourceShareType,
+  SchemaStatus,
   SchemaVersionNumber,
+  SchemaVersionStatus,
+  Session,
+  Statement,
   Table,
+  TableInput,
+  TransformFilterCriteria,
+  TransformSortCriteria,
+  UserDefinedFunctionInput,
 } from "./models_1";
+
+export interface ListBlueprintsRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters the list by an Amazon Web Services resource tag.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface ListBlueprintsResponse {
+  /**
+   * <p>List of names of blueprints in the account.</p>
+   */
+  Blueprints?: string[];
+
+  /**
+   * <p>A continuation token, if not all blueprint names have been returned.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListCrawlersRequest {
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specifies to return only these tagged resources.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface ListCrawlersResponse {
+  /**
+   * <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
+   */
+  CrawlerNames?: string[];
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   */
+  NextToken?: string;
+}
+
+export enum FieldName {
+  CRAWL_ID = "CRAWL_ID",
+  DPU_HOUR = "DPU_HOUR",
+  END_TIME = "END_TIME",
+  START_TIME = "START_TIME",
+  STATE = "STATE",
+}
+
+export enum FilterOperator {
+  EQ = "EQ",
+  GE = "GE",
+  GT = "GT",
+  LE = "LE",
+  LT = "LT",
+  NE = "NE",
+}
+
+/**
+ * <p>A list of fields, comparators and value that you can use to filter the crawler runs for a specified crawler.</p>
+ */
+export interface CrawlsFilter {
+  /**
+   * <p>A key used to filter the crawler runs for a specified crawler. Valid values for each of the field names are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CRAWL_ID</code>: A string representing the UUID identifier for a crawl.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STATE</code>: A string representing the state of the crawl.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>START_TIME</code> and <code>END_TIME</code>: The epoch timestamp in milliseconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DPU_HOUR</code>: The number of data processing unit (DPU) hours used for the crawl.</p>
+   *             </li>
+   *          </ul>
+   */
+  FieldName?: FieldName | string;
+
+  /**
+   * <p>A defined comparator that operates on the value. The available operators are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code>: Greater than.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GE</code>: Greater than or equal to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code>: Less than.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LE</code>: Less than or equal to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code>: Equal to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NE</code>: Not equal to.</p>
+   *             </li>
+   *          </ul>
+   */
+  FilterOperator?: FilterOperator | string;
+
+  /**
+   * <p>The value provided for comparison on the crawl field. </p>
+   */
+  FieldValue?: string;
+}
+
+export interface ListCrawlsRequest {
+  /**
+   * <p>The name of the crawler whose runs you want to retrieve.</p>
+   */
+  CrawlerName: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. The default is 20, and maximum is 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters the crawls by the criteria you specify in a list of <code>CrawlsFilter</code> objects.</p>
+   */
+  Filters?: CrawlsFilter[];
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+export enum CrawlerHistoryState {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  STOPPED = "STOPPED",
+}
+
+/**
+ * <p>Contains the information for a run of a crawler.</p>
+ */
+export interface CrawlerHistory {
+  /**
+   * <p>A UUID identifier for each crawl.</p>
+   */
+  CrawlId?: string;
+
+  /**
+   * <p>The state of the crawl.</p>
+   */
+  State?: CrawlerHistoryState | string;
+
+  /**
+   * <p>The date and time on which the crawl started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The date and time on which the crawl ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>A run summary for the specific crawl in JSON. Contains the catalog tables and partitions that were added, updated, or deleted.</p>
+   */
+  Summary?: string;
+
+  /**
+   * <p>If an error occurred, the error message associated with the crawl.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The log group associated with the crawl.</p>
+   */
+  LogGroup?: string;
+
+  /**
+   * <p>The log stream associated with the crawl.</p>
+   */
+  LogStream?: string;
+
+  /**
+   * <p>The prefix for a CloudWatch message about this crawl.</p>
+   */
+  MessagePrefix?: string;
+
+  /**
+   * <p>The number of data processing units (DPU) used in hours for the crawl.</p>
+   */
+  DPUHour?: number;
+}
+
+export interface ListCrawlsResponse {
+  /**
+   * <p>A list of <code>CrawlerHistory</code> objects representing the crawl runs that meet your criteria.</p>
+   */
+  Crawls?: CrawlerHistory[];
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListCustomEntityTypesRequest {
+  /**
+   * <p>A paginated token to offset the results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListCustomEntityTypesResponse {
+  /**
+   * <p>A list of <code>CustomEntityType</code> objects representing custom patterns.</p>
+   */
+  CustomEntityTypes?: CustomEntityType[];
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Criteria used to return data quality results.</p>
+ */
+export interface DataQualityResultFilterCriteria {
+  /**
+   * <p>Filter results by the specified data source. For example, retrieving all results for an Glue table.</p>
+   */
+  DataSource?: DataSource;
+
+  /**
+   * <p>Filter results by the specified job name.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>Filter results by the specified job run ID.</p>
+   */
+  JobRunId?: string;
+
+  /**
+   * <p>Filter results by runs that started after this time.</p>
+   */
+  StartedAfter?: Date;
+
+  /**
+   * <p>Filter results by runs that started before this time.</p>
+   */
+  StartedBefore?: Date;
+}
+
+export interface ListDataQualityResultsRequest {
+  /**
+   * <p>The filter criteria.</p>
+   */
+  Filter?: DataQualityResultFilterCriteria;
+
+  /**
+   * <p>A paginated token to offset the results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Describes a data quality result.</p>
+ */
+export interface DataQualityResultDescription {
+  /**
+   * <p>The unique result ID for this data quality result.</p>
+   */
+  ResultId?: string;
+
+  /**
+   * <p>The table name associated with the data quality result.</p>
+   */
+  DataSource?: DataSource;
+
+  /**
+   * <p>The job name associated with the data quality result.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The job run ID associated with the data quality result.</p>
+   */
+  JobRunId?: string;
+
+  /**
+   * <p>The time that the run started for this data quality result.</p>
+   */
+  StartedOn?: Date;
+}
+
+export interface ListDataQualityResultsResponse {
+  /**
+   * <p>A list of <code>DataQualityResultDescription</code> objects.</p>
+   */
+  Results: DataQualityResultDescription[] | undefined;
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A filter for listing data quality recommendation runs.</p>
+ */
+export interface DataQualityRuleRecommendationRunFilter {
+  /**
+   * <p>Filter based on a specified data source (Glue table).</p>
+   */
+  DataSource: DataSource | undefined;
+
+  /**
+   * <p>Filter based on time for results started before provided time.</p>
+   */
+  StartedBefore?: Date;
+
+  /**
+   * <p>Filter based on time for results started after provided time.</p>
+   */
+  StartedAfter?: Date;
+}
+
+export interface ListDataQualityRuleRecommendationRunsRequest {
+  /**
+   * <p>The filter criteria.</p>
+   */
+  Filter?: DataQualityRuleRecommendationRunFilter;
+
+  /**
+   * <p>A paginated token to offset the results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Describes the result of a data quality rule recommendation run.</p>
+ */
+export interface DataQualityRuleRecommendationRunDescription {
+  /**
+   * <p>The unique run identifier associated with this run.</p>
+   */
+  RunId?: string;
+
+  /**
+   * <p>The status for this run.</p>
+   */
+  Status?: TaskStatusType | string;
+
+  /**
+   * <p>The date and time when this run started.</p>
+   */
+  StartedOn?: Date;
+
+  /**
+   * <p>The data source (Glue table) associated with the recommendation run.</p>
+   */
+  DataSource?: DataSource;
+}
+
+export interface ListDataQualityRuleRecommendationRunsResponse {
+  /**
+   * <p>A list of <code>DataQualityRuleRecommendationRunDescription</code> objects.</p>
+   */
+  Runs?: DataQualityRuleRecommendationRunDescription[];
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>The filter criteria.</p>
+ */
+export interface DataQualityRulesetEvaluationRunFilter {
+  /**
+   * <p>Filter based on a data source (an Glue table) associated with the run.</p>
+   */
+  DataSource: DataSource | undefined;
+
+  /**
+   * <p>Filter results by runs that started before this time.</p>
+   */
+  StartedBefore?: Date;
+
+  /**
+   * <p>Filter results by runs that started after this time.</p>
+   */
+  StartedAfter?: Date;
+}
+
+export interface ListDataQualityRulesetEvaluationRunsRequest {
+  /**
+   * <p>The filter criteria.</p>
+   */
+  Filter?: DataQualityRulesetEvaluationRunFilter;
+
+  /**
+   * <p>A paginated token to offset the results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Describes the result of a data quality ruleset evaluation run.</p>
+ */
+export interface DataQualityRulesetEvaluationRunDescription {
+  /**
+   * <p>The unique run identifier associated with this run.</p>
+   */
+  RunId?: string;
+
+  /**
+   * <p>The status for this run.</p>
+   */
+  Status?: TaskStatusType | string;
+
+  /**
+   * <p>The date and time when the run started.</p>
+   */
+  StartedOn?: Date;
+
+  /**
+   * <p>The data source (an Glue table) associated with the run.</p>
+   */
+  DataSource?: DataSource;
+}
+
+export interface ListDataQualityRulesetEvaluationRunsResponse {
+  /**
+   * <p>A list of <code>DataQualityRulesetEvaluationRunDescription</code> objects representing data quality ruleset runs.</p>
+   */
+  Runs?: DataQualityRulesetEvaluationRunDescription[];
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>The criteria used to filter data quality rulesets.</p>
+ */
+export interface DataQualityRulesetFilterCriteria {
+  /**
+   * <p>The name of the ruleset filter criteria.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the ruleset filter criteria.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Filter on rulesets created before this date.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>Filter on rulesets created after this date.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>Filter on rulesets last modified before this date.</p>
+   */
+  LastModifiedBefore?: Date;
+
+  /**
+   * <p>Filter on rulesets last modified after this date.</p>
+   */
+  LastModifiedAfter?: Date;
+
+  /**
+   * <p>The name and database name of the target table.</p>
+   */
+  TargetTable?: DataQualityTargetTable;
+}
+
+export interface ListDataQualityRulesetsRequest {
+  /**
+   * <p>A paginated token to offset the results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The filter criteria. </p>
+   */
+  Filter?: DataQualityRulesetFilterCriteria;
+
+  /**
+   * <p>A list of key-value pair tags.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * <p>Describes a data quality ruleset returned by <code>GetDataQualityRuleset</code>.</p>
+ */
+export interface DataQualityRulesetListDetails {
+  /**
+   * <p>The name of the data quality ruleset.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the data quality ruleset.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date and time the data quality ruleset was created.</p>
+   */
+  CreatedOn?: Date;
+
+  /**
+   * <p>The date and time the data quality ruleset was last modified.</p>
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   * <p>An object representing an Glue table.</p>
+   */
+  TargetTable?: DataQualityTargetTable;
+
+  /**
+   * <p>When a ruleset was created from a recommendation run, this run ID is generated to link the two together.</p>
+   */
+  RecommendationRunId?: string;
+
+  /**
+   * <p>The number of rules in the ruleset.</p>
+   */
+  RuleCount?: number;
+}
+
+export interface ListDataQualityRulesetsResponse {
+  /**
+   * <p>A paginated list of rulesets for the specified list of Glue tables.</p>
+   */
+  Rulesets?: DataQualityRulesetListDetails[];
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListDevEndpointsRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Specifies to return only these tagged resources.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface ListDevEndpointsResponse {
+  /**
+   * <p>The names of all the <code>DevEndpoint</code>s in the account, or the
+   *         <code>DevEndpoint</code>s with the specified tags.</p>
+   */
+  DevEndpointNames?: string[];
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListJobsRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Specifies to return only these tagged resources.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface ListJobsResponse {
+  /**
+   * <p>The names of all jobs in the account, or the jobs with the specified tags.</p>
+   */
+  JobNames?: string[];
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListMLTransformsRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A <code>TransformFilterCriteria</code> used to filter the machine learning transforms.</p>
+   */
+  Filter?: TransformFilterCriteria;
+
+  /**
+   * <p>A <code>TransformSortCriteria</code> used to sort the machine learning transforms.</p>
+   */
+  Sort?: TransformSortCriteria;
+
+  /**
+   * <p>Specifies to return only these tagged resources.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface ListMLTransformsResponse {
+  /**
+   * <p>The identifiers of all the machine learning transforms in the account, or the
+   *         machine learning transforms with the specified tags.</p>
+   */
+  TransformIds: string[] | undefined;
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListRegistriesInput {
+  /**
+   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A structure containing the details for a registry.</p>
+ */
+export interface RegistryListItem {
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   */
+  RegistryArn?: string;
+
+  /**
+   * <p>A description of the registry.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the registry.</p>
+   */
+  Status?: RegistryStatus | string;
+
+  /**
+   * <p>The data the registry was created.</p>
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>The date the registry was updated.</p>
+   */
+  UpdatedTime?: string;
+}
+
+export interface ListRegistriesResponse {
+  /**
+   * <p>An array of <code>RegistryDetailedListItem</code> objects containing minimal details of each registry.</p>
+   */
+  Registries?: RegistryListItem[];
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListSchemasInput {
+  /**
+   * <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+   */
+  RegistryId?: RegistryId;
+
+  /**
+   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>An object that contains minimal details for a schema.</p>
+ */
+export interface SchemaListItem {
+  /**
+   * <p>the name of the registry where the schema resides.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>A description for the schema.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the schema.</p>
+   */
+  SchemaStatus?: SchemaStatus | string;
+
+  /**
+   * <p>The date and time that a schema was created.</p>
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>The date and time that a schema was updated.</p>
+   */
+  UpdatedTime?: string;
+}
+
+export interface ListSchemasResponse {
+  /**
+   * <p>An array of <code>SchemaListItem</code> objects containing details of each schema.</p>
+   */
+  Schemas?: SchemaListItem[];
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListSchemaVersionsInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   *          <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>An object containing the details about a schema version.</p>
+ */
+export interface SchemaVersionListItem {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The unique identifier of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The status of the schema version.</p>
+   */
+  Status?: SchemaVersionStatus | string;
+
+  /**
+   * <p>The date and time the schema version was created.</p>
+   */
+  CreatedTime?: string;
+}
+
+export interface ListSchemaVersionsResponse {
+  /**
+   * <p>An array of <code>SchemaVersionList</code> objects containing details of each schema version.</p>
+   */
+  Schemas?: SchemaVersionListItem[];
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListSessionsRequest {
+  /**
+   * <p>The token for the next set of results, or null if there are no more result. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Tags belonging to the session. </p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>The origin of the request. </p>
+   */
+  RequestOrigin?: string;
+}
+
+export interface ListSessionsResponse {
+  /**
+   * <p>Returns the ID of the session. </p>
+   */
+  Ids?: string[];
+
+  /**
+   * <p>Returns the session object. </p>
+   */
+  Sessions?: Session[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more result. </p>
+   */
+  NextToken?: string;
+}
+
+export interface ListStatementsRequest {
+  /**
+   * <p>The Session ID of the statements.</p>
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The origin of the request to list statements.</p>
+   */
+  RequestOrigin?: string;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListStatementsResponse {
+  /**
+   * <p>Returns the list of statements.</p>
+   */
+  Statements?: Statement[];
+
+  /**
+   * <p>A continuation token, if not all statements have yet been returned.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListTriggersRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p> The name of the job for which to retrieve triggers. The trigger that can start this job
+   *       is returned. If there is no such trigger, all triggers are returned.</p>
+   */
+  DependentJobName?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Specifies to return only these tagged resources.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface ListTriggersResponse {
+  /**
+   * <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
+   */
+  TriggerNames?: string[];
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListWorkflowsRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListWorkflowsResponse {
+  /**
+   * <p>List of names of workflows in the account.</p>
+   */
+  Workflows?: string[];
+
+  /**
+   * <p>A continuation token, if not all workflow names have been returned.</p>
+   */
+  NextToken?: string;
+}
+
+export interface PutDataCatalogEncryptionSettingsRequest {
+  /**
+   * <p>The ID of the Data Catalog to set the security configuration for. If none is provided, the
+   *       Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The security configuration to set.</p>
+   */
+  DataCatalogEncryptionSettings: DataCatalogEncryptionSettings | undefined;
+}
+
+export interface PutDataCatalogEncryptionSettingsResponse {}
+
+export enum EnableHybridValues {
+  FALSE = "FALSE",
+  TRUE = "TRUE",
+}
+
+export enum ExistCondition {
+  MUST_EXIST = "MUST_EXIST",
+  NONE = "NONE",
+  NOT_EXIST = "NOT_EXIST",
+}
+
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>Contains the policy document to set, in JSON format.</p>
+   */
+  PolicyInJson: string | undefined;
+
+  /**
+   * <p>Do not use. For internal use only.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The hash value returned when the previous policy was set using
+   *         <code>PutResourcePolicy</code>. Its purpose is to prevent concurrent modifications of a
+   *       policy. Do not use this parameter if no previous policy has been set.</p>
+   */
+  PolicyHashCondition?: string;
+
+  /**
+   * <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of
+   *         <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a
+   *       null value is used, the call does not depend on the existence of a policy.</p>
+   */
+  PolicyExistsCondition?: ExistCondition | string;
+
+  /**
+   * <p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account
+   *       access to Data Catalog resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>By directly updating the resource policy with <code>PutResourePolicy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>By using the <b>Grant permissions</b> command on the Amazon Web Services Management Console.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to
+   *       grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
+   */
+  EnableHybrid?: EnableHybridValues | string;
+}
+
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>A hash of the policy that has just been set. This must
+   *       be included in a subsequent call that overwrites or updates
+   *       this policy.</p>
+   */
+  PolicyHash?: string;
+}
+
+/**
+ * <p>A structure containing a key value pair for metadata.</p>
+ */
+export interface MetadataKeyValuePair {
+  /**
+   * <p>A metadata key.</p>
+   */
+  MetadataKey?: string;
+
+  /**
+   * <p>A metadata key’s corresponding value.</p>
+   */
+  MetadataValue?: string;
+}
+
+export interface PutSchemaVersionMetadataInput {
+  /**
+   * <p>The unique ID for the schema.</p>
+   */
+  SchemaId?: SchemaId;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The metadata key's corresponding value.</p>
+   */
+  MetadataKeyValue: MetadataKeyValuePair | undefined;
+}
+
+export interface PutSchemaVersionMetadataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The name for the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The name for the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The latest version of the schema.</p>
+   */
+  LatestVersion?: boolean;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The metadata key.</p>
+   */
+  MetadataKey?: string;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   */
+  MetadataValue?: string;
+}
+
+export interface PutWorkflowRunPropertiesRequest {
+  /**
+   * <p>Name of the workflow which was run.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run for which the run properties should be updated.</p>
+   */
+  RunId: string | undefined;
+
+  /**
+   * <p>The properties to put for the specified run.</p>
+   */
+  RunProperties: Record<string, string> | undefined;
+}
+
+export interface PutWorkflowRunPropertiesResponse {}
+
+export interface QuerySchemaVersionMetadataInput {
+  /**
+   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
+   */
+  SchemaId?: SchemaId;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.</p>
+   */
+  MetadataList?: MetadataKeyValuePair[];
+
+  /**
+   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>
+ */
+export interface OtherMetadataValueListItem {
+  /**
+   * <p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>
+   */
+  MetadataValue?: string;
+
+  /**
+   * <p>The time at which the entry was created.</p>
+   */
+  CreatedTime?: string;
+}
+
+/**
+ * <p>A structure containing metadata information for a schema version.</p>
+ */
+export interface MetadataInfo {
+  /**
+   * <p>The metadata key’s corresponding value.</p>
+   */
+  MetadataValue?: string;
+
+  /**
+   * <p>The time at which the entry was created.</p>
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>Other metadata belonging to the same metadata key.</p>
+   */
+  OtherMetadataValueList?: OtherMetadataValueListItem[];
+}
 
 export interface QuerySchemaVersionMetadataResponse {
   /**
@@ -110,7 +1415,7 @@ export interface QuerySchemaVersionMetadataResponse {
 export interface RegisterSchemaVersionInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
    *             </li>
@@ -391,14 +1696,13 @@ export interface SearchTablesRequest {
 
   /**
    * <p>A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.</p>
-   *
-   * 	        <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
+   *          <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
    */
   Filters?: PropertyPredicate[];
 
   /**
    * <p>A string used for a text search.</p>
-   * 	        <p>Specifying a value in quotes filters based on an exact match to the value.</p>
+   *          <p>Specifying a value in quotes filters based on an exact match to the value.</p>
    */
   SearchText?: string;
 
@@ -414,8 +1718,7 @@ export interface SearchTablesRequest {
 
   /**
    * <p>Allows you to specify that you want to search the tables shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
-   *
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>If set to <code>FOREIGN</code>, will search the tables shared with your account. </p>
    *             </li>
@@ -553,6 +1856,89 @@ export interface StartCrawlerScheduleRequest {
 
 export interface StartCrawlerScheduleResponse {}
 
+export interface StartDataQualityRuleRecommendationRunRequest {
+  /**
+   * <p>The data source (Glue table) associated with this run.</p>
+   */
+  DataSource: DataSource | undefined;
+
+  /**
+   * <p>An IAM role supplied to encrypt the results of the run.</p>
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>A name for the ruleset.</p>
+   */
+  CreatedRulesetName?: string;
+
+  /**
+   * <p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>
+   */
+  ClientToken?: string;
+}
+
+export interface StartDataQualityRuleRecommendationRunResponse {
+  /**
+   * <p>The unique run identifier associated with this run.</p>
+   */
+  RunId?: string;
+}
+
+export interface StartDataQualityRulesetEvaluationRunRequest {
+  /**
+   * <p>The data source (Glue table) associated with this run.</p>
+   */
+  DataSource: DataSource | undefined;
+
+  /**
+   * <p>An IAM role supplied to encrypt the results of the run.</p>
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Additional run options you can specify for an evaluation run.</p>
+   */
+  AdditionalRunOptions?: DataQualityEvaluationRunAdditionalRunOptions;
+
+  /**
+   * <p>A list of ruleset names.</p>
+   */
+  RulesetNames: string[] | undefined;
+}
+
+export interface StartDataQualityRulesetEvaluationRunResponse {
+  /**
+   * <p>The unique run identifier associated with this run.</p>
+   */
+  RunId?: string;
+}
+
 export interface StartExportLabelsTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -625,7 +2011,6 @@ export interface StartJobRunRequest {
    * @deprecated
    *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
    *          <p>The number of Glue data processing units (DPUs) to allocate to this JobRun.
    *       You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
@@ -637,7 +2022,6 @@ export interface StartJobRunRequest {
   /**
    * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
    *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. This value overrides the timeout value set in the parent job.</p>
-   *
    *          <p>Streaming jobs do not have a timeout. The default for non-streaming jobs is 2,880 minutes (48 hours).</p>
    */
   Timeout?: number;
@@ -647,9 +2031,7 @@ export interface StartJobRunRequest {
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *         pricing page</a>.</p>
-   *
    *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
    *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job, or an Apache Spark ETL job:</p>
    *          <ul>
@@ -701,10 +2083,8 @@ export interface StartJobRunRequest {
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *
-   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
 }
@@ -1036,6 +2416,16 @@ export interface UpdateCsvClassifierRequest {
    * <p>Enables the processing of files that contain only one column.</p>
    */
   AllowSingleColumn?: boolean;
+
+  /**
+   * <p>Specifies the configuration of custom datatypes.</p>
+   */
+  CustomDatatypeConfigured?: boolean;
+
+  /**
+   * <p>Specifies a list of supported custom datatypes.</p>
+   */
+  CustomDatatypes?: string[];
 }
 
 /**
@@ -1325,7 +2715,7 @@ export interface UpdateCrawlerRequest {
   /**
    * <p>Crawler configuration information. This versioned JSON string allows users
    *         to specify aspects of a crawler's behavior.
-   *         For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.</p>
+   *         For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Setting crawler configuration options</a>.</p>
    */
   Configuration?: string;
 
@@ -1375,6 +2765,45 @@ export interface UpdateDatabaseRequest {
 }
 
 export interface UpdateDatabaseResponse {}
+
+export interface UpdateDataQualityRulesetRequest {
+  /**
+   * <p>The name of the data quality ruleset.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The new name of the ruleset, if you are renaming it.</p>
+   */
+  UpdatedName?: string;
+
+  /**
+   * <p>A description of the ruleset.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
+   */
+  Ruleset?: string;
+}
+
+export interface UpdateDataQualityRulesetResponse {
+  /**
+   * <p>The name of the data quality ruleset.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the ruleset.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
+   */
+  Ruleset?: string;
+}
 
 /**
  * <p>Custom libraries to be loaded into a development endpoint.</p>
@@ -1444,16 +2873,14 @@ export interface UpdateDevEndpointRequest {
   /**
    * <p>The map of arguments to add the map of arguments used to configure the
    *         <code>DevEndpoint</code>.</p>
-   *
-   * 	        <p>Valid arguments are:</p>
-   * 	        <ul>
+   *          <p>Valid arguments are:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>"--enable-glue-datacatalog": ""</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
   AddArguments?: Record<string, string>;
@@ -1464,6 +2891,60 @@ export interface UpdateDevEndpointResponse {}
 export interface UpdateJobResponse {
   /**
    * <p>Returns the name of the updated job definition.</p>
+   */
+  JobName?: string;
+}
+
+export interface UpdateJobFromSourceControlRequest {
+  /**
+   * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The provider for the remote repository.</p>
+   */
+  Provider?: SourceControlProvider | string;
+
+  /**
+   * <p>The name of the remote repository that contains the job artifacts.</p>
+   */
+  RepositoryName?: string;
+
+  /**
+   * <p>The owner of the remote repository that contains the job artifacts.</p>
+   */
+  RepositoryOwner?: string;
+
+  /**
+   * <p>An optional branch in the remote repository.</p>
+   */
+  BranchName?: string;
+
+  /**
+   * <p>An optional folder in the remote repository.</p>
+   */
+  Folder?: string;
+
+  /**
+   * <p>A commit ID for a commit in the remote repository.</p>
+   */
+  CommitId?: string;
+
+  /**
+   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
+   */
+  AuthStrategy?: SourceControlAuthStrategy | string;
+
+  /**
+   * <p>The value of the authorization token.</p>
+   */
+  AuthToken?: string;
+}
+
+export interface UpdateJobFromSourceControlResponse {
+  /**
+   * <p>The name of the Glue job.</p>
    */
   JobName?: string;
 }
@@ -1506,14 +2987,13 @@ export interface UpdateMLTransformRequest {
    *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
    *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *         page</a>. </p>
-   *
    *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    */
   MaxCapacity?: number;
 
   /**
    * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -1575,8 +3055,7 @@ export interface UpdatePartitionRequest {
 
   /**
    * <p>The new partition object to update the partition to.</p>
-   *
-   * 	        <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
+   *          <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
    */
   PartitionInput: PartitionInput | undefined;
 }
@@ -1610,7 +3089,7 @@ export interface UpdateRegistryResponse {
 export interface UpdateSchemaInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
    *             </li>
@@ -1652,6 +3131,60 @@ export interface UpdateSchemaResponse {
    * <p>The name of the registry that contains the schema.</p>
    */
   RegistryName?: string;
+}
+
+export interface UpdateSourceControlFromJobRequest {
+  /**
+   * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The provider for the remote repository.</p>
+   */
+  Provider?: SourceControlProvider | string;
+
+  /**
+   * <p>The name of the remote repository that contains the job artifacts.</p>
+   */
+  RepositoryName?: string;
+
+  /**
+   * <p>The owner of the remote repository that contains the job artifacts.</p>
+   */
+  RepositoryOwner?: string;
+
+  /**
+   * <p>An optional branch in the remote repository.</p>
+   */
+  BranchName?: string;
+
+  /**
+   * <p>An optional folder in the remote repository.</p>
+   */
+  Folder?: string;
+
+  /**
+   * <p>A commit ID for a commit in the remote repository.</p>
+   */
+  CommitId?: string;
+
+  /**
+   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
+   */
+  AuthStrategy?: SourceControlAuthStrategy | string;
+
+  /**
+   * <p>The value of the authorization token.</p>
+   */
+  AuthToken?: string;
+}
+
+export interface UpdateSourceControlFromJobResponse {
+  /**
+   * <p>The name of the Glue job.</p>
+   */
+  JobName?: string;
 }
 
 export interface UpdateTableRequest {
@@ -1839,10 +3372,8 @@ export interface Mapping {
 
   /**
    * <p>Only applicable to nested data structures. If you want to change the parent structure, but also one of its children, you can fill out this data strucutre. It is also <code>Mapping</code>, but its <code>FromPath</code> will be the parent's <code>FromPath</code> plus the <code>FromPath</code> from this structure.</p>
-   *
    *          <p>For the children part, suppose you have the structure:</p>
-   *
-   * 	        <p>
+   *          <p>
    *             <code>{
    *   "FromPath": "OuterStructure",
    *   "ToKey": "OuterStructure",
@@ -1856,10 +3387,8 @@ export interface Mapping {
    *   }]
    * }</code>
    *          </p>
-   *
    *          <p>You can specify a <code>Mapping</code> that looks like:</p>
-   *
-   * 	        <p>
+   *          <p>
    *             <code>{
    *   "FromPath": "OuterStructure",
    *   "ToKey": "OuterStructure",
@@ -1948,12 +3477,12 @@ export interface CodeGenConfigurationNode {
   S3ParquetSource?: S3ParquetSource;
 
   /**
-   * <p>Specifies a Relational database data source in the Glue Data Catalog.</p>
+   * <p>Specifies a relational catalog data store in the Glue Data Catalog.</p>
    */
   RelationalCatalogSource?: RelationalCatalogSource;
 
   /**
-   * <p>Specifies a DynamoDB data source in the Glue Data Catalog.</p>
+   * <p>Specifies a DynamoDBC Catalog data store in the Glue Data Catalog.</p>
    */
   DynamoDBCatalogSource?: DynamoDBCatalogSource;
 
@@ -2152,6 +3681,71 @@ export interface CodeGenConfigurationNode {
    * <p>Specifies a target that uses Postgres SQL.</p>
    */
   PostgreSQLCatalogTarget?: PostgreSQLCatalogTarget;
+
+  /**
+   * <p>Specifies a custom visual transform created by a user.</p>
+   */
+  DynamicTransform?: DynamicTransform;
+
+  /**
+   * <p>Specifies your data quality evaluation criteria.</p>
+   */
+  EvaluateDataQuality?: EvaluateDataQuality;
+
+  /**
+   * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
+   */
+  S3CatalogHudiSource?: S3CatalogHudiSource;
+
+  /**
+   * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog.</p>
+   */
+  CatalogHudiSource?: CatalogHudiSource;
+
+  /**
+   * <p>Specifies a Hudi data source stored in Amazon S3.</p>
+   */
+  S3HudiSource?: S3HudiSource;
+
+  /**
+   * <p>Specifies a target that writes to a Hudi data source in the Glue Data Catalog.</p>
+   */
+  S3HudiCatalogTarget?: S3HudiCatalogTarget;
+
+  /**
+   * <p>Specifies a target that writes to a Hudi data source in Amazon S3.</p>
+   */
+  S3HudiDirectTarget?: S3HudiDirectTarget;
+
+  /**
+   * <p>Specifies the direct JDBC source connection.</p>
+   */
+  DirectJDBCSource?: DirectJDBCSource;
+
+  /**
+   * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
+   */
+  S3CatalogDeltaSource?: S3CatalogDeltaSource;
+
+  /**
+   * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog.</p>
+   */
+  CatalogDeltaSource?: CatalogDeltaSource;
+
+  /**
+   * <p>Specifies a Delta Lake data source stored in Amazon S3.</p>
+   */
+  S3DeltaSource?: S3DeltaSource;
+
+  /**
+   * <p>Specifies a target that writes to a Delta Lake data source in the Glue Data Catalog.</p>
+   */
+  S3DeltaCatalogTarget?: S3DeltaCatalogTarget;
+
+  /**
+   * <p>Specifies a target that writes to a Delta Lake data source in Amazon S3.</p>
+   */
+  S3DeltaDirectTarget?: S3DeltaDirectTarget;
 }
 
 export interface CreateJobRequest {
@@ -2195,7 +3789,6 @@ export interface CreateJobRequest {
    *     other secret management mechanism if you intend to keep them within the Job.
    *     </p>
    *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
-   *
    *          <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
    */
   DefaultArguments?: Record<string, string>;
@@ -2219,7 +3812,6 @@ export interface CreateJobRequest {
    * @deprecated
    *
    * <p>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
    *          <p>The number of Glue data processing units (DPUs) to allocate to this Job. You can
    *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
    *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
@@ -2240,9 +3832,7 @@ export interface CreateJobRequest {
    *        of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *        For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *          pricing page</a>.</p>
-   *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
+   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
    *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job or an Apache Spark ETL job:</p>
    *          <ul>
@@ -2278,10 +3868,8 @@ export interface CreateJobRequest {
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
    *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    */
   GlueVersion?: string;
 
@@ -2292,7 +3880,7 @@ export interface CreateJobRequest {
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -2316,12 +3904,15 @@ export interface CreateJobRequest {
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *
-   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
+
+  /**
+   * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
+   */
+  SourceControlDetails?: SourceControlDetails;
 }
 
 /**
@@ -2397,13 +3988,12 @@ export interface Job {
    * @deprecated
    *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
    *          <p>The number of Glue data processing units (DPUs) allocated to runs of this job. You can
    *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
    *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
    *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *       page</a>.</p>
-   * 	        <p></p>
+   *          <p></p>
    */
   AllocatedCapacity?: number;
 
@@ -2419,13 +4009,11 @@ export interface Job {
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *       pricing page</a>.</p>
-   *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
-   * 	        <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
+   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
+   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL
    *       job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
    *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
@@ -2442,7 +4030,7 @@ export interface Job {
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -2477,10 +4065,8 @@ export interface Job {
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
    *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    */
   GlueVersion?: string;
 
@@ -2491,12 +4077,15 @@ export interface Job {
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *
-   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
+
+  /**
+   * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
+   */
+  SourceControlDetails?: SourceControlDetails;
 }
 
 /**
@@ -2559,7 +4148,6 @@ export interface JobUpdate {
    * @deprecated
    *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
    *          <p>The number of Glue data processing units (DPUs) to allocate to this job. You can
    *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
    *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
@@ -2578,12 +4166,9 @@ export interface JobUpdate {
   /**
    * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
    *      of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>.</p>
-   *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
+   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
    *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job or an Apache Spark ETL job:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
@@ -2595,13 +4180,13 @@ export interface JobUpdate {
    *            The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
    *             </li>
    *          </ul>
-   * 	        <p>For Glue version 2.0 jobs, you cannot instead specify a <code>Maximum capacity</code>. Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
+   *          <p>For Glue version 2.0 jobs, you cannot instead specify a <code>Maximum capacity</code>. Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
    */
   MaxCapacity?: number;
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -2636,7 +4221,6 @@ export interface JobUpdate {
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
    *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
    */
   GlueVersion?: string;
@@ -2648,12 +4232,15 @@ export interface JobUpdate {
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *
-   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
+
+  /**
+   * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
+   */
+  SourceControlDetails?: SourceControlDetails;
 }
 
 export interface GetJobResponse {
@@ -2698,6 +4285,453 @@ export interface GetJobsResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const ListBlueprintsRequestFilterSensitiveLog = (obj: ListBlueprintsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBlueprintsResponseFilterSensitiveLog = (obj: ListBlueprintsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCrawlersRequestFilterSensitiveLog = (obj: ListCrawlersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCrawlersResponseFilterSensitiveLog = (obj: ListCrawlersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrawlsFilterFilterSensitiveLog = (obj: CrawlsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCrawlsRequestFilterSensitiveLog = (obj: ListCrawlsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrawlerHistoryFilterSensitiveLog = (obj: CrawlerHistory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCrawlsResponseFilterSensitiveLog = (obj: ListCrawlsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomEntityTypesRequestFilterSensitiveLog = (obj: ListCustomEntityTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomEntityTypesResponseFilterSensitiveLog = (obj: ListCustomEntityTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualityResultFilterCriteriaFilterSensitiveLog = (obj: DataQualityResultFilterCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataQualityResultsRequestFilterSensitiveLog = (obj: ListDataQualityResultsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualityResultDescriptionFilterSensitiveLog = (obj: DataQualityResultDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataQualityResultsResponseFilterSensitiveLog = (obj: ListDataQualityResultsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualityRuleRecommendationRunFilterFilterSensitiveLog = (
+  obj: DataQualityRuleRecommendationRunFilter
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataQualityRuleRecommendationRunsRequestFilterSensitiveLog = (
+  obj: ListDataQualityRuleRecommendationRunsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualityRuleRecommendationRunDescriptionFilterSensitiveLog = (
+  obj: DataQualityRuleRecommendationRunDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataQualityRuleRecommendationRunsResponseFilterSensitiveLog = (
+  obj: ListDataQualityRuleRecommendationRunsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualityRulesetEvaluationRunFilterFilterSensitiveLog = (
+  obj: DataQualityRulesetEvaluationRunFilter
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataQualityRulesetEvaluationRunsRequestFilterSensitiveLog = (
+  obj: ListDataQualityRulesetEvaluationRunsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualityRulesetEvaluationRunDescriptionFilterSensitiveLog = (
+  obj: DataQualityRulesetEvaluationRunDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataQualityRulesetEvaluationRunsResponseFilterSensitiveLog = (
+  obj: ListDataQualityRulesetEvaluationRunsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualityRulesetFilterCriteriaFilterSensitiveLog = (obj: DataQualityRulesetFilterCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataQualityRulesetsRequestFilterSensitiveLog = (obj: ListDataQualityRulesetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualityRulesetListDetailsFilterSensitiveLog = (obj: DataQualityRulesetListDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataQualityRulesetsResponseFilterSensitiveLog = (obj: ListDataQualityRulesetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevEndpointsRequestFilterSensitiveLog = (obj: ListDevEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevEndpointsResponseFilterSensitiveLog = (obj: ListDevEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsResponseFilterSensitiveLog = (obj: ListJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMLTransformsRequestFilterSensitiveLog = (obj: ListMLTransformsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMLTransformsResponseFilterSensitiveLog = (obj: ListMLTransformsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegistriesInputFilterSensitiveLog = (obj: ListRegistriesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegistryListItemFilterSensitiveLog = (obj: RegistryListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegistriesResponseFilterSensitiveLog = (obj: ListRegistriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchemasInputFilterSensitiveLog = (obj: ListSchemasInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaListItemFilterSensitiveLog = (obj: SchemaListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchemasResponseFilterSensitiveLog = (obj: ListSchemasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchemaVersionsInputFilterSensitiveLog = (obj: ListSchemaVersionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaVersionListItemFilterSensitiveLog = (obj: SchemaVersionListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchemaVersionsResponseFilterSensitiveLog = (obj: ListSchemaVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSessionsRequestFilterSensitiveLog = (obj: ListSessionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSessionsResponseFilterSensitiveLog = (obj: ListSessionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStatementsRequestFilterSensitiveLog = (obj: ListStatementsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStatementsResponseFilterSensitiveLog = (obj: ListStatementsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTriggersRequestFilterSensitiveLog = (obj: ListTriggersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTriggersResponseFilterSensitiveLog = (obj: ListTriggersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkflowsRequestFilterSensitiveLog = (obj: ListWorkflowsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkflowsResponseFilterSensitiveLog = (obj: ListWorkflowsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDataCatalogEncryptionSettingsRequestFilterSensitiveLog = (
+  obj: PutDataCatalogEncryptionSettingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDataCatalogEncryptionSettingsResponseFilterSensitiveLog = (
+  obj: PutDataCatalogEncryptionSettingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataKeyValuePairFilterSensitiveLog = (obj: MetadataKeyValuePair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSchemaVersionMetadataInputFilterSensitiveLog = (obj: PutSchemaVersionMetadataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSchemaVersionMetadataResponseFilterSensitiveLog = (obj: PutSchemaVersionMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutWorkflowRunPropertiesRequestFilterSensitiveLog = (obj: PutWorkflowRunPropertiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutWorkflowRunPropertiesResponseFilterSensitiveLog = (obj: PutWorkflowRunPropertiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QuerySchemaVersionMetadataInputFilterSensitiveLog = (obj: QuerySchemaVersionMetadataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OtherMetadataValueListItemFilterSensitiveLog = (obj: OtherMetadataValueListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataInfoFilterSensitiveLog = (obj: MetadataInfo): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -2845,6 +4879,42 @@ export const StartCrawlerScheduleRequestFilterSensitiveLog = (obj: StartCrawlerS
  * @internal
  */
 export const StartCrawlerScheduleResponseFilterSensitiveLog = (obj: StartCrawlerScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDataQualityRuleRecommendationRunRequestFilterSensitiveLog = (
+  obj: StartDataQualityRuleRecommendationRunRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDataQualityRuleRecommendationRunResponseFilterSensitiveLog = (
+  obj: StartDataQualityRuleRecommendationRunResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDataQualityRulesetEvaluationRunRequestFilterSensitiveLog = (
+  obj: StartDataQualityRulesetEvaluationRunRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDataQualityRulesetEvaluationRunResponseFilterSensitiveLog = (
+  obj: StartDataQualityRulesetEvaluationRunResponse
+): any => ({
   ...obj,
 });
 
@@ -3206,6 +5276,20 @@ export const UpdateDatabaseResponseFilterSensitiveLog = (obj: UpdateDatabaseResp
 /**
  * @internal
  */
+export const UpdateDataQualityRulesetRequestFilterSensitiveLog = (obj: UpdateDataQualityRulesetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataQualityRulesetResponseFilterSensitiveLog = (obj: UpdateDataQualityRulesetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DevEndpointCustomLibrariesFilterSensitiveLog = (obj: DevEndpointCustomLibraries): any => ({
   ...obj,
 });
@@ -3228,6 +5312,20 @@ export const UpdateDevEndpointResponseFilterSensitiveLog = (obj: UpdateDevEndpoi
  * @internal
  */
 export const UpdateJobResponseFilterSensitiveLog = (obj: UpdateJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobFromSourceControlRequestFilterSensitiveLog = (obj: UpdateJobFromSourceControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobFromSourceControlResponseFilterSensitiveLog = (obj: UpdateJobFromSourceControlResponse): any => ({
   ...obj,
 });
 
@@ -3284,6 +5382,20 @@ export const UpdateSchemaInputFilterSensitiveLog = (obj: UpdateSchemaInput): any
  * @internal
  */
 export const UpdateSchemaResponseFilterSensitiveLog = (obj: UpdateSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSourceControlFromJobRequestFilterSensitiveLog = (obj: UpdateSourceControlFromJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSourceControlFromJobResponseFilterSensitiveLog = (obj: UpdateSourceControlFromJobResponse): any => ({
   ...obj,
 });
 

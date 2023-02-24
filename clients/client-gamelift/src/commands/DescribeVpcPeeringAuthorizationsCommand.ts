@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,17 +34,11 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * <p>Retrieves valid VPC peering authorizations that are pending for the Amazon Web Services account.
  *             This operation returns all VPC peering authorizations and requests for peering. This
  *             includes those initiated and received by this account. </p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateVpcPeeringAuthorization</a> |
- *                     <a>DescribeVpcPeeringAuthorizations</a> |
- *                     <a>DeleteVpcPeeringAuthorization</a> |
- *                     <a>CreateVpcPeeringConnection</a> |
- *                     <a>DescribeVpcPeeringConnections</a> |
- *                     <a>DeleteVpcPeeringConnection</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +63,15 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeVpcPeeringAuthorizationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +87,9 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeVpcPeeringAuthorizationsCommandInput, DescribeVpcPeeringAuthorizationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeVpcPeeringAuthorizationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

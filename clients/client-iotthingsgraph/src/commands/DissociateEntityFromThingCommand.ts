@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,6 +29,8 @@ export interface DissociateEntityFromThingCommandInput extends DissociateEntityF
 export interface DissociateEntityFromThingCommandOutput extends DissociateEntityFromThingResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
  *          one entity of a particular type can be associated with a thing.</p>
  * @example
@@ -53,6 +56,15 @@ export class DissociateEntityFromThingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DissociateEntityFromThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +80,9 @@ export class DissociateEntityFromThingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DissociateEntityFromThingCommandInput, DissociateEntityFromThingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DissociateEntityFromThingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeregisterImageRequest, DeregisterImageRequestFilterSensitiveLog } from "../models/models_2";
+import { DeregisterImageRequest, DeregisterImageRequestFilterSensitiveLog } from "../models/models_3";
 import { deserializeAws_ec2DeregisterImageCommand, serializeAws_ec2DeregisterImageCommand } from "../protocols/Aws_ec2";
 
 export interface DeregisterImageCommandInput extends DeregisterImageRequest {}
@@ -22,17 +23,13 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to
  *        launch new instances.</p>
- *
- *
- *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is
- *       retained in the Recycle Bin for the specified retention period. For more information,
- *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
- *         Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
- *
+ *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
+ *       in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in
+ *       the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>When you deregister an AMI, it doesn't affect any instances that you've already
  *        launched from the AMI. You'll continue to incur usage costs for those instances until
  *        you terminate them.</p>
- *    	     <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was
+ *          <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was
  * 			created for the root volume of the instance during the AMI creation process. When you
  * 			deregister an instance store-backed AMI, it doesn't affect the files that you uploaded
  * 			to Amazon S3 when you created the AMI.</p>
@@ -59,6 +56,15 @@ export class DeregisterImageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeregisterImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +80,9 @@ export class DeregisterImageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeregisterImageCommandInput, DeregisterImageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeregisterImageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

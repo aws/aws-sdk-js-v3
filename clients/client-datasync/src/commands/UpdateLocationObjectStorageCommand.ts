@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,9 +31,10 @@ export interface UpdateLocationObjectStorageCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates some of the parameters of a previously created location for self-managed object
- *       storage server access. For information about creating a self-managed object storage location,
- *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
+ * <p>Updates some parameters of an existing object storage location that DataSync
+ *       accesses for a transfer. For information about creating a self-managed object storage
+ *       location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object
+ *         storage</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +58,15 @@ export class UpdateLocationObjectStorageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateLocationObjectStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +82,9 @@ export class UpdateLocationObjectStorageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateLocationObjectStorageCommandInput, UpdateLocationObjectStorageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateLocationObjectStorageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

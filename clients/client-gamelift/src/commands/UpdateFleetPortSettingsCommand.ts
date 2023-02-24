@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateFleetPortSettingsInput,
-  UpdateFleetPortSettingsInputFilterSensitiveLog,
-  UpdateFleetPortSettingsOutput,
-  UpdateFleetPortSettingsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsInputFilterSensitiveLog } from "../models/models_0";
+import { UpdateFleetPortSettingsOutput, UpdateFleetPortSettingsOutputFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateFleetPortSettingsCommand,
   serializeAws_json1_1UpdateFleetPortSettingsCommand,
@@ -39,28 +36,12 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *             locations, port setting updates can take time to propagate across all locations. You can
  *             check the status of updates in each location by calling
  *                 <code>DescribeFleetPortSettings</code> with a location name.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateFleetLocations</a> |
- *                     <a>UpdateFleetAttributes</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>UpdateFleetPortSettings</a> |
- *                     <a>UpdateRuntimeConfiguration</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>StartFleetActions</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DeleteFleet</a> |
- *                     <a>DeleteFleetLocations</a> |
- *                     <a>DeleteScalingPolicy</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *                 <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *                 fleets</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +66,15 @@ export class UpdateFleetPortSettingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateFleetPortSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,6 +90,9 @@ export class UpdateFleetPortSettingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateFleetPortSettingsCommandInput, UpdateFleetPortSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateFleetPortSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

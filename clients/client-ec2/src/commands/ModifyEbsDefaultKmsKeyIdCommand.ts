@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyEbsDefaultKmsKeyIdRequestFilterSensitiveLog,
   ModifyEbsDefaultKmsKeyIdResult,
   ModifyEbsDefaultKmsKeyIdResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
   serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
@@ -29,7 +30,7 @@ export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultK
 
 /**
  * <p>Changes the default KMS key for EBS encryption by default for your account in this Region.</p>
- *   	      <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If
+ *          <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If
  *       you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services
  *       managed KMS key. To reset the default KMS key to the Amazon Web Services managed KMS key for EBS, use <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric KMS keys.</p>
  *          <p>If you delete or disable the customer managed KMS key that you specified for use with
@@ -59,6 +60,15 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyEbsDefaultKmsKeyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyEbsDefaultKmsKeyIdCommandInput, ModifyEbsDefaultKmsKeyIdCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyEbsDefaultKmsKeyIdCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

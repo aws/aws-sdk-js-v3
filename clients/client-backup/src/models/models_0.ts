@@ -114,6 +114,7 @@ export enum BackupJobState {
   CREATED = "CREATED",
   EXPIRED = "EXPIRED",
   FAILED = "FAILED",
+  PARTIAL = "PARTIAL",
   PENDING = "PENDING",
   RUNNING = "RUNNING",
 }
@@ -254,6 +255,25 @@ export interface BackupJob {
    * <p>Represents the type of backup for a backup job.</p>
    */
   BackupType?: string;
+
+  /**
+   * <p>This uniquely identifies a request to Backup
+   *          to back up a resource. The return will be the
+   *          parent (composite) job ID.</p>
+   */
+  ParentJobId?: string;
+
+  /**
+   * <p>This is a boolean value indicating this is
+   *          a parent (composite) backup job.</p>
+   */
+  IsParent?: boolean;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 /**
@@ -338,7 +358,8 @@ export interface BackupRule {
 
   /**
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
-   *          doesn't start successfully. This value is optional.</p>
+   *          doesn't start successfully. This value is optional.
+   *          If this value is included, it must be at least 60 minutes to avoid errors.</p>
    */
   StartWindowMinutes?: number;
 
@@ -439,7 +460,8 @@ export interface BackupRuleInput {
 
   /**
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
-   *          doesn't start successfully. This value is optional.</p>
+   *          doesn't start successfully. This value is optional.
+   *          If this value is included, it must be at least 60 minutes to avoid errors.</p>
    */
   StartWindowMinutes?: number;
 
@@ -942,6 +964,198 @@ export interface CalculatedLifecycle {
   DeleteAt?: Date;
 }
 
+export interface CancelLegalHoldInput {
+  /**
+   * <p>Legal hold ID required to remove the specified legal hold on a recovery point.</p>
+   */
+  LegalHoldId: string | undefined;
+
+  /**
+   * <p>String describing the reason for removing the legal hold.</p>
+   */
+  CancelDescription: string | undefined;
+
+  /**
+   * <p>The integer amount in days specifying amount of days after this
+   *          API operation to remove legal hold.</p>
+   */
+  RetainRecordInDays?: number;
+}
+
+export interface CancelLegalHoldOutput {}
+
+/**
+ * <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ */
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
+  Code?: string;
+  Message?: string;
+  /**
+   * <p></p>
+   */
+  Type?: string;
+
+  /**
+   * <p></p>
+   */
+  Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
+/**
+ * <p>Backup is already performing an action on this recovery point. It can't
+ *          perform the action you requested until the first action finishes. Try again later.</p>
+ */
+export class InvalidResourceStateException extends __BaseException {
+  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
+  readonly $fault: "client" = "client";
+  Code?: string;
+  Message?: string;
+  /**
+   * <p></p>
+   */
+  Type?: string;
+
+  /**
+   * <p></p>
+   */
+  Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
+    super({
+      name: "InvalidResourceStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
+/**
+ * <p>Indicates that a required parameter is missing.</p>
+ */
+export class MissingParameterValueException extends __BaseException {
+  readonly name: "MissingParameterValueException" = "MissingParameterValueException";
+  readonly $fault: "client" = "client";
+  Code?: string;
+  Message?: string;
+  /**
+   * <p></p>
+   */
+  Type?: string;
+
+  /**
+   * <p></p>
+   */
+  Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingParameterValueException, __BaseException>) {
+    super({
+      name: "MissingParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingParameterValueException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
+/**
+ * <p>A resource that is required for the action doesn't exist.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Code?: string;
+  Message?: string;
+  /**
+   * <p></p>
+   */
+  Type?: string;
+
+  /**
+   * <p></p>
+   */
+  Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
+/**
+ * <p>The request failed due to a temporary failure of the server.</p>
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  Code?: string;
+  Message?: string;
+  /**
+   * <p></p>
+   */
+  Type?: string;
+
+  /**
+   * <p></p>
+   */
+  Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
 /**
  * <p>Backup can't perform the action that you requested until it finishes
  *          performing a previous action. Try again later.</p>
@@ -1033,6 +1247,7 @@ export enum CopyJobState {
   COMPLETED = "COMPLETED",
   CREATED = "CREATED",
   FAILED = "FAILED",
+  PARTIAL = "PARTIAL",
   RUNNING = "RUNNING",
 }
 
@@ -1126,6 +1341,45 @@ export interface CopyJob {
    * <p>The type of Amazon Web Services resource to be copied; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    */
   ResourceType?: string;
+
+  /**
+   * <p>This uniquely identifies a request to Backup
+   *          to copy a resource. The return will be the
+   *          parent (composite) job ID.</p>
+   */
+  ParentJobId?: string;
+
+  /**
+   * <p>This is a boolean value indicating this is
+   *          a parent (composite) copy job.</p>
+   */
+  IsParent?: boolean;
+
+  /**
+   * <p>This is the identifier of a resource within a composite group, such as
+   *          nested (child) recovery point belonging to a composite (parent) stack. The
+   *          ID is transferred from
+   *          the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-syntax">
+   *             logical ID</a> within a stack.</p>
+   */
+  CompositeMemberIdentifier?: string;
+
+  /**
+   * <p>This is the number of child (nested) copy jobs.</p>
+   */
+  NumberOfChildJobs?: number;
+
+  /**
+   * <p>This returns the statistics of the included
+   *          child (nested) copy jobs.</p>
+   */
+  ChildJobsInState?: Record<string, number>;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface CreateBackupPlanInput {
@@ -1185,41 +1439,6 @@ export interface CreateBackupPlanOutput {
 }
 
 /**
- * <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
-  /**
-   * <p></p>
-   */
-  Type?: string;
-
-  /**
-   * <p></p>
-   */
-  Context?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
  * <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
  *          in a request.</p>
  */
@@ -1247,74 +1466,6 @@ export class LimitExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>Indicates that a required parameter is missing.</p>
- */
-export class MissingParameterValueException extends __BaseException {
-  readonly name: "MissingParameterValueException" = "MissingParameterValueException";
-  readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
-  /**
-   * <p></p>
-   */
-  Type?: string;
-
-  /**
-   * <p></p>
-   */
-  Context?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingParameterValueException, __BaseException>) {
-    super({
-      name: "MissingParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingParameterValueException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>The request failed due to a temporary failure of the server.</p>
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Code?: string;
-  Message?: string;
-  /**
-   * <p></p>
-   */
-  Type?: string;
-
-  /**
-   * <p></p>
-   */
-  Context?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
     this.Code = opts.Code;
     this.Message = opts.Message;
     this.Type = opts.Type;
@@ -1488,6 +1639,143 @@ export interface CreateFrameworkOutput {
 }
 
 /**
+ * <p>This is a resource filter containing FromDate: DateTime
+ *          and ToDate: DateTime. Both values are required. Future DateTime
+ *          values are not permitted.</p>
+ *          <p>The date and time are in Unix format and Coordinated
+ *          Universal Time (UTC), and it is accurate to milliseconds
+ *          ((milliseconds are optional).
+ *          For example, the value 1516925490.087 represents Friday, January
+ *          26, 2018 12:11:30.087 AM.</p>
+ */
+export interface DateRange {
+  /**
+   * <p>This value is the beginning date, inclusive.</p>
+   *          <p>The date and time are in Unix format and Coordinated
+   *          Universal Time (UTC), and it is accurate to milliseconds
+   *          (milliseconds are optional).</p>
+   */
+  FromDate: Date | undefined;
+
+  /**
+   * <p>This value is the end date, inclusive.</p>
+   *          <p>The date and time are in Unix format and Coordinated
+   *          Universal Time (UTC), and it is accurate to milliseconds
+   *          (milliseconds are optional).</p>
+   */
+  ToDate: Date | undefined;
+}
+
+/**
+ * <p>This specifies criteria to assign
+ *          a set of resources, such as resource types or backup vaults.</p>
+ */
+export interface RecoveryPointSelection {
+  /**
+   * <p>These are the names of the vaults in which the selected
+   *          recovery points are contained.</p>
+   */
+  VaultNames?: string[];
+
+  /**
+   * <p>These are the resources included in the resource selection
+   *          (including type of resources and vaults).</p>
+   */
+  ResourceIdentifiers?: string[];
+
+  /**
+   * <p>This is a resource filter containing FromDate: DateTime
+   *          and ToDate: DateTime. Both values are required. Future DateTime
+   *          values are not permitted.</p>
+   *          <p>The date and time are in Unix format and Coordinated
+   *          Universal Time (UTC), and it is accurate to milliseconds
+   *          ((milliseconds are optional).
+   *          For example, the value 1516925490.087 represents Friday, January
+   *          26, 2018 12:11:30.087 AM.</p>
+   */
+  DateRange?: DateRange;
+}
+
+export interface CreateLegalHoldInput {
+  /**
+   * <p>This is the string title of the legal hold.</p>
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>This is the string description of the legal hold.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>This is a user-chosen string used to distinguish between otherwise identical
+   *          calls. Retrying a successful request with the
+   *          same idempotency token results in a success message with no action taken.</p>
+   */
+  IdempotencyToken?: string;
+
+  /**
+   * <p>This specifies criteria to assign
+   *          a set of resources, such as resource types or backup vaults.</p>
+   */
+  RecoveryPointSelection?: RecoveryPointSelection;
+
+  /**
+   * <p>Optional tags to include. A tag is a key-value pair you can use to manage,
+   *          filter, and search for your resources. Allowed characters include UTF-8 letters,
+   *          numbers, spaces, and the following characters: + - = . _ : /. </p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export enum LegalHoldStatus {
+  ACTIVE = "ACTIVE",
+  CANCELED = "CANCELED",
+  CANCELING = "CANCELING",
+  CREATING = "CREATING",
+}
+
+export interface CreateLegalHoldOutput {
+  /**
+   * <p>This is the string title of the legal hold returned after creating the legal hold.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>This displays the status of the legal hold returned after creating the legal hold.
+   *          Statuses can be <code>ACTIVE</code>, <code>PENDING</code>, <code>CANCELED</code>,
+   *          <code>CANCELING</code>, or <code>FAILED</code>.</p>
+   */
+  Status?: LegalHoldStatus | string;
+
+  /**
+   * <p>This is the returned string description of the legal hold.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Legal hold ID returned for the specified legal hold on a recovery point.</p>
+   */
+  LegalHoldId?: string;
+
+  /**
+   * <p>This is the ARN (Amazon Resource Number) of the created legal hold.</p>
+   */
+  LegalHoldArn?: string;
+
+  /**
+   * <p>Time in number format when legal hold was created.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>This specifies criteria to assign
+   *          a set of resources, such as resource types or backup vaults.</p>
+   */
+  RecoveryPointSelection?: RecoveryPointSelection;
+}
+
+/**
  * <p>Contains information from your report plan about where to deliver your reports,
  *          specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your
  *          reports.</p>
@@ -1535,6 +1823,21 @@ export interface ReportSetting {
    * <p>The number of frameworks a report covers.</p>
    */
   NumberOfFrameworks?: number;
+
+  /**
+   * <p>These are the accounts to be included in the report.</p>
+   */
+  Accounts?: string[];
+
+  /**
+   * <p>These are the Organizational Units to be included in the report.</p>
+   */
+  OrganizationUnits?: string[];
+
+  /**
+   * <p>These are the Regions to be included in the report.</p>
+   */
+  Regions?: string[];
 }
 
 export interface CreateReportPlanInput {
@@ -1674,40 +1977,6 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
-/**
- * <p>A resource that is required for the action doesn't exist.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
-  /**
-   * <p></p>
-   */
-  Type?: string;
-
-  /**
-   * <p></p>
-   */
-  Context?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
 export interface DeleteBackupSelectionInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -1778,41 +2047,6 @@ export interface DeleteRecoveryPointInput {
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
   RecoveryPointArn: string | undefined;
-}
-
-/**
- * <p>Backup is already performing an action on this recovery point. It can't
- *          perform the action you requested until the first action finishes. Try again later.</p>
- */
-export class InvalidResourceStateException extends __BaseException {
-  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
-  readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
-  /**
-   * <p></p>
-   */
-  Type?: string;
-
-  /**
-   * <p></p>
-   */
-  Context?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
-    super({
-      name: "InvalidResourceStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
 }
 
 export interface DeleteReportPlanInput {
@@ -1991,6 +2225,32 @@ export interface DescribeBackupJobOutput {
    *          empty, then the backup type was a regular backup.</p>
    */
   BackupType?: string;
+
+  /**
+   * <p>This returns the parent (composite) resource backup job ID.</p>
+   */
+  ParentJobId?: string;
+
+  /**
+   * <p>This returns the boolean value that a backup job is a parent (composite) job.</p>
+   */
+  IsParent?: boolean;
+
+  /**
+   * <p>This returns the number of child (nested) backup jobs.</p>
+   */
+  NumberOfChildJobs?: number;
+
+  /**
+   * <p>This returns the statistics of the included child (nested) backup jobs.</p>
+   */
+  ChildJobsInState?: Record<string, number>;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface DescribeBackupVaultInput {
@@ -2134,10 +2394,9 @@ export interface DescribeFrameworkOutput {
   FrameworkControls?: FrameworkControl[];
 
   /**
-   * <p>The date and time that a framework is created, in Unix format and Coordinated Universal
-   *          Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For
-   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
-   *          AM.</p>
+   * <p>The date and time that a framework is created, in ISO 8601 representation. The value of <code>CreationTime</code> is accurate to milliseconds. For example,
+   *          2020-07-10T15:00:00.000-08:00 represents the 10th of July 2020 at 3:00 PM 8 hours behind
+   *          UTC.</p>
    */
   CreationTime?: Date;
 
@@ -2232,6 +2491,12 @@ export interface DescribeProtectedResourceOutput {
    *          AM.</p>
    */
   LastBackupTime?: Date;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface DescribeRecoveryPointInput {
@@ -2330,6 +2595,15 @@ export interface DescribeRecoveryPointOutput {
    *          manually delete these recovery points, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/gs-cleanup-resources.html#cleanup-backups"> Step 3:
    *             Delete the recovery points</a> in the <i>Clean up resources</i>
    *          section of <i>Getting started</i>.</p>
+   *          <p>
+   *             <code>STOPPED</code> status occurs on a continuous backup where a user has taken some
+   *          action that causes the continuous backup to be disabled. This can be caused by the removal
+   *          of permissions, turning off versioning, turning off events being sent to EventBridge,
+   *          or disabling the EventBridge rules that are put in place by Backup.</p>
+   *          <p>To resolve <code>STOPPED</code> status, ensure that all requested permissions are in place and
+   *          that versioning is enabled on the S3 bucket. Once these conditions are met, the next instance
+   *          of a backup rule running will result in a new continuous recovery point being created.
+   *          The recovery points with STOPPED status do not need to be deleted.</p>
    */
   Status?: RecoveryPointStatus | string;
 
@@ -2405,6 +2679,32 @@ export interface DescribeRecoveryPointOutput {
    *          12:11:30.087 AM.</p>
    */
   LastRestoreTime?: Date;
+
+  /**
+   * <p>This is an ARN that uniquely identifies a parent (composite) recovery point; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   */
+  ParentRecoveryPointArn?: string;
+
+  /**
+   * <p>This is the identifier of a resource within a composite group, such as
+   *          nested (child) recovery point belonging to a composite (parent) stack. The
+   *          ID is transferred from
+   *          the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-syntax">
+   *             logical ID</a> within a stack.</p>
+   */
+  CompositeMemberIdentifier?: string;
+
+  /**
+   * <p>This returns the boolean value that a recovery point is a parent (composite) job.</p>
+   */
+  IsParent?: boolean;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface DescribeRegionSettingsInput {}
@@ -2727,6 +3027,24 @@ export interface DisassociateRecoveryPointInput {
   RecoveryPointArn: string | undefined;
 }
 
+export interface DisassociateRecoveryPointFromParentInput {
+  /**
+   * <p>This is the name of a logical container where the child (nested) recovery point
+   *          is stored. Backup vaults are identified by names that are unique to the account used
+   *          to create them and the Amazon Web Services Region where they are created. They consist of lowercase
+   *          letters, numbers, and hyphens.</p>
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>This is the Amazon Resource Name (ARN) that uniquely identifies the child
+   *          (nested) recovery point; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.</code>
+   *          </p>
+   */
+  RecoveryPointArn: string | undefined;
+}
+
 export interface ExportBackupPlanTemplateInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -2962,6 +3280,72 @@ export interface GetBackupVaultNotificationsOutput {
   BackupVaultEvents?: (BackupVaultEvent | string)[];
 }
 
+export interface GetLegalHoldInput {
+  /**
+   * <p>This is the ID required to use <code>GetLegalHold</code>. This unique ID
+   *          is associated with a specific legal hold.</p>
+   */
+  LegalHoldId: string | undefined;
+}
+
+export interface GetLegalHoldOutput {
+  /**
+   * <p>This is the string title of the legal hold.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>This is the status of the legal hold. Statuses can be
+   *          <code>ACTIVE</code>, <code>CREATING</code>, <code>CANCELED</code>, and
+   *          <code>CANCELING</code>.</p>
+   */
+  Status?: LegalHoldStatus | string;
+
+  /**
+   * <p>This is the returned string description of the legal hold.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>String describing the reason for removing the legal hold.</p>
+   */
+  CancelDescription?: string;
+
+  /**
+   * <p>This is the returned ID associated with a specified legal hold.</p>
+   */
+  LegalHoldId?: string;
+
+  /**
+   * <p>This is the returned framework ARN for the specified legal hold.
+   *          An Amazon Resource Name (ARN) uniquely identifies a resource. The format
+   *          of the ARN depends on the resource type.</p>
+   */
+  LegalHoldArn?: string;
+
+  /**
+   * <p>Time in number format when legal hold was created.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>Time in number when legal hold was cancelled.</p>
+   */
+  CancellationDate?: Date;
+
+  /**
+   * <p>This is the date and time until which the legal hold record will
+   *          be retained.</p>
+   */
+  RetainRecordUntil?: Date;
+
+  /**
+   * <p>This specifies criteria to assign
+   *          a set of resources, such as resource types or backup vaults.</p>
+   */
+  RecoveryPointSelection?: RecoveryPointSelection;
+}
+
 export interface GetRecoveryPointRestoreMetadataInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -3165,6 +3549,11 @@ export interface ListBackupJobsInput {
    *          Coordinated Universal Time (UTC).</p>
    */
   ByCompleteBefore?: Date;
+
+  /**
+   * <p>This is a filter to list child (nested) jobs based on parent job ID.</p>
+   */
+  ByParentJobId?: string;
 }
 
 export interface ListBackupJobsOutput {
@@ -3466,6 +3855,11 @@ export interface ListCopyJobsInput {
    *          Universal Time (UTC).</p>
    */
   ByCompleteAfter?: Date;
+
+  /**
+   * <p>This is a filter to list child (nested) jobs based on parent job ID.</p>
+   */
+  ByParentJobId?: string;
 }
 
 export interface ListCopyJobsOutput {
@@ -3526,10 +3920,10 @@ export interface Framework {
   NumberOfControls?: number;
 
   /**
-   * <p>The date and time that a framework is created, in Unix format and Coordinated Universal
-   *          Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For
-   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
-   *          AM.</p>
+   * <p>The date and time that a framework is created, in ISO 8601 representation.
+   *          The value of <code>CreationTime</code> is accurate to milliseconds. For example,
+   *           2020-07-10T15:00:00.000-08:00 represents the 10th of July 2020 at 3:00 PM 8 hours behind
+   *           UTC.</p>
    */
   CreationTime?: Date;
 
@@ -3556,6 +3950,86 @@ export interface ListFrameworksOutput {
    *          used to return the next set of items in the list.</p>
    */
   NextToken?: string;
+}
+
+export interface ListLegalHoldsInput {
+  /**
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of resource list items to be returned.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>A legal hold is an administrative tool that helps prevent backups
+ *          from being deleted while under a hold. While the hold is in place,
+ *          backups under a hold cannot be deleted and lifecycle policies that
+ *          would alter the backup status (such as transition to cold storage) are
+ *          delayed until the legal hold is removed. A backup can have more than
+ *          one legal hold. Legal holds are applied to one or more backups
+ *          (also known as recovery points). These backups can be filtered by resource
+ *          types and by resource IDs.</p>
+ */
+export interface LegalHold {
+  /**
+   * <p>This is the title of a legal hold.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>This is the status of the legal hold. Statuses can be
+   *          <code>ACTIVE</code>, <code>CREATING</code>, <code>CANCELED</code>, and
+   *          <code>CANCELING</code>.</p>
+   */
+  Status?: LegalHoldStatus | string;
+
+  /**
+   * <p>This is the description of a legal hold.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>ID of specific legal hold on one or more recovery points.</p>
+   */
+  LegalHoldId?: string;
+
+  /**
+   * <p>This is an Amazon Resource Number (ARN) that uniquely identifies the legal hold; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   */
+  LegalHoldArn?: string;
+
+  /**
+   * <p>This is the time in number format when legal hold was created.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>This is the time in number format when legal hold was cancelled.</p>
+   */
+  CancellationDate?: Date;
+}
+
+export interface ListLegalHoldsOutput {
+  /**
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>This is an array of returned legal holds, both active and previous.</p>
+   */
+  LegalHolds?: LegalHold[];
 }
 
 export interface ListProtectedResourcesInput {
@@ -3597,6 +4071,12 @@ export interface ProtectedResource {
    *          AM.</p>
    */
   LastBackupTime?: Date;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface ListProtectedResourcesOutput {
@@ -3667,6 +4147,12 @@ export interface ListRecoveryPointsByBackupVaultInput {
    * <p>Returns only recovery points that were created after the specified timestamp.</p>
    */
   ByCreatedAfter?: Date;
+
+  /**
+   * <p>This returns only recovery points that match the specified parent (composite)
+   *          recovery point Amazon Resource Name (ARN).</p>
+   */
+  ByParentRecoveryPointArn?: string;
 }
 
 /**
@@ -3796,6 +4282,33 @@ export interface RecoveryPointByBackupVault {
    *          12:11:30.087 AM.</p>
    */
   LastRestoreTime?: Date;
+
+  /**
+   * <p>This is the Amazon Resource Name (ARN) of the parent (composite)
+   *          recovery point.</p>
+   */
+  ParentRecoveryPointArn?: string;
+
+  /**
+   * <p>This is the identifier of a resource within a composite group, such as
+   *          nested (child) recovery point belonging to a composite (parent) stack. The
+   *          ID is transferred from
+   *          the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-syntax">
+   *             logical ID</a> within a stack.</p>
+   */
+  CompositeMemberIdentifier?: string;
+
+  /**
+   * <p>This is a boolean value indicating this is
+   *          a parent (composite) recovery point.</p>
+   */
+  IsParent?: boolean;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface ListRecoveryPointsByBackupVaultOutput {
@@ -3812,6 +4325,53 @@ export interface ListRecoveryPointsByBackupVaultOutput {
    *          backup vault.</p>
    */
   RecoveryPoints?: RecoveryPointByBackupVault[];
+}
+
+export interface ListRecoveryPointsByLegalHoldInput {
+  /**
+   * <p>This is the ID of the legal hold.</p>
+   */
+  LegalHoldId: string | undefined;
+
+  /**
+   * <p>This is the next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>This is the maximum number of resource list items to be returned.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>This is a recovery point which is a child (nested) recovery point
+ *          of a parent (composite) recovery point. These recovery points
+ *          can be disassociated from their parent (composite) recovery
+ *          point, in which case they will no longer be a member.</p>
+ */
+export interface RecoveryPointMember {
+  /**
+   * <p>This is the Amazon Resource Name (ARN) of the parent (composite)
+   *          recovery point.</p>
+   */
+  RecoveryPointArn?: string;
+}
+
+export interface ListRecoveryPointsByLegalHoldOutput {
+  /**
+   * <p>This is a list of the recovery points returned by
+   *          <code>ListRecoveryPointsByLegalHold</code>.</p>
+   */
+  RecoveryPoints?: RecoveryPointMember[];
+
+  /**
+   * <p>This return is the next item following a partial list of returned resources.</p>
+   */
+  NextToken?: string;
 }
 
 export interface ListRecoveryPointsByResourceInput {
@@ -3884,6 +4444,24 @@ export interface RecoveryPointByResource {
    *          hyphens.</p>
    */
   BackupVaultName?: string;
+
+  /**
+   * <p>This is a boolean value indicating this is
+   *          a parent (composite) recovery point.</p>
+   */
+  IsParent?: boolean;
+
+  /**
+   * <p>This is the Amazon Resource Name (ARN) of the parent (composite)
+   *          recovery point.</p>
+   */
+  ParentRecoveryPointArn?: string;
+
+  /**
+   * <p>This is the non-unique name of the resource that
+   *          belongs to the specified backup.</p>
+   */
+  ResourceName?: string;
 }
 
 export interface ListRecoveryPointsByResourceOutput {
@@ -4299,8 +4877,9 @@ export interface PutBackupVaultNotificationsInput {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>Ignore the list below because it includes deprecated events. Refer to the list
-   *             above.</p>
+   *             <p>The list below shows items that are deprecated events (for reference) and are no longer
+   *             in use. They are no longer supported and will not return statuses or notifications.
+   *             Refer to the list above for current supported events.</p>
    *          </note>
    */
   BackupVaultEvents: (BackupVaultEvent | string)[] | undefined;
@@ -4336,7 +4915,8 @@ export interface StartBackupJobInput {
 
   /**
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
-   *          doesn't start successfully. This value is optional, and the default is 8 hours.</p>
+   *          doesn't start successfully. This value is optional, and the default is 8 hours.
+   *          If this value is included, it must be at least 60 minutes to avoid errors.</p>
    */
   StartWindowMinutes?: number;
 
@@ -4373,9 +4953,9 @@ export interface StartBackupJobInput {
    * <p>Specifies the backup option for a selected resource. This option is only available for
    *          Windows Volume Shadow Copy Service (VSS) backup jobs.</p>
    *          <p>Valid values: Set to <code>"WindowsVSS":"enabled"</code> to enable the
-   *             <code>WindowsVSS</code> backup option and create a Windows VSS backup. Set to
-   *             <code>"WindowsVSS""disabled"</code> to create a regular backup. The
-   *             <code>WindowsVSS</code> option is not enabled by default.</p>
+   *          <code>WindowsVSS</code> backup option and create a Windows VSS backup. Set to
+   *          <code>"WindowsVSS""disabled"</code> to create a regular backup. The
+   *          <code>WindowsVSS</code> option is not enabled by default.</p>
    */
   BackupOptions?: Record<string, string>;
 }
@@ -4387,7 +4967,11 @@ export interface StartBackupJobOutput {
   BackupJobId?: string;
 
   /**
-   * <p>An ARN that uniquely identifies a recovery point; for example,
+   * <p>
+   *             <i>Note: This field is only returned for Amazon EFS and Advanced DynamoDB
+   *          resources.</i>
+   *          </p>
+   *          <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
   RecoveryPointArn?: string;
@@ -4399,6 +4983,12 @@ export interface StartBackupJobOutput {
    *          AM.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>This is a returned boolean value indicating this is a parent (composite)
+   *          backup job.</p>
+   */
+  IsParent?: boolean;
 }
 
 export interface StartCopyJobInput {
@@ -4464,6 +5054,12 @@ export interface StartCopyJobOutput {
    *          AM.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>This is a returned boolean value indicating this is a parent (composite)
+   *          copy job.</p>
+   */
+  IsParent?: boolean;
 }
 
 export interface StartReportJobInput {
@@ -4550,7 +5146,7 @@ export interface StartRestoreJobInput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that Backup uses to create
-   *          the target recovery point; for example,
+   *          the target resource; for example:
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    */
   IamRoleArn?: string;
@@ -4745,10 +5341,9 @@ export interface UpdateFrameworkOutput {
   FrameworkArn?: string;
 
   /**
-   * <p>The date and time that a framework is created, in Unix format and Coordinated Universal
-   *          Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For
-   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
-   *          AM.</p>
+   * <p>The date and time that a framework is created, in ISO 8601 representation. The value of <code>CreationTime</code> is accurate to milliseconds. For example,
+   *          2020-07-10T15:00:00.000-08:00 represents the 10th of July 2020 at 3:00 PM 8 hours behind
+   *          UTC.</p>
    */
   CreationTime?: Date;
 }
@@ -5033,6 +5628,20 @@ export const CalculatedLifecycleFilterSensitiveLog = (obj: CalculatedLifecycle):
 /**
  * @internal
  */
+export const CancelLegalHoldInputFilterSensitiveLog = (obj: CancelLegalHoldInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelLegalHoldOutputFilterSensitiveLog = (obj: CancelLegalHoldOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ControlInputParameterFilterSensitiveLog = (obj: ControlInputParameter): any => ({
   ...obj,
 });
@@ -5114,6 +5723,35 @@ export const CreateFrameworkInputFilterSensitiveLog = (obj: CreateFrameworkInput
  * @internal
  */
 export const CreateFrameworkOutputFilterSensitiveLog = (obj: CreateFrameworkOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateRangeFilterSensitiveLog = (obj: DateRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryPointSelectionFilterSensitiveLog = (obj: RecoveryPointSelection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLegalHoldInputFilterSensitiveLog = (obj: CreateLegalHoldInput): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLegalHoldOutputFilterSensitiveLog = (obj: CreateLegalHoldOutput): any => ({
   ...obj,
 });
 
@@ -5404,6 +6042,15 @@ export const DisassociateRecoveryPointInputFilterSensitiveLog = (obj: Disassocia
 /**
  * @internal
  */
+export const DisassociateRecoveryPointFromParentInputFilterSensitiveLog = (
+  obj: DisassociateRecoveryPointFromParentInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ExportBackupPlanTemplateInputFilterSensitiveLog = (obj: ExportBackupPlanTemplateInput): any => ({
   ...obj,
 });
@@ -5499,6 +6146,20 @@ export const GetBackupVaultNotificationsInputFilterSensitiveLog = (obj: GetBacku
  * @internal
  */
 export const GetBackupVaultNotificationsOutputFilterSensitiveLog = (obj: GetBackupVaultNotificationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLegalHoldInputFilterSensitiveLog = (obj: GetLegalHoldInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLegalHoldOutputFilterSensitiveLog = (obj: GetLegalHoldOutput): any => ({
   ...obj,
 });
 
@@ -5650,6 +6311,27 @@ export const ListFrameworksOutputFilterSensitiveLog = (obj: ListFrameworksOutput
 /**
  * @internal
  */
+export const ListLegalHoldsInputFilterSensitiveLog = (obj: ListLegalHoldsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LegalHoldFilterSensitiveLog = (obj: LegalHold): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLegalHoldsOutputFilterSensitiveLog = (obj: ListLegalHoldsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListProtectedResourcesInputFilterSensitiveLog = (obj: ListProtectedResourcesInput): any => ({
   ...obj,
 });
@@ -5689,6 +6371,29 @@ export const RecoveryPointByBackupVaultFilterSensitiveLog = (obj: RecoveryPointB
  */
 export const ListRecoveryPointsByBackupVaultOutputFilterSensitiveLog = (
   obj: ListRecoveryPointsByBackupVaultOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecoveryPointsByLegalHoldInputFilterSensitiveLog = (obj: ListRecoveryPointsByLegalHoldInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryPointMemberFilterSensitiveLog = (obj: RecoveryPointMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecoveryPointsByLegalHoldOutputFilterSensitiveLog = (
+  obj: ListRecoveryPointsByLegalHoldOutput
 ): any => ({
   ...obj,
 });

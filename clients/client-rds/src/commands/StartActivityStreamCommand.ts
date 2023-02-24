@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,8 +30,13 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
 
 /**
  * <p>Starts a database activity stream to monitor activity on the database.
- *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
- *             in the <i>Amazon Aurora User Guide</i>.</p>
+ *             For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">
+ *                 Monitoring Amazon Aurora with Database Activity Streams</a>
+ *             in the <i>Amazon Aurora User Guide</i> or
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html">
+ *                 Monitoring Amazon RDS with Database Activity Streams</a>
+ *             in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +60,15 @@ export class StartActivityStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartActivityStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +84,9 @@ export class StartActivityStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartActivityStreamCommandInput, StartActivityStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartActivityStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

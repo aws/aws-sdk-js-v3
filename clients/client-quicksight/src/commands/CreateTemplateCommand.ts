@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   CreateTemplateRequestFilterSensitiveLog,
   CreateTemplateResponse,
   CreateTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateTemplateCommand,
   serializeAws_restJson1CreateTemplateCommand,
@@ -28,9 +29,9 @@ export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a template from an existing Amazon QuickSight analysis or template. You can use the resulting
- * 			template to create a dashboard.</p>
- * 		       <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
+ * <p>Creates a template either from a <code>TemplateDefinition</code> or from an existing Amazon QuickSight analysis or template. You can use the resulting
+ * 			template to create additional dashboards, templates, or analyses.</p>
+ *          <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
  * 			required to create an analysis and that you can use to create s dashboard. A template adds
  * 			a layer of abstraction by using placeholders to replace the dataset associated with the
  * 			analysis. You can use templates to create dashboards by replacing dataset placeholders
@@ -59,6 +60,15 @@ export class CreateTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class CreateTemplateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateTemplateCommandInput, CreateTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateTemplateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

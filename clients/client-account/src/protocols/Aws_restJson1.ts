@@ -18,6 +18,8 @@ import {
   DeleteAlternateContactCommandInput,
   DeleteAlternateContactCommandOutput,
 } from "../commands/DeleteAlternateContactCommand";
+import { DisableRegionCommandInput, DisableRegionCommandOutput } from "../commands/DisableRegionCommand";
+import { EnableRegionCommandInput, EnableRegionCommandOutput } from "../commands/EnableRegionCommand";
 import {
   GetAlternateContactCommandInput,
   GetAlternateContactCommandOutput,
@@ -26,6 +28,8 @@ import {
   GetContactInformationCommandInput,
   GetContactInformationCommandOutput,
 } from "../commands/GetContactInformationCommand";
+import { GetRegionOptStatusCommandInput, GetRegionOptStatusCommandOutput } from "../commands/GetRegionOptStatusCommand";
+import { ListRegionsCommandInput, ListRegionsCommandOutput } from "../commands/ListRegionsCommand";
 import {
   PutAlternateContactCommandInput,
   PutAlternateContactCommandOutput,
@@ -38,11 +42,15 @@ import { AccountServiceException as __BaseException } from "../models/AccountSer
 import {
   AccessDeniedException,
   AlternateContact,
+  ConflictException,
   ContactInformation,
   InternalServerException,
+  Region,
+  RegionOptStatus,
   ResourceNotFoundException,
   TooManyRequestsException,
   ValidationException,
+  ValidationExceptionField,
 } from "../models/models_0";
 
 export const serializeAws_restJson1DeleteAlternateContactCommand = async (
@@ -59,6 +67,56 @@ export const serializeAws_restJson1DeleteAlternateContactCommand = async (
   body = JSON.stringify({
     ...(input.AccountId != null && { AccountId: input.AccountId }),
     ...(input.AlternateContactType != null && { AlternateContactType: input.AlternateContactType }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DisableRegionCommand = async (
+  input: DisableRegionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disableRegion";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.RegionName != null && { RegionName: input.RegionName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1EnableRegionCommand = async (
+  input: EnableRegionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/enableRegion";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.RegionName != null && { RegionName: input.RegionName }),
   });
   return new __HttpRequest({
     protocol,
@@ -108,6 +166,60 @@ export const serializeAws_restJson1GetContactInformationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AccountId != null && { AccountId: input.AccountId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetRegionOptStatusCommand = async (
+  input: GetRegionOptStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getRegionOptStatus";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.RegionName != null && { RegionName: input.RegionName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListRegionsCommand = async (
+  input: ListRegionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listRegions";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.RegionOptStatusContains != null && {
+      RegionOptStatusContains: serializeAws_restJson1RegionOptStatusList(input.RegionOptStatusContains, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -196,7 +308,7 @@ const deserializeAws_restJson1DeleteAlternateContactCommandError = async (
 ): Promise<DeleteAlternateContactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -209,6 +321,106 @@ const deserializeAws_restJson1DeleteAlternateContactCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.account#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.account#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.account#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DisableRegionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableRegionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisableRegionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DisableRegionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableRegionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.account#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.account#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.account#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.account#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.account#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1EnableRegionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableRegionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1EnableRegionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1EnableRegionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableRegionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.account#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.account#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.account#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.account#TooManyRequestsException":
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
@@ -249,7 +461,7 @@ const deserializeAws_restJson1GetAlternateContactCommandError = async (
 ): Promise<GetAlternateContactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -302,7 +514,7 @@ const deserializeAws_restJson1GetContactInformationCommandError = async (
 ): Promise<GetContactInformationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -315,6 +527,112 @@ const deserializeAws_restJson1GetContactInformationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.account#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.account#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.account#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetRegionOptStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRegionOptStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetRegionOptStatusCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RegionName != null) {
+    contents.RegionName = __expectString(data.RegionName);
+  }
+  if (data.RegionOptStatus != null) {
+    contents.RegionOptStatus = __expectString(data.RegionOptStatus);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetRegionOptStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRegionOptStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.account#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.account#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.account#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.account#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListRegionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRegionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRegionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.Regions != null) {
+    contents.Regions = deserializeAws_restJson1RegionOptList(data.Regions, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListRegionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRegionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.account#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.account#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.account#TooManyRequestsException":
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
@@ -352,7 +670,7 @@ const deserializeAws_restJson1PutAlternateContactCommandError = async (
 ): Promise<PutAlternateContactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -399,7 +717,7 @@ const deserializeAws_restJson1PutContactInformationCommandError = async (
 ): Promise<PutContactInformationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -437,6 +755,22 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
     contents.message = __expectString(data.message);
   }
   const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.message != null) {
+    contents.message = __expectString(data.message);
+  }
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -497,8 +831,14 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 ): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  if (data.fieldList != null) {
+    contents.fieldList = deserializeAws_restJson1ValidationExceptionFieldList(data.fieldList, context);
+  }
   if (data.message != null) {
     contents.message = __expectString(data.message);
+  }
+  if (data.reason != null) {
+    contents.reason = __expectString(data.reason);
   }
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -522,6 +862,17 @@ const serializeAws_restJson1ContactInformation = (input: ContactInformation, con
     ...(input.StateOrRegion != null && { StateOrRegion: input.StateOrRegion }),
     ...(input.WebsiteUrl != null && { WebsiteUrl: input.WebsiteUrl }),
   };
+};
+
+const serializeAws_restJson1RegionOptStatusList = (
+  input: (RegionOptStatus | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1AlternateContact = (output: any, context: __SerdeContext): AlternateContact => {
@@ -551,9 +902,54 @@ const deserializeAws_restJson1ContactInformation = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1Region = (output: any, context: __SerdeContext): Region => {
+  return {
+    RegionName: __expectString(output.RegionName),
+    RegionOptStatus: __expectString(output.RegionOptStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1RegionOptList = (output: any, context: __SerdeContext): Region[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Region(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ValidationExceptionField = (
+  output: any,
+  context: __SerdeContext
+): ValidationExceptionField => {
+  return {
+    message: __expectString(output.message),
+    name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_restJson1ValidationExceptionFieldList = (
+  output: any,
+  context: __SerdeContext
+): ValidationExceptionField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ValidationExceptionField(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -585,6 +981,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -595,6 +997,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

@@ -661,6 +661,11 @@ import {
   UpdateDomainEntryCommandOutput,
 } from "./commands/UpdateDomainEntryCommand";
 import {
+  UpdateInstanceMetadataOptionsCommand,
+  UpdateInstanceMetadataOptionsCommandInput,
+  UpdateInstanceMetadataOptionsCommandOutput,
+} from "./commands/UpdateInstanceMetadataOptionsCommand";
+import {
   UpdateLoadBalancerAttributeCommand,
   UpdateLoadBalancerAttributeCommandInput,
   UpdateLoadBalancerAttributeCommandOutput,
@@ -684,11 +689,9 @@ import { LightsailClient } from "./LightsailClient";
  *       addresses, load balancers, content delivery network (CDN) distributions, DNS management of
  *       registered domains, and resource snapshots (backups) - for a low, predictable monthly
  *       price.</p>
- *
  *          <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
- *       AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts
- *       and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon Lightsail Developer Guide</a>.</p>
- *
+ *         Command Line Interface (CLI), or SDKs. For more information about Lightsail
+ *       concepts and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon Lightsail Developer Guide</a>.</p>
  *          <p>This API Reference provides detailed information about the actions, data types,
  *       parameters, and errors of the Lightsail service. For more information about the supported
  *         Amazon Web Services Regions, endpoints, and service quotas of the Lightsail service, see
@@ -986,7 +989,6 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Creates an Amazon Lightsail bucket.</p>
-   *
    *          <p>A bucket is a cloud storage resource available in the Lightsail object storage service.
    *       Use buckets to store objects such as data and its descriptive metadata. For more information
    *       about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
@@ -1021,12 +1023,10 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Creates a new access key for the specified Amazon Lightsail bucket. Access keys consist of
    *       an access key ID and corresponding secret access key.</p>
-   *
    *          <p>Access keys grant full programmatic access to the specified bucket and its objects. You
    *       can have a maximum of two access keys per bucket. Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html">GetBucketAccessKeys</a> action to get a list of current access keys for a specific bucket. For more
    *       information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
    *         <i>Amazon Lightsail Developer Guide</i>.</p>
-   *
    *          <important>
    *             <p>The <code>secretAccessKey</code> value is returned only in response to the
    *           <code>CreateBucketAccessKey</code> action. You can get a secret access key only when you
@@ -1184,7 +1184,6 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Creates an Amazon Lightsail container service.</p>
-   *
    *          <p>A Lightsail container service is a compute resource to which you can deploy containers.
    *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
    *         Guide</i>.</p>
@@ -1220,13 +1219,11 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Creates a deployment for your Amazon Lightsail container service.</p>
-   *
    *          <p>A deployment specifies the containers that will be launched on the container service and
    *       their settings, such as the ports to open, the environment variables to apply, and the launch
    *       command to run. It also specifies the container that will serve as the public endpoint of the
    *       deployment and its settings, such as the HTTP or HTTPS port to use, and the health check
    *       configuration.</p>
-   *
    *          <p>You can deploy containers to your container service using container images from a public
    *       registry such as Amazon ECR Public, or from your local machine. For more information, see
    *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
@@ -1268,17 +1265,14 @@ export class Lightsail extends LightsailClient {
    *       account so that you can use them with your Lightsail container service. The log in
    *       credentials expire 12 hours after they are created, at which point you will need to create a
    *       new set of log in credentials.</p>
-   *
    *          <note>
    *             <p>You can only push container images to the container service registry of your Lightsail
    *         account. You cannot pull container images or perform any other container image management
    *         actions on the container service registry.</p>
    *          </note>
-   *
    *          <p>After you push your container images to the container image registry of your Lightsail
    *       account, use the <code>RegisterContainerImage</code> action to register the pushed images to a
    *       specific Lightsail container service.</p>
-   *
    *          <note>
    *             <p>This action is not required if you install and use the Lightsail Control
    *         (lightsailctl) plugin to push container images to your Lightsail container service. For
@@ -1399,7 +1393,6 @@ export class Lightsail extends LightsailClient {
    *       when issuing the snapshot command, and a snapshot of the defined instance's system volume will
    *       be created. After the snapshot is available, you can create a block storage disk from the
    *       snapshot and attach it to a running instance to access the data on the disk.</p>
-   *
    *          <p>The <code>create disk snapshot</code> operation supports tag-based access control via
    *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
@@ -1502,9 +1495,6 @@ export class Lightsail extends LightsailClient {
    * <p>Creates one of the following domain name system (DNS) records in a domain DNS zone:
    *       Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority
    *       (SOA), service locator (SRV), or text (TXT).</p>
-   *
-   *
-   *
    *          <p>The <code>create domain entry</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by <code>domain name</code>. For more
    *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -1929,7 +1919,6 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Deletes a Amazon Lightsail bucket.</p>
-   *
    *          <note>
    *             <p>When you delete your bucket, the bucket name is released and can be reused for a new
    *         bucket in your account or another Amazon Web Services account.</p>
@@ -1963,9 +1952,7 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Deletes an access key for the specified Amazon Lightsail bucket.</p>
-   *
    *          <p>We recommend that you delete an access key if the secret access key is compromised.</p>
-   *
    *          <p>For more information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
    *         <i>Amazon Lightsail Developer Guide</i>.</p>
    */
@@ -2384,7 +2371,6 @@ export class Lightsail extends LightsailClient {
    *         <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html">CreateKeyPair</a> actions, as well as the Lightsail default key pair. A new default
    *       key pair will not be created unless you launch an instance without specifying a custom key
    *       pair, or you call the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html">DownloadDefaultKeyPair</a> API. </p>
-   *
    *          <p>The <code>delete key pair</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>key pair name</code>. For more information,
    *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -3011,7 +2997,6 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Returns the existing access key IDs for the specified Amazon Lightsail bucket.</p>
-   *
    *          <important>
    *             <p>This action does not return the secret access key value of an access key. You can get a
    *         secret access key only when you create it from the response of the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action. If you lose the secret access key, you must create
@@ -3049,10 +3034,8 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Returns the bundles that you can apply to a Amazon Lightsail bucket.</p>
-   *
    *          <p>The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a
    *       bucket.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to update the
    *       bundle for a bucket.</p>
    */
@@ -3087,7 +3070,6 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Returns the data points of a specific metric for an Amazon Lightsail bucket.</p>
-   *
    *          <p>Metrics report the utilization of a bucket. View and collect metric data regularly to
    *       monitor the number of objects stored in a bucket (including object versions) and the storage
    *       space used by those objects.</p>
@@ -3125,7 +3107,6 @@ export class Lightsail extends LightsailClient {
    * <p>Returns information about one or more Amazon Lightsail buckets. The information returned
    *       includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
    *       account-level block public access feature for your Lightsail buckets.</p>
-   *
    *          <p>For more information about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
    *         Guide</i>.</p>
    */
@@ -3155,11 +3136,9 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns the bundles that you can apply to an Amazon Lightsail instance when you create
    *       it.</p>
-   *
    *          <p>A bundle describes the specifications of an instance, such as the monthly cost, amount of
    *       memory, the number of vCPUs, amount of storage space, and monthly network data transfer
    *       quota.</p>
-   *
    *          <note>
    *             <p>Bundles are referred to as <i>instance plans</i> in the Lightsail
    *         console.</p>
@@ -3333,7 +3312,6 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns the container images that are registered to your Amazon Lightsail container
    *       service.</p>
-   *
    *          <note>
    *             <p>If you created a deployment on your Lightsail container service that uses container
    *         images from a public registry like Docker Hub, those images are not returned as part of this
@@ -3371,15 +3349,14 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Returns the log events of a container of your Amazon Lightsail container service.</p>
-   *
    *          <p>If your container service has more than one node (i.e., a scale greater than 1), then the
    *       log events that are returned for the specified container are merged from all nodes on your
    *       container service.</p>
-   *
    *          <note>
    *             <p>Container logs are retained for a certain amount of time. For more information, see
    *           <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
-   *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
+   *           endpoints and quotas</a> in the <i>Amazon Web Services General
+   *           Reference</i>.</p>
    *          </note>
    */
   public getContainerLog(
@@ -3413,17 +3390,15 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Returns the deployments for your Amazon Lightsail container service</p>
-   *
    *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
    *       that are deployed to your container service.</p>
-   *
    *          <p>The deployments are ordered by version in ascending order. The newest version is listed at
    *       the top of the response.</p>
-   *
    *          <note>
    *             <p>A set number of deployments are kept before the oldest one is replaced with the newest
    *         one. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
-   *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
+   *           endpoints and quotas</a> in the <i>Amazon Web Services General
+   *           Reference</i>.</p>
    *          </note>
    */
   public getContainerServiceDeployments(
@@ -3458,7 +3433,6 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns the data points of a specific metric of your Amazon Lightsail container
    *       service.</p>
-   *
    *          <p>Metrics report the utilization of your resources. Monitor and collect metric data
    *       regularly to maintain the reliability, availability, and performance of your resources.</p>
    */
@@ -3494,7 +3468,6 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns the list of powers that can be specified for your Amazon Lightsail container
    *       services.</p>
-   *
    *          <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the
    *       container service.</p>
    */
@@ -4349,7 +4322,6 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns a list of TLS security policies that you can apply to Lightsail load
    *       balancers.</p>
-   *
    *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
    *         balancers</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    */
@@ -5233,7 +5205,6 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Registers a container image to your Amazon Lightsail container service.</p>
-   *
    *          <note>
    *             <p>This action is not required if you install and use the Lightsail Control
    *         (lightsailctl) plugin to push container images to your Lightsail container service. For
@@ -5383,7 +5354,6 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Sets the IP address type for an Amazon Lightsail resource.</p>
-   *
    *          <p>Use this action to enable dual-stack for a resource, which enables IPv4 and IPv6 for the
    *       specified resource. Alternately, you can use this action to disable dual-stack, and enable
    *       IPv4 only.</p>
@@ -5420,7 +5390,6 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Sets the Amazon Lightsail resources that can access the specified Lightsail
    *       bucket.</p>
-   *
    *          <p>Lightsail buckets currently support setting access for Lightsail instances in the same
    *         Amazon Web Services Region.</p>
    */
@@ -5730,7 +5699,6 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Updates an existing Amazon Lightsail bucket.</p>
-   *
    *          <p>Use this action to update the configuration of an existing bucket, such as versioning,
    *       public accessibility, and the Amazon Web Services accounts that can access the bucket.</p>
    */
@@ -5762,13 +5730,11 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p>
-   *
    *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
-   *       bucket. You can update a bucket's bundle only one time within a monthly AWS billing cycle. To
-   *       determine if you can update a bucket's bundle, use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a> action. The
+   *       bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services
+   *       billing cycle. To determine if you can update a bucket's bundle, use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a> action. The
    *         <code>ableToUpdateBundle</code> parameter in the response will indicate whether you can
    *       currently update a bucket's bundle.</p>
-   *
    *          <p>Update a bucket's bundle if it's consistently going over its storage space or data
    *       transfer quota, or if a bucket's usage is consistently in the lower range of its storage space
    *       or data transfer quota. Due to the unpredictable usage fluctuations that a bucket might
@@ -5879,8 +5845,7 @@ export class Lightsail extends LightsailClient {
    *       your distribution.</p>
    *          <p>Update your distribution's bundle if your distribution is going over its monthly network
    *       transfer quota and is incurring an overage fee.</p>
-   *          <p>You can update your distribution's bundle only one time within your monthly AWS billing
-   *       cycle. To determine if you can update your distribution's bundle, use the
+   *          <p>You can update your distribution's bundle only one time within your monthly Amazon Web Services billing cycle. To determine if you can update your distribution's bundle, use the
    *         <code>GetDistributions</code> action. The <code>ableToUpdateBundle</code> parameter in the
    *       result will indicate whether you can currently update your distribution's bundle.</p>
    */
@@ -5938,6 +5903,43 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: UpdateDomainEntryCommandOutput) => void
   ): Promise<UpdateDomainEntryCommandOutput> | void {
     const command = new UpdateDomainEntryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the Amazon Lightsail instance metadata parameters on a running or stopped
+   *       instance. When you modify the parameters on a running instance, the <code>GetInstance</code>
+   *       or <code>GetInstances</code> API operation initially responds with a state of
+   *         <code>pending</code>. After the parameter modifications are successfully applied, the state
+   *       changes to <code>applied</code> in subsequent <code>GetInstance</code> or
+   *         <code>GetInstances</code> API calls. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service">Use IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   */
+  public updateInstanceMetadataOptions(
+    args: UpdateInstanceMetadataOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInstanceMetadataOptionsCommandOutput>;
+  public updateInstanceMetadataOptions(
+    args: UpdateInstanceMetadataOptionsCommandInput,
+    cb: (err: any, data?: UpdateInstanceMetadataOptionsCommandOutput) => void
+  ): void;
+  public updateInstanceMetadataOptions(
+    args: UpdateInstanceMetadataOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInstanceMetadataOptionsCommandOutput) => void
+  ): void;
+  public updateInstanceMetadataOptions(
+    args: UpdateInstanceMetadataOptionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInstanceMetadataOptionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInstanceMetadataOptionsCommandOutput) => void
+  ): Promise<UpdateInstanceMetadataOptionsCommandOutput> | void {
+    const command = new UpdateInstanceMetadataOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

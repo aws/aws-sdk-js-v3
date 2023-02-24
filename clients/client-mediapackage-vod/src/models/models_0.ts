@@ -118,7 +118,7 @@ export interface DashManifest {
   Profile?: Profile | string;
 
   /**
-   * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+   * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content. The MANIFEST value is compatible with source HLS playlists using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35 Elemental and SCTE-35 Daterange syntaxes are not supported with this option.
    */
   ScteMarkersSource?: ScteMarkersSource | string;
 
@@ -217,10 +217,61 @@ export interface MssManifest {
   StreamSelection?: StreamSelection;
 }
 
+export enum PresetSpeke20Audio {
+  PRESET_AUDIO_1 = "PRESET-AUDIO-1",
+  PRESET_AUDIO_2 = "PRESET-AUDIO-2",
+  PRESET_AUDIO_3 = "PRESET-AUDIO-3",
+  SHARED = "SHARED",
+  UNENCRYPTED = "UNENCRYPTED",
+}
+
+export enum PresetSpeke20Video {
+  PRESET_VIDEO_1 = "PRESET-VIDEO-1",
+  PRESET_VIDEO_2 = "PRESET-VIDEO-2",
+  PRESET_VIDEO_3 = "PRESET-VIDEO-3",
+  PRESET_VIDEO_4 = "PRESET-VIDEO-4",
+  PRESET_VIDEO_5 = "PRESET-VIDEO-5",
+  PRESET_VIDEO_6 = "PRESET-VIDEO-6",
+  PRESET_VIDEO_7 = "PRESET-VIDEO-7",
+  PRESET_VIDEO_8 = "PRESET-VIDEO-8",
+  SHARED = "SHARED",
+  UNENCRYPTED = "UNENCRYPTED",
+}
+
+/**
+ * Use encryptionContractConfiguration to configure one or more content encryption keys for your endpoints that use SPEKE 2.0.
+ * The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream.
+ * To configure the encryption contract, specify which audio and video encryption presets to use.
+ * Note the following considerations when using encryptionContractConfiguration:
+ * encryptionContractConfiguration can be used for DASH endpoints that use SPEKE 2.0. SPEKE 2.0 relies on the CPIX 2.3 specification.
+ * You must disable key rotation for this endpoint by setting keyRotationIntervalSeconds to 0.
+ */
+export interface EncryptionContractConfiguration {
+  /**
+   * A collection of audio encryption presets.
+   */
+  PresetSpeke20Audio: PresetSpeke20Audio | string | undefined;
+
+  /**
+   * A collection of video encryption presets.
+   */
+  PresetSpeke20Video: PresetSpeke20Video | string | undefined;
+}
+
 /**
  * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
  */
 export interface SpekeKeyProvider {
+  /**
+   * Use encryptionContractConfiguration to configure one or more content encryption keys for your endpoints that use SPEKE 2.0.
+   * The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream.
+   * To configure the encryption contract, specify which audio and video encryption presets to use.
+   * Note the following considerations when using encryptionContractConfiguration:
+   * encryptionContractConfiguration can be used for DASH endpoints that use SPEKE 2.0. SPEKE 2.0 relies on the CPIX 2.3 specification.
+   * You must disable key rotation for this endpoint by setting keyRotationIntervalSeconds to 0.
+   */
+  EncryptionContractConfiguration?: EncryptionContractConfiguration;
+
   /**
    * An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
    * MediaPackage will assume when accessing the key provider service.
@@ -313,6 +364,11 @@ export interface DashPackage {
    * When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
    */
   IncludeEncoderConfigurationInSegments?: boolean;
+
+  /**
+   * When enabled, an I-Frame only stream will be included in the output.
+   */
+  IncludeIframeOnlyStream?: boolean;
 
   /**
    * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
@@ -495,6 +551,11 @@ export interface EgressAccessLogs {
  * A MediaPackage VOD PackagingGroup resource.
  */
 export interface PackagingGroup {
+  /**
+   * The approximate asset count of the PackagingGroup.
+   */
+  ApproximateAssetCount?: number;
+
   /**
    * The ARN of the PackagingGroup.
    */
@@ -1059,6 +1120,11 @@ export interface DescribePackagingGroupRequest {
 
 export interface DescribePackagingGroupResponse {
   /**
+   * The approximate asset count of the PackagingGroup.
+   */
+  ApproximateAssetCount?: number;
+
+  /**
    * The ARN of the PackagingGroup.
    */
   Arn?: string;
@@ -1226,6 +1292,11 @@ export interface UpdatePackagingGroupRequest {
 
 export interface UpdatePackagingGroupResponse {
   /**
+   * The approximate asset count of the PackagingGroup.
+   */
+  ApproximateAssetCount?: number;
+
+  /**
    * The ARN of the PackagingGroup.
    */
   Arn?: string;
@@ -1295,6 +1366,13 @@ export const HlsManifestFilterSensitiveLog = (obj: HlsManifest): any => ({
  * @internal
  */
 export const MssManifestFilterSensitiveLog = (obj: MssManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionContractConfigurationFilterSensitiveLog = (obj: EncryptionContractConfiguration): any => ({
   ...obj,
 });
 

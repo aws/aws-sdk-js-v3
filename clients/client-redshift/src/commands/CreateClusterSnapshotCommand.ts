@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
 /**
  * <p>Creates a manual snapshot of the specified cluster. The cluster must be in the
  *                 <code>available</code> state. </p>
- *         <p>
+ *          <p>
  * For more information about working with snapshots, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -57,6 +58,15 @@ export class CreateClusterSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class CreateClusterSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateClusterSnapshotCommandInput, CreateClusterSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateClusterSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

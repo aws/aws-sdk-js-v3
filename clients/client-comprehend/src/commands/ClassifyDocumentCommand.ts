@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,6 +31,15 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
 /**
  * <p>Creates a new document classification request to analyze a single document in real-time,
  *       using a previously created and trained custom model and an endpoint.</p>
+ *          <p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p>
+ *          <p>If the system detects errors while processing a page in the input document,
+ *       the API response includes an entry in <code>Errors</code> that describes the errors.</p>
+ *          <p>If the system detects a document-level error in your input document, the API returns an
+ *       <code>InvalidRequestException</code> error response.
+ *       For details about this exception, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html">
+ *         Errors in semi-structured documents</a> in the Comprehend Developer Guide.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +63,15 @@ export class ClassifyDocumentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ClassifyDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +87,9 @@ export class ClassifyDocumentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ClassifyDocumentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

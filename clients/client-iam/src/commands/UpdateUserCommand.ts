@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -21,18 +22,18 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the name and/or the path of the specified IAM user.</p>
- *         <important>
+ *          <important>
  *             <p> You should understand the implications of changing an IAM user's path or name.
  *                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming an IAM
  *                     user</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html">Renaming an IAM
  *                     group</a> in the <i>IAM User Guide</i>.</p>
- *         </important>
- *         <note>
+ *          </important>
+ *          <note>
  *             <p> To change a user name, the requester must have appropriate permissions on both
  *                 the source object and the target object. For example, to change Bob to Robert, the
  *                 entity making the request must have permission on Bob and Robert, or must have
  *                 permission on all (*). For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions and policies</a>. </p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class UpdateUserCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,7 @@ export class UpdateUserCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateUserCommandInput, UpdateUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateUserCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

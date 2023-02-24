@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   DeleteVpcEndpointServiceConfigurationsRequestFilterSensitiveLog,
   DeleteVpcEndpointServiceConfigurationsResult,
   DeleteVpcEndpointServiceConfigurationsResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,
   serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,
@@ -31,9 +32,9 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes one or more VPC endpoint service configurations in your account. Before you
- *             delete the endpoint service configuration, you must reject any <code>Available</code> or
- *                 <code>PendingAcceptance</code> interface endpoint connections that are attached to
+ * <p>Deletes the specified VPC endpoint service configurations. Before you can delete
+ *             an endpoint service configuration, you must reject any <code>Available</code> or
+ *             <code>PendingAcceptance</code> interface endpoint connections that are attached to
  *             the service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +59,15 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteVpcEndpointServiceConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteVpcEndpointServiceConfigurationsCommandInput, DeleteVpcEndpointServiceConfigurationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteVpcEndpointServiceConfigurationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

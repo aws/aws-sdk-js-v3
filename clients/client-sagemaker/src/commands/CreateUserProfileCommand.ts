@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  * <p>Creates a user profile. A user profile represents a single user within a domain, and is
  *      the main way to reference a "person" for the purposes of sharing, reporting, and other
  *      user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an
- *      administrator invites a person by email or imports them from SSO, a user profile is
+ *      administrator invites a person by email or imports them from IAM Identity Center, a user profile is
  *      automatically created. A user profile is the primary holder of settings for an individual
  *      user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
  *    </p>
@@ -58,6 +59,15 @@ export class CreateUserProfileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class CreateUserProfileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateUserProfileCommandInput, CreateUserProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateUserProfileCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

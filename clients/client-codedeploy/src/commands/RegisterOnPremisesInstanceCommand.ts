@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,8 +26,7 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
 /**
  * <p>Registers an on-premises instance.</p>
  *         <note>
- *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request.
- *                 You cannot use both.</p>
+ *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.</p>
  *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +51,15 @@ export class RegisterOnPremisesInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterOnPremisesInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +75,9 @@ export class RegisterOnPremisesInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterOnPremisesInstanceCommandInput, RegisterOnPremisesInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterOnPremisesInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,22 +30,22 @@ export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult,
 
 /**
  * <p>Updates a cache policy configuration.</p>
- * 		       <p>When you update a cache policy configuration, all the fields are updated with the
+ *          <p>When you update a cache policy configuration, all the fields are updated with the
  * 			values provided in the request. You cannot update some fields independent of others. To
  * 			update a cache policy configuration:</p>
- * 		       <ol>
+ *          <ol>
  *             <li>
- * 				           <p>Use <code>GetCachePolicyConfig</code> to get the current configuration.</p>
- * 			         </li>
+ *                <p>Use <code>GetCachePolicyConfig</code> to get the current configuration.</p>
+ *             </li>
  *             <li>
- * 				           <p>Locally modify the fields in the cache policy configuration that you want to
+ *                <p>Locally modify the fields in the cache policy configuration that you want to
  * 					update.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Call <code>UpdateCachePolicy</code> by providing the entire cache policy
+ *                <p>Call <code>UpdateCachePolicy</code> by providing the entire cache policy
  * 					configuration, including the fields that you modified and those that you
- * 					didn’t.</p>
- * 			         </li>
+ * 					didn't.</p>
+ *             </li>
  *          </ol>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +70,15 @@ export class UpdateCachePolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateCachePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +94,9 @@ export class UpdateCachePolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateCachePolicyCommandInput, UpdateCachePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateCachePolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

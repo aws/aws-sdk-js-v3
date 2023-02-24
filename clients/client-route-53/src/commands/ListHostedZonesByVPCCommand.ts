@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,42 +33,42 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * 			of which Amazon Web Services account or Amazon Web Services service owns the hosted zones.
  * 			The <code>HostedZoneOwner</code> structure in the response contains one of the following
  * 			values:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>An <code>OwningAccount</code> element, which contains the account number of
+ *                <p>An <code>OwningAccount</code> element, which contains the account number of
  * 					either the current Amazon Web Services account or another Amazon Web Services account. Some services, such as Cloud Map, create
  * 					hosted zones using the current account. </p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>An <code>OwningService</code> element, which identifies the Amazon Web Services
+ *                <p>An <code>OwningService</code> element, which identifies the Amazon Web Services
  * 					service that created and owns the hosted zone. For example, if a hosted zone was
  * 					created by Amazon Elastic File System (Amazon EFS), the value of
  * 						<code>Owner</code> is <code>efs.amazonaws.com</code>. </p>
- * 			         </li>
+ *             </li>
  *          </ul>
- * 		       <note>
- * 			         <p>When listing private hosted zones, the hosted zone and the Amazon VPC must
+ *          <note>
+ *             <p>When listing private hosted zones, the hosted zone and the Amazon VPC must
  * 				belong to the same partition where the hosted zones were created. A partition is a
  * 				group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to
  * 				one partition.</p>
- * 			         <p>The following are the supported partitions:</p>
- * 			         <ul>
+ *             <p>The following are the supported partitions:</p>
+ *             <ul>
  *                <li>
- * 					             <p>
+ *                   <p>
  *                      <code>aws</code> - Amazon Web Services Regions</p>
- * 				           </li>
+ *                </li>
  *                <li>
- * 					             <p>
+ *                   <p>
  *                      <code>aws-cn</code> - China Regions</p>
- * 				           </li>
+ *                </li>
  *                <li>
- * 					             <p>
+ *                   <p>
  *                      <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region</p>
- * 				           </li>
+ *                </li>
  *             </ul>
- * 			         <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a>
+ *             <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a>
  * 				in the <i>Amazon Web Services General Reference</i>.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +92,15 @@ export class ListHostedZonesByVPCCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListHostedZonesByVPCCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,6 +116,9 @@ export class ListHostedZonesByVPCCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListHostedZonesByVPCCommandInput, ListHostedZonesByVPCCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListHostedZonesByVPCCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

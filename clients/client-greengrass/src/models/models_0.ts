@@ -266,6 +266,11 @@ export interface FunctionConfiguration {
    * The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request.
    */
   Timeout?: number;
+
+  /**
+   * The Lambda runtime supported by Greengrass which is to be used instead of the one specified in the Lambda function.
+   */
+  FunctionRuntimeOverride?: string;
 }
 
 /**

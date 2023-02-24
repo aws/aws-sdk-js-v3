@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,13 @@ export interface BatchDeleteImageCommandInput extends BatchDeleteImageRequest {}
 export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a list of specified images within a repository in a public registry. Images are
- *          specified with either an <code>imageTag</code> or <code>imageDigest</code>.</p>
+ * <p>Deletes a list of specified images that are within a repository in a public registry.
+ *          Images are specified with either an <code>imageTag</code> or
+ *          <code>imageDigest</code>.</p>
  *          <p>You can remove a tag from an image by specifying the image's tag in your request. When
  *          you remove the last tag from an image, the image is deleted from your repository.</p>
- *          <p>You can completely delete an image (and all of its tags) by specifying the image's
- *          digest in your request.</p>
+ *          <p>You can completely delete an image (and all of its tags) by specifying the digest of the
+ *          image in your request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +59,15 @@ export class BatchDeleteImageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchDeleteImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +83,9 @@ export class BatchDeleteImageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchDeleteImageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

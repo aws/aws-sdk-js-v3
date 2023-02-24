@@ -1,5 +1,6 @@
 import {
-  Credentials,
+  AwsCredentialIdentity,
+  ChecksumConstructor,
   DateInput,
   EventSigner,
   EventSigningArguments,
@@ -17,6 +18,7 @@ import {
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
+import { toUint8Array } from "@aws-sdk/util-utf8";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -59,13 +61,13 @@ export interface SignatureV4Init {
    * The credentials with which the request should be signed or a function
    * that returns a promise that will be resolved with credentials.
    */
-  credentials: Credentials | Provider<Credentials>;
+  credentials: AwsCredentialIdentity | Provider<AwsCredentialIdentity>;
 
   /**
    * A constructor function for a hash object that will calculate SHA-256 HMAC
    * checksums.
    */
-  sha256?: HashConstructor;
+  sha256?: ChecksumConstructor | HashConstructor;
 
   /**
    * Whether to uri-escape the request URI path as part of computing the
@@ -88,14 +90,14 @@ export interface SignatureV4Init {
 }
 
 export interface SignatureV4CryptoInit {
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
 }
 
 export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigner, EventSigner {
   private readonly service: string;
   private readonly regionProvider: Provider<string>;
-  private readonly credentialProvider: Provider<Credentials>;
-  private readonly sha256: HashConstructor;
+  private readonly credentialProvider: Provider<AwsCredentialIdentity>;
+  private readonly sha256: ChecksumConstructor | HashConstructor;
   private readonly uriEscapePath: boolean;
   private readonly applyChecksum: boolean;
 
@@ -127,6 +129,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
       signingService,
     } = options;
     const credentials = await this.credentialProvider();
+    this.validateResolvedCredentials(credentials);
     const region = signingRegion ?? (await this.regionProvider());
 
     const { longDate, shortDate } = formatDate(signingDate);
@@ -200,11 +203,12 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
     { signingDate = new Date(), signingRegion, signingService }: SigningArguments = {}
   ): Promise<string> {
     const credentials = await this.credentialProvider();
+    this.validateResolvedCredentials(credentials);
     const region = signingRegion ?? (await this.regionProvider());
     const { shortDate } = formatDate(signingDate);
 
     const hash = new this.sha256(await this.getSigningKey(credentials, region, shortDate, signingService));
-    hash.update(stringToSign);
+    hash.update(toUint8Array(stringToSign));
     return toHex(await hash.digest());
   }
 
@@ -219,6 +223,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
     }: RequestSigningArguments = {}
   ): Promise<HttpRequest> {
     const credentials = await this.credentialProvider();
+    this.validateResolvedCredentials(credentials);
     const region = signingRegion ?? (await this.regionProvider());
     const request = prepareRequest(requestToSign);
     const { longDate, shortDate } = formatDate(signingDate);
@@ -268,7 +273,7 @@ ${payloadHash}`;
     canonicalRequest: string
   ): Promise<string> {
     const hash = new this.sha256();
-    hash.update(canonicalRequest);
+    hash.update(toUint8Array(canonicalRequest));
     const hashedRequest = await hash.digest();
 
     return `${ALGORITHM_IDENTIFIER}
@@ -315,17 +320,29 @@ ${toHex(hashedRequest)}`;
     const stringToSign = await this.createStringToSign(longDate, credentialScope, canonicalRequest);
 
     const hash = new this.sha256(await keyPromise);
-    hash.update(stringToSign);
+    hash.update(toUint8Array(stringToSign));
     return toHex(await hash.digest());
   }
 
   private getSigningKey(
-    credentials: Credentials,
+    credentials: AwsCredentialIdentity,
     region: string,
     shortDate: string,
     service?: string
   ): Promise<Uint8Array> {
     return getSigningKey(this.sha256, credentials, shortDate, region, service || this.service);
+  }
+
+  private validateResolvedCredentials(credentials: unknown) {
+    if (
+      typeof credentials !== "object" ||
+      // @ts-expect-error: Property 'accessKeyId' does not exist on type 'object'.ts(2339)
+      typeof credentials.accessKeyId !== "string" ||
+      // @ts-expect-error: Property 'secretAccessKey' does not exist on type 'object'.ts(2339)
+      typeof credentials.secretAccessKey !== "string"
+    ) {
+      throw new Error("Resolved credential object is not valid");
+    }
   }
 }
 

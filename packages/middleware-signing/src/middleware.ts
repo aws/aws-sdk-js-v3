@@ -1,5 +1,6 @@
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  AuthScheme,
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
@@ -20,12 +21,20 @@ export const awsAuthMiddleware =
   (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output> =>
     async function (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> {
       if (!HttpRequest.isInstance(args.request)) return next(args);
-      const signer = await options.signer();
+
+      // TODO(identityandauth): call authScheme resolver
+      const authScheme: AuthScheme | undefined = context.endpointV2?.properties?.authSchemes?.[0];
+
+      const multiRegionOverride: string | undefined =
+        authScheme?.name === "sigv4a" ? authScheme?.signingRegionSet?.join(",") : undefined;
+
+      const signer = await options.signer(authScheme);
+
       const output = await next({
         ...args,
         request: await signer.sign(args.request, {
           signingDate: getSkewCorrectedDate(options.systemClockOffset),
-          signingRegion: context["signing_region"],
+          signingRegion: multiRegionOverride || context["signing_region"],
           signingService: context["signing_service"],
         }),
       }).catch((error) => {

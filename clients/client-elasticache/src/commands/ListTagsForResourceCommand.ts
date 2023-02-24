@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,8 +33,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *          <p>    A  tag is a key-value pair where the key and value are case-sensitive.
  *             You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group.
  *      For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
- *
- *         <p>If the cluster is not in the <i>available</i> state, <code>ListTagsForResource</code>
+ *          <p>If the cluster is not in the <i>available</i> state, <code>ListTagsForResource</code>
  *             returns an error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +58,15 @@ export class ListTagsForResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +82,9 @@ export class ListTagsForResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

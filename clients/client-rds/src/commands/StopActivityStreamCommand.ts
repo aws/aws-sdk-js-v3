@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,9 +31,13 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
 /**
  * <p>Stops a database activity stream that was started using the Amazon Web Services console,
  *             the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> action.</p>
- *         <p>For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
- *             in the <i>Amazon Aurora User Guide</i>.</p>
+ *          <p>For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">
+ *                 Monitoring Amazon Aurora with Database Activity Streams</a>
+ *             in the <i>Amazon Aurora User Guide</i>
+ *             or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html">
+ *                 Monitoring Amazon RDS with Database Activity Streams</a>
+ *             in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +61,15 @@ export class StopActivityStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopActivityStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +85,9 @@ export class StopActivityStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopActivityStreamCommandInput, StopActivityStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopActivityStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

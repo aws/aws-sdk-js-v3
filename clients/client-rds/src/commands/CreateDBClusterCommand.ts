@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -30,15 +31,14 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
 
 /**
  * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
- *         <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
+ *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
  *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
- *             PostgreSQL DB instance.</p>
- *         <p>For more information on Amazon Aurora, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *         <p>For more information on Multi-AZ DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+ *             PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User
+ *                     Guide</i>.</p>
+ *          <p>You can also use the <code>ReplicationSourceIdentifier</code> parameter to create a
+ *             Multi-AZ DB cluster read replica with an RDS for PostgreSQL DB instance as the source.
+ *             For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB cluster deployments</a> in the <i>Amazon
+ *                     RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +62,15 @@ export class CreateDBClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +86,9 @@ export class CreateDBClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDBClusterCommandInput, CreateDBClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDBClusterCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

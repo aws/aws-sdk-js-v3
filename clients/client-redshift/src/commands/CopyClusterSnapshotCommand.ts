@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,12 +32,12 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotRes
  * <p>Copies the specified automated cluster snapshot to a new manual cluster snapshot.
  *             The source must be an automated snapshot and it must be in the available
  *             state.</p>
- *         <p>When you delete a cluster, Amazon Redshift deletes any automated snapshots of the
+ *          <p>When you delete a cluster, Amazon Redshift deletes any automated snapshots of the
  *             cluster. Also, when the retention period of the snapshot expires, Amazon Redshift
  *             automatically deletes it. If you want to keep an automated snapshot for a longer period,
  *             you can make a manual copy of the snapshot. Manual snapshots are retained until you
  *             delete them.</p>
- *         <p>
+ *          <p>
  * For more information about working with snapshots, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -63,6 +64,15 @@ export class CopyClusterSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CopyClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class CopyClusterSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CopyClusterSnapshotCommandInput, CopyClusterSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CopyClusterSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,10 +32,10 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @deprecated
  *
  * <p>Runs one or more SQL statements.</p>
- *         <important>
+ *         <note>
  *             <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or
  *                     <code>ExecuteStatement</code> operation.</p>
- *         </important>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class ExecuteSqlCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ExecuteSqlCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,7 @@ export class ExecuteSqlCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ExecuteSqlCommandInput, ExecuteSqlCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ExecuteSqlCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

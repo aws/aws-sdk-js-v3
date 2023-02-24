@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -9,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
@@ -25,7 +29,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface PutSessionCommandInput extends PutSessionRequest {}
-export interface PutSessionCommandOutput extends PutSessionResponse, __MetadataBearer {}
+export interface PutSessionCommandOutput
+  extends __WithSdkStreamMixin<PutSessionResponse, "audioStream">,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new session or modifies an existing session with an Amazon Lex V2
@@ -54,6 +60,15 @@ export class PutSessionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +84,7 @@ export class PutSessionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutSessionCommandInput, PutSessionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutSessionCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -94,7 +110,10 @@ export class PutSessionCommand extends $Command<
     return serializeAws_restJson1PutSessionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSessionCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<PutSessionCommandOutput> {
     return deserializeAws_restJson1PutSessionCommand(output, context);
   }
 

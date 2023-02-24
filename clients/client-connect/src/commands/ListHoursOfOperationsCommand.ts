@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ListHoursOfOperationsRequestFilterSensitiveLog,
   ListHoursOfOperationsResponse,
   ListHoursOfOperationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListHoursOfOperationsCommand,
   serializeAws_restJson1ListHoursOfOperationsCommand,
@@ -28,7 +29,8 @@ export interface ListHoursOfOperationsCommandInput extends ListHoursOfOperations
 export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperationsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
+ * <p>Provides information about the hours of operation for the specified Amazon Connect
+ *    instance.</p>
  *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a
  *     Queue</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
@@ -54,6 +56,15 @@ export class ListHoursOfOperationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListHoursOfOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +80,9 @@ export class ListHoursOfOperationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListHoursOfOperationsCommandInput, ListHoursOfOperationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListHoursOfOperationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

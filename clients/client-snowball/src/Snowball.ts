@@ -91,6 +91,11 @@ import {
   ListLongTermPricingCommandOutput,
 } from "./commands/ListLongTermPricingCommand";
 import {
+  ListServiceVersionsCommand,
+  ListServiceVersionsCommandInput,
+  ListServiceVersionsCommandOutput,
+} from "./commands/ListServiceVersionsCommand";
+import {
   UpdateClusterCommand,
   UpdateClusterCommandInput,
   UpdateClusterCommandOutput,
@@ -260,11 +265,9 @@ export class Snowball extends SnowballClient {
    *             <p>Availability of device types differ by Amazon Web Services Region. For more information
    *         about Region availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4">Amazon Web Services Regional Services</a>.</p>
    *          </note>
-   *
    *          <p></p>
-   *
    *          <p class="title">
-   *             <b>Snow Family Devices and their capacities.</b>
+   *             <b>Snow Family devices and their capacities.</b>
    *          </p>
    *          <ul>
    *             <li>
@@ -278,7 +281,6 @@ export class Snowball extends SnowballClient {
    *                      <p>Description: Snowcone </p>
    *                   </li>
    *                </ul>
-   *
    *                <p></p>
    *             </li>
    *             <li>
@@ -305,8 +307,6 @@ export class Snowball extends SnowballClient {
    *                      <p>Description: Snowball Edge Storage Optimized for data transfer only </p>
    *                   </li>
    *                </ul>
-   *
-   *
    *                <p></p>
    *             </li>
    *             <li>
@@ -636,19 +636,16 @@ export class Snowball extends SnowballClient {
    *       specified <code>JobId</code> value. You can access the manifest file for up to 60 minutes
    *       after this request has been made. To access the manifest file after 60 minutes have passed,
    *       you'll have to make another call to the <code>GetJobManifest</code> action.</p>
-   *
    *          <p>The manifest is an encrypted file that you can download after your job enters the
-   *         <code>WithCustomer</code> status. The manifest is decrypted by using the
+   *         <code>WithCustomer</code> status. This is the only valid status for calling this API as the
+   *       manifest and <code>UnlockCode</code> code value are used for securing your device and should
+   *       only be used when you have the device.  The manifest is decrypted by using the
    *         <code>UnlockCode</code> code value, when you pass both values to the Snow device through the
-   *       Snowball client when the client is started for the first time.</p>
-   *
-   *
+   *       Snowball client when the client is started for the first time. </p>
    *          <p>As a best practice, we recommend that you don't save a copy of an
    *         <code>UnlockCode</code> value in the same location as the manifest file for that job. Saving
    *       these separately helps prevent unauthorized parties from gaining access to the Snow device
    *       associated with that job.</p>
-   *
-   *
    *          <p>The credentials of a given job, including its manifest file and unlock code, expire 360
    *       days after the job is created.</p>
    */
@@ -685,12 +682,12 @@ export class Snowball extends SnowballClient {
    * <p>Returns the <code>UnlockCode</code> code value for the specified job. A particular
    *         <code>UnlockCode</code> value can be accessed for up to 360 days after the associated job
    *       has been created.</p>
-   *
    *          <p>The <code>UnlockCode</code> value is a 29-character code with 25 alphanumeric
    *       characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed
    *       along with the manifest to the Snow device through the Snowball client when the client is
-   *       started for the first time.</p>
-   *
+   *       started for the first time. The only valid status for calling this API is
+   *         <code>WithCustomer</code> as the manifest and <code>Unlock</code> code values are used for
+   *       securing your device and should only be used when you have the device.</p>
    *          <p>As a best practice, we recommend that you don't save a copy of the
    *         <code>UnlockCode</code> in the same location as the manifest file for that job. Saving these
    *       separately helps prevent unauthorized parties from gaining access to the Snow device
@@ -728,7 +725,6 @@ export class Snowball extends SnowballClient {
   /**
    * <p>Returns information about the Snow Family service limit for your account, and also the
    *       number of Snow devices your account has in use.</p>
-   *
    *          <p>The default service limit for the number of Snow devices that you can have at one time
    *       is 1. If you want to increase your service limit, contact Amazon Web Services Support.</p>
    */
@@ -947,6 +943,39 @@ export class Snowball extends SnowballClient {
     cb?: (err: any, data?: ListLongTermPricingCommandOutput) => void
   ): Promise<ListLongTermPricingCommandOutput> | void {
     const command = new ListLongTermPricingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all supported versions for Snow on-device services. Returns an
+   *       array of <code>ServiceVersion</code> object containing the supported versions for a particular service.</p>
+   */
+  public listServiceVersions(
+    args: ListServiceVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceVersionsCommandOutput>;
+  public listServiceVersions(
+    args: ListServiceVersionsCommandInput,
+    cb: (err: any, data?: ListServiceVersionsCommandOutput) => void
+  ): void;
+  public listServiceVersions(
+    args: ListServiceVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceVersionsCommandOutput) => void
+  ): void;
+  public listServiceVersions(
+    args: ListServiceVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServiceVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListServiceVersionsCommandOutput) => void
+  ): Promise<ListServiceVersionsCommandOutput> | void {
+    const command = new ListServiceVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

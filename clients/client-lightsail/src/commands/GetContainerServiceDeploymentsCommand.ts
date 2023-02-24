@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,17 +32,15 @@ export interface GetContainerServiceDeploymentsCommandOutput
 
 /**
  * <p>Returns the deployments for your Amazon Lightsail container service</p>
- *
  *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
  *       that are deployed to your container service.</p>
- *
  *          <p>The deployments are ordered by version in ascending order. The newest version is listed at
  *       the top of the response.</p>
- *
  *          <note>
  *             <p>A set number of deployments are kept before the oldest one is replaced with the newest
  *         one. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
- *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
+ *           endpoints and quotas</a> in the <i>Amazon Web Services General
+ *           Reference</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,15 @@ export class GetContainerServiceDeploymentsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetContainerServiceDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +89,9 @@ export class GetContainerServiceDeploymentsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetContainerServiceDeploymentsCommandInput, GetContainerServiceDeploymentsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetContainerServiceDeploymentsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,7 +35,6 @@ export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, _
  *          <p>The first rules that are evaluated are the override rules. If the user's
  *         <code>entityID</code> matches an override rule, the user is served the variation specified
  *       by that rule.</p>
- *
  *          <p>If there is a current launch with this feature that uses segment overrides, and
  *       if the user session's <code>evaluationContext</code> matches a segment rule defined in a
  *       segment override, the configuration in the segment overrides is used. For more information
@@ -77,6 +77,15 @@ export class EvaluateFeatureCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EvaluateFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +101,9 @@ export class EvaluateFeatureCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EvaluateFeatureCommandInput, EvaluateFeatureCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EvaluateFeatureCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

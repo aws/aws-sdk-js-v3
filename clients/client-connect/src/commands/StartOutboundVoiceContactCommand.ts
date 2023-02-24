@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,25 +29,23 @@ export interface StartOutboundVoiceContactCommandInput extends StartOutboundVoic
 export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoiceContactResponse, __MetadataBearer {}
 
 /**
- * <p>Places an outbound call to a contact, and then initiates the contact flow. It performs the
- *    actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p>
- *
+ * <p>Places an outbound call to a contact, and then initiates the flow. It performs the actions
+ *    in the flow that's specified (in <code>ContactFlowId</code>).</p>
  *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
- *    the contact flow places an outbound call to a contact, and then puts the contact in queue, the
- *    call is then routed to the agent, like any other inbound case.</p>
- *
+ *    the flow places an outbound call to a contact, and then puts the contact in queue, the call is
+ *    then routed to the agent, like any other inbound case.</p>
  *          <p>There is a 60-second dialing timeout for this operation. If the call is not connected after
  *    60 seconds, it fails.</p>
  *          <note>
  *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK
  *     mobile numbers, you must submit a service quota increase request. For more information, see
- *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
+ *      Guide</i>. </p>
  *          </note>
  *          <note>
  *             <p>Campaign calls are not allowed by default. Before you can make a call with
  *      <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase
- *     request. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a>
- *     in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *     request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon Connect campaigns</a>. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,15 @@ export class StartOutboundVoiceContactCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartOutboundVoiceContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +94,9 @@ export class StartOutboundVoiceContactCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartOutboundVoiceContactCommandInput, StartOutboundVoiceContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartOutboundVoiceContactCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

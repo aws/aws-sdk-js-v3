@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,14 +29,15 @@ export interface StartTextTranslationJobCommandInput extends StartTextTranslatio
 export interface StartTextTranslationJobCommandOutput extends StartTextTranslationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous batch translation job. Batch translation jobs can be used to
- *       translate large volumes of text across multiple documents at once. For more information, see
- *         <a>async</a>.</p>
+ * <p>Starts an asynchronous batch translation job. Use batch translation jobs to
+ *       translate large volumes of text across multiple documents at once.
+ *       For batch translation, you can input documents with different source languages (specify <code>auto</code>
+ *       as the source language). You can specify one
+ *       or more target languages. Batch translation translates each input document into each of the target languages.
+ *       For more information, see
+ *       <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch processing</a>.</p>
  *
  *          <p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
- *          <note>
- *             <p>Amazon Translate does not support batch translation of multiple source languages at once.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +61,15 @@ export class StartTextTranslationJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartTextTranslationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +85,9 @@ export class StartTextTranslationJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartTextTranslationJobCommandInput, StartTextTranslationJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartTextTranslationJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

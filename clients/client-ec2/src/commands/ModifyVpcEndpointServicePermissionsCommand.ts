@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyVpcEndpointServicePermissionsRequestFilterSensitiveLog,
   ModifyVpcEndpointServicePermissionsResult,
   ModifyVpcEndpointServicePermissionsResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand,
   serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand,
@@ -30,9 +31,10 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers
- * 	        (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p>
- * 	        <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
+ * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions
+ *             for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
+ *             your endpoint service.</p>
+ *          <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
  * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
  * 	        attachments are automatically approved.</p>
  * @example
@@ -58,6 +60,15 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyVpcEndpointServicePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +84,9 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyVpcEndpointServicePermissionsCommandInput, ModifyVpcEndpointServicePermissionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyVpcEndpointServicePermissionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,16 +34,16 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  *             the parameter group name, description, and parameter group family name. You can
  *             optionally specify a name to retrieve the description of a specific parameter
  *             group.</p>
- *         <p>
+ *          <p>
  * For more information about parameters and parameter groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all parameter groups that match any combination of the specified keys and values. For
  *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
  *                 <code>admin</code> and <code>test</code> for tag values, all parameter groups that
  *             have any combination of those values are returned.</p>
- *         <p>If both tag keys and values are omitted from the request, parameter groups are
+ *          <p>If both tag keys and values are omitted from the request, parameter groups are
  *             returned regardless of whether they have tag keys or values associated with
  *             them.</p>
  * @example
@@ -68,6 +69,15 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeClusterParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +93,9 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeClusterParameterGroupsCommandInput, DescribeClusterParameterGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeClusterParameterGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

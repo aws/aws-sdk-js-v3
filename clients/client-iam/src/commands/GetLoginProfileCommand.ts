@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,9 +33,9 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  *             you create a password for the user to access the Amazon Web Services Management Console. If the user does not exist
  *             or does not have a password, the operation returns a 404 (<code>NoSuchEntity</code>)
  *             error.</p>
- *         <p>If you create an IAM user with access to the console, the <code>CreateDate</code>
+ *          <p>If you create an IAM user with access to the console, the <code>CreateDate</code>
  *             reflects the date you created the initial password for the user.</p>
- *         <p>If you create an IAM user with programmatic access, and then later add a password
+ *          <p>If you create an IAM user with programmatic access, and then later add a password
  *             for the user to access the Amazon Web Services Management Console, the <code>CreateDate</code> reflects the initial
  *             password creation date. A user with programmatic access does not have a login profile
  *             unless you create a password for the user to access the Amazon Web Services Management Console.</p>
@@ -61,6 +62,15 @@ export class GetLoginProfileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetLoginProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class GetLoginProfileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetLoginProfileCommandInput, GetLoginProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetLoginProfileCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

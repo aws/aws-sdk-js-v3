@@ -9,7 +9,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -259,7 +259,10 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -736,7 +739,7 @@ const deserializeAws_restJson1CreateBrokerCommandError = async (
 ): Promise<CreateBrokerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -784,7 +787,7 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
     contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
   }
   if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
+    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
   }
   if (data.id != null) {
     contents.Id = __expectString(data.id);
@@ -804,7 +807,7 @@ const deserializeAws_restJson1CreateConfigurationCommandError = async (
 ): Promise<CreateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -851,7 +854,7 @@ const deserializeAws_restJson1CreateTagsCommandError = async (
 ): Promise<CreateTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -898,7 +901,7 @@ const deserializeAws_restJson1CreateUserCommandError = async (
 ): Promise<CreateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -951,7 +954,7 @@ const deserializeAws_restJson1DeleteBrokerCommandError = async (
 ): Promise<DeleteBrokerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -998,7 +1001,7 @@ const deserializeAws_restJson1DeleteTagsCommandError = async (
 ): Promise<DeleteTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1045,7 +1048,7 @@ const deserializeAws_restJson1DeleteUserCommandError = async (
 ): Promise<DeleteUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1111,7 +1114,7 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
     contents.Configurations = deserializeAws_restJson1Configurations(data.configurations, context);
   }
   if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
+    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
   }
   if (data.deploymentMode != null) {
     contents.DeploymentMode = __expectString(data.deploymentMode);
@@ -1185,7 +1188,7 @@ const deserializeAws_restJson1DescribeBrokerCommandError = async (
 ): Promise<DescribeBrokerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1241,7 +1244,7 @@ const deserializeAws_restJson1DescribeBrokerEngineTypesCommandError = async (
 ): Promise<DescribeBrokerEngineTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1297,7 +1300,7 @@ const deserializeAws_restJson1DescribeBrokerInstanceOptionsCommandError = async 
 ): Promise<DescribeBrokerInstanceOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1339,7 +1342,7 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
     contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
   }
   if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
+    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -1371,7 +1374,7 @@ const deserializeAws_restJson1DescribeConfigurationCommandError = async (
 ): Promise<DescribeConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1413,7 +1416,7 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
     contents.ConfigurationId = __expectString(data.configurationId);
   }
   if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
+    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
   }
   if (data.data != null) {
     contents.Data = __expectString(data.data);
@@ -1430,7 +1433,7 @@ const deserializeAws_restJson1DescribeConfigurationRevisionCommandError = async 
 ): Promise<DescribeConfigurationRevisionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1492,7 +1495,7 @@ const deserializeAws_restJson1DescribeUserCommandError = async (
 ): Promise<DescribeUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1545,7 +1548,7 @@ const deserializeAws_restJson1ListBrokersCommandError = async (
 ): Promise<ListBrokersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1601,7 +1604,7 @@ const deserializeAws_restJson1ListConfigurationRevisionsCommandError = async (
 ): Promise<ListConfigurationRevisionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1657,7 +1660,7 @@ const deserializeAws_restJson1ListConfigurationsCommandError = async (
 ): Promise<ListConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1704,7 +1707,7 @@ const deserializeAws_restJson1ListTagsCommandError = async (
 ): Promise<ListTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1763,7 +1766,7 @@ const deserializeAws_restJson1ListUsersCommandError = async (
 ): Promise<ListUsersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1810,7 +1813,7 @@ const deserializeAws_restJson1RebootBrokerCommandError = async (
 ): Promise<RebootBrokerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1890,7 +1893,7 @@ const deserializeAws_restJson1UpdateBrokerCommandError = async (
 ): Promise<UpdateBrokerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1935,7 +1938,7 @@ export const deserializeAws_restJson1UpdateConfigurationCommand = async (
     contents.Arn = __expectString(data.arn);
   }
   if (data.created != null) {
-    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
+    contents.Created = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.created));
   }
   if (data.id != null) {
     contents.Id = __expectString(data.id);
@@ -1958,7 +1961,7 @@ const deserializeAws_restJson1UpdateConfigurationCommandError = async (
 ): Promise<UpdateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2008,7 +2011,7 @@ const deserializeAws_restJson1UpdateUserCommandError = async (
 ): Promise<UpdateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2174,10 +2177,8 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2423,10 +2424,8 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2488,7 +2487,7 @@ const deserializeAws_restJson1BrokerSummary = (output: any, context: __SerdeCont
     BrokerId: __expectString(output.brokerId),
     BrokerName: __expectString(output.brokerName),
     BrokerState: __expectString(output.brokerState),
-    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTime(output.created)) : undefined,
+    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.created)) : undefined,
     DeploymentMode: __expectString(output.deploymentMode),
     EngineType: __expectString(output.engineType),
     HostInstanceType: __expectString(output.hostInstanceType),
@@ -2499,7 +2498,7 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.arn),
     AuthenticationStrategy: __expectString(output.authenticationStrategy),
-    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTime(output.created)) : undefined,
+    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.created)) : undefined,
     Description: __expectString(output.description),
     EngineType: __expectString(output.engineType),
     EngineVersion: __expectString(output.engineVersion),
@@ -2522,7 +2521,7 @@ const deserializeAws_restJson1ConfigurationId = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
   return {
-    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTime(output.created)) : undefined,
+    Created: output.created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.created)) : undefined,
     Description: __expectString(output.description),
     Revision: __expectInt32(output.revision),
   } as any;
@@ -2625,7 +2624,8 @@ const deserializeAws_restJson1WeeklyStartTime = (output: any, context: __SerdeCo
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2657,6 +2657,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2667,6 +2673,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

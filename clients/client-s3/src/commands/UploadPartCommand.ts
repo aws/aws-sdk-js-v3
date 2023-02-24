@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
@@ -47,7 +47,6 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *             upload a part from an existing object, you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> operation.
  *          </p>
  *          </note>
- *
  *          <p>You must initiate a multipart upload (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>)
  *          before you can upload any part. In response to your initiate request, Amazon S3 returns an
  *          upload ID, a unique identifier, that you must include in your upload part request.</p>
@@ -59,27 +58,21 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *          <p>To ensure that data is not corrupted when traversing the network, specify the
  *             <code>Content-MD5</code> header in the upload part request. Amazon S3 checks the part data
  *          against the provided MD5 value. If they do not match, Amazon S3 returns an error. </p>
- *
  *          <p>If the upload request is signed with Signature Version 4, then Amazon Web Services S3 uses the
  *             <code>x-amz-content-sha256</code> header as a checksum instead of
  *             <code>Content-MD5</code>. For more information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html">Authenticating Requests: Using the Authorization Header (Amazon Web Services Signature Version
  *             4)</a>. </p>
- *
- *
- *
  *          <p>
  *             <b>Note:</b> After you initiate multipart upload and upload
  *          one or more parts, you must either complete or abort multipart upload in order to stop
  *          getting charged for storage of the uploaded parts. Only after you either complete or abort
  *          multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts
  *          storage.</p>
- *
  *          <p>For more information on multipart uploads, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html">Multipart Upload Overview</a> in the
  *             <i>Amazon S3 User Guide </i>.</p>
  *          <p>For information on the permissions required to use the multipart upload API, go to
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *             Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
- *
  *          <p>You can optionally request server-side encryption where Amazon S3 encrypts your data as it
  *          writes it to disks in its data centers and decrypts it for you when you access it. You have
  *          the option of providing your own encryption key, or you can use the Amazon Web Services managed encryption
@@ -87,18 +80,14 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *          the request must match the headers you used in the request to initiate the upload by using
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>. For more information, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side Encryption</a> in
  *          the <i>Amazon S3 User Guide</i>.</p>
- *
  *          <p>Server-side encryption is supported by the S3 Multipart Upload actions. Unless you are
  *          using a customer-provided encryption key, you don't need to specify the encryption
  *          parameters in each UploadPart request. Instead, you only need to specify the server-side
  *          encryption parameters in the initial Initiate Multipart request. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
- *
  *          <p>If you requested server-side encryption using a customer-provided encryption key in your
  *          initiate multipart upload request, you must provide identical encryption information in
  *          each part upload using the following headers.</p>
- *
- *
  *          <ul>
  *             <li>
  *                <p>x-amz-server-side-encryption-customer-algorithm</p>
@@ -110,7 +99,6 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *                <p>x-amz-server-side-encryption-customer-key-MD5</p>
  *             </li>
  *          </ul>
- *
  *          <p class="title">
  *             <b>Special Errors</b>
  *          </p>
@@ -142,12 +130,6 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *                </ul>
  *             </li>
  *          </ul>
- *
- *
- *
- *
- *
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>
@@ -201,6 +183,21 @@ export class UploadPartCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UploadPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -216,8 +213,8 @@ export class UploadPartCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UploadPartCommandInput, UploadPartCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UploadPartCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,

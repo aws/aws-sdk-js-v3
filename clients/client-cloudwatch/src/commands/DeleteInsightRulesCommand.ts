@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
 
 /**
  * <p>Permanently deletes the specified Contributor Insights rules.</p>
- * 		       <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
+ *          <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
  * 			the rule was created might
  * 			not be available.</p>
  * @example
@@ -55,6 +56,15 @@ export class DeleteInsightRulesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class DeleteInsightRulesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteInsightRulesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

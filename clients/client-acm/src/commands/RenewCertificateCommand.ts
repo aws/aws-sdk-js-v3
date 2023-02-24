@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,8 +25,8 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Renews an eligible ACM certificate. At this time, only exported private certificates can
- *       be renewed with this operation. In order to renew your ACM PCA certificates with ACM, you must
- *       first <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant the ACM
+ *       be renewed with this operation. In order to renew your Amazon Web Services Private CA certificates with ACM, you
+ *       must first <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html">grant the ACM
  *         service principal permission to do so</a>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing Managed Renewal</a>
  *       in the ACM User Guide.</p>
  * @example
@@ -51,6 +52,15 @@ export class RenewCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RenewCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +76,9 @@ export class RenewCertificateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RenewCertificateCommandInput, RenewCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RenewCertificateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

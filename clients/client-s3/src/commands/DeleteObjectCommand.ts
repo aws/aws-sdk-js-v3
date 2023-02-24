@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,26 +32,21 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * <p>Removes the null version (if there is one) of an object and inserts a delete marker,
  *          which becomes the latest version of the object. If there isn't a null version, Amazon S3 does
  *          not remove any objects but will still respond that the command was successful.</p>
- *
  *          <p>To remove a specific version, you must be the bucket owner and you must use the version
  *          Id subresource. Using this subresource permanently deletes the version. If the object
  *          deleted is a delete marker, Amazon S3 sets the response header,
  *          <code>x-amz-delete-marker</code>, to true. </p>
- *
  *          <p>If the object you want to delete is in a bucket where the bucket versioning
  *          configuration is MFA Delete enabled, you must include the <code>x-amz-mfa</code> request
  *          header in the DELETE <code>versionId</code> request. Requests that include
  *             <code>x-amz-mfa</code> must use HTTPS. </p>
- *
  *          <p> For more information about MFA Delete, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html">Using MFA Delete</a>. To see sample requests that use versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete">Sample Request</a>. </p>
- *
  *          <p>You can delete objects by explicitly calling DELETE Object or configure its
  *          lifecycle (<a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>) to
  *          enable Amazon S3 to remove them for you. If you want to block users or accounts from removing or
  *          deleting objects from your bucket, you must deny them the <code>s3:DeleteObject</code>,
  *             <code>s3:DeleteObjectVersion</code>, and <code>s3:PutLifeCycleConfiguration</code>
  *          actions. </p>
- *
  *          <p>The following action is related to <code>DeleteObject</code>:</p>
  *          <ul>
  *             <li>
@@ -83,6 +78,21 @@ export class DeleteObjectCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,7 +108,7 @@ export class DeleteObjectCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteObjectCommandInput, DeleteObjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteObjectCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

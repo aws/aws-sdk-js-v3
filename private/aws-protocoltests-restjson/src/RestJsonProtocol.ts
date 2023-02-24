@@ -17,6 +17,11 @@ import {
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
 import {
+  DatetimeOffsetsCommand,
+  DatetimeOffsetsCommandInput,
+  DatetimeOffsetsCommandOutput,
+} from "./commands/DatetimeOffsetsCommand";
+import {
   DocumentTypeAsPayloadCommand,
   DocumentTypeAsPayloadCommandInput,
   DocumentTypeAsPayloadCommandOutput,
@@ -133,6 +138,11 @@ import {
 } from "./commands/InputAndOutputWithHeadersCommand";
 import { JsonBlobsCommand, JsonBlobsCommandInput, JsonBlobsCommandOutput } from "./commands/JsonBlobsCommand";
 import { JsonEnumsCommand, JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import {
+  JsonIntEnumsCommand,
+  JsonIntEnumsCommandInput,
+  JsonIntEnumsCommandOutput,
+} from "./commands/JsonIntEnumsCommand";
 import { JsonListsCommand, JsonListsCommandInput, JsonListsCommandOutput } from "./commands/JsonListsCommand";
 import { JsonMapsCommand, JsonMapsCommandInput, JsonMapsCommandOutput } from "./commands/JsonMapsCommand";
 import {
@@ -226,11 +236,6 @@ import {
   MalformedRequestBodyCommandInput,
   MalformedRequestBodyCommandOutput,
 } from "./commands/MalformedRequestBodyCommand";
-import {
-  MalformedSetCommand,
-  MalformedSetCommandInput,
-  MalformedSetCommandOutput,
-} from "./commands/MalformedSetCommand";
 import {
   MalformedShortCommand,
   MalformedShortCommandInput,
@@ -341,6 +346,11 @@ import {
   PostPlayerActionCommandInput,
   PostPlayerActionCommandOutput,
 } from "./commands/PostPlayerActionCommand";
+import {
+  PostUnionWithJsonNameCommand,
+  PostUnionWithJsonNameCommandInput,
+  PostUnionWithJsonNameCommandOutput,
+} from "./commands/PostUnionWithJsonNameCommand";
 import {
   QueryIdempotencyTokenAutoFillCommand,
   QueryIdempotencyTokenAutoFillCommandInput,
@@ -508,6 +518,35 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: ConstantQueryStringCommandOutput) => void
   ): Promise<ConstantQueryStringCommandOutput> | void {
     const command = new ConstantQueryStringCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DatetimeOffsetsCommandOutput>;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DatetimeOffsetsCommandOutput) => void),
+    cb?: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): Promise<DatetimeOffsetsCommandOutput> | void {
+    const command = new DatetimeOffsetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1303,6 +1342,35 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * This example serializes intEnums as top level properties, in lists, sets, and maps.
+   */
+  public jsonIntEnums(
+    args: JsonIntEnumsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<JsonIntEnumsCommandOutput>;
+  public jsonIntEnums(args: JsonIntEnumsCommandInput, cb: (err: any, data?: JsonIntEnumsCommandOutput) => void): void;
+  public jsonIntEnums(
+    args: JsonIntEnumsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: JsonIntEnumsCommandOutput) => void
+  ): void;
+  public jsonIntEnums(
+    args: JsonIntEnumsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonIntEnumsCommandOutput) => void),
+    cb?: (err: any, data?: JsonIntEnumsCommandOutput) => void
+  ): Promise<JsonIntEnumsCommandOutput> | void {
+    const command = new JsonIntEnumsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * This test case serializes JSON lists for the following cases for both
    * input and output:
    *
@@ -1902,32 +1970,6 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: MalformedRequestBodyCommandOutput) => void
   ): Promise<MalformedRequestBodyCommandOutput> | void {
     const command = new MalformedRequestBodyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  public malformedSet(
-    args: MalformedSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<MalformedSetCommandOutput>;
-  public malformedSet(args: MalformedSetCommandInput, cb: (err: any, data?: MalformedSetCommandOutput) => void): void;
-  public malformedSet(
-    args: MalformedSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: MalformedSetCommandOutput) => void
-  ): void;
-  public malformedSet(
-    args: MalformedSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedSetCommandOutput) => void),
-    cb?: (err: any, data?: MalformedSetCommandOutput) => void
-  ): Promise<MalformedSetCommandOutput> | void {
-    const command = new MalformedSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2592,6 +2634,38 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: PostPlayerActionCommandOutput) => void
   ): Promise<PostPlayerActionCommandOutput> | void {
     const command = new PostPlayerActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This operation defines a union that uses jsonName on some members.
+   */
+  public postUnionWithJsonName(
+    args: PostUnionWithJsonNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PostUnionWithJsonNameCommandOutput>;
+  public postUnionWithJsonName(
+    args: PostUnionWithJsonNameCommandInput,
+    cb: (err: any, data?: PostUnionWithJsonNameCommandOutput) => void
+  ): void;
+  public postUnionWithJsonName(
+    args: PostUnionWithJsonNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PostUnionWithJsonNameCommandOutput) => void
+  ): void;
+  public postUnionWithJsonName(
+    args: PostUnionWithJsonNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostUnionWithJsonNameCommandOutput) => void),
+    cb?: (err: any, data?: PostUnionWithJsonNameCommandOutput) => void
+  ): Promise<PostUnionWithJsonNameCommandOutput> | void {
+    const command = new PostUnionWithJsonNameCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

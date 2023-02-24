@@ -54,6 +54,10 @@ import {
   ListLongTermPricingCommandInput,
   ListLongTermPricingCommandOutput,
 } from "../commands/ListLongTermPricingCommand";
+import {
+  ListServiceVersionsCommandInput,
+  ListServiceVersionsCommandOutput,
+} from "../commands/ListServiceVersionsCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "../commands/UpdateJobCommand";
 import {
@@ -86,6 +90,7 @@ import {
   CreateReturnShippingLabelRequest,
   CreateReturnShippingLabelResult,
   DataTransfer,
+  DependentService,
   DescribeAddressesRequest,
   DescribeAddressesResult,
   DescribeAddressRequest,
@@ -99,6 +104,7 @@ import {
   DeviceConfiguration,
   Ec2AmiResource,
   Ec2RequestFailedException,
+  EKSOnDeviceServiceConfiguration,
   EventTriggerDefinition,
   GetJobManifestRequest,
   GetJobManifestResult,
@@ -132,12 +138,15 @@ import {
   ListJobsResult,
   ListLongTermPricingRequest,
   ListLongTermPricingResult,
+  ListServiceVersionsRequest,
+  ListServiceVersionsResult,
   LongTermPricingListEntry,
   NFSOnDeviceServiceConfiguration,
   Notification,
   OnDeviceServiceConfiguration,
   ReturnShippingLabelAlreadyExistsException,
   S3Resource,
+  ServiceVersion,
   Shipment,
   ShippingDetails,
   SnowconeDeviceConfiguration,
@@ -430,6 +439,19 @@ export const serializeAws_json1_1ListLongTermPricingCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListServiceVersionsCommand = async (
+  input: ListServiceVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSIESnowballJobManagementService.ListServiceVersions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListServiceVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateClusterCommand = async (
   input: UpdateClusterCommandInput,
   context: __SerdeContext
@@ -505,7 +527,7 @@ const deserializeAws_json1_1CancelClusterCommandError = async (
 ): Promise<CancelClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -552,7 +574,7 @@ const deserializeAws_json1_1CancelJobCommandError = async (
 ): Promise<CancelJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -599,7 +621,7 @@ const deserializeAws_json1_1CreateAddressCommandError = async (
 ): Promise<CreateAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -643,7 +665,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
 ): Promise<CreateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -693,7 +715,7 @@ const deserializeAws_json1_1CreateJobCommandError = async (
 ): Promise<CreateJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -746,7 +768,7 @@ const deserializeAws_json1_1CreateLongTermPricingCommandError = async (
 ): Promise<CreateLongTermPricingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -787,7 +809,7 @@ const deserializeAws_json1_1CreateReturnShippingLabelCommandError = async (
 ): Promise<CreateReturnShippingLabelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -840,7 +862,7 @@ const deserializeAws_json1_1DescribeAddressCommandError = async (
 ): Promise<DescribeAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -881,7 +903,7 @@ const deserializeAws_json1_1DescribeAddressesCommandError = async (
 ): Promise<DescribeAddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -925,7 +947,7 @@ const deserializeAws_json1_1DescribeClusterCommandError = async (
 ): Promise<DescribeClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -966,7 +988,7 @@ const deserializeAws_json1_1DescribeJobCommandError = async (
 ): Promise<DescribeJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1007,7 +1029,7 @@ const deserializeAws_json1_1DescribeReturnShippingLabelCommandError = async (
 ): Promise<DescribeReturnShippingLabelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1054,7 +1076,7 @@ const deserializeAws_json1_1GetJobManifestCommandError = async (
 ): Promise<GetJobManifestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1098,7 +1120,7 @@ const deserializeAws_json1_1GetJobUnlockCodeCommandError = async (
 ): Promise<GetJobUnlockCodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1142,7 +1164,7 @@ const deserializeAws_json1_1GetSnowballUsageCommandError = async (
 ): Promise<GetSnowballUsageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1177,7 +1199,7 @@ const deserializeAws_json1_1GetSoftwareUpdatesCommandError = async (
 ): Promise<GetSoftwareUpdatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1221,7 +1243,7 @@ const deserializeAws_json1_1ListClusterJobsCommandError = async (
 ): Promise<ListClusterJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1265,7 +1287,7 @@ const deserializeAws_json1_1ListClustersCommandError = async (
 ): Promise<ListClustersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1306,7 +1328,7 @@ const deserializeAws_json1_1ListCompatibleImagesCommandError = async (
 ): Promise<ListCompatibleImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1350,7 +1372,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
 ): Promise<ListJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1391,7 +1413,51 @@ const deserializeAws_json1_1ListLongTermPricingCommandError = async (
 ): Promise<ListLongTermPricingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.snowball#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      throw await deserializeAws_json1_1InvalidResourceExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListServiceVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListServiceVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListServiceVersionsResult(data, context);
+  const response: ListServiceVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListServiceVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1435,7 +1501,7 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
 ): Promise<UpdateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1488,7 +1554,7 @@ const deserializeAws_json1_1UpdateJobCommandError = async (
 ): Promise<UpdateJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1544,7 +1610,7 @@ const deserializeAws_json1_1UpdateJobShipmentStateCommandError = async (
 ): Promise<UpdateJobShipmentStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1588,7 +1654,7 @@ const deserializeAws_json1_1UpdateLongTermPricingCommandError = async (
 ): Promise<UpdateLongTermPricingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1859,6 +1925,23 @@ const serializeAws_json1_1CreateReturnShippingLabelRequest = (
   };
 };
 
+const serializeAws_json1_1DependentService = (input: DependentService, context: __SerdeContext): any => {
+  return {
+    ...(input.ServiceName != null && { ServiceName: input.ServiceName }),
+    ...(input.ServiceVersion != null && {
+      ServiceVersion: serializeAws_json1_1ServiceVersion(input.ServiceVersion, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1DependentServiceList = (input: DependentService[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1DependentService(entry, context);
+    });
+};
+
 const serializeAws_json1_1DescribeAddressesRequest = (
   input: DescribeAddressesRequest,
   context: __SerdeContext
@@ -1920,6 +2003,16 @@ const serializeAws_json1_1Ec2AmiResourceList = (input: Ec2AmiResource[], context
     .map((entry) => {
       return serializeAws_json1_1Ec2AmiResource(entry, context);
     });
+};
+
+const serializeAws_json1_1EKSOnDeviceServiceConfiguration = (
+  input: EKSOnDeviceServiceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EKSAnywhereVersion != null && { EKSAnywhereVersion: input.EKSAnywhereVersion }),
+    ...(input.KubernetesVersion != null && { KubernetesVersion: input.KubernetesVersion }),
+  };
 };
 
 const serializeAws_json1_1EventTriggerDefinition = (input: EventTriggerDefinition, context: __SerdeContext): any => {
@@ -2056,6 +2149,20 @@ const serializeAws_json1_1ListLongTermPricingRequest = (
   };
 };
 
+const serializeAws_json1_1ListServiceVersionsRequest = (
+  input: ListServiceVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DependentServices != null && {
+      DependentServices: serializeAws_json1_1DependentServiceList(input.DependentServices, context),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ServiceName != null && { ServiceName: input.ServiceName }),
+  };
+};
+
 const serializeAws_json1_1NFSOnDeviceServiceConfiguration = (
   input: NFSOnDeviceServiceConfiguration,
   context: __SerdeContext
@@ -2081,6 +2188,9 @@ const serializeAws_json1_1OnDeviceServiceConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.EKSOnDeviceService != null && {
+      EKSOnDeviceService: serializeAws_json1_1EKSOnDeviceServiceConfiguration(input.EKSOnDeviceService, context),
+    }),
     ...(input.NFSOnDeviceService != null && {
       NFSOnDeviceService: serializeAws_json1_1NFSOnDeviceServiceConfiguration(input.NFSOnDeviceService, context),
     }),
@@ -2106,6 +2216,12 @@ const serializeAws_json1_1S3ResourceList = (input: S3Resource[], context: __Serd
     .map((entry) => {
       return serializeAws_json1_1S3Resource(entry, context);
     });
+};
+
+const serializeAws_json1_1ServiceVersion = (input: ServiceVersion, context: __SerdeContext): any => {
+  return {
+    ...(input.Version != null && { Version: input.Version }),
+  };
 };
 
 const serializeAws_json1_1SnowconeDeviceConfiguration = (
@@ -2390,6 +2506,26 @@ const deserializeAws_json1_1DataTransfer = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_1DependentService = (output: any, context: __SerdeContext): DependentService => {
+  return {
+    ServiceName: __expectString(output.ServiceName),
+    ServiceVersion:
+      output.ServiceVersion != null ? deserializeAws_json1_1ServiceVersion(output.ServiceVersion, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DependentServiceList = (output: any, context: __SerdeContext): DependentService[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DependentService(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1DescribeAddressesResult = (
   output: any,
   context: __SerdeContext
@@ -2472,6 +2608,16 @@ const deserializeAws_json1_1Ec2RequestFailedException = (
 ): Ec2RequestFailedException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1EKSOnDeviceServiceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EKSOnDeviceServiceConfiguration => {
+  return {
+    EKSAnywhereVersion: __expectString(output.EKSAnywhereVersion),
+    KubernetesVersion: __expectString(output.KubernetesVersion),
   } as any;
 };
 
@@ -2788,6 +2934,24 @@ const deserializeAws_json1_1ListLongTermPricingResult = (
   } as any;
 };
 
+const deserializeAws_json1_1ListServiceVersionsResult = (
+  output: any,
+  context: __SerdeContext
+): ListServiceVersionsResult => {
+  return {
+    DependentServices:
+      output.DependentServices != null
+        ? deserializeAws_json1_1DependentServiceList(output.DependentServices, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+    ServiceName: __expectString(output.ServiceName),
+    ServiceVersions:
+      output.ServiceVersions != null
+        ? deserializeAws_json1_1ServiceVersionList(output.ServiceVersions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1LongTermPricingAssociatedJobIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -2868,6 +3032,10 @@ const deserializeAws_json1_1OnDeviceServiceConfiguration = (
   context: __SerdeContext
 ): OnDeviceServiceConfiguration => {
   return {
+    EKSOnDeviceService:
+      output.EKSOnDeviceService != null
+        ? deserializeAws_json1_1EKSOnDeviceServiceConfiguration(output.EKSOnDeviceService, context)
+        : undefined,
     NFSOnDeviceService:
       output.NFSOnDeviceService != null
         ? deserializeAws_json1_1NFSOnDeviceServiceConfiguration(output.NFSOnDeviceService, context)
@@ -2907,6 +3075,24 @@ const deserializeAws_json1_1S3ResourceList = (output: any, context: __SerdeConte
         return null as any;
       }
       return deserializeAws_json1_1S3Resource(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ServiceVersion = (output: any, context: __SerdeContext): ServiceVersion => {
+  return {
+    Version: __expectString(output.Version),
+  } as any;
+};
+
+const deserializeAws_json1_1ServiceVersionList = (output: any, context: __SerdeContext): ServiceVersion[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServiceVersion(entry, context);
     });
   return retVal;
 };
@@ -3017,7 +3203,8 @@ const deserializeAws_json1_1WirelessConnection = (output: any, context: __SerdeC
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3067,6 +3254,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3077,6 +3270,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

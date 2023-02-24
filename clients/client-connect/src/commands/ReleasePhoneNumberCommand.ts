@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +24,15 @@ export interface ReleasePhoneNumberCommandInput extends ReleasePhoneNumberReques
 export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Releases a phone number previously claimed to an Amazon Connect instance.</p>
+ * <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You
+ *    can call this API only in the Amazon Web Services Region where the number was claimed.</p>
+ *          <important>
+ *             <p>To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code> API, not the
+ *      Amazon Connect console.</p>
+ *             <p>After releasing a phone number, the phone number enters into a cooldown period of 30 days.
+ *     It cannot be searched for or claimed again until the period has ended. If you accidentally
+ *     release a phone number, contact Amazon Web Services Support.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +56,15 @@ export class ReleasePhoneNumberCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ReleasePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +80,9 @@ export class ReleasePhoneNumberCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ReleasePhoneNumberCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

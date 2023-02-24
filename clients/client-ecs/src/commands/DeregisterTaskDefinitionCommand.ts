@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,21 +29,24 @@ export interface DeregisterTaskDefinitionCommandInput extends DeregisterTaskDefi
 export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Deregisters the specified task definition by family and revision. Upon deregistration,
- * 			the task definition is marked as <code>INACTIVE</code>. Existing tasks and services that
+ * <p>Deregisters the specified task definition by family and revision. Upon deregistration, the
+ * 			task definition is marked as <code>INACTIVE</code>. Existing tasks and services that
  * 			reference an <code>INACTIVE</code> task definition continue to run without disruption.
  * 			Existing services that reference an <code>INACTIVE</code> task definition can still
- * 			scale up or down by modifying the service's desired count.</p>
- * 		       <p>You can't use an <code>INACTIVE</code> task definition to run new tasks or create new
+ * 			scale up or down by modifying the service's desired count. If you want to delete a  task
+ * 			definition revision, you must first deregister the  task definition revision.</p>
+ *          <p>You can't use an <code>INACTIVE</code> task definition to run new tasks or create new
  * 			services, and you can't update an existing service to reference an <code>INACTIVE</code>
  * 			task definition. However, there may be up to a 10-minute window following deregistration
  * 			where these restrictions have not yet taken effect.</p>
- * 		       <note>
- * 			         <p>At this time, <code>INACTIVE</code> task definitions remain discoverable in your
+ *          <note>
+ *             <p>At this time, <code>INACTIVE</code> task definitions remain discoverable in your
  * 				account indefinitely. However, this behavior is subject to change in the future. We
  * 				don't recommend that you rely on <code>INACTIVE</code> task definitions persisting
  * 				beyond the lifecycle of any associated tasks and services.</p>
- * 		       </note>
+ *          </note>
+ *          <p>You must deregister a task definition revision before you delete it. For more information,
+ * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskDefinitions.html">DeleteTaskDefinitions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +70,15 @@ export class DeregisterTaskDefinitionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeregisterTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +94,9 @@ export class DeregisterTaskDefinitionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeregisterTaskDefinitionCommandInput, DeregisterTaskDefinitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeregisterTaskDefinitionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

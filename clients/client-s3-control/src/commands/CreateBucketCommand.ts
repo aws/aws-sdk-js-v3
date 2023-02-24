@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -55,7 +56,6 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
  *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your API request, see the
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html#API_control_CreateBucket_Examples">Examples</a> section.</p>
- *
  *          <p>The following actions are related to <code>CreateBucket</code> for
  *          Amazon S3 on Outposts:</p>
  *          <ul>
@@ -108,6 +108,18 @@ export class CreateBucketCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      OutpostId: { type: "contextParams", name: "OutpostId" },
+      Bucket: { type: "contextParams", name: "Bucket" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +135,7 @@ export class CreateBucketCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateBucketCommandInput, CreateBucketCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateBucketCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getRedirectFromPostIdPlugin(configuration));
     this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 

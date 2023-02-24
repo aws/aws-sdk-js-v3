@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,10 +31,10 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  *             host ID of Dedicated Hosts that have been released can no longer be specified in another
  *             request, for example, to modify the host. You must stop or terminate all instances on a
  *             host before it can be released.</p>
- *         <p>When Dedicated Hosts are released, it may take some time for them to stop counting
+ *          <p>When Dedicated Hosts are released, it may take some time for them to stop counting
  *             toward your limit and you may receive capacity errors when trying to allocate new
  *             Dedicated Hosts. Wait a few minutes and then try again.</p>
- *         <p>Released hosts still appear in a <a>DescribeHosts</a> response.</p>
+ *          <p>Released hosts still appear in a <a>DescribeHosts</a> response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class ReleaseHostsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ReleaseHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,7 @@ export class ReleaseHostsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ReleaseHostsCommandInput, ReleaseHostsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ReleaseHostsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

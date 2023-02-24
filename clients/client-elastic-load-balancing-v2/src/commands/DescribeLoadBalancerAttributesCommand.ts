@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,7 +37,6 @@ export interface DescribeLoadBalancerAttributesCommandOutput
 /**
  * <p>Describes the attributes for the specified Application Load Balancer, Network Load
  *       Balancer, or Gateway Load Balancer.</p>
- *
  *          <p>For more information, see the following:</p>
  *          <ul>
  *             <li>
@@ -81,6 +81,15 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeLoadBalancerAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,6 +105,9 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeLoadBalancerAttributesCommandInput, DescribeLoadBalancerAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeLoadBalancerAttributesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

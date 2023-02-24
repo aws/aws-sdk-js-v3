@@ -122,7 +122,8 @@
         "typescript-ssdk-codegen": {
           "package": "@aws-sdk/aws-restjson-server",
           "packageVersion": "1.0.0-alpha.1",
-          "disableDefaultValidation": true
+          "disableDefaultValidation": true,
+          "private": true
         }
       }
     },
@@ -138,7 +139,8 @@
       "plugins": {
         "typescript-ssdk-codegen": {
           "package": "@aws-sdk/aws-restjson-validation-server",
-          "packageVersion": "1.0.0-alpha.1"
+          "packageVersion": "1.0.0-alpha.1",
+          "private": true
         }
       }
     },

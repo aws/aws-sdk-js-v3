@@ -22,5 +22,6 @@ export * from "./Interfaces";
 export * from "./DescribeEngineDefaultParametersPaginator";
 export * from "./DescribeEventSubscriptionsPaginator";
 export * from "./DescribeEventsPaginator";
+export * from "./DescribeGlobalClustersPaginator";
 export * from "./DescribeOrderableDBInstanceOptionsPaginator";
 export * from "./DescribePendingMaintenanceActionsPaginator";

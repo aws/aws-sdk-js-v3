@@ -4,13 +4,14 @@ import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 import { Readable } from "stream";
 
 import { AllQueryStringTypesCommand } from "../../src/commands/AllQueryStringTypesCommand";
 import { BodyWithXmlNameCommand } from "../../src/commands/BodyWithXmlNameCommand";
 import { ConstantAndVariableQueryStringCommand } from "../../src/commands/ConstantAndVariableQueryStringCommand";
 import { ConstantQueryStringCommand } from "../../src/commands/ConstantQueryStringCommand";
+import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
 import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAndEmptyOutputCommand";
 import { EndpointOperationCommand } from "../../src/commands/EndpointOperationCommand";
 import { EndpointWithHostLabelHeaderOperationCommand } from "../../src/commands/EndpointWithHostLabelHeaderOperationCommand";
@@ -53,6 +54,7 @@ import { XmlEmptyListsCommand } from "../../src/commands/XmlEmptyListsCommand";
 import { XmlEmptyMapsCommand } from "../../src/commands/XmlEmptyMapsCommand";
 import { XmlEmptyStringsCommand } from "../../src/commands/XmlEmptyStringsCommand";
 import { XmlEnumsCommand } from "../../src/commands/XmlEnumsCommand";
+import { XmlIntEnumsCommand } from "../../src/commands/XmlIntEnumsCommand";
 import { XmlListsCommand } from "../../src/commands/XmlListsCommand";
 import { XmlMapsCommand } from "../../src/commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommand } from "../../src/commands/XmlMapsXmlNameCommand";
@@ -189,6 +191,14 @@ const clientParams = {
 };
 
 /**
+ * A wrapper function that shadows `fail` from jest-jasmine2
+ * (jasmine2 was replaced with circus in > v27 as the default test runner)
+ */
+const fail = (error?: any): never => {
+  throw new Error(error);
+};
+
+/**
  * Serializes query string parameters with all supported types
  */
 it("AllQueryStringTypes:Request", async () => {
@@ -251,6 +261,14 @@ it("AllQueryStringTypes:Request", async () => {
     queryEnum: "Foo",
 
     queryEnumList: ["Foo", "Baz", "Bar"],
+
+    queryIntegerEnum: 1,
+
+    queryIntegerEnumList: [
+      1,
+
+      2,
+    ],
   } as any);
   try {
     await client.send(command);
@@ -300,6 +318,9 @@ it("AllQueryStringTypes:Request", async () => {
     expect(queryString).toContain("EnumList=Foo");
     expect(queryString).toContain("EnumList=Baz");
     expect(queryString).toContain("EnumList=Bar");
+    expect(queryString).toContain("IntegerEnum=1");
+    expect(queryString).toContain("IntegerEnumList=1");
+    expect(queryString).toContain("IntegerEnumList=2");
 
     expect(r.body).toBeFalsy();
   }
@@ -509,7 +530,7 @@ it("BodyWithXmlName:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -631,6 +652,88 @@ it("ConstantQueryString:Request", async () => {
 });
 
 /**
+ * Ensures that clients can correctly parse datetime (timestamps) with offsets
+ */
+it("RestXmlDateTimeWithNegativeOffset:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<DatetimeOffsetsOutput>
+          <datetime>2019-12-16T22:48:18-01:00</datetime>
+      </DatetimeOffsetsOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new DatetimeOffsetsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(1576540098000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse datetime (timestamps) with offsets
+ */
+it("RestXmlDateTimeWithPositiveOffset:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<DatetimeOffsetsOutput>
+          <datetime>2019-12-17T00:48:18+01:00</datetime>
+      </DatetimeOffsetsOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new DatetimeOffsetsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(1576540098000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Empty input serializes no payload
  */
 it("EmptyInputAndEmptyOutput:Request", async () => {
@@ -673,7 +776,7 @@ it("EmptyInputAndEmptyOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -865,7 +968,7 @@ it("FlattenedXmlMap:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -965,7 +1068,7 @@ it("FlattenedXmlMapWithXmlName:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1016,7 +1119,7 @@ it("RestXmlFlattenedXmlMapWithXmlNamespace:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1058,7 +1161,7 @@ it("GreetingWithErrors:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1278,7 +1381,7 @@ it("HttpPayloadTraitsWithBlob:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1318,7 +1421,7 @@ it("HttpPayloadTraitsWithNoBlobBody:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1398,7 +1501,7 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1477,7 +1580,7 @@ it("HttpPayloadWithMemberXmlName:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1566,7 +1669,7 @@ it("HttpPayloadWithStructure:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1647,7 +1750,7 @@ it("HttpPayloadWithXmlName:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1730,7 +1833,7 @@ it("HttpPayloadWithXmlNamespace:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1813,7 +1916,7 @@ it("HttpPayloadWithXmlNamespaceAndPrefix:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1931,7 +2034,7 @@ it("HttpPrefixHeadersArePresent:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1975,7 +2078,7 @@ it("HttpPrefixHeadersAreNotPresent:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2225,7 +2328,7 @@ it("RestXmlHttpResponseCode:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(201);
@@ -2263,7 +2366,7 @@ it("IgnoreQueryParamsInResponse:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2621,7 +2724,7 @@ it("InputAndOutputWithStringHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2669,7 +2772,7 @@ it("InputAndOutputWithNumericHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2727,7 +2830,7 @@ it("InputAndOutputWithBooleanHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2769,7 +2872,7 @@ it("InputAndOutputWithTimestampHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2808,7 +2911,7 @@ it("InputAndOutputWithEnumHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2849,7 +2952,7 @@ it("RestXmlSupportsNaNFloatHeaderOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2890,7 +2993,7 @@ it("RestXmlSupportsInfinityFloatHeaderOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2931,7 +3034,7 @@ it("RestXmlSupportsNegativeInfinityFloatHeaderOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3086,7 +3189,7 @@ it("NestedXmlMapResponse:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3139,7 +3242,7 @@ it("FlatNestedXmlMapResponse:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3201,7 +3304,7 @@ it("NoInputAndNoOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3250,7 +3353,7 @@ it("NoInputAndOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3596,7 +3699,7 @@ it("RecursiveShapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3982,7 +4085,7 @@ it("SimpleScalarProperties:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4048,7 +4151,7 @@ it("SimpleScalarPropertiesComplexEscapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4092,7 +4195,7 @@ it("SimpleScalarPropertiesWithEscapedCharacter:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4139,7 +4242,7 @@ it("SimpleScalarPropertiesWithXMLPreamble:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4184,7 +4287,7 @@ it("SimpleScalarPropertiesWithWhiteSpace:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4229,7 +4332,7 @@ it("SimpleScalarPropertiesPureWhiteSpace:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4273,7 +4376,7 @@ it("RestXmlSupportsNaNFloatOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4317,7 +4420,7 @@ it("RestXmlSupportsInfinityFloatOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4361,7 +4464,7 @@ it("RestXmlSupportsNegativeInfinityFloatOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4463,7 +4566,7 @@ it("TimestampFormatHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4598,7 +4701,7 @@ it("XmlAttributes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4684,7 +4787,7 @@ it("XmlAttributesOnPayload:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4768,7 +4871,7 @@ it("XmlBlobs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4809,7 +4912,7 @@ it("XmlEmptyBlobs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4850,7 +4953,7 @@ it("XmlEmptySelfClosedBlobs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4934,7 +5037,7 @@ it("XmlEmptyLists:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5016,7 +5119,7 @@ it("XmlEmptyMaps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5057,7 +5160,7 @@ it("XmlEmptySelfClosedMaps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5137,7 +5240,7 @@ it("XmlEmptyStrings:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5178,7 +5281,7 @@ it("XmlEmptySelfClosedStrings:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5312,7 +5415,7 @@ it("XmlEnums:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5332,6 +5435,170 @@ it("XmlEnums:Response", async () => {
         hi: "Foo",
 
         zero: "0",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes simple scalar properties
+ */
+it("XmlIntEnums:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlIntEnumsCommand({
+    intEnum1: 1,
+
+    intEnum2: 2,
+
+    intEnum3: 3,
+
+    intEnumList: [
+      1,
+
+      2,
+    ],
+
+    intEnumSet: [
+      1,
+
+      2,
+    ],
+
+    intEnumMap: {
+      a: 1,
+
+      b: 2,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/XmlIntEnums");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlIntEnumsInputOutput>
+        <intEnum1>1</intEnum1>
+        <intEnum2>2</intEnum2>
+        <intEnum3>3</intEnum3>
+        <intEnumList>
+            <member>1</member>
+            <member>2</member>
+        </intEnumList>
+        <intEnumSet>
+            <member>1</member>
+            <member>2</member>
+        </intEnumSet>
+        <intEnumMap>
+            <entry>
+                <key>a</key>
+                <value>1</value>
+            </entry>
+            <entry>
+                <key>b</key>
+                <value>2</value>
+            </entry>
+        </intEnumMap>
+    </XmlIntEnumsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes simple scalar properties
+ */
+it("XmlIntEnums:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlIntEnumsInputOutput>
+          <intEnum1>1</intEnum1>
+          <intEnum2>2</intEnum2>
+          <intEnum3>3</intEnum3>
+          <intEnumList>
+              <member>1</member>
+              <member>2</member>
+          </intEnumList>
+          <intEnumSet>
+              <member>1</member>
+              <member>2</member>
+          </intEnumSet>
+          <intEnumMap>
+              <entry>
+                  <key>a</key>
+                  <value>1</value>
+              </entry>
+              <entry>
+                  <key>b</key>
+                  <value>2</value>
+              </entry>
+          </intEnumMap>
+      </XmlIntEnumsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlIntEnumsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      intEnum1: 1,
+
+      intEnum2: 2,
+
+      intEnum3: 3,
+
+      intEnumList: [
+        1,
+
+        2,
+      ],
+
+      intEnumSet: [
+        1,
+
+        2,
+      ],
+
+      intEnumMap: {
+        a: 1,
+
+        b: 2,
       },
     },
   ][0];
@@ -5366,6 +5633,12 @@ it("XmlLists:Request", async () => {
     timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
     enumList: ["Foo", "0"],
+
+    intEnumList: [
+      1,
+
+      2,
+    ],
 
     nestedStringList: [
       ["foo", "bar"],
@@ -5450,6 +5723,10 @@ it("XmlLists:Request", async () => {
             <member>Foo</member>
             <member>0</member>
         </enumList>
+        <intEnumList>
+            <member>1</member>
+            <member>2</member>
+        </intEnumList>
         <nestedStringList>
             <member>
                 <member>foo</member>
@@ -5530,6 +5807,10 @@ it("XmlLists:Response", async () => {
               <member>Foo</member>
               <member>0</member>
           </enumList>
+          <intEnumList>
+              <member>1</member>
+              <member>2</member>
+          </intEnumList>
           <nestedStringList>
               <member>
                   <member>foo</member>
@@ -5582,7 +5863,7 @@ it("XmlLists:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5603,6 +5884,12 @@ it("XmlLists:Response", async () => {
       timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
       enumList: ["Foo", "0"],
+
+      intEnumList: [
+        1,
+
+        2,
+      ],
 
       nestedStringList: [
         ["foo", "bar"],
@@ -5754,7 +6041,7 @@ it("XmlMaps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5876,7 +6163,7 @@ it("XmlMapsXmlName:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5980,7 +6267,7 @@ it("XmlNamespaces:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6078,6 +6365,45 @@ it("XmlTimestampsWithDateTimeFormat:Request", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
+ */
+it("XmlTimestampsWithDateTimeOnTargetFormat:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlTimestampsCommand({
+    dateTimeOnTarget: new Date(1398796238000),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/XmlTimestamps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlTimestampsInputOutput>
+        <dateTimeOnTarget>2014-04-29T18:30:38Z</dateTimeOnTarget>
+    </XmlTimestampsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Ensures that the timestampFormat of epoch-seconds works
  */
 it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
@@ -6109,6 +6435,45 @@ it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `<XmlTimestampsInputOutput>
         <epochSeconds>1398796238</epochSeconds>
+    </XmlTimestampsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Ensures that the timestampFormat of epoch-seconds on the target shape works
+ */
+it("XmlTimestampsWithEpochSecondsOnTargetFormat:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlTimestampsCommand({
+    epochSecondsOnTarget: new Date(1398796238000),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/XmlTimestamps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlTimestampsInputOutput>
+        <epochSecondsOnTarget>1398796238</epochSecondsOnTarget>
     </XmlTimestampsInputOutput>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
@@ -6156,6 +6521,45 @@ it("XmlTimestampsWithHttpDateFormat:Request", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of http-date on the target shape works
+ */
+it("XmlTimestampsWithHttpDateOnTargetFormat:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlTimestampsCommand({
+    httpDateOnTarget: new Date(1398796238000),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/XmlTimestamps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlTimestampsInputOutput>
+        <httpDateOnTarget>Tue, 29 Apr 2014 18:30:38 GMT</httpDateOnTarget>
+    </XmlTimestampsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Tests how normal timestamps are serialized
  */
 it("XmlTimestamps:Response", async () => {
@@ -6181,7 +6585,7 @@ it("XmlTimestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6222,13 +6626,54 @@ it("XmlTimestampsWithDateTimeFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       dateTime: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
+ */
+it("XmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlTimestampsInputOutput>
+          <dateTimeOnTarget>2014-04-29T18:30:38Z</dateTimeOnTarget>
+      </XmlTimestampsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      dateTimeOnTarget: new Date(1398796238000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6263,13 +6708,54 @@ it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       epochSeconds: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that the timestampFormat of epoch-seconds on the target shape works
+ */
+it("XmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlTimestampsInputOutput>
+          <epochSecondsOnTarget>1398796238</epochSecondsOnTarget>
+      </XmlTimestampsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      epochSecondsOnTarget: new Date(1398796238000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6304,13 +6790,54 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       httpDate: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that the timestampFormat of http-date on the target shape works
+ */
+it("XmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlTimestampsInputOutput>
+          <httpDateOnTarget>Tue, 29 Apr 2014 18:30:38 GMT</httpDateOnTarget>
+      </XmlTimestampsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      httpDateOnTarget: new Date(1398796238000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6557,7 +7084,7 @@ it("XmlUnionsWithStructMember:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6618,7 +7145,7 @@ it("XmlUnionsWithStringMember:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6663,7 +7190,7 @@ it("XmlUnionsWithBooleanMember:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6710,7 +7237,7 @@ it("XmlUnionsWithUnionMember:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6753,14 +7280,19 @@ const compareEquivalentUnknownTypeBodies = (
 const compareEquivalentXmlBodies = (expectedBody: string, generatedBody: string): Object => {
   const parseConfig = {
     attributeNamePrefix: "",
+    htmlEntities: true,
     ignoreAttributes: false,
-    parseNodeValue: false,
+    ignoreDeclaration: true,
+    parseTagValue: false,
     trimValues: false,
-    tagValueProcessor: (val: any, tagName: any) => (val.trim() === "" ? "" : decodeHTML(val)),
+    tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
   };
 
   const parseXmlBody = (body: string) => {
-    const parsedObj = xmlParse(body, parseConfig);
+    const parser = new XMLParser(parseConfig);
+    parser.addEntity("#xD", "\r");
+    parser.addEntity("#10", "\n");
+    const parsedObj = parser.parse(body);
     const textNodeName = "#text";
     const key = Object.keys(parsedObj)[0];
     const parsedObjToReturn = parsedObj[key];

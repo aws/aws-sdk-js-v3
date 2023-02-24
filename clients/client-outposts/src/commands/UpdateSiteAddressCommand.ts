@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,18 +29,11 @@ export interface UpdateSiteAddressCommandInput extends UpdateSiteAddressInput {}
 export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Updates the site address.
- *     </p>
- *          <p>
- *       To update a site address
- *       with an order <code>IN_PROGRESS</code>, you must wait for the order
- *       to complete or cancel the order.
- *     </p>
- *          <p>You
- *       can update the operating address before you place an order at the
- *       site, or after all Outposts that belong to the site have been deactivated.
- *     </p>
+ * <p>Updates the address of the specified site.</p>
+ *          <p>You can't update a site address if there is an order in progress. You must wait for the
+ *       order to complete or cancel the order.</p>
+ *          <p>You can update the operating address before you place an order at the site, or after all
+ *       Outposts that belong to the site have been deactivated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +57,15 @@ export class UpdateSiteAddressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateSiteAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +81,9 @@ export class UpdateSiteAddressCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateSiteAddressCommandInput, UpdateSiteAddressCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateSiteAddressCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

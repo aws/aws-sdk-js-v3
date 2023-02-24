@@ -15,21 +15,26 @@
 
 import software.amazon.smithy.gradle.tasks.SmithyBuild
 
+val smithyVersion: String by project
+
 buildscript {
+    val smithyVersion: String by project
+
     repositories {
         mavenCentral()
     }
     dependencies {
-        "classpath"("software.amazon.smithy:smithy-cli:${rootProject.extra["smithyVersion"]}")
+        "classpath"("software.amazon.smithy:smithy-cli:$smithyVersion")
     }
 }
 
 plugins {
-    id("software.amazon.smithy") version "0.6.0"
+    val smithyGradleVersion: String by project
+    id("software.amazon.smithy").version(smithyGradleVersion)
 }
 
 dependencies {
-    implementation("software.amazon.smithy:smithy-aws-protocol-tests:${rootProject.extra["smithyVersion"]}")
+    implementation("software.amazon.smithy:smithy-aws-protocol-tests:$smithyVersion")
     implementation(project(":smithy-aws-typescript-codegen"))
 }
 

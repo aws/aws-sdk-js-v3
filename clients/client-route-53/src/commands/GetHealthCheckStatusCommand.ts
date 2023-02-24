@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,11 +30,11 @@ export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusR
 
 /**
  * <p>Gets status of a specified health check. </p>
- * 		       <important>
- * 			         <p>This API is intended for use during development to diagnose behavior. It doesn’t
+ *          <important>
+ *             <p>This API is intended for use during development to diagnose behavior. It doesn’t
  * 				support production use-cases with high query rates that require immediate and
  * 				actionable responses.</p>
- * 		       </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class GetHealthCheckStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetHealthCheckStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class GetHealthCheckStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetHealthCheckStatusCommandInput, GetHealthCheckStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetHealthCheckStatusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

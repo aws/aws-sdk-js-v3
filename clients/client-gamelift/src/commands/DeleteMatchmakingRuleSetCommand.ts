@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,8 @@ export interface DeleteMatchmakingRuleSetCommandInput extends DeleteMatchmakingR
 export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing matchmaking rule set. To delete the rule set, provide the rule
- *             set name. Rule sets cannot be deleted if they are currently being used by a matchmaking
+ * <p>Deletes an existing matchmaking rule set. To delete the rule set, provide the rule set
+ *             name. Rule sets cannot be deleted if they are currently being used by a matchmaking
  *             configuration. </p>
  *         <p>
  *             <b>Learn more</b>
@@ -42,20 +43,6 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  *                </p>
  *             </li>
  *          </ul>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateMatchmakingConfiguration</a> |
- *                     <a>DescribeMatchmakingConfigurations</a> |
- *                     <a>UpdateMatchmakingConfiguration</a> |
- *                     <a>DeleteMatchmakingConfiguration</a> |
- *                     <a>CreateMatchmakingRuleSet</a> |
- *                     <a>DescribeMatchmakingRuleSets</a> |
- *                     <a>ValidateMatchmakingRuleSet</a> |
- *                     <a>DeleteMatchmakingRuleSet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +66,15 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteMatchmakingRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,6 +90,9 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteMatchmakingRuleSetCommandInput, DeleteMatchmakingRuleSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteMatchmakingRuleSetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

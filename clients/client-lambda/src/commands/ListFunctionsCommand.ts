@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,11 +32,11 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
  *       functions per call.</p>
  *          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
- *       addition to the unpublished version. </p>
+ *       addition to the unpublished version.</p>
  *          <note>
- *             <p>The <code>ListFunctions</code> action returns a subset of the <a>FunctionConfiguration</a> fields.
- *       To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode)
- *       for a function or version, use <a>GetFunction</a>.</p>
+ *             <p>The <code>ListFunctions</code> operation returns a subset of the <a>FunctionConfiguration</a> fields.
+ *         To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason,
+ *         LastUpdateStatusReasonCode,  RuntimeVersionConfig) for a function or version, use <a>GetFunction</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +61,15 @@ export class ListFunctionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListFunctionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,7 @@ export class ListFunctionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListFunctionsCommandInput, ListFunctionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListFunctionsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

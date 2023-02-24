@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,12 +34,11 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  *                 <code>GetMedia</code> or <code>GetMediaForFragmentList</code> operations) or write
  *             to it (using the <code>PutMedia</code> operation).
  *             </p>
- *         <note>
+ *          <note>
  *             <p>The returned endpoint does not have the API name appended. The client needs to
  *                 add the API name to the returned endpoint.</p>
- *         </note>
- *
- *         <p>In the request, specify the stream either by <code>StreamName</code> or
+ *          </note>
+ *          <p>In the request, specify the stream either by <code>StreamName</code> or
  *                 <code>StreamARN</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +63,15 @@ export class GetDataEndpointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetDataEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +87,9 @@ export class GetDataEndpointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDataEndpointCommandInput, GetDataEndpointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetDataEndpointCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

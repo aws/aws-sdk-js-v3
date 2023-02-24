@@ -1,61 +1,87 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
+  ActionSource,
+  ActionStatus,
   ActionSummary,
   AdditionalInferenceSpecificationDefinition,
   AgentVersion,
   AlgorithmSortBy,
   AlgorithmSpecification,
+  AlgorithmStatus,
+  AlgorithmStatusDetails,
   AlgorithmSummary,
-  AppDetails,
-  AppImageConfigDetails,
-  AppImageConfigSortKey,
-  AppSortKey,
+  AlgorithmValidationSpecification,
+  AppNetworkAccessType,
+  AppSecurityGroupManagement,
   AppSpecification,
-  ArtifactSummary,
+  AppStatus,
+  AppType,
+  ArtifactSource,
   AssociationEdgeType,
-  AssociationSummary,
+  AsyncInferenceConfig,
+  AuthMode,
   AutoMLCandidate,
+  AutoMLChannel,
+  AutoMLJobArtifacts,
+  AutoMLJobCompletionCriteria,
+  AutoMLJobConfig,
+  AutoMLJobObjective,
+  AutoMLJobSecondaryStatus,
   AutoMLJobStatus,
-  AutoMLJobSummary,
-  AutoMLSortBy,
-  AutoMLSortOrder,
+  AutoMLOutputDataConfig,
+  AutoMLPartialFailureReason,
+  BatchDataCaptureConfig,
   BatchStrategy,
-  CandidateSortBy,
-  CandidateStatus,
   Channel,
   CheckpointConfig,
-  CodeRepositorySortBy,
-  CodeRepositorySortOrder,
-  CodeRepositorySummary,
   CognitoConfig,
   CompilationJobStatus,
-  CompilationJobSummary,
   ContainerDefinition,
-  ContextSummary,
+  ContextSource,
+  DataCaptureConfig,
+  DataQualityAppSpecification,
+  DataQualityBaselineConfig,
+  DataQualityJobInput,
+  DefaultSpaceSettings,
+  DeploymentConfig,
+  DeviceSelectionConfig,
+  DomainSettings,
+  EdgeDeploymentConfig,
+  EdgeDeploymentModelConfig,
   EdgeOutputConfig,
-  FeatureDefinition,
-  FeatureType,
+  EdgePresetDeploymentType,
+  ExecutionRoleIdentityConfig,
+  ExplainerConfig,
+  GitConfig,
   HyperParameterTuningJobObjectiveType,
-  HyperParameterTuningJobStrategyType,
   InferenceSpecification,
+  InputConfig,
+  KernelGatewayImageConfig,
   MetadataProperties,
   ModelApprovalStatus,
+  ModelDeployConfig,
   ModelPackageStatus,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStoppingCondition,
+  NeoVpcConfig,
   ObjectiveStatus,
-  OfflineStoreConfig,
-  OnlineStoreConfig,
+  OutputConfig,
   OutputDataConfig,
   OutputParameter,
+  ProblemType,
+  ProductionVariant,
+  ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
+  ProductionVariantServerlessConfig,
   ResourceConfig,
-  ResourceLimits,
   ResourceSpec,
   StoppingCondition,
   Tag,
+  TrainingSpecification,
   TransformInput,
   TransformOutput,
   TransformResources,
@@ -71,35 +97,44 @@ import {
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DirectInternetAccess,
-  DomainStatus,
   DriftCheckBaselines,
-  EdgePackagingJobStatus,
-  EndpointStatus,
+  EndpointInfo,
   ExperimentConfig,
-  ExperimentSource,
-  FeatureGroupStatus,
-  FeatureParameter,
-  FlowDefinitionStatus,
+  FeatureDefinition,
+  FeatureType,
+  FlowDefinitionOutputConfig,
+  HubContentType,
+  HubS3StorageConfig,
+  HumanLoopActivationConfig,
+  HumanLoopConfig,
+  HumanLoopRequestSource,
   HumanTaskConfig,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
+  HyperParameterTuningJobStrategyType,
   HyperParameterTuningJobWarmStartConfig,
   InferenceExecutionConfig,
+  InferenceExperimentDataStorageConfig,
+  InferenceExperimentSchedule,
+  InferenceExperimentType,
   InstanceMetadataServiceConfiguration,
+  JobType,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
   LabelingJobStoppingConditions,
-  LastUpdateStatus,
   MemberDefinition,
-  ModelArtifacts,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
+  ModelCardExportOutputConfig,
+  ModelCardSecurityConfig,
+  ModelCardStatus,
   ModelClientConfig,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
+  ModelInfrastructureConfig,
   ModelMetrics,
   ModelPackageValidationSpecification,
   ModelQualityAppSpecification,
@@ -111,32 +146,2516 @@ import {
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
-  OfflineStoreStatus,
-  OfflineStoreStatusValue,
+  OfflineStoreConfig,
+  OnlineStoreConfig,
   ParallelismConfiguration,
   ProcessingInput,
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
-  ProductionVariantSummary,
+  Processor,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RecommendationJobType,
+  ResourceLimits,
   RetryStrategy,
   RootAccess,
   RuleEvaluationStatus,
   ServiceCatalogProvisioningDetails,
+  ShadowModeConfig,
   SourceAlgorithmSpecification,
   SourceIpConfig,
+  SpaceSettings,
   StudioLifecycleConfigAppType,
   TensorBoardOutputConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
+  VendorGuidance,
 } from "./models_1";
+
+export interface DeleteWorkteamResponse {
+  /**
+   * <p>Returns <code>true</code> if the work team was successfully deleted; otherwise,
+   *             returns <code>false</code>.</p>
+   */
+  Success: boolean | undefined;
+}
+
+/**
+ * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
+ *          <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
+ *             of the primary container when you created the model hosted in this
+ *                 <code>ProductionVariant</code>, the path resolves to a path of the form
+ *                 <code>registry/repository[@digest]</code>. A digest is a hash value that identifies
+ *             a specific version of an image. For information about Amazon ECR paths, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html">Pulling an Image</a> in the <i>Amazon ECR User Guide</i>.</p>
+ */
+export interface DeployedImage {
+  /**
+   * <p>The image path you specified when you created the model.</p>
+   */
+  SpecifiedImage?: string;
+
+  /**
+   * <p>The specific digest path of the image hosted in this
+   *             <code>ProductionVariant</code>.</p>
+   */
+  ResolvedImage?: string;
+
+  /**
+   * <p>The date and time when the image path for the model resolved to the
+   *                 <code>ResolvedImage</code>
+   *          </p>
+   */
+  ResolutionTime?: Date;
+}
+
+export enum StageStatus {
+  Creating = "CREATING",
+  Deployed = "DEPLOYED",
+  Failed = "FAILED",
+  InProgress = "INPROGRESS",
+  ReadyToDeploy = "READYTODEPLOY",
+  Starting = "STARTING",
+  Stopped = "STOPPED",
+  Stopping = "STOPPING",
+}
+
+/**
+ * <p>Contains information summarizing the deployment stage results.</p>
+ */
+export interface EdgeDeploymentStatus {
+  /**
+   * <p>The general status of the current stage.</p>
+   */
+  StageStatus: StageStatus | string | undefined;
+
+  /**
+   * <p>The number of edge devices with the successful deployment in the current stage.</p>
+   */
+  EdgeDeploymentSuccessInStage: number | undefined;
+
+  /**
+   * <p>The number of edge devices yet to pick up the deployment in current stage, or in progress.</p>
+   */
+  EdgeDeploymentPendingInStage: number | undefined;
+
+  /**
+   * <p>The number of edge devices that failed the deployment in current stage.</p>
+   */
+  EdgeDeploymentFailedInStage: number | undefined;
+
+  /**
+   * <p>A detailed message about deployment status in current stage.</p>
+   */
+  EdgeDeploymentStatusMessage?: string;
+
+  /**
+   * <p>The time when the deployment API started.</p>
+   */
+  EdgeDeploymentStageStartTime?: Date;
+}
+
+/**
+ * <p>Contains information summarizing the deployment stage results.</p>
+ */
+export interface DeploymentStageStatusSummary {
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName: string | undefined;
+
+  /**
+   * <p>Configuration of the devices in the stage.</p>
+   */
+  DeviceSelectionConfig: DeviceSelectionConfig | undefined;
+
+  /**
+   * <p>Configuration of the deployment details.</p>
+   */
+  DeploymentConfig: EdgeDeploymentConfig | undefined;
+
+  /**
+   * <p>General status of the current state.</p>
+   */
+  DeploymentStatus: EdgeDeploymentStatus | undefined;
+}
+
+export interface DeregisterDevicesRequest {
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The unique IDs of the devices.</p>
+   */
+  DeviceNames: string[] | undefined;
+}
+
+export interface DescribeActionRequest {
+  /**
+   * <p>The name of the action to describe.</p>
+   */
+  ActionName: string | undefined;
+}
+
+export interface DescribeActionResponse {
+  /**
+   * <p>The name of the action.</p>
+   */
+  ActionName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the action.</p>
+   */
+  ActionArn?: string;
+
+  /**
+   * <p>The source of the action.</p>
+   */
+  Source?: ActionSource;
+
+  /**
+   * <p>The type of the action.</p>
+   */
+  ActionType?: string;
+
+  /**
+   * <p>The description of the action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the action.</p>
+   */
+  Status?: ActionStatus | string;
+
+  /**
+   * <p>A list of the action's properties.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>When the action was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>When the action was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
+}
+
+export interface DescribeAlgorithmInput {
+  /**
+   * <p>The name of the algorithm to describe.</p>
+   */
+  AlgorithmName: string | undefined;
+}
+
+export interface DescribeAlgorithmOutput {
+  /**
+   * <p>The name of the algorithm being described.</p>
+   */
+  AlgorithmName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the algorithm.</p>
+   */
+  AlgorithmArn: string | undefined;
+
+  /**
+   * <p>A brief summary about the algorithm.</p>
+   */
+  AlgorithmDescription?: string;
+
+  /**
+   * <p>A timestamp specifying when the algorithm was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Details about training jobs run by this algorithm.</p>
+   */
+  TrainingSpecification: TrainingSpecification | undefined;
+
+  /**
+   * <p>Details about inference jobs that the algorithm runs.</p>
+   */
+  InferenceSpecification?: InferenceSpecification;
+
+  /**
+   * <p>Details about configurations for one or more training jobs that SageMaker runs to test the
+   *             algorithm.</p>
+   */
+  ValidationSpecification?: AlgorithmValidationSpecification;
+
+  /**
+   * <p>The current status of the algorithm.</p>
+   */
+  AlgorithmStatus: AlgorithmStatus | string | undefined;
+
+  /**
+   * <p>Details about the current status of the algorithm.</p>
+   */
+  AlgorithmStatusDetails: AlgorithmStatusDetails | undefined;
+
+  /**
+   * <p>The product identifier of the algorithm.</p>
+   */
+  ProductId?: string;
+
+  /**
+   * <p>Whether the algorithm is certified to be listed in Amazon Web Services
+   *             Marketplace.</p>
+   */
+  CertifyForMarketplace?: boolean;
+}
+
+export interface DescribeAppRequest {
+  /**
+   * <p>The domain ID.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
+   */
+  UserProfileName?: string;
+
+  /**
+   * <p>The type of app.</p>
+   */
+  AppType: AppType | string | undefined;
+
+  /**
+   * <p>The name of the app.</p>
+   */
+  AppName: string | undefined;
+
+  /**
+   * <p>The name of the space.</p>
+   */
+  SpaceName?: string;
+}
+
+export interface DescribeAppResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the app.</p>
+   */
+  AppArn?: string;
+
+  /**
+   * <p>The type of app.</p>
+   */
+  AppType?: AppType | string;
+
+  /**
+   * <p>The name of the app.</p>
+   */
+  AppName?: string;
+
+  /**
+   * <p>The domain ID.</p>
+   */
+  DomainId?: string;
+
+  /**
+   * <p>The user profile name.</p>
+   */
+  UserProfileName?: string;
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: AppStatus | string;
+
+  /**
+   * <p>The timestamp of the last health check.</p>
+   */
+  LastHealthCheckTimestamp?: Date;
+
+  /**
+   * <p>The timestamp of the last user's activity. <code>LastUserActivityTimestamp</code> is also updated when SageMaker performs health checks without user activity. As a result, this value is set to the same value as <code>LastHealthCheckTimestamp</code>.</p>
+   */
+  LastUserActivityTimestamp?: Date;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The failure reason.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
+   */
+  ResourceSpec?: ResourceSpec;
+
+  /**
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be set.</p>
+   */
+  SpaceName?: string;
+}
+
+export interface DescribeAppImageConfigRequest {
+  /**
+   * <p>The name of the AppImageConfig to describe.</p>
+   */
+  AppImageConfigName: string | undefined;
+}
+
+export interface DescribeAppImageConfigResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AppImageConfig.</p>
+   */
+  AppImageConfigArn?: string;
+
+  /**
+   * <p>The name of the AppImageConfig.</p>
+   */
+  AppImageConfigName?: string;
+
+  /**
+   * <p>When the AppImageConfig was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>When the AppImageConfig was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The configuration of a KernelGateway app.</p>
+   */
+  KernelGatewayImageConfig?: KernelGatewayImageConfig;
+}
+
+export interface DescribeArtifactRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact to describe.</p>
+   */
+  ArtifactArn: string | undefined;
+}
+
+export interface DescribeArtifactResponse {
+  /**
+   * <p>The name of the artifact.</p>
+   */
+  ArtifactName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
+   */
+  ArtifactArn?: string;
+
+  /**
+   * <p>The source of the artifact.</p>
+   */
+  Source?: ArtifactSource;
+
+  /**
+   * <p>The type of the artifact.</p>
+   */
+  ArtifactType?: string;
+
+  /**
+   * <p>A list of the artifact's properties.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>When the artifact was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>When the artifact was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
+}
+
+export interface DescribeAutoMLJobRequest {
+  /**
+   * <p>Requests information about an AutoML job using its unique name.</p>
+   */
+  AutoMLJobName: string | undefined;
+}
+
+/**
+ * <p>Provides information about the endpoint of the model deployment.</p>
+ */
+export interface ModelDeployResult {
+  /**
+   * <p>The name of the endpoint to which the model has been deployed.</p>
+   *          <note>
+   *             <p>If model deployment fails, this field is omitted from the response.</p>
+   *          </note>
+   */
+  EndpointName?: string;
+}
+
+/**
+ * <p>The resolved attributes.</p>
+ */
+export interface ResolvedAttributes {
+  /**
+   * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
+   */
+  AutoMLJobObjective?: AutoMLJobObjective;
+
+  /**
+   * <p>The problem type.</p>
+   */
+  ProblemType?: ProblemType | string;
+
+  /**
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
+   *          generate.</p>
+   */
+  CompletionCriteria?: AutoMLJobCompletionCriteria;
+}
+
+export interface DescribeAutoMLJobResponse {
+  /**
+   * <p>Returns the name of the AutoML job.</p>
+   */
+  AutoMLJobName: string | undefined;
+
+  /**
+   * <p>Returns the ARN of the AutoML job.</p>
+   */
+  AutoMLJobArn: string | undefined;
+
+  /**
+   * <p>Returns the input data configuration for the AutoML job.</p>
+   */
+  InputDataConfig: AutoMLChannel[] | undefined;
+
+  /**
+   * <p>Returns the job's output data config.</p>
+   */
+  OutputDataConfig: AutoMLOutputDataConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that
+   *          has read permission to the input data location and write permission to the output data
+   *          location in Amazon S3.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Returns the job's objective.</p>
+   */
+  AutoMLJobObjective?: AutoMLJobObjective;
+
+  /**
+   * <p>Returns the job's problem type.</p>
+   */
+  ProblemType?: ProblemType | string;
+
+  /**
+   * <p>Returns the configuration for the AutoML job.</p>
+   */
+  AutoMLJobConfig?: AutoMLJobConfig;
+
+  /**
+   * <p>Returns the creation time of the AutoML job.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Returns the end time of the AutoML job.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>Returns the job's last modified time.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Returns the failure reason for an AutoML job, when applicable.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>Returns a list of reasons for partial failures within an AutoML job.</p>
+   */
+  PartialFailureReasons?: AutoMLPartialFailureReason[];
+
+  /**
+   * <p>The best model candidate selected by SageMaker Autopilot using both the best objective metric and
+   *          lowest <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html">InferenceLatency</a> for
+   *          an experiment.</p>
+   */
+  BestCandidate?: AutoMLCandidate;
+
+  /**
+   * <p>Returns the status of the AutoML job.</p>
+   */
+  AutoMLJobStatus: AutoMLJobStatus | string | undefined;
+
+  /**
+   * <p>Returns the secondary status of the AutoML job.</p>
+   */
+  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
+
+  /**
+   * <p>Indicates whether the output for an AutoML job generates candidate definitions
+   *          only.</p>
+   */
+  GenerateCandidateDefinitionsOnly?: boolean;
+
+  /**
+   * <p>Returns information on the job's artifacts found in
+   *          <code>AutoMLJobArtifacts</code>.</p>
+   */
+  AutoMLJobArtifacts?: AutoMLJobArtifacts;
+
+  /**
+   * <p>Contains <code>ProblemType</code>, <code>AutoMLJobObjective</code>, and
+   *             <code>CompletionCriteria</code>. If you do not provide these values, they are
+   *          auto-inferred. If you do provide them, the values used are the ones you provide.</p>
+   */
+  ResolvedAttributes?: ResolvedAttributes;
+
+  /**
+   * <p>Indicates whether the model was deployed automatically to an endpoint and the name of
+   *          that endpoint if deployed automatically.</p>
+   */
+  ModelDeployConfig?: ModelDeployConfig;
+
+  /**
+   * <p>Provides information about endpoint for the model deployment.</p>
+   */
+  ModelDeployResult?: ModelDeployResult;
+}
+
+export interface DescribeCodeRepositoryInput {
+  /**
+   * <p>The name of the Git repository to describe.</p>
+   */
+  CodeRepositoryName: string | undefined;
+}
+
+export interface DescribeCodeRepositoryOutput {
+  /**
+   * <p>The name of the Git repository.</p>
+   */
+  CodeRepositoryName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
+   */
+  CodeRepositoryArn: string | undefined;
+
+  /**
+   * <p>The date and time that the repository was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the repository was last changed.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Configuration details about the repository, including the URL where the repository is
+   *             located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the
+   *             repository.</p>
+   */
+  GitConfig?: GitConfig;
+}
+
+export interface DescribeCompilationJobRequest {
+  /**
+   * <p>The name of the model compilation job that you want information about.</p>
+   */
+  CompilationJobName: string | undefined;
+}
+
+/**
+ * <p>Provides information about the location that is configured for storing model
+ *             artifacts. </p>
+ *          <p>Model artifacts are the output that results from training a model, and typically
+ *             consist of trained parameters, a model definition that describes how to compute
+ *             inferences, and other metadata.</p>
+ */
+export interface ModelArtifacts {
+  /**
+   * <p>The path of the S3 object that contains the model artifacts. For example,
+   *                 <code>s3://bucket-name/keynameprefix/model.tar.gz</code>.</p>
+   */
+  S3ModelArtifacts: string | undefined;
+}
+
+/**
+ * <p>Provides information to verify the integrity of stored model artifacts. </p>
+ */
+export interface ModelDigests {
+  /**
+   * <p>Provides a hash value that uniquely identifies the stored model
+   *             artifacts.</p>
+   */
+  ArtifactDigest?: string;
+}
+
+export interface DescribeCompilationJobResponse {
+  /**
+   * <p>The name of the model compilation job.</p>
+   */
+  CompilationJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model compilation job.</p>
+   */
+  CompilationJobArn: string | undefined;
+
+  /**
+   * <p>The status of the model compilation job.</p>
+   */
+  CompilationJobStatus: CompilationJobStatus | string | undefined;
+
+  /**
+   * <p>The time when the model compilation job started the <code>CompilationJob</code>
+   *             instances. </p>
+   *          <p>You are billed for the time between this timestamp and the timestamp in the <a>DescribeCompilationJobResponse$CompilationEndTime</a> field. In Amazon CloudWatch Logs,
+   *             the start time might be later than this time. That's because it takes time to download
+   *             the compilation job, which depends on the size of the compilation job container. </p>
+   */
+  CompilationStartTime?: Date;
+
+  /**
+   * <p>The time when the model compilation job on a compilation job instance ended. For a
+   *             successful or stopped job, this is when the job's model artifacts have finished
+   *             uploading. For a failed job, this is when Amazon SageMaker detected that the job failed. </p>
+   */
+  CompilationEndTime?: Date;
+
+  /**
+   * <p>Specifies a limit to how long a model compilation job can run. When the job reaches
+   *             the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training
+   *             costs.</p>
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * <p>The inference image to use when compiling a model.
+   *             Specify an image only if the target device is a cloud instance.</p>
+   */
+  InferenceImage?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the versioned model package that was
+   *     provided to SageMaker Neo when you initiated a compilation job.</p>
+   */
+  ModelPackageVersionArn?: string;
+
+  /**
+   * <p>The time that the model compilation job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The time that the status
+   *             of
+   *             the model compilation job was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>If a model compilation job failed, the reason it failed. </p>
+   */
+  FailureReason: string | undefined;
+
+  /**
+   * <p>Information about the location in Amazon S3 that has been configured for storing the model
+   *             artifacts used in the compilation job.</p>
+   */
+  ModelArtifacts: ModelArtifacts | undefined;
+
+  /**
+   * <p>Provides a BLAKE2 hash value that identifies the compiled model artifacts in Amazon S3.</p>
+   */
+  ModelDigests?: ModelDigests;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker assumes to perform the model
+   *             compilation job.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Information about the location in Amazon S3 of the input model artifacts, the name and
+   *             shape of the expected data inputs, and the framework in which the model was
+   *             trained.</p>
+   */
+  InputConfig: InputConfig | undefined;
+
+  /**
+   * <p>Information about the output location for the compiled model and the target device
+   *             that the model runs on.</p>
+   */
+  OutputConfig: OutputConfig | undefined;
+
+  /**
+   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your
+   *             compilation job to connect to. Control access to your models by
+   *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon
+   *                 Virtual Private Cloud</a>.</p>
+   */
+  VpcConfig?: NeoVpcConfig;
+}
+
+export interface DescribeContextRequest {
+  /**
+   * <p>The name of the context to describe.</p>
+   */
+  ContextName: string | undefined;
+}
+
+export interface DescribeContextResponse {
+  /**
+   * <p>The name of the context.</p>
+   */
+  ContextName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   */
+  ContextArn?: string;
+
+  /**
+   * <p>The source of the context.</p>
+   */
+  Source?: ContextSource;
+
+  /**
+   * <p>The type of the context.</p>
+   */
+  ContextType?: string;
+
+  /**
+   * <p>The description of the context.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of the context's properties.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>When the context was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>When the context was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
+}
+
+export interface DescribeDataQualityJobDefinitionRequest {
+  /**
+   * <p>The name of the data quality monitoring job definition to describe.</p>
+   */
+  JobDefinitionName: string | undefined;
+}
+
+export interface DescribeDataQualityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data quality monitoring job definition.</p>
+   */
+  JobDefinitionArn: string | undefined;
+
+  /**
+   * <p>The name of the data quality monitoring job definition.</p>
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The time that the data quality monitoring job definition was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The constraints and baselines for the data quality monitoring job definition.</p>
+   */
+  DataQualityBaselineConfig?: DataQualityBaselineConfig;
+
+  /**
+   * <p>Information about the container that runs the data quality monitoring job.</p>
+   */
+  DataQualityAppSpecification: DataQualityAppSpecification | undefined;
+
+  /**
+   * <p>The list of inputs for the data quality monitoring job. Currently endpoints are
+   *          supported.</p>
+   */
+  DataQualityJobInput: DataQualityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   */
+  DataQualityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>The networking configuration for the data quality monitoring job.</p>
+   */
+  NetworkConfig?: MonitoringNetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
+   *          perform tasks on your behalf.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   */
+  StoppingCondition?: MonitoringStoppingCondition;
+}
+
+export interface DescribeDeviceRequest {
+  /**
+   * <p>Next token of device description.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The unique ID of the device.</p>
+   */
+  DeviceName: string | undefined;
+
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   */
+  DeviceFleetName: string | undefined;
+}
+
+/**
+ * <p>The model on the edge device.</p>
+ */
+export interface EdgeModel {
+  /**
+   * <p>The name of the model.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The model version.</p>
+   */
+  ModelVersion: string | undefined;
+
+  /**
+   * <p>The timestamp of the last data sample taken.</p>
+   */
+  LatestSampleTime?: Date;
+
+  /**
+   * <p>The timestamp of the last inference that was made.</p>
+   */
+  LatestInference?: Date;
+}
+
+export interface DescribeDeviceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   */
+  DeviceArn?: string;
+
+  /**
+   * <p>The unique identifier of the device.</p>
+   */
+  DeviceName: string | undefined;
+
+  /**
+   * <p>A description of the device.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the fleet the device belongs to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Internet of Things (IoT) object thing name associated with the device.</p>
+   */
+  IotThingName?: string;
+
+  /**
+   * <p>The timestamp of the last registration or de-reregistration.</p>
+   */
+  RegistrationTime: Date | undefined;
+
+  /**
+   * <p>The last heartbeat received from the device.</p>
+   */
+  LatestHeartbeat?: Date;
+
+  /**
+   * <p>Models on the device.</p>
+   */
+  Models?: EdgeModel[];
+
+  /**
+   * <p>The maximum number of models.</p>
+   */
+  MaxModels?: number;
+
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Edge Manager agent version.</p>
+   */
+  AgentVersion?: string;
+}
+
+export interface DescribeDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+}
+
+export interface DescribeDeviceFleetResponse {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the fleet.</p>
+   */
+  DeviceFleetArn: string | undefined;
+
+  /**
+   * <p>The output configuration for storing sampled data.</p>
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>A description of the fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Timestamp of when the device fleet was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Timestamp of when the device fleet was last updated.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of Things (IoT).</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) alias created in Amazon Web Services Internet of Things (IoT).</p>
+   */
+  IotRoleAlias?: string;
+}
+
+export interface DescribeDomainRequest {
+  /**
+   * <p>The domain ID.</p>
+   */
+  DomainId: string | undefined;
+}
+
+export enum DomainStatus {
+  Delete_Failed = "Delete_Failed",
+  Deleting = "Deleting",
+  Failed = "Failed",
+  InService = "InService",
+  Pending = "Pending",
+  Update_Failed = "Update_Failed",
+  Updating = "Updating",
+}
+
+export interface DescribeDomainResponse {
+  /**
+   * <p>The domain's Amazon Resource Name (ARN).</p>
+   */
+  DomainArn?: string;
+
+  /**
+   * <p>The domain ID.</p>
+   */
+  DomainId?: string;
+
+  /**
+   * <p>The domain name.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>The ID of the Amazon Elastic File System (EFS) managed by this Domain.</p>
+   */
+  HomeEfsFileSystemId?: string;
+
+  /**
+   * <p>The IAM Identity Center managed application instance ID.</p>
+   */
+  SingleSignOnManagedApplicationInstanceId?: string;
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: DomainStatus | string;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last modified time.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The failure reason.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The domain's authentication mode.</p>
+   */
+  AuthMode?: AuthMode | string;
+
+  /**
+   * <p>Settings which are applied to UserProfiles in this domain if settings are not explicitly specified
+   *            in a given UserProfile.
+   *        </p>
+   */
+  DefaultUserSettings?: UserSettings;
+
+  /**
+   * <p>Specifies the VPC used for non-EFS traffic. The default value is
+   *         <code>PublicInternetOnly</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by
+   *             Amazon SageMaker, which allows direct internet access</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets</p>
+   *             </li>
+   *          </ul>
+   */
+  AppNetworkAccessType?: AppNetworkAccessType | string;
+
+  /**
+   * @deprecated
+   *
+   * <p>Use <code>KmsKeyId</code>.</p>
+   */
+  HomeEfsFileSystemKmsKeyId?: string;
+
+  /**
+   * <p>The VPC subnets that Studio uses for communication.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>The domain's URL.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The Amazon Web Services KMS customer managed key used to encrypt
+   *          the EFS volume attached to the domain.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>A collection of <code>Domain</code> settings.</p>
+   */
+  DomainSettings?: DomainSettings;
+
+  /**
+   * <p>The entity that creates and manages the required security groups for inter-app
+   *             communication in <code>VPCOnly</code> mode. Required when
+   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *             provided.</p>
+   */
+  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+
+  /**
+   * <p>The ID of the security group that authorizes traffic between the
+   *                 <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
+   */
+  SecurityGroupIdForDomainBoundary?: string;
+
+  /**
+   * <p>The default settings used to create a space.</p>
+   */
+  DefaultSpaceSettings?: DefaultSpaceSettings;
+}
+
+export interface DescribeEdgeDeploymentPlanRequest {
+  /**
+   * <p>The name of the deployment plan to describe.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>If the edge deployment plan has enough stages to require tokening, then this is the response from the last list of stages returned.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to select (50 by default).</p>
+   */
+  MaxResults?: number;
+}
+
+export interface DescribeEdgeDeploymentPlanResponse {
+  /**
+   * <p>The ARN of edge deployment plan.</p>
+   */
+  EdgeDeploymentPlanArn: string | undefined;
+
+  /**
+   * <p>The name of the edge deployment plan.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>List of models associated with the edge deployment plan.</p>
+   */
+  ModelConfigs: EdgeDeploymentModelConfig[] | undefined;
+
+  /**
+   * <p>The device fleet used for this edge deployment plan.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The number of edge devices with the successful deployment.</p>
+   */
+  EdgeDeploymentSuccess?: number;
+
+  /**
+   * <p>The number of edge devices yet to pick up deployment, or in progress.</p>
+   */
+  EdgeDeploymentPending?: number;
+
+  /**
+   * <p>The number of edge devices that failed the deployment.</p>
+   */
+  EdgeDeploymentFailed?: number;
+
+  /**
+   * <p>List of stages in the edge deployment plan.</p>
+   */
+  Stages: DeploymentStageStatusSummary[] | undefined;
+
+  /**
+   * <p>Token to use when calling the next set of stages in the edge deployment plan.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The time when the edge deployment plan was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time when the edge deployment plan was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export interface DescribeEdgePackagingJobRequest {
+  /**
+   * <p>The name of the edge packaging job.</p>
+   */
+  EdgePackagingJobName: string | undefined;
+}
+
+export enum EdgePackagingJobStatus {
+  Completed = "COMPLETED",
+  Failed = "FAILED",
+  InProgress = "INPROGRESS",
+  Starting = "STARTING",
+  Stopped = "STOPPED",
+  Stopping = "STOPPING",
+}
+
+export enum EdgePresetDeploymentStatus {
+  Completed = "COMPLETED",
+  Failed = "FAILED",
+}
+
+/**
+ * <p>The output of a SageMaker Edge Manager deployable resource.</p>
+ */
+export interface EdgePresetDeploymentOutput {
+  /**
+   * <p>The deployment type created by SageMaker Edge Manager. Currently only
+   *      supports Amazon Web Services IoT Greengrass Version 2 components.</p>
+   */
+  Type: EdgePresetDeploymentType | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the generated deployable resource.</p>
+   */
+  Artifact?: string;
+
+  /**
+   * <p>The status of the deployable resource.</p>
+   */
+  Status?: EdgePresetDeploymentStatus | string;
+
+  /**
+   * <p>Returns a message describing the status of the deployed resource.</p>
+   */
+  StatusMessage?: string;
+}
+
+export interface DescribeEdgePackagingJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the edge packaging job.</p>
+   */
+  EdgePackagingJobArn: string | undefined;
+
+  /**
+   * <p>The name of the edge packaging job.</p>
+   */
+  EdgePackagingJobName: string | undefined;
+
+  /**
+   * <p>The name of the SageMaker Neo compilation job that is used to locate model artifacts that are being packaged.</p>
+   */
+  CompilationJobName?: string;
+
+  /**
+   * <p>The name of the model.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>The version of the model.</p>
+   */
+  ModelVersion?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to  download and upload the model, and to contact Neo.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The output configuration for the edge packaging job.</p>
+   */
+  OutputConfig?: EdgeOutputConfig;
+
+  /**
+   * <p>The Amazon Web Services KMS key to use when encrypting the EBS volume the job run on.</p>
+   */
+  ResourceKey?: string;
+
+  /**
+   * <p>The current status of the packaging job.</p>
+   */
+  EdgePackagingJobStatus: EdgePackagingJobStatus | string | undefined;
+
+  /**
+   * <p>Returns a message describing the job status and error messages.</p>
+   */
+  EdgePackagingJobStatusMessage?: string;
+
+  /**
+   * <p>The timestamp of when the packaging job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The timestamp of when the job was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The Amazon Simple Storage (S3) URI where model artifacts ares stored.</p>
+   */
+  ModelArtifact?: string;
+
+  /**
+   * <p>The signature document of files in the model artifact.</p>
+   */
+  ModelSignature?: string;
+
+  /**
+   * <p>The output of a SageMaker Edge Manager deployable resource.</p>
+   */
+  PresetDeploymentOutput?: EdgePresetDeploymentOutput;
+}
+
+export interface DescribeEndpointInput {
+  /**
+   * <p>The name of the endpoint.</p>
+   */
+  EndpointName: string | undefined;
+}
+
+export enum EndpointStatus {
+  CREATING = "Creating",
+  DELETING = "Deleting",
+  FAILED = "Failed",
+  IN_SERVICE = "InService",
+  OUT_OF_SERVICE = "OutOfService",
+  ROLLING_BACK = "RollingBack",
+  SYSTEM_UPDATING = "SystemUpdating",
+  UPDATING = "Updating",
+}
+
+export enum VariantStatus {
+  ACTIVATING_TRAFFIC = "ActivatingTraffic",
+  BAKING = "Baking",
+  CREATING = "Creating",
+  DELETING = "Deleting",
+  UPDATING = "Updating",
+}
+
+/**
+ * <p>Describes the status of the production variant.</p>
+ */
+export interface ProductionVariantStatus {
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or
+   *             operational status.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Creating</code>: Creating inference resources for the production
+   *                     variant.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleting</code>: Terminating inference resources for the production
+   *                     variant.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code>: Updating capacity for the production variant.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ActivatingTraffic</code>: Turning on traffic for the production
+   *                     variant.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Baking</code>: Waiting period to monitor the CloudWatch alarms in the
+   *                     automatic rollback configuration.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status: VariantStatus | string | undefined;
+
+  /**
+   * <p>A message that describes the status of the production variant.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The start time of the current status change.</p>
+   */
+  StartTime?: Date;
+}
+
+/**
+ * <p>The production variant summary for a deployment when an endpoint is creating or
+ *             updating with the <code>
+ *                <a>CreateEndpoint</a>
+ *             </code> or <code>
+ *                <a>UpdateEndpoint</a>
+ *             </code> operations. Describes the <code>VariantStatus
+ *             </code>, weight and capacity for a production variant associated with an endpoint.
+ *         </p>
+ */
+export interface PendingProductionVariantSummary {
+  /**
+   * <p>The name of the variant.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container
+   *             Registry paths of the inference images deployed on instances of this
+   *                 <code>ProductionVariant</code>.</p>
+   */
+  DeployedImages?: DeployedImage[];
+
+  /**
+   * <p>The weight associated with the variant.</p>
+   */
+  CurrentWeight?: number;
+
+  /**
+   * <p>The requested weight for the variant in this deployment, as specified in the endpoint
+   *             configuration for the endpoint. The value is taken from the request to the <code>
+   *                <a>CreateEndpointConfig</a>
+   *             </code> operation.</p>
+   */
+  DesiredWeight?: number;
+
+  /**
+   * <p>The number of instances associated with the variant.</p>
+   */
+  CurrentInstanceCount?: number;
+
+  /**
+   * <p>The number of instances requested in this deployment, as specified in the endpoint
+   *             configuration for the endpoint. The value is taken from the request to the <code>
+   *                <a>CreateEndpointConfig</a>
+   *             </code> operation.</p>
+   */
+  DesiredInstanceCount?: number;
+
+  /**
+   * <p>The type of instances associated with the variant.</p>
+   */
+  InstanceType?: ProductionVariantInstanceType | string;
+
+  /**
+   * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
+   *             instances provide on-demand GPU computing for inference. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
+   *                 Inference in Amazon SageMaker</a>.</p>
+   */
+  AcceleratorType?: ProductionVariantAcceleratorType | string;
+
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or
+   *             operational status.</p>
+   */
+  VariantStatus?: ProductionVariantStatus[];
+
+  /**
+   * <p>The serverless configuration for the endpoint.</p>
+   */
+  CurrentServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
+   */
+  DesiredServerlessConfig?: ProductionVariantServerlessConfig;
+}
+
+/**
+ * <p>The summary of an in-progress deployment when an endpoint is creating or updating with
+ *             a new endpoint configuration.</p>
+ */
+export interface PendingDeploymentSummary {
+  /**
+   * <p>The name of the endpoint configuration used in the deployment. </p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each
+   *             model hosted behind this endpoint for the in-progress deployment.</p>
+   */
+  ProductionVariants?: PendingProductionVariantSummary[];
+
+  /**
+   * <p>The start time of the deployment.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each
+   *             model hosted behind this endpoint in shadow mode with production traffic replicated from
+   *             the model specified on <code>ProductionVariants</code> for the in-progress
+   *             deployment.</p>
+   */
+  ShadowProductionVariants?: PendingProductionVariantSummary[];
+}
+
+/**
+ * <p>Describes weight and capacities for a production variant associated with an
+ *             endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code>
+ *             API and the endpoint status is <code>Updating</code>, you get different desired and
+ *             current values. </p>
+ */
+export interface ProductionVariantSummary {
+  /**
+   * <p>The name of the variant.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the
+   *             inference images deployed on instances of this <code>ProductionVariant</code>.</p>
+   */
+  DeployedImages?: DeployedImage[];
+
+  /**
+   * <p>The weight associated with the variant.</p>
+   */
+  CurrentWeight?: number;
+
+  /**
+   * <p>The requested weight, as specified in the
+   *                 <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
+   */
+  DesiredWeight?: number;
+
+  /**
+   * <p>The number of instances associated with the variant.</p>
+   */
+  CurrentInstanceCount?: number;
+
+  /**
+   * <p>The number of instances requested in the
+   *                 <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
+   */
+  DesiredInstanceCount?: number;
+
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or
+   *             operational status.</p>
+   */
+  VariantStatus?: ProductionVariantStatus[];
+
+  /**
+   * <p>The serverless configuration for the endpoint.</p>
+   */
+  CurrentServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * <p>The serverless configuration requested for the endpoint update.</p>
+   */
+  DesiredServerlessConfig?: ProductionVariantServerlessConfig;
+}
+
+export interface DescribeEndpointOutput {
+  /**
+   * <p>Name of the endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p>The name of the endpoint configuration associated with this endpoint.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>An array of <a>ProductionVariantSummary</a> objects, one for each model
+   *             hosted behind this endpoint.</p>
+   */
+  ProductionVariants?: ProductionVariantSummary[];
+
+  /**
+   * <p>The currently active data capture configuration used by your Endpoint.</p>
+   */
+  DataCaptureConfig?: DataCaptureConfigSummary;
+
+  /**
+   * <p>The status of the endpoint.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>OutOfService</code>: Endpoint is not available to take incoming
+   *                     requests.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be
+   *                     updated or deleted or re-scaled until it has completed. This maintenance
+   *                     operation does not change any customer-specified values such as VPC config, KMS
+   *                     encryption, model, instance type, or instance count.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RollingBack</code>: Endpoint fails to scale up or down or change its
+   *                     variant weight and is in the process of rolling back to its previous
+   *                     configuration. Once the rollback completes, endpoint returns to an
+   *                         <code>InService</code> status. This transitional status only applies to an
+   *                     endpoint that has autoscaling enabled and is undergoing variant weight or
+   *                     capacity changes as part of an <a>UpdateEndpointWeightsAndCapacities</a> call or when the <a>UpdateEndpointWeightsAndCapacities</a> operation is called
+   *                     explicitly.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InService</code>: Endpoint is available to process incoming
+   *                     requests.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
+   *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
+   *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
+   *                     performed on a failed endpoint.</p>
+   *             </li>
+   *          </ul>
+   */
+  EndpointStatus: EndpointStatus | string | undefined;
+
+  /**
+   * <p>If the status of the endpoint is <code>Failed</code>, the reason why it failed.
+   *         </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>A timestamp that shows when the endpoint was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The most recent deployment configuration for the endpoint.</p>
+   */
+  LastDeploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
+   *                <code>CreateEndpointConfig</code>
+   *             </a> API.</p>
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig;
+
+  /**
+   * <p>Returns the summary of an in-progress deployment. This field is only returned when the
+   *             endpoint is creating or updating with a new endpoint configuration.</p>
+   */
+  PendingDeploymentSummary?: PendingDeploymentSummary;
+
+  /**
+   * <p>The configuration parameters for an explainer.</p>
+   */
+  ExplainerConfig?: ExplainerConfig;
+
+  /**
+   * <p>An array of <a>ProductionVariantSummary</a> objects, one for each model
+   *             that you want to host at this endpoint in shadow mode with production traffic replicated
+   *             from the model specified on <code>ProductionVariants</code>.</p>
+   */
+  ShadowProductionVariants?: ProductionVariantSummary[];
+}
+
+export interface DescribeEndpointConfigInput {
+  /**
+   * <p>The name of the endpoint configuration.</p>
+   */
+  EndpointConfigName: string | undefined;
+}
+
+export interface DescribeEndpointConfigOutput {
+  /**
+   * <p>Name of the SageMaker endpoint configuration.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint configuration.</p>
+   */
+  EndpointConfigArn: string | undefined;
+
+  /**
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you
+   *             want to host at this endpoint.</p>
+   */
+  ProductionVariants: ProductionVariant[] | undefined;
+
+  /**
+   * <p>Configuration to control how SageMaker captures inference data.</p>
+   */
+  DataCaptureConfig?: DataCaptureConfig;
+
+  /**
+   * <p>Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on
+   *             the ML storage volume attached to the instance.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>A timestamp that shows when the endpoint configuration was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
+   *                <code>CreateEndpointConfig</code>
+   *             </a> API.</p>
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig;
+
+  /**
+   * <p>The configuration parameters for an explainer.</p>
+   */
+  ExplainerConfig?: ExplainerConfig;
+
+  /**
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
+   *             to host at this endpoint in shadow mode with production traffic replicated from the
+   *             model specified on <code>ProductionVariants</code>.</p>
+   */
+  ShadowProductionVariants?: ProductionVariant[];
+}
+
+export interface DescribeExperimentRequest {
+  /**
+   * <p>The name of the experiment to describe.</p>
+   */
+  ExperimentName: string | undefined;
+}
+
+/**
+ * <p>The source of the experiment.</p>
+ */
+export interface ExperimentSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The source type.</p>
+   */
+  SourceType?: string;
+}
+
+export interface DescribeExperimentResponse {
+  /**
+   * <p>The name of the experiment.</p>
+   */
+  ExperimentName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+
+  /**
+   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified,
+   *         <code>ExperimentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the type.</p>
+   */
+  Source?: ExperimentSource;
+
+  /**
+   * <p>The description of the experiment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>When the experiment was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Who created the experiment.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>When the experiment was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Who last modified the experiment.</p>
+   */
+  LastModifiedBy?: UserContext;
+}
+
+export interface DescribeFeatureGroupRequest {
+  /**
+   * <p>The name of the <code>FeatureGroup</code> you want described. </p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>A token to resume pagination of the list of <code>Features</code>
+   *             (<code>FeatureDefinitions</code>). 2,500 <code>Features</code> are returned by
+   *          default.</p>
+   */
+  NextToken?: string;
+}
+
+export enum FeatureGroupStatus {
+  CREATED = "Created",
+  CREATE_FAILED = "CreateFailed",
+  CREATING = "Creating",
+  DELETE_FAILED = "DeleteFailed",
+  DELETING = "Deleting",
+}
+
+export enum LastUpdateStatusValue {
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  SUCCESSFUL = "Successful",
+}
+
+/**
+ * <p>A value that indicates whether the update was successful.</p>
+ */
+export interface LastUpdateStatus {
+  /**
+   * <p>A value that indicates whether the update was made successful.</p>
+   */
+  Status: LastUpdateStatusValue | string | undefined;
+
+  /**
+   * <p>If the update wasn't successful, indicates the reason why it failed.</p>
+   */
+  FailureReason?: string;
+}
+
+export enum OfflineStoreStatusValue {
+  ACTIVE = "Active",
+  BLOCKED = "Blocked",
+  DISABLED = "Disabled",
+}
+
+/**
+ * <p>The status of <code>OfflineStore</code>.</p>
+ */
+export interface OfflineStoreStatus {
+  /**
+   * <p>An <code>OfflineStore</code> status.</p>
+   */
+  Status: OfflineStoreStatusValue | string | undefined;
+
+  /**
+   * <p>The justification for why the OfflineStoreStatus is Blocked (if applicable).</p>
+   */
+  BlockedReason?: string;
+}
+
+export interface DescribeFeatureGroupResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>.  </p>
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * <p>he name of the <code>FeatureGroup</code>.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the <code>Feature</code> used for <code>RecordIdentifier</code>, whose value
+   *          uniquely identifies a record stored in the feature store.</p>
+   */
+  RecordIdentifierFeatureName: string | undefined;
+
+  /**
+   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a
+   *          <code>FeatureGroup</code>.</p>
+   *          <p> An <code>EventTime</code> is a point in time when a new event occurs that
+   *          corresponds to the creation or update of a <code>Record</code> in a
+   *             <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code>
+   *          have a corresponding <code>EventTime</code>.</p>
+   */
+  EventTimeFeatureName: string | undefined;
+
+  /**
+   * <p>A list of the <code>Features</code> in the <code>FeatureGroup</code>.
+   *          Each feature is defined by a <code>FeatureName</code> and <code>FeatureType</code>.</p>
+   */
+  FeatureDefinitions: FeatureDefinition[] | undefined;
+
+  /**
+   * <p>A timestamp indicating when SageMaker created the <code>FeatureGroup</code>.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating when the feature group was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The configuration for the <code>OnlineStore</code>.</p>
+   */
+  OnlineStoreConfig?: OnlineStoreConfig;
+
+  /**
+   * <p>The configuration of the offline store. It includes the following configurations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon S3 location of the offline store.</p>
+   *             </li>
+   *             <li>
+   *                <p>Configuration of the Glue data catalog.</p>
+   *             </li>
+   *             <li>
+   *                <p>Table format of the offline store.</p>
+   *             </li>
+   *             <li>
+   *                <p>Option to disable the automatic creation of a Glue table for the offline store.</p>
+   *             </li>
+   *             <li>
+   *                <p>Encryption configuration.</p>
+   *             </li>
+   *          </ul>
+   */
+  OfflineStoreConfig?: OfflineStoreConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the OfflineStore if an OfflineStoreConfig is provided.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The status of the feature group.</p>
+   */
+  FeatureGroupStatus?: FeatureGroupStatus | string;
+
+  /**
+   * <p>The status of the <code>OfflineStore</code>. Notifies you if replicating data into the
+   *             <code>OfflineStore</code> has failed. Returns either: <code>Active</code> or
+   *             <code>Blocked</code>
+   *          </p>
+   */
+  OfflineStoreStatus?: OfflineStoreStatus;
+
+  /**
+   * <p>A value indicating whether the update made to the feature group was successful.</p>
+   */
+  LastUpdateStatus?: LastUpdateStatus;
+
+  /**
+   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the
+   *             <code>OfflineStore</code>. This is failure can occur because:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The <code>FeatureGroup</code> could not be created in the
+   *                   <code>OfflineStore</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>FeatureGroup</code> could not be deleted from the
+   *                   <code>OfflineStore</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>A free form description of the feature group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A token to resume pagination of the list of <code>Features</code>
+   *             (<code>FeatureDefinitions</code>).</p>
+   */
+  NextToken: string | undefined;
+
+  /**
+   * <p>The size of the <code>OnlineStore</code> in bytes.</p>
+   */
+  OnlineStoreTotalSizeBytes?: number;
+}
+
+export interface DescribeFeatureMetadataRequest {
+  /**
+   * <p>The name of the feature group containing the feature.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature.</p>
+   */
+  FeatureName: string | undefined;
+}
+
+/**
+ * <p>A key-value pair that you specify to describe the feature.</p>
+ */
+export interface FeatureParameter {
+  /**
+   * <p>A key that must contain a value to describe the feature.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value that belongs to a key.</p>
+   */
+  Value?: string;
+}
+
+export interface DescribeFeatureMetadataResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the feature group that contains the feature.</p>
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * <p>The name of the feature group that you've specified.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature that you've specified.</p>
+   */
+  FeatureName: string | undefined;
+
+  /**
+   * <p>The data type of the feature.</p>
+   */
+  FeatureType: FeatureType | string | undefined;
+
+  /**
+   * <p>A timestamp indicating when the feature was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating when the metadata for the feature group was modified. For example, if you add a parameter describing the feature, the timestamp changes to reflect the last time you </p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The description you added to describe the feature.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The key-value pairs that you added to describe the feature.</p>
+   */
+  Parameters?: FeatureParameter[];
+}
+
+export interface DescribeFlowDefinitionRequest {
+  /**
+   * <p>The name of the flow definition.</p>
+   */
+  FlowDefinitionName: string | undefined;
+}
+
+export enum FlowDefinitionStatus {
+  ACTIVE = "Active",
+  DELETING = "Deleting",
+  FAILED = "Failed",
+  INITIALIZING = "Initializing",
+}
+
+export interface DescribeFlowDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow defintion.</p>
+   */
+  FlowDefinitionArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
+   */
+  FlowDefinitionName: string | undefined;
+
+  /**
+   * <p>The status of the flow definition. Valid values are listed below.</p>
+   */
+  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
+
+  /**
+   * <p>The timestamp when the flow definition was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Container for configuring the source of human task requests. Used to specify if
+   *       Amazon Rekognition or Amazon Textract is used as an integration source.</p>
+   */
+  HumanLoopRequestSource?: HumanLoopRequestSource;
+
+  /**
+   * <p>An object containing information about what triggers a human review workflow.</p>
+   */
+  HumanLoopActivationConfig?: HumanLoopActivationConfig;
+
+  /**
+   * <p>An object containing information about who works on the task, the workforce task price, and other task details.</p>
+   */
+  HumanLoopConfig: HumanLoopConfig | undefined;
+
+  /**
+   * <p>An object containing information about the output file.</p>
+   */
+  OutputConfig: FlowDefinitionOutputConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) execution role for the flow definition.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The reason your flow definition failed.</p>
+   */
+  FailureReason?: string;
+}
+
+export interface DescribeHubRequest {
+  /**
+   * <p>The name of the hub to describe.</p>
+   */
+  HubName: string | undefined;
+}
+
+export enum HubStatus {
+  CREATE_FAILED = "CreateFailed",
+  CREATING = "Creating",
+  DELETE_FAILED = "DeleteFailed",
+  DELETING = "Deleting",
+  IN_SERVICE = "InService",
+  UPDATE_FAILED = "UpdateFailed",
+  UPDATING = "Updating",
+}
+
+export interface DescribeHubResponse {
+  /**
+   * <p>The name of the hub.</p>
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub.</p>
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The display name of the hub.</p>
+   */
+  HubDisplayName?: string;
+
+  /**
+   * <p>A description of the hub.</p>
+   */
+  HubDescription?: string;
+
+  /**
+   * <p>The searchable keywords for the hub.</p>
+   */
+  HubSearchKeywords?: string[];
+
+  /**
+   * <p>The Amazon S3 storage configuration for the hub.</p>
+   */
+  S3StorageConfig?: HubS3StorageConfig;
+
+  /**
+   * <p>The status of the hub.</p>
+   */
+  HubStatus: HubStatus | string | undefined;
+
+  /**
+   * <p>The failure reason if importing hub content failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The date and time that the hub was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the hub was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+export interface DescribeHubContentRequest {
+  /**
+   * <p>The name of the hub that contains the content to describe.</p>
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The type of content in the hub.</p>
+   */
+  HubContentType: HubContentType | string | undefined;
+
+  /**
+   * <p>The name of the content to describe.</p>
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The version of the content to describe.</p>
+   */
+  HubContentVersion?: string;
+}
+
+/**
+ * <p>Any dependencies related to hub content, such as scripts, model artifacts, datasets, or notebooks.</p>
+ */
+export interface HubContentDependency {
+  /**
+   * <p>The hub content dependency origin path.</p>
+   */
+  DependencyOriginPath?: string;
+
+  /**
+   * <p>The hub content dependency copy path.</p>
+   */
+  DependencyCopyPath?: string;
+}
+
+export enum HubContentStatus {
+  AVAILABLE = "Available",
+  DELETE_FAILED = "DeleteFailed",
+  DELETING = "Deleting",
+  IMPORTING = "Importing",
+  IMPORT_FAILED = "ImportFailed",
+}
+
+export interface DescribeHubContentResponse {
+  /**
+   * <p>The name of the hub content.</p>
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub content.</p>
+   */
+  HubContentArn: string | undefined;
+
+  /**
+   * <p>The version of the hub content.</p>
+   */
+  HubContentVersion: string | undefined;
+
+  /**
+   * <p>The type of hub content.</p>
+   */
+  HubContentType: HubContentType | string | undefined;
+
+  /**
+   * <p>The document schema version for the hub content.</p>
+   */
+  DocumentSchemaVersion: string | undefined;
+
+  /**
+   * <p>The name of the hub that contains the content.</p>
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub that contains the content. </p>
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The display name of the hub content.</p>
+   */
+  HubContentDisplayName?: string;
+
+  /**
+   * <p>A description of the hub content.</p>
+   */
+  HubContentDescription?: string;
+
+  /**
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
+   */
+  HubContentMarkdown?: string;
+
+  /**
+   * <p>The hub content document that describes information about the hub content such as type, associated containers, scripts, and more.</p>
+   */
+  HubContentDocument: string | undefined;
+
+  /**
+   * <p>The searchable keywords for the hub content.</p>
+   */
+  HubContentSearchKeywords?: string[];
+
+  /**
+   * <p>The location of any dependencies that the hub content has, such as scripts, model artifacts, datasets, or notebooks.</p>
+   */
+  HubContentDependencies?: HubContentDependency[];
+
+  /**
+   * <p>The status of the hub content.</p>
+   */
+  HubContentStatus: HubContentStatus | string | undefined;
+
+  /**
+   * <p>The failure reason if importing hub content failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The date and time that hub content was created.</p>
+   */
+  CreationTime: Date | undefined;
+}
+
+export interface DescribeHumanTaskUiRequest {
+  /**
+   * <p>The name of the human task user interface
+   *       (worker task template) you want information about.</p>
+   */
+  HumanTaskUiName: string | undefined;
+}
+
+export enum HumanTaskUiStatus {
+  ACTIVE = "Active",
+  DELETING = "Deleting",
+}
+
+/**
+ * <p>Container for user interface template information.</p>
+ */
+export interface UiTemplateInfo {
+  /**
+   * <p>The URL for the user interface template.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The SHA-256 digest of the contents of the template.</p>
+   */
+  ContentSha256?: string;
+}
+
+export interface DescribeHumanTaskUiResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the human task user interface (worker task template).</p>
+   */
+  HumanTaskUiArn: string | undefined;
+
+  /**
+   * <p>The name of the human task user interface (worker task template).</p>
+   */
+  HumanTaskUiName: string | undefined;
+
+  /**
+   * <p>The status of the human task user interface (worker task template). Valid values are listed below.</p>
+   */
+  HumanTaskUiStatus?: HumanTaskUiStatus | string;
+
+  /**
+   * <p>The timestamp when the human task user interface was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Container for user interface template information.</p>
+   */
+  UiTemplate: UiTemplateInfo | undefined;
+}
 
 export interface DescribeHyperParameterTuningJobRequest {
   /**
@@ -257,9 +2776,9 @@ export interface HyperParameterTrainingJobSummary {
 
   /**
    * <p>The status of the objective metric for the training job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Succeeded: The
+   *                <p>Succeeded: The
    *                     final
    *                     objective metric for the training job was evaluated by the
    *                     hyperparameter tuning job and
@@ -267,15 +2786,15 @@ export interface HyperParameterTrainingJobSummary {
    *                     in the hyperparameter tuning process.</p>
    *             </li>
    *          </ul>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Pending: The training job is in progress and evaluation of its final objective
+   *                <p>Pending: The training job is in progress and evaluation of its final objective
    *                     metric is pending.</p>
    *             </li>
    *          </ul>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Failed:
+   *                <p>Failed:
    *                     The final objective metric for the training job was not evaluated, and was not
    *                     used in the hyperparameter tuning process. This typically occurs when the
    *                     training job failed or did not emit an objective
@@ -284,6 +2803,16 @@ export interface HyperParameterTrainingJobSummary {
    *          </ul>
    */
   ObjectiveStatus?: ObjectiveStatus | string;
+}
+
+/**
+ * <p>The total resources consumed by your hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTuningJobConsumedResources {
+  /**
+   * <p>The wall clock runtime in seconds used by your hyperparameter tuning job.</p>
+   */
+  RuntimeInSeconds?: number;
 }
 
 export enum HyperParameterTuningJobStatus {
@@ -360,6 +2889,21 @@ export interface TrainingJobStatusCounters {
   Stopped?: number;
 }
 
+/**
+ * <p>A structure that contains runtime information about both current and completed hyperparameter tuning jobs.</p>
+ */
+export interface HyperParameterTuningJobCompletionDetails {
+  /**
+   * <p>The number of training jobs launched by a tuning job that are not improving (1% or less) as measured by model performance evaluated against an objective function.</p>
+   */
+  NumberOfTrainingJobsObjectiveNotImproving?: number;
+
+  /**
+   * <p>The time in timestamp format that AMT detected model convergence, as defined by a lack of significant improvement over time based on criteria developed over a wide range of diverse benchmarking tests.</p>
+   */
+  ConvergenceDetectedTime?: Date;
+}
+
 export interface DescribeHyperParameterTuningJobResponse {
   /**
    * <p>The name of the tuning job.</p>
@@ -367,8 +2911,7 @@ export interface DescribeHyperParameterTuningJobResponse {
   HyperParameterTuningJobName: string | undefined;
 
   /**
-   * <p>The
-   *             Amazon Resource Name (ARN) of the tuning job.</p>
+   * <p>The Amazon Resource Name (ARN) of the tuning job.</p>
    */
   HyperParameterTuningJobArn: string | undefined;
 
@@ -451,6 +2994,16 @@ export interface DescribeHyperParameterTuningJobResponse {
    * <p>If the tuning job failed, the reason it failed.</p>
    */
   FailureReason?: string;
+
+  /**
+   * <p>Tuning job completion information returned as the response from a hyperparameter tuning job. This information tells if your tuning job has or has not converged. It also includes the number of training jobs that have not improved model performance as evaluated against the objective function.</p>
+   */
+  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails;
+
+  /**
+   * <p>The total resources consumed by your hyperparameter tuning job.</p>
+   */
+  ConsumedResources?: HyperParameterTuningJobConsumedResources;
 }
 
 export interface DescribeImageRequest {
@@ -492,7 +3045,7 @@ export interface DescribeImageResponse {
   FailureReason?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   * <p>The ARN of the image.</p>
    */
   ImageArn?: string;
 
@@ -512,7 +3065,7 @@ export interface DescribeImageResponse {
   LastModifiedTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   * <p>The ARN of the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
    */
   RoleArn?: string;
 }
@@ -527,6 +3080,11 @@ export interface DescribeImageVersionRequest {
    * <p>The version of the image. If not specified, the latest version is described.</p>
    */
   Version?: number;
+
+  /**
+   * <p>The alias of the image version.</p>
+   */
+  Alias?: string;
 }
 
 export enum ImageVersionStatus {
@@ -559,7 +3117,7 @@ export interface DescribeImageVersionResponse {
   FailureReason?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image the version is based on.</p>
+   * <p>The ARN of the image the version is based on.</p>
    */
   ImageArn?: string;
 
@@ -582,6 +3140,341 @@ export interface DescribeImageVersionResponse {
    * <p>The version number.</p>
    */
   Version?: number;
+
+  /**
+   * <p>The stability of the image version specified by the maintainer.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STABLE</code>: The image version is stable.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p>
+   *             </li>
+   *          </ul>
+   */
+  VendorGuidance?: VendorGuidance | string;
+
+  /**
+   * <p>Indicates SageMaker job type compatibility.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p>
+   *             </li>
+   *          </ul>
+   */
+  JobType?: JobType | string;
+
+  /**
+   * <p>The machine learning framework vended in the image version.</p>
+   */
+  MLFramework?: string;
+
+  /**
+   * <p>The supported programming language and its version.</p>
+   */
+  ProgrammingLang?: string;
+
+  /**
+   * <p>Indicates CPU or GPU compatibility.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CPU</code>: The image version is compatible with CPU.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU</code>: The image version is compatible with GPU.</p>
+   *             </li>
+   *          </ul>
+   */
+  Processor?: Processor | string;
+
+  /**
+   * <p>Indicates Horovod compatibility.</p>
+   */
+  Horovod?: boolean;
+
+  /**
+   * <p>The maintainer description of the image version.</p>
+   */
+  ReleaseNotes?: string;
+}
+
+export interface DescribeInferenceExperimentRequest {
+  /**
+   * <p>The name of the inference experiment to describe.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * <p>The metadata of the endpoint.</p>
+ */
+export interface EndpointMetadata {
+  /**
+   * <p>The name of the endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The name of the endpoint configuration.</p>
+   */
+  EndpointConfigName?: string;
+
+  /**
+   * <p>
+   *            The status of the endpoint. For possible values of the status of an endpoint, see <a>EndpointSummary$EndpointStatus</a>.
+   *        </p>
+   */
+  EndpointStatus?: EndpointStatus | string;
+
+  /**
+   * <p>
+   *            If the status of the endpoint is <code>Failed</code>, or the status is <code>InService</code> but update
+   *            operation fails, this provides the reason why it failed.
+   *        </p>
+   */
+  FailureReason?: string;
+}
+
+export enum ModelVariantStatus {
+  CREATING = "Creating",
+  DELETED = "Deleted",
+  DELETING = "Deleting",
+  IN_SERVICE = "InService",
+  UPDATING = "Updating",
+}
+
+/**
+ * <p>Summary of the deployment configuration of a model.</p>
+ */
+export interface ModelVariantConfigSummary {
+  /**
+   * <p>The name of the Amazon SageMaker Model entity.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The name of the variant.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>The configuration of the infrastructure that the model has been deployed to.</p>
+   */
+  InfrastructureConfig: ModelInfrastructureConfig | undefined;
+
+  /**
+   * <p>The status of deployment for the model variant on the hosted inference endpoint.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Creating</code> - Amazon SageMaker is preparing the model variant on the hosted inference endpoint.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InService</code> - The model variant is running on the hosted inference endpoint.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code> - Amazon SageMaker is updating the model variant on the hosted inference endpoint.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleting</code> - Amazon SageMaker is deleting the model variant on the hosted inference endpoint.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleted</code> - The model variant has been deleted on the hosted inference endpoint. This
+   *                     can only happen after stopping the experiment.
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  Status: ModelVariantStatus | string | undefined;
+}
+
+export enum InferenceExperimentStatus {
+  CANCELLED = "Cancelled",
+  COMPLETED = "Completed",
+  CREATED = "Created",
+  CREATING = "Creating",
+  RUNNING = "Running",
+  STARTING = "Starting",
+  STOPPING = "Stopping",
+  UPDATING = "Updating",
+}
+
+export interface DescribeInferenceExperimentResponse {
+  /**
+   * <p>The ARN of the inference experiment being described.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the inference experiment.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of the inference experiment.</p>
+   */
+  Type: InferenceExperimentType | string | undefined;
+
+  /**
+   * <p>The duration for which the inference experiment ran or will run.</p>
+   */
+  Schedule?: InferenceExperimentSchedule;
+
+  /**
+   * <p>
+   *            The status of the inference experiment. The following are the possible statuses for an inference
+   *            experiment:
+   *        </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Creating</code> - Amazon SageMaker is creating your experiment.
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Created</code> - Amazon SageMaker has finished the creation of your experiment and will begin the
+   *                    experiment at the scheduled time.
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code> - When you make changes to your experiment, your experiment shows as updating.
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Starting</code> - Amazon SageMaker is beginning your experiment.
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Running</code> - Your experiment is in progress.
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Stopping</code> - Amazon SageMaker is stopping your experiment.
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Completed</code> - Your experiment has completed.
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Cancelled</code> - When you conclude your experiment early using the <a>StopInferenceExperiment</a> API, or if any operation fails with an unexpected error, it shows
+   *                    as cancelled.
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status: InferenceExperimentStatus | string | undefined;
+
+  /**
+   * <p>
+   *            The error message or client-specified <code>Reason</code> from the <a>StopInferenceExperiment</a>
+   *            API, that explains the status of the inference experiment.
+   *        </p>
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>The description of the inference experiment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The timestamp at which you created the inference experiment.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>
+   *            The timestamp at which the inference experiment was completed.
+   *        </p>
+   */
+  CompletionTime?: Date;
+
+  /**
+   * <p>The timestamp at which you last modified the inference experiment.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>
+   *            The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage
+   *            Amazon SageMaker Inference endpoints for model deployment.
+   *        </p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The metadata of the endpoint on which the inference experiment ran.</p>
+   */
+  EndpointMetadata: EndpointMetadata | undefined;
+
+  /**
+   * <p>
+   *            An array of <code>ModelVariantConfigSummary</code> objects. There is one for each variant in the inference
+   *            experiment. Each <code>ModelVariantConfigSummary</code> object in the array describes the infrastructure
+   *            configuration for deploying the corresponding variant.
+   *        </p>
+   */
+  ModelVariants: ModelVariantConfigSummary[] | undefined;
+
+  /**
+   * <p>The Amazon S3 location and configuration for storing inference request and response data.</p>
+   */
+  DataStorageConfig?: InferenceExperimentDataStorageConfig;
+
+  /**
+   * <p>
+   *            The configuration of <code>ShadowMode</code> inference experiment type, which shows the production variant
+   *            that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the
+   *            inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
+   *        </p>
+   */
+  ShadowModeConfig?: ShadowModeConfig;
+
+  /**
+   * <p>
+   *            The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on
+   *            the storage volume attached to the ML compute instance that hosts the endpoint. For more information, see
+   *            <a>CreateInferenceExperimentRequest$KmsKey</a>.
+   *        </p>
+   */
+  KmsKey?: string;
 }
 
 export interface DescribeInferenceRecommendationsJobRequest {
@@ -590,6 +3483,36 @@ export interface DescribeInferenceRecommendationsJobRequest {
    *            Amazon Web Services Region in the Amazon Web Services account.</p>
    */
   JobName: string | undefined;
+}
+
+/**
+ * <p>The metrics for an existing endpoint compared in an Inference Recommender job.</p>
+ */
+export interface InferenceMetrics {
+  /**
+   * <p>The expected maximum number of requests per minute for the instance.</p>
+   */
+  MaxInvocations: number | undefined;
+
+  /**
+   * <p>The expected model latency at maximum invocations per minute for the instance.</p>
+   */
+  ModelLatency: number | undefined;
+}
+
+/**
+ * <p>The performance results from running an Inference Recommender job on an existing endpoint.</p>
+ */
+export interface EndpointPerformance {
+  /**
+   * <p>The metrics for an existing endpoint.</p>
+   */
+  Metrics: InferenceMetrics | undefined;
+
+  /**
+   * <p>Details about a customer endpoint that was compared in an Inference Recommender job.</p>
+   */
+  EndpointInfo: EndpointInfo | undefined;
 }
 
 /**
@@ -640,6 +3563,20 @@ export interface RecommendationMetrics {
    * <p>The expected model latency at maximum invocation per minute for the instance.</p>
    */
   ModelLatency: number | undefined;
+
+  /**
+   * <p>The expected CPU utilization at maximum invocations per minute for the instance.</p>
+   *          <p>
+   *             <code>NaN</code> indicates that the value is not available.</p>
+   */
+  CpuUtilization?: number;
+
+  /**
+   * <p>The expected memory utilization at maximum invocations per minute for the instance.</p>
+   *          <p>
+   *             <code>NaN</code> indicates that the value is not available.</p>
+   */
+  MemoryUtilization?: number;
 }
 
 /**
@@ -675,6 +3612,11 @@ export interface ModelConfiguration {
    * <p>Defines the environment parameters that includes key, value types, and values.</p>
    */
   EnvironmentParameters?: EnvironmentParameter[];
+
+  /**
+   * <p>The name of the compilation job used to create the recommended model artifacts.</p>
+   */
+  CompilationJobName?: string;
 }
 
 /**
@@ -695,6 +3637,11 @@ export interface InferenceRecommendation {
    * <p>Defines the model configuration.</p>
    */
   ModelConfiguration: ModelConfiguration | undefined;
+
+  /**
+   * <p>The recommendation ID which uniquely identifies each recommendation.</p>
+   */
+  RecommendationId?: string;
 }
 
 export enum RecommendationJobStatus {
@@ -774,6 +3721,11 @@ export interface DescribeInferenceRecommendationsJobResponse {
    * <p>The recommendations made by Inference Recommender.</p>
    */
   InferenceRecommendations?: InferenceRecommendation[];
+
+  /**
+   * <p>The performance results from running an Inference Recommender job on an existing endpoint.</p>
+   */
+  EndpointPerformances?: EndpointPerformance[];
 }
 
 export interface DescribeLabelingJobRequest {
@@ -894,8 +3846,8 @@ export interface DescribeLabelingJobResponse {
   InputConfig: LabelingJobInputConfig | undefined;
 
   /**
-   * <p>The location of the job's output data and the Amazon Web Services Key Management Service key ID for the key used to
-   *             encrypt the output data, if any.</p>
+   * <p>The location of the job's output data and the Amazon Web Services Key Management
+   *             Service key ID for the key used to encrypt the output data, if any.</p>
    */
   OutputConfig: LabelingJobOutputConfig | undefined;
 
@@ -908,60 +3860,60 @@ export interface DescribeLabelingJobResponse {
   /**
    * <p>The S3 location of the JSON file that defines the categories used to label data
    *             objects. Please note the following label-category limits:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Semantic segmentation labeling jobs using automated labeling: 20 labels</p>
+   *                <p>Semantic segmentation labeling jobs using automated labeling: 20 labels</p>
    *             </li>
    *             <li>
-   *                 <p>Box bounding labeling jobs (all): 10 labels</p>
+   *                <p>Box bounding labeling jobs (all): 10 labels</p>
    *             </li>
    *          </ul>
-   *         <p>The file is a JSON structure in the following format:</p>
-   *         <p>
+   *          <p>The file is a JSON structure in the following format:</p>
+   *          <p>
    *             <code>{</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> "document-version": "2018-11-28"</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> "labels": [</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> {</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> "label": "<i>label 1</i>"</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> },</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> {</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> "label": "<i>label 2</i>"</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> },</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> ...</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> {</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> "label": "<i>label n</i>"</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> }</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> ]</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code>}</code>
-   *         </p>
+   *          </p>
    */
   LabelCategoryConfigS3Uri?: string;
 
@@ -983,10 +3935,9 @@ export interface DescribeLabelingJobResponse {
   HumanTaskConfig: HumanTaskConfig | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 
@@ -1031,7 +3982,7 @@ export interface DescribeLineageGroupResponse {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   CreatedBy?: UserContext;
 
@@ -1042,7 +3993,7 @@ export interface DescribeLineageGroupResponse {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   LastModifiedBy?: UserContext;
 }
@@ -1176,6 +4127,222 @@ export interface DescribeModelBiasJobDefinitionResponse {
   StoppingCondition?: MonitoringStoppingCondition;
 }
 
+export interface DescribeModelCardRequest {
+  /**
+   * <p>The name of the model card to describe.</p>
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The version of the model card to describe. If a version is not provided, then the latest version of the model card is described.</p>
+   */
+  ModelCardVersion?: number;
+}
+
+export enum ModelCardProcessingStatus {
+  CONTENT_DELETED = "ContentDeleted",
+  DELETE_COMPLETED = "DeleteCompleted",
+  DELETE_FAILED = "DeleteFailed",
+  DELETE_INPROGRESS = "DeleteInProgress",
+  DELETE_PENDING = "DeletePending",
+  EXPORTJOBS_DELETED = "ExportJobsDeleted",
+}
+
+export interface DescribeModelCardResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card.</p>
+   */
+  ModelCardArn: string | undefined;
+
+  /**
+   * <p>The name of the model card.</p>
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The version of the model card.</p>
+   */
+  ModelCardVersion: number | undefined;
+
+  /**
+   * <p>The content of the model card.</p>
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Draft</code>: The model card is a work in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PendingReview</code>: The model card is pending review.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Approved</code>: The model card is approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Archived</code>: The model card is archived. No more updates should be made to the model
+   *                card, but it can still be exported.</p>
+   *             </li>
+   *          </ul>
+   */
+  ModelCardStatus: ModelCardStatus | string | undefined;
+
+  /**
+   * <p>The security configuration used to protect model card content.</p>
+   */
+  SecurityConfig?: ModelCardSecurityConfig;
+
+  /**
+   * <p>The date and time the model card was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy: UserContext | undefined;
+
+  /**
+   * <p>The date and time the model card was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>The processing status of model card deletion. The <code>ModelCardProcessingStatus</code> updates throughout the different deletion steps.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DeletePending</code>: Model card deletion request received.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeleteInProgress</code>: Model card deletion is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ContentDeleted</code>: Deleted model card content.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ExportJobsDeleted</code>: Deleted all export jobs associated with the model card.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeleteCompleted</code>: Successfully deleted the model card.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeleteFailed</code>: The model card failed to delete.</p>
+   *             </li>
+   *          </ul>
+   */
+  ModelCardProcessingStatus?: ModelCardProcessingStatus | string;
+}
+
+export interface DescribeModelCardExportJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card export job to describe.</p>
+   */
+  ModelCardExportJobArn: string | undefined;
+}
+
+/**
+ * <p>The artifacts of the model card export job.</p>
+ */
+export interface ModelCardExportArtifacts {
+  /**
+   * <p>The Amazon S3 URI of the exported model artifacts.</p>
+   */
+  S3ExportArtifacts: string | undefined;
+}
+
+export enum ModelCardExportJobStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+}
+
+export interface DescribeModelCardExportJobResponse {
+  /**
+   * <p>The name of the model card export job to describe.</p>
+   */
+  ModelCardExportJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card export job.</p>
+   */
+  ModelCardExportJobArn: string | undefined;
+
+  /**
+   * <p>The completion status of the model card export job.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InProgress</code>: The model card export job is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Completed</code>: The model card export job is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code>: The model card export job failed. To see the reason for the failure, see
+   *                the <code>FailureReason</code> field in the response to a
+   *                   <code>DescribeModelCardExportJob</code> call.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status: ModelCardExportJobStatus | string | undefined;
+
+  /**
+   * <p>The name of the model card that the model export job exports.</p>
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The version of the model card that the model export job exports.</p>
+   */
+  ModelCardVersion: number | undefined;
+
+  /**
+   * <p>The export output details for the model card.</p>
+   */
+  OutputConfig: ModelCardExportOutputConfig | undefined;
+
+  /**
+   * <p>The date and time that the model export job was created.</p>
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the model export job was last modified.</p>
+   */
+  LastModifiedAt: Date | undefined;
+
+  /**
+   * <p>The failure reason if the model export job fails.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The exported model card artifacts.</p>
+   */
+  ExportArtifacts?: ModelCardExportArtifacts;
+}
+
 export interface DescribeModelExplainabilityJobDefinitionRequest {
   /**
    * <p>The name of the model explainability job definition. The name must be unique within an
@@ -1248,7 +4415,7 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
 export interface DescribeModelPackageInput {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p>
-   *         <p>When you specify a name, the name must have 1 to 63 characters. Valid
+   *          <p>When you specify a name, the name must have 1 to 63 characters. Valid
    *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
    */
   ModelPackageName: string | undefined;
@@ -1367,7 +4534,7 @@ export interface DescribeModelPackageOutput {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   CreatedBy?: UserContext;
 
@@ -1388,7 +4555,7 @@ export interface DescribeModelPackageOutput {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -1474,7 +4641,7 @@ export interface DescribeModelPackageGroupOutput {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   CreatedBy: UserContext | undefined;
 
@@ -1772,8 +4939,8 @@ export interface DescribeNotebookInstanceOutput {
   RoleArn?: string;
 
   /**
-   * <p>The Amazon Web Services KMS key ID SageMaker uses to encrypt data when storing it on the ML storage
-   *             volume attached to the instance. </p>
+   * <p>The Amazon Web Services KMS key ID SageMaker uses to encrypt data when storing it on the
+   *             ML storage volume attached to the instance. </p>
    */
   KmsKeyId?: string;
 
@@ -1797,9 +4964,9 @@ export interface DescribeNotebookInstanceOutput {
 
   /**
    * <p>Returns the name of a notebook instance lifecycle configuration.</p>
-   *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+   *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
    *                 2.1: (Optional) Customize a Notebook Instance</a>
-   *         </p>
+   *          </p>
    */
   NotebookInstanceLifecycleConfigName?: string;
 
@@ -1807,7 +4974,7 @@ export interface DescribeNotebookInstanceOutput {
    * <p>Describes whether SageMaker provides internet access to the notebook instance. If this
    *             value is set to <i>Disabled</i>, the notebook instance does not have
    *             internet access, and cannot connect to SageMaker training and endpoint services.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>.</p>
    */
   DirectInternetAccess?: DirectInternetAccess | string;
 
@@ -1827,31 +4994,31 @@ export interface DescribeNotebookInstanceOutput {
   /**
    * <p>The Git repository associated with the notebook instance as its default code
    *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. When you open a notebook instance, it opens in the directory that
-   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker
-   *                 Notebook Instances</a>.</p>
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. When you open a notebook instance, it opens in the
+   *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with SageMaker Notebook Instances</a>.</p>
    */
   DefaultCodeRepository?: string;
 
   /**
    * <p>An array of up to three Git repositories associated with the notebook instance. These
    *             can be either the names of Git repositories stored as resources in your account, or the
-   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. These repositories are cloned at the same level as the default
-   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. These repositories are cloned at the same level as the
+   *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with SageMaker Notebook Instances</a>.</p>
    */
   AdditionalCodeRepositories?: string[];
 
   /**
    * <p>Whether root access is enabled or disabled for users of the notebook instance.</p>
-   *         <note>
+   *          <note>
    *             <p>Lifecycle configurations need root access to be able to set up a notebook
    *                 instance. Because of this, lifecycle configurations associated with a notebook
    *                 instance always run with root access even if you disable root access for
    *                 users.</p>
-   *         </note>
+   *          </note>
    */
   RootAccess?: RootAccess | string;
 
@@ -1970,13 +5137,13 @@ export interface DescribePipelineResponse {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   CreatedBy?: UserContext;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -2083,13 +5250,13 @@ export interface DescribePipelineExecutionResponse {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   CreatedBy?: UserContext;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -2261,25 +5428,25 @@ export interface ServiceCatalogProvisionedProductDetails {
 
   /**
    * <p>The current status of the product.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.</p>
    *             </li>
    *          </ul>
@@ -2326,7 +5493,7 @@ export interface DescribeProjectOutput {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   CreatedBy?: UserContext;
 
@@ -2342,9 +5509,78 @@ export interface DescribeProjectOutput {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   LastModifiedBy?: UserContext;
+}
+
+export interface DescribeSpaceRequest {
+  /**
+   * <p>The ID of the associated Domain.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The name of the space.</p>
+   */
+  SpaceName: string | undefined;
+}
+
+export enum SpaceStatus {
+  Delete_Failed = "Delete_Failed",
+  Deleting = "Deleting",
+  Failed = "Failed",
+  InService = "InService",
+  Pending = "Pending",
+  Update_Failed = "Update_Failed",
+  Updating = "Updating",
+}
+
+export interface DescribeSpaceResponse {
+  /**
+   * <p>The ID of the associated Domain.</p>
+   */
+  DomainId?: string;
+
+  /**
+   * <p>The space's Amazon Resource Name (ARN).</p>
+   */
+  SpaceArn?: string;
+
+  /**
+   * <p>The name of the space.</p>
+   */
+  SpaceName?: string;
+
+  /**
+   * <p>The ID of the space's profile in the Amazon Elastic File System volume.</p>
+   */
+  HomeEfsFileSystemUid?: string;
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: SpaceStatus | string;
+
+  /**
+   * <p>The last modified time.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The failure reason.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>A collection of space settings.</p>
+   */
+  SpaceSettings?: SpaceSettings;
 }
 
 export interface DescribeStudioLifecycleConfigRequest {
@@ -2521,99 +5757,99 @@ export enum SecondaryStatus {
  *             secondary
  *             status.
  *             </p>
- *         <p></p>
+ *          <p></p>
  */
 export interface SecondaryStatusTransition {
   /**
    * <p>Contains a secondary status information from a training
    *             job.</p>
-   *         <p>Status might be one of the following secondary statuses:</p>
-   *         <dl>
+   *          <p>Status might be one of the following secondary statuses:</p>
+   *          <dl>
    *             <dt>InProgress</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Starting</code>
    *                                 - Starting the training job.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Downloading</code> - An optional stage for algorithms that
    *                                 support <code>File</code> training input mode. It indicates that
    *                                 data is being downloaded to the ML storage volumes.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Training</code> - Training is in progress.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Uploading</code> - Training is complete and the model
    *                                 artifacts are being uploaded to the S3 location.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Completed</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Completed</code> - The training job has completed.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Failed</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Failed</code> - The training job has failed. The reason for
    *                                 the failure is returned in the <code>FailureReason</code> field of
    *                                     <code>DescribeTrainingJobResponse</code>.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Stopped</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
    *                                 exceeded the maximum allowed runtime.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Stopped</code> - The training job has stopped.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Stopping</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Stopping</code> - Stopping the training job.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *          </dl>
-   *         <p>We no longer support the following secondary statuses:</p>
-   *         <ul>
+   *          <p>We no longer support the following secondary statuses:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>LaunchingMLInstances</code>
-   *                 </p>
+   *                <p>
+   *                   <code>LaunchingMLInstances</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>PreparingTrainingStack</code>
-   *                 </p>
+   *                <p>
+   *                   <code>PreparingTrainingStack</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DownloadingTrainingImage</code>
-   *                 </p>
+   *                <p>
+   *                   <code>DownloadingTrainingImage</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -2634,71 +5870,126 @@ export interface SecondaryStatusTransition {
   /**
    * <p>A detailed description of the progress within a secondary status.
    *             </p>
-   *         <p>SageMaker provides secondary statuses and status messages that apply to each of
+   *          <p>SageMaker provides secondary statuses and status messages that apply to each of
    *             them:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>Starting</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>Starting the training job.</p>
-   *                         </li>
+   *                      <p>Starting the training job.</p>
+   *                   </li>
    *                   <li>
-   *                             <p>Launching requested ML
+   *                      <p>Launching requested ML
    *                                 instances.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>Insufficient
+   *                      <p>Insufficient
    *                                 capacity error from EC2 while launching instances,
    *                                 retrying!</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>Launched
+   *                      <p>Launched
    *                                 instance was unhealthy, replacing it!</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>Preparing the instances for training.</p>
-   *                         </li>
+   *                      <p>Preparing the instances for training.</p>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Training</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>Downloading the training image.</p>
-   *                         </li>
+   *                      <p>Downloading the training image.</p>
+   *                   </li>
    *                   <li>
-   *                             <p>Training
+   *                      <p>Training
    *                                 image download completed. Training in
    *                                 progress.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *          </dl>
-   *         <important>
+   *          <important>
    *             <p>Status messages are subject to change. Therefore, we recommend not including them
    *                 in code that programmatically initiates actions. For examples, don't use status
    *                 messages in if statements.</p>
-   *         </important>
-   *         <p>To have an overview of your training job's progress, view
+   *          </important>
+   *          <p>To have an overview of your training job's progress, view
    *                 <code>TrainingJobStatus</code> and <code>SecondaryStatus</code> in <a>DescribeTrainingJob</a>, and <code>StatusMessage</code> together. For
    *             example, at the start of a training job, you might see the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TrainingJobStatus</code> - InProgress</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SecondaryStatus</code> - Training</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>StatusMessage</code> - Downloading the training image</p>
    *             </li>
    *          </ul>
    */
   StatusMessage?: string;
+}
+
+export enum WarmPoolResourceStatus {
+  AVAILABLE = "Available",
+  INUSE = "InUse",
+  REUSED = "Reused",
+  TERMINATED = "Terminated",
+}
+
+/**
+ * <p>Status and billing information about the warm pool.</p>
+ */
+export interface WarmPoolStatus {
+  /**
+   * <p>The status of the warm pool.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InUse</code>: The warm pool is in use for the training job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Available</code>: The warm pool is available to reuse for a matching
+   *                     training job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Reused</code>: The warm pool moved to a matching training job for
+   *                     reuse.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Terminated</code>: The warm pool is no longer available. Warm pools are
+   *                     unavailable if they are terminated by a user, terminated for a patch update, or
+   *                     terminated for exceeding the specified
+   *                     <code>KeepAlivePeriodInSeconds</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status: WarmPoolResourceStatus | string | undefined;
+
+  /**
+   * <p>The billable time in seconds used by the warm pool. Billable time refers to the
+   *             absolute wall-clock time.</p>
+   *          <p>Multiply <code>ResourceRetainedBillableTimeInSeconds</code> by the number of instances
+   *                 (<code>InstanceCount</code>) in your training cluster to get the total compute time
+   *             SageMaker bills you if you run warm pool training. The formula is as follows:
+   *                 <code>ResourceRetainedBillableTimeInSeconds * InstanceCount</code>.</p>
+   */
+  ResourceRetainedBillableTimeInSeconds?: number;
+
+  /**
+   * <p>The name of the matching training job that reused the warm pool.</p>
+   */
+  ReusedByJob?: string;
 }
 
 export interface DescribeTrainingJobResponse {
@@ -2737,32 +6028,32 @@ export interface DescribeTrainingJobResponse {
 
   /**
    * <p>The status of the training job.</p>
-   *         <p>SageMaker provides the following training job statuses:</p>
-   *         <ul>
+   *          <p>SageMaker provides the following training job statuses:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InProgress</code> - The training is in progress.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Completed</code> - The training job has completed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Failed</code> - The training job has failed. To see the reason for the
    *                     failure, see the <code>FailureReason</code> field in the response to a
    *                         <code>DescribeTrainingJobResponse</code> call.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Stopping</code> - The training job is stopping.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Stopped</code> - The training job has stopped.</p>
    *             </li>
    *          </ul>
-   *         <p>For more detailed information, see <code>SecondaryStatus</code>. </p>
+   *          <p>For more detailed information, see <code>SecondaryStatus</code>. </p>
    */
   TrainingJobStatus: TrainingJobStatus | string | undefined;
 
@@ -2770,108 +6061,107 @@ export interface DescribeTrainingJobResponse {
    * <p> Provides detailed information about the state of the training job. For detailed
    *             information on the secondary status of the training job, see <code>StatusMessage</code>
    *             under <a>SecondaryStatusTransition</a>.</p>
-   *         <p>SageMaker provides primary statuses and secondary statuses that apply to each of
+   *          <p>SageMaker provides primary statuses and secondary statuses that apply to each of
    *             them:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>InProgress</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Starting</code>
    *                                 - Starting the training job.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Downloading</code> - An optional stage for algorithms that
    *                                 support <code>File</code> training input mode. It indicates that
    *                                 data is being downloaded to the ML storage volumes.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Training</code> - Training is in progress.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Interrupted</code> - The job stopped because the managed
    *                                 spot training instances were interrupted. </p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Uploading</code> - Training is complete and the model
    *                                 artifacts are being uploaded to the S3 location.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Completed</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Completed</code> - The training job has completed.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Failed</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Failed</code> - The training job has failed. The reason for
    *                                 the failure is returned in the <code>FailureReason</code> field of
    *                                     <code>DescribeTrainingJobResponse</code>.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Stopped</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
    *                                 exceeded the maximum allowed runtime.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>MaxWaitTimeExceeded</code> - The job stopped because it
    *                                 exceeded the maximum allowed wait time.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Stopped</code> - The training job has stopped.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Stopping</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Stopping</code> - Stopping the training job.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *          </dl>
-   *
-   *         <important>
+   *          <important>
    *             <p>Valid values for <code>SecondaryStatus</code> are subject to change. </p>
-   *         </important>
-   *         <p>We no longer support the following secondary statuses:</p>
-   *         <ul>
+   *          </important>
+   *          <p>We no longer support the following secondary statuses:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>LaunchingMLInstances</code>
-   *                 </p>
+   *                <p>
+   *                   <code>LaunchingMLInstances</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>PreparingTraining</code>
-   *                 </p>
+   *                <p>
+   *                   <code>PreparingTraining</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DownloadingTrainingImage</code>
-   *                 </p>
+   *                <p>
+   *                   <code>DownloadingTrainingImage</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -2894,7 +6184,8 @@ export interface DescribeTrainingJobResponse {
   AlgorithmSpecification: AlgorithmSpecification | undefined;
 
   /**
-   * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for the training job. </p>
+   * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for
+   *             the training job. </p>
    */
   RoleArn?: string;
 
@@ -2927,7 +6218,7 @@ export interface DescribeTrainingJobResponse {
    * <p>Specifies a limit to how long a model training job can run. It also specifies how long
    *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
    *             ends the training job. Use this API to cap model training costs.</p>
-   *         <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+   *          <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
    *             model artifacts, so the results of training are not lost. </p>
    */
@@ -3011,11 +6302,11 @@ export interface DescribeTrainingJobResponse {
   /**
    * <p>The billable time in seconds. Billable time refers to the absolute wall-clock
    *             time.</p>
-   *         <p>Multiply <code>BillableTimeInSeconds</code> by the number of instances
+   *          <p>Multiply <code>BillableTimeInSeconds</code> by the number of instances
    *                 (<code>InstanceCount</code>) in your training cluster to get the total compute time
    *             SageMaker bills you if you run distributed training. The formula is as follows:
    *                 <code>BillableTimeInSeconds * InstanceCount</code> .</p>
-   *         <p>You can calculate the savings from using managed spot training using the formula
+   *          <p>You can calculate the savings from using managed spot training using the formula
    *                 <code>(1 - BillableTimeInSeconds / TrainingTimeInSeconds) * 100</code>. For example,
    *             if <code>BillableTimeInSeconds</code> is 100 and <code>TrainingTimeInSeconds</code> is
    *             500, the savings is 80%.</p>
@@ -3023,7 +6314,7 @@ export interface DescribeTrainingJobResponse {
   BillableTimeInSeconds?: number;
 
   /**
-   * <p>Configuration information for the Debugger hook parameters, metric and tensor collections, and
+   * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and
    *             storage paths. To learn more about
    *             how to configure the <code>DebugHookConfig</code> parameter,
    *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
@@ -3054,34 +6345,34 @@ export interface DescribeTrainingJobResponse {
   ExperimentConfig?: ExperimentConfig;
 
   /**
-   * <p>Configuration information for Debugger rules for debugging output tensors.</p>
+   * <p>Configuration information for Amazon SageMaker Debugger rules for debugging output tensors.</p>
    */
   DebugRuleConfigurations?: DebugRuleConfiguration[];
 
   /**
-   * <p>Configuration of storage locations for the Debugger TensorBoard output data.</p>
+   * <p>Configuration of storage locations for the Amazon SageMaker Debugger TensorBoard output data.</p>
    */
   TensorBoardOutputConfig?: TensorBoardOutputConfig;
 
   /**
-   * <p>Evaluation status of Debugger rules for debugging on a training job.</p>
+   * <p>Evaluation status of Amazon SageMaker Debugger rules for debugging on a training job.</p>
    */
   DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[];
 
   /**
-   * <p>Configuration information for Debugger system monitoring, framework profiling, and
+   * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and
    *             storage paths.</p>
    */
   ProfilerConfig?: ProfilerConfig;
 
   /**
-   * <p>Configuration information for Debugger rules for profiling system and framework
+   * <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework
    *             metrics.</p>
    */
   ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
 
   /**
-   * <p>Evaluation status of Debugger rules for profiling on a training job.</p>
+   * <p>Evaluation status of Amazon SageMaker Debugger rules for profiling on a training job.</p>
    */
   ProfilerRuleEvaluationStatuses?: ProfilerRuleEvaluationStatus[];
 
@@ -3100,6 +6391,11 @@ export interface DescribeTrainingJobResponse {
    * <p>The environment variables to set in the Docker container.</p>
    */
   Environment?: Record<string, string>;
+
+  /**
+   * <p>The status of the warm pool associated with the training job.</p>
+   */
+  WarmPoolStatus?: WarmPoolStatus;
 }
 
 export interface DescribeTransformJobRequest {
@@ -3180,7 +6476,7 @@ export interface DescribeTransformJobResponse {
    *             A <i>record</i>
    *             <i></i> is a single unit of input data that inference
    *             can be made on. For example, a single line in a CSV file is a record. </p>
-   *         <p>To enable the batch strategy, you must set <code>SplitType</code>
+   *          <p>To enable the batch strategy, you must set <code>SplitType</code>
    *             to
    *                 <code>Line</code>, <code>RecordIO</code>, or
    *             <code>TFRecord</code>.</p>
@@ -3205,6 +6501,11 @@ export interface DescribeTransformJobResponse {
    *             transform job.</p>
    */
   TransformOutput?: TransformOutput;
+
+  /**
+   * <p>Configuration to control how SageMaker captures inference data.</p>
+   */
+  DataCaptureConfig?: BatchDataCaptureConfig;
 
   /**
    * <p>Describes
@@ -3417,7 +6718,7 @@ export interface TrialComponentMetricSummary {
  */
 export interface TrialComponentSource {
   /**
-   * <p>The source ARN.</p>
+   * <p>The source Amazon Resource Name (ARN).</p>
    */
   SourceArn: string | undefined;
 
@@ -3524,6 +6825,12 @@ export interface DescribeTrialComponentResponse {
    * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
    */
   LineageGroupArn?: string;
+
+  /**
+   * <p>A list of ARNs and, if applicable, job types for multiple sources of an experiment
+   *       run.</p>
+   */
+  Sources?: TrialComponentSource[];
 }
 
 export interface DescribeUserProfileRequest {
@@ -3590,12 +6897,12 @@ export interface DescribeUserProfileResponse {
   FailureReason?: string;
 
   /**
-   * <p>The SSO user identifier.</p>
+   * <p>The IAM Identity Center user identifier.</p>
    */
   SingleSignOnUserIdentifier?: string;
 
   /**
-   * <p>The SSO user value.</p>
+   * <p>The IAM Identity Center user value.</p>
    */
   SingleSignOnUserValue?: string;
 
@@ -3785,7 +7092,7 @@ export interface Workteam {
   /**
    * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
    *             the workers that make up the work team. </p>
-   *         <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
+   *          <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
    *             For private workforces created using Amazon Cognito use
    *             <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity
    *             provider (IdP) use <code>OidcMemberDefinition</code>.</p>
@@ -4081,7 +7388,7 @@ export interface DisassociateTrialComponentRequest {
 
 export interface DisassociateTrialComponentResponse {
   /**
-   * <p>The ARN of the trial component.</p>
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
    */
   TrialComponentArn?: string;
 
@@ -4132,7 +7439,8 @@ export interface DomainDetails {
 }
 
 /**
- * <p>A collection of settings that update the current configuration for the <code>RStudioServerPro</code> Domain-level app.</p>
+ * <p>A collection of settings that update the current configuration for the
+ *                 <code>RStudioServerPro</code> Domain-level app.</p>
  */
 export interface RStudioServerProDomainSettingsForUpdate {
   /**
@@ -4145,6 +7453,16 @@ export interface RStudioServerProDomainSettingsForUpdate {
    *      the version runs on.</p>
    */
   DefaultResourceSpec?: ResourceSpec;
+
+  /**
+   * <p>A URL pointing to an RStudio Connect server.</p>
+   */
+  RStudioConnectUrl?: string;
+
+  /**
+   * <p>A URL pointing to an RStudio Package Manager server.</p>
+   */
+  RStudioPackageManagerUrl?: string;
 }
 
 /**
@@ -4152,9 +7470,23 @@ export interface RStudioServerProDomainSettingsForUpdate {
  */
 export interface DomainSettingsForUpdate {
   /**
-   * <p>A collection of <code>RStudioServerPro</code> Domain-level app settings to update.</p>
+   * <p>A collection of <code>RStudioServerPro</code> Domain-level app settings to
+   *             update.</p>
    */
   RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate;
+
+  /**
+   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a
+   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there
+   *             are no apps in the <code>InService</code> or <code>Pending</code> state.</p>
+   */
+  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
+
+  /**
+   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for
+   *             communication between Domain-level apps and user apps.</p>
+   */
+  SecurityGroupIds?: string[];
 }
 
 /**
@@ -4351,21 +7683,21 @@ export interface MonitoringSchedule {
 
   /**
    * <p>The status of the monitoring schedule. This can be one of the following values.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> - The schedule is pending being created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> - The schedule failed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SCHEDULED</code> - The schedule was successfully created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STOPPED</code> - The schedule was stopped.</p>
    *             </li>
    *          </ul>
@@ -4471,10 +7803,16 @@ export interface Endpoint {
   MonitoringSchedules?: MonitoringSchedule[];
 
   /**
-   * <p>A list of the tags associated with the endpoint. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   * <p>A list of the tags associated with the endpoint. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General
+   *                 Reference Guide</i>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>A list of the shadow variants hosted on the endpoint. Each shadow variant is a model
+   *             in shadow mode with production traffic replicated from the production variant.</p>
+   */
+  ShadowProductionVariants?: ProductionVariantSummary[];
 }
 
 export enum EndpointConfigSortKey {
@@ -4534,29 +7872,29 @@ export interface EndpointSummary {
 
   /**
    * <p>The status of the endpoint.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>OutOfService</code>: Endpoint is not available to take incoming
    *                     requests.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be
    *                     updated or deleted or re-scaled until it has completed. This maintenance
    *                     operation does not change any customer-specified values such as VPC config, KMS
    *                     encryption, model, instance type, or instance count.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RollingBack</code>: Endpoint fails to scale up or down or change its
    *                     variant weight and is in the process of rolling back to its previous
    *                     configuration. Once the rollback completes, endpoint returns to an
@@ -4566,23 +7904,23 @@ export interface EndpointSummary {
    *                     explicitly.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InService</code>: Endpoint is available to process incoming
    *                     requests.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
    *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
    *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
    *                     performed on a failed endpoint.</p>
    *             </li>
    *          </ul>
-   *         <p>To get a list of endpoints with a specified status, use the <a>ListEndpointsInput$StatusEquals</a> filter.</p>
+   *          <p>To get a list of endpoints with a specified status, use the <a>ListEndpointsInput$StatusEquals</a> filter.</p>
    */
   EndpointStatus: EndpointStatus | string | undefined;
 }
@@ -4634,7 +7972,7 @@ export interface Experiment {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -4917,7 +8255,6 @@ export enum Operator {
  * <p>A conditional statement for a search expression that includes a resource property, a
  *       Boolean operator, and a value. Resources that match the statement are returned in the
  *       results from the <a>Search</a> API.</p>
- *
  *          <p>If you specify a <code>Value</code>, but not an <code>Operator</code>, Amazon SageMaker uses the
  *       equals operator.</p>
  *          <p>In search, there are several property types:</p>
@@ -5247,6 +8584,9 @@ export enum ResourceType {
   EXPERIMENT_TRIAL_COMPONENT = "ExperimentTrialComponent",
   FEATURE_GROUP = "FeatureGroup",
   FEATURE_METADATA = "FeatureMetadata",
+  HYPER_PARAMETER_TUNING_JOB = "HyperParameterTuningJob",
+  MODEL = "Model",
+  MODEL_CARD = "ModelCard",
   MODEL_PACKAGE = "ModelPackage",
   MODEL_PACKAGE_GROUP = "ModelPackageGroup",
   PIPELINE = "Pipeline",
@@ -5316,15 +8656,128 @@ export interface GetSearchSuggestionsResponse {
  */
 export interface GitConfigForUpdate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
-   *             credentials used to access the git repository. The secret must have a staging label of
-   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
-   *         <p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
+   *             contains the credentials used to access the git repository. The secret must have a
+   *             staging label of <code>AWSCURRENT</code> and must be in the following format:</p>
+   *          <p>
    *             <code>{"username": <i>UserName</i>, "password":
    *                     <i>Password</i>}</code>
-   *         </p>
+   *          </p>
    */
   SecretArn?: string;
+}
+
+/**
+ * <p>Information about hub content.</p>
+ */
+export interface HubContentInfo {
+  /**
+   * <p>The name of the hub content.</p>
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub content.</p>
+   */
+  HubContentArn: string | undefined;
+
+  /**
+   * <p>The version of the hub content.</p>
+   */
+  HubContentVersion: string | undefined;
+
+  /**
+   * <p>The type of hub content.</p>
+   */
+  HubContentType: HubContentType | string | undefined;
+
+  /**
+   * <p>The version of the hub content document schema.</p>
+   */
+  DocumentSchemaVersion: string | undefined;
+
+  /**
+   * <p>The display name of the hub content.</p>
+   */
+  HubContentDisplayName?: string;
+
+  /**
+   * <p>A description of the hub content.</p>
+   */
+  HubContentDescription?: string;
+
+  /**
+   * <p>The searchable keywords for the hub content.</p>
+   */
+  HubContentSearchKeywords?: string[];
+
+  /**
+   * <p>The status of the hub content.</p>
+   */
+  HubContentStatus: HubContentStatus | string | undefined;
+
+  /**
+   * <p>The date and time that the hub content was created.</p>
+   */
+  CreationTime: Date | undefined;
+}
+
+export enum HubContentSortBy {
+  CREATION_TIME = "CreationTime",
+  HUB_CONTENT_NAME = "HubContentName",
+  HUB_CONTENT_STATUS = "HubContentStatus",
+}
+
+/**
+ * <p>Information about a hub.</p>
+ */
+export interface HubInfo {
+  /**
+   * <p>The name of the hub.</p>
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub.</p>
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The display name of the hub.</p>
+   */
+  HubDisplayName?: string;
+
+  /**
+   * <p>A description of the hub.</p>
+   */
+  HubDescription?: string;
+
+  /**
+   * <p>The searchable keywords for the hub.</p>
+   */
+  HubSearchKeywords?: string[];
+
+  /**
+   * <p>The status of the hub.</p>
+   */
+  HubStatus: HubStatus | string | undefined;
+
+  /**
+   * <p>The date and time that the hub was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the hub was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+export enum HubSortBy {
+  ACCOUNT_ID_OWNER = "AccountIdOwner",
+  CREATION_TIME = "CreationTime",
+  HUB_NAME = "HubName",
+  HUB_STATUS = "HubStatus",
 }
 
 /**
@@ -5345,6 +8798,122 @@ export interface HumanTaskUiSummary {
    * <p>A timestamp when SageMaker created the human task user interface.</p>
    */
   CreationTime: Date | undefined;
+}
+
+/**
+ * <p>An entity returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a> API
+ *             containing the properties of a hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTuningJobSearchEntity {
+  /**
+   * <p>The name of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobArn?: string;
+
+  /**
+   * <p>Configures a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobConfig?: HyperParameterTuningJobConfig;
+
+  /**
+   * <p>Defines
+   *             the training jobs launched by a hyperparameter tuning job.</p>
+   */
+  TrainingJobDefinition?: HyperParameterTrainingJobDefinition;
+
+  /**
+   * <p>The job definitions included in a hyperparameter tuning job.</p>
+   */
+  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
+
+  /**
+   * <p>The status of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobStatus?: HyperParameterTuningJobStatus | string;
+
+  /**
+   * <p>The time that a hyperparameter tuning job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time that a hyperparameter tuning job ended.</p>
+   */
+  HyperParameterTuningEndTime?: Date;
+
+  /**
+   * <p>The time that a hyperparameter tuning job was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by
+   *             status.</p>
+   */
+  TrainingJobStatusCounters?: TrainingJobStatusCounters;
+
+  /**
+   * <p>Specifies the number of training jobs that this hyperparameter tuning job launched,
+   *             categorized by the status of their objective metric. The objective metric status shows
+   *             whether the
+   *             final
+   *             objective metric for the training job has been evaluated by the
+   *             tuning job and used in the hyperparameter tuning process.</p>
+   */
+  ObjectiveStatusCounters?: ObjectiveStatusCounters;
+
+  /**
+   * <p>The container for the summary information about a training job.</p>
+   */
+  BestTrainingJob?: HyperParameterTrainingJobSummary;
+
+  /**
+   * <p>The container for the summary information about a training job.</p>
+   */
+  OverallBestTrainingJob?: HyperParameterTrainingJobSummary;
+
+  /**
+   * <p>Specifies the configuration for a hyperparameter tuning job that uses one or more
+   *             previous hyperparameter tuning jobs as a starting point. The results of previous tuning
+   *             jobs are used to inform which combinations of hyperparameters to search over in the new
+   *             tuning job.</p>
+   *          <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
+   *             the objective metric, and the training job that performs the best is compared to the
+   *             best training jobs from the parent tuning jobs. From these, the training job that
+   *             performs the best as measured by the objective metric is returned as the overall best
+   *             training job.</p>
+   *          <note>
+   *             <p>All training jobs launched by parent hyperparameter tuning jobs and the new
+   *                 hyperparameter tuning jobs count against the limit of training jobs for the tuning
+   *                 job.</p>
+   *          </note>
+   */
+  WarmStartConfig?: HyperParameterTuningJobWarmStartConfig;
+
+  /**
+   * <p>The error that was created when a hyperparameter tuning job failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The tags associated with a hyperparameter tuning job. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Information about either a current or completed hyperparameter tuning job.</p>
+   */
+  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails;
+
+  /**
+   * <p>The total amount of resources consumed by a hyperparameter tuning job.</p>
+   */
+  ConsumedResources?: HyperParameterTuningJobConsumedResources;
 }
 
 export enum HyperParameterTuningJobSortByOptions {
@@ -5379,9 +8948,8 @@ export interface HyperParameterTuningJobSummary {
   /**
    * <p>Specifies the search strategy hyperparameter tuning uses to choose which
    *             hyperparameters to
-   *             use
-   *             for each iteration. Currently, the only valid value is
-   *             Bayesian.</p>
+   *             evaluate
+   *             at each iteration.</p>
    */
   Strategy: HyperParameterTuningJobStrategyType | string | undefined;
 
@@ -5448,7 +9016,7 @@ export interface Image {
   FailureReason?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   * <p>The ARN of the image.</p>
    */
   ImageArn: string | undefined;
 
@@ -5495,7 +9063,7 @@ export interface ImageVersion {
   FailureReason?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image the version is based on.</p>
+   * <p>The ARN of the image the version is based on.</p>
    */
   ImageArn: string | undefined;
 
@@ -5529,6 +9097,139 @@ export enum ImageVersionSortBy {
 export enum ImageVersionSortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
+}
+
+export interface ImportHubContentRequest {
+  /**
+   * <p>The name of the hub content to import.</p>
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The version of the hub content to import.</p>
+   */
+  HubContentVersion?: string;
+
+  /**
+   * <p>The type of hub content to import.</p>
+   */
+  HubContentType: HubContentType | string | undefined;
+
+  /**
+   * <p>The version of the hub content schema to import.</p>
+   */
+  DocumentSchemaVersion: string | undefined;
+
+  /**
+   * <p>The name of the hub to import content into.</p>
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The display name of the hub content to import.</p>
+   */
+  HubContentDisplayName?: string;
+
+  /**
+   * <p>A description of the hub content to import.</p>
+   */
+  HubContentDescription?: string;
+
+  /**
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
+   */
+  HubContentMarkdown?: string;
+
+  /**
+   * <p>The hub content document that describes information about the hub content such as type, associated containers, scripts, and more.</p>
+   */
+  HubContentDocument: string | undefined;
+
+  /**
+   * <p>The searchable keywords of the hub content.</p>
+   */
+  HubContentSearchKeywords?: string[];
+
+  /**
+   * <p>Any tags associated with the hub content.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface ImportHubContentResponse {
+  /**
+   * <p>The ARN of the hub that the content was imported into.</p>
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The ARN of the hub content that was imported.</p>
+   */
+  HubContentArn: string | undefined;
+}
+
+/**
+ * <p>Lists a summary of properties of an inference experiment.</p>
+ */
+export interface InferenceExperimentSummary {
+  /**
+   * <p>The name of the inference experiment.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of the inference experiment.</p>
+   */
+  Type: InferenceExperimentType | string | undefined;
+
+  /**
+   * <p>The duration for which the inference experiment ran or will run.</p>
+   *          <p>The maximum duration that you can set for an inference experiment is 30 days.</p>
+   */
+  Schedule?: InferenceExperimentSchedule;
+
+  /**
+   * <p>The status of the inference experiment.</p>
+   */
+  Status: InferenceExperimentStatus | string | undefined;
+
+  /**
+   * <p>The error message for the inference experiment status result.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>The description of the inference experiment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The timestamp at which the inference experiment was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the inference experiment was completed.</p>
+   */
+  CompletionTime?: Date;
+
+  /**
+   * <p>The timestamp when you last modified the inference experiment.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>
+   *            The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage
+   *            Amazon SageMaker Inference endpoints for model deployment.
+   *        </p>
+   */
+  RoleArn?: string;
+}
+
+export enum InferenceExperimentStopDesiredState {
+  CANCELLED = "Cancelled",
+  COMPLETED = "Completed",
 }
 
 /**
@@ -5588,6 +9289,63 @@ export interface InferenceRecommendationsJob {
 }
 
 /**
+ * <p>The details for a specific benchmark from an Inference Recommender job.</p>
+ */
+export interface RecommendationJobInferenceBenchmark {
+  /**
+   * <p>The metrics of recommendations.</p>
+   */
+  Metrics?: RecommendationMetrics;
+
+  /**
+   * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
+   */
+  EndpointConfiguration?: EndpointOutputConfiguration;
+
+  /**
+   * <p>Defines the model configuration. Includes the specification name and environment parameters.</p>
+   */
+  ModelConfiguration: ModelConfiguration | undefined;
+
+  /**
+   * <p>The reason why a benchmark failed.</p>
+   */
+  FailureReason?: string;
+}
+
+export enum RecommendationStepType {
+  BENCHMARK = "BENCHMARK",
+}
+
+/**
+ * <p>A returned array object for the <code>Steps</code> response field in the
+ *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InferenceRecommendationsJobStep.html">ListInferenceRecommendationsJobSteps</a> API command.</p>
+ */
+export interface InferenceRecommendationsJobStep {
+  /**
+   * <p>The type of the subtask.</p>
+   *          <p>
+   *             <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
+   */
+  StepType: RecommendationStepType | string | undefined;
+
+  /**
+   * <p>The name of the Inference Recommender job.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The current status of the benchmark.</p>
+   */
+  Status: RecommendationJobStatus | string | undefined;
+
+  /**
+   * <p>The details for a specific benchmark.</p>
+   */
+  InferenceBenchmark?: RecommendationJobInferenceBenchmark;
+}
+
+/**
  * <p>Provides counts for human-labeled tasks in the labeling job.</p>
  */
 export interface LabelCountersForWorkteam {
@@ -5623,7 +9381,8 @@ export interface LabelingJobForWorkteamSummary {
   JobReferenceCode: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the account used to start the labeling job.</p>
+   * <p>The Amazon Web Services account ID of the account used to start the labeling
+   *             job.</p>
    */
   WorkRequesterAccountId: string | undefined;
 
@@ -5889,2983 +9648,520 @@ export interface ListAlgorithmsOutput {
   NextToken?: string;
 }
 
-export interface ListAppImageConfigsRequest {
+export interface ListAliasesRequest {
   /**
-   * <p>The maximum number of AppImageConfigs to return in the response. The default value is
-   *         10. </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous call to <code>ListImages</code> didn't return the full set of
-   *         AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs created on or before the specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs created on or after the specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs modified on or before the specified time.</p>
-   */
-  ModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
-   */
-  ModifiedTimeAfter?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: AppImageConfigSortKey | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-export interface ListAppImageConfigsResponse {
-  /**
-   * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of AppImageConfigs and their properties.</p>
-   */
-  AppImageConfigs?: AppImageConfigDetails[];
-}
-
-export interface ListAppsRequest {
-  /**
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Returns a list up to a specified limit.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The sort order for the results. The default is Ascending.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
-   */
-  SortBy?: AppSortKey | string;
-
-  /**
-   * <p>A parameter to search for the domain ID.</p>
-   */
-  DomainIdEquals?: string;
-
-  /**
-   * <p>A parameter to search by user profile name.</p>
-   */
-  UserProfileNameEquals?: string;
-}
-
-export interface ListAppsResponse {
-  /**
-   * <p>The list of apps.</p>
-   */
-  Apps?: AppDetails[];
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export enum SortArtifactsBy {
-  CREATION_TIME = "CreationTime",
-}
-
-export interface ListArtifactsRequest {
-  /**
-   * <p>A filter that returns only artifacts with the specified source URI.</p>
-   */
-  SourceUri?: string;
-
-  /**
-   * <p>A filter that returns only artifacts of the specified type.</p>
-   */
-  ArtifactType?: string;
-
-  /**
-   * <p>A filter that returns only artifacts created on or after the specified time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns only artifacts created on or before the specified time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortArtifactsBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts,
-   *         the call returns a token for getting the next set of artifacts.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListArtifactsResponse {
-  /**
-   * <p>A list of artifacts and their properties.</p>
-   */
-  ArtifactSummaries?: ArtifactSummary[];
-
-  /**
-   * <p>A token for getting the next set of artifacts, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export enum SortAssociationsBy {
-  CREATION_TIME = "CreationTime",
-  DESTINATION_ARN = "DestinationArn",
-  DESTINATION_TYPE = "DestinationType",
-  SOURCE_ARN = "SourceArn",
-  SOURCE_TYPE = "SourceType",
-}
-
-export interface ListAssociationsRequest {
-  /**
-   * <p>A filter that returns only associations with the specified source ARN.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
-   */
-  DestinationArn?: string;
-
-  /**
-   * <p>A filter that returns only associations with the specified source type.</p>
-   */
-  SourceType?: string;
-
-  /**
-   * <p>A filter that returns only associations with the specified destination type.</p>
-   */
-  DestinationType?: string;
-
-  /**
-   * <p>A filter that returns only associations of the specified type.</p>
-   */
-  AssociationType?: AssociationEdgeType | string;
-
-  /**
-   * <p>A filter that returns only associations created on or after the specified time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns only associations created on or before the specified time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortAssociationsBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations,
-   *         the call returns a token for getting the next set of associations.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListAssociationsResponse {
-  /**
-   * <p>A list of associations and their properties.</p>
-   */
-  AssociationSummaries?: AssociationSummary[];
-
-  /**
-   * <p>A token for getting the next set of associations, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListAutoMLJobsRequest {
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>Request a list of jobs, using a search filter for name.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>Request a list of jobs, using a filter for status.</p>
-   */
-  StatusEquals?: AutoMLJobStatus | string;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: AutoMLSortOrder | string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
-   */
-  SortBy?: AutoMLSortBy | string;
-
-  /**
-   * <p>Request a list of jobs up to a specified limit.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next
-   *          request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListAutoMLJobsResponse {
-  /**
-   * <p>Returns a summary list of jobs.</p>
-   */
-  AutoMLJobSummaries: AutoMLJobSummary[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next
-   *          request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListCandidatesForAutoMLJobRequest {
-  /**
-   * <p>List the candidates created for the job by providing the job's name.</p>
-   */
-  AutoMLJobName: string | undefined;
-
-  /**
-   * <p>List the candidates for the job and filter by status.</p>
-   */
-  StatusEquals?: CandidateStatus | string;
-
-  /**
-   * <p>List the candidates for the job and filter by candidate name.</p>
-   */
-  CandidateNameEquals?: string;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: AutoMLSortOrder | string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is
-   *          <code>Descending</code>.</p>
-   */
-  SortBy?: CandidateSortBy | string;
-
-  /**
-   * <p>List the job's candidates up to a specified limit.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next
-   *          request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListCandidatesForAutoMLJobResponse {
-  /**
-   * <p>Summaries about the <code>AutoMLCandidates</code>.</p>
-   */
-  Candidates: AutoMLCandidate[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next
-   *          request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListCodeRepositoriesInput {
-  /**
-   * <p>A filter that returns only Git repositories that were created after the specified
-   *             time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only Git repositories that were created before the specified
-   *             time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only Git repositories that were last modified after the
-   *             specified time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only Git repositories that were last modified before the
-   *             specified time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of Git repositories to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the Git repositories name. This filter returns only repositories whose
-   *             name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the
-   *             response includes a <code>NextToken</code>. To get the next set of Git repositories, use
-   *             the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>Name</code>.</p>
-   */
-  SortBy?: CodeRepositorySortBy | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: CodeRepositorySortOrder | string;
-}
-
-export interface ListCodeRepositoriesOutput {
-  /**
-   * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following
-   *             values for the repository: </p>
-   *         <ul>
-   *             <li>
-   *                 <p>Name</p>
-   *             </li>
-   *             <li>
-   *                 <p>Amazon Resource Name (ARN)</p>
-   *             </li>
-   *             <li>
-   *                 <p>Creation time</p>
-   *             </li>
-   *             <li>
-   *                 <p>Last modified time</p>
-   *             </li>
-   *             <li>
-   *                 <p>Configuration information, including the URL location of the repository and
-   *                     the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used
-   *                     to access the repository.</p>
-   *             </li>
-   *          </ul>
-   */
-  CodeRepositorySummaryList: CodeRepositorySummary[] | undefined;
-
-  /**
-   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the
-   *             response includes a <code>NextToken</code>. To get the next set of Git repositories, use
-   *             the token in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ListCompilationJobsSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
-
-export interface ListCompilationJobsRequest {
-  /**
-   * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
-   *             compilation jobs, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of model compilation jobs to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were created after a specified
-   *             time. </p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were created before a specified
-   *             time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were modified after a specified
-   *             time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were modified before a specified
-   *             time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns the model compilation jobs whose name contains a specified
-   *             string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that retrieves model compilation jobs with a specific <a>DescribeCompilationJobResponse$CompilationJobStatus</a> status.</p>
-   */
-  StatusEquals?: CompilationJobStatus | string;
-
-  /**
-   * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: ListCompilationJobsSortBy | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-export interface ListCompilationJobsResponse {
-  /**
-   * <p>An array of <a>CompilationJobSummary</a> objects, each describing a model
-   *             compilation job. </p>
-   */
-  CompilationJobSummaries: CompilationJobSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this <code>NextToken</code>. To retrieve
-   *             the next set of model compilation jobs, use this token in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum SortContextsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
-
-export interface ListContextsRequest {
-  /**
-   * <p>A filter that returns only contexts with the specified source URI.</p>
-   */
-  SourceUri?: string;
-
-  /**
-   * <p>A filter that returns only contexts of the specified type.</p>
-   */
-  ContextType?: string;
-
-  /**
-   * <p>A filter that returns only contexts created on or after the specified time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns only contexts created on or before the specified time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortContextsBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the previous call to <code>ListContexts</code> didn't return the full set of contexts,
-   *         the call returns a token for getting the next set of contexts.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of contexts to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListContextsResponse {
-  /**
-   * <p>A list of contexts and their properties.</p>
-   */
-  ContextSummaries?: ContextSummary[];
-
-  /**
-   * <p>A token for getting the next set of contexts, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export enum MonitoringJobDefinitionSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
-
-export interface ListDataQualityJobDefinitionsRequest {
-  /**
-   * <p>A filter that lists the data quality job definitions associated with the specified
-   *          endpoint.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was
-   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *          transform jobs, use the token in the next request.></p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of data quality monitoring job definitions to return in the
-   *          response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the data quality monitoring job definition name. This filter returns only
-   *          data quality monitoring job definitions whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only data quality monitoring job definitions created before the
-   *          specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only data quality monitoring job definitions created after the
-   *          specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-}
-
-/**
- * <p>Summary information about a monitoring job.</p>
- */
-export interface MonitoringJobDefinitionSummary {
-  /**
-   * <p>The name of the monitoring job.</p>
-   */
-  MonitoringJobDefinitionName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring job.</p>
-   */
-  MonitoringJobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The time that the monitoring job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The name of the endpoint that the job monitors.</p>
-   */
-  EndpointName: string | undefined;
-}
-
-export interface ListDataQualityJobDefinitionsResponse {
-  /**
-   * <p>A list of data quality monitoring job definitions.</p>
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was
-   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of data
-   *          quality monitoring job definitions, use the token in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ListDeviceFleetsSortBy {
-  CreationTime = "CREATION_TIME",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  Name = "NAME",
-}
-
-export interface ListDeviceFleetsRequest {
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to select.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filter fleets where packaging job was created after specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>Filter fleets where the edge packaging job was created before specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>Select fleets where the job was updated after X</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>Select fleets where the job was updated before X</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>Filter for fleets containing this name in their fleet device name.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>The column to sort by.</p>
-   */
-  SortBy?: ListDeviceFleetsSortBy | string;
-
-  /**
-   * <p>What direction to sort in.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-export interface ListDeviceFleetsResponse {
-  /**
-   * <p>Summary of the device fleet.</p>
-   */
-  DeviceFleetSummaries: DeviceFleetSummary[] | undefined;
-
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListDevicesRequest {
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Maximum number of results to select.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Select fleets where the job was updated after X</p>
-   */
-  LatestHeartbeatAfter?: Date;
-
-  /**
-   * <p>A filter that searches devices that contains this name in any of their models.</p>
-   */
-  ModelName?: string;
-
-  /**
-   * <p>Filter for fleets containing this name in their device fleet name.</p>
-   */
-  DeviceFleetName?: string;
-}
-
-export interface ListDevicesResponse {
-  /**
-   * <p>Summary of devices.</p>
-   */
-  DeviceSummaries: DeviceSummary[] | undefined;
-
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListDomainsRequest {
-  /**
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Returns a list up to a specified limit.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListDomainsResponse {
-  /**
-   * <p>The list of domains.</p>
-   */
-  Domains?: DomainDetails[];
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ListEdgeDeploymentPlansSortBy {
-  CreationTime = "CREATION_TIME",
-  DeviceFleetName = "DEVICE_FLEET_NAME",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  Name = "NAME",
-}
-
-export interface ListEdgeDeploymentPlansRequest {
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to select (50 by default).</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Selects edge deployment plans created after this time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>Selects edge deployment plans created before this time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>Selects edge deployment plans that were last updated after this time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>Selects edge deployment plans that were last updated before this time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>Selects edge deployment plans with names containing this name.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>Selects edge deployment plans with a device fleet name containing this name.</p>
-   */
-  DeviceFleetNameContains?: string;
-
-  /**
-   * <p>The column by which to sort the edge deployment plans. Can be one of <code>NAME</code>, <code>DEVICEFLEETNAME</code>, <code>CREATIONTIME</code>, <code>LASTMODIFIEDTIME</code>.</p>
-   */
-  SortBy?: ListEdgeDeploymentPlansSortBy | string;
-
-  /**
-   * <p>The direction of the sorting (ascending or descending).</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-export interface ListEdgeDeploymentPlansResponse {
-  /**
-   * <p>List of summaries of edge deployment plans.</p>
-   */
-  EdgeDeploymentPlanSummaries: EdgeDeploymentPlanSummary[] | undefined;
-
-  /**
-   * <p>The token to use when calling the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ListEdgePackagingJobsSortBy {
-  CreationTime = "CREATION_TIME",
-  EdgePackagingJobStatus = "STATUS",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  ModelName = "MODEL_NAME",
-  Name = "NAME",
-}
-
-export interface ListEdgePackagingJobsRequest {
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Maximum number of results to select.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Select jobs where the job was created after specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>Select jobs where the job was created before specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>Select jobs where the job was updated after specified time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>Select jobs where the job was updated before specified time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>Filter for jobs containing this name in their packaging job name.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>Filter for jobs where the model name contains this string.</p>
-   */
-  ModelNameContains?: string;
-
-  /**
-   * <p>The job status to filter for.</p>
-   */
-  StatusEquals?: EdgePackagingJobStatus | string;
-
-  /**
-   * <p>Use to specify what column to sort by.</p>
-   */
-  SortBy?: ListEdgePackagingJobsSortBy | string;
-
-  /**
-   * <p>What direction to sort by.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-export interface ListEdgePackagingJobsResponse {
-  /**
-   * <p>Summaries of edge packaging jobs.</p>
-   */
-  EdgePackagingJobSummaries: EdgePackagingJobSummary[] | undefined;
-
-  /**
-   * <p>Token to use when calling the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export enum OrderKey {
-  Ascending = "Ascending",
-  Descending = "Descending",
-}
-
-export interface ListEndpointConfigsInput {
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: EndpointConfigSortKey | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: OrderKey | string;
-
-  /**
-   * <p>If the result of the previous <code>ListEndpointConfig</code> request was
-   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *             endpoint configurations, use the token in the next request. </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of training jobs to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the endpoint configuration name. This filter returns only endpoint
-   *             configurations whose name contains the specified string. </p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only endpoint configurations created before the specified
-   *             time (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only endpoint configurations with a creation time greater
-   *             than or equal to the specified time (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-}
-
-export interface ListEndpointConfigsOutput {
-  /**
-   * <p>An array of endpoint configurations.</p>
-   */
-  EndpointConfigs: EndpointConfigSummary[] | undefined;
-
-  /**
-   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             endpoint configurations, use it in the subsequent request </p>
-   */
-  NextToken?: string;
-}
-
-export interface ListEndpointsInput {
-  /**
-   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: EndpointSortKey | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: OrderKey | string;
-
-  /**
-   * <p>If the result of a <code>ListEndpoints</code> request was truncated, the response
-   *             includes a <code>NextToken</code>. To retrieve the next set of endpoints, use the token
-   *             in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of endpoints to return in the response. This value defaults to
-   *             10.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in endpoint names. This filter returns only endpoints whose name contains
-   *             the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only endpoints that were created before the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only endpoints with a creation time greater than or equal to
-   *             the specified time (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p> A filter that returns only endpoints that were modified before the specified
-   *             timestamp. </p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p> A filter that returns only endpoints that were modified after the specified
-   *             timestamp. </p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p> A filter that returns only endpoints with the specified status.</p>
-   */
-  StatusEquals?: EndpointStatus | string;
-}
-
-export interface ListEndpointsOutput {
-  /**
-   * <p> An array or endpoint objects. </p>
-   */
-  Endpoints: EndpointSummary[] | undefined;
-
-  /**
-   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             training jobs, use it in the subsequent request. </p>
-   */
-  NextToken?: string;
-}
-
-export enum SortExperimentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
-
-export interface ListExperimentsRequest {
-  /**
-   * <p>A filter that returns only experiments created after the specified time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns only experiments created before the specified time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortExperimentsBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the previous call to <code>ListExperiments</code> didn't return the full set of
-   *       experiments, the call returns a token for getting the next set of experiments.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of experiments to return in the response. The default value is
-   *       10.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListExperimentsResponse {
-  /**
-   * <p>A list of the summaries of your experiments.</p>
-   */
-  ExperimentSummaries?: ExperimentSummary[];
-
-  /**
-   * <p>A token for getting the next set of experiments, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListFeatureGroupsRequest {
-  /**
-   * <p>A string that partially matches one or more <code>FeatureGroup</code>s names. Filters
-   *             <code>FeatureGroup</code>s by name. </p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A <code>FeatureGroup</code> status. Filters by <code>FeatureGroup</code> status. </p>
-   */
-  FeatureGroupStatusEquals?: FeatureGroupStatus | string;
-
-  /**
-   * <p>An <code>OfflineStore</code> status. Filters by <code>OfflineStore</code> status. </p>
-   */
-  OfflineStoreStatusEquals?: OfflineStoreStatusValue | string;
-
-  /**
-   * <p>Use this parameter to search for <code>FeatureGroups</code>s created after a specific
-   *          date and time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>Use this parameter to search for <code>FeatureGroups</code>s created before a specific
-   *          date and time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The order in which feature groups are listed.</p>
-   */
-  SortOrder?: FeatureGroupSortOrder | string;
-
-  /**
-   * <p>The value on which the feature group list is sorted.</p>
-   */
-  SortBy?: FeatureGroupSortBy | string;
-
-  /**
-   * <p>The maximum number of results returned by <code>ListFeatureGroups</code>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token to resume pagination of <code>ListFeatureGroups</code> results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListFeatureGroupsResponse {
-  /**
-   * <p>A summary of feature groups.</p>
-   */
-  FeatureGroupSummaries: FeatureGroupSummary[] | undefined;
-
-  /**
-   * <p>A token to resume pagination of <code>ListFeatureGroups</code> results.</p>
-   */
-  NextToken: string | undefined;
-}
-
-export interface ListFlowDefinitionsRequest {
-  /**
-   * <p>A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only flow definitions that were created before the specified timestamp.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListFlowDefinitionsResponse {
-  /**
-   * <p>An array of objects describing the flow definitions.</p>
-   */
-  FlowDefinitionSummaries: FlowDefinitionSummary[] | undefined;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListHumanTaskUisRequest {
-  /**
-   * <p>A filter that returns only human task user interfaces with a creation time greater than or equal to the specified timestamp.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only human task user interfaces that were created before the specified timestamp.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListHumanTaskUisResponse {
-  /**
-   * <p>An array of objects describing the human task user interfaces.</p>
-   */
-  HumanTaskUiSummaries: HumanTaskUiSummary[] | undefined;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListHyperParameterTuningJobsRequest {
-  /**
-   * <p>If the result of the previous <code>ListHyperParameterTuningJobs</code> request was
-   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *             tuning jobs, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The
-   *             maximum number of tuning jobs to return. The default value is
-   *             10.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The field to sort results by. The default is <code>Name</code>.</p>
-   */
-  SortBy?: HyperParameterTuningJobSortByOptions | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>A string in the tuning job name. This filter returns only tuning jobs whose name
-   *             contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only tuning jobs that were created after the specified
-   *             time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only tuning jobs that were created before the specified
-   *             time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only tuning jobs that were modified after the specified
-   *             time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only tuning jobs that were modified before the specified
-   *             time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only tuning jobs with the specified status.</p>
-   */
-  StatusEquals?: HyperParameterTuningJobStatus | string;
-}
-
-export interface ListHyperParameterTuningJobsResponse {
-  /**
-   * <p>A list of <a>HyperParameterTuningJobSummary</a> objects that
-   *             describe
-   *             the tuning jobs that the <code>ListHyperParameterTuningJobs</code>
-   *             request returned.</p>
-   */
-  HyperParameterTuningJobSummaries: HyperParameterTuningJobSummary[] | undefined;
-
-  /**
-   * <p>If the result of this <code>ListHyperParameterTuningJobs</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of tuning jobs,
-   *             use the token in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListImagesRequest {
-  /**
-   * <p>A filter that returns only images created on or after the specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only images created on or before the specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only images modified on or after the specified time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only images modified on or before the specified time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of images to return in the response. The default value is 10. </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A filter that returns only images whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>If the previous call to <code>ListImages</code> didn't return the full set of images,
-   *         the call returns a token for getting the next set of images.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
-   */
-  SortBy?: ImageSortBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
-   */
-  SortOrder?: ImageSortOrder | string;
-}
-
-export interface ListImagesResponse {
-  /**
-   * <p>A list of images and their properties.</p>
-   */
-  Images?: Image[];
-
-  /**
-   * <p>A token for getting the next set of images, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListImageVersionsRequest {
-  /**
-   * <p>A filter that returns only versions created on or after the specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only versions created on or before the specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The name of the image to list the versions of.</p>
+   * <p>The name of the image.</p>
    */
   ImageName: string | undefined;
 
   /**
-   * <p>A filter that returns only versions modified on or after the specified time.</p>
+   * <p>The alias of the image version.</p>
    */
-  LastModifiedTimeAfter?: Date;
+  Alias?: string;
 
   /**
-   * <p>A filter that returns only versions modified on or before the specified time.</p>
+   * <p>The version of the image. If image version is not specified, the aliases of all versions of the image are listed.</p>
    */
-  LastModifiedTimeBefore?: Date;
+  Version?: number;
 
   /**
-   * <p>The maximum number of versions to return in the response. The default value is 10. </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous call to <code>ListImageVersions</code> didn't return the full set of
-   *         versions, the call returns a token for getting the next set of versions.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
-   */
-  SortBy?: ImageVersionSortBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
-   */
-  SortOrder?: ImageVersionSortOrder | string;
-}
-
-export interface ListImageVersionsResponse {
-  /**
-   * <p>A list of versions and their properties.</p>
-   */
-  ImageVersions?: ImageVersion[];
-
-  /**
-   * <p>A token for getting the next set of versions, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ListInferenceRecommendationsJobsSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
-
-export interface ListInferenceRecommendationsJobsRequest {
-  /**
-   * <p>A filter that returns only jobs created after the specified time (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only jobs created before the specified time (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only jobs that were last modified after the specified time (timestamp).</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only jobs that were last modified before the specified time (timestamp).</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A string in the job name. This filter returns only recommendations whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that retrieves only inference recommendations jobs with a specific status.</p>
-   */
-  StatusEquals?: RecommendationJobStatus | string;
-
-  /**
-   * <p>The parameter by which to sort the results.</p>
-   */
-  SortBy?: ListInferenceRecommendationsJobsSortBy | string;
-
-  /**
-   * <p>The sort order for the results.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the response to a previous <code>ListInferenceRecommendationsJobsRequest</code> request
-   *          was truncated, the response includes a <code>NextToken</code>. To retrieve the next set
-   *          of recommendations, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of recommendations to return in the response.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListInferenceRecommendationsJobsResponse {
-  /**
-   * <p>The recommendations created from the Amazon SageMaker Inference Recommender job.</p>
-   */
-  InferenceRecommendationsJobs: InferenceRecommendationsJob[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of recommendations, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export enum SortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
-
-export interface ListLabelingJobsRequest {
-  /**
-   * <p>A filter that returns only labeling jobs created after the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only labeling jobs created before the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only labeling jobs modified after the specified time
-   *             (timestamp).</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only labeling jobs modified before the specified time
-   *             (timestamp).</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of labeling jobs to return in each page of the response.</p>
+   * <p>The maximum number of aliases to return.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>If the result of the previous <code>ListLabelingJobs</code> request was truncated, the
-   *             response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs,
-   *             use the token in the next request.</p>
+   * <p>If the previous call to <code>ListAliases</code> didn't return the full set of
+   *          aliases, the call returns a token for retrieving the next set of aliases.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A string in the labeling job name. This filter returns only labeling jobs whose name
-   *             contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortBy | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>A filter that retrieves only labeling jobs with a specific status.</p>
-   */
-  StatusEquals?: LabelingJobStatus | string;
-}
-
-export interface ListLabelingJobsResponse {
-  /**
-   * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
-   *             job.</p>
-   */
-  LabelingJobSummaryList?: LabelingJobSummary[];
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             labeling jobs, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ListLabelingJobsForWorkteamSortByOptions {
-  CREATION_TIME = "CreationTime",
-}
-
-export interface ListLabelingJobsForWorkteamRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the work team for which you want to see labeling
-   *             jobs for.</p>
-   */
-  WorkteamArn: string | undefined;
-
-  /**
-   * <p>The maximum number of labeling jobs to return in each page of the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the result of the previous <code>ListLabelingJobsForWorkteam</code> request was
-   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *             labeling jobs, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A filter that returns only labeling jobs created after the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only labeling jobs created before the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter the limits jobs to only the ones whose job reference code contains the
-   *             specified string.</p>
-   */
-  JobReferenceCodeContains?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: ListLabelingJobsForWorkteamSortByOptions | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-export interface ListLabelingJobsForWorkteamResponse {
-  /**
-   * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
-   *             job.</p>
-   */
-  LabelingJobSummaryList: LabelingJobForWorkteamSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             labeling jobs, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum SortLineageGroupsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
-
-export interface ListLineageGroupsRequest {
-  /**
-   * <p>A timestamp to filter against lineage groups created after a certain point in time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A timestamp to filter against lineage groups created before a certain point in time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is
-   *          <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortLineageGroupsBy | string;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *          algorithms, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of endpoints to return in the response. This value defaults to
-   *          10.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListLineageGroupsResponse {
-  /**
-   * <p>A list of lineage groups and their properties.</p>
-   */
-  LineageGroupSummaries?: LineageGroupSummary[];
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *          algorithms, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListModelBiasJobDefinitionsRequest {
-  /**
-   * <p>Name of the endpoint to monitor for model bias.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
-   *          default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *          The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job
-   *          executions, use it in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of model bias jobs to return in the response. The default value is
-   *          10.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filter for model bias jobs whose name contains a specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only model bias jobs created before a specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only model bias jobs created after a specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-}
-
-export interface ListModelBiasJobDefinitionsResponse {
-  /**
-   * <p>A JSON array in which each element is a summary for a model bias jobs.</p>
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
-   *          use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListModelExplainabilityJobDefinitionsRequest {
-  /**
-   * <p>Name of the endpoint to monitor for model explainability.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
-   *          default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *          The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job
-   *          executions, use it in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filter for model explainability jobs whose name contains a specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only model explainability jobs created before a specified
-   *          time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only model explainability jobs created after a specified
-   *          time.</p>
-   */
-  CreationTimeAfter?: Date;
-}
-
-export interface ListModelExplainabilityJobDefinitionsResponse {
-  /**
-   * <p>A JSON array in which each element is a summary for a explainability bias jobs.</p>
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
-   *          use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ModelMetadataFilterType {
-  DOMAIN = "Domain",
-  FRAMEWORK = "Framework",
-  FRAMEWORKVERSION = "FrameworkVersion",
-  TASK = "Task",
 }
 
 /**
- * <p>Part of the search expression. You can specify the name and value
- *           (domain, task, framework, framework version, task, and model).</p>
+ * @internal
  */
-export interface ModelMetadataFilter {
-  /**
-   * <p>The name of the of the model to filter by.</p>
-   */
-  Name: ModelMetadataFilterType | string | undefined;
-
-  /**
-   * <p>The value to filter the model metadata.</p>
-   */
-  Value: string | undefined;
-}
+export const DeleteWorkteamResponseFilterSensitiveLog = (obj: DeleteWorkteamResponse): any => ({
+  ...obj,
+});
 
 /**
- * <p>One or more filters that searches for the specified resource or resources in
- *           a search. All resource objects that satisfy the expression's condition are
- *           included in the search results</p>
+ * @internal
  */
-export interface ModelMetadataSearchExpression {
-  /**
-   * <p>A list of filter objects.</p>
-   */
-  Filters?: ModelMetadataFilter[];
-}
-
-export interface ListModelMetadataRequest {
-  /**
-   * <p>One or more filters that searches for the specified resource or resources
-   *           in a search. All resource objects that satisfy the expression's condition are
-   *           included in the search results. Specify the  Framework, FrameworkVersion, Domain
-   *           or Task to filter supported. Filter names and values are case-sensitive.</p>
-   */
-  SearchExpression?: ModelMetadataSearchExpression;
-
-  /**
-   * <p>If the response to a previous <code>ListModelMetadataResponse</code> request was truncated,
-   *            the response includes a NextToken. To retrieve the next set of model metadata,
-   *            use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of models to return in the response.</p>
-   */
-  MaxResults?: number;
-}
+export const DeployedImageFilterSensitiveLog = (obj: DeployedImage): any => ({
+  ...obj,
+});
 
 /**
- * <p>A summary of the model metadata.</p>
+ * @internal
  */
-export interface ModelMetadataSummary {
-  /**
-   * <p>The machine learning domain of the model.</p>
-   */
-  Domain: string | undefined;
-
-  /**
-   * <p>The machine learning framework of the model.</p>
-   */
-  Framework: string | undefined;
-
-  /**
-   * <p>The machine learning task of the model.</p>
-   */
-  Task: string | undefined;
-
-  /**
-   * <p>The name of the model.</p>
-   */
-  Model: string | undefined;
-
-  /**
-   * <p>The framework version of the model.</p>
-   */
-  FrameworkVersion: string | undefined;
-}
-
-export interface ListModelMetadataResponse {
-  /**
-   * <p>A structure that holds model metadata.</p>
-   */
-  ModelMetadataSummaries: ModelMetadataSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of recommendations, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ModelPackageGroupSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
-
-export interface ListModelPackageGroupsInput {
-  /**
-   * <p>A filter that returns only model groups created after the specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only model groups created before the specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the model group name. This filter returns only model groups whose name
-   *             contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>If the result of the previous <code>ListModelPackageGroups</code> request was
-   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *             model groups, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: ModelPackageGroupSortBy | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
+export const EdgeDeploymentStatusFilterSensitiveLog = (obj: EdgeDeploymentStatus): any => ({
+  ...obj,
+});
 
 /**
- * <p>Summary information about a model group.</p>
+ * @internal
  */
-export interface ModelPackageGroupSummary {
-  /**
-   * <p>The name of the model group.</p>
-   */
-  ModelPackageGroupName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model group.</p>
-   */
-  ModelPackageGroupArn: string | undefined;
-
-  /**
-   * <p>A description of the model group.</p>
-   */
-  ModelPackageGroupDescription?: string;
-
-  /**
-   * <p>The time that the model group was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The status of the model group.</p>
-   */
-  ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
-}
-
-export interface ListModelPackageGroupsOutput {
-  /**
-   * <p>A list of summaries of the model groups in your Amazon Web Services account.</p>
-   */
-  ModelPackageGroupSummaryList: ModelPackageGroupSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set
-   *             of model groups, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ModelPackageType {
-  BOTH = "Both",
-  UNVERSIONED = "Unversioned",
-  VERSIONED = "Versioned",
-}
-
-export enum ModelPackageSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
-
-export interface ListModelPackagesInput {
-  /**
-   * <p>A filter that returns only model packages created after the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only model packages created before the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of model packages to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the model package name. This filter returns only model packages whose name
-   *             contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only the model packages with the specified approval
-   *             status.</p>
-   */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
-
-  /**
-   * <p>A filter that returns only model versions that belong to the specified model group.</p>
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * <p>A filter that returns only the model packages of the specified type. This can be one
-   *             of the following values.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>UNVERSIONED</code> - List only unversioined models.
-   *                     This is the default value if no <code>ModelPackageType</code> is specified.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>VERSIONED</code> - List only versioned models.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>BOTH</code> - List both versioned and unversioned models.</p>
-   *             </li>
-   *          </ul>
-   */
-  ModelPackageType?: ModelPackageType | string;
-
-  /**
-   * <p>If the response to a previous <code>ListModelPackages</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
-   *             packages, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is
-   *             <code>CreationTime</code>.</p>
-   */
-  SortBy?: ModelPackageSortBy | string;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
+export const DeploymentStageStatusSummaryFilterSensitiveLog = (obj: DeploymentStageStatusSummary): any => ({
+  ...obj,
+});
 
 /**
- * <p>Provides summary information about a model package.</p>
+ * @internal
  */
-export interface ModelPackageSummary {
-  /**
-   * <p>The name of the model package.</p>
-   */
-  ModelPackageName: string | undefined;
-
-  /**
-   * <p>If the model package is a versioned model, the model group that the versioned model
-   *             belongs to.</p>
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * <p>If the model package is a versioned model, the version of the model.</p>
-   */
-  ModelPackageVersion?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model package.</p>
-   */
-  ModelPackageArn: string | undefined;
-
-  /**
-   * <p>A brief description of the model package.</p>
-   */
-  ModelPackageDescription?: string;
-
-  /**
-   * <p>A timestamp that shows when the model package was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The overall status of the model package.</p>
-   */
-  ModelPackageStatus: ModelPackageStatus | string | undefined;
-
-  /**
-   * <p>The approval status of the model. This can be one of the following values.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>APPROVED</code> - The model is approved</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>REJECTED</code> - The model is rejected.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>PENDING_MANUAL_APPROVAL</code> - The model is waiting for manual
-   *                     approval.</p>
-   *             </li>
-   *          </ul>
-   */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
-}
-
-export interface ListModelPackagesOutput {
-  /**
-   * <p>An array of <code>ModelPackageSummary</code> objects, each of which lists a model
-   *             package.</p>
-   */
-  ModelPackageSummaryList: ModelPackageSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             model packages, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListModelQualityJobDefinitionsRequest {
-  /**
-   * <p>A filter that returns only model quality monitoring job definitions that are associated
-   *          with the specified endpoint.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the result of the previous <code>ListModelQualityJobDefinitions</code> request was
-   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *          model quality monitoring job definitions, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a call to
-   *             <code>ListModelQualityJobDefinitions</code>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the transform job name. This filter returns only model quality monitoring
-   *          job definitions whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only model quality monitoring job definitions created before the
-   *          specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only model quality monitoring job definitions created after the
-   *          specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-}
-
-export interface ListModelQualityJobDefinitionsResponse {
-  /**
-   * <p>A list of summaries of model quality monitoring job definitions.</p>
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of model
-   *          quality monitoring job definitions, use it in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ModelSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-}
-
-export interface ListModelsInput {
-  /**
-   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: ModelSortKey | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: OrderKey | string;
-
-  /**
-   * <p>If the response to a previous <code>ListModels</code> request was truncated, the
-   *             response includes a <code>NextToken</code>. To retrieve the next set of models, use the
-   *             token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of models to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the model name. This filter returns only models whose
-   *             name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only models created before the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only models with a creation time greater than or equal to the
-   *             specified time (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-}
+export const DeregisterDevicesRequestFilterSensitiveLog = (obj: DeregisterDevicesRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Provides summary information about a model.</p>
+ * @internal
  */
-export interface ModelSummary {
-  /**
-   * <p>The name of the model that you want a summary for.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model.</p>
-   */
-  ModelArn: string | undefined;
-
-  /**
-   * <p>A timestamp that indicates when the model was created.</p>
-   */
-  CreationTime: Date | undefined;
-}
-
-export interface ListModelsOutput {
-  /**
-   * <p>An array of <code>ModelSummary</code> objects, each of which lists a
-   *             model.</p>
-   */
-  Models: ModelSummary[] | undefined;
-
-  /**
-   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             models, use it in the subsequent request. </p>
-   */
-  NextToken?: string;
-}
-
-export enum MonitoringExecutionSortKey {
-  CREATION_TIME = "CreationTime",
-  SCHEDULED_TIME = "ScheduledTime",
-  STATUS = "Status",
-}
-
-export interface ListMonitoringExecutionsRequest {
-  /**
-   * <p>Name of a specific schedule to fetch jobs for.</p>
-   */
-  MonitoringScheduleName?: string;
-
-  /**
-   * <p>Name of a specific endpoint to fetch jobs for.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
-   *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: MonitoringExecutionSortKey | string;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *          The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job
-   *          executions, use it in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filter for jobs scheduled before a specified time.</p>
-   */
-  ScheduledTimeBefore?: Date;
-
-  /**
-   * <p>Filter for jobs scheduled after a specified time.</p>
-   */
-  ScheduledTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only jobs created before a specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only jobs created after a specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only jobs modified after a specified time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only jobs modified before a specified time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that retrieves only jobs with a specific status.</p>
-   */
-  StatusEquals?: ExecutionStatus | string;
-
-  /**
-   * <p>Gets a list of the monitoring job runs of the specified monitoring job
-   *          definitions.</p>
-   */
-  MonitoringJobDefinitionName?: string;
-
-  /**
-   * <p>A filter that returns only the monitoring job runs of the specified monitoring
-   *          type.</p>
-   */
-  MonitoringTypeEquals?: MonitoringType | string;
-}
-
-export interface ListMonitoringExecutionsResponse {
-  /**
-   * <p>A JSON array in which each element is a summary for a monitoring execution.</p>
-   */
-  MonitoringExecutionSummaries: MonitoringExecutionSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
-   *          use it in the subsequent reques</p>
-   */
-  NextToken?: string;
-}
-
-export enum MonitoringScheduleSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
-
-export interface ListMonitoringSchedulesRequest {
-  /**
-   * <p>Name of a specific endpoint to fetch schedules for.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
-   *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: MonitoringScheduleSortKey | string;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *          The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job
-   *          executions, use it in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filter for monitoring schedules whose name contains a specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only monitoring schedules created before a specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only monitoring schedules created after a specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only monitoring schedules modified after a specified time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
-   */
-  StatusEquals?: ScheduleStatus | string;
-
-  /**
-   * <p>Gets a list of the monitoring schedules for the specified monitoring job
-   *          definition.</p>
-   */
-  MonitoringJobDefinitionName?: string;
-
-  /**
-   * <p>A filter that returns only the monitoring schedules for the specified monitoring
-   *          type.</p>
-   */
-  MonitoringTypeEquals?: MonitoringType | string;
-}
+export const DescribeActionRequestFilterSensitiveLog = (obj: DescribeActionRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Summarizes the monitoring schedule.</p>
+ * @internal
  */
-export interface MonitoringScheduleSummary {
-  /**
-   * <p>The name of the monitoring schedule.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   */
-  MonitoringScheduleArn: string | undefined;
-
-  /**
-   * <p>The creation time of the monitoring schedule.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The last time the monitoring schedule was modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The status of the monitoring schedule.</p>
-   */
-  MonitoringScheduleStatus: ScheduleStatus | string | undefined;
-
-  /**
-   * <p>The name of the endpoint using the monitoring schedule.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>The name of the monitoring job definition that the schedule is for.</p>
-   */
-  MonitoringJobDefinitionName?: string;
-
-  /**
-   * <p>The type of the monitoring job definition that the schedule is for.</p>
-   */
-  MonitoringType?: MonitoringType | string;
-}
-
-export interface ListMonitoringSchedulesResponse {
-  /**
-   * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
-   */
-  MonitoringScheduleSummaries: MonitoringScheduleSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
-   *          use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum NotebookInstanceLifecycleConfigSortKey {
-  CREATION_TIME = "CreationTime",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name",
-}
-
-export enum NotebookInstanceLifecycleConfigSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
-
-export interface ListNotebookInstanceLifecycleConfigsInput {
-  /**
-   * <p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was
-   *             truncated, the response includes a <code>NextToken</code>. To get the next set of
-   *             lifecycle configurations, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of lifecycle configurations to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: NotebookInstanceLifecycleConfigSortKey | string;
-
-  /**
-   * <p>The sort order for results.</p>
-   */
-  SortOrder?: NotebookInstanceLifecycleConfigSortOrder | string;
-
-  /**
-   * <p>A string in the lifecycle configuration name. This filter returns only lifecycle
-   *             configurations whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were created before the
-   *             specified time (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were created after the
-   *             specified time (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were modified before the
-   *             specified time (timestamp).</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were modified after the
-   *             specified time (timestamp).</p>
-   */
-  LastModifiedTimeAfter?: Date;
-}
+export const DescribeActionResponseFilterSensitiveLog = (obj: DescribeActionResponse): any => ({
+  ...obj,
+});
 
 /**
- * <p>Provides a summary of a notebook instance lifecycle configuration.</p>
+ * @internal
  */
-export interface NotebookInstanceLifecycleConfigSummary {
-  /**
-   * <p>The name of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigArn: string | undefined;
-
-  /**
-   * <p>A timestamp that tells when the lifecycle configuration was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>A timestamp that tells when the lifecycle configuration was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-export interface ListNotebookInstanceLifecycleConfigsOutput {
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To get the next set of
-   *             lifecycle configurations, use it in the next request. </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
-   *             a lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
-}
-
-export enum NotebookInstanceSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
-
-export enum NotebookInstanceSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
-
-export interface ListNotebookInstancesInput {
-  /**
-   * <p> If the previous call to the <code>ListNotebookInstances</code> is truncated, the
-   *             response includes a <code>NextToken</code>. You can use this token in your subsequent
-   *                 <code>ListNotebookInstances</code> request to fetch the next set of notebook
-   *             instances. </p>
-   *         <note>
-   *             <p>You might specify a filter or a sort order in your request. When response is
-   *                 truncated, you must use the same values for the filer and sort order in the next
-   *                 request. </p>
-   *         </note>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of notebook instances to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The field to sort results by. The default is <code>Name</code>.</p>
-   */
-  SortBy?: NotebookInstanceSortKey | string;
-
-  /**
-   * <p>The sort order for results. </p>
-   */
-  SortOrder?: NotebookInstanceSortOrder | string;
-
-  /**
-   * <p>A string in the notebook instances' name. This filter returns only notebook
-   *             instances whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only notebook instances that were created before the
-   *             specified time (timestamp). </p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances that were created after the specified
-   *             time (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances that were modified before the
-   *             specified time (timestamp).</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances that were modified after the
-   *             specified time (timestamp).</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances with the specified status.</p>
-   */
-  StatusEquals?: NotebookInstanceStatus | string;
-
-  /**
-   * <p>A string in the name of a notebook instances lifecycle configuration associated with
-   *             this notebook instance. This filter returns only notebook instances associated with a
-   *             lifecycle configuration with a name that contains the specified string.</p>
-   */
-  NotebookInstanceLifecycleConfigNameContains?: string;
-
-  /**
-   * <p>A string in the name or URL of a Git repository associated with this notebook
-   *             instance. This filter returns only notebook instances associated with a git repository
-   *             with a name that contains the specified string.</p>
-   */
-  DefaultCodeRepositoryContains?: string;
-
-  /**
-   * <p>A filter that returns only notebook instances with associated with the specified git
-   *             repository.</p>
-   */
-  AdditionalCodeRepositoryEquals?: string;
-}
+export const DescribeAlgorithmInputFilterSensitiveLog = (obj: DescribeAlgorithmInput): any => ({
+  ...obj,
+});
 
 /**
- * <p>Provides summary information for an SageMaker notebook instance.</p>
+ * @internal
  */
-export interface NotebookInstanceSummary {
-  /**
-   * <p>The name of the notebook instance that you want a summary for.</p>
-   */
-  NotebookInstanceName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the notebook instance.</p>
-   */
-  NotebookInstanceArn: string | undefined;
-
-  /**
-   * <p>The status of the notebook instance.</p>
-   */
-  NotebookInstanceStatus?: NotebookInstanceStatus | string;
-
-  /**
-   * <p>The URL that you use to connect to the Jupyter notebook running in your notebook
-   *             instance. </p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The type of ML compute instance that the notebook instance is running on.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>A timestamp that shows when the notebook instance was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>A timestamp that shows when the notebook instance was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The name of a notebook instance lifecycle configuration associated with this notebook
-   *             instance.</p>
-   *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
-   *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
-   */
-  NotebookInstanceLifecycleConfigName?: string;
-
-  /**
-   * <p>The Git repository associated with the notebook instance as its default code
-   *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. When you open a notebook instance, it opens in the directory that
-   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker
-   *                 Notebook Instances</a>.</p>
-   */
-  DefaultCodeRepository?: string;
-
-  /**
-   * <p>An array of up to three Git repositories associated with the notebook instance. These
-   *             can be either the names of Git repositories stored as resources in your account, or the
-   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. These repositories are cloned at the same level as the default
-   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
-   */
-  AdditionalCodeRepositories?: string[];
-}
-
-export interface ListNotebookInstancesOutput {
-  /**
-   * <p>If the response to the previous <code>ListNotebookInstances</code> request was
-   *             truncated, SageMaker returns this token. To retrieve the next set of notebook instances, use
-   *             the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>An array of <code>NotebookInstanceSummary</code> objects, one for each notebook
-   *             instance.</p>
-   */
-  NotebookInstances?: NotebookInstanceSummary[];
-}
-
-export enum SortPipelineExecutionsBy {
-  CREATION_TIME = "CreationTime",
-  PIPELINE_EXECUTION_ARN = "PipelineExecutionArn",
-}
-
-export interface ListPipelineExecutionsRequest {
-  /**
-   * <p>The name of the pipeline.</p>
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>A filter that returns the pipeline executions that were created after a specified
-   *          time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns the pipeline executions that were created before a specified
-   *          time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
-   */
-  SortBy?: SortPipelineExecutionsBy | string;
-
-  /**
-   * <p>The sort order for results.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of pipeline executions to return in the response.</p>
-   */
-  MaxResults?: number;
-}
+export const DescribeAlgorithmOutputFilterSensitiveLog = (obj: DescribeAlgorithmOutput): any => ({
+  ...obj,
+});
 
 /**
- * <p>A pipeline execution summary.</p>
+ * @internal
  */
-export interface PipelineExecutionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
+export const DescribeAppRequestFilterSensitiveLog = (obj: DescribeAppRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The start time of the pipeline execution.</p>
-   */
-  StartTime?: Date;
+/**
+ * @internal
+ */
+export const DescribeAppResponseFilterSensitiveLog = (obj: DescribeAppResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The status of the pipeline execution.</p>
-   */
-  PipelineExecutionStatus?: PipelineExecutionStatus | string;
+/**
+ * @internal
+ */
+export const DescribeAppImageConfigRequestFilterSensitiveLog = (obj: DescribeAppImageConfigRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The description of the pipeline execution.</p>
-   */
-  PipelineExecutionDescription?: string;
+/**
+ * @internal
+ */
+export const DescribeAppImageConfigResponseFilterSensitiveLog = (obj: DescribeAppImageConfigResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The display name of the pipeline execution.</p>
-   */
-  PipelineExecutionDisplayName?: string;
+/**
+ * @internal
+ */
+export const DescribeArtifactRequestFilterSensitiveLog = (obj: DescribeArtifactRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A message generated by SageMaker Pipelines describing why the pipeline execution failed.</p>
-   */
-  PipelineExecutionFailureReason?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeArtifactResponseFilterSensitiveLog = (obj: DescribeArtifactResponse): any => ({
+  ...obj,
+});
 
-export interface ListPipelineExecutionsResponse {
-  /**
-   * <p>Contains a sorted list of pipeline execution summary objects matching the specified
-   *          filters. Each run summary includes the Amazon Resource Name (ARN) of the pipeline execution, the run date,
-   *          and the status. This list can be empty. </p>
-   */
-  PipelineExecutionSummaries?: PipelineExecutionSummary[];
+/**
+ * @internal
+ */
+export const DescribeAutoMLJobRequestFilterSensitiveLog = (obj: DescribeAutoMLJobRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const ModelDeployResultFilterSensitiveLog = (obj: ModelDeployResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolvedAttributesFilterSensitiveLog = (obj: ResolvedAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAutoMLJobResponseFilterSensitiveLog = (obj: DescribeAutoMLJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCodeRepositoryInputFilterSensitiveLog = (obj: DescribeCodeRepositoryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCodeRepositoryOutputFilterSensitiveLog = (obj: DescribeCodeRepositoryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCompilationJobRequestFilterSensitiveLog = (obj: DescribeCompilationJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelArtifactsFilterSensitiveLog = (obj: ModelArtifacts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelDigestsFilterSensitiveLog = (obj: ModelDigests): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCompilationJobResponseFilterSensitiveLog = (obj: DescribeCompilationJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContextRequestFilterSensitiveLog = (obj: DescribeContextRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContextResponseFilterSensitiveLog = (obj: DescribeContextResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataQualityJobDefinitionRequestFilterSensitiveLog = (
+  obj: DescribeDataQualityJobDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataQualityJobDefinitionResponseFilterSensitiveLog = (
+  obj: DescribeDataQualityJobDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceRequestFilterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EdgeModelFilterSensitiveLog = (obj: EdgeModel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceResponseFilterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceFleetRequestFilterSensitiveLog = (obj: DescribeDeviceFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceFleetResponseFilterSensitiveLog = (obj: DescribeDeviceFleetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainRequestFilterSensitiveLog = (obj: DescribeDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainResponseFilterSensitiveLog = (obj: DescribeDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEdgeDeploymentPlanRequestFilterSensitiveLog = (obj: DescribeEdgeDeploymentPlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEdgeDeploymentPlanResponseFilterSensitiveLog = (obj: DescribeEdgeDeploymentPlanResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEdgePackagingJobRequestFilterSensitiveLog = (obj: DescribeEdgePackagingJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EdgePresetDeploymentOutputFilterSensitiveLog = (obj: EdgePresetDeploymentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEdgePackagingJobResponseFilterSensitiveLog = (obj: DescribeEdgePackagingJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointInputFilterSensitiveLog = (obj: DescribeEndpointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProductionVariantStatusFilterSensitiveLog = (obj: ProductionVariantStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingProductionVariantSummaryFilterSensitiveLog = (obj: PendingProductionVariantSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingDeploymentSummaryFilterSensitiveLog = (obj: PendingDeploymentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProductionVariantSummaryFilterSensitiveLog = (obj: ProductionVariantSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointOutputFilterSensitiveLog = (obj: DescribeEndpointOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointConfigInputFilterSensitiveLog = (obj: DescribeEndpointConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointConfigOutputFilterSensitiveLog = (obj: DescribeEndpointConfigOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExperimentRequestFilterSensitiveLog = (obj: DescribeExperimentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExperimentSourceFilterSensitiveLog = (obj: ExperimentSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExperimentResponseFilterSensitiveLog = (obj: DescribeExperimentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFeatureGroupRequestFilterSensitiveLog = (obj: DescribeFeatureGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LastUpdateStatusFilterSensitiveLog = (obj: LastUpdateStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OfflineStoreStatusFilterSensitiveLog = (obj: OfflineStoreStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFeatureGroupResponseFilterSensitiveLog = (obj: DescribeFeatureGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFeatureMetadataRequestFilterSensitiveLog = (obj: DescribeFeatureMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FeatureParameterFilterSensitiveLog = (obj: FeatureParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFeatureMetadataResponseFilterSensitiveLog = (obj: DescribeFeatureMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFlowDefinitionRequestFilterSensitiveLog = (obj: DescribeFlowDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFlowDefinitionResponseFilterSensitiveLog = (obj: DescribeFlowDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHubRequestFilterSensitiveLog = (obj: DescribeHubRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHubResponseFilterSensitiveLog = (obj: DescribeHubResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHubContentRequestFilterSensitiveLog = (obj: DescribeHubContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HubContentDependencyFilterSensitiveLog = (obj: HubContentDependency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHubContentResponseFilterSensitiveLog = (obj: DescribeHubContentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHumanTaskUiRequestFilterSensitiveLog = (obj: DescribeHumanTaskUiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UiTemplateInfoFilterSensitiveLog = (obj: UiTemplateInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHumanTaskUiResponseFilterSensitiveLog = (obj: DescribeHumanTaskUiResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -8895,6 +10191,15 @@ export const HyperParameterTrainingJobSummaryFilterSensitiveLog = (obj: HyperPar
 /**
  * @internal
  */
+export const HyperParameterTuningJobConsumedResourcesFilterSensitiveLog = (
+  obj: HyperParameterTuningJobConsumedResources
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ObjectiveStatusCountersFilterSensitiveLog = (obj: ObjectiveStatusCounters): any => ({
   ...obj,
 });
@@ -8903,6 +10208,15 @@ export const ObjectiveStatusCountersFilterSensitiveLog = (obj: ObjectiveStatusCo
  * @internal
  */
 export const TrainingJobStatusCountersFilterSensitiveLog = (obj: TrainingJobStatusCounters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HyperParameterTuningJobCompletionDetailsFilterSensitiveLog = (
+  obj: HyperParameterTuningJobCompletionDetails
+): any => ({
   ...obj,
 });
 
@@ -8946,9 +10260,53 @@ export const DescribeImageVersionResponseFilterSensitiveLog = (obj: DescribeImag
 /**
  * @internal
  */
+export const DescribeInferenceExperimentRequestFilterSensitiveLog = (obj: DescribeInferenceExperimentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointMetadataFilterSensitiveLog = (obj: EndpointMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelVariantConfigSummaryFilterSensitiveLog = (obj: ModelVariantConfigSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInferenceExperimentResponseFilterSensitiveLog = (
+  obj: DescribeInferenceExperimentResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeInferenceRecommendationsJobRequestFilterSensitiveLog = (
   obj: DescribeInferenceRecommendationsJobRequest
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceMetricsFilterSensitiveLog = (obj: InferenceMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointPerformanceFilterSensitiveLog = (obj: EndpointPerformance): any => ({
   ...obj,
 });
 
@@ -9067,6 +10425,42 @@ export const DescribeModelBiasJobDefinitionRequestFilterSensitiveLog = (
 export const DescribeModelBiasJobDefinitionResponseFilterSensitiveLog = (
   obj: DescribeModelBiasJobDefinitionResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeModelCardRequestFilterSensitiveLog = (obj: DescribeModelCardRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeModelCardResponseFilterSensitiveLog = (obj: DescribeModelCardResponse): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeModelCardExportJobRequestFilterSensitiveLog = (obj: DescribeModelCardExportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelCardExportArtifactsFilterSensitiveLog = (obj: ModelCardExportArtifacts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeModelCardExportJobResponseFilterSensitiveLog = (obj: DescribeModelCardExportJobResponse): any => ({
   ...obj,
 });
 
@@ -9294,6 +10688,20 @@ export const DescribeProjectOutputFilterSensitiveLog = (obj: DescribeProjectOutp
 /**
  * @internal
  */
+export const DescribeSpaceRequestFilterSensitiveLog = (obj: DescribeSpaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSpaceResponseFilterSensitiveLog = (obj: DescribeSpaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeStudioLifecycleConfigRequestFilterSensitiveLog = (
   obj: DescribeStudioLifecycleConfigRequest
 ): any => ({
@@ -9355,6 +10763,13 @@ export const ProfilerRuleEvaluationStatusFilterSensitiveLog = (obj: ProfilerRule
  * @internal
  */
 export const SecondaryStatusTransitionFilterSensitiveLog = (obj: SecondaryStatusTransition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WarmPoolStatusFilterSensitiveLog = (obj: WarmPoolStatus): any => ({
   ...obj,
 });
 
@@ -9428,10 +10843,9 @@ export const DescribeTrialComponentResponseFilterSensitiveLog = (obj: DescribeTr
   ...obj,
   ...(obj.Parameters && {
     Parameters: Object.entries(obj.Parameters).reduce(
-      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
-        ...acc,
-        [key]: TrialComponentParameterValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => (
+        (acc[key] = TrialComponentParameterValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -9853,7 +11267,30 @@ export const GitConfigForUpdateFilterSensitiveLog = (obj: GitConfigForUpdate): a
 /**
  * @internal
  */
+export const HubContentInfoFilterSensitiveLog = (obj: HubContentInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HubInfoFilterSensitiveLog = (obj: HubInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const HumanTaskUiSummaryFilterSensitiveLog = (obj: HumanTaskUiSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HyperParameterTuningJobSearchEntityFilterSensitiveLog = (
+  obj: HyperParameterTuningJobSearchEntity
+): any => ({
   ...obj,
 });
 
@@ -9881,7 +11318,44 @@ export const ImageVersionFilterSensitiveLog = (obj: ImageVersion): any => ({
 /**
  * @internal
  */
+export const ImportHubContentRequestFilterSensitiveLog = (obj: ImportHubContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportHubContentResponseFilterSensitiveLog = (obj: ImportHubContentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceExperimentSummaryFilterSensitiveLog = (obj: InferenceExperimentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const InferenceRecommendationsJobFilterSensitiveLog = (obj: InferenceRecommendationsJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationJobInferenceBenchmarkFilterSensitiveLog = (
+  obj: RecommendationJobInferenceBenchmark
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceRecommendationsJobStepFilterSensitiveLog = (obj: InferenceRecommendationsJobStep): any => ({
   ...obj,
 });
 
@@ -9951,666 +11425,6 @@ export const ListAlgorithmsOutputFilterSensitiveLog = (obj: ListAlgorithmsOutput
 /**
  * @internal
  */
-export const ListAppImageConfigsRequestFilterSensitiveLog = (obj: ListAppImageConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppImageConfigsResponseFilterSensitiveLog = (obj: ListAppImageConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsRequestFilterSensitiveLog = (obj: ListAppsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsResponseFilterSensitiveLog = (obj: ListAppsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArtifactsRequestFilterSensitiveLog = (obj: ListArtifactsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArtifactsResponseFilterSensitiveLog = (obj: ListArtifactsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssociationsRequestFilterSensitiveLog = (obj: ListAssociationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssociationsResponseFilterSensitiveLog = (obj: ListAssociationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAutoMLJobsRequestFilterSensitiveLog = (obj: ListAutoMLJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAutoMLJobsResponseFilterSensitiveLog = (obj: ListAutoMLJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCandidatesForAutoMLJobRequestFilterSensitiveLog = (obj: ListCandidatesForAutoMLJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCandidatesForAutoMLJobResponseFilterSensitiveLog = (obj: ListCandidatesForAutoMLJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCodeRepositoriesInputFilterSensitiveLog = (obj: ListCodeRepositoriesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCodeRepositoriesOutputFilterSensitiveLog = (obj: ListCodeRepositoriesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCompilationJobsRequestFilterSensitiveLog = (obj: ListCompilationJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCompilationJobsResponseFilterSensitiveLog = (obj: ListCompilationJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContextsRequestFilterSensitiveLog = (obj: ListContextsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContextsResponseFilterSensitiveLog = (obj: ListContextsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityJobDefinitionsRequestFilterSensitiveLog = (
-  obj: ListDataQualityJobDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringJobDefinitionSummaryFilterSensitiveLog = (obj: MonitoringJobDefinitionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityJobDefinitionsResponseFilterSensitiveLog = (
-  obj: ListDataQualityJobDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeviceFleetsRequestFilterSensitiveLog = (obj: ListDeviceFleetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeviceFleetsResponseFilterSensitiveLog = (obj: ListDeviceFleetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesRequestFilterSensitiveLog = (obj: ListDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesResponseFilterSensitiveLog = (obj: ListDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsResponseFilterSensitiveLog = (obj: ListDomainsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEdgeDeploymentPlansRequestFilterSensitiveLog = (obj: ListEdgeDeploymentPlansRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEdgeDeploymentPlansResponseFilterSensitiveLog = (obj: ListEdgeDeploymentPlansResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEdgePackagingJobsRequestFilterSensitiveLog = (obj: ListEdgePackagingJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEdgePackagingJobsResponseFilterSensitiveLog = (obj: ListEdgePackagingJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointConfigsInputFilterSensitiveLog = (obj: ListEndpointConfigsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointConfigsOutputFilterSensitiveLog = (obj: ListEndpointConfigsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointsInputFilterSensitiveLog = (obj: ListEndpointsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointsOutputFilterSensitiveLog = (obj: ListEndpointsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExperimentsRequestFilterSensitiveLog = (obj: ListExperimentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExperimentsResponseFilterSensitiveLog = (obj: ListExperimentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFeatureGroupsRequestFilterSensitiveLog = (obj: ListFeatureGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFeatureGroupsResponseFilterSensitiveLog = (obj: ListFeatureGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFlowDefinitionsRequestFilterSensitiveLog = (obj: ListFlowDefinitionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFlowDefinitionsResponseFilterSensitiveLog = (obj: ListFlowDefinitionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHumanTaskUisRequestFilterSensitiveLog = (obj: ListHumanTaskUisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHumanTaskUisResponseFilterSensitiveLog = (obj: ListHumanTaskUisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHyperParameterTuningJobsRequestFilterSensitiveLog = (
-  obj: ListHyperParameterTuningJobsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHyperParameterTuningJobsResponseFilterSensitiveLog = (
-  obj: ListHyperParameterTuningJobsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImagesRequestFilterSensitiveLog = (obj: ListImagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImagesResponseFilterSensitiveLog = (obj: ListImagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImageVersionsRequestFilterSensitiveLog = (obj: ListImageVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImageVersionsResponseFilterSensitiveLog = (obj: ListImageVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInferenceRecommendationsJobsRequestFilterSensitiveLog = (
-  obj: ListInferenceRecommendationsJobsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInferenceRecommendationsJobsResponseFilterSensitiveLog = (
-  obj: ListInferenceRecommendationsJobsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLabelingJobsRequestFilterSensitiveLog = (obj: ListLabelingJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLabelingJobsResponseFilterSensitiveLog = (obj: ListLabelingJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLabelingJobsForWorkteamRequestFilterSensitiveLog = (obj: ListLabelingJobsForWorkteamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLabelingJobsForWorkteamResponseFilterSensitiveLog = (
-  obj: ListLabelingJobsForWorkteamResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLineageGroupsRequestFilterSensitiveLog = (obj: ListLineageGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLineageGroupsResponseFilterSensitiveLog = (obj: ListLineageGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelBiasJobDefinitionsRequestFilterSensitiveLog = (obj: ListModelBiasJobDefinitionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelBiasJobDefinitionsResponseFilterSensitiveLog = (
-  obj: ListModelBiasJobDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelExplainabilityJobDefinitionsRequestFilterSensitiveLog = (
-  obj: ListModelExplainabilityJobDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelExplainabilityJobDefinitionsResponseFilterSensitiveLog = (
-  obj: ListModelExplainabilityJobDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelMetadataFilterFilterSensitiveLog = (obj: ModelMetadataFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelMetadataSearchExpressionFilterSensitiveLog = (obj: ModelMetadataSearchExpression): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelMetadataRequestFilterSensitiveLog = (obj: ListModelMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelMetadataSummaryFilterSensitiveLog = (obj: ModelMetadataSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelMetadataResponseFilterSensitiveLog = (obj: ListModelMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackageGroupsInputFilterSensitiveLog = (obj: ListModelPackageGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageGroupSummaryFilterSensitiveLog = (obj: ModelPackageGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackageGroupsOutputFilterSensitiveLog = (obj: ListModelPackageGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackagesInputFilterSensitiveLog = (obj: ListModelPackagesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageSummaryFilterSensitiveLog = (obj: ModelPackageSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackagesOutputFilterSensitiveLog = (obj: ListModelPackagesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelQualityJobDefinitionsRequestFilterSensitiveLog = (
-  obj: ListModelQualityJobDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelQualityJobDefinitionsResponseFilterSensitiveLog = (
-  obj: ListModelQualityJobDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelsInputFilterSensitiveLog = (obj: ListModelsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelSummaryFilterSensitiveLog = (obj: ModelSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelsOutputFilterSensitiveLog = (obj: ListModelsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringExecutionsRequestFilterSensitiveLog = (obj: ListMonitoringExecutionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringExecutionsResponseFilterSensitiveLog = (obj: ListMonitoringExecutionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringSchedulesRequestFilterSensitiveLog = (obj: ListMonitoringSchedulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringScheduleSummaryFilterSensitiveLog = (obj: MonitoringScheduleSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringSchedulesResponseFilterSensitiveLog = (obj: ListMonitoringSchedulesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstanceLifecycleConfigsInputFilterSensitiveLog = (
-  obj: ListNotebookInstanceLifecycleConfigsInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotebookInstanceLifecycleConfigSummaryFilterSensitiveLog = (
-  obj: NotebookInstanceLifecycleConfigSummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstanceLifecycleConfigsOutputFilterSensitiveLog = (
-  obj: ListNotebookInstanceLifecycleConfigsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstancesInputFilterSensitiveLog = (obj: ListNotebookInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotebookInstanceSummaryFilterSensitiveLog = (obj: NotebookInstanceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstancesOutputFilterSensitiveLog = (obj: ListNotebookInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelineExecutionsRequestFilterSensitiveLog = (obj: ListPipelineExecutionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineExecutionSummaryFilterSensitiveLog = (obj: PipelineExecutionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelineExecutionsResponseFilterSensitiveLog = (obj: ListPipelineExecutionsResponse): any => ({
+export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
   ...obj,
 });

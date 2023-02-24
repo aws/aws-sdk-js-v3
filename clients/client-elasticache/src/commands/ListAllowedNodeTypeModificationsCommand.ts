@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,8 +33,7 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
 /**
  * <p>Lists all available node types that you
  *             can scale your Redis cluster's or replication group's current node type.</p>
- *
- *         <p>When you use the <code>ModifyCacheCluster</code> or <code>ModifyReplicationGroup</code> operations to
+ *          <p>When you use the <code>ModifyCacheCluster</code> or <code>ModifyReplicationGroup</code> operations to
  *             scale your cluster or replication group, the value of the <code>CacheNodeType</code> parameter
  *             must be one of the node types returned by this operation.</p>
  * @example
@@ -59,6 +59,15 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListAllowedNodeTypeModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +83,9 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAllowedNodeTypeModificationsCommandInput, ListAllowedNodeTypeModificationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListAllowedNodeTypeModificationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
@@ -40,13 +40,11 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *             <p>Instead of using an existing object as part data, you might use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
  *             action and provide data in your request.</p>
  *          </note>
- *
  *          <p>You must initiate a multipart upload before you can upload any part. In response to your
  *          initiate request. Amazon S3 returns a unique identifier, the upload ID, that you must include in
  *          your upload part request.</p>
  *          <p>For more information about using the <code>UploadPartCopy</code> operation, see the
  *          following:</p>
- *
  *          <ul>
  *             <li>
  *                <p>For conceptual information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
@@ -87,7 +85,6 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                   <code>false</code>;</p>
  *                <p>Amazon S3 returns <code>200 OK</code> and copies the data.
  *                </p>
- *
  *             </li>
  *             <li>
  *                <p>
@@ -120,7 +117,6 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *          <p>
  *             <code>x-amz-copy-source: /bucket/object?versionId=version id</code>
  *          </p>
- *
  *          <p class="title">
  *             <b>Special Errors</b>
  *          </p>
@@ -167,12 +163,6 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                </ul>
  *             </li>
  *          </ul>
- *
- *
- *
- *
- *
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>
@@ -231,6 +221,21 @@ export class UploadPartCopyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UploadPartCopyCommandInput) {
     // Start section: command_constructor
     super();
@@ -246,9 +251,11 @@ export class UploadPartCopyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UploadPartCopyCommandInput, UploadPartCopyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UploadPartCopyCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getThrow200ExceptionsPlugin(configuration));
     this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

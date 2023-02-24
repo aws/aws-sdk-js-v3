@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,8 +27,8 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
 
 /**
  * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
- *         <p>Adding FAQs to an index is an asynchronous operation.</p>
- *         <p>For an example of adding an FAQ to an index using Python and Java SDKs,
+ *          <p>Adding FAQs to an index is an asynchronous operation.</p>
+ *          <p>For an example of adding an FAQ to an index using Python and Java SDKs,
  *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using your
  *                 FAQ file</a>.</p>
  * @example
@@ -53,6 +54,15 @@ export class CreateFaqCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateFaqCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,7 @@ export class CreateFaqCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateFaqCommandInput, CreateFaqCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateFaqCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

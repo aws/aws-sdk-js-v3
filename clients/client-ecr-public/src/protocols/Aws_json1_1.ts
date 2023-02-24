@@ -150,6 +150,7 @@ import {
   RepositoryAlreadyExistsException,
   RepositoryCatalogData,
   RepositoryCatalogDataInput,
+  RepositoryCatalogDataNotFoundException,
   RepositoryNotEmptyException,
   RepositoryNotFoundException,
   RepositoryPolicyNotFoundException,
@@ -490,7 +491,7 @@ const deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError = async (
 ): Promise<BatchCheckLayerAvailabilityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -506,6 +507,9 @@ const deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -540,7 +544,7 @@ const deserializeAws_json1_1BatchDeleteImageCommandError = async (
 ): Promise<BatchDeleteImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -553,6 +557,9 @@ const deserializeAws_json1_1BatchDeleteImageCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -587,7 +594,7 @@ const deserializeAws_json1_1CompleteLayerUploadCommandError = async (
 ): Promise<CompleteLayerUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -655,7 +662,7 @@ const deserializeAws_json1_1CreateRepositoryCommandError = async (
 ): Promise<CreateRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -677,6 +684,9 @@ const deserializeAws_json1_1CreateRepositoryCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.ecrpublic#TooManyTagsException":
       throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -711,7 +721,7 @@ const deserializeAws_json1_1DeleteRepositoryCommandError = async (
 ): Promise<DeleteRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -727,6 +737,9 @@ const deserializeAws_json1_1DeleteRepositoryCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -761,7 +774,7 @@ const deserializeAws_json1_1DeleteRepositoryPolicyCommandError = async (
 ): Promise<DeleteRepositoryPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -777,6 +790,9 @@ const deserializeAws_json1_1DeleteRepositoryPolicyCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -811,7 +827,7 @@ const deserializeAws_json1_1DescribeImagesCommandError = async (
 ): Promise<DescribeImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -827,6 +843,9 @@ const deserializeAws_json1_1DescribeImagesCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -861,7 +880,7 @@ const deserializeAws_json1_1DescribeImageTagsCommandError = async (
 ): Promise<DescribeImageTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -874,6 +893,9 @@ const deserializeAws_json1_1DescribeImageTagsCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -908,7 +930,7 @@ const deserializeAws_json1_1DescribeRegistriesCommandError = async (
 ): Promise<DescribeRegistriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -955,7 +977,7 @@ const deserializeAws_json1_1DescribeRepositoriesCommandError = async (
 ): Promise<DescribeRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -968,6 +990,9 @@ const deserializeAws_json1_1DescribeRepositoriesCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1002,7 +1027,7 @@ const deserializeAws_json1_1GetAuthorizationTokenCommandError = async (
 ): Promise<GetAuthorizationTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1012,6 +1037,9 @@ const deserializeAws_json1_1GetAuthorizationTokenCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1046,7 +1074,7 @@ const deserializeAws_json1_1GetRegistryCatalogDataCommandError = async (
 ): Promise<GetRegistryCatalogDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1090,19 +1118,25 @@ const deserializeAws_json1_1GetRepositoryCatalogDataCommandError = async (
 ): Promise<GetRepositoryCatalogDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecrpublic#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "RepositoryCatalogDataNotFoundException":
+    case "com.amazonaws.ecrpublic#RepositoryCatalogDataNotFoundException":
+      throw await deserializeAws_json1_1RepositoryCatalogDataNotFoundExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
       throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1137,7 +1171,7 @@ const deserializeAws_json1_1GetRepositoryPolicyCommandError = async (
 ): Promise<GetRepositoryPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1153,6 +1187,9 @@ const deserializeAws_json1_1GetRepositoryPolicyCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1187,7 +1224,7 @@ const deserializeAws_json1_1InitiateLayerUploadCommandError = async (
 ): Promise<InitiateLayerUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1240,7 +1277,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1253,6 +1290,9 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1287,7 +1327,7 @@ const deserializeAws_json1_1PutImageCommandError = async (
 ): Promise<PutImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1358,7 +1398,7 @@ const deserializeAws_json1_1PutRegistryCatalogDataCommandError = async (
 ): Promise<PutRegistryCatalogDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1405,7 +1445,7 @@ const deserializeAws_json1_1PutRepositoryCatalogDataCommandError = async (
 ): Promise<PutRepositoryCatalogDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1418,6 +1458,9 @@ const deserializeAws_json1_1PutRepositoryCatalogDataCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1452,7 +1495,7 @@ const deserializeAws_json1_1SetRepositoryPolicyCommandError = async (
 ): Promise<SetRepositoryPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1465,6 +1508,9 @@ const deserializeAws_json1_1SetRepositoryPolicyCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecrpublic#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1499,7 +1545,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1518,6 +1564,9 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.ecrpublic#TooManyTagsException":
       throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1552,7 +1601,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1571,6 +1620,9 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.ecrpublic#TooManyTagsException":
       throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+    case "UnsupportedCommandException":
+    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
+      throw await deserializeAws_json1_1UnsupportedCommandExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1605,7 +1657,7 @@ const deserializeAws_json1_1UploadLayerPartCommandError = async (
 ): Promise<UploadLayerPartCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1846,6 +1898,19 @@ const deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RepositoryAlreadyExistsException(body, context);
   const exception = new RepositoryAlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1RepositoryCatalogDataNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RepositoryCatalogDataNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1RepositoryCatalogDataNotFoundException(body, context);
+  const exception = new RepositoryCatalogDataNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2877,6 +2942,15 @@ const deserializeAws_json1_1RepositoryCatalogData = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1RepositoryCatalogDataNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): RepositoryCatalogDataNotFoundException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_json1_1RepositoryList = (output: any, context: __SerdeContext): Repository[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -2998,7 +3072,8 @@ const deserializeAws_json1_1UploadNotFoundException = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3048,6 +3123,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3058,6 +3139,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

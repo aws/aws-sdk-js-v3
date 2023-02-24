@@ -48,10 +48,11 @@ import {
   PresignedUrlConfig,
   Protocol,
   ProvisioningHook,
+  RelatedResource,
   ResourceIdentifier,
+  SchedulingConfig,
   ServiceType,
   StreamFile,
-  Tag,
   TargetSelection,
   TaskStatisticsForAuditCheck,
   TemplateType,
@@ -61,6 +62,46 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+export interface DeleteProvisioningTemplateRequest {
+  /**
+   * <p>The name of the fleet provision template to delete.</p>
+   */
+  templateName: string | undefined;
+}
+
+export interface DeleteProvisioningTemplateResponse {}
+
+export interface DeleteProvisioningTemplateVersionRequest {
+  /**
+   * <p>The name of the provisioning template version to delete.</p>
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>The provisioning template version ID to delete.</p>
+   */
+  versionId: number | undefined;
+}
+
+export interface DeleteProvisioningTemplateVersionResponse {}
+
+/**
+ * <p>The input for the DeleteRegistrationCode operation.</p>
+ */
+export interface DeleteRegistrationCodeRequest {}
+
+/**
+ * <p>The output for the DeleteRegistrationCode operation.</p>
+ */
+export interface DeleteRegistrationCodeResponse {}
+
+export interface DeleteRoleAliasRequest {
+  /**
+   * <p>The role alias to delete.</p>
+   */
+  roleAlias: string | undefined;
+}
 
 export interface DeleteRoleAliasResponse {}
 
@@ -218,7 +259,7 @@ export interface DescribeAccountAuditConfigurationResponse {
    * <p>The ARN of the role that grants permission to IoT to access information
    *             about your devices, policies, certificates, and other items as required when
    *             performing an audit.</p>
-   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *          <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
    *             this parameter is required.</p>
    */
   roleArn?: string;
@@ -1451,6 +1492,7 @@ export enum JobStatus {
   COMPLETED = "COMPLETED",
   DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
   IN_PROGRESS = "IN_PROGRESS",
+  SCHEDULED = "SCHEDULED",
 }
 
 /**
@@ -1473,11 +1515,11 @@ export interface Job {
    *             when a change is detected in a target. For example, a job will run on a device when the thing representing
    *             the device is added to a target group, even after the job was completed by all things originally in the
    *             group. </p>
-   *         <note>
+   *          <note>
    *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
    *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
    *                 been created.</p>
-   *         </note>
+   *          </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -1558,12 +1600,12 @@ export interface Job {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -1583,12 +1625,12 @@ export interface Job {
    * <p>A key-value map that pairs the patterns that need to be replaced in a managed
    *             template job document schema. You can use the description of each key as a guidance
    *             to specify the inputs during runtime when creating a job.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
    *                 managed templates. This parameter can't be used with custom job templates or to
    *                 create jobs from them.</p>
-   *         </note>
+   *          </note>
    */
   documentParameters?: Record<string, string>;
 
@@ -1598,6 +1640,12 @@ export interface Job {
    *             otherwise false.</p>
    */
   isConcurrent?: boolean;
+
+  /**
+   * <p>The configuration that allows you to schedule a job for a future date and time in
+   *             addition to specifying the end behavior for each job execution.</p>
+   */
+  schedulingConfig?: SchedulingConfig;
 }
 
 export interface DescribeJobResponse {
@@ -1811,12 +1859,12 @@ export interface DescribeManagedJobTemplateRequest {
  * <p>A map of key-value pairs containing the patterns that need to be replaced in a managed
  *             template job document schema. You can use the description of each key as a guidance to specify
  *             the inputs during runtime when creating a job.</p>
- *         <note>
+ *          <note>
  *             <p>
  *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
  *                 managed templates. This parameter can't be used with custom job templates or to
  *                 create jobs from them.</p>
- *         </note>
+ *          </note>
  */
 export interface DocumentParameter {
   /**
@@ -1879,12 +1927,12 @@ export interface DescribeManagedJobTemplateResponse {
   /**
    * <p>A map of key-value pairs that you can use as guidance to specify the inputs for creating
    *             a job from a managed template.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
    *                 managed templates. This parameter can't be used with custom job templates or to
    *                 create jobs from them.</p>
-   *         </note>
+   *          </note>
    */
   documentParameters?: DocumentParameter[];
 
@@ -2336,7 +2384,7 @@ export interface DescribeThingResponse {
    * <p>The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID.
    * 			Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or
    * 			shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.</p>
-   * 		       <p>This lets you better organize your IoT fleet without removing the flexibility of the underlying device certificate model or shadows.</p>
+   *          <p>This lets you better organize your IoT fleet without removing the flexibility of the underlying device certificate model or shadows.</p>
    */
   defaultClientId?: string;
 
@@ -2367,11 +2415,11 @@ export interface DescribeThingResponse {
 
   /**
    * <p>The current version of the thing record in the registry.</p>
-   * 		       <note>
-   * 			         <p>To avoid unintentional changes to the information in the registry, you can pass
+   *          <note>
+   *             <p>To avoid unintentional changes to the information in the registry, you can pass
    * 				the version information in the <code>expectedVersion</code> parameter of the
    * 					<code>UpdateThing</code> and <code>DeleteThing</code> calls.</p>
-   * 		       </note>
+   *          </note>
    */
   version?: number;
 
@@ -2718,7 +2766,7 @@ export interface GetBehaviorModelTrainingSummariesRequest {
 
   /**
    * <p>
-   *       The maximum number of results to return at one time. The default is 25.
+   *       The maximum number of results to return at one time. The default is 10.
    *     </p>
    */
   maxResults?: number;
@@ -2992,7 +3040,7 @@ export interface ThingGroupIndexingConfiguration {
 
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
-   *       service.</p>
+   *       service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
    */
   managedFields?: Field[];
 
@@ -3088,7 +3136,7 @@ export interface ThingIndexingConfiguration {
    *                <p>OFF - Device Defender indexing is disabled.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information about Device Defender violations, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html">Device Defender Detect.</a>
+   *          <p>For more information about Device Defender violations, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html">Device Defender Detect.</a>
    *          </p>
    */
   deviceDefenderIndexingMode?: DeviceDefenderIndexingMode | string;
@@ -4744,12 +4792,12 @@ export interface ListJobExecutionsForThingRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -4810,11 +4858,11 @@ export interface ListJobsRequest {
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
    *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
    *             target group, even after the job was completed by all things originally in the group. </p>
-   *         <note>
+   *          <note>
    *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
    *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
    *                 been created.</p>
-   *         </note>
+   *          </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -4840,12 +4888,12 @@ export interface ListJobsRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -4876,11 +4924,11 @@ export interface JobSummary {
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
    *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
    *             target group, even after the job was completed by all things originally in the group.</p>
-   *         <note>
+   *          <note>
    *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
    *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
    *                 been created.</p>
-   *         </note>
+   *          </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -5561,7 +5609,7 @@ export interface ListProvisioningTemplateVersionsRequest {
  */
 export interface ProvisioningTemplateVersionSummary {
   /**
-   * <p>The ID of the fleet privisioning template version.</p>
+   * <p>The ID of the fleet provisioning template version.</p>
    */
   versionId?: number;
 
@@ -5585,6 +5633,37 @@ export interface ListProvisioningTemplateVersionsResponse {
 
   /**
    * <p>A token to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListRelatedResourcesForAuditFindingRequest {
+  /**
+   * <p>The finding Id.</p>
+   */
+  findingId: string | undefined;
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> if there are no additional results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+export interface ListRelatedResourcesForAuditFindingResponse {
+  /**
+   * <p>The related resources.</p>
+   */
+  relatedResources?: RelatedResource[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> for the first API call.</p>
    */
   nextToken?: string;
 }
@@ -5833,143 +5912,58 @@ export interface StreamSummary {
   description?: string;
 }
 
-export interface ListStreamsResponse {
-  /**
-   * <p>A list of streams.</p>
-   */
-  streams?: StreamSummary[];
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateRequestFilterSensitiveLog = (obj: DeleteProvisioningTemplateRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A token used to get the next set of results.</p>
-   */
-  nextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateResponseFilterSensitiveLog = (obj: DeleteProvisioningTemplateResponse): any => ({
+  ...obj,
+});
 
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource.</p>
-   */
-  resourceArn: string | undefined;
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateVersionRequestFilterSensitiveLog = (
+  obj: DeleteProvisioningTemplateVersionRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateVersionResponseFilterSensitiveLog = (
+  obj: DeleteProvisioningTemplateVersionResponse
+): any => ({
+  ...obj,
+});
 
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The list of tags assigned to the resource.</p>
-   */
-  tags?: Tag[];
+/**
+ * @internal
+ */
+export const DeleteRegistrationCodeRequestFilterSensitiveLog = (obj: DeleteRegistrationCodeRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteRegistrationCodeResponseFilterSensitiveLog = (obj: DeleteRegistrationCodeResponse): any => ({
+  ...obj,
+});
 
-export interface ListTargetsForPolicyRequest {
-  /**
-   * <p>The policy name.</p>
-   */
-  policyName: string | undefined;
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  pageSize?: number;
-}
-
-export interface ListTargetsForPolicyResponse {
-  /**
-   * <p>The policy targets.</p>
-   */
-  targets?: string[];
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   */
-  nextMarker?: string;
-}
-
-export interface ListTargetsForSecurityProfileRequest {
-  /**
-   * <p>The security profile.</p>
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-}
-
-export interface ListTargetsForSecurityProfileResponse {
-  /**
-   * <p>The thing groups to which the security profile is attached.</p>
-   */
-  securityProfileTargets?: SecurityProfileTarget[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export interface ListThingGroupsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>A filter that limits the results to those with the specified parent group.</p>
-   */
-  parentGroup?: string;
-
-  /**
-   * <p>A filter that limits the results to those with the specified name prefix.</p>
-   */
-  namePrefixFilter?: string;
-
-  /**
-   * <p>If true, return child groups as well.</p>
-   */
-  recursive?: boolean;
-}
-
-export interface ListThingGroupsResponse {
-  /**
-   * <p>The thing groups.</p>
-   */
-  thingGroups?: GroupNameAndArn[];
-
-  /**
-   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
-   */
-  nextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteRoleAliasRequestFilterSensitiveLog = (obj: DeleteRoleAliasRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7785,6 +7779,24 @@ export const ListProvisioningTemplateVersionsResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const ListRelatedResourcesForAuditFindingRequestFilterSensitiveLog = (
+  obj: ListRelatedResourcesForAuditFindingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRelatedResourcesForAuditFindingResponseFilterSensitiveLog = (
+  obj: ListRelatedResourcesForAuditFindingResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListRoleAliasesRequestFilterSensitiveLog = (obj: ListRoleAliasesRequest): any => ({
   ...obj,
 });
@@ -7881,72 +7893,5 @@ export const ListStreamsRequestFilterSensitiveLog = (obj: ListStreamsRequest): a
  * @internal
  */
 export const StreamSummaryFilterSensitiveLog = (obj: StreamSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamsResponseFilterSensitiveLog = (obj: ListStreamsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForPolicyRequestFilterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForPolicyResponseFilterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForSecurityProfileRequestFilterSensitiveLog = (
-  obj: ListTargetsForSecurityProfileRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForSecurityProfileResponseFilterSensitiveLog = (
-  obj: ListTargetsForSecurityProfileResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingGroupsRequestFilterSensitiveLog = (obj: ListThingGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingGroupsResponseFilterSensitiveLog = (obj: ListThingGroupsResponse): any => ({
   ...obj,
 });

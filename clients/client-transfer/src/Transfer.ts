@@ -53,6 +53,11 @@ import {
   DeleteConnectorCommandOutput,
 } from "./commands/DeleteConnectorCommand";
 import {
+  DeleteHostKeyCommand,
+  DeleteHostKeyCommandInput,
+  DeleteHostKeyCommandOutput,
+} from "./commands/DeleteHostKeyCommand";
+import {
   DeleteProfileCommand,
   DeleteProfileCommandInput,
   DeleteProfileCommandOutput,
@@ -99,6 +104,11 @@ import {
   DescribeExecutionCommandOutput,
 } from "./commands/DescribeExecutionCommand";
 import {
+  DescribeHostKeyCommand,
+  DescribeHostKeyCommandInput,
+  DescribeHostKeyCommandOutput,
+} from "./commands/DescribeHostKeyCommand";
+import {
   DescribeProfileCommand,
   DescribeProfileCommandInput,
   DescribeProfileCommandOutput,
@@ -129,6 +139,11 @@ import {
   ImportCertificateCommandOutput,
 } from "./commands/ImportCertificateCommand";
 import {
+  ImportHostKeyCommand,
+  ImportHostKeyCommandInput,
+  ImportHostKeyCommandOutput,
+} from "./commands/ImportHostKeyCommand";
+import {
   ImportSshPublicKeyCommand,
   ImportSshPublicKeyCommandInput,
   ImportSshPublicKeyCommandOutput,
@@ -158,6 +173,11 @@ import {
   ListExecutionsCommandInput,
   ListExecutionsCommandOutput,
 } from "./commands/ListExecutionsCommand";
+import {
+  ListHostKeysCommand,
+  ListHostKeysCommandInput,
+  ListHostKeysCommandOutput,
+} from "./commands/ListHostKeysCommand";
 import {
   ListProfilesCommand,
   ListProfilesCommandInput,
@@ -224,6 +244,11 @@ import {
   UpdateConnectorCommandOutput,
 } from "./commands/UpdateConnectorCommand";
 import {
+  UpdateHostKeyCommand,
+  UpdateHostKeyCommandInput,
+  UpdateHostKeyCommandOutput,
+} from "./commands/UpdateHostKeyCommand";
+import {
   UpdateProfileCommand,
   UpdateProfileCommandInput,
   UpdateProfileCommandOutput,
@@ -239,7 +264,8 @@ import { TransferClient } from "./TransferClient";
 /**
  * <p>Transfer Family is a fully managed service that enables the transfer of files over the File
  *       Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File
- *       Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3).
+ *       Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS.
+ *       Additionally, you can use Applicability Statement 2 (AS2) to transfer files into and out of Amazon S3.
  *       Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating
  *       with existing authentication systems, and providing DNS routing with Amazon Route 53 so
  *       nothing changes for your customers and partners, or their applications. With your data in
@@ -321,8 +347,8 @@ export class Transfer extends TransferClient {
 
   /**
    * <p>Creates the connector, which captures the parameters for an outbound connection for the
-   *       AS2 protocol. The connector is required for sending files from a
-   *       customer's non Amazon Web Services server. </p>
+   *       AS2 protocol. The connector is required for sending files to an externally hosted AS2 server.
+   *       For more details about connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector">Create AS2 connectors</a>.</p>
    */
   public createConnector(
     args: CreateConnectorCommandInput,
@@ -354,8 +380,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Creates the profile for the AS2 process. The agreement is between the partner and the AS2
-   *       process.</p>
+   * <p>Creates the local or partner profile to use for AS2 transfers.</p>
    */
   public createProfile(
     args: CreateProfileCommandInput,
@@ -613,6 +638,38 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Deletes the host key that's specified in the <code>HoskKeyId</code> parameter.</p>
+   */
+  public deleteHostKey(
+    args: DeleteHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHostKeyCommandOutput>;
+  public deleteHostKey(
+    args: DeleteHostKeyCommandInput,
+    cb: (err: any, data?: DeleteHostKeyCommandOutput) => void
+  ): void;
+  public deleteHostKey(
+    args: DeleteHostKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHostKeyCommandOutput) => void
+  ): void;
+  public deleteHostKey(
+    args: DeleteHostKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHostKeyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteHostKeyCommandOutput) => void
+  ): Promise<DeleteHostKeyCommandOutput> | void {
+    const command = new DeleteHostKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the profile that's specified in the <code>ProfileId</code> parameter.</p>
    */
   public deleteProfile(
@@ -646,7 +703,6 @@ export class Transfer extends TransferClient {
 
   /**
    * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
-   *
    *          <p>No response returns from this operation.</p>
    */
   public deleteServer(
@@ -709,9 +765,7 @@ export class Transfer extends TransferClient {
 
   /**
    * <p>Deletes the user belonging to a file transfer protocol-enabled server you specify.</p>
-   *
    *          <p>No response returns from this operation.</p>
-   *
    *          <note>
    *             <p>When you delete a user from a server, the user's information is lost.</p>
    *          </note>
@@ -775,7 +829,6 @@ export class Transfer extends TransferClient {
    * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
    *       server, as identified by its <code>ServerId</code> property and its
    *       <code>ExternalId</code>.</p>
-   *
    *          <p>The response from this call returns the properties of the access that is associated with
    *       the <code>ServerId</code> value that was specified.</p>
    */
@@ -938,6 +991,38 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Returns the details of the host key that's specified by the <code>HostKeyId</code> and <code>ServerId</code>.</p>
+   */
+  public describeHostKey(
+    args: DescribeHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHostKeyCommandOutput>;
+  public describeHostKey(
+    args: DescribeHostKeyCommandInput,
+    cb: (err: any, data?: DescribeHostKeyCommandOutput) => void
+  ): void;
+  public describeHostKey(
+    args: DescribeHostKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeHostKeyCommandOutput) => void
+  ): void;
+  public describeHostKey(
+    args: DescribeHostKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHostKeyCommandOutput) => void),
+    cb?: (err: any, data?: DescribeHostKeyCommandOutput) => void
+  ): Promise<DescribeHostKeyCommandOutput> | void {
+    const command = new DescribeHostKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the details of the profile that's specified by the <code>ProfileId</code>.</p>
    */
   public describeProfile(
@@ -1007,7 +1092,6 @@ export class Transfer extends TransferClient {
   /**
    * <p>Describes a file transfer protocol-enabled server that you specify by passing the
    *         <code>ServerId</code> parameter.</p>
-   *
    *          <p>The response contains a description of a server's properties. When you set
    *         <code>EndpointType</code> to VPC, the response will contain the
    *       <code>EndpointDetails</code>.</p>
@@ -1044,7 +1128,6 @@ export class Transfer extends TransferClient {
   /**
    * <p>Describes the user assigned to the specific file transfer protocol-enabled server, as
    *       identified by its <code>ServerId</code> property.</p>
-   *
    *          <p>The response from this call returns the properties of the user associated with the
    *         <code>ServerId</code> value that was specified.</p>
    */
@@ -1141,10 +1224,42 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Adds a host key to the server that's specified by the <code>ServerId</code>
+   *       parameter.</p>
+   */
+  public importHostKey(
+    args: ImportHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportHostKeyCommandOutput>;
+  public importHostKey(
+    args: ImportHostKeyCommandInput,
+    cb: (err: any, data?: ImportHostKeyCommandOutput) => void
+  ): void;
+  public importHostKey(
+    args: ImportHostKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportHostKeyCommandOutput) => void
+  ): void;
+  public importHostKey(
+    args: ImportHostKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportHostKeyCommandOutput) => void),
+    cb?: (err: any, data?: ImportHostKeyCommandOutput) => void
+  ): Promise<ImportHostKeyCommandOutput> | void {
+    const command = new ImportHostKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
    *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
    *       identified by <code>ServerId</code>.</p>
-   *
    *          <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and
    *       the name of the <code>SshPublicKeyId</code>.</p>
    */
@@ -1332,6 +1447,36 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: ListExecutionsCommandOutput) => void
   ): Promise<ListExecutionsCommandOutput> | void {
     const command = new ListExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of host keys for the server that's specified by the <code>ServerId</code>
+   *       parameter.</p>
+   */
+  public listHostKeys(
+    args: ListHostKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHostKeysCommandOutput>;
+  public listHostKeys(args: ListHostKeysCommandInput, cb: (err: any, data?: ListHostKeysCommandOutput) => void): void;
+  public listHostKeys(
+    args: ListHostKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHostKeysCommandOutput) => void
+  ): void;
+  public listHostKeys(
+    args: ListHostKeysCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHostKeysCommandOutput) => void),
+    cb?: (err: any, data?: ListHostKeysCommandOutput) => void
+  ): Promise<ListHostKeysCommandOutput> | void {
+    const command = new ListHostKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1563,7 +1708,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Begins an outbound file transfer. You specify the <code>ConnectorId</code> and the file
+   * <p>Begins an outbound file transfer to a remote AS2 server. You specify the <code>ConnectorId</code> and the file
    *       paths for where to send the files. </p>
    */
   public startFileTransfer(
@@ -1599,11 +1744,9 @@ export class Transfer extends TransferClient {
    * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
    *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
    *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
-   *
    *          <p>The state of <code>STARTING</code> indicates that the server is in an intermediate state,
    *       either not fully able to respond, or not fully online. The values of <code>START_FAILED</code>
    *       can indicate an error condition.</p>
-   *
    *          <p>No response is returned from this call.</p>
    */
   public startServer(args: StartServerCommandInput, options?: __HttpHandlerOptions): Promise<StartServerCommandOutput>;
@@ -1634,16 +1777,13 @@ export class Transfer extends TransferClient {
    *         <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer
    *       jobs. Information tied to your server, such as server and user properties, are not affected by
    *       stopping your server.</p>
-   *
    *          <note>
    *             <p>Stopping the server does not reduce or impact your file transfer protocol endpoint
    *         billing; you must delete the server to stop being billed.</p>
    *          </note>
-   *
    *          <p>The state of <code>STOPPING</code> indicates that the server is in an intermediate state,
    *       either not fully able to respond, or not fully offline. The values of <code>STOP_FAILED</code>
    *       can indicate an error condition.</p>
-   *
    *          <p>No response is returned from this call.</p>
    */
   public stopServer(args: StopServerCommandInput, options?: __HttpHandlerOptions): Promise<StopServerCommandOutput>;
@@ -1672,7 +1812,6 @@ export class Transfer extends TransferClient {
   /**
    * <p>Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN).
    *       Resources are users, servers, roles, and other entities.</p>
-   *
    *          <p>There is no response returned from this call.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1771,7 +1910,6 @@ export class Transfer extends TransferClient {
   /**
    * <p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name
    *       (ARN). Resources are users, servers, roles, and other entities.</p>
-   *
    *          <p>No response is returned from this call.</p>
    */
   public untagResource(
@@ -1934,6 +2072,39 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Updates the description for the host key that's specified by the <code>ServerId</code> and
+   *         <code>HostKeyId</code> parameters.</p>
+   */
+  public updateHostKey(
+    args: UpdateHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHostKeyCommandOutput>;
+  public updateHostKey(
+    args: UpdateHostKeyCommandInput,
+    cb: (err: any, data?: UpdateHostKeyCommandOutput) => void
+  ): void;
+  public updateHostKey(
+    args: UpdateHostKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHostKeyCommandOutput) => void
+  ): void;
+  public updateHostKey(
+    args: UpdateHostKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHostKeyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateHostKeyCommandOutput) => void
+  ): Promise<UpdateHostKeyCommandOutput> | void {
+    const command = new UpdateHostKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates some of the parameters for an existing profile. Provide the <code>ProfileId</code>
    *       for the profile that you want to update, along with the new values for the parameters to
    *       update.</p>
@@ -1970,7 +2141,6 @@ export class Transfer extends TransferClient {
   /**
    * <p>Updates the file transfer protocol-enabled server's properties after that server has
    *       been created.</p>
-   *
    *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the server you
    *       updated.</p>
    */
@@ -2004,7 +2174,6 @@ export class Transfer extends TransferClient {
    * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:
    *       the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code>
    *       you specify.</p>
-   *
    *          <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the
    *       updated user.</p>
    */

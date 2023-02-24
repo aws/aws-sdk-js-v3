@@ -551,7 +551,7 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
 ): Promise<DescribeEntitiesDetectionV2JobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -601,7 +601,7 @@ const deserializeAws_json1_1DescribeICD10CMInferenceJobCommandError = async (
 ): Promise<DescribeICD10CMInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -651,7 +651,7 @@ const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
 ): Promise<DescribePHIDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -701,7 +701,7 @@ const deserializeAws_json1_1DescribeRxNormInferenceJobCommandError = async (
 ): Promise<DescribeRxNormInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -751,7 +751,7 @@ const deserializeAws_json1_1DescribeSNOMEDCTInferenceJobCommandError = async (
 ): Promise<DescribeSNOMEDCTInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -801,7 +801,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
 ): Promise<DetectEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -857,7 +857,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
 ): Promise<DetectEntitiesV2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -913,7 +913,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
 ): Promise<DetectPHICommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -969,7 +969,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
 ): Promise<InferICD10CMCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1025,7 +1025,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
 ): Promise<InferRxNormCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1081,7 +1081,7 @@ const deserializeAws_json1_1InferSNOMEDCTCommandError = async (
 ): Promise<InferSNOMEDCTCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1137,7 +1137,7 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
 ): Promise<ListEntitiesDetectionV2JobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1187,7 +1187,7 @@ const deserializeAws_json1_1ListICD10CMInferenceJobsCommandError = async (
 ): Promise<ListICD10CMInferenceJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1237,7 +1237,7 @@ const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
 ): Promise<ListPHIDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1287,7 +1287,7 @@ const deserializeAws_json1_1ListRxNormInferenceJobsCommandError = async (
 ): Promise<ListRxNormInferenceJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1337,7 +1337,7 @@ const deserializeAws_json1_1ListSNOMEDCTInferenceJobsCommandError = async (
 ): Promise<ListSNOMEDCTInferenceJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1387,7 +1387,7 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
 ): Promise<StartEntitiesDetectionV2JobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1437,7 +1437,7 @@ const deserializeAws_json1_1StartICD10CMInferenceJobCommandError = async (
 ): Promise<StartICD10CMInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1487,7 +1487,7 @@ const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
 ): Promise<StartPHIDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1537,7 +1537,7 @@ const deserializeAws_json1_1StartRxNormInferenceJobCommandError = async (
 ): Promise<StartRxNormInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1587,7 +1587,7 @@ const deserializeAws_json1_1StartSNOMEDCTInferenceJobCommandError = async (
 ): Promise<StartSNOMEDCTInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1637,7 +1637,7 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError = async (
 ): Promise<StopEntitiesDetectionV2JobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1684,7 +1684,7 @@ const deserializeAws_json1_1StopICD10CMInferenceJobCommandError = async (
 ): Promise<StopICD10CMInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1731,7 +1731,7 @@ const deserializeAws_json1_1StopPHIDetectionJobCommandError = async (
 ): Promise<StopPHIDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1778,7 +1778,7 @@ const deserializeAws_json1_1StopRxNormInferenceJobCommandError = async (
 ): Promise<StopRxNormInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1825,7 +1825,7 @@ const deserializeAws_json1_1StopSNOMEDCTInferenceJobCommandError = async (
 ): Promise<StopSNOMEDCTInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3083,7 +3083,8 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3133,6 +3134,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3143,6 +3150,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

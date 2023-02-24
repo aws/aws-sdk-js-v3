@@ -14,6 +14,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -251,7 +252,7 @@ export const serializeAws_restJson1ListFragmentsCommand = async (
 
 export const deserializeAws_restJson1GetClipCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetClipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetClipCommandError(output, context);
@@ -261,6 +262,7 @@ export const deserializeAws_restJson1GetClipCommand = async (
     ContentType: [, output.headers["content-type"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.Payload = data;
   return contents;
 };
@@ -271,7 +273,7 @@ const deserializeAws_restJson1GetClipCommandError = async (
 ): Promise<GetClipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -336,7 +338,7 @@ const deserializeAws_restJson1GetDASHStreamingSessionURLCommandError = async (
 ): Promise<GetDASHStreamingSessionURLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -398,7 +400,7 @@ const deserializeAws_restJson1GetHLSStreamingSessionURLCommandError = async (
 ): Promise<GetHLSStreamingSessionURLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -463,7 +465,7 @@ const deserializeAws_restJson1GetImagesCommandError = async (
 ): Promise<GetImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -492,7 +494,7 @@ const deserializeAws_restJson1GetImagesCommandError = async (
 
 export const deserializeAws_restJson1GetMediaForFragmentListCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetMediaForFragmentListCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMediaForFragmentListCommandError(output, context);
@@ -502,6 +504,7 @@ export const deserializeAws_restJson1GetMediaForFragmentListCommand = async (
     ContentType: [, output.headers["content-type"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.Payload = data;
   return contents;
 };
@@ -512,7 +515,7 @@ const deserializeAws_restJson1GetMediaForFragmentListCommandError = async (
 ): Promise<GetMediaForFragmentListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -565,7 +568,7 @@ const deserializeAws_restJson1ListFragmentsCommandError = async (
 ): Promise<ListFragmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -774,10 +777,8 @@ const serializeAws_restJson1FormatConfig = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -872,7 +873,8 @@ const deserializeAws_restJson1Images = (output: any, context: __SerdeContext): I
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -904,6 +906,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -914,6 +922,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

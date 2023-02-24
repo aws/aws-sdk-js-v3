@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   CreateStreamingDistributionRequestFilterSensitiveLog,
   CreateStreamingDistributionResult,
   CreateStreamingDistributionResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restXmlCreateStreamingDistributionCommand,
   serializeAws_restXmlCreateStreamingDistributionCommand,
@@ -28,9 +29,9 @@ export interface CreateStreamingDistributionCommandInput extends CreateStreaming
 export interface CreateStreamingDistributionCommandOutput extends CreateStreamingDistributionResult, __MetadataBearer {}
 
 /**
- * <p>This API is deprecated.
- *             Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020.
- *             For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>
+ * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
+ * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
+ * 			forum.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class CreateStreamingDistributionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateStreamingDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class CreateStreamingDistributionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateStreamingDistributionCommandInput, CreateStreamingDistributionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateStreamingDistributionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

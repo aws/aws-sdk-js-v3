@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,10 +25,10 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.</p>
- *         <note>
+ *          <note>
  *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
- *         </note>
- *         <p>This command doesn't apply to RDS Custom.</p>
+ *          </note>
+ *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +52,15 @@ export class AddRoleToDBInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AddRoleToDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +76,9 @@ export class AddRoleToDBInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddRoleToDBInstanceCommandInput, AddRoleToDBInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AddRoleToDBInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

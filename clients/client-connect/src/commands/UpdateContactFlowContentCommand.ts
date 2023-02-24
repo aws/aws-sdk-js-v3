@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,18 +14,23 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowContentRequest, UpdateContactFlowContentRequestFilterSensitiveLog } from "../models/models_1";
+import {
+  UpdateContactFlowContentRequest,
+  UpdateContactFlowContentRequestFilterSensitiveLog,
+  UpdateContactFlowContentResponse,
+  UpdateContactFlowContentResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateContactFlowContentCommand,
   serializeAws_restJson1UpdateContactFlowContentCommand,
 } from "../protocols/Aws_restJson1";
 
 export interface UpdateContactFlowContentCommandInput extends UpdateContactFlowContentRequest {}
-export interface UpdateContactFlowContentCommandOutput extends __MetadataBearer {}
+export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlowContentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified contact flow.</p>
- *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+ * <p>Updates the specified flow.</p>
+ *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +55,15 @@ export class UpdateContactFlowContentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateContactFlowContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +79,9 @@ export class UpdateContactFlowContentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateContactFlowContentCommandInput, UpdateContactFlowContentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateContactFlowContentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,7 +93,7 @@ export class UpdateContactFlowContentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateContactFlowContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: UpdateContactFlowContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

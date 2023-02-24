@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,11 +32,11 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your
  *             cluster continues to function during the update. The response output includes an update
  *             ID that you can use to track the status of your cluster update with the <a>DescribeUpdate</a> API operation.</p>
- *         <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
+ *          <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
  *             an update, the cluster status moves to <code>UPDATING</code> (this status transition is
  *             eventually consistent). When the update is complete (either <code>Failed</code> or
  *                 <code>Successful</code>), the cluster status moves to <code>Active</code>.</p>
- *         <p>If your cluster has managed node groups attached to it, all of your node groups’
+ *          <p>If your cluster has managed node groups attached to it, all of your node groups’
  *             Kubernetes versions must match the cluster’s Kubernetes version in order to update the
  *             cluster to a new Kubernetes version.</p>
  * @example
@@ -61,6 +62,15 @@ export class UpdateClusterVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateClusterVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class UpdateClusterVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateClusterVersionCommandInput, UpdateClusterVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateClusterVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

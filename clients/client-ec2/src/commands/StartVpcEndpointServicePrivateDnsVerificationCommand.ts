@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,8 +34,8 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
 /**
  * <p>Initiates the verification process to prove that the service provider owns the private
  *             DNS name domain for the endpoint service.</p>
- *         <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
- *         <p>Before the service provider runs this command, they must add a record to the DNS server.</p>
+ *          <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
+ *          <p>Before the service provider runs this command, they must add a record to the DNS server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartVpcEndpointServicePrivateDnsVerificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,12 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     StartVpcEndpointServicePrivateDnsVerificationCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        StartVpcEndpointServicePrivateDnsVerificationCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

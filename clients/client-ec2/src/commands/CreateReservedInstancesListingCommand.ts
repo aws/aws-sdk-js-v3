@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -37,8 +38,8 @@ export interface CreateReservedInstancesListingCommandOutput
  *             <p>Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace.
  *        Convertible Reserved Instances cannot be sold.</p>
  *          </note>
- * 		       <p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p>
- * 		       <p>To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance
+ *          <p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p>
+ *          <p>To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance
  *       Marketplace. After completing the registration process, you can create a Reserved Instance
  *       Marketplace listing of some or all of your Standard Reserved Instances, and specify the upfront price
  *       to receive for them. Your Standard Reserved Instance listings then become available for purchase. To
@@ -69,6 +70,15 @@ export class CreateReservedInstancesListingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateReservedInstancesListingCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +94,9 @@ export class CreateReservedInstancesListingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateReservedInstancesListingCommandInput, CreateReservedInstancesListingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateReservedInstancesListingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

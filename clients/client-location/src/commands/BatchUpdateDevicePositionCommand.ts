@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  *            uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30
  *            days.</p>
  *          <note>
- *            <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker.
+ *             <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker.
  *                When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections,
  *                and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than
  *                every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p>
@@ -70,6 +71,15 @@ export class BatchUpdateDevicePositionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchUpdateDevicePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +95,9 @@ export class BatchUpdateDevicePositionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchUpdateDevicePositionCommandInput, BatchUpdateDevicePositionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchUpdateDevicePositionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

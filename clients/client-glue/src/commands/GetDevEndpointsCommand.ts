@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface GetDevEndpointsCommandInput extends GetDevEndpointsRequest {}
 export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all the development endpoints in this AWS account.</p>
+ * <p>Retrieves all the development endpoints in this Amazon Web Services account.</p>
  *          <note>
  *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only a private IP address
  *       and the public IP address field is not populated. When you create a non-VPC development
@@ -57,6 +58,15 @@ export class GetDevEndpointsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetDevEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class GetDevEndpointsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDevEndpointsCommandInput, GetDevEndpointsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetDevEndpointsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

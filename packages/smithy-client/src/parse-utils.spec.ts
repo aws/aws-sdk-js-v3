@@ -9,6 +9,7 @@ import {
   expectUnion,
   limitedParseDouble,
   limitedParseFloat32,
+  logger,
   parseBoolean,
   strictParseByte,
   strictParseDouble,
@@ -76,8 +77,29 @@ describe("expectBoolean", () => {
     expect(expectBoolean(value)).toEqual(undefined);
   });
 
+  describe("reluctantly", () => {
+    let consoleMock: jest.SpyInstance<void, [message?: any, ...optionalParams: any[]]>;
+    beforeEach(() => {
+      consoleMock = jest.spyOn(logger, "warn").mockImplementation();
+    });
+
+    afterEach(() => {
+      consoleMock.mockRestore();
+    });
+
+    it.each([1, "true", "True"])("accepts %s", (value) => {
+      expect(expectBoolean(value)).toEqual(true);
+      expect(logger.warn).toHaveBeenCalled();
+    });
+
+    it.each([0, "false", "False"])("accepts %s", (value) => {
+      expect(expectBoolean(value)).toEqual(false);
+      expect(logger.warn).toHaveBeenCalled();
+    });
+  });
+
   describe("rejects non-booleans", () => {
-    it.each(["true", "false", 0, 1, 1.1, Infinity, -Infinity, NaN, {}, []])("rejects %s", (value) => {
+    it.each([1.1, Infinity, -Infinity, NaN, {}, []])("rejects %s", (value) => {
       expect(() => expectBoolean(value)).toThrowError();
     });
   });
@@ -94,8 +116,31 @@ describe("expectNumber", () => {
     expect(expectNumber(value)).toEqual(undefined);
   });
 
+  describe("reluctantly", () => {
+    let consoleMock: jest.SpyInstance<void, [message?: any, ...optionalParams: any[]]>;
+    beforeEach(() => {
+      consoleMock = jest.spyOn(logger, "warn").mockImplementation();
+    });
+
+    afterEach(() => {
+      consoleMock.mockRestore();
+    });
+
+    it.each(["-0", "-1.15", "-1e-5", "1", "1.1", "Infinity", "-Infinity"])("accepts string: %s", (value) => {
+      expect(expectNumber(value)).toEqual(parseFloat(value));
+    });
+
+    it.each(["-0abcd", "-1.15abcd", "-1e-5abcd", "1abcd", "1.1abcd", "Infinityabcd", "-Infinityabcd"])(
+      "accepts string: %s",
+      (value) => {
+        expect(expectNumber(value)).toEqual(parseFloat(value));
+        expect(logger.warn).toHaveBeenCalled();
+      }
+    );
+  });
+
   describe("rejects non-numbers", () => {
-    it.each(["1", "1.1", "Infinity", "-Infinity", "NaN", true, false, [], {}])("rejects %s", (value) => {
+    it.each(["NaN", true, false, [], {}])("rejects %s", (value) => {
       expect(() => expectNumber(value)).toThrowError();
     });
   });
@@ -130,7 +175,7 @@ describe("expectFloat32", () => {
   });
 
   describe("rejects non-numbers", () => {
-    it.each(["1", "1.1", "Infinity", "-Infinity", "NaN", true, false, [], {}])("rejects %s", (value) => {
+    it.each([true, false, [], {}])("rejects %s", (value) => {
       expect(() => expectNumber(value)).toThrowError();
     });
   });
@@ -307,8 +352,24 @@ describe("expectString", () => {
     expect(expectString(value)).toEqual(undefined);
   });
 
+  describe("reluctantly", () => {
+    let consoleMock: jest.SpyInstance<void, [message?: any, ...optionalParams: any[]]>;
+    beforeEach(() => {
+      consoleMock = jest.spyOn(logger, "warn").mockImplementation();
+    });
+
+    afterEach(() => {
+      consoleMock.mockRestore();
+    });
+
+    it.each([1, NaN, Infinity, -Infinity, true, false])("accepts numbers or booleans: %s", (value) => {
+      expect(expectString(value)).toEqual(String(value));
+      expect(logger.warn).toHaveBeenCalled();
+    });
+  });
+
   describe("rejects non-strings", () => {
-    it.each([1, NaN, Infinity, -Infinity, true, false, [], {}])("rejects %s", (value) => {
+    it.each([[], {}])("rejects %s", (value) => {
       expect(() => expectString(value)).toThrowError();
     });
   });

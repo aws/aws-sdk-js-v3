@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -9,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
@@ -25,7 +29,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetJobOutputCommandInput extends GetJobOutputInput {}
-export interface GetJobOutputCommandOutput extends GetJobOutputOutput, __MetadataBearer {}
+export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOutputOutput, "body">, __MetadataBearer {}
 
 /**
  * <p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the
@@ -88,6 +92,15 @@ export class GetJobOutputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetJobOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,6 +116,7 @@ export class GetJobOutputCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetJobOutputCommandInput, GetJobOutputCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetJobOutputCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -128,7 +142,10 @@ export class GetJobOutputCommand extends $Command<
     return serializeAws_restJson1GetJobOutputCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobOutputCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetJobOutputCommandOutput> {
     return deserializeAws_restJson1GetJobOutputCommand(output, context);
   }
 

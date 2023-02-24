@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,11 +32,11 @@ export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalR
  * <p>Detaches the specified principal from the specified thing. A principal can be X.509
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities.</p>
- * 		       <note>
- * 			         <p>This call is asynchronous. It might take several seconds for the detachment to
+ *          <note>
+ *             <p>This call is asynchronous. It might take several seconds for the detachment to
  * 				propagate.</p>
- * 		       </note>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachThingPrincipal</a> action.</p>
+ *          </note>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachThingPrincipal</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,15 @@ export class DetachThingPrincipalCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetachThingPrincipalCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class DetachThingPrincipalCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetachThingPrincipalCommandInput, DetachThingPrincipalCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetachThingPrincipalCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

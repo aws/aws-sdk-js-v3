@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,10 +30,10 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
 
 /**
  * <p>Creates an Amazon Redshift parameter group.</p>
- *         <p>Creating parameter groups is independent of creating clusters. You can associate a
+ *          <p>Creating parameter groups is independent of creating clusters. You can associate a
  *             cluster with a parameter group when you create the cluster. You can also associate an
  *             existing cluster with a parameter group after the cluster is created by using <a>ModifyCluster</a>. </p>
- *         <p>Parameters in the parameter group define specific behavior that applies to the
+ *          <p>Parameters in the parameter group define specific behavior that applies to the
  *             databases you create on the cluster.
  * For more information about parameters and parameter groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
@@ -60,6 +61,15 @@ export class CreateClusterParameterGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class CreateClusterParameterGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateClusterParameterGroupCommandInput, CreateClusterParameterGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateClusterParameterGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

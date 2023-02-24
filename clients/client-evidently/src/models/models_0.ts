@@ -537,7 +537,6 @@ export interface CreateExperimentRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with an experiment.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -898,7 +897,6 @@ export interface CreateFeatureRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a feature.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -1128,7 +1126,6 @@ export interface ScheduledSplitConfig {
    * <p>The traffic allocation percentages among the feature variations during one step of a
    *       launch. This is a set of key-value pairs. The keys are variation names. The values represent
    *       the percentage of traffic to allocate to that variation during this step.</p>
-   *
    *          <p>The values is expressed in thousandths of a percent,
    *        so assigning a weight of 50000 assigns 50% of traffic to that variation.</p>
    *          <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000,
@@ -1209,7 +1206,6 @@ export interface CreateLaunchRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a launch.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -1413,6 +1409,28 @@ export interface CreateLaunchResponse {
 }
 
 /**
+ * <p>Use this parameter to configure client-side evaluation for your project. Client-side evaluation allows your application to assign
+ *       variations to user
+ *       sessions locally instead of by calling the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation to assign the
+ *       variations. This mitigates the latency and availability risks that come with an API call.</p>
+ *          <p>
+ *             <code>ProjectAppConfigResource</code> is a structure that defines the configuration of how your application
+ *       integrates with AppConfig to run client-side evaluation.</p>
+ */
+export interface ProjectAppConfigResourceConfig {
+  /**
+   * <p>The ID of the AppConfig application to use for client-side evaluation. </p>
+   */
+  applicationId?: string;
+
+  /**
+   * <p>The ID of the AppConfig environment to use for client-side evaluation. This must be an
+   *       environment that is within the application that you specify for <code>applicationId</code>.</p>
+   */
+  environmentId?: string;
+}
+
+/**
  * <p>If the project stores evaluation events in an Amazon S3 bucket, this structure
  *        stores the bucket name and bucket prefix.</p>
  */
@@ -1466,16 +1484,52 @@ export interface CreateProjectRequest {
   dataDelivery?: ProjectDataDeliveryConfig;
 
   /**
+   * <p>Use this parameter if the project will use <i>client-side evaluation powered by AppConfig</i>. Client-side
+   *       evaluation allows your application to assign variations to user
+   *       sessions locally instead of by calling the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation. This
+   *       mitigates the latency and availability risks that come with an API call. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html">
+   *         Client-side evaluation - powered by AppConfig.</a>
+   *          </p>
+   *          <p>This parameter is a structure that
+   *       contains information about the AppConfig application and environment that will be used as for client-side evaluation.</p>
+   *          <p>To create a project that uses client-side evaluation, you must have the
+   *       <code>evidently:ExportProjectAsConfiguration</code> permission.</p>
+   */
+  appConfigResource?: ProjectAppConfigResourceConfig;
+
+  /**
    * <p>Assigns one or more tags (key-value pairs) to the project.</p>
    *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a project.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
   tags?: Record<string, string>;
+}
+
+/**
+ * <p>This is a structure that defines the configuration of how your application
+ *       integrates with AppConfig to run client-side evaluation.</p>
+ */
+export interface ProjectAppConfigResource {
+  /**
+   * <p>The ID of the AppConfig application to use for client-side evaluation. </p>
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the AppConfig environment to use for client-side evaluation. This must be an
+   *     environment that is within the application that you specify for <code>applicationId</code>.</p>
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The ID of the AppConfig profile to use for client-side evaluation. </p>
+   */
+  configurationProfileId: string | undefined;
 }
 
 /**
@@ -1586,6 +1640,12 @@ export interface Project {
   dataDelivery?: ProjectDataDelivery;
 
   /**
+   * <p>This structure defines the configuration of how your application
+   *       integrates with AppConfig to run client-side evaluation.</p>
+   */
+  appConfigResource?: ProjectAppConfigResource;
+
+  /**
    * <p>The list of tag keys and values associated with this project.</p>
    */
   tags?: Record<string, string>;
@@ -1606,7 +1666,7 @@ export interface CreateSegmentRequest {
 
   /**
    * <p>The pattern to use for the segment. For more information about pattern syntax,
-   *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html">
+   *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html">
    *         Segment rule pattern syntax</a>.</p>
    */
   pattern: __LazyJsonString | string | undefined;
@@ -1622,7 +1682,6 @@ export interface CreateSegmentRequest {
    *       permissions by granting a user
    *       permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a segment.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -1646,7 +1705,9 @@ export interface Segment {
   name: string | undefined;
 
   /**
-   * <p/>
+   * <p>The pattern that defines the attributes to use to evalute whether a user session will be in the segment.
+   *     For more information about the pattern syntax, see
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Segment rule pattern syntax</a>.</p>
    */
   pattern: __LazyJsonString | string | undefined;
 
@@ -1812,7 +1873,6 @@ export interface EvaluateFeatureRequest {
    *       this value to match user sessions with defined audience segments. For more information, see
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use segments to focus your
    *         audience</a>.</p>
-   *
    *          <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>
    */
   evaluationContext?: __LazyJsonString | string;
@@ -2751,6 +2811,17 @@ export interface UpdateProjectRequest {
   project: string | undefined;
 
   /**
+   * <p>Use this parameter if the project will use client-side evaluation powered by AppConfig. Client-side
+   *      evaluation allows your application to assign variations to user
+   *      sessions locally instead of by calling the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation. This
+   *      mitigates the latency and availability risks that come with an API call. allows
+   *       you to</p>
+   *          <p>This parameter is a structure that
+   *       contains information about the AppConfig application that will be used for client-side evaluation.</p>
+   */
+  appConfigResource?: ProjectAppConfigResourceConfig;
+
+  /**
    * <p>An optional description of the project.</p>
    */
   description?: string;
@@ -3252,6 +3323,13 @@ export const CreateLaunchResponseFilterSensitiveLog = (obj: CreateLaunchResponse
 /**
  * @internal
  */
+export const ProjectAppConfigResourceConfigFilterSensitiveLog = (obj: ProjectAppConfigResourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const S3DestinationConfigFilterSensitiveLog = (obj: S3DestinationConfig): any => ({
   ...obj,
 });
@@ -3267,6 +3345,13 @@ export const ProjectDataDeliveryConfigFilterSensitiveLog = (obj: ProjectDataDeli
  * @internal
  */
 export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectAppConfigResourceFilterSensitiveLog = (obj: ProjectAppConfigResource): any => ({
   ...obj,
 });
 

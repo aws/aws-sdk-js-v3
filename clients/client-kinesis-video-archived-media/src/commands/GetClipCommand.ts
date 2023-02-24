@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -9,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -29,7 +33,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetClipCommandInput extends GetClipInput {}
-export interface GetClipCommandOutput extends GetClipOutput, __MetadataBearer {}
+export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput, "Payload">, __MetadataBearer {}
 
 /**
  * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the
@@ -96,6 +100,15 @@ export class GetClipCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetClipCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +124,7 @@ export class GetClipCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetClipCommandInput, GetClipCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetClipCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -136,7 +150,10 @@ export class GetClipCommand extends $Command<
     return serializeAws_restJson1GetClipCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClipCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetClipCommandOutput> {
     return deserializeAws_restJson1GetClipCommand(output, context);
   }
 

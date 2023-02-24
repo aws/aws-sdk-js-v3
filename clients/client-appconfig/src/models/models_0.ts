@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AppConfigServiceException as __BaseException } from "./AppConfigServiceException";
 
 /**
- * <p>An action defines the tasks the extension performs during the AppConfig
+ * <p>An action defines the tasks that the extension performs during the AppConfig
  *          workflow. Each action includes an action point such as
  *             <code>ON_CREATE_HOSTED_CONFIGURATION</code>, <code>PRE_DEPLOYMENT</code>, or
  *             <code>ON_DEPLOYMENT</code>. Each action also includes a name, a URI to an Lambda function, and an Amazon Resource Name (ARN) for an Identity and Access Management
@@ -376,17 +376,32 @@ export interface CreateConfigurationProfileRequest {
   Description?: string;
 
   /**
-   * <p>A URI to locate the configuration. You can specify the AppConfig hosted
-   *          configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3
-   *          object. For the hosted configuration store and for feature flags, specify
-   *             <code>hosted</code>. For an SSM document, specify either the document name in the format
-   *             <code>ssm-document://<Document_name></code> or the Amazon Resource Name (ARN). For
-   *          a parameter, specify either the parameter name in the format
-   *             <code>ssm-parameter://<Parameter_name></code> or the ARN. For an Amazon S3 object,
-   *          specify the URI in the following format: <code>s3://<bucket>/<objectKey>
-   *          </code>. Here is an example:
-   *          <code>s3://my-bucket/my-app/us-east-1/my-config.json</code>
-   *          </p>
+   * <p>A URI to locate the configuration. You can specify the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For the AppConfig hosted configuration store and for feature flags,
+   *                specify <code>hosted</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For an Amazon Web Services Systems Manager Parameter Store parameter, specify either the parameter name in
+   *                the format <code>ssm-parameter://<parameter name></code> or the ARN.</p>
+   *             </li>
+   *             <li>
+   *                <p>For an Secrets Manager secret, specify the URI in the following format:
+   *                   <code>secrets-manager</code>://<secret name>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For an Amazon S3 object, specify the URI in the following format:
+   *                   <code>s3://<bucket>/<objectKey> </code>. Here is an example:
+   *                   <code>s3://my-bucket/my-app/us-east-1/my-config.json</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For an SSM document, specify either the document name in the format
+   *                   <code>ssm-document://<document name></code> or the Amazon Resource Name
+   *                (ARN).</p>
+   *             </li>
+   *          </ul>
    */
   LocationUri: string | undefined;
 
@@ -504,7 +519,6 @@ export interface CreateDeploymentStrategyRequest {
    *          those deployments are complete, the system deploys the configuration to the next 10
    *          percent. This continues until 100% of the targets have successfully received the
    *          configuration.</p>
-   *
    *          <p>
    *             <b>Exponential</b>: For this type, AppConfig
    *          processes the deployment exponentially using the following formula: <code>G*(2^N)</code>.
@@ -911,6 +925,11 @@ export interface CreateHostedConfigurationVersionRequest {
    *          the latest hosted configuration version.</p>
    */
   LatestVersionNumber?: number;
+
+  /**
+   * <p>An optional, user-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character. For example, "v2.2.0".</p>
+   */
+  VersionLabel?: string;
 }
 
 export interface HostedConfigurationVersion {
@@ -944,6 +963,11 @@ export interface HostedConfigurationVersion {
    *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>A user-defined label for an AppConfig hosted configuration version.</p>
+   */
+  VersionLabel?: string;
 }
 
 export enum BytesMeasure {
@@ -1119,11 +1143,14 @@ export interface GetConfigurationRequest {
    *                <code>ClientConfigurationVersion</code> with each call to
    *                <code>GetConfiguration</code>, your clients receive the current configuration. You
    *             are charged each time your clients receive a configuration.</p>
-   *             <p>To avoid excess charges, we recommend that you include the
-   *                <code>ClientConfigurationVersion</code> value with every call to
-   *                <code>GetConfiguration</code>. This value must be saved on your client. Subsequent
-   *             calls to <code>GetConfiguration</code> must pass this value by using the
-   *                <code>ClientConfigurationVersion</code> parameter. </p>
+   *             <p>To avoid excess charges, we recommend you use the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/GetLatestConfiguration.html">GetLatestConfiguration</a> APIs, which track the client configuration version on
+   *             your behalf. If you choose to continue using <code>GetConfiguration</code>, we recommend
+   *             that you include the <code>ClientConfigurationVersion</code> value with every call to
+   *                <code>GetConfiguration</code>. The value to use for
+   *                <code>ClientConfigurationVersion</code> comes from the
+   *                <code>ConfigurationVersion</code> attribute returned by <code>GetConfiguration</code>
+   *             when there is new or updated data, and should be saved for subsequent calls to
+   *                <code>GetConfiguration</code>.</p>
    *          </important>
    *          <p>For more information about working with configurations, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving the
    *             Configuration</a> in the <i>AppConfig User Guide</i>.</p>
@@ -1330,6 +1357,19 @@ export interface Deployment {
    *          when <code>StartDeployment</code> was called.</p>
    */
   AppliedExtensions?: AppliedExtension[];
+
+  /**
+   * <p>The Amazon Resource Name of the Key Management Service key used to encrypt configuration
+   *          data. You can encrypt secrets stored in Secrets Manager, Amazon Simple Storage Service
+   *          (Amazon S3) objects encrypted with SSE-KMS, or secure string parameters stored in Amazon Web Services Systems Manager
+   *          Parameter Store. </p>
+   */
+  KmsKeyArn?: string;
+
+  /**
+   * <p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>
+   */
+  KmsKeyIdentifier?: string;
 }
 
 export interface GetDeploymentRequest {
@@ -1776,7 +1816,7 @@ export interface ExtensionSummary {
 
 export interface Extensions {
   /**
-   * <p>The list of available extensions. The list includes Amazon Web Services-authored and
+   * <p>The list of available extensions. The list includes Amazon Web Services authored and
    *          user-created extensions.</p>
    */
   Items?: ExtensionSummary[];
@@ -1835,6 +1875,11 @@ export interface HostedConfigurationVersionSummary {
    *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>A user-defined label for an AppConfig hosted configuration version.</p>
+   */
+  VersionLabel?: string;
 }
 
 export interface HostedConfigurationVersions {
@@ -1871,6 +1916,11 @@ export interface ListHostedConfigurationVersionsRequest {
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An optional filter that can be used to specify the version label of an AppConfig hosted configuration version. This parameter supports filtering by prefix using a wildcard, for example "v2*". If you don't specify an asterisk at the end of the value, only an exact match is returned.</p>
+   */
+  VersionLabel?: string;
 }
 
 export interface ListTagsForResourceRequest {
@@ -1911,7 +1961,7 @@ export interface StartDeploymentRequest {
   ConfigurationProfileId: string | undefined;
 
   /**
-   * <p>The configuration version to deploy.</p>
+   * <p>The configuration version to deploy. If deploying an AppConfig hosted configuration version, you can specify either the version number or version label.</p>
    */
   ConfigurationVersion: string | undefined;
 
@@ -1925,6 +1975,11 @@ export interface StartDeploymentRequest {
    *          you define.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>
+   */
+  KmsKeyIdentifier?: string;
 }
 
 export interface StopDeploymentRequest {
@@ -2058,7 +2113,6 @@ export interface UpdateDeploymentStrategyRequest {
    *          configuration available to 20 percent of the targets. After 1/5th of the deployment time
    *          has passed, the system updates the percentage to 40 percent. This continues until 100% of
    *          the targets are set to receive the deployed configuration.</p>
-   *
    *          <p>
    *             <b>Exponential</b>: For this type, AppConfig
    *          processes the deployment exponentially using the following formula: <code>G*(2^N)</code>.

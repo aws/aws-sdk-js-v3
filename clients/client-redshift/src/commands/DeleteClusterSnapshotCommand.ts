@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
 /**
  * <p>Deletes the specified manual snapshot. The snapshot must be in the
  *                 <code>available</code> state, with no other users authorized to access the snapshot. </p>
- *         <p>Unlike automated snapshots, manual snapshots are retained even after you delete
+ *          <p>Unlike automated snapshots, manual snapshots are retained even after you delete
  *             your cluster. Amazon Redshift does not delete your manual snapshots. You must delete manual
  *             snapshot explicitly to avoid getting charged. If other accounts are authorized to access
  *             the snapshot, you must revoke all of the authorizations before you can delete the
@@ -58,6 +59,15 @@ export class DeleteClusterSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class DeleteClusterSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteClusterSnapshotCommandInput, DeleteClusterSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteClusterSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

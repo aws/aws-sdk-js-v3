@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,15 +28,17 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
 /**
  * <p>Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or
  *       asymmetric KMS key with a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>.</p>
- *          <p>You can use this operation to encrypt small amounts of arbitrary data, such as a personal identifier or
- *           database password, or other sensitive information. You don't need to use the <code>Encrypt</code> operation to encrypt a data key. The <a>GenerateDataKey</a> and <a>GenerateDataKeyPair</a> operations return a
- *       plaintext data key and an encrypted copy of that data key.</p>
- *
- *          <p>If you use a symmetric encryption KMS key, you can use an encryption context to add additional
- *       security to your encryption operation. If you specify an <code>EncryptionContext</code> when
- *       encrypting data, you must specify the same encryption context (a case-sensitive exact match)
- *       when decrypting the data. Otherwise, the request to decrypt fails with an
- *         <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+ *          <p>You can use this operation to encrypt small amounts of arbitrary data, such as a personal
+ *       identifier or database password, or other sensitive information. You don't need to use the
+ *         <code>Encrypt</code> operation to encrypt a data key. The <a>GenerateDataKey</a>
+ *       and <a>GenerateDataKeyPair</a> operations return a plaintext data key and an
+ *       encrypted copy of that data key.</p>
+ *          <p>If you use a symmetric encryption KMS key, you can use an encryption context to add
+ *       additional security to your encryption operation. If you specify an
+ *         <code>EncryptionContext</code> when encrypting data, you must specify the same encryption
+ *       context (a case-sensitive exact match) when decrypting the data. Otherwise, the request to
+ *       decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
  *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>If you specify an asymmetric KMS key, you must also specify the encryption algorithm. The
  *       algorithm must be compatible with the KMS key spec.</p>
@@ -155,6 +158,15 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EncryptCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,6 +182,7 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
     options?: __HttpHandlerOptions
   ): Handler<EncryptCommandInput, EncryptCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, EncryptCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,15 +31,15 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * <p> Sets the result of a Lambda validation function. The function validates lifecycle
- *             hooks during a deployment that uses the AWS Lambda or Amazon ECS compute platform. For
- *             AWS Lambda deployments, the available lifecycle hooks are
- *                 <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>. For Amazon ECS
- *             deployments, the available lifecycle hooks are <code>BeforeInstall</code>,
- *                 <code>AfterInstall</code>, <code>AfterAllowTestTraffic</code>,
- *                 <code>BeforeAllowTraffic</code>, and <code>AfterAllowTraffic</code>. Lambda
- *             validation functions return <code>Succeeded</code> or <code>Failed</code>. For more
- *             information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda">AppSpec 'hooks' Section for an AWS Lambda Deployment </a> and <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs">AppSpec 'hooks' Section for an Amazon ECS Deployment</a>.</p>
+ * <p> Sets the result of a Lambda validation function. The function validates
+ *             lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute platform. For Lambda deployments, the available
+ *             lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>.
+ *             For Amazon ECS deployments, the available lifecycle hooks are
+ *                 <code>BeforeInstall</code>, <code>AfterInstall</code>,
+ *                 <code>AfterAllowTestTraffic</code>, <code>BeforeAllowTraffic</code>, and
+ *                 <code>AfterAllowTraffic</code>. Lambda validation functions return
+ *                 <code>Succeeded</code> or <code>Failed</code>. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda">AppSpec 'hooks' Section for an Lambda Deployment </a> and
+ *                 <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs">AppSpec 'hooks' Section for an Amazon ECS Deployment</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +63,15 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutLifecycleEventHookExecutionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +87,9 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutLifecycleEventHookExecutionStatusCommandInput, PutLifecycleEventHookExecutionStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutLifecycleEventHookExecutionStatusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

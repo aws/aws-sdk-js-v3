@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,15 +28,15 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
 
 /**
  * <p>Updates the password policy settings for the Amazon Web Services account.</p>
- *         <note>
+ *          <note>
  *             <p>This operation does not support partial updates. No parameters are required, but
  *                 if you do not specify a parameter, that parameter's value reverts to its default
  *                 value. See the <b>Request Parameters</b> section for each
  *                 parameter's default value. Also note that some parameters do not allow the default
  *                 parameter to be explicitly set. Instead, to invoke the default value, do not include
  *                 that parameter when you invoke the operation.</p>
- *         </note>
- *         <p> For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
+ *          </note>
+ *          <p> For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
  *                 policy</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +61,15 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateAccountPasswordPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateAccountPasswordPolicyCommandInput, UpdateAccountPasswordPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateAccountPasswordPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * <p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more
  *             subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating
  *             Amazon Redshift subnet group.</p>
- *         <p>
+ *          <p>
  * For information about subnet groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">Amazon Redshift Cluster Subnet Groups</a> in the
  * <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -58,6 +59,15 @@ export class CreateClusterSubnetGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateClusterSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class CreateClusterSubnetGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateClusterSubnetGroupCommandInput, CreateClusterSubnetGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateClusterSubnetGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

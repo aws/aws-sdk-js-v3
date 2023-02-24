@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface UpdateMedicalVocabularyCommandInput extends UpdateMedicalVocabu
 export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing custom medical vocabulary with new values. This operation overwrites
- *             all existing information with your new values; you cannot append new terms onto an existing
- *             vocabulary.</p>
+ * <p>Updates an existing custom medical vocabulary with new values. This operation
+ *             overwrites all existing information with your new values; you cannot append new terms
+ *             onto an existing custom vocabulary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class UpdateMedicalVocabularyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateMedicalVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class UpdateMedicalVocabularyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateMedicalVocabularyCommandInput, UpdateMedicalVocabularyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateMedicalVocabularyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

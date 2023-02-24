@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,11 +30,11 @@ export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigR
 
 /**
  * <p>Gets a cache policy configuration.</p>
- * 		       <p>To get a cache policy configuration, you must provide the policy’s identifier. If the cache
- * 			policy is attached to a distribution’s cache behavior, you can get the policy’s
+ *          <p>To get a cache policy configuration, you must provide the policy's identifier. If the
+ * 			cache policy is attached to a distribution's cache behavior, you can get the policy's
  * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
  * 			cache policy is not attached to a cache behavior, you can get the identifier using
- * 			<code>ListCachePolicies</code>.</p>
+ * 				<code>ListCachePolicies</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class GetCachePolicyConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetCachePolicyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class GetCachePolicyConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetCachePolicyConfigCommandInput, GetCachePolicyConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetCachePolicyConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

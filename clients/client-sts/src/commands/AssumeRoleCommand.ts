@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -27,11 +28,10 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
 
 /**
  * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
- *          resources that you might not normally have access to. These temporary credentials consist
- *          of an access key ID, a secret access key, and a security token. Typically, you use
- *             <code>AssumeRole</code> within your account or for cross-account access. For a
- *          comparison of <code>AssumeRole</code> with other API operations that produce temporary
- *          credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
+ *          resources. These temporary credentials consist of an access key ID, a secret access key,
+ *          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
+ *          cross-account access. For a comparison of <code>AssumeRole</code> with other API operations
+ *          that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
  *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
  *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
  *          <p>
@@ -43,9 +43,9 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          operations.</p>
  *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
- *          policy. You can also specify up to 10 managed policies to use as managed session policies.
- *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
- *          characters. Passing policies to this operation returns new
+ *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+ *          managed session policies. The plaintext that you use for both inline and managed session
+ *          policies can't exceed 2,048 characters. Passing policies to this operation returns new
  *          temporary credentials. The resulting session's permissions are the intersection of the
  *          role's identity-based policy and the session policies. You can use the role's temporary
  *          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -81,7 +81,6 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          additional identity-based policy is required. For more information about trust policies and
  *          resource-based policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a> in the
  *             <i>IAM User Guide</i>.</p>
- *
  *          <p>
  *             <b>Tags</b>
  *          </p>
@@ -139,6 +138,16 @@ export class AssumeRoleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AssumeRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,6 +163,7 @@ export class AssumeRoleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssumeRoleCommandInput, AssumeRoleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AssumeRoleCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

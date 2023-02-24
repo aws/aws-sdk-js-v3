@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,12 @@ export interface CreateLocationFsxOpenZfsCommandInput extends CreateLocationFsxO
 export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system.</p>
+ * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync
+ *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating a location for FSx for OpenZFS</a>.</p>
+ *          <note>
+ *             <p>Request parameters related to <code>SMB</code> aren't supported with the
+ *         <code>CreateLocationFsxOpenZfs</code> operation.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +58,15 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateLocationFsxOpenZfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +82,9 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLocationFsxOpenZfsCommandInput, CreateLocationFsxOpenZfsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLocationFsxOpenZfsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,12 +36,18 @@ export interface CreateDataRepositoryAssociationCommandOutput
  *             an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
  *             associations on a file system. Data repository associations are supported only
  *             for file systems with the <code>Persistent_2</code> deployment type.</p>
- *         <p>Each data repository association must have a unique Amazon FSx file
+ *          <p>Each data repository association must have a unique Amazon FSx file
  *             system directory and a unique S3 bucket or prefix associated with it. You
  *             can configure a data repository association for automatic import only,
  *             for automatic export only, or for both. To learn more about linking a
  *             data repository to your file system, see
  *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">Linking your file system to an S3 bucket</a>.</p>
+ *          <note>
+ *             <p>
+ *                <code>CreateDataRepositoryAssociation</code> isn't supported
+ *             on Amazon File Cache resources. To create a DRA on Amazon File Cache,
+ *             use the <code>CreateFileCache</code> operation.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +71,15 @@ export class CreateDataRepositoryAssociationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDataRepositoryAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +95,9 @@ export class CreateDataRepositoryAssociationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDataRepositoryAssociationCommandInput, CreateDataRepositoryAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDataRepositoryAssociationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   Hash as __Hash,
@@ -46,6 +48,7 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -94,6 +97,7 @@ import { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "./command
 import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "./commands/XmlEmptyListsCommand";
 import { XmlEmptyMapsCommandInput, XmlEmptyMapsCommandOutput } from "./commands/XmlEmptyMapsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "./commands/XmlIntEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "./commands/XmlMapsXmlNameCommand";
@@ -102,6 +106,7 @@ import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./command
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | DatetimeOffsetsCommandInput
   | EmptyInputAndEmptyOutputCommandInput
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
@@ -126,6 +131,7 @@ export type ServiceInputTypes =
   | XmlEmptyListsCommandInput
   | XmlEmptyMapsCommandInput
   | XmlEnumsCommandInput
+  | XmlIntEnumsCommandInput
   | XmlListsCommandInput
   | XmlMapsCommandInput
   | XmlMapsXmlNameCommandInput
@@ -133,6 +139,7 @@ export type ServiceInputTypes =
   | XmlTimestampsCommandInput;
 
 export type ServiceOutputTypes =
+  | DatetimeOffsetsCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput
@@ -157,6 +164,7 @@ export type ServiceOutputTypes =
   | XmlEmptyListsCommandOutput
   | XmlEmptyMapsCommandOutput
   | XmlEnumsCommandOutput
+  | XmlIntEnumsCommandOutput
   | XmlListsCommandOutput
   | XmlMapsCommandOutput
   | XmlMapsXmlNameCommandOutput
@@ -170,11 +178,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -231,6 +239,34 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Fetch related hostname, signing name or signing region with given region.
+   * @internal
+   */
+  regionInfoProvider?: RegionInfoProvider;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -246,37 +282,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type QueryProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

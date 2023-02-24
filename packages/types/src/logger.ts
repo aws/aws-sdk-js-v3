@@ -6,7 +6,7 @@
  * @example new Logger({logLevel: 'warn'}) will print all the warn and error
  * message.
  */
-export type LogLevel = "all" | "log" | "info" | "warn" | "error" | "off";
+export type LogLevel = "all" | "trace" | "debug" | "log" | "info" | "warn" | "error" | "off";
 
 /**
  * An object consumed by Logger constructor to initiate a logger object.
@@ -21,8 +21,9 @@ export interface LoggerOptions {
  * throughout the middleware stack.
  */
 export interface Logger {
-  debug(...content: any[]): void;
-  info(...content: any[]): void;
-  warn(...content: any[]): void;
-  error(...content: any[]): void;
+  trace?: (...content: any[]) => void;
+  debug: (...content: any[]) => void;
+  info: (...content: any[]) => void;
+  warn: (...content: any[]) => void;
+  error: (...content: any[]) => void;
 }

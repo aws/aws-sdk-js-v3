@@ -10,7 +10,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -406,7 +406,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -447,7 +450,7 @@ const deserializeAws_restJson1CancelJobCommandError = async (
 ): Promise<CancelJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -506,7 +509,7 @@ const deserializeAws_restJson1CancelQuantumTaskCommandError = async (
 ): Promise<CancelQuantumTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -562,7 +565,7 @@ const deserializeAws_restJson1CreateJobCommandError = async (
 ): Promise<CreateJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -621,7 +624,7 @@ const deserializeAws_restJson1CreateQuantumTaskCommandError = async (
 ): Promise<CreateQuantumTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -695,7 +698,7 @@ const deserializeAws_restJson1GetDeviceCommandError = async (
 ): Promise<GetDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -749,13 +752,13 @@ export const deserializeAws_restJson1GetJobCommand = async (
     contents.checkpointConfig = deserializeAws_restJson1JobCheckpointConfig(data.checkpointConfig, context);
   }
   if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseRfc3339DateTime(data.createdAt));
+    contents.createdAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdAt));
   }
   if (data.deviceConfig != null) {
     contents.deviceConfig = deserializeAws_restJson1DeviceConfig(data.deviceConfig, context);
   }
   if (data.endedAt != null) {
-    contents.endedAt = __expectNonNull(__parseRfc3339DateTime(data.endedAt));
+    contents.endedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.endedAt));
   }
   if (data.events != null) {
     contents.events = deserializeAws_restJson1JobEvents(data.events, context);
@@ -785,7 +788,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
     contents.roleArn = __expectString(data.roleArn);
   }
   if (data.startedAt != null) {
-    contents.startedAt = __expectNonNull(__parseRfc3339DateTime(data.startedAt));
+    contents.startedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.startedAt));
   }
   if (data.status != null) {
     contents.status = __expectString(data.status);
@@ -805,7 +808,7 @@ const deserializeAws_restJson1GetJobCommandError = async (
 ): Promise<GetJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -847,7 +850,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseRfc3339DateTime(data.createdAt));
+    contents.createdAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdAt));
   }
   if (data.deviceArn != null) {
     contents.deviceArn = __expectString(data.deviceArn);
@@ -856,7 +859,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
     contents.deviceParameters = new __LazyJsonString(data.deviceParameters);
   }
   if (data.endedAt != null) {
-    contents.endedAt = __expectNonNull(__parseRfc3339DateTime(data.endedAt));
+    contents.endedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.endedAt));
   }
   if (data.failureReason != null) {
     contents.failureReason = __expectString(data.failureReason);
@@ -891,7 +894,7 @@ const deserializeAws_restJson1GetQuantumTaskCommandError = async (
 ): Promise<GetQuantumTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -944,7 +947,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -994,7 +997,7 @@ const deserializeAws_restJson1SearchDevicesCommandError = async (
 ): Promise<SearchDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1047,7 +1050,7 @@ const deserializeAws_restJson1SearchJobsCommandError = async (
 ): Promise<SearchJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1100,7 +1103,7 @@ const deserializeAws_restJson1SearchQuantumTasksCommandError = async (
 ): Promise<SearchQuantumTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1147,7 +1150,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1191,7 +1194,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1396,10 +1399,8 @@ const serializeAws_restJson1HyperParameters = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1527,10 +1528,8 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1596,10 +1595,8 @@ const deserializeAws_restJson1HyperParameters = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1642,7 +1639,8 @@ const deserializeAws_restJson1JobEventDetails = (output: any, context: __SerdeCo
   return {
     eventType: __expectString(output.eventType),
     message: __expectString(output.message),
-    timeOfEvent: output.timeOfEvent != null ? __expectNonNull(__parseRfc3339DateTime(output.timeOfEvent)) : undefined,
+    timeOfEvent:
+      output.timeOfEvent != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.timeOfEvent)) : undefined,
   } as any;
 };
 
@@ -1673,12 +1671,14 @@ const deserializeAws_restJson1JobStoppingCondition = (output: any, context: __Se
 
 const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     device: __expectString(output.device),
-    endedAt: output.endedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.endedAt)) : undefined,
+    endedAt: output.endedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endedAt)) : undefined,
     jobArn: __expectString(output.jobArn),
     jobName: __expectString(output.jobName),
-    startedAt: output.startedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.startedAt)) : undefined,
+    startedAt:
+      output.startedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startedAt)) : undefined,
     status: __expectString(output.status),
     tags: output.tags != null ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
   } as any;
@@ -1698,9 +1698,10 @@ const deserializeAws_restJson1JobSummaryList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1QuantumTaskSummary = (output: any, context: __SerdeContext): QuantumTaskSummary => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     deviceArn: __expectString(output.deviceArn),
-    endedAt: output.endedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.endedAt)) : undefined,
+    endedAt: output.endedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endedAt)) : undefined,
     outputS3Bucket: __expectString(output.outputS3Bucket),
     outputS3Directory: __expectString(output.outputS3Directory),
     quantumTaskArn: __expectString(output.quantumTaskArn),
@@ -1741,16 +1742,15 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1782,6 +1782,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1792,6 +1798,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

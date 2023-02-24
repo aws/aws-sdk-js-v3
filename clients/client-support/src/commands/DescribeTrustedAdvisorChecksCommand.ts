@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,29 +32,31 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
 
 /**
  * <p>Returns information about all available Trusted Advisor checks, including the name, ID,
- *             category, description, and metadata. You must specify a language code. The Amazon Web Services Support API
- *             currently supports English ("en") and Japanese ("ja"). The response contains a <a>TrustedAdvisorCheckDescription</a> object for each check. You must set the
- *             Amazon Web Services Region to us-east-1.</p>
- *
- *
- *         <note>
+ *             category, description, and metadata. You must specify a language code.</p>
+ *          <p>The response contains a <a>TrustedAdvisorCheckDescription</a> object for
+ *             each check. You must set the Amazon Web Services Region to us-east-1.</p>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
- *                         API. </p>
- *                 </li>
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support API. </p>
+ *                </li>
  *                <li>
- *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
- *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
- *                         <code>SubscriptionRequiredException</code> error message appears. For
- *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
+ *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code> error
+ *                         message appears. For information about changing your support plan, see
+ *                             <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
+ *                </li>
  *                <li>
- *                     <p>The names and descriptions for Trusted Advisor checks are subject to change. We recommend
- *                         that you specify the check ID in your code to uniquely identify a check.</p>
- *                 </li>
+ *                   <p>The names and descriptions for Trusted Advisor checks are subject to change. We
+ *                         recommend that you specify the check ID in your code to uniquely identify a
+ *                         check.</p>
+ *                </li>
  *             </ul>
- *         </note>
+ *          </note>
+ *          <p>To call the Trusted Advisor operations in
+ * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
+ * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
+ * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +80,15 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeTrustedAdvisorChecksCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +104,9 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeTrustedAdvisorChecksCommandInput, DescribeTrustedAdvisorChecksCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeTrustedAdvisorChecksCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

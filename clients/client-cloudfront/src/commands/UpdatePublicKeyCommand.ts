@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,8 @@ export interface UpdatePublicKeyCommandInput extends UpdatePublicKeyRequest {}
 export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __MetadataBearer {}
 
 /**
- * <p>Update public key information. Note that the only value you can change is the comment.</p>
+ * <p>Update public key information. Note that the only value you can change is the
+ * 			comment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +54,15 @@ export class UpdatePublicKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdatePublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +78,9 @@ export class UpdatePublicKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdatePublicKeyCommandInput, UpdatePublicKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdatePublicKeyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

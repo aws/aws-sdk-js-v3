@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
 
 /**
  * <p>Creates an activity. An activity is a task that you write in any programming language and
- *       host on any machine that has access to AWS Step Functions. Activities must poll Step Functions using the
+ *       host on any machine that has access to Step Functions. Activities must poll Step Functions using the
  *         <code>GetActivityTask</code> API action and respond using <code>SendTask*</code> API
  *       actions. This function lets Step Functions know the existence of your activity and returns an
  *       identifier for use in a state machine and when polling from the activity.</p>
@@ -68,6 +69,15 @@ export class CreateActivityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateActivityCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +93,9 @@ export class CreateActivityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateActivityCommandInput, CreateActivityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateActivityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

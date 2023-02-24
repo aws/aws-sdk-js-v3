@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,13 @@ export interface GetSavingsPlansUtilizationCommandInput extends GetSavingsPlansU
 export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlansUtilizationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Management account in an organization have access to member accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
- * 	        <note>
- *             <p>You can't group by any dimension values for <code>GetSavingsPlansUtilization</code>.</p>
+ * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or
+ *       monthly granularity. Management account in an organization have access to member accounts. You
+ *       can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the
+ *       possible dimension values.</p>
+ *          <note>
+ *             <p>You can't group by any dimension values for
+ *         <code>GetSavingsPlansUtilization</code>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +60,15 @@ export class GetSavingsPlansUtilizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetSavingsPlansUtilizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +84,9 @@ export class GetSavingsPlansUtilizationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetSavingsPlansUtilizationCommandInput, GetSavingsPlansUtilizationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetSavingsPlansUtilizationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

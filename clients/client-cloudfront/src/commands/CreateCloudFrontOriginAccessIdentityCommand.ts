@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,9 +32,10 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput
 
 /**
  * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can
- * 			use an origin access identity to require users to access your content using a CloudFront URL instead
- * 			of the Amazon S3 URL. For more information about how to use origin access identities, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ * 			use an origin access identity to require users to access your content using a CloudFront URL
+ * 			instead of the Amazon S3 URL. For more information about how to use origin access identities,
+ * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
+ * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +59,15 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +83,9 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateCloudFrontOriginAccessIdentityCommandInput, CreateCloudFrontOriginAccessIdentityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateCloudFrontOriginAccessIdentityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

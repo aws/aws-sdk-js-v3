@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,11 +30,11 @@ export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConf
 
 /**
  * <p>Gets a list of real-time log configurations.</p>
- * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+ *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
  * 			default maximum, the response is paginated. To get the next page of items, send a
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
- * 			response as the <code>Marker</code> value in the subsequent request. </p>
+ * 			response as the <code>Marker</code> value in the subsequent request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class ListRealtimeLogConfigsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListRealtimeLogConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class ListRealtimeLogConfigsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListRealtimeLogConfigsCommandInput, ListRealtimeLogConfigsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListRealtimeLogConfigsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

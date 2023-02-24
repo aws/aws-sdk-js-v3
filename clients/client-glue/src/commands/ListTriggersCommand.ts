@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ListTriggersRequestFilterSensitiveLog,
   ListTriggersResponse,
   ListTriggersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListTriggersCommand,
   serializeAws_json1_1ListTriggersCommand,
@@ -29,7 +30,6 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
 
 /**
  * <p>Retrieves the names of all trigger resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
- *
  *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
  *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
  *       filtering, only resources with the tag are retrieved.</p>
@@ -56,6 +56,15 @@ export class ListTriggersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListTriggersCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +80,7 @@ export class ListTriggersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTriggersCommandInput, ListTriggersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListTriggersCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

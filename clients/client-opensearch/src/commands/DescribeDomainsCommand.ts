@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,8 @@ export interface DescribeDomainsCommandInput extends DescribeDomainsRequest {}
 export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns domain configuration information about the specified domains, including the domain ID,
- *       domain endpoint, and domain ARN.
- *     </p>
+ * <p>Returns domain configuration information about the specified Amazon OpenSearch Service
+ *    domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,15 @@ export class DescribeDomainsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +78,9 @@ export class DescribeDomainsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDomainsCommandInput, DescribeDomainsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDomainsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

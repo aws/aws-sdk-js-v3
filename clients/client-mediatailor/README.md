@@ -9,7 +9,8 @@
 
 AWS SDK for JavaScript MediaTailor Client for Node.js, Browser and React Native.
 
-<p>Use the AWS Elemental MediaTailor SDKs and CLI to configure scalable ad insertion and linear channels. With MediaTailor, you can assemble existing content into a linear stream and serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. For information about using the service, including detailed information about the settings covered in this guide, see the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/">AWS Elemental MediaTailor User Guide</a>.</p> <p>Through the SDKs and the CLI you manage AWS Elemental MediaTailor configurations and channels the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>
+<p>Use the AWS Elemental MediaTailor SDKs and CLI to configure scalable ad insertion and linear channels. With MediaTailor, you can assemble existing content into a linear stream and serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. For information about using the service, including detailed information about the settings covered in this guide, see the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/">AWS Elemental MediaTailor User Guide</a>.</p>
+<p>Through the SDKs and the CLI you manage AWS Elemental MediaTailor configurations and channels the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>
 
 ## Installing
 
@@ -26,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaTailorClient` and
-the commands you need, for example `ConfigureLogsForPlaybackConfigurationCommand`:
+the commands you need, for example `ConfigureLogsForChannelCommand`:
 
 ```js
 // ES5 example
-const { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor");
+const { MediaTailorClient, ConfigureLogsForChannelCommand } = require("@aws-sdk/client-mediatailor");
 ```
 
 ```ts
 // ES6+ example
-import { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor";
+import { MediaTailorClient, ConfigureLogsForChannelCommand } from "@aws-sdk/client-mediatailor";
 ```
 
 ### Usage
@@ -54,7 +55,7 @@ const client = new MediaTailorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ConfigureLogsForPlaybackConfigurationCommand(params);
+const command = new ConfigureLogsForChannelCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +134,7 @@ const client = new AWS.MediaTailor({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.configureLogsForPlaybackConfiguration(params);
+  const data = await client.configureLogsForChannel(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +142,7 @@ try {
 
 // Promises.
 client
-  .configureLogsForPlaybackConfiguration(params)
+  .configureLogsForChannel(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +151,7 @@ client
   });
 
 // callbacks.
-client.configureLogsForPlaybackConfiguration(params, (err, data) => {
+client.configureLogsForChannel(params, (err, data) => {
   // process err and data.
 });
 ```

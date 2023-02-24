@@ -73,8 +73,8 @@ export const serializeAws_restJson1DeleteEndpointCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/S3Outposts/DeleteEndpoint";
   const query: any = map({
-    endpointId: [, input.EndpointId!],
-    outpostId: [, input.OutpostId!],
+    endpointId: [, __expectNonNull(input.EndpointId!, `EndpointId`)],
+    outpostId: [, __expectNonNull(input.OutpostId!, `OutpostId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -125,7 +125,7 @@ export const serializeAws_restJson1ListSharedEndpointsCommand = async (
   const query: any = map({
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    outpostId: [, input.OutpostId!],
+    outpostId: [, __expectNonNull(input.OutpostId!, `OutpostId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -163,7 +163,7 @@ const deserializeAws_restJson1CreateEndpointCommandError = async (
 ): Promise<CreateEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -213,7 +213,7 @@ const deserializeAws_restJson1DeleteEndpointCommandError = async (
 ): Promise<DeleteEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -266,7 +266,7 @@ const deserializeAws_restJson1ListEndpointsCommandError = async (
 ): Promise<ListEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -319,7 +319,7 @@ const deserializeAws_restJson1ListSharedEndpointsCommandError = async (
 ): Promise<ListSharedEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -481,7 +481,8 @@ const deserializeAws_restJson1NetworkInterfaces = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -513,6 +514,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -523,6 +530,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

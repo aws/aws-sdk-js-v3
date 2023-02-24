@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * <p>Retrieves the device position history from a tracker resource within a specified range
  *             of time.</p>
  *          <note>
- *            <p>Device positions are deleted after 30 days.</p>
+ *             <p>Device positions are deleted after 30 days.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +57,15 @@ export class GetDevicePositionHistoryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetDevicePositionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class GetDevicePositionHistoryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDevicePositionHistoryCommandInput, GetDevicePositionHistoryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetDevicePositionHistoryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

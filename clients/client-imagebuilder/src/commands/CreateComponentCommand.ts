@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,14 +32,14 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * <p>Creates a new component that can be used to build, validate, test, and assess your
  * 			image. The component is based on a YAML document that you specify using exactly one
  * 			of the following methods:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>Inline, using the <code>data</code> property in the request body.</p>
- * 			         </li>
+ *                <p>Inline, using the <code>data</code> property in the request body.</p>
+ *             </li>
  *             <li>
- * 				           <p>A URL that points to a YAML document file stored in Amazon S3, using the
+ *                <p>A URL that points to a YAML document file stored in Amazon S3, using the
  * 					<code>uri</code> property in the request body.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +64,15 @@ export class CreateComponentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class CreateComponentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateComponentCommandInput, CreateComponentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateComponentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

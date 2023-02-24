@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -29,12 +30,12 @@ export interface ListAccessPointsCommandInput extends ListAccessPointsRequest {}
 export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the access points currently associated with the specified bucket. You can
+ * <p>Returns a list of the access points owned by the current account associated with the specified bucket. You can
  *          retrieve up to 1000 access points per call. If the specified bucket has more than 1,000 access points (or
  *          the number specified in <code>maxResults</code>, whichever is less), the response will
  *          include a continuation token that you can use to list the additional access points.</p>
  *          <p></p>
- *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples">Examples</a> section.</p>
+ *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples">Examples</a> section.</p>
  *          <p>The following actions are related to <code>ListAccessPoints</code>:</p>
  *          <ul>
  *             <li>
@@ -76,6 +77,19 @@ export class ListAccessPointsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
+      AccountId: { type: "contextParams", name: "AccountId" },
+      Bucket: { type: "contextParams", name: "Bucket" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListAccessPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +105,9 @@ export class ListAccessPointsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAccessPointsCommandInput, ListAccessPointsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListAccessPointsCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

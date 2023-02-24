@@ -11,7 +11,8 @@ AWS SDK for JavaScript ComputeOptimizer Client for Node.js, Browser and React Na
 
 <p>Compute Optimizer is a service that analyzes the configuration and utilization
 metrics of your Amazon Web Services compute resources, such as Amazon EC2
-instances, Amazon EC2 Auto Scaling groups, Lambda functions, and Amazon EBS volumes. It reports whether your resources are optimal, and generates
+instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate.
+It reports whether your resources are optimal, and generates
 optimization recommendations to reduce the cost and improve the performance of your
 workloads. Compute Optimizer also provides recent utilization metric data, in addition
 to projected utilization metric data for the recommendations, which you can use to

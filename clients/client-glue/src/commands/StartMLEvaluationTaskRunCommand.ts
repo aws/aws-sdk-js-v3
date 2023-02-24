@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,10 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
 
 /**
  * <p>Starts a task to estimate the quality of the transform. </p>
- *
- * 	        <p>When you provide label sets as examples of truth, Glue machine learning uses some of
+ *          <p>When you provide label sets as examples of truth, Glue machine learning uses some of
  *       those examples to learn from them. The rest of the labels are used as a test to estimate
  *       quality.</p>
- *
- * 	        <p>Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to get more
+ *          <p>Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to get more
  *       information about the stats of the <code>EvaluationTaskRun</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,15 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartMLEvaluationTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +82,9 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartMLEvaluationTaskRunCommandInput, StartMLEvaluationTaskRunCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartMLEvaluationTaskRunCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

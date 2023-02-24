@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,9 @@ export interface SearchAvailablePhoneNumbersCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance.</p>
+ * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance
+ *    or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both
+ *     Amazon Web Services Regions associated with the traffic distribution group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +57,15 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchAvailablePhoneNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +81,9 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchAvailablePhoneNumbersCommandInput, SearchAvailablePhoneNumbersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchAvailablePhoneNumbersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

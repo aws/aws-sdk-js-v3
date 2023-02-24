@@ -16,6 +16,7 @@ export * from "./DisassociatePricingRulesCommand";
 export * from "./ListAccountAssociationsCommand";
 export * from "./ListBillingGroupCostReportsCommand";
 export * from "./ListBillingGroupsCommand";
+export * from "./ListCustomLineItemVersionsCommand";
 export * from "./ListCustomLineItemsCommand";
 export * from "./ListPricingPlansAssociatedWithPricingRuleCommand";
 export * from "./ListPricingPlansCommand";

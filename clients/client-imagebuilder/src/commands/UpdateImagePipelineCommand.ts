@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
 /**
  * <p> Updates an image pipeline. Image pipelines enable you to automate the creation and
  * 			distribution of images.</p>
- * 		       <note>
+ *          <note>
  *             <p>UpdateImagePipeline does not support selective updates for the pipeline.
  * 			You must specify all of the required properties in the update request, not just
  * 			the properties that have changed.</p>
@@ -58,6 +59,15 @@ export class UpdateImagePipelineCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateImagePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class UpdateImagePipelineCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateImagePipelineCommandInput, UpdateImagePipelineCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateImagePipelineCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteDistributionRequest, DeleteDistributionRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteDistributionRequest, DeleteDistributionRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteDistributionCommand,
   serializeAws_restXmlDeleteDistributionCommand,
@@ -23,7 +24,7 @@ export interface DeleteDistributionCommandInput extends DeleteDistributionReques
 export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a distribution. </p>
+ * <p>Delete a distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +48,15 @@ export class DeleteDistributionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +72,9 @@ export class DeleteDistributionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDistributionCommandInput, DeleteDistributionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteDistributionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

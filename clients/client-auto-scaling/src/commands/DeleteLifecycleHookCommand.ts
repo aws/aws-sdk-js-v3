@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
 
 /**
  * <p>Deletes the specified lifecycle hook.</p>
- *         <p>If there are any outstanding lifecycle actions, they are completed first
+ *          <p>If there are any outstanding lifecycle actions, they are completed first
  *                 (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating
  *             instances).</p>
  * @example
@@ -55,6 +56,15 @@ export class DeleteLifecycleHookCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteLifecycleHookCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class DeleteLifecycleHookCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLifecycleHookCommandInput, DeleteLifecycleHookCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteLifecycleHookCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

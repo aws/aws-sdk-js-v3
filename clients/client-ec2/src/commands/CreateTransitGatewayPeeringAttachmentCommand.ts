@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,7 +35,7 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput
  * <p>Requests a transit gateway peering attachment between the specified transit gateway
  *             (requester) and a peer transit gateway (accepter). The peer transit gateway can be in
  *             your account or a different Amazon Web Services account.</p>
- *         <p>After you create the peering attachment, the owner of the accepter transit gateway
+ *          <p>After you create the peering attachment, the owner of the accepter transit gateway
  *             must accept the attachment request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +60,15 @@ export class CreateTransitGatewayPeeringAttachmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateTransitGatewayPeeringAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class CreateTransitGatewayPeeringAttachmentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateTransitGatewayPeeringAttachmentCommandInput, CreateTransitGatewayPeeringAttachmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateTransitGatewayPeeringAttachmentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

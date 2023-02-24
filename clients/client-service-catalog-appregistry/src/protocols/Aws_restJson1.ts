@@ -8,7 +8,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -48,6 +48,7 @@ import {
   GetAssociatedResourceCommandOutput,
 } from "../commands/GetAssociatedResourceCommand";
 import { GetAttributeGroupCommandInput, GetAttributeGroupCommandOutput } from "../commands/GetAttributeGroupCommand";
+import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "../commands/GetConfigurationCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import {
   ListAssociatedAttributeGroupsCommandInput,
@@ -69,6 +70,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutConfigurationCommandInput, PutConfigurationCommandOutput } from "../commands/PutConfigurationCommand";
 import { SyncResourceCommandInput, SyncResourceCommandOutput } from "../commands/SyncResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -80,6 +82,7 @@ import {
 import {
   Application,
   ApplicationSummary,
+  AppRegistryConfiguration,
   AttributeGroup,
   AttributeGroupDetails,
   AttributeGroupSummary,
@@ -87,11 +90,13 @@ import {
   Integrations,
   InternalServerException,
   Resource,
+  ResourceDetails,
   ResourceGroup,
   ResourceInfo,
   ResourceIntegrations,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  TagQueryConfiguration,
   ValidationException,
 } from "../models/models_0";
 import { ServiceCatalogAppRegistryServiceException as __BaseException } from "../models/ServiceCatalogAppRegistryServiceException";
@@ -402,6 +407,28 @@ export const serializeAws_restJson1GetAttributeGroupCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetConfigurationCommand = async (
+  input: GetConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
@@ -550,6 +577,32 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1PutConfigurationCommand = async (
+  input: PutConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.configuration != null && {
+      configuration: serializeAws_restJson1AppRegistryConfiguration(input.configuration, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1SyncResourceCommand = async (
   input: SyncResourceCommandInput,
   context: __SerdeContext
@@ -613,7 +666,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -716,7 +772,7 @@ const deserializeAws_restJson1AssociateAttributeGroupCommandError = async (
 ): Promise<AssociateAttributeGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -772,7 +828,7 @@ const deserializeAws_restJson1AssociateResourceCommandError = async (
 ): Promise<AssociateResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -825,7 +881,7 @@ const deserializeAws_restJson1CreateApplicationCommandError = async (
 ): Promise<CreateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -875,7 +931,7 @@ const deserializeAws_restJson1CreateAttributeGroupCommandError = async (
 ): Promise<CreateAttributeGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -925,7 +981,7 @@ const deserializeAws_restJson1DeleteApplicationCommandError = async (
 ): Promise<DeleteApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -972,7 +1028,7 @@ const deserializeAws_restJson1DeleteAttributeGroupCommandError = async (
 ): Promise<DeleteAttributeGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1022,7 +1078,7 @@ const deserializeAws_restJson1DisassociateAttributeGroupCommandError = async (
 ): Promise<DisassociateAttributeGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1072,7 +1128,7 @@ const deserializeAws_restJson1DisassociateResourceCommandError = async (
 ): Promise<DisassociateResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1114,7 +1170,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.associatedResourceCount = __expectInt32(data.associatedResourceCount);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -1126,7 +1182,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.integrations = deserializeAws_restJson1Integrations(data.integrations, context);
   }
   if (data.lastUpdateTime != null) {
-    contents.lastUpdateTime = __expectNonNull(__parseRfc3339DateTime(data.lastUpdateTime));
+    contents.lastUpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdateTime));
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -1143,7 +1199,7 @@ const deserializeAws_restJson1GetApplicationCommandError = async (
 ): Promise<GetApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1193,7 +1249,7 @@ const deserializeAws_restJson1GetAssociatedResourceCommandError = async (
 ): Promise<GetAssociatedResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1235,7 +1291,7 @@ export const deserializeAws_restJson1GetAttributeGroupCommand = async (
     contents.attributes = __expectString(data.attributes);
   }
   if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -1244,7 +1300,7 @@ export const deserializeAws_restJson1GetAttributeGroupCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.lastUpdateTime != null) {
-    contents.lastUpdateTime = __expectNonNull(__parseRfc3339DateTime(data.lastUpdateTime));
+    contents.lastUpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdateTime));
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -1261,7 +1317,7 @@ const deserializeAws_restJson1GetAttributeGroupCommandError = async (
 ): Promise<GetAttributeGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1277,6 +1333,47 @@ const deserializeAws_restJson1GetAttributeGroupCommandError = async (
     case "ValidationException":
     case "com.amazonaws.servicecatalogappregistry#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.configuration != null) {
+    contents.configuration = deserializeAws_restJson1AppRegistryConfiguration(data.configuration, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.servicecatalogappregistry#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1314,7 +1411,7 @@ const deserializeAws_restJson1ListApplicationsCommandError = async (
 ): Promise<ListApplicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1361,7 +1458,7 @@ const deserializeAws_restJson1ListAssociatedAttributeGroupsCommandError = async 
 ): Promise<ListAssociatedAttributeGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1411,7 +1508,7 @@ const deserializeAws_restJson1ListAssociatedResourcesCommandError = async (
 ): Promise<ListAssociatedResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1461,7 +1558,7 @@ const deserializeAws_restJson1ListAttributeGroupsCommandError = async (
 ): Promise<ListAttributeGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1511,7 +1608,7 @@ const deserializeAws_restJson1ListAttributeGroupsForApplicationCommandError = as
 ): Promise<ListAttributeGroupsForApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1558,7 +1655,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1568,6 +1665,50 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalogappregistry#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.servicecatalogappregistry#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PutConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1PutConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.servicecatalogappregistry#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.servicecatalogappregistry#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.servicecatalogappregistry#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -1611,7 +1752,7 @@ const deserializeAws_restJson1SyncResourceCommandError = async (
 ): Promise<SyncResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1655,7 +1796,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1699,7 +1840,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1746,7 +1887,7 @@ const deserializeAws_restJson1UpdateApplicationCommandError = async (
 ): Promise<UpdateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1796,7 +1937,7 @@ const deserializeAws_restJson1UpdateAttributeGroupCommandError = async (
 ): Promise<UpdateAttributeGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1904,15 +2045,30 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AppRegistryConfiguration = (
+  input: AppRegistryConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.tagQueryConfiguration != null && {
+      tagQueryConfiguration: serializeAws_restJson1TagQueryConfiguration(input.tagQueryConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TagQueryConfiguration = (input: TagQueryConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.tagKey != null && { tagKey: input.tagKey }),
+  };
+};
+
 const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1920,11 +2076,13 @@ const deserializeAws_restJson1Application = (output: any, context: __SerdeContex
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
+      output.lastUpdateTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdateTime))
+        : undefined,
     name: __expectString(output.name),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
@@ -1946,12 +2104,26 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
+      output.lastUpdateTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdateTime))
+        : undefined,
     name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_restJson1AppRegistryConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AppRegistryConfiguration => {
+  return {
+    tagQueryConfiguration:
+      output.tagQueryConfiguration != null
+        ? deserializeAws_restJson1TagQueryConfiguration(output.tagQueryConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -1959,11 +2131,13 @@ const deserializeAws_restJson1AttributeGroup = (output: any, context: __SerdeCon
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
+      output.lastUpdateTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdateTime))
+        : undefined,
     name: __expectString(output.name),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
@@ -2023,11 +2197,13 @@ const deserializeAws_restJson1AttributeGroupSummary = (output: any, context: __S
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
+      output.lastUpdateTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdateTime))
+        : undefined,
     name: __expectString(output.name),
   } as any;
 };
@@ -2043,12 +2219,20 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
   return {
     arn: __expectString(output.arn),
     associationTime:
-      output.associationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.associationTime)) : undefined,
+      output.associationTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.associationTime))
+        : undefined,
     integrations:
       output.integrations != null
         ? deserializeAws_restJson1ResourceIntegrations(output.integrations, context)
         : undefined,
     name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
+  return {
+    tagValue: __expectString(output.tagValue),
   } as any;
 };
 
@@ -2064,6 +2248,11 @@ const deserializeAws_restJson1ResourceInfo = (output: any, context: __SerdeConte
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
+    resourceDetails:
+      output.resourceDetails != null
+        ? deserializeAws_restJson1ResourceDetails(output.resourceDetails, context)
+        : undefined,
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -2086,21 +2275,26 @@ const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext)
   return retVal;
 };
 
+const deserializeAws_restJson1TagQueryConfiguration = (output: any, context: __SerdeContext): TagQueryConfiguration => {
+  return {
+    tagKey: __expectString(output.tagKey),
+  } as any;
+};
+
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2132,6 +2326,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2142,6 +2342,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

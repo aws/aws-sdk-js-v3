@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   throwDefaultError,
@@ -19,8 +19,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import {
@@ -720,17 +719,17 @@ const deserializeAws_queryAddTagsCommandError = async (
 ): Promise<AddTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicateTagKeysException":
+    case "DuplicateTagKeys":
     case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
       throw await deserializeAws_queryDuplicateTagKeysExceptionResponse(parsedOutput, context);
-    case "TooManyTagsException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTags":
     case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
       throw await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context);
     default:
@@ -770,19 +769,19 @@ const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError = async 
 ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityGroupException":
+    case "InvalidSecurityGroup":
     case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
       throw await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -817,20 +816,20 @@ const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
 ): Promise<AttachLoadBalancerToSubnetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "InvalidSubnetException":
+    case "InvalidSubnet":
     case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
       throw await deserializeAws_queryInvalidSubnetExceptionResponse(parsedOutput, context);
-    case "SubnetNotFoundException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "SubnetNotFound":
     case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
       throw await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -867,11 +866,11 @@ const deserializeAws_queryConfigureHealthCheckCommandError = async (
 ): Promise<ConfigureHealthCheckCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -911,20 +910,20 @@ const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
 ): Promise<CreateAppCookieStickinessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicatePolicyNameException":
+    case "DuplicatePolicyName":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
       throw await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "TooManyPoliciesException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyPolicies":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
       throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
@@ -964,20 +963,20 @@ const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
 ): Promise<CreateLBCookieStickinessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicatePolicyNameException":
+    case "DuplicatePolicyName":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
       throw await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "TooManyPoliciesException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyPolicies":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
       throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
@@ -1014,44 +1013,44 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
 ): Promise<CreateLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CertificateNotFoundException":
+    case "CertificateNotFound":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
       throw await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicateAccessPointNameException":
+    case "DuplicateLoadBalancerName":
     case "com.amazonaws.elasticloadbalancing#DuplicateAccessPointNameException":
       throw await deserializeAws_queryDuplicateAccessPointNameExceptionResponse(parsedOutput, context);
-    case "DuplicateTagKeysException":
+    case "DuplicateTagKeys":
     case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
       throw await deserializeAws_queryDuplicateTagKeysExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "InvalidSchemeException":
+    case "InvalidScheme":
     case "com.amazonaws.elasticloadbalancing#InvalidSchemeException":
       throw await deserializeAws_queryInvalidSchemeExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityGroupException":
+    case "InvalidSecurityGroup":
     case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
       throw await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context);
-    case "InvalidSubnetException":
+    case "InvalidSubnet":
     case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
       throw await deserializeAws_queryInvalidSubnetExceptionResponse(parsedOutput, context);
-    case "OperationNotPermittedException":
+    case "OperationNotPermitted":
     case "com.amazonaws.elasticloadbalancing#OperationNotPermittedException":
       throw await deserializeAws_queryOperationNotPermittedExceptionResponse(parsedOutput, context);
-    case "SubnetNotFoundException":
+    case "SubnetNotFound":
     case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
       throw await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context);
-    case "TooManyAccessPointsException":
+    case "TooManyLoadBalancers":
     case "com.amazonaws.elasticloadbalancing#TooManyAccessPointsException":
       throw await deserializeAws_queryTooManyAccessPointsExceptionResponse(parsedOutput, context);
-    case "TooManyTagsException":
+    case "TooManyTags":
     case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
       throw await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context);
-    case "UnsupportedProtocolException":
+    case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
       throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
@@ -1088,23 +1087,23 @@ const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
 ): Promise<CreateLoadBalancerListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "CertificateNotFoundException":
+    case "CertificateNotFound":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
       throw await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicateListenerException":
+    case "DuplicateListener":
     case "com.amazonaws.elasticloadbalancing#DuplicateListenerException":
       throw await deserializeAws_queryDuplicateListenerExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "UnsupportedProtocolException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
       throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
@@ -1141,23 +1140,23 @@ const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
 ): Promise<CreateLoadBalancerPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicatePolicyNameException":
+    case "DuplicatePolicyName":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
       throw await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "PolicyTypeNotFoundException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "PolicyTypeNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
       throw await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context);
-    case "TooManyPoliciesException":
+    case "TooManyPolicies":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
       throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
@@ -1194,7 +1193,7 @@ const deserializeAws_queryDeleteLoadBalancerCommandError = async (
 ): Promise<DeleteLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1229,11 +1228,11 @@ const deserializeAws_queryDeleteLoadBalancerListenersCommandError = async (
 ): Promise<DeleteLoadBalancerListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1270,16 +1269,16 @@ const deserializeAws_queryDeleteLoadBalancerPolicyCommandError = async (
 ): Promise<DeleteLoadBalancerPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1314,16 +1313,16 @@ const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError = asyn
 ): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidEndPointException":
+    case "InvalidInstance":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
       throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1358,7 +1357,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1393,16 +1392,16 @@ const deserializeAws_queryDescribeInstanceHealthCommandError = async (
 ): Promise<DescribeInstanceHealthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidEndPointException":
+    case "InvalidInstance":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
       throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1440,16 +1439,16 @@ const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
 ): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "LoadBalancerAttributeNotFoundException":
+    case "LoadBalancerAttributeNotFound":
     case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
       throw await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1484,14 +1483,14 @@ const deserializeAws_queryDescribeLoadBalancerPoliciesCommandError = async (
 ): Promise<DescribeLoadBalancerPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "PolicyNotFoundException":
+    case "PolicyNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
       throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1531,11 +1530,11 @@ const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError = async (
 ): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "PolicyTypeNotFoundException":
+    case "PolicyTypeNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
       throw await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1572,16 +1571,16 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
 ): Promise<DescribeLoadBalancersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "DependencyThrottleException":
+    case "DependencyThrottle":
     case "com.amazonaws.elasticloadbalancing#DependencyThrottleException":
       throw await deserializeAws_queryDependencyThrottleExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1616,11 +1615,11 @@ const deserializeAws_queryDescribeTagsCommandError = async (
 ): Promise<DescribeTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1657,16 +1656,16 @@ const deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError = async (
 ): Promise<DetachLoadBalancerFromSubnetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1704,16 +1703,16 @@ const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError = 
 ): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1748,11 +1747,11 @@ const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError = a
 ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1789,19 +1788,19 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
 ): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "LoadBalancerAttributeNotFoundException":
+    case "LoadBalancerAttributeNotFound":
     case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
       throw await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1836,16 +1835,16 @@ const deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError = async 
 ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidEndPointException":
+    case "InvalidInstance":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
       throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1880,11 +1879,11 @@ const deserializeAws_queryRemoveTagsCommandError = async (
 ): Promise<RemoveTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1924,23 +1923,23 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = as
 ): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "CertificateNotFoundException":
+    case "CertificateNotFound":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
       throw await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "ListenerNotFoundException":
+    case "ListenerNotFound":
     case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
       throw await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context);
-    case "UnsupportedProtocolException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
       throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
@@ -1980,17 +1979,17 @@ const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError = 
 ): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "PolicyNotFoundException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "PolicyNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
       throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2030,20 +2029,20 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async 
 ): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "ListenerNotFoundException":
+    case "ListenerNotFound":
     case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
       throw await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context);
-    case "PolicyNotFoundException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "PolicyNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
       throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2370,6 +2369,9 @@ const serializeAws_queryAddAvailabilityZonesInput = (
   }
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -2409,6 +2411,9 @@ const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeCon
   const entries: any = {};
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -2416,6 +2421,9 @@ const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeCon
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -2434,6 +2442,9 @@ const serializeAws_queryApplySecurityGroupsToLoadBalancerInput = (
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -2452,6 +2463,9 @@ const serializeAws_queryAttachLoadBalancerToSubnetsInput = (
   }
   if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
@@ -2517,6 +2531,9 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   }
   if (input.Listeners != null) {
     const memberEntries = serializeAws_queryListeners(input.Listeners, context);
+    if (input.Listeners?.length === 0) {
+      entries.Listeners = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Listeners.${key}`;
       entries[loc] = value;
@@ -2524,6 +2541,9 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   }
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -2531,6 +2551,9 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   }
   if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
@@ -2538,6 +2561,9 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -2548,6 +2574,9 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -2600,6 +2629,9 @@ const serializeAws_queryCreateLoadBalancerListenerInput = (
   }
   if (input.Listeners != null) {
     const memberEntries = serializeAws_queryListeners(input.Listeners, context);
+    if (input.Listeners?.length === 0) {
+      entries.Listeners = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Listeners.${key}`;
       entries[loc] = value;
@@ -2624,6 +2656,9 @@ const serializeAws_queryCreateLoadBalancerPolicyInput = (
   }
   if (input.PolicyAttributes != null) {
     const memberEntries = serializeAws_queryPolicyAttributes(input.PolicyAttributes, context);
+    if (input.PolicyAttributes?.length === 0) {
+      entries.PolicyAttributes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyAttributes.${key}`;
       entries[loc] = value;
@@ -2658,6 +2693,9 @@ const serializeAws_queryDeleteLoadBalancerListenerInput = (
   }
   if (input.LoadBalancerPorts != null) {
     const memberEntries = serializeAws_queryPorts(input.LoadBalancerPorts, context);
+    if (input.LoadBalancerPorts?.length === 0) {
+      entries.LoadBalancerPorts = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerPorts.${key}`;
       entries[loc] = value;
@@ -2687,6 +2725,9 @@ const serializeAws_queryDeregisterEndPointsInput = (input: DeregisterEndPointsIn
   }
   if (input.Instances != null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
+    if (input.Instances?.length === 0) {
+      entries.Instances = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
@@ -2702,6 +2743,9 @@ const serializeAws_queryDescribeAccessPointsInput = (
   const entries: any = {};
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -2740,6 +2784,9 @@ const serializeAws_queryDescribeEndPointStateInput = (
   }
   if (input.Instances != null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
+    if (input.Instances?.length === 0) {
+      entries.Instances = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
@@ -2769,6 +2816,9 @@ const serializeAws_queryDescribeLoadBalancerPoliciesInput = (
   }
   if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -2784,6 +2834,9 @@ const serializeAws_queryDescribeLoadBalancerPolicyTypesInput = (
   const entries: any = {};
   if (input.PolicyTypeNames != null) {
     const memberEntries = serializeAws_queryPolicyTypeNames(input.PolicyTypeNames, context);
+    if (input.PolicyTypeNames?.length === 0) {
+      entries.PolicyTypeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyTypeNames.${key}`;
       entries[loc] = value;
@@ -2796,6 +2849,9 @@ const serializeAws_queryDescribeTagsInput = (input: DescribeTagsInput, context: 
   const entries: any = {};
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNamesMax20(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -2814,6 +2870,9 @@ const serializeAws_queryDetachLoadBalancerFromSubnetsInput = (
   }
   if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
@@ -2934,6 +2993,9 @@ const serializeAws_queryLoadBalancerAttributes = (input: LoadBalancerAttributes,
   }
   if (input.AdditionalAttributes != null) {
     const memberEntries = serializeAws_queryAdditionalAttributes(input.AdditionalAttributes, context);
+    if (input.AdditionalAttributes?.length === 0) {
+      entries.AdditionalAttributes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AdditionalAttributes.${key}`;
       entries[loc] = value;
@@ -3059,6 +3121,9 @@ const serializeAws_queryRegisterEndPointsInput = (input: RegisterEndPointsInput,
   }
   if (input.Instances != null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
+    if (input.Instances?.length === 0) {
+      entries.Instances = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
@@ -3077,6 +3142,9 @@ const serializeAws_queryRemoveAvailabilityZonesInput = (
   }
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -3089,6 +3157,9 @@ const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __Se
   const entries: any = {};
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -3096,6 +3167,9 @@ const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __Se
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagKeyList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3147,6 +3221,9 @@ const serializeAws_querySetLoadBalancerPoliciesForBackendServerInput = (
   }
   if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -3168,6 +3245,9 @@ const serializeAws_querySetLoadBalancerPoliciesOfListenerInput = (
   }
   if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -4157,7 +4237,7 @@ const deserializeAws_queryLoadBalancerDescription = (output: any, context: __Ser
     );
   }
   if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTime(output["CreatedTime"]));
+    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTime"]));
   }
   if (output["Scheme"] !== undefined) {
     contents.Scheme = __expectString(output["Scheme"]);
@@ -4611,7 +4691,8 @@ const deserializeAws_queryUnsupportedProtocolException = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -4656,13 +4737,18 @@ const buildHttpRpcRequest = async (
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -4675,13 +4761,21 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

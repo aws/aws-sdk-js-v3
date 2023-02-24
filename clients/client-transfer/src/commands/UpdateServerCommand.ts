@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,6 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
 /**
  * <p>Updates the file transfer protocol-enabled server's properties after that server has
  *       been created.</p>
- *
  *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the server you
  *       updated.</p>
  * @example
@@ -56,6 +56,15 @@ export class UpdateServerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +80,7 @@ export class UpdateServerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateServerCommandInput, UpdateServerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateServerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

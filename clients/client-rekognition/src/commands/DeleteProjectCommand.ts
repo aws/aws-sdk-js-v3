@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,11 +32,12 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * <p>Deletes an Amazon Rekognition Custom Labels project.  To delete a project you must first delete all models associated
  *          with the project. To delete a model, see <a>DeleteProjectVersion</a>.</p>
  *          <p>
- *             <code>DeleteProject</code> is an asynchronous operation. To check if the project is deleted,
- *       call <a>DescribeProjects</a>. The project is deleted when the project no longer appears in the
- *       response.</p>
+ *             <code>DeleteProject</code> is an asynchronous operation. To check if the project is
+ *          deleted, call <a>DescribeProjects</a>. The project is deleted when the project
+ *          no longer appears in the response. Be aware that deleting a given project will also delete
+ *          any <code>ProjectPolicies</code> associated with that project.</p>
  *          <p>This operation requires permissions to perform the
- *          <code>rekognition:DeleteProject</code> action. </p>
+ *             <code>rekognition:DeleteProject</code> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +61,15 @@ export class DeleteProjectCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +85,7 @@ export class DeleteProjectCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteProjectCommandInput, DeleteProjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteProjectCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,11 +1,12 @@
 {
   "name": "@aws-sdk/xhr-http-handler",
-  "version": "3.131.0",
+  "version": "3.274.0",
   "description": "Provides a way to make requests using XMLHttpRequest",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
@@ -20,7 +21,6 @@
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/querystring-builder": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-base64-browser": "*",
     "events": "3.3.0",
     "tslib": "^2.3.1"
   },
@@ -28,7 +28,7 @@
     "@aws-sdk/abort-controller": "*",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
-    "downlevel-dts": "0.7.0",
+    "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
     "typedoc": "0.19.2",
     "typescript": "~4.6.2"

@@ -20,7 +20,7 @@ import {
   GetPersonalizedRankingCommandOutput,
 } from "../commands/GetPersonalizedRankingCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
-import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/models_0";
+import { InvalidInputException, PredictedItem, Promotion, ResourceNotFoundException } from "../models/models_0";
 import { PersonalizeRuntimeServiceException as __BaseException } from "../models/PersonalizeRuntimeServiceException";
 
 export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
@@ -73,6 +73,7 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
     }),
     ...(input.itemId != null && { itemId: input.itemId }),
     ...(input.numResults != null && { numResults: input.numResults }),
+    ...(input.promotions != null && { promotions: serializeAws_restJson1PromotionList(input.promotions, context) }),
     ...(input.recommenderArn != null && { recommenderArn: input.recommenderArn }),
     ...(input.userId != null && { userId: input.userId }),
   });
@@ -113,7 +114,7 @@ const deserializeAws_restJson1GetPersonalizedRankingCommandError = async (
 ): Promise<GetPersonalizedRankingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -160,7 +161,7 @@ const deserializeAws_restJson1GetRecommendationsCommandError = async (
 ): Promise<GetRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -219,10 +220,8 @@ const serializeAws_restJson1Context = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -231,10 +230,8 @@ const serializeAws_restJson1FilterValues = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -243,6 +240,25 @@ const serializeAws_restJson1InputList = (input: string[], context: __SerdeContex
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
+    });
+};
+
+const serializeAws_restJson1Promotion = (input: Promotion, context: __SerdeContext): any => {
+  return {
+    ...(input.filterArn != null && { filterArn: input.filterArn }),
+    ...(input.filterValues != null && {
+      filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
+    }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.percentPromotedItems != null && { percentPromotedItems: input.percentPromotedItems }),
+  };
+};
+
+const serializeAws_restJson1PromotionList = (input: Promotion[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Promotion(entry, context);
     });
 };
 
@@ -261,13 +277,15 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
   return {
     itemId: __expectString(output.itemId),
+    promotionName: __expectString(output.promotionName),
     score: __limitedParseDouble(output.score),
   } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -299,6 +317,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -309,6 +333,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

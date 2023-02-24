@@ -181,7 +181,7 @@ export interface Alarm {
 }
 
 /**
- * <p>Information about alarms associated with the deployment group.</p>
+ * <p>Information about alarms associated with a deployment or deployment group.</p>
  */
 export interface AlarmConfiguration {
   /**
@@ -208,8 +208,8 @@ export interface AlarmConfiguration {
   ignorePollAlarmFailure?: boolean;
 
   /**
-   * <p>A list of alarms configured for the deployment group. A maximum of 10 alarms can be
-   *             added to a deployment group.</p>
+   * <p>A list of alarms configured for the deployment or deployment group. A maximum of 10
+   *             alarms can be added.</p>
    */
   alarms?: Alarm[];
 }
@@ -234,8 +234,7 @@ export class AlarmsLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An application with the specified name with the IAM user or AWS account already
- *             exists.</p>
+ * <p>An application with the specified name with the IAM user or Amazon Web Services account already exists.</p>
  */
 export class ApplicationAlreadyExistsException extends __BaseException {
   readonly name: "ApplicationAlreadyExistsException" = "ApplicationAlreadyExistsException";
@@ -254,7 +253,7 @@ export class ApplicationAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The application does not exist with the IAM user or AWS account.</p>
+ * <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
  */
 export class ApplicationDoesNotExistException extends __BaseException {
   readonly name: "ApplicationDoesNotExistException" = "ApplicationDoesNotExistException";
@@ -309,8 +308,7 @@ export interface ApplicationInfo {
   gitHubAccountName?: string;
 
   /**
-   * <p>The destination platform type for deployment of the application (<code>Lambda</code>
-   *             or <code>Server</code>).</p>
+   * <p>The destination platform type for deployment of the application (<code>Lambda</code> or <code>Server</code>).</p>
    */
   computePlatform?: ComputePlatform | string;
 }
@@ -360,22 +358,21 @@ export enum ApplicationRevisionSortBy {
 }
 
 /**
- * <p> A revision for an AWS Lambda or Amazon ECS deployment that is a YAML-formatted or
- *             JSON-formatted string. For AWS Lambda and Amazon ECS deployments, the revision is the
- *             same as the AppSpec file. This method replaces the deprecated <code>RawString</code>
- *             data type. </p>
+ * <p> A revision for an Lambda or Amazon ECS deployment that is a
+ *             YAML-formatted or JSON-formatted string. For Lambda and Amazon ECS deployments, the revision is the same as the AppSpec file. This method replaces the
+ *             deprecated <code>RawString</code> data type. </p>
  */
 export interface AppSpecContent {
   /**
    * <p> The YAML-formatted or JSON-formatted revision string. </p>
-   *         <p> For an AWS Lambda deployment, the content includes a Lambda function name, the alias
-   *             for its original version, and the alias for its replacement version. The deployment
-   *             shifts traffic from the original version of the Lambda function to the replacement
-   *             version. </p>
-   *         <p> For an Amazon ECS deployment, the content includes the task name, information about
-   *             the load balancer that serves traffic to the container, and more. </p>
-   *         <p> For both types of deployments, the content can specify Lambda functions that run at
-   *             specified hooks, such as <code>BeforeInstall</code>, during a deployment. </p>
+   *         <p> For an Lambda deployment, the content includes a Lambda
+   *             function name, the alias for its original version, and the alias for its replacement
+   *             version. The deployment shifts traffic from the original version of the Lambda function to the replacement version. </p>
+   *         <p> For an Amazon ECS deployment, the content includes the task name, information
+   *             about the load balancer that serves traffic to the container, and more. </p>
+   *         <p> For both types of deployments, the content can specify Lambda functions
+   *             that run at specified hooks, such as <code>BeforeInstall</code>, during a deployment.
+   *         </p>
    */
   content?: string;
 
@@ -481,7 +478,8 @@ export enum BundleType {
  */
 export interface S3Location {
   /**
-   * <p>The name of the Amazon S3 bucket where the application revision is stored.</p>
+   * <p>The name of the Amazon S3 bucket where the application revision is
+   *             stored.</p>
    */
   bucket?: string;
 
@@ -511,8 +509,8 @@ export interface S3Location {
   bundleType?: BundleType | string;
 
   /**
-   * <p>A specific version of the Amazon S3 object that represents the bundled artifacts for
-   *             the application revision.</p>
+   * <p>A specific version of the Amazon S3 object that represents the bundled
+   *             artifacts for the application revision.</p>
    *         <p>If the version is not specified, the system uses the most recent version by
    *             default.</p>
    */
@@ -530,14 +528,15 @@ export interface S3Location {
 /**
  * @deprecated
  *
- * <p>A revision for an AWS Lambda deployment that is a YAML-formatted or JSON-formatted
- *             string. For AWS Lambda deployments, the revision is the same as the AppSpec file.</p>
+ * <p>A revision for an Lambda deployment that is a YAML-formatted or
+ *             JSON-formatted string. For Lambda deployments, the revision is the same
+ *             as the AppSpec file.</p>
  */
 export interface RawString {
   /**
    * <p>The YAML-formatted or JSON-formatted revision string. It includes information about
-   *             which Lambda function to update and optional Lambda functions that validate deployment
-   *             lifecycle events.</p>
+   *             which Lambda function to update and optional Lambda functions
+   *             that validate deployment lifecycle events.</p>
    */
   content?: string;
 
@@ -562,13 +561,14 @@ export interface RevisionLocation {
    *                     only).</p>
    *             </li>
    *             <li>
-   *                 <p>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments
-   *                     only).</p>
+   *                 <p>String: A YAML-formatted or JSON-formatted string (Lambda
+   *                     deployments only).</p>
    *             </li>
    *             <li>
    *                 <p>AppSpecContent: An <code>AppSpecContent</code> object that contains the
-   *                     contents of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The
-   *                     content is formatted as JSON or YAML stored as a RawString.</p>
+   *                     contents of an AppSpec file for an Lambda or Amazon ECS
+   *                     deployment. The content is formatted as JSON or YAML stored as a
+   *                     RawString.</p>
    *             </li>
    *          </ul>
    */
@@ -587,14 +587,14 @@ export interface RevisionLocation {
   /**
    * @deprecated
    *
-   * <p>Information about the location of an AWS Lambda deployment revision stored as a
-   *             RawString.</p>
+   * <p>Information about the location of an Lambda deployment revision stored
+   *             as a RawString.</p>
    */
   string?: RawString;
 
   /**
-   * <p> The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The
-   *             content is formatted as JSON or YAML and stored as a RawString. </p>
+   * <p> The content of an AppSpec file for an Lambda or Amazon ECS
+   *             deployment. The content is formatted as JSON or YAML and stored as a RawString. </p>
    */
   appSpecContent?: AppSpecContent;
 }
@@ -604,7 +604,7 @@ export interface RevisionLocation {
  */
 export interface BatchGetApplicationRevisionsInput {
   /**
-   * <p>The name of an AWS CodeDeploy application about which to get revision
+   * <p>The name of an CodeDeploy application about which to get revision
    *             information.</p>
    */
   applicationName: string | undefined;
@@ -632,17 +632,17 @@ export interface GenericRevisionInfo {
   deploymentGroups?: string[];
 
   /**
-   * <p>When the revision was first used by AWS CodeDeploy.</p>
+   * <p>When the revision was first used by CodeDeploy.</p>
    */
   firstUsedTime?: Date;
 
   /**
-   * <p>When the revision was last used by AWS CodeDeploy.</p>
+   * <p>When the revision was last used by CodeDeploy.</p>
    */
   lastUsedTime?: Date;
 
   /**
-   * <p>When the revision was registered with AWS CodeDeploy.</p>
+   * <p>When the revision was registered with CodeDeploy.</p>
    */
   registerTime?: Date;
 }
@@ -785,8 +785,8 @@ export interface BatchGetApplicationsOutput {
  */
 export interface BatchGetDeploymentGroupsInput {
   /**
-   * <p>The name of an AWS CodeDeploy application associated with the applicable IAM user or
-   *             AWS account.</p>
+   * <p>The name of an CodeDeploy application associated with the applicable
+   *                 IAM or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -853,8 +853,8 @@ export interface GreenFleetProvisioningOption {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>COPY_AUTO_SCALING_GROUP</code>: Use settings from a specified Auto
-   *                     Scaling group to define and create instances in a new Auto Scaling group.</p>
+   *                   <code>COPY_AUTO_SCALING_GROUP</code>: Use settings from a specified Auto Scaling group to define and create instances in a new Auto Scaling
+   *                     group.</p>
    *             </li>
    *          </ul>
    */
@@ -895,9 +895,9 @@ export interface BlueInstanceTerminationOption {
    * <p>For an Amazon EC2 deployment, the number of minutes to wait after a successful
    *             blue/green deployment before terminating instances from the original environment.</p>
    *
-   *         <p> For an Amazon ECS deployment, the number of minutes before deleting the original
-   *             (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the
-   *             original (blue) task set to a replacement (green) task set. </p>
+   *         <p> For an Amazon ECS deployment, the number of minutes before deleting the
+   *             original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts
+   *             traffic from the original (blue) task set to a replacement (green) task set. </p>
    *
    *         <p> The maximum setting is 2880 minutes (2 days). </p>
    */
@@ -994,20 +994,20 @@ export interface EC2TagFilter {
 }
 
 /**
- * <p>Information about groups of EC2 instance tags.</p>
+ * <p>Information about groups of Amazon EC2 instance tags.</p>
  */
 export interface EC2TagSet {
   /**
-   * <p>A list that contains other lists of EC2 instance tag groups. For an instance to be
-   *             included in the deployment group, it must be identified by all of the tag groups in the
-   *             list.</p>
+   * <p>A list that contains other lists of Amazon EC2 instance tag groups. For an
+   *             instance to be included in the deployment group, it must be identified by all of the tag
+   *             groups in the list.</p>
    */
   ec2TagSetList?: EC2TagFilter[][];
 }
 
 /**
- * <p> Contains the service and cluster names used to identify an Amazon ECS deployment's
- *             target. </p>
+ * <p> Contains the service and cluster names used to identify an Amazon ECS
+ *             deployment's target. </p>
  */
 export interface ECSService {
   /**
@@ -1016,7 +1016,8 @@ export interface ECSService {
   serviceName?: string;
 
   /**
-   * <p> The name of the cluster that the Amazon ECS service is associated with. </p>
+   * <p> The name of the cluster that the Amazon ECS service is associated with.
+   *         </p>
    */
   clusterName?: string;
 }
@@ -1106,8 +1107,7 @@ export interface TrafficRoute {
 }
 
 /**
- * <p> Information about two target groups and how traffic is routed during an Amazon ECS
- *             deployment. An optional test traffic route can be specified. </p>
+ * <p> Information about two target groups and how traffic is routed during an Amazon ECS deployment. An optional test traffic route can be specified. </p>
  */
 export interface TargetGroupPairInfo {
   /**
@@ -1118,15 +1118,13 @@ export interface TargetGroupPairInfo {
   targetGroups?: TargetGroupInfo[];
 
   /**
-   * <p> The path used by a load balancer to route production traffic when an Amazon ECS
-   *             deployment is complete. </p>
+   * <p> The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete. </p>
    */
   prodTrafficRoute?: TrafficRoute;
 
   /**
-   * <p> An optional path used by a load balancer to route test traffic after an Amazon ECS
-   *             deployment. Validation can occur while test traffic is served during a deployment.
-   *         </p>
+   * <p> An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a
+   *             deployment. </p>
    */
   testTrafficRoute?: TrafficRoute;
 }
@@ -1276,8 +1274,8 @@ export interface DeploymentGroupInfo {
   deploymentConfigName?: string;
 
   /**
-   * <p>The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances
-   *             with any of the specified tags.</p>
+   * <p>The Amazon EC2 tags on which to filter. The deployment group includes EC2
+   *             instances with any of the specified tags.</p>
    */
   ec2TagFilters?: EC2TagFilter[];
 
@@ -1294,9 +1292,8 @@ export interface DeploymentGroupInfo {
 
   /**
    * <p>A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make
-   *             calls to AWS services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html">Create a
-   *                 Service Role for AWS CodeDeploy</a> in the <i>AWS CodeDeploy User
-   *                 Guide</i>.</p>
+   *             calls to Amazon Web Services services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html">Create a
+   *                 Service Role for CodeDeploy</a> in the <i>CodeDeploy User Guide</i>.</p>
    */
   serviceRoleArn?: string;
 
@@ -1329,14 +1326,14 @@ export interface DeploymentGroupInfo {
   deploymentStyle?: DeploymentStyle;
 
   /**
-   * <p>Indicates what happens when new EC2 instances are launched mid-deployment and do not
-   *             receive the deployed application revision.</p>
+   * <p>Indicates what happens when new Amazon EC2 instances are launched
+   *             mid-deployment and do not receive the deployed application revision.</p>
    *         <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
    *             one or more 'auto-update outdated instances' deployments to apply the deployed
-   *             application revision to the new EC2 instances.</p>
+   *             application revision to the new Amazon EC2 instances.</p>
    *         <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
-   *             deployment to update the new EC2 instances. This may result in instances having
-   *             different revisions.</p>
+   *             deployment to update the new Amazon EC2 instances. This may result in instances
+   *             having different revisions.</p>
    */
   outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
 
@@ -1362,9 +1359,9 @@ export interface DeploymentGroupInfo {
   lastAttemptedDeployment?: LastDeploymentInfo;
 
   /**
-   * <p>Information about groups of tags applied to an EC2 instance. The deployment group
-   *             includes only EC2 instances identified by all of the tag groups. Cannot be used in the
-   *             same call as ec2TagFilters.</p>
+   * <p>Information about groups of tags applied to an Amazon EC2 instance. The
+   *             deployment group includes only Amazon EC2 instances identified by all of the tag
+   *             groups. Cannot be used in the same call as ec2TagFilters.</p>
    */
   ec2TagSet?: EC2TagSet;
 
@@ -1383,9 +1380,8 @@ export interface DeploymentGroupInfo {
 
   /**
    * <p> The target Amazon ECS services in the deployment group. This applies only to
-   *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service
-   *             is specified as an Amazon ECS cluster and service name pair using the format
-   *                 <code><clustername>:<servicename></code>. </p>
+   *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name
+   *             pair using the format <code><clustername>:<servicename></code>. </p>
    */
   ecsServices?: ECSService[];
 }
@@ -1406,7 +1402,8 @@ export interface BatchGetDeploymentGroupsOutput {
 }
 
 /**
- * <p>The deployment configuration does not exist with the IAM user or AWS account.</p>
+ * <p>The deployment configuration does not exist with the IAM user or
+ *                 Amazon Web Services account.</p>
  */
 export class DeploymentConfigDoesNotExistException extends __BaseException {
   readonly name: "DeploymentConfigDoesNotExistException" = "DeploymentConfigDoesNotExistException";
@@ -1536,7 +1533,8 @@ export interface Diagnostics {
 
   /**
    * <p>The last portion of the diagnostic log.</p>
-   *         <p>If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.</p>
+   *         <p>If available, CodeDeploy returns up to the last 4 KB of the diagnostic
+   *             log.</p>
    */
   logTail?: string;
 }
@@ -1705,7 +1703,8 @@ export interface BatchGetDeploymentInstancesOutput {
 }
 
 /**
- * <p>The deployment with the IAM user or AWS account does not exist.</p>
+ * <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
  */
 export class DeploymentDoesNotExistException extends __BaseException {
   readonly name: "DeploymentDoesNotExistException" = "DeploymentDoesNotExistException";
@@ -1764,8 +1763,7 @@ export class InstanceIdRequiredException extends __BaseException {
 }
 
 /**
- * <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>,
- *                 <code>Server</code>, or <code>ECS</code>.</p>
+ * <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
  */
 export class InvalidComputePlatformException extends __BaseException {
   readonly name: "InvalidComputePlatformException" = "InvalidComputePlatformException";
@@ -1902,8 +1900,7 @@ export enum ErrorCode {
  */
 export interface ErrorInformation {
   /**
-   * <p>For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html">Error Codes for AWS
-   *                 CodeDeploy</a> in the <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide">AWS CodeDeploy User Guide</a>.</p>
+   * <p>For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html">Error Codes for CodeDeploy</a> in the <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide">CodeDeploy User Guide</a>.</p>
    *         <p>The error code:</p>
    *         <ul>
    *             <li>
@@ -1928,15 +1925,14 @@ export interface ErrorInformation {
    *                 <p>IAM_ROLE_MISSING: The service role cannot be accessed.</p>
    *             </li>
    *             <li>
-   *                 <p>IAM_ROLE_PERMISSIONS: The service role does not have the correct
-   *                     permissions.</p>
+   *                 <p>IAM_ROLE_PERMISSIONS: The service role does not have the
+   *                     correct permissions.</p>
    *             </li>
    *             <li>
    *                 <p>INTERNAL_ERROR: There was an internal error.</p>
    *             </li>
    *             <li>
-   *                 <p>NO_EC2_SUBSCRIPTION: The calling account is not subscribed to Amazon
-   *                     EC2.</p>
+   *                 <p>NO_EC2_SUBSCRIPTION: The calling account is not subscribed to Amazon EC2.</p>
    *             </li>
    *             <li>
    *                 <p>NO_INSTANCES: No instances were specified, or no instances can be
@@ -1947,7 +1943,7 @@ export interface ErrorInformation {
    *             </li>
    *             <li>
    *                 <p>THROTTLED: The operation was throttled because the calling account exceeded
-   *                     the throttling limits of one or more AWS services.</p>
+   *                     the throttling limits of one or more Amazon Web Services services.</p>
    *             </li>
    *             <li>
    *                 <p>TIMEOUT: The deployment has timed out.</p>
@@ -2024,15 +2020,16 @@ export interface TargetInstances {
   tagFilters?: EC2TagFilter[];
 
   /**
-   * <p>The names of one or more Auto Scaling groups to identify a replacement environment for
-   *             a blue/green deployment.</p>
+   * <p>The names of one or more Auto Scaling groups to identify a replacement
+   *             environment for a blue/green deployment.</p>
    */
   autoScalingGroups?: string[];
 
   /**
-   * <p>Information about the groups of EC2 instance tags that an instance must be identified
-   *             by in order for it to be included in the replacement environment for a blue/green
-   *             deployment. Cannot be used in the same call as <code>tagFilters</code>.</p>
+   * <p>Information about the groups of Amazon EC2 instance tags that an instance must
+   *             be identified by in order for it to be included in the replacement environment for a
+   *             blue/green deployment. Cannot be used in the same call as
+   *             <code>tagFilters</code>.</p>
    */
   ec2TagSet?: EC2TagSet;
 }
@@ -2121,8 +2118,7 @@ export interface DeploymentInfo {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>autoscaling</code>: Amazon EC2 Auto Scaling created the
-   *                     deployment.</p>
+   *                   <code>autoscaling</code>: Amazon EC2 Auto Scaling created the deployment.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -2132,7 +2128,7 @@ export interface DeploymentInfo {
    *             <li>
    *                 <p>
    *                   <code>CodeDeployAutoUpdate</code>: An auto-update process created the
-   *                     deployment when it detected outdated EC2 instances.</p>
+   *                     deployment when it detected outdated Amazon EC2 instances.</p>
    *             </li>
    *          </ul>
    */
@@ -2152,7 +2148,7 @@ export interface DeploymentInfo {
    *             deployment and the number of healthy hosts is not less than the minimum number of
    *             healthy hosts, then a deployment to the next instance is attempted. </p>
    *
-   *         <p> During a deployment, the AWS CodeDeploy agent runs the scripts specified for
+   *         <p> During a deployment, the CodeDeploy agent runs the scripts specified for
    *                 <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and
    *                 <code>AfterBlockTraffic</code> in the AppSpec file from the previous successful
    *             deployment. (All other scripts are run from the AppSpec file in the current deployment.)
@@ -2222,8 +2218,9 @@ export interface DeploymentInfo {
   additionalDeploymentStatusInfo?: string;
 
   /**
-   * <p>Information about how AWS CodeDeploy handles files that already exist in a deployment
-   *             target location but weren't part of the previous successful deployment.</p>
+   * <p>Information about how CodeDeploy handles files that already exist in a
+   *             deployment target location but weren't part of the previous successful
+   *             deployment.</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -2256,8 +2253,8 @@ export interface DeploymentInfo {
   computePlatform?: ComputePlatform | string;
 
   /**
-   * <p>The unique ID for an external resource (for example, a CloudFormation stack ID) that
-   *             is linked to this deployment.</p>
+   * <p>The unique ID for an external resource (for example, a CloudFormation stack
+   *             ID) that is linked to this deployment.</p>
    */
   externalId?: string;
 
@@ -2265,6 +2262,11 @@ export interface DeploymentInfo {
    * <p>Information about deployments related to the specified deployment.</p>
    */
   relatedDeployments?: RelatedDeployments;
+
+  /**
+   * <p>Information about alarms associated with a deployment or deployment group.</p>
+   */
+  overrideAlarmConfiguration?: AlarmConfiguration;
 }
 
 /**
@@ -2290,24 +2292,24 @@ export interface BatchGetDeploymentTargetsInput {
    *         <ul>
    *             <li>
    *                 <p> For deployments that use the EC2/On-premises compute platform, the target IDs
-   *                     are EC2 or on-premises instances IDs, and their target type is
+   *                     are Amazon EC2 or on-premises instances IDs, and their target type is
    *                         <code>instanceTarget</code>. </p>
    *             </li>
    *             <li>
-   *                 <p> For deployments that use the AWS Lambda compute platform, the target IDs are
-   *                     the names of Lambda functions, and their target type is
-   *                         <code>instanceTarget</code>. </p>
+   *                 <p> For deployments that use the Lambda compute platform, the
+   *                     target IDs are the names of Lambda functions, and their target type
+   *                     is <code>instanceTarget</code>. </p>
    *             </li>
    *             <li>
-   *                 <p> For deployments that use the Amazon ECS compute platform, the target IDs are
-   *                     pairs of Amazon ECS clusters and services specified using the format
-   *                         <code><clustername>:<servicename></code>. Their target type is
-   *                         <code>ecsTarget</code>. </p>
+   *                 <p> For deployments that use the Amazon ECS compute platform, the target
+   *                     IDs are pairs of Amazon ECS clusters and services specified using the
+   *                     format <code><clustername>:<servicename></code>. Their target type
+   *                     is <code>ecsTarget</code>. </p>
    *             </li>
    *             <li>
-   *                 <p> For deployments that are deployed with AWS CloudFormation, the target IDs are
-   *                     CloudFormation stack IDs. Their target type is
-   *                     <code>cloudFormationTarget</code>. </p>
+   *                 <p> For deployments that are deployed with CloudFormation, the target IDs are
+   *                         CloudFormation stack IDs. Their target type is
+   *                         <code>cloudFormationTarget</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -2325,13 +2327,12 @@ export enum TargetStatus {
 }
 
 /**
- * <p> Information about the target to be updated by an AWS CloudFormation blue/green
- *             deployment. This target type is used for all deployments initiated by a CloudFormation
- *             stack update.</p>
+ * <p> Information about the target to be updated by an CloudFormation blue/green
+ *             deployment. This target type is used for all deployments initiated by a CloudFormation stack update.</p>
  */
 export interface CloudFormationTarget {
   /**
-   * <p>The unique ID of an AWS CloudFormation blue/green deployment.</p>
+   * <p>The unique ID of an CloudFormation blue/green deployment.</p>
    */
   deploymentId?: string;
 
@@ -2342,30 +2343,30 @@ export interface CloudFormationTarget {
   targetId?: string;
 
   /**
-   * <p> The date and time when the target application was updated by an AWS CloudFormation
+   * <p> The date and time when the target application was updated by an CloudFormation
    *             blue/green deployment. </p>
    */
   lastUpdatedAt?: Date;
 
   /**
-   * <p> The lifecycle events of the AWS CloudFormation blue/green deployment to this target
+   * <p> The lifecycle events of the CloudFormation blue/green deployment to this target
    *             application. </p>
    */
   lifecycleEvents?: LifecycleEvent[];
 
   /**
-   * <p> The status of an AWS CloudFormation blue/green deployment's target application.
+   * <p> The status of an CloudFormation blue/green deployment's target application.
    *         </p>
    */
   status?: TargetStatus | string;
 
   /**
-   * <p>The resource type for the AWS CloudFormation blue/green deployment.</p>
+   * <p>The resource type for the CloudFormation blue/green deployment.</p>
    */
   resourceType?: string;
 
   /**
-   * <p>The percentage of production traffic that the target version of an AWS CloudFormation
+   * <p>The percentage of production traffic that the target version of an CloudFormation
    *             blue/green deployment receives.</p>
    */
   targetVersionWeight?: number;
@@ -2384,11 +2385,12 @@ export enum TargetLabel {
 }
 
 /**
- * <p> Information about a set of Amazon ECS tasks in an AWS CodeDeploy deployment. An
- *             Amazon ECS task set includes details such as the desired number of tasks, how many tasks
- *             are running, and whether the task set serves production traffic. An AWS CodeDeploy
- *             application that uses the Amazon ECS compute platform deploys a containerized
- *             application in an Amazon ECS service as a task set. </p>
+ * <p> Information about a set of Amazon ECS tasks in an CodeDeploy
+ *             deployment. An Amazon ECS task set includes details such as the desired number
+ *             of tasks, how many tasks are running, and whether the task set serves production
+ *             traffic. An CodeDeploy application that uses the Amazon ECS compute
+ *             platform deploys a containerized application in an Amazon ECS service as a task
+ *             set. </p>
  */
 export interface ECSTaskSet {
   /**
@@ -2397,26 +2399,25 @@ export interface ECSTaskSet {
   identifer?: string;
 
   /**
-   * <p> The number of tasks in a task set. During a deployment that uses the Amazon ECS
-   *             compute type, CodeDeploy instructs Amazon ECS to create a new task set and uses this
-   *             value to determine how many tasks to create. After the updated task set is created,
-   *             CodeDeploy shifts traffic to the new task set. </p>
+   * <p> The number of tasks in a task set. During a deployment that uses the Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new task set and
+   *             uses this value to determine how many tasks to create. After the updated task set is
+   *             created, CodeDeploy shifts traffic to the new task set. </p>
    */
   desiredCount?: number;
 
   /**
    * <p> The number of tasks in the task set that are in the <code>PENDING</code> status
-   *             during an Amazon ECS deployment. A task in the <code>PENDING</code> state is preparing
-   *             to enter the <code>RUNNING</code> state. A task set enters the <code>PENDING</code>
-   *             status when it launches for the first time, or when it is restarted after being in the
-   *                 <code>STOPPED</code> state. </p>
+   *             during an Amazon ECS deployment. A task in the <code>PENDING</code> state is
+   *             preparing to enter the <code>RUNNING</code> state. A task set enters the
+   *                 <code>PENDING</code> status when it launches for the first time, or when it is
+   *             restarted after being in the <code>STOPPED</code> state. </p>
    */
   pendingCount?: number;
 
   /**
    * <p> The number of tasks in the task set that are in the <code>RUNNING</code> status
-   *             during an Amazon ECS deployment. A task in the <code>RUNNING</code> state is running and
-   *             ready for use. </p>
+   *             during an Amazon ECS deployment. A task in the <code>RUNNING</code> state is
+   *             running and ready for use. </p>
    */
   runningCount?: number;
 
@@ -2449,8 +2450,7 @@ export interface ECSTaskSet {
   trafficWeight?: number;
 
   /**
-   * <p> The target group associated with the task set. The target group is used by AWS
-   *             CodeDeploy to manage traffic to a task set. </p>
+   * <p> The target group associated with the task set. The target group is used by CodeDeploy to manage traffic to a task set. </p>
    */
   targetGroup?: TargetGroupInfo;
 
@@ -2482,13 +2482,14 @@ export interface ECSTarget {
   targetArn?: string;
 
   /**
-   * <p> The date and time when the target Amazon ECS application was updated by a deployment.
-   *         </p>
+   * <p> The date and time when the target Amazon ECS application was updated by a
+   *             deployment. </p>
    */
   lastUpdatedAt?: Date;
 
   /**
-   * <p> The lifecycle events of the deployment to this target Amazon ECS application. </p>
+   * <p> The lifecycle events of the deployment to this target Amazon ECS application.
+   *         </p>
    */
   lifecycleEvents?: LifecycleEvent[];
 
@@ -2556,32 +2557,32 @@ export interface LambdaFunctionInfo {
   functionName?: string;
 
   /**
-   * <p> The alias of a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">AWS Lambda Function Aliases</a> in the
-   *                 <i>AWS Lambda Developer Guide</i>.</p>
+   * <p> The alias of a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Lambda Function Aliases</a> in the <i>Lambda Developer
+   *                 Guide</i>.</p>
    */
   functionAlias?: string;
 
   /**
-   * <p> The version of a Lambda function that production traffic points to. </p>
+   * <p> The version of a Lambda function that production traffic points to.
+   *         </p>
    */
   currentVersion?: string;
 
   /**
-   * <p> The version of a Lambda function that production traffic points to after the Lambda
-   *             function is deployed. </p>
+   * <p> The version of a Lambda function that production traffic points to after
+   *             the Lambda function is deployed. </p>
    */
   targetVersion?: string;
 
   /**
-   * <p> The percentage of production traffic that the target version of a Lambda function
-   *             receives. </p>
+   * <p> The percentage of production traffic that the target version of a Lambda
+   *             function receives. </p>
    */
   targetVersionWeight?: number;
 }
 
 /**
- * <p> Information about the target AWS Lambda function during an AWS Lambda deployment.
- *         </p>
+ * <p> Information about the target Lambda function during an Lambda deployment. </p>
  */
 export interface LambdaTarget {
   /**
@@ -2601,24 +2602,26 @@ export interface LambdaTarget {
   targetArn?: string;
 
   /**
-   * <p> The status an AWS Lambda deployment's target Lambda function. </p>
+   * <p> The status an Lambda deployment's target Lambda function.
+   *         </p>
    */
   status?: TargetStatus | string;
 
   /**
-   * <p> The date and time when the target Lambda function was updated by a deployment.
-   *         </p>
+   * <p> The date and time when the target Lambda function was updated by a
+   *             deployment. </p>
    */
   lastUpdatedAt?: Date;
 
   /**
-   * <p> The lifecycle events of the deployment to this target Lambda function. </p>
+   * <p> The lifecycle events of the deployment to this target Lambda function.
+   *         </p>
    */
   lifecycleEvents?: LifecycleEvent[];
 
   /**
-   * <p> A <code>LambdaFunctionInfo</code> object that describes a target Lambda function.
-   *         </p>
+   * <p> A <code>LambdaFunctionInfo</code> object that describes a target Lambda
+   *             function. </p>
    */
   lambdaFunctionInfo?: LambdaFunctionInfo;
 }
@@ -2640,21 +2643,20 @@ export interface DeploymentTarget {
   instanceTarget?: InstanceTarget;
 
   /**
-   * <p> Information about the target for a deployment that uses the AWS Lambda compute
-   *             platform. </p>
+   * <p> Information about the target for a deployment that uses the Lambda
+   *             compute platform. </p>
    */
   lambdaTarget?: LambdaTarget;
 
   /**
-   * <p> Information about the target for a deployment that uses the Amazon ECS compute
-   *             platform. </p>
+   * <p> Information about the target for a deployment that uses the Amazon ECS
+   *             compute platform. </p>
    */
   ecsTarget?: ECSTarget;
 
   /**
-   * <p> Information about the target to be updated by an AWS CloudFormation blue/green
-   *             deployment. This target type is used for all deployments initiated by a CloudFormation
-   *             stack update.</p>
+   * <p> Information about the target to be updated by an CloudFormation blue/green
+   *             deployment. This target type is used for all deployments initiated by a CloudFormation stack update.</p>
    */
   cloudFormationTarget?: CloudFormationTarget;
 }
@@ -2667,23 +2669,23 @@ export interface BatchGetDeploymentTargetsOutput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <b>EC2/On-premises</b>: Each target object is an EC2
-   *                     or on-premises instance. </p>
+   *                     <b>EC2/On-premises</b>: Each target object is an
+   *                         Amazon EC2 or on-premises instance. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <b>AWS Lambda</b>: The target object is a specific
-   *                     version of an AWS Lambda function. </p>
+   *                     <b>Lambda</b>: The target object is a
+   *                     specific version of an Lambda function. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <b>Amazon ECS</b>: The target object is an Amazon ECS
-   *                     service. </p>
+   *                     <b>Amazon ECS</b>: The target object is an
+   *                         Amazon ECS service. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <b>CloudFormation</b>: The target object is an AWS
-   *                     CloudFormation blue/green deployment. </p>
+   *                     <b>CloudFormation</b>: The target object is
+   *                     an CloudFormation blue/green deployment. </p>
    *             </li>
    *          </ul>
    */
@@ -2748,9 +2750,10 @@ export class DeploymentTargetIdRequiredException extends __BaseException {
 }
 
 /**
- * <p> The maximum number of targets that can be associated with an Amazon ECS or AWS Lambda
- *             deployment was exceeded. The target list of both types of deployments must have exactly
- *             one item. This exception does not apply to EC2/On-premises deployments. </p>
+ * <p> The maximum number of targets that can be associated with an Amazon ECS or
+ *                 Lambda deployment was exceeded. The target list of both types of
+ *             deployments must have exactly one item. This exception does not apply to EC2/On-premises
+ *             deployments. </p>
  */
 export class DeploymentTargetListSizeExceededException extends __BaseException {
   readonly name: "DeploymentTargetListSizeExceededException" = "DeploymentTargetListSizeExceededException";
@@ -3010,8 +3013,7 @@ export class UnsupportedActionForDeploymentTypeException extends __BaseException
  */
 export interface CreateApplicationInput {
   /**
-   * <p>The name of the application. This name must be unique with the applicable IAM user or
-   *             AWS account.</p>
+   * <p>The name of the application. This name must be unique with the applicable IAM or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -3063,8 +3065,7 @@ export class InvalidTagsToAddException extends __BaseException {
  */
 export interface CreateDeploymentInput {
   /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -3079,8 +3080,8 @@ export interface CreateDeploymentInput {
   revision?: RevisionLocation;
 
   /**
-   * <p>The name of a deployment configuration associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of a deployment configuration associated with the IAM user or
+   *                 Amazon Web Services account.</p>
    *         <p>If not specified, the value configured in the deployment group is used as the default.
    *             If the deployment group does not have a deployment configuration associated with it,
    *                 <code>CodeDeployDefault</code>.<code>OneAtATime</code> is used by default.</p>
@@ -3106,7 +3107,7 @@ export interface CreateDeploymentInput {
    *             deployment and the number of healthy hosts is not less than the minimum number of
    *             healthy hosts, then a deployment to the next instance is attempted. </p>
    *
-   *         <p> During a deployment, the AWS CodeDeploy agent runs the scripts specified for
+   *         <p> During a deployment, the CodeDeploy agent runs the scripts specified for
    *                 <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and
    *                 <code>AfterBlockTraffic</code> in the AppSpec file from the previous successful
    *             deployment. (All other scripts are run from the AppSpec file in the current deployment.)
@@ -3140,8 +3141,9 @@ export interface CreateDeploymentInput {
   updateOutdatedInstancesOnly?: boolean;
 
   /**
-   * <p>Information about how AWS CodeDeploy handles files that already exist in a deployment
-   *             target location but weren't part of the previous successful deployment.</p>
+   * <p>Information about how CodeDeploy handles files that already exist in a
+   *             deployment target location but weren't part of the previous successful
+   *             deployment.</p>
    *         <p>The <code>fileExistsBehavior</code> parameter takes any of the following
    *             values:</p>
    *         <ul>
@@ -3160,6 +3162,24 @@ export interface CreateDeploymentInput {
    *          </ul>
    */
   fileExistsBehavior?: FileExistsBehavior | string;
+
+  /**
+   * <p>Allows you to specify information about alarms associated with a deployment. The alarm
+   *             configuration that you specify here will override the alarm configuration at the
+   *             deployment group level. Consider overriding the alarm configuration if you have set up
+   *             alarms at the deployment group level that are causing deployment failures. In this case,
+   *             you would call <code>CreateDeployment</code> to create a new deployment that uses a
+   *             previous application revision that is known to work, and set its alarm configuration to
+   *             turn off alarm polling. Turning off alarm polling ensures that the new deployment
+   *             proceeds without being blocked by the alarm that was generated by the previous, failed,
+   *             deployment.</p>
+   *         <note>
+   *             <p>If you specify an <code>overrideAlarmConfiguration</code>, you need the
+   *                     <code>UpdateDeploymentGroup</code> IAM permission when calling
+   *                     <code>CreateDeployment</code>.</p>
+   *         </note>
+   */
+  overrideAlarmConfiguration?: AlarmConfiguration;
 }
 
 /**
@@ -3173,7 +3193,7 @@ export interface CreateDeploymentOutput {
 }
 
 /**
- * <p>The named deployment group with the IAM user or AWS account does not exist.</p>
+ * <p>The named deployment group with the IAM user or Amazon Web Services account does not exist.</p>
  */
 export class DeploymentGroupDoesNotExistException extends __BaseException {
   readonly name: "DeploymentGroupDoesNotExistException" = "DeploymentGroupDoesNotExistException";
@@ -3230,6 +3250,42 @@ export class DescriptionTooLongException extends __BaseException {
 }
 
 /**
+ * <p>The format of the alarm configuration is invalid. Possible causes include:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>The alarm list is null.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The alarm object is null.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Two alarms with the same name have been specified.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The alarm configuration is enabled, but the alarm list is empty.</p>
+ *             </li>
+ *          </ul>
+ */
+export class InvalidAlarmConfigException extends __BaseException {
+  readonly name: "InvalidAlarmConfigException" = "InvalidAlarmConfigException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAlarmConfigException, __BaseException>) {
+    super({
+      name: "InvalidAlarmConfigException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAlarmConfigException.prototype);
+  }
+}
+
+/**
  * <p>The automatic rollback configuration was specified in an invalid format. For example,
  *             automatic rollback is enabled, but an invalid triggering event type or no event types
  *             were listed.</p>
@@ -3251,7 +3307,8 @@ export class InvalidAutoRollbackConfigException extends __BaseException {
 }
 
 /**
- * <p>The Auto Scaling group was specified in an invalid format or does not exist.</p>
+ * <p>The Auto Scaling group was specified in an invalid format or does not
+ *             exist.</p>
  */
 export class InvalidAutoScalingGroupException extends __BaseException {
   readonly name: "InvalidAutoScalingGroupException" = "InvalidAutoScalingGroupException";
@@ -3289,10 +3346,9 @@ export class InvalidDeploymentConfigNameException extends __BaseException {
 }
 
 /**
- * <p>An invalid fileExistsBehavior option was specified to determine how AWS CodeDeploy
- *             handles files or directories that already exist in a deployment target location, but
- *             weren't part of the previous successful deployment. Valid values include "DISALLOW,"
- *             "OVERWRITE," and "RETAIN."</p>
+ * <p>An invalid fileExistsBehavior option was specified to determine how CodeDeploy handles files or directories that already exist in a deployment
+ *             target location, but weren't part of the previous successful deployment. Valid values
+ *             include "DISALLOW," "OVERWRITE," and "RETAIN."</p>
  */
 export class InvalidFileExistsBehaviorException extends __BaseException {
   readonly name: "InvalidFileExistsBehaviorException" = "InvalidFileExistsBehaviorException";
@@ -3330,9 +3386,9 @@ export class InvalidGitHubAccountTokenException extends __BaseException {
 }
 
 /**
- * <p>The IgnoreApplicationStopFailures value is invalid. For AWS Lambda deployments,
- *                 <code>false</code> is expected. For EC2/On-premises deployments, <code>true</code>
- *             or <code>false</code> is expected.</p>
+ * <p>The IgnoreApplicationStopFailures value is invalid. For Lambda
+ *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
+ *                 <code>true</code> or <code>false</code> is expected.</p>
  */
 export class InvalidIgnoreApplicationStopFailuresValueException extends __BaseException {
   readonly name: "InvalidIgnoreApplicationStopFailuresValueException" =
@@ -3371,9 +3427,9 @@ export class InvalidLoadBalancerInfoException extends __BaseException {
 }
 
 /**
- * <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling group
- *             was specified, the specified service role does not grant the appropriate permissions to
- *             Amazon EC2 Auto Scaling.</p>
+ * <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling
+ *             group was specified, the specified service role does not grant the appropriate
+ *             permissions to Amazon EC2 Auto Scaling.</p>
  */
 export class InvalidRoleException extends __BaseException {
   readonly name: "InvalidRoleException" = "InvalidRoleException";
@@ -3446,9 +3502,9 @@ export class InvalidTrafficRoutingConfigurationException extends __BaseException
 }
 
 /**
- * <p>The UpdateOutdatedInstancesOnly value is invalid. For AWS Lambda deployments,
- *                 <code>false</code> is expected. For EC2/On-premises deployments, <code>true</code>
- *             or <code>false</code> is expected.</p>
+ * <p>The UpdateOutdatedInstancesOnly value is invalid. For Lambda
+ *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
+ *                 <code>true</code> or <code>false</code> is expected.</p>
  */
 export class InvalidUpdateOutdatedInstancesOnlyValueException extends __BaseException {
   readonly name: "InvalidUpdateOutdatedInstancesOnlyValueException" =
@@ -3468,7 +3524,7 @@ export class InvalidUpdateOutdatedInstancesOnlyValueException extends __BaseExce
 }
 
 /**
- * <p>The named revision does not exist with the IAM user or AWS account.</p>
+ * <p>The named revision does not exist with the IAM user or Amazon Web Services account.</p>
  */
 export class RevisionDoesNotExistException extends __BaseException {
   readonly name: "RevisionDoesNotExistException" = "RevisionDoesNotExistException";
@@ -3505,7 +3561,10 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
-export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT";
+export enum MinimumHealthyHostsType {
+  FLEET_PERCENT = "FLEET_PERCENT",
+  HOST_COUNT = "HOST_COUNT",
+}
 
 /**
  * <p>Information about minimum healthy instance.</p>
@@ -3536,14 +3595,15 @@ export interface MinimumHealthyHosts {
    *                 returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This
    *                 means a deployment to only one instance at a time. (You cannot set the type to
    *                 MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with
-   *                 CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances
-   *                 but one are kept in a healthy state during the deployment. Although this allows one
-   *                 instance at a time to be taken offline for a new deployment, it also means that if
-   *                 the deployment to the last instance fails, the overall deployment is still
-   *                 successful.</p>
+   *                 CodeDeployDefault.OneAtATime, CodeDeploy attempts to ensure that all
+   *                 instances but one are kept in a healthy state during the deployment. Although this
+   *                 allows one instance at a time to be taken offline for a new deployment, it also
+   *                 means that if the deployment to the last instance fails, the overall deployment is
+   *                 still successful.</p>
    *         </note>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html">AWS CodeDeploy Instance
-   *                 Health</a> in the <i>AWS CodeDeploy User Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html">CodeDeploy
+   *                 Instance Health</a> in the <i>CodeDeploy User
+   *                 Guide</i>.</p>
    */
   type?: MinimumHealthyHostsType | string;
 
@@ -3554,9 +3614,10 @@ export interface MinimumHealthyHosts {
 }
 
 /**
- * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task
- *             set to another in two increments. The original and target Lambda function versions or
- *             ECS task sets are specified in the deployment's AppSpec file.</p>
+ * <p>A configuration that shifts traffic from one version of a Lambda function
+ *             or Amazon ECS task set to another in two increments. The original and target
+ *                 Lambda function versions or ECS task sets are specified in the
+ *             deployment's AppSpec file.</p>
  */
 export interface TimeBasedCanary {
   /**
@@ -3573,10 +3634,10 @@ export interface TimeBasedCanary {
 }
 
 /**
- * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task
- *             set to another in equal increments, with an equal number of minutes between each
- *             increment. The original and target Lambda function versions or ECS task sets are
- *             specified in the deployment's AppSpec file.</p>
+ * <p>A configuration that shifts traffic from one version of a Lambda function
+ *             or ECS task set to another in equal increments, with an equal number of minutes between
+ *             each increment. The original and target Lambda function versions or ECS task
+ *             sets are specified in the deployment's AppSpec file.</p>
  */
 export interface TimeBasedLinear {
   /**
@@ -3599,9 +3660,9 @@ export enum TrafficRoutingType {
 }
 
 /**
- * <p>The configuration that specifies how traffic is shifted from one version of a Lambda
- *             function to another version during an AWS Lambda deployment, or from one Amazon ECS task
- *             set to another during an Amazon ECS deployment.</p>
+ * <p>The configuration that specifies how traffic is shifted from one version of a Lambda function to another version during an Lambda deployment,
+ *             or from one Amazon ECS task set to another during an Amazon ECS
+ *             deployment.</p>
  */
 export interface TrafficRoutingConfig {
   /**
@@ -3611,17 +3672,19 @@ export interface TrafficRoutingConfig {
   type?: TrafficRoutingType | string;
 
   /**
-   * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task
-   *             set to another in two increments. The original and target Lambda function versions or
-   *             ECS task sets are specified in the deployment's AppSpec file.</p>
+   * <p>A configuration that shifts traffic from one version of a Lambda function
+   *             or ECS task set to another in two increments. The original and target Lambda
+   *             function versions or ECS task sets are specified in the deployment's AppSpec
+   *             file.</p>
    */
   timeBasedCanary?: TimeBasedCanary;
 
   /**
-   * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task
-   *             set to another in equal increments, with an equal number of minutes between each
-   *             increment. The original and target Lambda function versions or ECS task sets are
-   *             specified in the deployment's AppSpec file.</p>
+   * <p>A configuration that shifts traffic from one version of a Lambda function
+   *             or Amazon ECS task set to another in equal increments, with an equal number of
+   *             minutes between each increment. The original and target Lambda function
+   *             versions or Amazon ECS task sets are specified in the deployment's AppSpec
+   *             file.</p>
    */
   timeBasedLinear?: TimeBasedLinear;
 }
@@ -3647,8 +3710,7 @@ export interface CreateDeploymentConfigInput {
    *             <li>
    *                 <p>FLEET_PERCENT: The value parameter represents the minimum number of healthy
    *                     instances as a percentage of the total number of instances in the deployment. If
-   *                     you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy
-   *                     converts the percentage to the equivalent number of instances and rounds up
+   *                     you specify FLEET_PERCENT, at the start of the deployment, CodeDeploy converts the percentage to the equivalent number of instances and rounds up
    *                     fractional instances.</p>
    *             </li>
    *          </ul>
@@ -3681,8 +3743,8 @@ export interface CreateDeploymentConfigOutput {
 }
 
 /**
- * <p>A deployment configuration with the specified name with the IAM user or AWS account
- *             already exists.</p>
+ * <p>A deployment configuration with the specified name with the IAM user or
+ *                 Amazon Web Services account already exists.</p>
  */
 export class DeploymentConfigAlreadyExistsException extends __BaseException {
   readonly name: "DeploymentConfigAlreadyExistsException" = "DeploymentConfigAlreadyExistsException";
@@ -3762,8 +3824,7 @@ export class InvalidMinimumHealthyHostValueException extends __BaseException {
  */
 export interface CreateDeploymentGroupInput {
   /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -3774,22 +3835,20 @@ export interface CreateDeploymentGroupInput {
 
   /**
    * <p>If specified, the deployment configuration name can be either one of the predefined
-   *             configurations provided with AWS CodeDeploy or a custom deployment configuration that
-   *             you create by calling the create deployment configuration operation.</p>
+   *             configurations provided with CodeDeploy or a custom deployment configuration
+   *             that you create by calling the create deployment configuration operation.</p>
    *         <p>
    *             <code>CodeDeployDefault.OneAtATime</code> is the default deployment configuration. It
    *             is used if a configuration isn't specified for the deployment or deployment
    *             group.</p>
-   *         <p>For more information about the predefined deployment configurations in AWS CodeDeploy,
-   *             see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working with
-   *                 Deployment Configurations in CodeDeploy</a> in the <i>AWS CodeDeploy User
-   *                 Guide</i>.</p>
+   *         <p>For more information about the predefined deployment configurations in CodeDeploy, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working with
+   *                 Deployment Configurations in CodeDeploy</a> in the <i>CodeDeploy User Guide</i>.</p>
    */
   deploymentConfigName?: string;
 
   /**
-   * <p>The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances
-   *             with any of the specified tags. Cannot be used in the same call as ec2TagSet.</p>
+   * <p>The Amazon EC2 tags on which to filter. The deployment group includes Amazon EC2 instances with any of the specified tags. Cannot be used in the same call
+   *             as ec2TagSet.</p>
    */
   ec2TagFilters?: EC2TagFilter[];
 
@@ -3806,16 +3865,16 @@ export interface CreateDeploymentGroupInput {
   autoScalingGroups?: string[];
 
   /**
-   * <p>A service role Amazon Resource Name (ARN) that allows AWS CodeDeploy to act on the
-   *             user's behalf when interacting with AWS services.</p>
+   * <p>A service role Amazon Resource Name (ARN) that allows CodeDeploy to act on
+   *             the user's behalf when interacting with Amazon Web Services services.</p>
    */
   serviceRoleArn: string | undefined;
 
   /**
    * <p>Information about triggers to create when the deployment group is created. For
    *             examples, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html">Create a Trigger for an
-   *                 AWS CodeDeploy Event</a> in the <i>AWS CodeDeploy User
-   *             Guide</i>.</p>
+   *                     CodeDeploy Event</a> in the <i>CodeDeploy
+   *                 User Guide</i>.</p>
    */
   triggerConfigurations?: TriggerConfig[];
 
@@ -3832,14 +3891,14 @@ export interface CreateDeploymentGroupInput {
   autoRollbackConfiguration?: AutoRollbackConfiguration;
 
   /**
-   * <p>Indicates what happens when new EC2 instances are launched mid-deployment and do not
-   *             receive the deployed application revision.</p>
+   * <p>Indicates what happens when new Amazon EC2 instances are launched
+   *             mid-deployment and do not receive the deployed application revision.</p>
    *         <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
    *             one or more 'auto-update outdated instances' deployments to apply the deployed
-   *             application revision to the new EC2 instances.</p>
+   *             application revision to the new Amazon EC2 instances.</p>
    *         <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
-   *             deployment to update the new EC2 instances. This may result in instances having
-   *             different revisions.</p>
+   *             deployment to update the new Amazon EC2 instances. This may result in instances
+   *             having different revisions.</p>
    */
   outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
 
@@ -3860,17 +3919,16 @@ export interface CreateDeploymentGroupInput {
   loadBalancerInfo?: LoadBalancerInfo;
 
   /**
-   * <p>Information about groups of tags applied to EC2 instances. The deployment group
-   *             includes only EC2 instances identified by all the tag groups. Cannot be used in the same
-   *             call as <code>ec2TagFilters</code>.</p>
+   * <p>Information about groups of tags applied to Amazon EC2 instances. The
+   *             deployment group includes only Amazon EC2 instances identified by all the tag
+   *             groups. Cannot be used in the same call as <code>ec2TagFilters</code>.</p>
    */
   ec2TagSet?: EC2TagSet;
 
   /**
    * <p> The target Amazon ECS services in the deployment group. This applies only to
-   *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service
-   *             is specified as an Amazon ECS cluster and service name pair using the format
-   *                 <code><clustername>:<servicename></code>. </p>
+   *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name
+   *             pair using the format <code><clustername>:<servicename></code>. </p>
    */
   ecsServices?: ECSService[];
 
@@ -3900,8 +3958,7 @@ export interface CreateDeploymentGroupOutput {
 }
 
 /**
- * <p>A deployment group with the specified name with the IAM user or AWS account already
- *             exists.</p>
+ * <p>A deployment group with the specified name with the IAM user or Amazon Web Services account already exists.</p>
  */
 export class DeploymentGroupAlreadyExistsException extends __BaseException {
   readonly name: "DeploymentGroupAlreadyExistsException" = "DeploymentGroupAlreadyExistsException";
@@ -3939,8 +3996,8 @@ export class DeploymentGroupLimitExceededException extends __BaseException {
 }
 
 /**
- * <p> The Amazon ECS service is associated with more than one deployment groups. An Amazon
- *             ECS service can be associated with only one deployment group. </p>
+ * <p> The Amazon ECS service is associated with more than one deployment groups. An
+ *             Amazon ECS service can be associated with only one deployment group. </p>
  */
 export class ECSServiceMappingLimitExceededException extends __BaseException {
   readonly name: "ECSServiceMappingLimitExceededException" = "ECSServiceMappingLimitExceededException";
@@ -3955,42 +4012,6 @@ export class ECSServiceMappingLimitExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ECSServiceMappingLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The format of the alarm configuration is invalid. Possible causes include:</p>
- *         <ul>
- *             <li>
- *                 <p>The alarm list is null.</p>
- *             </li>
- *             <li>
- *                 <p>The alarm object is null.</p>
- *             </li>
- *             <li>
- *                 <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
- *             </li>
- *             <li>
- *                 <p>Two alarms with the same name have been specified.</p>
- *             </li>
- *             <li>
- *                 <p>The alarm configuration is enabled, but the alarm list is empty.</p>
- *             </li>
- *          </ul>
- */
-export class InvalidAlarmConfigException extends __BaseException {
-  readonly name: "InvalidAlarmConfigException" = "InvalidAlarmConfigException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAlarmConfigException, __BaseException>) {
-    super({
-      name: "InvalidAlarmConfigException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAlarmConfigException.prototype);
   }
 }
 
@@ -4253,8 +4274,7 @@ export class TriggerTargetsLimitExceededException extends __BaseException {
  */
 export interface DeleteApplicationInput {
   /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 }
@@ -4264,8 +4284,8 @@ export interface DeleteApplicationInput {
  */
 export interface DeleteDeploymentConfigInput {
   /**
-   * <p>The name of a deployment configuration associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of a deployment configuration associated with the IAM user or
+   *                 Amazon Web Services account.</p>
    */
   deploymentConfigName: string | undefined;
 }
@@ -4313,8 +4333,7 @@ export class InvalidOperationException extends __BaseException {
  */
 export interface DeleteDeploymentGroupInput {
   /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -4330,10 +4349,10 @@ export interface DeleteDeploymentGroupInput {
 export interface DeleteDeploymentGroupOutput {
   /**
    * <p>If the output contains no data, and the corresponding deployment group contained at
-   *             least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto
-   *             Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group.
-   *             If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle
-   *             event hooks from the Amazon EC2 instances in the Auto Scaling group.</p>
+   *             least one Auto Scaling group, CodeDeploy successfully removed all
+   *             corresponding Auto Scaling lifecycle event hooks from the Amazon EC2
+   *             instances in the Auto Scaling group. If the output contains data, CodeDeploy could not remove some Auto Scaling lifecycle event hooks from
+   *             the Amazon EC2 instances in the Auto Scaling group.</p>
    */
   hooksNotCleanedUp?: AutoScalingGroup[];
 }
@@ -4455,8 +4474,8 @@ export class ResourceValidationException extends __BaseException {
 
 export interface DeleteResourcesByExternalIdInput {
   /**
-   * <p>The unique ID of an external resource (for example, a CloudFormation stack ID) that is
-   *             linked to one or more CodeDeploy resources.</p>
+   * <p>The unique ID of an external resource (for example, a CloudFormation stack
+   *             ID) that is linked to one or more CodeDeploy resources.</p>
    */
   externalId?: string;
 }
@@ -4478,8 +4497,7 @@ export interface DeregisterOnPremisesInstanceInput {
  */
 export interface GetApplicationInput {
   /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 }
@@ -4534,7 +4552,7 @@ export interface GetApplicationRevisionOutput {
  */
 export interface GetDeploymentInput {
   /**
-   * <p> The unique ID of a deployment associated with the IAM user or AWS account. </p>
+   * <p> The unique ID of a deployment associated with the IAM user or Amazon Web Services account. </p>
    */
   deploymentId: string | undefined;
 }
@@ -4554,8 +4572,8 @@ export interface GetDeploymentOutput {
  */
 export interface GetDeploymentConfigInput {
   /**
-   * <p>The name of a deployment configuration associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of a deployment configuration associated with the IAM user or
+   *                 Amazon Web Services account.</p>
    */
   deploymentConfigName: string | undefined;
 }
@@ -4592,7 +4610,8 @@ export interface DeploymentConfigInfo {
 
   /**
    * <p>The configuration that specifies how the deployment traffic is routed. Used for
-   *             deployments with a Lambda or ECS compute platform only.</p>
+   *             deployments with a Lambda or Amazon ECS compute platform
+   *             only.</p>
    */
   trafficRoutingConfig?: TrafficRoutingConfig;
 }
@@ -4612,8 +4631,7 @@ export interface GetDeploymentConfigOutput {
  */
 export interface GetDeploymentGroupInput {
   /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -4834,8 +4852,7 @@ export enum SortOrder {
  */
 export interface ListApplicationRevisionsInput {
   /**
-   * <p> The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account. </p>
+   * <p> The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account. </p>
    */
   applicationName: string | undefined;
 
@@ -4845,7 +4862,7 @@ export interface ListApplicationRevisionsInput {
    *             <li>
    *                 <p>
    *                   <code>registerTime</code>: Sort by the time the revisions were registered with
-   *                     AWS CodeDeploy.</p>
+   *                         CodeDeploy.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4887,8 +4904,8 @@ export interface ListApplicationRevisionsInput {
   s3Bucket?: string;
 
   /**
-   * <p> A key prefix for the set of Amazon S3 objects to limit the search for revisions.
-   *         </p>
+   * <p> A key prefix for the set of Amazon S3 objects to limit the search for
+   *             revisions. </p>
    */
   s3KeyPrefix?: string;
 
@@ -5000,8 +5017,7 @@ export interface ListDeploymentConfigsOutput {
  */
 export interface ListDeploymentGroupsInput {
   /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -5251,8 +5267,7 @@ export interface TimeRange {
  */
 export interface ListDeploymentsInput {
   /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
    *         <note>
    *             <p>If <code>applicationName</code> is specified, then
    *                     <code>deploymentGroupName</code> must be specified. If it is not specified, then
@@ -5604,8 +5619,8 @@ export class InvalidLifecycleEventHookExecutionIdException extends __BaseExcepti
 }
 
 /**
- * <p>The result of a Lambda validation function that verifies a lifecycle event is invalid.
- *             It should return <code>Succeeded</code> or <code>Failed</code>.</p>
+ * <p>The result of a Lambda validation function that verifies a lifecycle event
+ *             is invalid. It should return <code>Succeeded</code> or <code>Failed</code>.</p>
  */
 export class InvalidLifecycleEventHookExecutionStatusException extends __BaseException {
   readonly name: "InvalidLifecycleEventHookExecutionStatusException" =
@@ -5646,8 +5661,8 @@ export class LifecycleEventAlreadyCompletedException extends __BaseException {
 
 export interface PutLifecycleEventHookExecutionStatusInput {
   /**
-   * <p> The unique ID of a deployment. Pass this ID to a Lambda function that validates a
-   *             deployment lifecycle event. </p>
+   * <p> The unique ID of a deployment. Pass this ID to a Lambda function that
+   *             validates a deployment lifecycle event. </p>
    */
   deploymentId?: string;
 
@@ -5658,9 +5673,10 @@ export interface PutLifecycleEventHookExecutionStatusInput {
   lifecycleEventHookExecutionId?: string;
 
   /**
-   * <p>The result of a Lambda function that validates a deployment lifecycle event.
-   *                 <code>Succeeded</code> and <code>Failed</code> are the only valid values for
-   *                 <code>status</code>.</p>
+   * <p>The result of a Lambda function that validates a deployment lifecycle
+   *             event. The values listed in <b>Valid Values</b> are valid for
+   *             lifecycle statuses in general; however, only <code>Succeeded</code> and
+   *                 <code>Failed</code> can be passed successfully in your API call.</p>
    */
   status?: LifecycleEventStatus | string;
 }
@@ -5678,8 +5694,7 @@ export interface PutLifecycleEventHookExecutionStatusOutput {
  */
 export interface RegisterApplicationRevisionInput {
   /**
-   * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
-   *             account.</p>
+   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -5696,8 +5711,7 @@ export interface RegisterApplicationRevisionInput {
 }
 
 /**
- * <p>No IAM ARN was included in the request. You must use an IAM session ARN or IAM user
- *             ARN in the request.</p>
+ * <p>No IAM ARN was included in the request. You must use an IAM session ARN or IAM user ARN in the request.</p>
  */
 export class IamArnRequiredException extends __BaseException {
   readonly name: "IamArnRequiredException" = "IamArnRequiredException";
@@ -5716,8 +5730,8 @@ export class IamArnRequiredException extends __BaseException {
 }
 
 /**
- * <p>The request included an IAM session ARN that has already been used to register a
- *             different instance.</p>
+ * <p>The request included an IAM session ARN that has already been used to
+ *             register a different instance.</p>
  */
 export class IamSessionArnAlreadyRegisteredException extends __BaseException {
   readonly name: "IamSessionArnAlreadyRegisteredException" = "IamSessionArnAlreadyRegisteredException";
@@ -5736,7 +5750,8 @@ export class IamSessionArnAlreadyRegisteredException extends __BaseException {
 }
 
 /**
- * <p>The specified IAM user ARN is already registered with an on-premises instance.</p>
+ * <p>The specified IAM user ARN is already registered with an on-premises
+ *             instance.</p>
  */
 export class IamUserArnAlreadyRegisteredException extends __BaseException {
   readonly name: "IamUserArnAlreadyRegisteredException" = "IamUserArnAlreadyRegisteredException";
@@ -5831,8 +5846,8 @@ export class InvalidIamUserArnException extends __BaseException {
 }
 
 /**
- * <p>Both an IAM user ARN and an IAM session ARN were included in the request. Use only one
- *             ARN type.</p>
+ * <p>Both an IAM user ARN and an IAM session ARN were
+ *             included in the request. Use only one ARN type.</p>
  */
 export class MultipleIamArnsProvidedException extends __BaseException {
   readonly name: "MultipleIamArnsProvidedException" = "MultipleIamArnsProvidedException";
@@ -5860,12 +5875,14 @@ export interface RegisterOnPremisesInstanceInput {
   instanceName: string | undefined;
 
   /**
-   * <p>The ARN of the IAM session to associate with the on-premises instance.</p>
+   * <p>The ARN of the IAM session to associate with the on-premises
+   *             instance.</p>
    */
   iamSessionArn?: string;
 
   /**
-   * <p>The ARN of the IAM user to associate with the on-premises instance.</p>
+   * <p>The ARN of the IAM user to associate with the on-premises
+   *             instance.</p>
    */
   iamUserArn?: string;
 }
@@ -6010,9 +6027,9 @@ export interface UpdateDeploymentGroupInput {
   deploymentConfigName?: string;
 
   /**
-   * <p>The replacement set of Amazon EC2 tags on which to filter, if you want to change them.
-   *             To keep the existing tags, enter their names. To remove tags, do not enter any tag
-   *             names.</p>
+   * <p>The replacement set of Amazon EC2 tags on which to filter, if you want to
+   *             change them. To keep the existing tags, enter their names. To remove tags, do not enter
+   *             any tag names.</p>
    */
   ec2TagFilters?: EC2TagFilter[];
 
@@ -6024,9 +6041,19 @@ export interface UpdateDeploymentGroupInput {
   onPremisesInstanceTagFilters?: TagFilter[];
 
   /**
-   * <p>The replacement list of Auto Scaling groups to be included in the deployment group, if
-   *             you want to change them. To keep the Auto Scaling groups, enter their names. To remove
-   *             Auto Scaling groups, do not enter any Auto Scaling group names.</p>
+   * <p>The replacement list of Auto Scaling groups to be included in the deployment
+   *             group, if you want to change them.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>To keep the Auto Scaling groups, enter their names or do not specify this
+   *                     parameter. </p>
+   *             </li>
+   *             <li>
+   *                 <p>To remove Auto Scaling groups, specify a non-null empty list of Auto Scaling group names to detach all CodeDeploy-managed Auto Scaling lifecycle hooks. For examples, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat">Amazon EC2 instances in an Amazon EC2 Auto Scaling group fail to
+   *                         launch and receive the error "Heartbeat Timeout"</a> in the
+   *                             <i>CodeDeploy User Guide</i>.</p>
+   *             </li>
+   *          </ul>
    */
   autoScalingGroups?: string[];
 
@@ -6038,7 +6065,7 @@ export interface UpdateDeploymentGroupInput {
   /**
    * <p>Information about triggers to change when the deployment group is updated. For
    *             examples, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html">Edit a Trigger in a
-   *                 CodeDeploy Deployment Group</a> in the <i>AWS CodeDeploy User
+   *                 CodeDeploy Deployment Group</a> in the <i>CodeDeploy User
    *                 Guide</i>.</p>
    */
   triggerConfigurations?: TriggerConfig[];
@@ -6056,14 +6083,14 @@ export interface UpdateDeploymentGroupInput {
   autoRollbackConfiguration?: AutoRollbackConfiguration;
 
   /**
-   * <p>Indicates what happens when new EC2 instances are launched mid-deployment and do not
-   *             receive the deployed application revision.</p>
+   * <p>Indicates what happens when new Amazon EC2 instances are launched
+   *             mid-deployment and do not receive the deployed application revision.</p>
    *         <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
    *             one or more 'auto-update outdated instances' deployments to apply the deployed
-   *             application revision to the new EC2 instances.</p>
+   *             application revision to the new Amazon EC2 instances.</p>
    *         <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
-   *             deployment to update the new EC2 instances. This may result in instances having
-   *             different revisions.</p>
+   *             deployment to update the new Amazon EC2 instances. This may result in instances
+   *             having different revisions.</p>
    */
   outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
 
@@ -6085,15 +6112,15 @@ export interface UpdateDeploymentGroupInput {
 
   /**
    * <p>Information about groups of tags applied to on-premises instances. The deployment
-   *             group includes only EC2 instances identified by all the tag groups.</p>
+   *             group includes only Amazon EC2 instances identified by all the tag
+   *             groups.</p>
    */
   ec2TagSet?: EC2TagSet;
 
   /**
    * <p> The target Amazon ECS services in the deployment group. This applies only to
-   *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service
-   *             is specified as an Amazon ECS cluster and service name pair using the format
-   *                 <code><clustername>:<servicename></code>. </p>
+   *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name
+   *             pair using the format <code><clustername>:<servicename></code>. </p>
    */
   ecsServices?: ECSService[];
 
@@ -6110,10 +6137,8 @@ export interface UpdateDeploymentGroupInput {
 export interface UpdateDeploymentGroupOutput {
   /**
    * <p>If the output contains no data, and the corresponding deployment group contained at
-   *             least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto
-   *             Scaling lifecycle event hooks from the AWS account. If the output contains data, AWS
-   *             CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the AWS
-   *             account.</p>
+   *             least one Auto Scaling group, CodeDeploy successfully removed all
+   *             corresponding Auto Scaling lifecycle event hooks from the Amazon Web Services account. If the output contains data, CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the Amazon Web Services account.</p>
    */
   hooksNotCleanedUp?: AutoScalingGroup[];
 }

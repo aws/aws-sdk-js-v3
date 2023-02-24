@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,11 @@ export interface UpdateWorkGroupCommandInput extends UpdateWorkGroupInput {}
 export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the workgroup with the specified name. The workgroup's name cannot be
- *             changed.</p>
+ * <p>Updates the workgroup with the specified name. The workgroup's name cannot be changed.
+ *             Only one of <code>ConfigurationsUpdates</code> or <code>ConfigurationUpdates</code> can
+ *             be specified; <code>ConfigurationsUpdates</code> for a workgroup with multi engine
+ *             support (for example, an Apache Spark enabled workgroup) or
+ *                 <code>ConfigurationUpdates</code> for an Athena SQL workgroup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +57,15 @@ export class UpdateWorkGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateWorkGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +81,9 @@ export class UpdateWorkGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateWorkGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

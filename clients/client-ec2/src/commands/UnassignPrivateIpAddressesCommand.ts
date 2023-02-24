@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -16,7 +17,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   UnassignPrivateIpAddressesRequest,
   UnassignPrivateIpAddressesRequestFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   deserializeAws_ec2UnassignPrivateIpAddressesCommand,
   serializeAws_ec2UnassignPrivateIpAddressesCommand,
@@ -26,7 +27,8 @@ export interface UnassignPrivateIpAddressesCommandInput extends UnassignPrivateI
 export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a network interface.</p>
+ * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a
+ *         	network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +52,15 @@ export class UnassignPrivateIpAddressesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UnassignPrivateIpAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +76,9 @@ export class UnassignPrivateIpAddressesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UnassignPrivateIpAddressesCommandInput, UnassignPrivateIpAddressesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UnassignPrivateIpAddressesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

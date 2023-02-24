@@ -24,6 +24,7 @@ import {
   AddCustomRoutingEndpointsCommandInput,
   AddCustomRoutingEndpointsCommandOutput,
 } from "../commands/AddCustomRoutingEndpointsCommand";
+import { AddEndpointsCommandInput, AddEndpointsCommandOutput } from "../commands/AddEndpointsCommand";
 import { AdvertiseByoipCidrCommandInput, AdvertiseByoipCidrCommandOutput } from "../commands/AdvertiseByoipCidrCommand";
 import {
   AllowCustomRoutingTrafficCommandInput,
@@ -135,6 +136,7 @@ import {
   RemoveCustomRoutingEndpointsCommandInput,
   RemoveCustomRoutingEndpointsCommandOutput,
 } from "../commands/RemoveCustomRoutingEndpointsCommand";
+import { RemoveEndpointsCommandInput, RemoveEndpointsCommandOutput } from "../commands/RemoveEndpointsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -170,6 +172,8 @@ import {
   AccessDeniedException,
   AddCustomRoutingEndpointsRequest,
   AddCustomRoutingEndpointsResponse,
+  AddEndpointsRequest,
+  AddEndpointsResponse,
   AdvertiseByoipCidrRequest,
   AdvertiseByoipCidrResponse,
   AllowCustomRoutingTrafficRequest,
@@ -233,6 +237,7 @@ import {
   EndpointGroup,
   EndpointGroupAlreadyExistsException,
   EndpointGroupNotFoundException,
+  EndpointIdentifier,
   EndpointNotFoundException,
   IncorrectCidrStateException,
   InternalServiceErrorException,
@@ -270,10 +275,12 @@ import {
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResponse,
   RemoveCustomRoutingEndpointsRequest,
+  RemoveEndpointsRequest,
   SocketAddress,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
+  TransactionInProgressException,
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateAcceleratorAttributesRequest,
@@ -304,6 +311,19 @@ export const serializeAws_json1_1AddCustomRoutingEndpointsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddCustomRoutingEndpointsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AddEndpointsCommand = async (
+  input: AddEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GlobalAccelerator_V20180706.AddEndpoints",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AddEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -775,6 +795,19 @@ export const serializeAws_json1_1RemoveCustomRoutingEndpointsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1RemoveEndpointsCommand = async (
+  input: RemoveEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GlobalAccelerator_V20180706.RemoveEndpoints",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RemoveEndpointsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -928,7 +961,7 @@ const deserializeAws_json1_1AddCustomRoutingEndpointsCommandError = async (
 ): Promise<AddCustomRoutingEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -964,6 +997,62 @@ const deserializeAws_json1_1AddCustomRoutingEndpointsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1AddEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AddEndpointsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AddEndpointsResponse(data, context);
+  const response: AddEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AddEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddEndpointsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      throw await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "TransactionInProgressException":
+    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
+      throw await deserializeAws_json1_1TransactionInProgressExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1AdvertiseByoipCidrCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -987,7 +1076,7 @@ const deserializeAws_json1_1AdvertiseByoipCidrCommandError = async (
 ): Promise<AdvertiseByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1037,7 +1126,7 @@ const deserializeAws_json1_1AllowCustomRoutingTrafficCommandError = async (
 ): Promise<AllowCustomRoutingTrafficCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1084,7 +1173,7 @@ const deserializeAws_json1_1CreateAcceleratorCommandError = async (
 ): Promise<CreateAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1131,7 +1220,7 @@ const deserializeAws_json1_1CreateCustomRoutingAcceleratorCommandError = async (
 ): Promise<CreateCustomRoutingAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1181,7 +1270,7 @@ const deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommandError = async
 ): Promise<CreateCustomRoutingEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1243,7 +1332,7 @@ const deserializeAws_json1_1CreateCustomRoutingListenerCommandError = async (
 ): Promise<CreateCustomRoutingListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1296,7 +1385,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
 ): Promise<CreateEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1355,7 +1444,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
 ): Promise<CreateListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1405,7 +1494,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
 ): Promise<DeleteAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1455,7 +1544,7 @@ const deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommandError = async (
 ): Promise<DeleteCustomRoutingAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1505,7 +1594,7 @@ const deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommandError = async
 ): Promise<DeleteCustomRoutingEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1549,7 +1638,7 @@ const deserializeAws_json1_1DeleteCustomRoutingListenerCommandError = async (
 ): Promise<DeleteCustomRoutingListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1596,7 +1685,7 @@ const deserializeAws_json1_1DeleteEndpointGroupCommandError = async (
 ): Promise<DeleteEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1640,7 +1729,7 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
 ): Promise<DeleteListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1687,7 +1776,7 @@ const deserializeAws_json1_1DenyCustomRoutingTrafficCommandError = async (
 ): Promise<DenyCustomRoutingTrafficCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1734,7 +1823,7 @@ const deserializeAws_json1_1DeprovisionByoipCidrCommandError = async (
 ): Promise<DeprovisionByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1787,7 +1876,7 @@ const deserializeAws_json1_1DescribeAcceleratorCommandError = async (
 ): Promise<DescribeAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1834,7 +1923,7 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
 ): Promise<DescribeAcceleratorAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1881,7 +1970,7 @@ const deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommandError = async
 ): Promise<DescribeCustomRoutingAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1928,7 +2017,7 @@ const deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommandErr
 ): Promise<DescribeCustomRoutingAcceleratorAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1975,7 +2064,7 @@ const deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommandError = asy
 ): Promise<DescribeCustomRoutingEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2022,7 +2111,7 @@ const deserializeAws_json1_1DescribeCustomRoutingListenerCommandError = async (
 ): Promise<DescribeCustomRoutingListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2069,7 +2158,7 @@ const deserializeAws_json1_1DescribeEndpointGroupCommandError = async (
 ): Promise<DescribeEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2116,7 +2205,7 @@ const deserializeAws_json1_1DescribeListenerCommandError = async (
 ): Promise<DescribeListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2163,7 +2252,7 @@ const deserializeAws_json1_1ListAcceleratorsCommandError = async (
 ): Promise<ListAcceleratorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2210,7 +2299,7 @@ const deserializeAws_json1_1ListByoipCidrsCommandError = async (
 ): Promise<ListByoipCidrsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2260,7 +2349,7 @@ const deserializeAws_json1_1ListCustomRoutingAcceleratorsCommandError = async (
 ): Promise<ListCustomRoutingAcceleratorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2307,7 +2396,7 @@ const deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommandError = async 
 ): Promise<ListCustomRoutingEndpointGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2357,7 +2446,7 @@ const deserializeAws_json1_1ListCustomRoutingListenersCommandError = async (
 ): Promise<ListCustomRoutingListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2407,7 +2496,7 @@ const deserializeAws_json1_1ListCustomRoutingPortMappingsCommandError = async (
 ): Promise<ListCustomRoutingPortMappingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2460,7 +2549,7 @@ const deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommandErr
 ): Promise<ListCustomRoutingPortMappingsByDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2510,7 +2599,7 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
 ): Promise<ListEndpointGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2560,7 +2649,7 @@ const deserializeAws_json1_1ListListenersCommandError = async (
 ): Promise<ListListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2610,7 +2699,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2657,7 +2746,7 @@ const deserializeAws_json1_1ProvisionByoipCidrCommandError = async (
 ): Promise<ProvisionByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2707,7 +2796,7 @@ const deserializeAws_json1_1RemoveCustomRoutingEndpointsCommandError = async (
 ): Promise<RemoveCustomRoutingEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2729,6 +2818,56 @@ const deserializeAws_json1_1RemoveCustomRoutingEndpointsCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1RemoveEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RemoveEndpointsCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RemoveEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveEndpointsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      throw await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "TransactionInProgressException":
+    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
+      throw await deserializeAws_json1_1TransactionInProgressExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2763,7 +2902,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2810,7 +2949,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2857,7 +2996,7 @@ const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
 ): Promise<UpdateAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2907,7 +3046,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
 ): Promise<UpdateAcceleratorAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2957,7 +3096,7 @@ const deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommandError = async (
 ): Promise<UpdateCustomRoutingAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3004,7 +3143,7 @@ const deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommandError
 ): Promise<UpdateCustomRoutingAcceleratorAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3054,7 +3193,7 @@ const deserializeAws_json1_1UpdateCustomRoutingListenerCommandError = async (
 ): Promise<UpdateCustomRoutingListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3107,7 +3246,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
 ): Promise<UpdateEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3160,7 +3299,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
 ): Promise<UpdateListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3213,7 +3352,7 @@ const deserializeAws_json1_1WithdrawByoipCidrCommandError = async (
 ): Promise<WithdrawByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3477,6 +3616,19 @@ const deserializeAws_json1_1ListenerNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1TransactionInProgressExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TransactionInProgressException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TransactionInProgressException(body, context);
+  const exception = new TransactionInProgressException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const serializeAws_json1_1AddCustomRoutingEndpointsRequest = (
   input: AddCustomRoutingEndpointsRequest,
   context: __SerdeContext
@@ -3487,6 +3639,15 @@ const serializeAws_json1_1AddCustomRoutingEndpointsRequest = (
         input.EndpointConfigurations,
         context
       ),
+    }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
+  };
+};
+
+const serializeAws_json1_1AddEndpointsRequest = (input: AddEndpointsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.EndpointConfigurations != null && {
+      EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
     }),
     ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
@@ -3852,6 +4013,23 @@ const serializeAws_json1_1EndpointConfigurations = (input: EndpointConfiguration
     });
 };
 
+const serializeAws_json1_1EndpointIdentifier = (input: EndpointIdentifier, context: __SerdeContext): any => {
+  return {
+    ...(input.ClientIPPreservationEnabled != null && {
+      ClientIPPreservationEnabled: input.ClientIPPreservationEnabled,
+    }),
+    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
+  };
+};
+
+const serializeAws_json1_1EndpointIdentifiers = (input: EndpointIdentifier[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1EndpointIdentifier(entry, context);
+    });
+};
+
 const serializeAws_json1_1EndpointIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4015,6 +4193,15 @@ const serializeAws_json1_1RemoveCustomRoutingEndpointsRequest = (
   return {
     ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
     ...(input.EndpointIds != null && { EndpointIds: serializeAws_json1_1EndpointIds(input.EndpointIds, context) }),
+  };
+};
+
+const serializeAws_json1_1RemoveEndpointsRequest = (input: RemoveEndpointsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointIdentifiers != null && {
+      EndpointIdentifiers: serializeAws_json1_1EndpointIdentifiers(input.EndpointIdentifiers, context),
+    }),
   };
 };
 
@@ -4248,6 +4435,16 @@ const deserializeAws_json1_1AddCustomRoutingEndpointsResponse = (
     EndpointDescriptions:
       output.EndpointDescriptions != null
         ? deserializeAws_json1_1CustomRoutingEndpointDescriptions(output.EndpointDescriptions, context)
+        : undefined,
+    EndpointGroupArn: __expectString(output.EndpointGroupArn),
+  } as any;
+};
+
+const deserializeAws_json1_1AddEndpointsResponse = (output: any, context: __SerdeContext): AddEndpointsResponse => {
+  return {
+    EndpointDescriptions:
+      output.EndpointDescriptions != null
+        ? deserializeAws_json1_1EndpointDescriptions(output.EndpointDescriptions, context)
         : undefined,
     EndpointGroupArn: __expectString(output.EndpointGroupArn),
   } as any;
@@ -5131,6 +5328,15 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
   return retVal;
 };
 
+const deserializeAws_json1_1TransactionInProgressException = (
+  output: any,
+  context: __SerdeContext
+): TransactionInProgressException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
@@ -5218,7 +5424,8 @@ const deserializeAws_json1_1WithdrawByoipCidrResponse = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -5268,6 +5475,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -5278,6 +5491,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

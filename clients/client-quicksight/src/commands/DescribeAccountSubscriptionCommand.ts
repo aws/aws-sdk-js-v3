@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   DescribeAccountSubscriptionRequestFilterSensitiveLog,
   DescribeAccountSubscriptionResponse,
   DescribeAccountSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeAccountSubscriptionCommand,
   serializeAws_restJson1DescribeAccountSubscriptionCommand,
@@ -30,7 +31,7 @@ export interface DescribeAccountSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use the DescribeAccountSubscription operation to receive a description of a Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
+ * <p>Use the DescribeAccountSubscription operation to receive a description of an Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class DescribeAccountSubscriptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeAccountSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class DescribeAccountSubscriptionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAccountSubscriptionCommandInput, DescribeAccountSubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAccountSubscriptionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
 /**
  * <p>Modifies the details of a secret, including metadata and the secret value. To change the secret value, you can also use <a>PutSecretValue</a>.</p>
  *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a> instead.</p>
- *
+ *          <p>To change a secret so that it is managed by another service, you need to recreate the secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets managed by other Amazon Web Services services</a>.</p>
  *          <p>We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more than
  *       once every 10 minutes. When you call <code>UpdateSecret</code> to update the secret value, Secrets Manager creates a new version
  *       of the secret. Secrets Manager removes outdated versions when there are more than 100, but it does not
@@ -38,19 +39,14 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *       than once every 10 minutes, you create more versions than Secrets Manager removes, and you will reach
  *       the quota for secret versions.</p>
  *          <p>If you include <code>SecretString</code> or <code>SecretBinary</code> to create a new
- *       secret version, Secrets Manager automatically attaches the staging label <code>AWSCURRENT</code> to the new
- *       version. </p>
+ *       secret version, Secrets Manager automatically moves the staging label <code>AWSCURRENT</code> to the new
+ *       version. Then it attaches the label <code>AWSPREVIOUS</code>
+ *         to the version that <code>AWSCURRENT</code> was removed from.</p>
  *          <p>If you call this operation with a <code>ClientRequestToken</code> that matches an existing version's
  *       <code>VersionId</code>, the operation results in an error. You can't modify an existing
  *       version, you can only create a new version. To remove a version, remove all staging labels from it. See
  *     <a>UpdateSecretVersionStage</a>.</p>
- *          <p>If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services managed key
- *       <code>aws/secretsmanager</code>. If this key doesn't already exist in your account, then Secrets Manager
- *       creates it for you automatically. All users and roles in the Amazon Web Services account automatically have access
- *       to use <code>aws/secretsmanager</code>. Creating <code>aws/secretsmanager</code> can result in a one-time
- *       significant delay in returning the result.  </p>
- *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API, then you can't
- *       use <code>aws/secretsmanager</code> to encrypt the secret, and you must create and use a customer managed key. </p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except <code>SecretBinary</code> or <code>SecretString</code> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:UpdateSecret</code>.
@@ -83,6 +79,15 @@ export class UpdateSecretCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,6 +103,7 @@ export class UpdateSecretCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateSecretCommandInput, UpdateSecretCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateSecretCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

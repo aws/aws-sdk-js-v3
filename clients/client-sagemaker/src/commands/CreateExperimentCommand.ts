@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   CreateExperimentRequestFilterSensitiveLog,
   CreateExperimentResponse,
   CreateExperimentResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1CreateExperimentCommand,
   serializeAws_json1_1CreateExperimentCommand,
@@ -28,10 +29,14 @@ export interface CreateExperimentCommandInput extends CreateExperimentRequest {}
 export interface CreateExperimentCommandOutput extends CreateExperimentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an SageMaker <i>experiment</i>. An experiment is a collection of
+ * <p>Creates a SageMaker <i>experiment</i>. An experiment is a collection of
  *         <i>trials</i> that are observed, compared and evaluated as a group. A trial is
  *       a set of steps, called <i>trial components</i>, that produce a machine learning
  *       model.</p>
+ *          <note>
+ *             <p>In the Studio UI, trials are referred to as <i>run groups</i> and trial
+ *         components are referred to as <i>runs</i>.</p>
+ *          </note>
  *          <p>The goal of an experiment is to determine the components that produce the best model.
  *       Multiple trials are performed, each one isolating and measuring the impact of a change to one
  *       or more inputs, while keeping the remaining inputs constant.</p>
@@ -68,6 +73,15 @@ export class CreateExperimentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +97,9 @@ export class CreateExperimentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateExperimentCommandInput, CreateExperimentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateExperimentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

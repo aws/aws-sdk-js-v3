@@ -2,6 +2,21 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  BatchCreateRumMetricDefinitionsCommand,
+  BatchCreateRumMetricDefinitionsCommandInput,
+  BatchCreateRumMetricDefinitionsCommandOutput,
+} from "./commands/BatchCreateRumMetricDefinitionsCommand";
+import {
+  BatchDeleteRumMetricDefinitionsCommand,
+  BatchDeleteRumMetricDefinitionsCommandInput,
+  BatchDeleteRumMetricDefinitionsCommandOutput,
+} from "./commands/BatchDeleteRumMetricDefinitionsCommand";
+import {
+  BatchGetRumMetricDefinitionsCommand,
+  BatchGetRumMetricDefinitionsCommandInput,
+  BatchGetRumMetricDefinitionsCommandOutput,
+} from "./commands/BatchGetRumMetricDefinitionsCommand";
+import {
   CreateAppMonitorCommand,
   CreateAppMonitorCommandInput,
   CreateAppMonitorCommandOutput,
@@ -11,6 +26,11 @@ import {
   DeleteAppMonitorCommandInput,
   DeleteAppMonitorCommandOutput,
 } from "./commands/DeleteAppMonitorCommand";
+import {
+  DeleteRumMetricsDestinationCommand,
+  DeleteRumMetricsDestinationCommandInput,
+  DeleteRumMetricsDestinationCommandOutput,
+} from "./commands/DeleteRumMetricsDestinationCommand";
 import {
   GetAppMonitorCommand,
   GetAppMonitorCommandInput,
@@ -27,6 +47,11 @@ import {
   ListAppMonitorsCommandOutput,
 } from "./commands/ListAppMonitorsCommand";
 import {
+  ListRumMetricsDestinationsCommand,
+  ListRumMetricsDestinationsCommandInput,
+  ListRumMetricsDestinationsCommandOutput,
+} from "./commands/ListRumMetricsDestinationsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -36,6 +61,11 @@ import {
   PutRumEventsCommandInput,
   PutRumEventsCommandOutput,
 } from "./commands/PutRumEventsCommand";
+import {
+  PutRumMetricsDestinationCommand,
+  PutRumMetricsDestinationCommandInput,
+  PutRumMetricsDestinationCommandOutput,
+} from "./commands/PutRumMetricsDestinationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -47,6 +77,11 @@ import {
   UpdateAppMonitorCommandInput,
   UpdateAppMonitorCommandOutput,
 } from "./commands/UpdateAppMonitorCommand";
+import {
+  UpdateRumMetricDefinitionCommand,
+  UpdateRumMetricDefinitionCommandInput,
+  UpdateRumMetricDefinitionCommandOutput,
+} from "./commands/UpdateRumMetricDefinitionCommand";
 import { RUMClient } from "./RUMClient";
 
 /**
@@ -54,13 +89,152 @@ import { RUMClient } from "./RUMClient";
  *        your web application performance from actual user sessions in real time. The data collected includes page load
  *        times, client-side errors, and user behavior. When you view this data, you can see it all aggregated together and
  *        also see breakdowns by the browsers and devices that your customers use.</p>
- *
  *          <p>You can use the collected data to quickly identify and debug client-side performance issues. CloudWatch
  *        RUM helps you visualize anomalies in your application performance and find relevant debugging data such as error
  *        messages, stack traces, and user sessions. You can also use RUM to
  *        understand the range of end-user impact including the number of users, geolocations, and browsers used.</p>
  */
 export class RUM extends RUMClient {
+  /**
+   * <p>Specifies the extended metrics and custom metrics that you want a CloudWatch RUM app monitor to send to a destination. Valid
+   *          destinations include CloudWatch and Evidently.</p>
+   *          <p>By default, RUM app monitors send some metrics to CloudWatch. These default metrics
+   *          are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-metrics.html">CloudWatch metrics that you can collect
+   *             with CloudWatch RUM</a>.</p>
+   *          <p>In addition to these default metrics, you can choose to send extended metrics or custom metrics or both.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Extended metrics enable you to send metrics with additional dimensions not included
+   *             in the default metrics. You can also send extended metrics to Evidently as well as CloudWatch.
+   *         The valid dimension names for the additional dimensions for extended metrics are
+   *          <code>BrowserName</code>, <code>CountryCode</code>, <code>DeviceType</code>,
+   *          <code>FileType</code>, <code>OSName</code>, and <code>PageId</code>. For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html">
+   *             Extended metrics that you can send to CloudWatch and CloudWatch Evidently</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Custom metrics are metrics that you define. You can send custom metrics to CloudWatch or
+   *             to CloudWatch Evidently or to both. With custom metrics,
+   *             you can use any metric name and namespace, and to derive the metrics you can use any custom events, built-in events,
+   *             custom attributes, or default attributes. </p>
+   *                <p>You can't send custom metrics to the <code>AWS/RUM</code> namespace. You must send custom metrics to a
+   *                custom namespace that you define. The namespace that you use can't start with <code>AWS/</code>.
+   *                CloudWatch RUM prepends <code>RUM/CustomMetrics/</code> to the custom namespace that you define,
+   *                so the final namespace for your metrics in CloudWatch is
+   *          <code>RUM/CustomMetrics/<i>your-custom-namespace</i>
+   *                   </code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The maximum number of metric definitions that you can specify in one
+   *          <code>BatchCreateRumMetricDefinitions</code> operation is 200.</p>
+   *          <p>The maximum number of metric definitions that one destination can contain is 2000.</p>
+   *          <p>Extended metrics sent to CloudWatch and RUM custom metrics are charged as CloudWatch custom metrics. Each combination of additional dimension name and dimension
+   *          value counts as a custom metric. For more information, see
+   *          <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
+   *          <p>You must have
+   *          already created a destination for the metrics before you send them. For more information, see
+   *          <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html">PutRumMetricsDestination</a>.</p>
+   *          <p>If some metric definitions specified in a <code>BatchCreateRumMetricDefinitions</code> operations are not valid,
+   *       those metric definitions fail and return errors, but all valid metric definitions in the same operation still succeed.</p>
+   */
+  public batchCreateRumMetricDefinitions(
+    args: BatchCreateRumMetricDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateRumMetricDefinitionsCommandOutput>;
+  public batchCreateRumMetricDefinitions(
+    args: BatchCreateRumMetricDefinitionsCommandInput,
+    cb: (err: any, data?: BatchCreateRumMetricDefinitionsCommandOutput) => void
+  ): void;
+  public batchCreateRumMetricDefinitions(
+    args: BatchCreateRumMetricDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateRumMetricDefinitionsCommandOutput) => void
+  ): void;
+  public batchCreateRumMetricDefinitions(
+    args: BatchCreateRumMetricDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCreateRumMetricDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: BatchCreateRumMetricDefinitionsCommandOutput) => void
+  ): Promise<BatchCreateRumMetricDefinitionsCommandOutput> | void {
+    const command = new BatchCreateRumMetricDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the specified metrics from being sent to an extended metrics destination.</p>
+   *          <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid,
+   *          those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still
+   *          deleted.</p>
+   *          <p>The maximum number of metric definitions that you can specify in one
+   *          <code>BatchDeleteRumMetricDefinitions</code> operation is 200.</p>
+   */
+  public batchDeleteRumMetricDefinitions(
+    args: BatchDeleteRumMetricDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteRumMetricDefinitionsCommandOutput>;
+  public batchDeleteRumMetricDefinitions(
+    args: BatchDeleteRumMetricDefinitionsCommandInput,
+    cb: (err: any, data?: BatchDeleteRumMetricDefinitionsCommandOutput) => void
+  ): void;
+  public batchDeleteRumMetricDefinitions(
+    args: BatchDeleteRumMetricDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteRumMetricDefinitionsCommandOutput) => void
+  ): void;
+  public batchDeleteRumMetricDefinitions(
+    args: BatchDeleteRumMetricDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteRumMetricDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: BatchDeleteRumMetricDefinitionsCommandOutput) => void
+  ): Promise<BatchDeleteRumMetricDefinitionsCommandOutput> | void {
+    const command = new BatchDeleteRumMetricDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.</p>
+   */
+  public batchGetRumMetricDefinitions(
+    args: BatchGetRumMetricDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetRumMetricDefinitionsCommandOutput>;
+  public batchGetRumMetricDefinitions(
+    args: BatchGetRumMetricDefinitionsCommandInput,
+    cb: (err: any, data?: BatchGetRumMetricDefinitionsCommandOutput) => void
+  ): void;
+  public batchGetRumMetricDefinitions(
+    args: BatchGetRumMetricDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetRumMetricDefinitionsCommandOutput) => void
+  ): void;
+  public batchGetRumMetricDefinitions(
+    args: BatchGetRumMetricDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetRumMetricDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetRumMetricDefinitionsCommandOutput) => void
+  ): Promise<BatchGetRumMetricDefinitionsCommandOutput> | void {
+    const command = new BatchGetRumMetricDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from your application and sends that
    *       data to RUM. The data includes performance and reliability information such as page load time, client-side errors,
@@ -123,6 +297,39 @@ export class RUM extends RUMClient {
     cb?: (err: any, data?: DeleteAppMonitorCommandOutput) => void
   ): Promise<DeleteAppMonitorCommandOutput> | void {
     const command = new DeleteAppMonitorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops
+   *          sending extended metrics to that destination.</p>
+   */
+  public deleteRumMetricsDestination(
+    args: DeleteRumMetricsDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRumMetricsDestinationCommandOutput>;
+  public deleteRumMetricsDestination(
+    args: DeleteRumMetricsDestinationCommandInput,
+    cb: (err: any, data?: DeleteRumMetricsDestinationCommandOutput) => void
+  ): void;
+  public deleteRumMetricsDestination(
+    args: DeleteRumMetricsDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRumMetricsDestinationCommandOutput) => void
+  ): void;
+  public deleteRumMetricsDestination(
+    args: DeleteRumMetricsDestinationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRumMetricsDestinationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRumMetricsDestinationCommandOutput) => void
+  ): Promise<DeleteRumMetricsDestinationCommandOutput> | void {
+    const command = new DeleteRumMetricsDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -231,6 +438,40 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * <p>Returns a list of destinations that you have created to receive RUM extended metrics,
+   *          for the specified app monitor.</p>
+   *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html">AddRumMetrics</a>.</p>
+   */
+  public listRumMetricsDestinations(
+    args: ListRumMetricsDestinationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRumMetricsDestinationsCommandOutput>;
+  public listRumMetricsDestinations(
+    args: ListRumMetricsDestinationsCommandInput,
+    cb: (err: any, data?: ListRumMetricsDestinationsCommandOutput) => void
+  ): void;
+  public listRumMetricsDestinations(
+    args: ListRumMetricsDestinationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRumMetricsDestinationsCommandOutput) => void
+  ): void;
+  public listRumMetricsDestinations(
+    args: ListRumMetricsDestinationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRumMetricsDestinationsCommandOutput) => void),
+    cb?: (err: any, data?: ListRumMetricsDestinationsCommandOutput) => void
+  ): Promise<ListRumMetricsDestinationsCommandOutput> | void {
+    const command = new ListRumMetricsDestinationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Displays the tags associated with a CloudWatch RUM resource.</p>
    */
   public listTagsForResource(
@@ -284,6 +525,40 @@ export class RUM extends RUMClient {
     cb?: (err: any, data?: PutRumEventsCommandOutput) => void
   ): Promise<PutRumEventsCommandOutput> | void {
     const command = new PutRumEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates a destination to receive extended metrics from CloudWatch RUM. You can send
+   *          extended metrics to CloudWatch or to a CloudWatch Evidently experiment.</p>
+   *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html">BatchCreateRumMetricDefinitions</a>.</p>
+   */
+  public putRumMetricsDestination(
+    args: PutRumMetricsDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRumMetricsDestinationCommandOutput>;
+  public putRumMetricsDestination(
+    args: PutRumMetricsDestinationCommandInput,
+    cb: (err: any, data?: PutRumMetricsDestinationCommandOutput) => void
+  ): void;
+  public putRumMetricsDestination(
+    args: PutRumMetricsDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRumMetricsDestinationCommandOutput) => void
+  ): void;
+  public putRumMetricsDestination(
+    args: PutRumMetricsDestinationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRumMetricsDestinationCommandOutput) => void),
+    cb?: (err: any, data?: PutRumMetricsDestinationCommandOutput) => void
+  ): Promise<PutRumMetricsDestinationCommandOutput> | void {
+    const command = new PutRumMetricsDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -397,6 +672,39 @@ export class RUM extends RUMClient {
     cb?: (err: any, data?: UpdateAppMonitorCommandOutput) => void
   ): Promise<UpdateAppMonitorCommandOutput> | void {
     const command = new UpdateAppMonitorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies one existing metric definition for CloudWatch RUM extended metrics. For
+   *          more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html">BatchCreateRumMetricsDefinitions</a>.</p>
+   */
+  public updateRumMetricDefinition(
+    args: UpdateRumMetricDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRumMetricDefinitionCommandOutput>;
+  public updateRumMetricDefinition(
+    args: UpdateRumMetricDefinitionCommandInput,
+    cb: (err: any, data?: UpdateRumMetricDefinitionCommandOutput) => void
+  ): void;
+  public updateRumMetricDefinition(
+    args: UpdateRumMetricDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRumMetricDefinitionCommandOutput) => void
+  ): void;
+  public updateRumMetricDefinition(
+    args: UpdateRumMetricDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRumMetricDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRumMetricDefinitionCommandOutput) => void
+  ): Promise<UpdateRumMetricDefinitionCommandOutput> | void {
+    const command = new UpdateRumMetricDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

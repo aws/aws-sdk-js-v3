@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -21,8 +21,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import { AddRoleToDBClusterCommandInput, AddRoleToDBClusterCommandOutput } from "../commands/AddRoleToDBClusterCommand";
 import {
@@ -58,6 +57,10 @@ import {
 } from "../commands/CopyDBParameterGroupCommand";
 import { CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput } from "../commands/CopyDBSnapshotCommand";
 import { CopyOptionGroupCommandInput, CopyOptionGroupCommandOutput } from "../commands/CopyOptionGroupCommand";
+import {
+  CreateBlueGreenDeploymentCommandInput,
+  CreateBlueGreenDeploymentCommandOutput,
+} from "../commands/CreateBlueGreenDeploymentCommand";
 import {
   CreateCustomDBEngineVersionCommandInput,
   CreateCustomDBEngineVersionCommandOutput,
@@ -107,6 +110,10 @@ import {
   CreateGlobalClusterCommandOutput,
 } from "../commands/CreateGlobalClusterCommand";
 import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "../commands/CreateOptionGroupCommand";
+import {
+  DeleteBlueGreenDeploymentCommandInput,
+  DeleteBlueGreenDeploymentCommandOutput,
+} from "../commands/DeleteBlueGreenDeploymentCommand";
 import {
   DeleteCustomDBEngineVersionCommandInput,
   DeleteCustomDBEngineVersionCommandOutput,
@@ -164,6 +171,10 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "../commands/DescribeAccountAttributesCommand";
+import {
+  DescribeBlueGreenDeploymentsCommandInput,
+  DescribeBlueGreenDeploymentsCommandOutput,
+} from "../commands/DescribeBlueGreenDeploymentsCommand";
 import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
@@ -461,6 +472,14 @@ import {
 } from "../commands/StopDBInstanceAutomatedBackupsReplicationCommand";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "../commands/StopDBInstanceCommand";
 import {
+  SwitchoverBlueGreenDeploymentCommandInput,
+  SwitchoverBlueGreenDeploymentCommandOutput,
+} from "../commands/SwitchoverBlueGreenDeploymentCommand";
+import {
+  SwitchoverReadReplicaCommandInput,
+  SwitchoverReadReplicaCommandOutput,
+} from "../commands/SwitchoverReadReplicaCommand";
+import {
   AccountAttributesMessage,
   AccountQuota,
   AddRoleToDBClusterMessage,
@@ -478,13 +497,17 @@ import {
   AvailabilityZone,
   BacktrackDBClusterMessage,
   BackupPolicyNotFoundFault,
+  BlueGreenDeployment,
+  BlueGreenDeploymentAlreadyExistsFault,
+  BlueGreenDeploymentNotFoundFault,
+  BlueGreenDeploymentTask,
   CancelExportTaskMessage,
   Certificate,
+  CertificateDetails,
   CertificateMessage,
   CertificateNotFoundFault,
   CharacterSet,
   ClusterPendingModifiedValues,
-  ConnectionPoolConfigurationInfo,
   CopyDBClusterParameterGroupMessage,
   CopyDBClusterParameterGroupResult,
   CopyDBClusterSnapshotMessage,
@@ -495,6 +518,8 @@ import {
   CopyDBSnapshotResult,
   CopyOptionGroupMessage,
   CopyOptionGroupResult,
+  CreateBlueGreenDeploymentRequest,
+  CreateBlueGreenDeploymentResponse,
   CreateCustomDBEngineVersionMessage,
   CreateDBClusterEndpointMessage,
   CreateDBClusterMessage,
@@ -527,6 +552,7 @@ import {
   CreateOptionGroupResult,
   CustomAvailabilityZoneNotFoundFault,
   CustomDBEngineVersionAlreadyExistsFault,
+  CustomDBEngineVersionAMI,
   CustomDBEngineVersionNotFoundFault,
   CustomDBEngineVersionQuotaExceededFault,
   DBCluster,
@@ -587,14 +613,11 @@ import {
   DBProxyEndpointQuotaExceededFault,
   DBProxyNotFoundFault,
   DBProxyQuotaExceededFault,
-  DBProxyTarget,
-  DBProxyTargetGroup,
   DBProxyTargetGroupNotFoundFault,
   DBProxyTargetNotFoundFault,
   DBSecurityGroup,
   DBSecurityGroupAlreadyExistsFault,
   DBSecurityGroupMembership,
-  DBSecurityGroupMessage,
   DBSecurityGroupNotFoundFault,
   DBSecurityGroupNotSupportedFault,
   DBSecurityGroupQuotaExceededFault,
@@ -608,6 +631,8 @@ import {
   DBSubnetGroupNotFoundFault,
   DBSubnetGroupQuotaExceededFault,
   DBSubnetQuotaExceededFault,
+  DeleteBlueGreenDeploymentRequest,
+  DeleteBlueGreenDeploymentResponse,
   DeleteCustomDBEngineVersionMessage,
   DeleteDBClusterEndpointMessage,
   DeleteDBClusterMessage,
@@ -636,6 +661,8 @@ import {
   DeregisterDBProxyTargetsRequest,
   DeregisterDBProxyTargetsResponse,
   DescribeAccountAttributesMessage,
+  DescribeBlueGreenDeploymentsRequest,
+  DescribeBlueGreenDeploymentsResponse,
   DescribeCertificatesMessage,
   DescribeDBClusterBacktracksMessage,
   DescribeDBClusterEndpointsMessage,
@@ -652,19 +679,9 @@ import {
   DescribeDBLogFilesMessage,
   DescribeDBLogFilesResponse,
   DescribeDBParameterGroupsMessage,
-  DescribeDBParametersMessage,
-  DescribeDBProxiesRequest,
-  DescribeDBProxiesResponse,
-  DescribeDBProxyEndpointsRequest,
-  DescribeDBProxyEndpointsResponse,
-  DescribeDBProxyTargetGroupsRequest,
-  DescribeDBProxyTargetGroupsResponse,
-  DescribeDBProxyTargetsRequest,
-  DescribeDBProxyTargetsResponse,
-  DescribeDBSecurityGroupsMessage,
-  DescribeDBSnapshotAttributesMessage,
   DomainMembership,
   DomainNotFoundFault,
+  Ec2ImagePropertiesNotSupportedFault,
   EC2SecurityGroup,
   Endpoint,
   EventSubscription,
@@ -681,6 +698,7 @@ import {
   InstanceQuotaExceededFault,
   InsufficientDBInstanceCapacityFault,
   InsufficientStorageClusterCapacityFault,
+  InvalidBlueGreenDeploymentStateFault,
   InvalidCustomDBEngineVersionStateFault,
   InvalidDBClusterEndpointStateFault,
   InvalidDBClusterSnapshotStateFault,
@@ -703,6 +721,7 @@ import {
   InvalidVPCNetworkStateFault,
   IPRange,
   KMSKeyNotAccessibleFault,
+  MasterUserSecret,
   NetworkTypeNotSupported,
   Option,
   OptionGroup,
@@ -729,6 +748,8 @@ import {
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
   SNSTopicArnNotFoundFault,
+  SourceClusterNotSupportedFault,
+  SourceDatabaseNotSupportedFault,
   SourceNotFoundFault,
   StorageQuotaExceededFault,
   StorageTypeNotSupportedFault,
@@ -736,8 +757,8 @@ import {
   SubscriptionAlreadyExistFault,
   SubscriptionCategoryNotFoundFault,
   SubscriptionNotFoundFault,
+  SwitchoverDetail,
   Tag,
-  TargetHealth,
   Timezone,
   UpgradeTarget,
   UserAuthConfig,
@@ -748,18 +769,33 @@ import {
   AvailableProcessorFeature,
   CloudwatchLogsExportConfiguration,
   ConnectionPoolConfiguration,
+  ConnectionPoolConfigurationInfo,
   DBClusterCapacityInfo,
   DBClusterParameterGroupNameMessage,
   DBClusterRoleNotFoundFault,
   DBInstanceRoleNotFoundFault,
   DBLogFileNotFoundFault,
   DBParameterGroupNameMessage,
+  DBProxyTarget,
   DBProxyTargetAlreadyRegisteredFault,
+  DBProxyTargetGroup,
+  DBSecurityGroupMessage,
   DBSnapshotAttribute,
   DBSnapshotAttributesResult,
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBParametersMessage,
+  DescribeDBProxiesRequest,
+  DescribeDBProxiesResponse,
+  DescribeDBProxyEndpointsRequest,
+  DescribeDBProxyEndpointsResponse,
+  DescribeDBProxyTargetGroupsRequest,
+  DescribeDBProxyTargetGroupsResponse,
+  DescribeDBProxyTargetsRequest,
+  DescribeDBProxyTargetsResponse,
+  DescribeDBSecurityGroupsMessage,
+  DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotsMessage,
   DescribeDBSubnetGroupsMessage,
@@ -917,7 +953,12 @@ import {
   StopDBInstanceMessage,
   StopDBInstanceResult,
   SubnetAlreadyInUse,
+  SwitchoverBlueGreenDeploymentRequest,
+  SwitchoverBlueGreenDeploymentResponse,
+  SwitchoverReadReplicaMessage,
+  SwitchoverReadReplicaResult,
   TagListMessage,
+  TargetHealth,
   ValidDBInstanceModificationsMessage,
   ValidStorageOptions,
 } from "../models/models_1";
@@ -1126,6 +1167,22 @@ export const serializeAws_queryCopyOptionGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCopyOptionGroupMessage(input, context),
     Action: "CopyOptionGroup",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryCreateBlueGreenDeploymentCommand = async (
+  input: CreateBlueGreenDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateBlueGreenDeploymentRequest(input, context),
+    Action: "CreateBlueGreenDeployment",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1382,6 +1439,22 @@ export const serializeAws_queryCreateOptionGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateOptionGroupMessage(input, context),
     Action: "CreateOptionGroup",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteBlueGreenDeploymentCommand = async (
+  input: DeleteBlueGreenDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteBlueGreenDeploymentRequest(input, context),
+    Action: "DeleteBlueGreenDeployment",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1670,6 +1743,22 @@ export const serializeAws_queryDescribeAccountAttributesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeAccountAttributesMessage(input, context),
     Action: "DescribeAccountAttributes",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeBlueGreenDeploymentsCommand = async (
+  input: DescribeBlueGreenDeploymentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeBlueGreenDeploymentsRequest(input, context),
+    Action: "DescribeBlueGreenDeployments",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3099,6 +3188,38 @@ export const serializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_querySwitchoverBlueGreenDeploymentCommand = async (
+  input: SwitchoverBlueGreenDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_querySwitchoverBlueGreenDeploymentRequest(input, context),
+    Action: "SwitchoverBlueGreenDeployment",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_querySwitchoverReadReplicaCommand = async (
+  input: SwitchoverReadReplicaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_querySwitchoverReadReplicaMessage(input, context),
+    Action: "SwitchoverReadReplica",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const deserializeAws_queryAddRoleToDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3119,17 +3240,17 @@ const deserializeAws_queryAddRoleToDBClusterCommandError = async (
 ): Promise<AddRoleToDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterRoleAlreadyExistsFault":
+    case "DBClusterRoleAlreadyExists":
     case "com.amazonaws.rds#DBClusterRoleAlreadyExistsFault":
       throw await deserializeAws_queryDBClusterRoleAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBClusterRoleQuotaExceededFault":
+    case "DBClusterRoleQuotaExceeded":
     case "com.amazonaws.rds#DBClusterRoleQuotaExceededFault":
       throw await deserializeAws_queryDBClusterRoleQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
@@ -3166,20 +3287,20 @@ const deserializeAws_queryAddRoleToDBInstanceCommandError = async (
 ): Promise<AddRoleToDBInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceRoleAlreadyExistsFault":
+    case "DBInstanceRoleAlreadyExists":
     case "com.amazonaws.rds#DBInstanceRoleAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceRoleAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBInstanceRoleQuotaExceededFault":
+    case "DBInstanceRoleQuotaExceeded":
     case "com.amazonaws.rds#DBInstanceRoleQuotaExceededFault":
       throw await deserializeAws_queryDBInstanceRoleQuotaExceededFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -3219,14 +3340,14 @@ const deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError = async 
 ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.rds#SourceNotFoundFault":
       throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -3260,14 +3381,17 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
 ): Promise<AddTagsToResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
@@ -3276,7 +3400,7 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
       throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -3313,14 +3437,14 @@ const deserializeAws_queryApplyPendingMaintenanceActionCommandError = async (
 ): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
@@ -3363,20 +3487,20 @@ const deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError = async (
 ): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationAlreadyExistsFault":
+    case "AuthorizationAlreadyExists":
     case "com.amazonaws.rds#AuthorizationAlreadyExistsFault":
       throw await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(parsedOutput, context);
-    case "AuthorizationQuotaExceededFault":
+    case "AuthorizationQuotaExceeded":
     case "com.amazonaws.rds#AuthorizationQuotaExceededFault":
       throw await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -3413,7 +3537,7 @@ const deserializeAws_queryBacktrackDBClusterCommandError = async (
 ): Promise<BacktrackDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3457,11 +3581,11 @@ const deserializeAws_queryCancelExportTaskCommandError = async (
 ): Promise<CancelExportTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ExportTaskNotFoundFault":
+    case "ExportTaskNotFound":
     case "com.amazonaws.rds#ExportTaskNotFoundFault":
       throw await deserializeAws_queryExportTaskNotFoundFaultResponse(parsedOutput, context);
     case "InvalidExportTaskStateFault":
@@ -3501,17 +3625,17 @@ const deserializeAws_queryCopyDBClusterParameterGroupCommandError = async (
 ): Promise<CopyDBClusterParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupAlreadyExistsFault":
+    case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBParameterGroupQuotaExceededFault":
+    case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
       throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3548,7 +3672,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
 ): Promise<CopyDBClusterSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3567,7 +3691,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3604,17 +3728,17 @@ const deserializeAws_queryCopyDBParameterGroupCommandError = async (
 ): Promise<CopyDBParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupAlreadyExistsFault":
+    case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBParameterGroupQuotaExceededFault":
+    case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
       throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3651,26 +3775,26 @@ const deserializeAws_queryCopyDBSnapshotCommandError = async (
 ): Promise<CopyDBSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomAvailabilityZoneNotFoundFault":
+    case "CustomAvailabilityZoneNotFound":
     case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
       throw await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotAlreadyExistsFault":
+    case "DBSnapshotAlreadyExists":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3707,7 +3831,7 @@ const deserializeAws_queryCopyOptionGroupCommandError = async (
 ): Promise<CopyOptionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3720,6 +3844,77 @@ const deserializeAws_queryCopyOptionGroupCommandError = async (
     case "OptionGroupQuotaExceededFault":
     case "com.amazonaws.rds#OptionGroupQuotaExceededFault":
       throw await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryCreateBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateBlueGreenDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryCreateBlueGreenDeploymentResponse(data.CreateBlueGreenDeploymentResult, context);
+  const response: CreateBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateBlueGreenDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBlueGreenDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentAlreadyExistsFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentAlreadyExistsFault":
+      throw await deserializeAws_queryBlueGreenDeploymentAlreadyExistsFaultResponse(parsedOutput, context);
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
+    case "DBClusterParameterGroupNotFound":
+    case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
+      throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
+    case "DBClusterQuotaExceededFault":
+    case "com.amazonaws.rds#DBClusterQuotaExceededFault":
+      throw await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context);
+    case "DBInstanceNotFound":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
+    case "DBParameterGroupNotFound":
+    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
+    case "InstanceQuotaExceeded":
+    case "com.amazonaws.rds#InstanceQuotaExceededFault":
+      throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
+    case "SourceClusterNotSupportedFault":
+    case "com.amazonaws.rds#SourceClusterNotSupportedFault":
+      throw await deserializeAws_querySourceClusterNotSupportedFaultResponse(parsedOutput, context);
+    case "SourceDatabaseNotSupportedFault":
+    case "com.amazonaws.rds#SourceDatabaseNotSupportedFault":
+      throw await deserializeAws_querySourceDatabaseNotSupportedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3754,7 +3949,7 @@ const deserializeAws_queryCreateCustomDBEngineVersionCommandError = async (
 ): Promise<CreateCustomDBEngineVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3764,6 +3959,9 @@ const deserializeAws_queryCreateCustomDBEngineVersionCommandError = async (
     case "CustomDBEngineVersionQuotaExceededFault":
     case "com.amazonaws.rds#CustomDBEngineVersionQuotaExceededFault":
       throw await deserializeAws_queryCustomDBEngineVersionQuotaExceededFaultResponse(parsedOutput, context);
+    case "Ec2ImagePropertiesNotSupportedFault":
+    case "com.amazonaws.rds#Ec2ImagePropertiesNotSupportedFault":
+      throw await deserializeAws_queryEc2ImagePropertiesNotSupportedFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
@@ -3801,7 +3999,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
 ): Promise<CreateDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3811,13 +4009,13 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterQuotaExceededFault":
       throw await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -3832,13 +4030,13 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     case "GlobalClusterNotFoundFault":
     case "com.amazonaws.rds#GlobalClusterNotFoundFault":
       throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupStateFault":
@@ -3856,7 +4054,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3893,7 +4091,7 @@ const deserializeAws_queryCreateDBClusterEndpointCommandError = async (
 ): Promise<CreateDBClusterEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3906,13 +4104,13 @@ const deserializeAws_queryCreateDBClusterEndpointCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -3949,14 +4147,14 @@ const deserializeAws_queryCreateDBClusterParameterGroupCommandError = async (
 ): Promise<CreateDBClusterParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupAlreadyExistsFault":
+    case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupQuotaExceededFault":
+    case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
       throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3993,7 +4191,7 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
 ): Promise<CreateDBClusterSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4009,7 +4207,7 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4046,26 +4244,29 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
 ): Promise<CreateDBInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
+    case "CertificateNotFound":
+    case "com.amazonaws.rds#CertificateNotFoundFault":
+      throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -4077,10 +4278,10 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
@@ -4104,10 +4305,10 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -4144,20 +4345,20 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
 ): Promise<CreateDBInstanceReadReplicaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -4172,13 +4373,13 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupFault":
@@ -4202,10 +4403,10 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -4242,14 +4443,14 @@ const deserializeAws_queryCreateDBParameterGroupCommandError = async (
 ): Promise<CreateDBParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupAlreadyExistsFault":
+    case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupQuotaExceededFault":
+    case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
       throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4286,7 +4487,7 @@ const deserializeAws_queryCreateDBProxyCommandError = async (
 ): Promise<CreateDBProxyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4333,7 +4534,7 @@ const deserializeAws_queryCreateDBProxyEndpointCommandError = async (
 ): Promise<CreateDBProxyEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4386,17 +4587,17 @@ const deserializeAws_queryCreateDBSecurityGroupCommandError = async (
 ): Promise<CreateDBSecurityGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSecurityGroupAlreadyExistsFault":
+    case "DBSecurityGroupAlreadyExists":
     case "com.amazonaws.rds#DBSecurityGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBSecurityGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotSupportedFault":
+    case "DBSecurityGroupNotSupported":
     case "com.amazonaws.rds#DBSecurityGroupNotSupportedFault":
       throw await deserializeAws_queryDBSecurityGroupNotSupportedFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupQuotaExceededFault":
+    case "QuotaExceeded.DBSecurityGroup":
     case "com.amazonaws.rds#DBSecurityGroupQuotaExceededFault":
       throw await deserializeAws_queryDBSecurityGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4433,20 +4634,20 @@ const deserializeAws_queryCreateDBSnapshotCommandError = async (
 ): Promise<CreateDBSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotAlreadyExistsFault":
+    case "DBSnapshotAlreadyExists":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4483,17 +4684,17 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
 ): Promise<CreateDBSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSubnetGroupAlreadyExistsFault":
+    case "DBSubnetGroupAlreadyExists":
     case "com.amazonaws.rds#DBSubnetGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
       throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
-    case "DBSubnetGroupQuotaExceededFault":
+    case "DBSubnetGroupQuotaExceeded":
     case "com.amazonaws.rds#DBSubnetGroupQuotaExceededFault":
       throw await deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "DBSubnetQuotaExceededFault":
@@ -4536,29 +4737,29 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
 ): Promise<CreateEventSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EventSubscriptionQuotaExceededFault":
+    case "EventSubscriptionQuotaExceeded":
     case "com.amazonaws.rds#EventSubscriptionQuotaExceededFault":
       throw await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context);
-    case "SNSInvalidTopicFault":
+    case "SNSInvalidTopic":
     case "com.amazonaws.rds#SNSInvalidTopicFault":
       throw await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context);
-    case "SNSNoAuthorizationFault":
+    case "SNSNoAuthorization":
     case "com.amazonaws.rds#SNSNoAuthorizationFault":
       throw await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context);
-    case "SNSTopicArnNotFoundFault":
+    case "SNSTopicArnNotFound":
     case "com.amazonaws.rds#SNSTopicArnNotFoundFault":
       throw await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context);
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.rds#SourceNotFoundFault":
       throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionAlreadyExistFault":
+    case "SubscriptionAlreadyExist":
     case "com.amazonaws.rds#SubscriptionAlreadyExistFault":
       throw await deserializeAws_querySubscriptionAlreadyExistFaultResponse(parsedOutput, context);
-    case "SubscriptionCategoryNotFoundFault":
+    case "SubscriptionCategoryNotFound":
     case "com.amazonaws.rds#SubscriptionCategoryNotFoundFault":
       throw await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -4595,7 +4796,7 @@ const deserializeAws_queryCreateGlobalClusterCommandError = async (
 ): Promise<CreateGlobalClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4645,7 +4846,7 @@ const deserializeAws_queryCreateOptionGroupCommandError = async (
 ): Promise<CreateOptionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4655,6 +4856,50 @@ const deserializeAws_queryCreateOptionGroupCommandError = async (
     case "OptionGroupQuotaExceededFault":
     case "com.amazonaws.rds#OptionGroupQuotaExceededFault":
       throw await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryDeleteBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteBlueGreenDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteBlueGreenDeploymentResponse(data.DeleteBlueGreenDeploymentResult, context);
+  const response: DeleteBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteBlueGreenDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBlueGreenDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidBlueGreenDeploymentStateFault":
+    case "com.amazonaws.rds#InvalidBlueGreenDeploymentStateFault":
+      throw await deserializeAws_queryInvalidBlueGreenDeploymentStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4689,7 +4934,7 @@ const deserializeAws_queryDeleteCustomDBEngineVersionCommandError = async (
 ): Promise<DeleteCustomDBEngineVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4733,7 +4978,7 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
 ): Promise<DeleteDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4749,7 +4994,7 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4786,7 +5031,7 @@ const deserializeAws_queryDeleteDBClusterEndpointCommandError = async (
 ): Promise<DeleteDBClusterEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4830,14 +5075,14 @@ const deserializeAws_queryDeleteDBClusterParameterGroupCommandError = async (
 ): Promise<DeleteDBClusterParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -4874,7 +5119,7 @@ const deserializeAws_queryDeleteDBClusterSnapshotCommandError = async (
 ): Promise<DeleteDBClusterSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4918,26 +5163,26 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
 ): Promise<DeleteDBInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceAutomatedBackupQuotaExceededFault":
+    case "DBInstanceAutomatedBackupQuotaExceeded":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault":
       throw await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotAlreadyExistsFault":
+    case "DBSnapshotAlreadyExists":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4977,14 +5222,14 @@ const deserializeAws_queryDeleteDBInstanceAutomatedBackupCommandError = async (
 ): Promise<DeleteDBInstanceAutomatedBackupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceAutomatedBackupNotFoundFault":
+    case "DBInstanceAutomatedBackupNotFound":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
       throw await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceAutomatedBackupStateFault":
+    case "InvalidDBInstanceAutomatedBackupState":
     case "com.amazonaws.rds#InvalidDBInstanceAutomatedBackupStateFault":
       throw await deserializeAws_queryInvalidDBInstanceAutomatedBackupStateFaultResponse(parsedOutput, context);
     default:
@@ -5018,14 +5263,14 @@ const deserializeAws_queryDeleteDBParameterGroupCommandError = async (
 ): Promise<DeleteDBParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -5062,7 +5307,7 @@ const deserializeAws_queryDeleteDBProxyCommandError = async (
 ): Promise<DeleteDBProxyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5106,7 +5351,7 @@ const deserializeAws_queryDeleteDBProxyEndpointCommandError = async (
 ): Promise<DeleteDBProxyEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5147,14 +5392,14 @@ const deserializeAws_queryDeleteDBSecurityGroupCommandError = async (
 ): Promise<DeleteDBSecurityGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -5191,14 +5436,14 @@ const deserializeAws_queryDeleteDBSnapshotCommandError = async (
 ): Promise<DeleteDBSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     default:
@@ -5232,7 +5477,7 @@ const deserializeAws_queryDeleteDBSubnetGroupCommandError = async (
 ): Promise<DeleteDBSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5279,14 +5524,14 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
 ): Promise<DeleteEventSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidEventSubscriptionStateFault":
+    case "InvalidEventSubscriptionState":
     case "com.amazonaws.rds#InvalidEventSubscriptionStateFault":
       throw await deserializeAws_queryInvalidEventSubscriptionStateFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5323,7 +5568,7 @@ const deserializeAws_queryDeleteGlobalClusterCommandError = async (
 ): Promise<DeleteGlobalClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5364,7 +5609,7 @@ const deserializeAws_queryDeleteOptionGroupCommandError = async (
 ): Promise<DeleteOptionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5408,7 +5653,7 @@ const deserializeAws_queryDeregisterDBProxyTargetsCommandError = async (
 ): Promise<DeregisterDBProxyTargetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5458,7 +5703,7 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
 ): Promise<DescribeAccountAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5468,6 +5713,47 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_queryDescribeBlueGreenDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBlueGreenDeploymentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeBlueGreenDeploymentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeBlueGreenDeploymentsResponse(data.DescribeBlueGreenDeploymentsResult, context);
+  const response: DescribeBlueGreenDeploymentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeBlueGreenDeploymentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBlueGreenDeploymentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_queryDescribeCertificatesCommand = async (
@@ -5493,11 +5779,11 @@ const deserializeAws_queryDescribeCertificatesCommandError = async (
 ): Promise<DescribeCertificatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CertificateNotFoundFault":
+    case "CertificateNotFound":
     case "com.amazonaws.rds#CertificateNotFoundFault":
       throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5534,7 +5820,7 @@ const deserializeAws_queryDescribeDBClusterBacktracksCommandError = async (
 ): Promise<DescribeDBClusterBacktracksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5578,7 +5864,7 @@ const deserializeAws_queryDescribeDBClusterEndpointsCommandError = async (
 ): Promise<DescribeDBClusterEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5619,11 +5905,11 @@ const deserializeAws_queryDescribeDBClusterParameterGroupsCommandError = async (
 ): Promise<DescribeDBClusterParameterGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5660,11 +5946,11 @@ const deserializeAws_queryDescribeDBClusterParametersCommandError = async (
 ): Promise<DescribeDBClusterParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5701,7 +5987,7 @@ const deserializeAws_queryDescribeDBClustersCommandError = async (
 ): Promise<DescribeDBClustersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5745,7 +6031,7 @@ const deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandError = asyn
 ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5786,7 +6072,7 @@ const deserializeAws_queryDescribeDBClusterSnapshotsCommandError = async (
 ): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5827,7 +6113,7 @@ const deserializeAws_queryDescribeDBEngineVersionsCommandError = async (
 ): Promise<DescribeDBEngineVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5865,11 +6151,11 @@ const deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommandError = async
 ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceAutomatedBackupNotFoundFault":
+    case "DBInstanceAutomatedBackupNotFound":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
       throw await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5906,11 +6192,11 @@ const deserializeAws_queryDescribeDBInstancesCommandError = async (
 ): Promise<DescribeDBInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5947,11 +6233,11 @@ const deserializeAws_queryDescribeDBLogFilesCommandError = async (
 ): Promise<DescribeDBLogFilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5988,11 +6274,11 @@ const deserializeAws_queryDescribeDBParameterGroupsCommandError = async (
 ): Promise<DescribeDBParameterGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6029,11 +6315,11 @@ const deserializeAws_queryDescribeDBParametersCommandError = async (
 ): Promise<DescribeDBParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6070,7 +6356,7 @@ const deserializeAws_queryDescribeDBProxiesCommandError = async (
 ): Promise<DescribeDBProxiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6111,7 +6397,7 @@ const deserializeAws_queryDescribeDBProxyEndpointsCommandError = async (
 ): Promise<DescribeDBProxyEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6155,7 +6441,7 @@ const deserializeAws_queryDescribeDBProxyTargetGroupsCommandError = async (
 ): Promise<DescribeDBProxyTargetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6202,7 +6488,7 @@ const deserializeAws_queryDescribeDBProxyTargetsCommandError = async (
 ): Promise<DescribeDBProxyTargetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6252,11 +6538,11 @@ const deserializeAws_queryDescribeDBSecurityGroupsCommandError = async (
 ): Promise<DescribeDBSecurityGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6293,11 +6579,11 @@ const deserializeAws_queryDescribeDBSnapshotAttributesCommandError = async (
 ): Promise<DescribeDBSnapshotAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6334,11 +6620,11 @@ const deserializeAws_queryDescribeDBSnapshotsCommandError = async (
 ): Promise<DescribeDBSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6375,7 +6661,7 @@ const deserializeAws_queryDescribeDBSubnetGroupsCommandError = async (
 ): Promise<DescribeDBSubnetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6419,7 +6705,7 @@ const deserializeAws_queryDescribeEngineDefaultClusterParametersCommandError = a
 ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6457,7 +6743,7 @@ const deserializeAws_queryDescribeEngineDefaultParametersCommandError = async (
 ): Promise<DescribeEngineDefaultParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6492,7 +6778,7 @@ const deserializeAws_queryDescribeEventCategoriesCommandError = async (
 ): Promise<DescribeEventCategoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6527,7 +6813,7 @@ const deserializeAws_queryDescribeEventsCommandError = async (
 ): Promise<DescribeEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6562,11 +6848,11 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
 ): Promise<DescribeEventSubscriptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6603,11 +6889,11 @@ const deserializeAws_queryDescribeExportTasksCommandError = async (
 ): Promise<DescribeExportTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ExportTaskNotFoundFault":
+    case "ExportTaskNotFound":
     case "com.amazonaws.rds#ExportTaskNotFoundFault":
       throw await deserializeAws_queryExportTaskNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6644,7 +6930,7 @@ const deserializeAws_queryDescribeGlobalClustersCommandError = async (
 ): Promise<DescribeGlobalClustersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6685,7 +6971,7 @@ const deserializeAws_queryDescribeOptionGroupOptionsCommandError = async (
 ): Promise<DescribeOptionGroupOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6720,7 +7006,7 @@ const deserializeAws_queryDescribeOptionGroupsCommandError = async (
 ): Promise<DescribeOptionGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6764,7 +7050,7 @@ const deserializeAws_queryDescribeOrderableDBInstanceOptionsCommandError = async
 ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6802,7 +7088,7 @@ const deserializeAws_queryDescribePendingMaintenanceActionsCommandError = async 
 ): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6843,11 +7129,11 @@ const deserializeAws_queryDescribeReservedDBInstancesCommandError = async (
 ): Promise<DescribeReservedDBInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ReservedDBInstanceNotFoundFault":
+    case "ReservedDBInstanceNotFound":
     case "com.amazonaws.rds#ReservedDBInstanceNotFoundFault":
       throw await deserializeAws_queryReservedDBInstanceNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6887,11 +7173,11 @@ const deserializeAws_queryDescribeReservedDBInstancesOfferingsCommandError = asy
 ): Promise<DescribeReservedDBInstancesOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ReservedDBInstancesOfferingNotFoundFault":
+    case "ReservedDBInstancesOfferingNotFound":
     case "com.amazonaws.rds#ReservedDBInstancesOfferingNotFoundFault":
       throw await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6928,7 +7214,7 @@ const deserializeAws_queryDescribeSourceRegionsCommandError = async (
 ): Promise<DescribeSourceRegionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6966,14 +7252,14 @@ const deserializeAws_queryDescribeValidDBInstanceModificationsCommandError = asy
 ): Promise<DescribeValidDBInstanceModificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -7010,11 +7296,11 @@ const deserializeAws_queryDownloadDBLogFilePortionCommandError = async (
 ): Promise<DownloadDBLogFilePortionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBLogFileNotFoundFault":
@@ -7054,7 +7340,7 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
 ): Promise<FailoverDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7064,7 +7350,7 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -7101,7 +7387,7 @@ const deserializeAws_queryFailoverGlobalClusterCommandError = async (
 ): Promise<FailoverGlobalClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7151,14 +7437,17 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
@@ -7167,7 +7456,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
       throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -7204,14 +7493,14 @@ const deserializeAws_queryModifyActivityStreamCommandError = async (
 ): Promise<ModifyActivityStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
@@ -7251,11 +7540,11 @@ const deserializeAws_queryModifyCertificatesCommandError = async (
 ): Promise<ModifyCertificatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CertificateNotFoundFault":
+    case "CertificateNotFound":
     case "com.amazonaws.rds#CertificateNotFoundFault":
       throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -7292,7 +7581,7 @@ const deserializeAws_queryModifyCurrentDBClusterCapacityCommandError = async (
 ): Promise<ModifyCurrentDBClusterCapacityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7339,7 +7628,7 @@ const deserializeAws_queryModifyCustomDBEngineVersionCommandError = async (
 ): Promise<ModifyCustomDBEngineVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7383,7 +7672,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
 ): Promise<ModifyDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7393,7 +7682,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
@@ -7405,10 +7694,10 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupStateFault":
@@ -7420,7 +7709,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
       throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -7457,14 +7746,14 @@ const deserializeAws_queryModifyDBClusterEndpointCommandError = async (
 ): Promise<ModifyDBClusterEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterEndpointNotFoundFault":
     case "com.amazonaws.rds#DBClusterEndpointNotFoundFault":
       throw await deserializeAws_queryDBClusterEndpointNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterEndpointStateFault":
@@ -7473,7 +7762,7 @@ const deserializeAws_queryModifyDBClusterEndpointCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -7510,14 +7799,14 @@ const deserializeAws_queryModifyDBClusterParameterGroupCommandError = async (
 ): Promise<ModifyDBClusterParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -7557,7 +7846,7 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError = async (
 ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7567,7 +7856,7 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError = async (
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
-    case "SharedSnapshotQuotaExceededFault":
+    case "SharedSnapshotQuotaExceeded":
     case "com.amazonaws.rds#SharedSnapshotQuotaExceededFault":
       throw await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -7604,47 +7893,47 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
 ): Promise<ModifyDBInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
-    case "CertificateNotFoundFault":
+    case "CertificateNotFound":
     case "com.amazonaws.rds#CertificateNotFoundFault":
       throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBUpgradeDependencyFailureFault":
+    case "DBUpgradeDependencyFailure":
     case "com.amazonaws.rds#DBUpgradeDependencyFailureFault":
       throw await deserializeAws_queryDBUpgradeDependencyFailureFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
@@ -7662,10 +7951,10 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -7702,14 +7991,14 @@ const deserializeAws_queryModifyDBParameterGroupCommandError = async (
 ): Promise<ModifyDBParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -7746,7 +8035,7 @@ const deserializeAws_queryModifyDBProxyCommandError = async (
 ): Promise<ModifyDBProxyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7793,7 +8082,7 @@ const deserializeAws_queryModifyDBProxyEndpointCommandError = async (
 ): Promise<ModifyDBProxyEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7843,7 +8132,7 @@ const deserializeAws_queryModifyDBProxyTargetGroupCommandError = async (
 ): Promise<ModifyDBProxyTargetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7890,11 +8179,11 @@ const deserializeAws_queryModifyDBSnapshotCommandError = async (
 ): Promise<ModifyDBSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -7931,17 +8220,17 @@ const deserializeAws_queryModifyDBSnapshotAttributeCommandError = async (
 ): Promise<ModifyDBSnapshotAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
-    case "SharedSnapshotQuotaExceededFault":
+    case "SharedSnapshotQuotaExceeded":
     case "com.amazonaws.rds#SharedSnapshotQuotaExceededFault":
       throw await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -7978,7 +8267,7 @@ const deserializeAws_queryModifyDBSubnetGroupCommandError = async (
 ): Promise<ModifyDBSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8031,26 +8320,26 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
 ): Promise<ModifyEventSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EventSubscriptionQuotaExceededFault":
+    case "EventSubscriptionQuotaExceeded":
     case "com.amazonaws.rds#EventSubscriptionQuotaExceededFault":
       throw await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context);
-    case "SNSInvalidTopicFault":
+    case "SNSInvalidTopic":
     case "com.amazonaws.rds#SNSInvalidTopicFault":
       throw await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context);
-    case "SNSNoAuthorizationFault":
+    case "SNSNoAuthorization":
     case "com.amazonaws.rds#SNSNoAuthorizationFault":
       throw await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context);
-    case "SNSTopicArnNotFoundFault":
+    case "SNSTopicArnNotFound":
     case "com.amazonaws.rds#SNSTopicArnNotFoundFault":
       throw await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionCategoryNotFoundFault":
+    case "SubscriptionCategoryNotFound":
     case "com.amazonaws.rds#SubscriptionCategoryNotFoundFault":
       throw await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -8087,7 +8376,7 @@ const deserializeAws_queryModifyGlobalClusterCommandError = async (
 ): Promise<ModifyGlobalClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8097,7 +8386,7 @@ const deserializeAws_queryModifyGlobalClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidGlobalClusterStateFault":
@@ -8137,7 +8426,7 @@ const deserializeAws_queryModifyOptionGroupCommandError = async (
 ): Promise<ModifyOptionGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8181,14 +8470,14 @@ const deserializeAws_queryPromoteReadReplicaCommandError = async (
 ): Promise<PromoteReadReplicaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -8225,7 +8514,7 @@ const deserializeAws_queryPromoteReadReplicaDBClusterCommandError = async (
 ): Promise<PromoteReadReplicaDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8272,17 +8561,17 @@ const deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandError = asyn
 ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ReservedDBInstanceAlreadyExistsFault":
+    case "ReservedDBInstanceAlreadyExists":
     case "com.amazonaws.rds#ReservedDBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryReservedDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ReservedDBInstanceQuotaExceededFault":
+    case "ReservedDBInstanceQuotaExceeded":
     case "com.amazonaws.rds#ReservedDBInstanceQuotaExceededFault":
       throw await deserializeAws_queryReservedDBInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "ReservedDBInstancesOfferingNotFoundFault":
+    case "ReservedDBInstancesOfferingNotFound":
     case "com.amazonaws.rds#ReservedDBInstancesOfferingNotFoundFault":
       throw await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -8319,7 +8608,7 @@ const deserializeAws_queryRebootDBClusterCommandError = async (
 ): Promise<RebootDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8329,7 +8618,7 @@ const deserializeAws_queryRebootDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -8366,14 +8655,14 @@ const deserializeAws_queryRebootDBInstanceCommandError = async (
 ): Promise<RebootDBInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -8410,14 +8699,14 @@ const deserializeAws_queryRegisterDBProxyTargetsCommandError = async (
 ): Promise<RegisterDBProxyTargetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
@@ -8435,7 +8724,7 @@ const deserializeAws_queryRegisterDBProxyTargetsCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
@@ -8475,7 +8764,7 @@ const deserializeAws_queryRemoveFromGlobalClusterCommandError = async (
 ): Promise<RemoveFromGlobalClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8519,14 +8808,14 @@ const deserializeAws_queryRemoveRoleFromDBClusterCommandError = async (
 ): Promise<RemoveRoleFromDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterRoleNotFoundFault":
+    case "DBClusterRoleNotFound":
     case "com.amazonaws.rds#DBClusterRoleNotFoundFault":
       throw await deserializeAws_queryDBClusterRoleNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
@@ -8563,17 +8852,17 @@ const deserializeAws_queryRemoveRoleFromDBInstanceCommandError = async (
 ): Promise<RemoveRoleFromDBInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceRoleNotFoundFault":
+    case "DBInstanceRoleNotFound":
     case "com.amazonaws.rds#DBInstanceRoleNotFoundFault":
       throw await deserializeAws_queryDBInstanceRoleNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -8613,14 +8902,14 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError = a
 ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.rds#SourceNotFoundFault":
       throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -8654,14 +8943,17 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
@@ -8670,7 +8962,7 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
       throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -8707,14 +8999,14 @@ const deserializeAws_queryResetDBClusterParameterGroupCommandError = async (
 ): Promise<ResetDBClusterParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -8751,14 +9043,14 @@ const deserializeAws_queryResetDBParameterGroupCommandError = async (
 ): Promise<ResetDBParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -8795,7 +9087,7 @@ const deserializeAws_queryRestoreDBClusterFromS3CommandError = async (
 ): Promise<RestoreDBClusterFromS3CommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8805,7 +9097,7 @@ const deserializeAws_queryRestoreDBClusterFromS3CommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
@@ -8817,7 +9109,7 @@ const deserializeAws_queryRestoreDBClusterFromS3CommandError = async (
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
@@ -8838,7 +9130,7 @@ const deserializeAws_queryRestoreDBClusterFromS3CommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -8875,14 +9167,14 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
 ): Promise<RestoreDBClusterFromSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
       throw await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
@@ -8891,7 +9183,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
@@ -8903,13 +9195,16 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     case "InsufficientDBClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientDBClusterCapacityFault":
       throw await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(parsedOutput, context);
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
@@ -8927,7 +9222,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -8964,7 +9259,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
 ): Promise<RestoreDBClusterToPointInTimeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8974,7 +9269,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
@@ -8992,7 +9287,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
     case "InsufficientDBClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientDBClusterCapacityFault":
       throw await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(parsedOutput, context);
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
@@ -9001,7 +9296,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
@@ -9019,7 +9314,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -9059,26 +9354,29 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
 ): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceAlreadyExistsFault":
+    case "DBClusterSnapshotNotFoundFault":
+    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -9090,13 +9388,13 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
@@ -9120,10 +9418,10 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -9160,23 +9458,23 @@ const deserializeAws_queryRestoreDBInstanceFromS3CommandError = async (
 ): Promise<RestoreDBInstanceFromS3CommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -9185,10 +9483,10 @@ const deserializeAws_queryRestoreDBInstanceFromS3CommandError = async (
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
       throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidS3BucketFault":
@@ -9212,10 +9510,10 @@ const deserializeAws_queryRestoreDBInstanceFromS3CommandError = async (
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -9255,29 +9553,29 @@ const deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError = async (
 ): Promise<RestoreDBInstanceToPointInTimeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBInstanceAutomatedBackupNotFoundFault":
+    case "DBInstanceAutomatedBackupNotFound":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
       throw await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -9289,13 +9587,13 @@ const deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError = async (
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
@@ -9316,16 +9614,16 @@ const deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError = async (
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
-    case "PointInTimeRestoreNotEnabledFault":
+    case "PointInTimeRestoreNotEnabled":
     case "com.amazonaws.rds#PointInTimeRestoreNotEnabledFault":
       throw await deserializeAws_queryPointInTimeRestoreNotEnabledFaultResponse(parsedOutput, context);
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -9362,17 +9660,17 @@ const deserializeAws_queryRevokeDBSecurityGroupIngressCommandError = async (
 ): Promise<RevokeDBSecurityGroupIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -9409,20 +9707,20 @@ const deserializeAws_queryStartActivityStreamCommandError = async (
 ): Promise<StartActivityStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
@@ -9465,7 +9763,7 @@ const deserializeAws_queryStartDBClusterCommandError = async (
 ): Promise<StartDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9475,7 +9773,7 @@ const deserializeAws_queryStartDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -9512,17 +9810,17 @@ const deserializeAws_queryStartDBInstanceCommandError = async (
 ): Promise<StartDBInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -9531,13 +9829,13 @@ const deserializeAws_queryStartDBInstanceCommandError = async (
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
       throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
@@ -9586,23 +9884,23 @@ const deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommandError
 ): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceAutomatedBackupQuotaExceededFault":
+    case "DBInstanceAutomatedBackupQuotaExceeded":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault":
       throw await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -9639,29 +9937,32 @@ const deserializeAws_queryStartExportTaskCommandError = async (
 ): Promise<StartExportTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "ExportTaskAlreadyExistsFault":
+    case "ExportTaskAlreadyExists":
     case "com.amazonaws.rds#ExportTaskAlreadyExistsFault":
       throw await deserializeAws_queryExportTaskAlreadyExistsFaultResponse(parsedOutput, context);
-    case "IamRoleMissingPermissionsFault":
+    case "IamRoleMissingPermissions":
     case "com.amazonaws.rds#IamRoleMissingPermissionsFault":
       throw await deserializeAws_queryIamRoleMissingPermissionsFaultResponse(parsedOutput, context);
-    case "IamRoleNotFoundFault":
+    case "IamRoleNotFound":
     case "com.amazonaws.rds#IamRoleNotFoundFault":
       throw await deserializeAws_queryIamRoleNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidExportOnlyFault":
+    case "InvalidExportOnly":
     case "com.amazonaws.rds#InvalidExportOnlyFault":
       throw await deserializeAws_queryInvalidExportOnlyFaultResponse(parsedOutput, context);
-    case "InvalidExportSourceStateFault":
+    case "InvalidExportSourceState":
     case "com.amazonaws.rds#InvalidExportSourceStateFault":
       throw await deserializeAws_queryInvalidExportSourceStateFaultResponse(parsedOutput, context);
     case "InvalidS3BucketFault":
@@ -9704,20 +10005,20 @@ const deserializeAws_queryStopActivityStreamCommandError = async (
 ): Promise<StopActivityStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
@@ -9757,7 +10058,7 @@ const deserializeAws_queryStopDBClusterCommandError = async (
 ): Promise<StopDBClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9767,7 +10068,7 @@ const deserializeAws_queryStopDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -9804,23 +10105,23 @@ const deserializeAws_queryStopDBInstanceCommandError = async (
 ): Promise<StopDBInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotAlreadyExistsFault":
+    case "DBSnapshotAlreadyExists":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -9860,14 +10161,105 @@ const deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommandError 
 ): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_querySwitchoverBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_querySwitchoverBlueGreenDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_querySwitchoverBlueGreenDeploymentResponse(
+    data.SwitchoverBlueGreenDeploymentResult,
+    context
+  );
+  const response: SwitchoverBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_querySwitchoverBlueGreenDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverBlueGreenDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidBlueGreenDeploymentStateFault":
+    case "com.amazonaws.rds#InvalidBlueGreenDeploymentStateFault":
+      throw await deserializeAws_queryInvalidBlueGreenDeploymentStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_querySwitchoverReadReplicaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverReadReplicaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_querySwitchoverReadReplicaCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_querySwitchoverReadReplicaResult(data.SwitchoverReadReplicaResult, context);
+  const response: SwitchoverReadReplicaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_querySwitchoverReadReplicaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverReadReplicaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBInstanceNotFound":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -9927,6 +10319,32 @@ const deserializeAws_queryBackupPolicyNotFoundFaultResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryBackupPolicyNotFoundFault(body.Error, context);
   const exception = new BackupPolicyNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryBlueGreenDeploymentAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BlueGreenDeploymentAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryBlueGreenDeploymentAlreadyExistsFault(body.Error, context);
+  const exception = new BlueGreenDeploymentAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BlueGreenDeploymentNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryBlueGreenDeploymentNotFoundFault(body.Error, context);
+  const exception = new BlueGreenDeploymentNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -10609,6 +11027,19 @@ const deserializeAws_queryDomainNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_queryEc2ImagePropertiesNotSupportedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<Ec2ImagePropertiesNotSupportedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEc2ImagePropertiesNotSupportedFault(body.Error, context);
+  const exception = new Ec2ImagePropertiesNotSupportedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -10772,6 +11203,19 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse = asyn
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInsufficientStorageClusterCapacityFault(body.Error, context);
   const exception = new InsufficientStorageClusterCapacityFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryInvalidBlueGreenDeploymentStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidBlueGreenDeploymentStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidBlueGreenDeploymentStateFault(body.Error, context);
+  const exception = new InvalidBlueGreenDeploymentStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -11324,6 +11768,32 @@ const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_querySourceClusterNotSupportedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SourceClusterNotSupportedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySourceClusterNotSupportedFault(body.Error, context);
+  const exception = new SourceClusterNotSupportedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_querySourceDatabaseNotSupportedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SourceDatabaseNotSupportedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySourceDatabaseNotSupportedFault(body.Error, context);
+  const exception = new SourceDatabaseNotSupportedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_querySourceNotFoundFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11470,6 +11940,9 @@ const serializeAws_queryAddTagsToResourceMessage = (input: AddTagsToResourceMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11579,6 +12052,9 @@ const serializeAws_queryCloudwatchLogsExportConfiguration = (
   const entries: any = {};
   if (input.EnableLogTypes != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableLogTypes, context);
+    if (input.EnableLogTypes?.length === 0) {
+      entries.EnableLogTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableLogTypes.${key}`;
       entries[loc] = value;
@@ -11586,6 +12062,9 @@ const serializeAws_queryCloudwatchLogsExportConfiguration = (
   }
   if (input.DisableLogTypes != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.DisableLogTypes, context);
+    if (input.DisableLogTypes?.length === 0) {
+      entries.DisableLogTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DisableLogTypes.${key}`;
       entries[loc] = value;
@@ -11610,6 +12089,9 @@ const serializeAws_queryConnectionPoolConfiguration = (
   }
   if (input.SessionPinningFilters != null) {
     const memberEntries = serializeAws_queryStringList(input.SessionPinningFilters, context);
+    if (input.SessionPinningFilters?.length === 0) {
+      entries.SessionPinningFilters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SessionPinningFilters.${key}`;
       entries[loc] = value;
@@ -11637,6 +12119,9 @@ const serializeAws_queryCopyDBClusterParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11667,6 +12152,9 @@ const serializeAws_queryCopyDBClusterSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11691,6 +12179,9 @@ const serializeAws_queryCopyDBParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11712,6 +12203,9 @@ const serializeAws_queryCopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, c
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11729,6 +12223,9 @@ const serializeAws_queryCopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, c
   if (input.TargetCustomAvailabilityZone != null) {
     entries["TargetCustomAvailabilityZone"] = input.TargetCustomAvailabilityZone;
   }
+  if (input.CopyOptionGroup != null) {
+    entries["CopyOptionGroup"] = input.CopyOptionGroup;
+  }
   return entries;
 };
 
@@ -11745,6 +12242,42 @@ const serializeAws_queryCopyOptionGroupMessage = (input: CopyOptionGroupMessage,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryCreateBlueGreenDeploymentRequest = (
+  input: CreateBlueGreenDeploymentRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentName != null) {
+    entries["BlueGreenDeploymentName"] = input.BlueGreenDeploymentName;
+  }
+  if (input.Source != null) {
+    entries["Source"] = input.Source;
+  }
+  if (input.TargetEngineVersion != null) {
+    entries["TargetEngineVersion"] = input.TargetEngineVersion;
+  }
+  if (input.TargetDBParameterGroupName != null) {
+    entries["TargetDBParameterGroupName"] = input.TargetDBParameterGroupName;
+  }
+  if (input.TargetDBClusterParameterGroupName != null) {
+    entries["TargetDBClusterParameterGroupName"] = input.TargetDBClusterParameterGroupName;
+  }
+  if (input.Tags != null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11770,6 +12303,9 @@ const serializeAws_queryCreateCustomDBEngineVersionMessage = (
   if (input.DatabaseInstallationFilesS3Prefix != null) {
     entries["DatabaseInstallationFilesS3Prefix"] = input.DatabaseInstallationFilesS3Prefix;
   }
+  if (input.ImageId != null) {
+    entries["ImageId"] = input.ImageId;
+  }
   if (input.KMSKeyId != null) {
     entries["KMSKeyId"] = input.KMSKeyId;
   }
@@ -11781,6 +12317,9 @@ const serializeAws_queryCreateCustomDBEngineVersionMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11805,6 +12344,9 @@ const serializeAws_queryCreateDBClusterEndpointMessage = (
   }
   if (input.StaticMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.StaticMembers, context);
+    if (input.StaticMembers?.length === 0) {
+      entries.StaticMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StaticMembers.${key}`;
       entries[loc] = value;
@@ -11812,6 +12354,9 @@ const serializeAws_queryCreateDBClusterEndpointMessage = (
   }
   if (input.ExcludedMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.ExcludedMembers, context);
+    if (input.ExcludedMembers?.length === 0) {
+      entries.ExcludedMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedMembers.${key}`;
       entries[loc] = value;
@@ -11819,6 +12364,9 @@ const serializeAws_queryCreateDBClusterEndpointMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11831,6 +12379,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -11853,6 +12404,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -11890,6 +12444,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11912,6 +12469,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -11991,6 +12551,18 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
       entries[loc] = value;
     });
   }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.DBSystemId != null) {
+    entries["DBSystemId"] = input.DBSystemId;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -12010,6 +12582,9 @@ const serializeAws_queryCreateDBClusterParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12031,6 +12606,9 @@ const serializeAws_queryCreateDBClusterSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12064,6 +12642,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.DBSecurityGroups != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroups, context);
+    if (input.DBSecurityGroups?.length === 0) {
+      entries.DBSecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroups.${key}`;
       entries[loc] = value;
@@ -12071,6 +12652,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12126,6 +12710,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12184,6 +12771,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -12191,6 +12781,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -12213,6 +12806,18 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
+  if (input.CACertificateIdentifier != null) {
+    entries["CACertificateIdentifier"] = input.CACertificateIdentifier;
   }
   return entries;
 };
@@ -12257,6 +12862,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12267,6 +12875,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12304,6 +12915,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -12311,6 +12925,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -12340,6 +12957,15 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.EnableCustomerOwnedIp != null) {
+    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  }
+  if (input.AllocatedStorage != null) {
+    entries["AllocatedStorage"] = input.AllocatedStorage;
+  }
   return entries;
 };
 
@@ -12359,6 +12985,9 @@ const serializeAws_queryCreateDBParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12380,6 +13009,9 @@ const serializeAws_queryCreateDBProxyEndpointRequest = (
   }
   if (input.VpcSubnetIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSubnetIds, context);
+    if (input.VpcSubnetIds?.length === 0) {
+      entries.VpcSubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSubnetIds.${key}`;
       entries[loc] = value;
@@ -12387,6 +13019,9 @@ const serializeAws_queryCreateDBProxyEndpointRequest = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12397,6 +13032,9 @@ const serializeAws_queryCreateDBProxyEndpointRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12415,6 +13053,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.Auth != null) {
     const memberEntries = serializeAws_queryUserAuthConfigList(input.Auth, context);
+    if (input.Auth?.length === 0) {
+      entries.Auth = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Auth.${key}`;
       entries[loc] = value;
@@ -12425,6 +13066,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.VpcSubnetIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSubnetIds, context);
+    if (input.VpcSubnetIds?.length === 0) {
+      entries.VpcSubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSubnetIds.${key}`;
       entries[loc] = value;
@@ -12432,6 +13076,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12448,6 +13095,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12469,6 +13119,9 @@ const serializeAws_queryCreateDBSecurityGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12487,6 +13140,9 @@ const serializeAws_queryCreateDBSnapshotMessage = (input: CreateDBSnapshotMessag
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12508,6 +13164,9 @@ const serializeAws_queryCreateDBSubnetGroupMessage = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
@@ -12515,6 +13174,9 @@ const serializeAws_queryCreateDBSubnetGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12539,6 +13201,9 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   }
   if (input.EventCategories != null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    if (input.EventCategories?.length === 0) {
+      entries.EventCategories = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
@@ -12546,6 +13211,9 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   }
   if (input.SourceIds != null) {
     const memberEntries = serializeAws_querySourceIdsList(input.SourceIds, context);
+    if (input.SourceIds?.length === 0) {
+      entries.SourceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceIds.${key}`;
       entries[loc] = value;
@@ -12556,6 +13224,9 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12609,6 +13280,9 @@ const serializeAws_queryCreateOptionGroupMessage = (input: CreateOptionGroupMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12626,6 +13300,20 @@ const serializeAws_queryDBSecurityGroupNameList = (input: string[], context: __S
     }
     entries[`DBSecurityGroupName.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryDeleteBlueGreenDeploymentRequest = (
+  input: DeleteBlueGreenDeploymentRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentIdentifier != null) {
+    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  }
+  if (input.DeleteTarget != null) {
+    entries["DeleteTarget"] = input.DeleteTarget;
   }
   return entries;
 };
@@ -12825,6 +13513,9 @@ const serializeAws_queryDeregisterDBProxyTargetsRequest = (
   }
   if (input.DBInstanceIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBInstanceIdentifiers, context);
+    if (input.DBInstanceIdentifiers?.length === 0) {
+      entries.DBInstanceIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBInstanceIdentifiers.${key}`;
       entries[loc] = value;
@@ -12832,6 +13523,9 @@ const serializeAws_queryDeregisterDBProxyTargetsRequest = (
   }
   if (input.DBClusterIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBClusterIdentifiers, context);
+    if (input.DBClusterIdentifiers?.length === 0) {
+      entries.DBClusterIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBClusterIdentifiers.${key}`;
       entries[loc] = value;
@@ -12848,6 +13542,33 @@ const serializeAws_queryDescribeAccountAttributesMessage = (
   return entries;
 };
 
+const serializeAws_queryDescribeBlueGreenDeploymentsRequest = (
+  input: DescribeBlueGreenDeploymentsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentIdentifier != null) {
+    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxRecords != null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeCertificatesMessage = (
   input: DescribeCertificatesMessage,
   context: __SerdeContext
@@ -12858,6 +13579,9 @@ const serializeAws_queryDescribeCertificatesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -12885,6 +13609,9 @@ const serializeAws_queryDescribeDBClusterBacktracksMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -12912,6 +13639,9 @@ const serializeAws_queryDescribeDBClusterEndpointsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -12936,6 +13666,9 @@ const serializeAws_queryDescribeDBClusterParameterGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -12963,6 +13696,9 @@ const serializeAws_queryDescribeDBClusterParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -12987,6 +13723,9 @@ const serializeAws_queryDescribeDBClustersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13031,6 +13770,9 @@ const serializeAws_queryDescribeDBClusterSnapshotsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13067,6 +13809,9 @@ const serializeAws_queryDescribeDBEngineVersionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13106,6 +13851,9 @@ const serializeAws_queryDescribeDBInstanceAutomatedBackupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13133,6 +13881,9 @@ const serializeAws_queryDescribeDBInstancesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13166,6 +13917,9 @@ const serializeAws_queryDescribeDBLogFilesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13190,6 +13944,9 @@ const serializeAws_queryDescribeDBParameterGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13217,6 +13974,9 @@ const serializeAws_queryDescribeDBParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13238,6 +13998,9 @@ const serializeAws_queryDescribeDBProxiesRequest = (input: DescribeDBProxiesRequ
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13265,6 +14028,9 @@ const serializeAws_queryDescribeDBProxyEndpointsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13292,6 +14058,9 @@ const serializeAws_queryDescribeDBProxyTargetGroupsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13319,6 +14088,9 @@ const serializeAws_queryDescribeDBProxyTargetsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13343,6 +14115,9 @@ const serializeAws_queryDescribeDBSecurityGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13384,6 +14159,9 @@ const serializeAws_queryDescribeDBSnapshotsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13417,6 +14195,9 @@ const serializeAws_queryDescribeDBSubnetGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13441,6 +14222,9 @@ const serializeAws_queryDescribeEngineDefaultClusterParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13465,6 +14249,9 @@ const serializeAws_queryDescribeEngineDefaultParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13489,6 +14276,9 @@ const serializeAws_queryDescribeEventCategoriesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13516,6 +14306,9 @@ const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, c
   }
   if (input.EventCategories != null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    if (input.EventCategories?.length === 0) {
+      entries.EventCategories = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
@@ -13523,6 +14316,9 @@ const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, c
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13547,6 +14343,9 @@ const serializeAws_queryDescribeEventSubscriptionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13574,6 +14373,9 @@ const serializeAws_queryDescribeExportTasksMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13584,6 +14386,9 @@ const serializeAws_queryDescribeExportTasksMessage = (
   }
   if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.SourceType != null) {
+    entries["SourceType"] = input.SourceType;
   }
   return entries;
 };
@@ -13598,6 +14403,9 @@ const serializeAws_queryDescribeGlobalClustersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13625,6 +14433,9 @@ const serializeAws_queryDescribeOptionGroupOptionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13649,6 +14460,9 @@ const serializeAws_queryDescribeOptionGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13694,6 +14508,9 @@ const serializeAws_queryDescribeOrderableDBInstanceOptionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13718,6 +14535,9 @@ const serializeAws_queryDescribePendingMaintenanceActionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13763,6 +14583,9 @@ const serializeAws_queryDescribeReservedDBInstancesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13802,6 +14625,9 @@ const serializeAws_queryDescribeReservedDBInstancesOfferingsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13832,6 +14658,9 @@ const serializeAws_queryDescribeSourceRegionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13929,6 +14758,9 @@ const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any =
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_queryFilterValueList(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -13989,6 +14821,9 @@ const serializeAws_queryListTagsForResourceMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -14091,6 +14926,9 @@ const serializeAws_queryModifyDBClusterEndpointMessage = (
   }
   if (input.StaticMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.StaticMembers, context);
+    if (input.StaticMembers?.length === 0) {
+      entries.StaticMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StaticMembers.${key}`;
       entries[loc] = value;
@@ -14098,6 +14936,9 @@ const serializeAws_queryModifyDBClusterEndpointMessage = (
   }
   if (input.ExcludedMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.ExcludedMembers, context);
+    if (input.ExcludedMembers?.length === 0) {
+      entries.ExcludedMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedMembers.${key}`;
       entries[loc] = value;
@@ -14125,6 +14966,9 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -14235,6 +15079,18 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
       entries[loc] = value;
     });
   }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.RotateMasterUserPassword != null) {
+    entries["RotateMasterUserPassword"] = input.RotateMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -14248,6 +15104,9 @@ const serializeAws_queryModifyDBClusterParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -14269,6 +15128,9 @@ const serializeAws_queryModifyDBClusterSnapshotAttributeMessage = (
   }
   if (input.ValuesToAdd != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToAdd, context);
+    if (input.ValuesToAdd?.length === 0) {
+      entries.ValuesToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToAdd.${key}`;
       entries[loc] = value;
@@ -14276,6 +15138,9 @@ const serializeAws_queryModifyDBClusterSnapshotAttributeMessage = (
   }
   if (input.ValuesToRemove != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToRemove, context);
+    if (input.ValuesToRemove?.length === 0) {
+      entries.ValuesToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToRemove.${key}`;
       entries[loc] = value;
@@ -14300,6 +15165,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.DBSecurityGroups != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroups, context);
+    if (input.DBSecurityGroups?.length === 0) {
+      entries.DBSecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroups.${key}`;
       entries[loc] = value;
@@ -14307,6 +15175,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -14414,6 +15285,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -14449,6 +15323,18 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.RotateMasterUserPassword != null) {
+    entries["RotateMasterUserPassword"] = input.RotateMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -14462,6 +15348,9 @@ const serializeAws_queryModifyDBParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -14483,6 +15372,9 @@ const serializeAws_queryModifyDBProxyEndpointRequest = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -14501,6 +15393,9 @@ const serializeAws_queryModifyDBProxyRequest = (input: ModifyDBProxyRequest, con
   }
   if (input.Auth != null) {
     const memberEntries = serializeAws_queryUserAuthConfigList(input.Auth, context);
+    if (input.Auth?.length === 0) {
+      entries.Auth = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Auth.${key}`;
       entries[loc] = value;
@@ -14520,6 +15415,9 @@ const serializeAws_queryModifyDBProxyRequest = (input: ModifyDBProxyRequest, con
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_queryStringList(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -14565,6 +15463,9 @@ const serializeAws_queryModifyDBSnapshotAttributeMessage = (
   }
   if (input.ValuesToAdd != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToAdd, context);
+    if (input.ValuesToAdd?.length === 0) {
+      entries.ValuesToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToAdd.${key}`;
       entries[loc] = value;
@@ -14572,6 +15473,9 @@ const serializeAws_queryModifyDBSnapshotAttributeMessage = (
   }
   if (input.ValuesToRemove != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToRemove, context);
+    if (input.ValuesToRemove?.length === 0) {
+      entries.ValuesToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToRemove.${key}`;
       entries[loc] = value;
@@ -14607,6 +15511,9 @@ const serializeAws_queryModifyDBSubnetGroupMessage = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
@@ -14631,6 +15538,9 @@ const serializeAws_queryModifyEventSubscriptionMessage = (
   }
   if (input.EventCategories != null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    if (input.EventCategories?.length === 0) {
+      entries.EventCategories = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
@@ -14672,6 +15582,9 @@ const serializeAws_queryModifyOptionGroupMessage = (input: ModifyOptionGroupMess
   }
   if (input.OptionsToInclude != null) {
     const memberEntries = serializeAws_queryOptionConfigurationList(input.OptionsToInclude, context);
+    if (input.OptionsToInclude?.length === 0) {
+      entries.OptionsToInclude = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToInclude.${key}`;
       entries[loc] = value;
@@ -14679,6 +15592,9 @@ const serializeAws_queryModifyOptionGroupMessage = (input: ModifyOptionGroupMess
   }
   if (input.OptionsToRemove != null) {
     const memberEntries = serializeAws_queryOptionNamesList(input.OptionsToRemove, context);
+    if (input.OptionsToRemove?.length === 0) {
+      entries.OptionsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
       entries[loc] = value;
@@ -14703,6 +15619,9 @@ const serializeAws_queryOptionConfiguration = (input: OptionConfiguration, conte
   }
   if (input.DBSecurityGroupMemberships != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroupMemberships, context);
+    if (input.DBSecurityGroupMemberships?.length === 0) {
+      entries.DBSecurityGroupMemberships = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroupMemberships.${key}`;
       entries[loc] = value;
@@ -14710,6 +15629,9 @@ const serializeAws_queryOptionConfiguration = (input: OptionConfiguration, conte
   }
   if (input.VpcSecurityGroupMemberships != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupMemberships, context);
+    if (input.VpcSecurityGroupMemberships?.length === 0) {
+      entries.VpcSecurityGroupMemberships = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupMemberships.${key}`;
       entries[loc] = value;
@@ -14717,6 +15639,9 @@ const serializeAws_queryOptionConfiguration = (input: OptionConfiguration, conte
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -14836,6 +15761,9 @@ const serializeAws_queryParameter = (input: Parameter, context: __SerdeContext):
   }
   if (input.SupportedEngineModes != null) {
     const memberEntries = serializeAws_queryEngineModeList(input.SupportedEngineModes, context);
+    if (input.SupportedEngineModes?.length === 0) {
+      entries.SupportedEngineModes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SupportedEngineModes.${key}`;
       entries[loc] = value;
@@ -14931,6 +15859,9 @@ const serializeAws_queryPurchaseReservedDBInstancesOfferingMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -14971,6 +15902,9 @@ const serializeAws_queryRegisterDBProxyTargetsRequest = (
   }
   if (input.DBInstanceIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBInstanceIdentifiers, context);
+    if (input.DBInstanceIdentifiers?.length === 0) {
+      entries.DBInstanceIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBInstanceIdentifiers.${key}`;
       entries[loc] = value;
@@ -14978,6 +15912,9 @@ const serializeAws_queryRegisterDBProxyTargetsRequest = (
   }
   if (input.DBClusterIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBClusterIdentifiers, context);
+    if (input.DBClusterIdentifiers?.length === 0) {
+      entries.DBClusterIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBClusterIdentifiers.${key}`;
       entries[loc] = value;
@@ -15058,6 +15995,9 @@ const serializeAws_queryRemoveTagsFromResourceMessage = (
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_queryKeyList(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -15079,6 +16019,9 @@ const serializeAws_queryResetDBClusterParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -15100,6 +16043,9 @@ const serializeAws_queryResetDBParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -15115,6 +16061,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -15137,6 +16086,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15171,6 +16123,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15205,6 +16160,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15232,6 +16190,15 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
       entries[loc] = value;
     });
   }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -15242,6 +16209,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -15273,6 +16243,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15280,6 +16253,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15296,6 +16272,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15347,6 +16326,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
       const loc = `ServerlessV2ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
   }
   return entries;
 };
@@ -15382,6 +16364,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15389,6 +16374,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15405,6 +16393,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15456,6 +16447,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
       const loc = `ServerlessV2ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
   }
   return entries;
 };
@@ -15509,6 +16503,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15525,6 +16522,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15544,6 +16544,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15551,6 +16554,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -15576,6 +16582,15 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.DBClusterSnapshotIdentifier != null) {
+    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  }
+  if (input.AllocatedStorage != null) {
+    entries["AllocatedStorage"] = input.AllocatedStorage;
   }
   return entries;
 };
@@ -15608,6 +16623,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.DBSecurityGroups != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroups, context);
+    if (input.DBSecurityGroups?.length === 0) {
+      entries.DBSecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroups.${key}`;
       entries[loc] = value;
@@ -15615,6 +16633,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15664,6 +16685,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15716,6 +16740,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15723,6 +16750,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -15739,6 +16769,15 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
   return entries;
 };
@@ -15801,6 +16840,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15817,6 +16859,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15833,6 +16878,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15840,6 +16888,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -15874,6 +16925,12 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.AllocatedStorage != null) {
+    entries["AllocatedStorage"] = input.AllocatedStorage;
   }
   return entries;
 };
@@ -16032,6 +17089,9 @@ const serializeAws_queryStartExportTaskMessage = (input: StartExportTaskMessage,
   }
   if (input.ExportOnly != null) {
     const memberEntries = serializeAws_queryStringList(input.ExportOnly, context);
+    if (input.ExportOnly?.length === 0) {
+      entries.ExportOnly = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExportOnly.${key}`;
       entries[loc] = value;
@@ -16110,6 +17170,31 @@ const serializeAws_querySubnetIdentifierList = (input: string[], context: __Serd
   return entries;
 };
 
+const serializeAws_querySwitchoverBlueGreenDeploymentRequest = (
+  input: SwitchoverBlueGreenDeploymentRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentIdentifier != null) {
+    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  }
+  if (input.SwitchoverTimeout != null) {
+    entries["SwitchoverTimeout"] = input.SwitchoverTimeout;
+  }
+  return entries;
+};
+
+const serializeAws_querySwitchoverReadReplicaMessage = (
+  input: SwitchoverReadReplicaMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DBInstanceIdentifier != null) {
+    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  }
+  return entries;
+};
+
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Key != null) {
@@ -16153,6 +17238,9 @@ const serializeAws_queryUserAuthConfig = (input: UserAuthConfig, context: __Serd
   }
   if (input.IAMAuth != null) {
     entries["IAMAuth"] = input.IAMAuth;
+  }
+  if (input.ClientPasswordAuthType != null) {
+    entries["ClientPasswordAuthType"] = input.ClientPasswordAuthType;
   }
   return entries;
 };
@@ -16398,6 +17486,135 @@ const deserializeAws_queryBackupPolicyNotFoundFault = (
   return contents;
 };
 
+const deserializeAws_queryBlueGreenDeployment = (output: any, context: __SerdeContext): BlueGreenDeployment => {
+  const contents: any = {
+    BlueGreenDeploymentIdentifier: undefined,
+    BlueGreenDeploymentName: undefined,
+    Source: undefined,
+    Target: undefined,
+    SwitchoverDetails: undefined,
+    Tasks: undefined,
+    Status: undefined,
+    StatusDetails: undefined,
+    CreateTime: undefined,
+    DeleteTime: undefined,
+    TagList: undefined,
+  };
+  if (output["BlueGreenDeploymentIdentifier"] !== undefined) {
+    contents.BlueGreenDeploymentIdentifier = __expectString(output["BlueGreenDeploymentIdentifier"]);
+  }
+  if (output["BlueGreenDeploymentName"] !== undefined) {
+    contents.BlueGreenDeploymentName = __expectString(output["BlueGreenDeploymentName"]);
+  }
+  if (output["Source"] !== undefined) {
+    contents.Source = __expectString(output["Source"]);
+  }
+  if (output["Target"] !== undefined) {
+    contents.Target = __expectString(output["Target"]);
+  }
+  if (output.SwitchoverDetails === "") {
+    contents.SwitchoverDetails = [];
+  } else if (output["SwitchoverDetails"] !== undefined && output["SwitchoverDetails"]["member"] !== undefined) {
+    contents.SwitchoverDetails = deserializeAws_querySwitchoverDetailList(
+      __getArrayIfSingleItem(output["SwitchoverDetails"]["member"]),
+      context
+    );
+  }
+  if (output.Tasks === "") {
+    contents.Tasks = [];
+  } else if (output["Tasks"] !== undefined && output["Tasks"]["member"] !== undefined) {
+    contents.Tasks = deserializeAws_queryBlueGreenDeploymentTaskList(
+      __getArrayIfSingleItem(output["Tasks"]["member"]),
+      context
+    );
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["StatusDetails"] !== undefined) {
+    contents.StatusDetails = __expectString(output["StatusDetails"]);
+  }
+  if (output["CreateTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  }
+  if (output["DeleteTime"] !== undefined) {
+    contents.DeleteTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DeleteTime"]));
+  }
+  if (output.TagList === "") {
+    contents.TagList = [];
+  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
+    contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): BlueGreenDeploymentAlreadyExistsFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentList = (output: any, context: __SerdeContext): BlueGreenDeployment[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_queryBlueGreenDeployment(entry, context);
+    });
+};
+
+const deserializeAws_queryBlueGreenDeploymentNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): BlueGreenDeploymentNotFoundFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentTask = (output: any, context: __SerdeContext): BlueGreenDeploymentTask => {
+  const contents: any = {
+    Name: undefined,
+    Status: undefined,
+  };
+  if (output["Name"] !== undefined) {
+    contents.Name = __expectString(output["Name"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentTaskList = (
+  output: any,
+  context: __SerdeContext
+): BlueGreenDeploymentTask[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_queryBlueGreenDeploymentTask(entry, context);
+    });
+};
+
+const deserializeAws_queryCACertificateIdentifiersList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): Certificate => {
   const contents: any = {
     CertificateIdentifier: undefined,
@@ -16419,10 +17636,10 @@ const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): 
     contents.Thumbprint = __expectString(output["Thumbprint"]);
   }
   if (output["ValidFrom"] !== undefined) {
-    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTime(output["ValidFrom"]));
+    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidFrom"]));
   }
   if (output["ValidTill"] !== undefined) {
-    contents.ValidTill = __expectNonNull(__parseRfc3339DateTime(output["ValidTill"]));
+    contents.ValidTill = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidTill"]));
   }
   if (output["CertificateArn"] !== undefined) {
     contents.CertificateArn = __expectString(output["CertificateArn"]);
@@ -16431,7 +17648,23 @@ const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): 
     contents.CustomerOverride = __parseBoolean(output["CustomerOverride"]);
   }
   if (output["CustomerOverrideValidTill"] !== undefined) {
-    contents.CustomerOverrideValidTill = __expectNonNull(__parseRfc3339DateTime(output["CustomerOverrideValidTill"]));
+    contents.CustomerOverrideValidTill = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["CustomerOverrideValidTill"])
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCertificateDetails = (output: any, context: __SerdeContext): CertificateDetails => {
+  const contents: any = {
+    CAIdentifier: undefined,
+    ValidTill: undefined,
+  };
+  if (output["CAIdentifier"] !== undefined) {
+    contents.CAIdentifier = __expectString(output["CAIdentifier"]);
+  }
+  if (output["ValidTill"] !== undefined) {
+    contents.ValidTill = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidTill"]));
   }
   return contents;
 };
@@ -16500,6 +17733,9 @@ const deserializeAws_queryClusterPendingModifiedValues = (
     MasterUserPassword: undefined,
     IAMDatabaseAuthenticationEnabled: undefined,
     EngineVersion: undefined,
+    BackupRetentionPeriod: undefined,
+    AllocatedStorage: undefined,
+    Iops: undefined,
   };
   if (output["PendingCloudwatchLogsExports"] !== undefined) {
     contents.PendingCloudwatchLogsExports = deserializeAws_queryPendingCloudwatchLogsExports(
@@ -16518,6 +17754,15 @@ const deserializeAws_queryClusterPendingModifiedValues = (
   }
   if (output["EngineVersion"] !== undefined) {
     contents.EngineVersion = __expectString(output["EngineVersion"]);
+  }
+  if (output["BackupRetentionPeriod"] !== undefined) {
+    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  }
+  if (output["AllocatedStorage"] !== undefined) {
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  }
+  if (output["Iops"] !== undefined) {
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
   }
   return contents;
 };
@@ -16614,6 +17859,19 @@ const deserializeAws_queryCopyOptionGroupResult = (output: any, context: __Serde
   };
   if (output["OptionGroup"] !== undefined) {
     contents.OptionGroup = deserializeAws_queryOptionGroup(output["OptionGroup"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateBlueGreenDeploymentResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateBlueGreenDeploymentResponse => {
+  const contents: any = {
+    BlueGreenDeployment: undefined,
+  };
+  if (output["BlueGreenDeployment"] !== undefined) {
+    contents.BlueGreenDeployment = deserializeAws_queryBlueGreenDeployment(output["BlueGreenDeployment"], context);
   }
   return contents;
 };
@@ -16814,6 +18072,23 @@ const deserializeAws_queryCustomDBEngineVersionAlreadyExistsFault = (
   return contents;
 };
 
+const deserializeAws_queryCustomDBEngineVersionAMI = (
+  output: any,
+  context: __SerdeContext
+): CustomDBEngineVersionAMI => {
+  const contents: any = {
+    ImageId: undefined,
+    Status: undefined,
+  };
+  if (output["ImageId"] !== undefined) {
+    contents.ImageId = __expectString(output["ImageId"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryCustomDBEngineVersionNotFoundFault = (
   output: any,
   context: __SerdeContext
@@ -16910,6 +18185,9 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     PerformanceInsightsKMSKeyId: undefined,
     PerformanceInsightsRetentionPeriod: undefined,
     ServerlessV2ScalingConfiguration: undefined,
+    NetworkType: undefined,
+    DBSystemId: undefined,
+    MasterUserSecret: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
@@ -16947,13 +18225,15 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.Status = __expectString(output["Status"]);
   }
   if (output["AutomaticRestartTime"] !== undefined) {
-    contents.AutomaticRestartTime = __expectNonNull(__parseRfc3339DateTime(output["AutomaticRestartTime"]));
+    contents.AutomaticRestartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["AutomaticRestartTime"]));
   }
   if (output["PercentProgress"] !== undefined) {
     contents.PercentProgress = __expectString(output["PercentProgress"]);
   }
   if (output["EarliestRestorableTime"] !== undefined) {
-    contents.EarliestRestorableTime = __expectNonNull(__parseRfc3339DateTime(output["EarliestRestorableTime"]));
+    contents.EarliestRestorableTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["EarliestRestorableTime"])
+    );
   }
   if (output["Endpoint"] !== undefined) {
     contents.Endpoint = __expectString(output["Endpoint"]);
@@ -16979,7 +18259,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["LatestRestorableTime"] !== undefined) {
-    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTime(output["LatestRestorableTime"]));
+    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LatestRestorableTime"]));
   }
   if (output["Port"] !== undefined) {
     contents.Port = __strictParseInt32(output["Port"]) as number;
@@ -17067,10 +18347,10 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.CloneGroupId = __expectString(output["CloneGroupId"]);
   }
   if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ClusterCreateTime"]));
+    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ClusterCreateTime"]));
   }
   if (output["EarliestBacktrackTime"] !== undefined) {
-    contents.EarliestBacktrackTime = __expectNonNull(__parseRfc3339DateTime(output["EarliestBacktrackTime"]));
+    contents.EarliestBacktrackTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EarliestBacktrackTime"]));
   }
   if (output["BacktrackWindow"] !== undefined) {
     contents.BacktrackWindow = __strictParseLong(output["BacktrackWindow"]) as number;
@@ -17191,6 +18471,15 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
       context
     );
   }
+  if (output["NetworkType"] !== undefined) {
+    contents.NetworkType = __expectString(output["NetworkType"]);
+  }
+  if (output["DBSystemId"] !== undefined) {
+    contents.DBSystemId = __expectString(output["DBSystemId"]);
+  }
+  if (output["MasterUserSecret"] !== undefined) {
+    contents.MasterUserSecret = deserializeAws_queryMasterUserSecret(output["MasterUserSecret"], context);
+  }
   return contents;
 };
 
@@ -17223,14 +18512,14 @@ const deserializeAws_queryDBClusterBacktrack = (output: any, context: __SerdeCon
     contents.BacktrackIdentifier = __expectString(output["BacktrackIdentifier"]);
   }
   if (output["BacktrackTo"] !== undefined) {
-    contents.BacktrackTo = __expectNonNull(__parseRfc3339DateTime(output["BacktrackTo"]));
+    contents.BacktrackTo = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["BacktrackTo"]));
   }
   if (output["BacktrackedFrom"] !== undefined) {
-    contents.BacktrackedFrom = __expectNonNull(__parseRfc3339DateTime(output["BacktrackedFrom"]));
+    contents.BacktrackedFrom = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["BacktrackedFrom"]));
   }
   if (output["BacktrackRequestCreationTime"] !== undefined) {
     contents.BacktrackRequestCreationTime = __expectNonNull(
-      __parseRfc3339DateTime(output["BacktrackRequestCreationTime"])
+      __parseRfc3339DateTimeWithOffset(output["BacktrackRequestCreationTime"])
     );
   }
   if (output["Status"] !== undefined) {
@@ -17742,6 +19031,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     SourceDBClusterSnapshotArn: undefined,
     IAMDatabaseAuthenticationEnabled: undefined,
     TagList: undefined,
+    DBSystemId: undefined,
   };
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
@@ -17761,7 +19051,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
   }
   if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotCreateTime"]));
+    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotCreateTime"]));
   }
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -17782,7 +19072,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ClusterCreateTime"]));
+    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ClusterCreateTime"]));
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -17818,6 +19108,9 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.TagList = [];
   } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
     contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  }
+  if (output["DBSystemId"] !== undefined) {
+    contents.DBSystemId = __expectString(output["DBSystemId"]);
   }
   return contents;
 };
@@ -17947,6 +19240,8 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     DBEngineDescription: undefined,
     DBEngineVersionDescription: undefined,
     DefaultCharacterSet: undefined,
+    Image: undefined,
+    DBEngineMediaType: undefined,
     SupportedCharacterSets: undefined,
     SupportedNcharCharacterSets: undefined,
     ValidUpgradeTarget: undefined,
@@ -17967,6 +19262,9 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     CreateTime: undefined,
     TagList: undefined,
     SupportsBabelfish: undefined,
+    CustomDBEngineVersionManifest: undefined,
+    SupportsCertificateRotationWithoutRestart: undefined,
+    SupportedCACertificateIdentifiers: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -17985,6 +19283,12 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
   }
   if (output["DefaultCharacterSet"] !== undefined) {
     contents.DefaultCharacterSet = deserializeAws_queryCharacterSet(output["DefaultCharacterSet"], context);
+  }
+  if (output["Image"] !== undefined) {
+    contents.Image = deserializeAws_queryCustomDBEngineVersionAMI(output["Image"], context);
+  }
+  if (output["DBEngineMediaType"] !== undefined) {
+    contents.DBEngineMediaType = __expectString(output["DBEngineMediaType"]);
   }
   if (output.SupportedCharacterSets === "") {
     contents.SupportedCharacterSets = [];
@@ -18082,7 +19386,7 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     contents.KMSKeyId = __expectString(output["KMSKeyId"]);
   }
   if (output["CreateTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["CreateTime"]));
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
   }
   if (output.TagList === "") {
     contents.TagList = [];
@@ -18091,6 +19395,25 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
   }
   if (output["SupportsBabelfish"] !== undefined) {
     contents.SupportsBabelfish = __parseBoolean(output["SupportsBabelfish"]);
+  }
+  if (output["CustomDBEngineVersionManifest"] !== undefined) {
+    contents.CustomDBEngineVersionManifest = __expectString(output["CustomDBEngineVersionManifest"]);
+  }
+  if (output["SupportsCertificateRotationWithoutRestart"] !== undefined) {
+    contents.SupportsCertificateRotationWithoutRestart = __parseBoolean(
+      output["SupportsCertificateRotationWithoutRestart"]
+    );
+  }
+  if (output.SupportedCACertificateIdentifiers === "") {
+    contents.SupportedCACertificateIdentifiers = [];
+  } else if (
+    output["SupportedCACertificateIdentifiers"] !== undefined &&
+    output["SupportedCACertificateIdentifiers"]["member"] !== undefined
+  ) {
+    contents.SupportedCACertificateIdentifiers = deserializeAws_queryCACertificateIdentifiersList(
+      __getArrayIfSingleItem(output["SupportedCACertificateIdentifiers"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -18200,6 +19523,10 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     BackupTarget: undefined,
     NetworkType: undefined,
     ActivityStreamPolicyStatus: undefined,
+    StorageThroughput: undefined,
+    DBSystemId: undefined,
+    MasterUserSecret: undefined,
+    CertificateDetails: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -18214,7 +19541,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.DBInstanceStatus = __expectString(output["DBInstanceStatus"]);
   }
   if (output["AutomaticRestartTime"] !== undefined) {
-    contents.AutomaticRestartTime = __expectNonNull(__parseRfc3339DateTime(output["AutomaticRestartTime"]));
+    contents.AutomaticRestartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["AutomaticRestartTime"]));
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -18229,7 +19556,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
   }
   if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTime(output["InstanceCreateTime"]));
+    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["InstanceCreateTime"]));
   }
   if (output["PreferredBackupWindow"] !== undefined) {
     contents.PreferredBackupWindow = __expectString(output["PreferredBackupWindow"]);
@@ -18283,7 +19610,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     );
   }
   if (output["LatestRestorableTime"] !== undefined) {
-    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTime(output["LatestRestorableTime"]));
+    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LatestRestorableTime"]));
   }
   if (output["MultiAZ"] !== undefined) {
     contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
@@ -18512,7 +19839,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["ResumeFullAutomationModeTime"] !== undefined) {
     contents.ResumeFullAutomationModeTime = __expectNonNull(
-      __parseRfc3339DateTime(output["ResumeFullAutomationModeTime"])
+      __parseRfc3339DateTimeWithOffset(output["ResumeFullAutomationModeTime"])
     );
   }
   if (output["CustomIamInstanceProfile"] !== undefined) {
@@ -18526,6 +19853,18 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["ActivityStreamPolicyStatus"] !== undefined) {
     contents.ActivityStreamPolicyStatus = __expectString(output["ActivityStreamPolicyStatus"]);
+  }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  }
+  if (output["DBSystemId"] !== undefined) {
+    contents.DBSystemId = __expectString(output["DBSystemId"]);
+  }
+  if (output["MasterUserSecret"] !== undefined) {
+    contents.MasterUserSecret = deserializeAws_queryMasterUserSecret(output["MasterUserSecret"], context);
+  }
+  if (output["CertificateDetails"] !== undefined) {
+    contents.CertificateDetails = deserializeAws_queryCertificateDetails(output["CertificateDetails"], context);
   }
   return contents;
 };
@@ -18575,6 +19914,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     DBInstanceAutomatedBackupsArn: undefined,
     DBInstanceAutomatedBackupsReplications: undefined,
     BackupTarget: undefined,
+    StorageThroughput: undefined,
   };
   if (output["DBInstanceArn"] !== undefined) {
     contents.DBInstanceArn = __expectString(output["DBInstanceArn"]);
@@ -18607,7 +19947,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTime(output["InstanceCreateTime"]));
+    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["InstanceCreateTime"]));
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -18664,6 +20004,9 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
   }
   if (output["BackupTarget"] !== undefined) {
     contents.BackupTarget = __expectString(output["BackupTarget"]);
+  }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
   }
   return contents;
 };
@@ -19120,10 +20463,10 @@ const deserializeAws_queryDBProxy = (output: any, context: __SerdeContext): DBPr
     contents.DebugLogging = __parseBoolean(output["DebugLogging"]);
   }
   if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["CreatedDate"]));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedDate"]));
   }
   if (output["UpdatedDate"] !== undefined) {
-    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTime(output["UpdatedDate"]));
+    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdatedDate"]));
   }
   return contents;
 };
@@ -19190,7 +20533,7 @@ const deserializeAws_queryDBProxyEndpoint = (output: any, context: __SerdeContex
     contents.Endpoint = __expectString(output["Endpoint"]);
   }
   if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["CreatedDate"]));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedDate"]));
   }
   if (output["TargetRole"] !== undefined) {
     contents.TargetRole = __expectString(output["TargetRole"]);
@@ -19363,10 +20706,10 @@ const deserializeAws_queryDBProxyTargetGroup = (output: any, context: __SerdeCon
     );
   }
   if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["CreatedDate"]));
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedDate"]));
   }
   if (output["UpdatedDate"] !== undefined) {
-    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTime(output["UpdatedDate"]));
+    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdatedDate"]));
   }
   return contents;
 };
@@ -19580,7 +20923,9 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     DbiResourceId: undefined,
     TagList: undefined,
     OriginalSnapshotCreateTime: undefined,
+    SnapshotDatabaseTime: undefined,
     SnapshotTarget: undefined,
+    StorageThroughput: undefined,
   };
   if (output["DBSnapshotIdentifier"] !== undefined) {
     contents.DBSnapshotIdentifier = __expectString(output["DBSnapshotIdentifier"]);
@@ -19589,7 +20934,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
   }
   if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotCreateTime"]));
+    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotCreateTime"]));
   }
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -19610,7 +20955,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTime(output["InstanceCreateTime"]));
+    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["InstanceCreateTime"]));
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -19680,10 +21025,18 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
   }
   if (output["OriginalSnapshotCreateTime"] !== undefined) {
-    contents.OriginalSnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["OriginalSnapshotCreateTime"]));
+    contents.OriginalSnapshotCreateTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["OriginalSnapshotCreateTime"])
+    );
+  }
+  if (output["SnapshotDatabaseTime"] !== undefined) {
+    contents.SnapshotDatabaseTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotDatabaseTime"]));
   }
   if (output["SnapshotTarget"] !== undefined) {
     contents.SnapshotTarget = __expectString(output["SnapshotTarget"]);
+  }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
   }
   return contents;
 };
@@ -19949,6 +21302,19 @@ const deserializeAws_queryDBUpgradeDependencyFailureFault = (
   return contents;
 };
 
+const deserializeAws_queryDeleteBlueGreenDeploymentResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteBlueGreenDeploymentResponse => {
+  const contents: any = {
+    BlueGreenDeployment: undefined,
+  };
+  if (output["BlueGreenDeployment"] !== undefined) {
+    contents.BlueGreenDeployment = deserializeAws_queryBlueGreenDeployment(output["BlueGreenDeployment"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDeleteDBClusterResult = (output: any, context: __SerdeContext): DeleteDBClusterResult => {
   const contents: any = {
     DBCluster: undefined,
@@ -20062,6 +21428,28 @@ const deserializeAws_queryDeregisterDBProxyTargetsResponse = (
   context: __SerdeContext
 ): DeregisterDBProxyTargetsResponse => {
   const contents: any = {};
+  return contents;
+};
+
+const deserializeAws_queryDescribeBlueGreenDeploymentsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeBlueGreenDeploymentsResponse => {
+  const contents: any = {
+    BlueGreenDeployments: undefined,
+    Marker: undefined,
+  };
+  if (output.BlueGreenDeployments === "") {
+    contents.BlueGreenDeployments = [];
+  } else if (output["BlueGreenDeployments"] !== undefined && output["BlueGreenDeployments"]["member"] !== undefined) {
+    contents.BlueGreenDeployments = deserializeAws_queryBlueGreenDeploymentList(
+      __getArrayIfSingleItem(output["BlueGreenDeployments"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
   return contents;
 };
 
@@ -20364,6 +21752,19 @@ const deserializeAws_queryDownloadDBLogFilePortionDetails = (
   return contents;
 };
 
+const deserializeAws_queryEc2ImagePropertiesNotSupportedFault = (
+  output: any,
+  context: __SerdeContext
+): Ec2ImagePropertiesNotSupportedFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryEC2SecurityGroup = (output: any, context: __SerdeContext): EC2SecurityGroup => {
   const contents: any = {
     Status: undefined,
@@ -20470,7 +21871,7 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
     );
   }
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   if (output["SourceArn"] !== undefined) {
     contents.SourceArn = __expectString(output["SourceArn"]);
@@ -20677,6 +22078,7 @@ const deserializeAws_queryExportTask = (output: any, context: __SerdeContext): E
     TotalExtractedDataInGB: undefined,
     FailureCause: undefined,
     WarningMessage: undefined,
+    SourceType: undefined,
   };
   if (output["ExportTaskIdentifier"] !== undefined) {
     contents.ExportTaskIdentifier = __expectString(output["ExportTaskIdentifier"]);
@@ -20693,13 +22095,13 @@ const deserializeAws_queryExportTask = (output: any, context: __SerdeContext): E
     );
   }
   if (output["SnapshotTime"] !== undefined) {
-    contents.SnapshotTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotTime"]));
+    contents.SnapshotTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotTime"]));
   }
   if (output["TaskStartTime"] !== undefined) {
-    contents.TaskStartTime = __expectNonNull(__parseRfc3339DateTime(output["TaskStartTime"]));
+    contents.TaskStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TaskStartTime"]));
   }
   if (output["TaskEndTime"] !== undefined) {
-    contents.TaskEndTime = __expectNonNull(__parseRfc3339DateTime(output["TaskEndTime"]));
+    contents.TaskEndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TaskEndTime"]));
   }
   if (output["S3Bucket"] !== undefined) {
     contents.S3Bucket = __expectString(output["S3Bucket"]);
@@ -20727,6 +22129,9 @@ const deserializeAws_queryExportTask = (output: any, context: __SerdeContext): E
   }
   if (output["WarningMessage"] !== undefined) {
     contents.WarningMessage = __expectString(output["WarningMessage"]);
+  }
+  if (output["SourceType"] !== undefined) {
+    contents.SourceType = __expectString(output["SourceType"]);
   }
   return contents;
 };
@@ -21065,6 +22470,19 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFault = (
   output: any,
   context: __SerdeContext
 ): InsufficientStorageClusterCapacityFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidBlueGreenDeploymentStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidBlueGreenDeploymentStateFault => {
   const contents: any = {
     message: undefined,
   };
@@ -21430,6 +22848,24 @@ const deserializeAws_queryLogTypeList = (output: any, context: __SerdeContext): 
     });
 };
 
+const deserializeAws_queryMasterUserSecret = (output: any, context: __SerdeContext): MasterUserSecret => {
+  const contents: any = {
+    SecretArn: undefined,
+    SecretStatus: undefined,
+    KmsKeyId: undefined,
+  };
+  if (output["SecretArn"] !== undefined) {
+    contents.SecretArn = __expectString(output["SecretArn"]);
+  }
+  if (output["SecretStatus"] !== undefined) {
+    contents.SecretStatus = __expectString(output["SecretStatus"]);
+  }
+  if (output["KmsKeyId"] !== undefined) {
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryMinimumEngineVersionPerAllowedValue = (
   output: any,
   context: __SerdeContext
@@ -21734,6 +23170,9 @@ const deserializeAws_queryOptionGroup = (output: any, context: __SerdeContext): 
     AllowsVpcAndNonVpcInstanceMemberships: undefined,
     VpcId: undefined,
     OptionGroupArn: undefined,
+    SourceOptionGroup: undefined,
+    SourceAccountId: undefined,
+    CopyTimestamp: undefined,
   };
   if (output["OptionGroupName"] !== undefined) {
     contents.OptionGroupName = __expectString(output["OptionGroupName"]);
@@ -21760,6 +23199,15 @@ const deserializeAws_queryOptionGroup = (output: any, context: __SerdeContext): 
   }
   if (output["OptionGroupArn"] !== undefined) {
     contents.OptionGroupArn = __expectString(output["OptionGroupArn"]);
+  }
+  if (output["SourceOptionGroup"] !== undefined) {
+    contents.SourceOptionGroup = __expectString(output["SourceOptionGroup"]);
+  }
+  if (output["SourceAccountId"] !== undefined) {
+    contents.SourceAccountId = __expectString(output["SourceAccountId"]);
+  }
+  if (output["CopyTimestamp"] !== undefined) {
+    contents.CopyTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CopyTimestamp"]));
   }
   return contents;
 };
@@ -21833,6 +23281,7 @@ const deserializeAws_queryOptionGroupOption = (output: any, context: __SerdeCont
     SupportsOptionVersionDowngrade: undefined,
     OptionGroupOptionSettings: undefined,
     OptionGroupOptionVersions: undefined,
+    CopyableCrossAccount: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -21910,6 +23359,9 @@ const deserializeAws_queryOptionGroupOption = (output: any, context: __SerdeCont
       __getArrayIfSingleItem(output["OptionGroupOptionVersions"]["OptionVersion"]),
       context
     );
+  }
+  if (output["CopyableCrossAccount"] !== undefined) {
+    contents.CopyableCrossAccount = __parseBoolean(output["CopyableCrossAccount"]);
   }
   return contents;
 };
@@ -22178,6 +23630,11 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     SupportsGlobalDatabases: undefined,
     SupportsClusters: undefined,
     SupportedNetworkTypes: undefined,
+    SupportsStorageThroughput: undefined,
+    MinStorageThroughputPerDbInstance: undefined,
+    MaxStorageThroughputPerDbInstance: undefined,
+    MinStorageThroughputPerIops: undefined,
+    MaxStorageThroughputPerIops: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -22302,6 +23759,25 @@ const deserializeAws_queryOrderableDBInstanceOption = (
       __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
       context
     );
+  }
+  if (output["SupportsStorageThroughput"] !== undefined) {
+    contents.SupportsStorageThroughput = __parseBoolean(output["SupportsStorageThroughput"]);
+  }
+  if (output["MinStorageThroughputPerDbInstance"] !== undefined) {
+    contents.MinStorageThroughputPerDbInstance = __strictParseInt32(
+      output["MinStorageThroughputPerDbInstance"]
+    ) as number;
+  }
+  if (output["MaxStorageThroughputPerDbInstance"] !== undefined) {
+    contents.MaxStorageThroughputPerDbInstance = __strictParseInt32(
+      output["MaxStorageThroughputPerDbInstance"]
+    ) as number;
+  }
+  if (output["MinStorageThroughputPerIops"] !== undefined) {
+    contents.MinStorageThroughputPerIops = __strictParseFloat(output["MinStorageThroughputPerIops"]) as number;
+  }
+  if (output["MaxStorageThroughputPerIops"] !== undefined) {
+    contents.MaxStorageThroughputPerIops = __strictParseFloat(output["MaxStorageThroughputPerIops"]) as number;
   }
   return contents;
 };
@@ -22458,16 +23934,16 @@ const deserializeAws_queryPendingMaintenanceAction = (
     contents.Action = __expectString(output["Action"]);
   }
   if (output["AutoAppliedAfterDate"] !== undefined) {
-    contents.AutoAppliedAfterDate = __expectNonNull(__parseRfc3339DateTime(output["AutoAppliedAfterDate"]));
+    contents.AutoAppliedAfterDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["AutoAppliedAfterDate"]));
   }
   if (output["ForcedApplyDate"] !== undefined) {
-    contents.ForcedApplyDate = __expectNonNull(__parseRfc3339DateTime(output["ForcedApplyDate"]));
+    contents.ForcedApplyDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ForcedApplyDate"]));
   }
   if (output["OptInStatus"] !== undefined) {
     contents.OptInStatus = __expectString(output["OptInStatus"]);
   }
   if (output["CurrentApplyDate"] !== undefined) {
-    contents.CurrentApplyDate = __expectNonNull(__parseRfc3339DateTime(output["CurrentApplyDate"]));
+    contents.CurrentApplyDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CurrentApplyDate"]));
   }
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
@@ -22542,6 +24018,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     IAMDatabaseAuthenticationEnabled: undefined,
     AutomationMode: undefined,
     ResumeFullAutomationModeTime: undefined,
+    StorageThroughput: undefined,
   };
   if (output["DBInstanceClass"] !== undefined) {
     contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
@@ -22607,8 +24084,11 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
   }
   if (output["ResumeFullAutomationModeTime"] !== undefined) {
     contents.ResumeFullAutomationModeTime = __expectNonNull(
-      __parseRfc3339DateTime(output["ResumeFullAutomationModeTime"])
+      __parseRfc3339DateTimeWithOffset(output["ResumeFullAutomationModeTime"])
     );
+  }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
   }
   return contents;
 };
@@ -22873,7 +24353,7 @@ const deserializeAws_queryReservedDBInstance = (output: any, context: __SerdeCon
     contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
   }
   if (output["StartTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["StartTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StartTime"]));
   }
   if (output["Duration"] !== undefined) {
     contents.Duration = __strictParseInt32(output["Duration"]) as number;
@@ -23213,10 +24693,10 @@ const deserializeAws_queryRestoreWindow = (output: any, context: __SerdeContext)
     LatestTime: undefined,
   };
   if (output["EarliestTime"] !== undefined) {
-    contents.EarliestTime = __expectNonNull(__parseRfc3339DateTime(output["EarliestTime"]));
+    contents.EarliestTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EarliestTime"]));
   }
   if (output["LatestTime"] !== undefined) {
-    contents.LatestTime = __expectNonNull(__parseRfc3339DateTime(output["LatestTime"]));
+    contents.LatestTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LatestTime"]));
   }
   return contents;
 };
@@ -23334,6 +24814,32 @@ const deserializeAws_querySNSTopicArnNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): SNSTopicArnNotFoundFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySourceClusterNotSupportedFault = (
+  output: any,
+  context: __SerdeContext
+): SourceClusterNotSupportedFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySourceDatabaseNotSupportedFault = (
+  output: any,
+  context: __SerdeContext
+): SourceDatabaseNotSupportedFault => {
   const contents: any = {
     message: undefined,
   };
@@ -23667,6 +25173,58 @@ const deserializeAws_querySupportedTimezonesList = (output: any, context: __Serd
     });
 };
 
+const deserializeAws_querySwitchoverBlueGreenDeploymentResponse = (
+  output: any,
+  context: __SerdeContext
+): SwitchoverBlueGreenDeploymentResponse => {
+  const contents: any = {
+    BlueGreenDeployment: undefined,
+  };
+  if (output["BlueGreenDeployment"] !== undefined) {
+    contents.BlueGreenDeployment = deserializeAws_queryBlueGreenDeployment(output["BlueGreenDeployment"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_querySwitchoverDetail = (output: any, context: __SerdeContext): SwitchoverDetail => {
+  const contents: any = {
+    SourceMember: undefined,
+    TargetMember: undefined,
+    Status: undefined,
+  };
+  if (output["SourceMember"] !== undefined) {
+    contents.SourceMember = __expectString(output["SourceMember"]);
+  }
+  if (output["TargetMember"] !== undefined) {
+    contents.TargetMember = __expectString(output["TargetMember"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySwitchoverDetailList = (output: any, context: __SerdeContext): SwitchoverDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_querySwitchoverDetail(entry, context);
+    });
+};
+
+const deserializeAws_querySwitchoverReadReplicaResult = (
+  output: any,
+  context: __SerdeContext
+): SwitchoverReadReplicaResult => {
+  const contents: any = {
+    DBInstance: undefined,
+  };
+  if (output["DBInstance"] !== undefined) {
+    contents.DBInstance = deserializeAws_queryDBInstance(output["DBInstance"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {
     Key: undefined,
@@ -23799,6 +25357,7 @@ const deserializeAws_queryUserAuthConfigInfo = (output: any, context: __SerdeCon
     AuthScheme: undefined,
     SecretArn: undefined,
     IAMAuth: undefined,
+    ClientPasswordAuthType: undefined,
   };
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
@@ -23814,6 +25373,9 @@ const deserializeAws_queryUserAuthConfigInfo = (output: any, context: __SerdeCon
   }
   if (output["IAMAuth"] !== undefined) {
     contents.IAMAuth = __expectString(output["IAMAuth"]);
+  }
+  if (output["ClientPasswordAuthType"] !== undefined) {
+    contents.ClientPasswordAuthType = __expectString(output["ClientPasswordAuthType"]);
   }
   return contents;
 };
@@ -23863,6 +25425,8 @@ const deserializeAws_queryValidStorageOptions = (output: any, context: __SerdeCo
     ProvisionedIops: undefined,
     IopsToStorageRatio: undefined,
     SupportsStorageAutoscaling: undefined,
+    ProvisionedStorageThroughput: undefined,
+    StorageThroughputToIopsRatio: undefined,
   };
   if (output["StorageType"] !== undefined) {
     contents.StorageType = __expectString(output["StorageType"]);
@@ -23893,6 +25457,28 @@ const deserializeAws_queryValidStorageOptions = (output: any, context: __SerdeCo
   }
   if (output["SupportsStorageAutoscaling"] !== undefined) {
     contents.SupportsStorageAutoscaling = __parseBoolean(output["SupportsStorageAutoscaling"]);
+  }
+  if (output.ProvisionedStorageThroughput === "") {
+    contents.ProvisionedStorageThroughput = [];
+  } else if (
+    output["ProvisionedStorageThroughput"] !== undefined &&
+    output["ProvisionedStorageThroughput"]["Range"] !== undefined
+  ) {
+    contents.ProvisionedStorageThroughput = deserializeAws_queryRangeList(
+      __getArrayIfSingleItem(output["ProvisionedStorageThroughput"]["Range"]),
+      context
+    );
+  }
+  if (output.StorageThroughputToIopsRatio === "") {
+    contents.StorageThroughputToIopsRatio = [];
+  } else if (
+    output["StorageThroughputToIopsRatio"] !== undefined &&
+    output["StorageThroughputToIopsRatio"]["DoubleRange"] !== undefined
+  ) {
+    contents.StorageThroughputToIopsRatio = deserializeAws_queryDoubleRangeList(
+      __getArrayIfSingleItem(output["StorageThroughputToIopsRatio"]["DoubleRange"]),
+      context
+    );
   }
   return contents;
 };
@@ -23943,7 +25529,8 @@ const deserializeAws_queryVpcSecurityGroupMembershipList = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -23988,13 +25575,18 @@ const buildHttpRpcRequest = async (
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -24007,13 +25599,21 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

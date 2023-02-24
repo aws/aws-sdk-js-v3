@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -31,24 +31,6 @@
   "shapes": {
     "com.amazonaws.eventbridge#AWSEvents": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "EventBridge",
-          "arnNamespace": "events",
-          "cloudFormationName": "Events",
-          "cloudTrailEventSource": "eventbridge.amazonaws.com",
-          "endpointPrefix": "events"
-        },
-        "aws.auth#sigv4": {
-          "name": "events"
-        },
-        "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<p>Amazon EventBridge helps you to respond to state changes in your Amazon Web Services resources. When your\n      resources change state, they automatically send events to an event stream. You can create\n      rules that match selected events in the stream and route them to targets to take action. You\n      can also use rules to take action on a predetermined schedule. For example, you can configure\n      rules to:</p>\n         <ul>\n            <li>\n               <p>Automatically invoke an Lambda function to update DNS entries when an event\n          notifies you that Amazon EC2 instance enters the running state.</p>\n            </li>\n            <li>\n               <p>Direct specific API records from CloudTrail to an Amazon Kinesis data stream for\n          detailed analysis of potential security or availability risks.</p>\n            </li>\n            <li>\n               <p>Periodically invoke a built-in target to create a snapshot of an Amazon EBS\n          volume.</p>\n            </li>\n         </ul>\n         <p>For more information about the features of Amazon EventBridge, see the <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide\">Amazon EventBridge User\n        Guide</a>.</p>",
-        "smithy.api#title": "Amazon EventBridge",
-        "smithy.api#xmlNamespace": {
-          "uri": "http://events.amazonaws.com/doc/2015-10-07"
-        }
-      },
       "version": "2015-10-07",
       "operations": [
         {
@@ -219,7 +201,2483 @@
         {
           "target": "com.amazonaws.eventbridge#UpdateEndpoint"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "EventBridge",
+          "arnNamespace": "events",
+          "cloudFormationName": "Events",
+          "cloudTrailEventSource": "eventbridge.amazonaws.com",
+          "endpointPrefix": "events"
+        },
+        "aws.auth#sigv4": {
+          "name": "events"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<p>Amazon EventBridge helps you to respond to state changes in your Amazon Web Services resources. When your\n      resources change state, they automatically send events to an event stream. You can create\n      rules that match selected events in the stream and route them to targets to take action. You\n      can also use rules to take action on a predetermined schedule. For example, you can configure\n      rules to:</p>\n         <ul>\n            <li>\n               <p>Automatically invoke an Lambda function to update DNS entries when an event\n          notifies you that Amazon EC2 instance enters the running state.</p>\n            </li>\n            <li>\n               <p>Direct specific API records from CloudTrail to an Amazon Kinesis data stream for\n          detailed analysis of potential security or availability risks.</p>\n            </li>\n            <li>\n               <p>Periodically invoke a built-in target to create a snapshot of an Amazon EBS\n          volume.</p>\n            </li>\n         </ul>\n         <p>For more information about the features of Amazon EventBridge, see the <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide\">Amazon EventBridge User\n        Guide</a>.</p>",
+        "smithy.api#title": "Amazon EventBridge",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://events.amazonaws.com/doc/2015-10-07"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": true,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            },
+            "EndpointId": {
+              "required": false,
+              "documentation": "Operation parameter for EndpointId",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "EndpointId"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "isValidHostLabel",
+                          "argv": [
+                            {
+                              "ref": "EndpointId"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "UseFIPS"
+                                    },
+                                    false
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "isSet",
+                                          "argv": [
+                                            {
+                                              "ref": "Endpoint"
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": {
+                                          "ref": "Endpoint"
+                                        },
+                                        "properties": {
+                                          "authSchemes": [
+                                            {
+                                              "name": "sigv4a",
+                                              "signingName": "events",
+                                              "signingRegionSet": ["*"]
+                                            }
+                                          ]
+                                        },
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "booleanEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "UseDualStack"
+                                            },
+                                            true
+                                          ]
+                                        }
+                                      ],
+                                      "type": "tree",
+                                      "rules": [
+                                        {
+                                          "conditions": [
+                                            {
+                                              "fn": "booleanEquals",
+                                              "argv": [
+                                                true,
+                                                {
+                                                  "fn": "getAttr",
+                                                  "argv": [
+                                                    {
+                                                      "ref": "PartitionResult"
+                                                    },
+                                                    "supportsDualStack"
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ],
+                                          "type": "tree",
+                                          "rules": [
+                                            {
+                                              "conditions": [],
+                                              "endpoint": {
+                                                "url": "https://{EndpointId}.endpoint.events.{PartitionResult#dualStackDnsSuffix}",
+                                                "properties": {
+                                                  "authSchemes": [
+                                                    {
+                                                      "name": "sigv4a",
+                                                      "signingName": "events",
+                                                      "signingRegionSet": ["*"]
+                                                    }
+                                                  ]
+                                                },
+                                                "headers": {}
+                                              },
+                                              "type": "endpoint"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "conditions": [],
+                                          "error": "DualStack is enabled but this partition does not support DualStack",
+                                          "type": "error"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://{EndpointId}.endpoint.events.{PartitionResult#dnsSuffix}",
+                                        "properties": {
+                                          "authSchemes": [
+                                            {
+                                              "name": "sigv4a",
+                                              "signingName": "events",
+                                              "signingRegionSet": ["*"]
+                                            }
+                                          ]
+                                        },
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "Invalid Configuration: FIPS is not supported with EventBridge multi-region endpoints.",
+                              "type": "error"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "EndpointId must be a valid host label.",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://events-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "Region"
+                                    },
+                                    "us-gov-east-1"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://events.us-gov-east-1.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "Region"
+                                    },
+                                    "us-gov-west-1"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://events.us-gov-west-1.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://events-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://events.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://events.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-south-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-south-2"
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-south-2"
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-south-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-south-2"
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-south-2"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-south-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-south-2"
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-south-2"
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-south-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-south-2"
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-south-2"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "me-central-1"
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "me-central-1"
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "me-central-1"
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "me-central-1"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-iso-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-iso-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-iso-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-iso-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-central-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-central-2"
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-central-2"
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-central-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-central-2"
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-central-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "sa-east-1"
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "sa-east-1"
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "sa-east-1"
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "sa-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-east-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-southeast-4.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-southeast-4"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.ap-southeast-4.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-southeast-4"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-southeast-4.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-southeast-4"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.ap-southeast-4.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-4"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://events.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Valid endpointId with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "signingName": "events",
+                        "name": "sigv4a",
+                        "signingRegionSet": ["*"]
+                      }
+                    ]
+                  },
+                  "url": "https://abc123.456def.endpoint.events.amazonaws.com"
+                }
+              },
+              "operationInputs": [
+                {
+                  "builtInParams": {
+                    "AWS::Region": "us-east-1"
+                  },
+                  "operationName": "PutEvents",
+                  "operationParams": {
+                    "EndpointId": "abc123.456def",
+                    "Entries": [
+                      {
+                        "DetailType": "detailType",
+                        "Detail": "{ \"test\": [\"test\"] }",
+                        "EventBusName": "my-sdk-app"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "params": {
+                "EndpointId": "abc123.456def",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "Valid EndpointId with dualstack disabled and fips enabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS is not supported with EventBridge multi-region endpoints."
+              },
+              "params": {
+                "EndpointId": "abc123.456def",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "Valid EndpointId with dualstack enabled and fips enabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS is not supported with EventBridge multi-region endpoints."
+              },
+              "params": {
+                "EndpointId": "abc123.456def",
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "Invalid EndpointId",
+              "expect": {
+                "error": "EndpointId must be a valid host label."
+              },
+              "params": {
+                "EndpointId": "badactor.com?foo=bar",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "Invalid EndpointId (empty)",
+              "expect": {
+                "error": "EndpointId must be a valid host label."
+              },
+              "params": {
+                "EndpointId": "",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "Valid endpointId with fips disabled and dualstack true",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "signingName": "events",
+                        "name": "sigv4a",
+                        "signingRegionSet": ["*"]
+                      }
+                    ]
+                  },
+                  "url": "https://abc123.456def.endpoint.events.api.aws"
+                }
+              },
+              "params": {
+                "EndpointId": "abc123.456def",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "Valid endpointId with custom sdk endpoint",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "signingName": "events",
+                        "name": "sigv4a",
+                        "signingRegionSet": ["*"]
+                      }
+                    ]
+                  },
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "EndpointId": "abc123.456def",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.eventbridge#AccountId": {
       "type": "string",
@@ -245,6 +2703,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.eventbridge#ActivateEventSourceRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -362,44 +2823,55 @@
       }
     },
     "com.amazonaws.eventbridge#ApiDestinationHttpMethod": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "POST",
-            "name": "POST"
-          },
-          {
-            "value": "GET",
-            "name": "GET"
-          },
-          {
-            "value": "HEAD",
-            "name": "HEAD"
-          },
-          {
-            "value": "OPTIONS",
-            "name": "OPTIONS"
-          },
-          {
-            "value": "PUT",
-            "name": "PUT"
-          },
-          {
-            "value": "PATCH",
-            "name": "PATCH"
-          },
-          {
-            "value": "DELETE",
-            "name": "DELETE"
+      "type": "enum",
+      "members": {
+        "POST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POST"
           }
-        ]
+        },
+        "GET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GET"
+          }
+        },
+        "HEAD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HEAD"
+          }
+        },
+        "OPTIONS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIONS"
+          }
+        },
+        "PUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PUT"
+          }
+        },
+        "PATCH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PATCH"
+          }
+        },
+        "DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#ApiDestinationInvocationRateLimitPerSecond": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -422,18 +2894,20 @@
       }
     },
     "com.amazonaws.eventbridge#ApiDestinationState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#Archive": {
@@ -472,12 +2946,14 @@
         "SizeBytes": {
           "target": "com.amazonaws.eventbridge#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The size of the archive, in bytes.</p>"
           }
         },
         "EventCount": {
           "target": "com.amazonaws.eventbridge#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of events in the archive.</p>"
           }
         },
@@ -529,34 +3005,44 @@
       }
     },
     "com.amazonaws.eventbridge#ArchiveState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
-          },
-          {
-            "value": "CREATING",
-            "name": "CREATING"
-          },
-          {
-            "value": "UPDATING",
-            "name": "UPDATING"
-          },
-          {
-            "value": "CREATE_FAILED",
-            "name": "CREATE_FAILED"
-          },
-          {
-            "value": "UPDATE_FAILED",
-            "name": "UPDATE_FAILED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
+          }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATING"
+          }
+        },
+        "CREATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_FAILED"
+          }
+        },
+        "UPDATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#ArchiveStateReason": {
@@ -579,18 +3065,20 @@
       }
     },
     "com.amazonaws.eventbridge#AssignPublicIp": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#AuthHeaderParameters": {
@@ -636,6 +3124,7 @@
         "Size": {
           "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The size of the array, if this is an array batch job. Valid values are integers between 2\n      and 10,000.</p>"
           }
         }
@@ -684,6 +3173,7 @@
         "Attempts": {
           "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of times to attempt to retry, if the job fails. Valid values are 1–10.</p>"
           }
         }
@@ -693,7 +3183,10 @@
       }
     },
     "com.amazonaws.eventbridge#Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.eventbridge#CancelReplay": {
       "type": "operation",
@@ -790,12 +3283,14 @@
         "weight": {
           "target": "com.amazonaws.eventbridge#CapacityProviderStrategyItemWeight",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The weight value designates the relative percentage of the total number of tasks launched\n      that should use the specified capacity provider. The weight value is taken into consideration\n      after the base value, if defined, is satisfied.</p>"
           }
         },
         "base": {
           "target": "com.amazonaws.eventbridge#CapacityProviderStrategyItemBase",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The base value designates how many tasks, at a minimum, to run on the specified capacity\n      provider. Only one capacity provider in a capacity provider strategy can have a base defined.\n      If no value is specified, the default value of 0 is used. </p>"
           }
         }
@@ -807,6 +3302,7 @@
     "com.amazonaws.eventbridge#CapacityProviderStrategyItemBase": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 100000
@@ -816,6 +3312,7 @@
     "com.amazonaws.eventbridge#CapacityProviderStrategyItemWeight": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 1000
@@ -893,7 +3390,7 @@
         "AuthorizationType": {
           "target": "com.amazonaws.eventbridge#ConnectionAuthorizationType",
           "traits": {
-            "smithy.api#documentation": "<p>The authorization type specified for the connection.</p>"
+            "smithy.api#documentation": "<p>The authorization type specified for the connection.</p>\n         <note>\n            <p>OAUTH tokens are refreshed when a 401 or 407 response is returned.</p>\n         </note>"
           }
         },
         "CreationTime": {
@@ -976,22 +3473,26 @@
       }
     },
     "com.amazonaws.eventbridge#ConnectionAuthorizationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "BASIC",
-            "name": "BASIC"
-          },
-          {
-            "value": "OAUTH_CLIENT_CREDENTIALS",
-            "name": "OAUTH_CLIENT_CREDENTIALS"
-          },
-          {
-            "value": "API_KEY",
-            "name": "API_KEY"
+      "type": "enum",
+      "members": {
+        "BASIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BASIC"
           }
-        ]
+        },
+        "OAUTH_CLIENT_CREDENTIALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OAUTH_CLIENT_CREDENTIALS"
+          }
+        },
+        "API_KEY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "API_KEY"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#ConnectionBasicAuthResponseParameters": {
@@ -1026,6 +3527,7 @@
         "IsValueSecret": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specified whether the value is secret.</p>"
           }
         }
@@ -1074,6 +3576,7 @@
         "IsValueSecret": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specified whether the value is a secret.</p>"
           }
         }
@@ -1145,22 +3648,26 @@
       }
     },
     "com.amazonaws.eventbridge#ConnectionOAuthHttpMethod": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "GET",
-            "name": "GET"
-          },
-          {
-            "value": "POST",
-            "name": "POST"
-          },
-          {
-            "value": "PUT",
-            "name": "PUT"
+      "type": "enum",
+      "members": {
+        "GET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GET"
           }
-        ]
+        },
+        "POST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POST"
+          }
+        },
+        "PUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PUT"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#ConnectionOAuthResponseParameters": {
@@ -1213,6 +3720,7 @@
         "IsValueSecret": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the value is secret.</p>"
           }
         }
@@ -1240,38 +3748,50 @@
       }
     },
     "com.amazonaws.eventbridge#ConnectionState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATING",
-            "name": "CREATING"
-          },
-          {
-            "value": "UPDATING",
-            "name": "UPDATING"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
-          },
-          {
-            "value": "AUTHORIZED",
-            "name": "AUTHORIZED"
-          },
-          {
-            "value": "DEAUTHORIZED",
-            "name": "DEAUTHORIZED"
-          },
-          {
-            "value": "AUTHORIZING",
-            "name": "AUTHORIZING"
-          },
-          {
-            "value": "DEAUTHORIZING",
-            "name": "DEAUTHORIZING"
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
           }
-        ]
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATING"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "AUTHORIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUTHORIZED"
+          }
+        },
+        "DEAUTHORIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEAUTHORIZED"
+          }
+        },
+        "AUTHORIZING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUTHORIZING"
+          }
+        },
+        "DEAUTHORIZING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEAUTHORIZING"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#ConnectionStateReason": {
@@ -1657,7 +4177,7 @@
         "AuthorizationType": {
           "target": "com.amazonaws.eventbridge#ConnectionAuthorizationType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of authorization to use for the connection.</p>",
+            "smithy.api#documentation": "<p>The type of authorization to use for the connection.</p>\n         <note>\n            <p>OAUTH tokens are refreshed when a 401 or 407 response is returned.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -1748,7 +4268,7 @@
         "ReplicationConfig": {
           "target": "com.amazonaws.eventbridge#ReplicationConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Enable or disable event replication.</p>"
+            "smithy.api#documentation": "<p>Enable or disable event replication. The default state is <code>ENABLED</code> which means you must supply a <code>RoleArn</code>. If you don't have a \n      <code>RoleArn</code> or you don't want event replication enabled, set the state to <code>DISABLED</code>.</p>"
           }
         },
         "EventBuses": {
@@ -1854,7 +4374,7 @@
         "Name": {
           "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the new event bus. </p>\n         <p>Event bus names cannot contain the / character. You can't use the name\n        <code>default</code> for a custom event bus, as this name is already used for your account's\n      default event bus.</p>\n         <p>If this is a partner event bus, the name must exactly match the name of the partner event\n      source that this event bus is matched to.</p>",
+            "smithy.api#documentation": "<p>The name of the new event bus. </p>\n         <p>Custom event bus names can't contain the <code>/</code> character, but you can use the <code>/</code> character in partner event bus names. In addition, for partner event buses, the name must exactly match the name of the partner event\n      source that this event bus is matched to.</p>\n         <p>You can't use the name <code>default</code> for a custom event bus, as this name is already used for your account's\n      default event bus.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1973,6 +4493,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.eventbridge#DeactivateEventSourceRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -2283,6 +4806,9 @@
       "input": {
         "target": "com.amazonaws.eventbridge#DeleteEventBusRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
@@ -2311,6 +4837,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.eventbridge#DeletePartnerEventSourceRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -2351,6 +4880,9 @@
       "input": {
         "target": "com.amazonaws.eventbridge#DeleteRuleRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
@@ -2366,7 +4898,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified rule.</p>\n         <p>Before you can delete the rule, you must remove all targets, using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html\">RemoveTargets</a>.</p>\n\n         <p>When you delete a rule, incoming events might continue to match to the deleted rule. Allow\n      a short period of time for changes to take effect.</p>\n\n         <p>If you call delete rule multiple times for the same rule, all calls will succeed. When you\n      call delete rule for a non-existent custom eventbus, <code>ResourceNotFoundException</code> is\n      returned.</p>\n\n         <p>Managed rules are rules created and managed by another Amazon Web Services service on your behalf. These\n      rules are created by those other Amazon Web Services services to support functionality in those services. You\n      can delete these rules using the <code>Force</code> option, but you should do so only if you\n      are sure the other service is not still using that rule.</p>"
+        "smithy.api#documentation": "<p>Deletes the specified rule.</p>\n         <p>Before you can delete the rule, you must remove all targets, using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html\">RemoveTargets</a>.</p>\n         <p>When you delete a rule, incoming events might continue to match to the deleted rule. Allow\n      a short period of time for changes to take effect.</p>\n         <p>If you call delete rule multiple times for the same rule, all calls will succeed. When you\n      call delete rule for a non-existent custom eventbus, <code>ResourceNotFoundException</code> is\n      returned.</p>\n         <p>Managed rules are rules created and managed by another Amazon Web Services service on your behalf. These\n      rules are created by those other Amazon Web Services services to support functionality in those services. You\n      can delete these rules using the <code>Force</code> option, but you should do so only if you\n      are sure the other service is not still using that rule.</p>"
       }
     },
     "com.amazonaws.eventbridge#DeleteRuleRequest": {
@@ -2388,6 +4920,7 @@
         "Force": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If this is a managed rule, created by an Amazon Web Services service on your behalf, you must specify\n        <code>Force</code> as <code>True</code> to delete the rule. This parameter is ignored for\n      rules that are not managed rules. You can check whether a rule is a managed rule by using\n        <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code>\n      field of the response.</p>"
           }
         }
@@ -2579,12 +5112,14 @@
         "SizeBytes": {
           "target": "com.amazonaws.eventbridge#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The size of the archive in bytes.</p>"
           }
         },
         "EventCount": {
           "target": "com.amazonaws.eventbridge#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of events in the archive.</p>"
           }
         },
@@ -3219,6 +5754,9 @@
       "input": {
         "target": "com.amazonaws.eventbridge#DisableRuleRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
@@ -3234,7 +5772,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Disables the specified rule. A disabled rule won't match any events, and won't\n      self-trigger if it has a schedule expression.</p>\n\n         <p>When you disable a rule, incoming events might continue to match to the disabled rule.\n      Allow a short period of time for changes to take effect.</p>"
+        "smithy.api#documentation": "<p>Disables the specified rule. A disabled rule won't match any events, and won't\n      self-trigger if it has a schedule expression.</p>\n         <p>When you disable a rule, incoming events might continue to match to the disabled rule.\n      Allow a short period of time for changes to take effect.</p>"
       }
     },
     "com.amazonaws.eventbridge#DisableRuleRequest": {
@@ -3304,12 +5842,14 @@
         "EnableECSManagedTags": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether to enable Amazon ECS managed tags for the task. For more information,\n      see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html\">Tagging Your Amazon ECS Resources</a> in the Amazon Elastic Container Service Developer\n      Guide. </p>"
           }
         },
         "EnableExecuteCommand": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Whether or not to enable the execute command functionality for the containers in this\n      task. If true, this enables execute command functionality on all containers in the\n      task.</p>"
           }
         },
@@ -3353,6 +5893,9 @@
       "input": {
         "target": "com.amazonaws.eventbridge#EnableRuleRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
@@ -3368,7 +5911,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Enables the specified rule. If the rule does not exist, the operation fails.</p>\n\n         <p>When you enable a rule, incoming events might not immediately start matching to a newly\n      enabled rule. Allow a short period of time for changes to take effect.</p>"
+        "smithy.api#documentation": "<p>Enables the specified rule. If the rule does not exist, the operation fails.</p>\n         <p>When you enable a rule, incoming events might not immediately start matching to a newly\n      enabled rule. Allow a short period of time for changes to take effect.</p>"
       }
     },
     "com.amazonaws.eventbridge#EnableRuleRequest": {
@@ -3419,7 +5962,7 @@
         "ReplicationConfig": {
           "target": "com.amazonaws.eventbridge#ReplicationConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Whether event replication was enabled or disabled for this endpoint.</p>"
+            "smithy.api#documentation": "<p>Whether event replication was enabled or disabled for this endpoint. The default state is <code>ENABLED</code> which means you must supply a <code>RoleArn</code>. \n       If you don't have a <code>RoleArn</code> or you don't want event replication enabled, set the state to <code>DISABLED</code>.</p>"
           }
         },
         "EventBuses": {
@@ -3437,7 +5980,7 @@
         "EndpointId": {
           "target": "com.amazonaws.eventbridge#EndpointId",
           "traits": {
-            "smithy.api#documentation": "<p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>"
+            "smithy.api#documentation": "<p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>"
           }
         },
         "EndpointUrl": {
@@ -3472,7 +6015,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html\">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>"
+        "smithy.api#documentation": "<p>A global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html\">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide.</p>"
       }
     },
     "com.amazonaws.eventbridge#EndpointArn": {
@@ -3549,38 +6092,50 @@
       }
     },
     "com.amazonaws.eventbridge#EndpointState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "CREATING",
-            "name": "CREATING"
-          },
-          {
-            "value": "UPDATING",
-            "name": "UPDATING"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
-          },
-          {
-            "value": "CREATE_FAILED",
-            "name": "CREATE_FAILED"
-          },
-          {
-            "value": "UPDATE_FAILED",
-            "name": "UPDATE_FAILED"
-          },
-          {
-            "value": "DELETE_FAILED",
-            "name": "DELETE_FAILED"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
+          }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATING"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "CREATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_FAILED"
+          }
+        },
+        "UPDATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_FAILED"
+          }
+        },
+        "DELETE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE_FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#EndpointStateReason": {
@@ -3632,7 +6187,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An event bus receives events from a source and routes them to rules associated with that\n      event bus. Your account's default event bus receives events from Amazon Web Services services. A custom event\n      bus can receive events from your custom applications and services. A partner event bus\n      receives events from an event source created by an SaaS partner. These events come from the\n      partners services or applications.</p>"
+        "smithy.api#documentation": "<p>An event bus receives events from a source, uses rules to evaluate them, applies any configured input transformation, and routes them to the appropriate target(s).\n      Your account's default event bus receives events from Amazon Web Services services. A custom event\n      bus can receive events from your custom applications and services. A partner event bus\n      receives events from an event source created by an SaaS partner. These events come from the\n      partners services or applications.</p>"
       }
     },
     "com.amazonaws.eventbridge#EventBusList": {
@@ -3765,22 +6320,26 @@
       }
     },
     "com.amazonaws.eventbridge#EventSourceState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "DELETED",
-            "name": "DELETED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETED"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#EventTime": {
@@ -3863,24 +6422,24 @@
         "PathParameterValues": {
           "target": "com.amazonaws.eventbridge#PathParameterList",
           "traits": {
-            "smithy.api#documentation": "<p>The path parameter values to be used to populate API Gateway REST API or EventBridge\n      ApiDestination path wildcards (\"*\").</p>"
+            "smithy.api#documentation": "<p>The path parameter values to be used to populate API Gateway API or EventBridge\n      ApiDestination path wildcards (\"*\").</p>"
           }
         },
         "HeaderParameters": {
           "target": "com.amazonaws.eventbridge#HeaderParametersMap",
           "traits": {
-            "smithy.api#documentation": "<p>The headers that need to be sent as part of request invoking the API Gateway REST API or\n      EventBridge ApiDestination.</p>"
+            "smithy.api#documentation": "<p>The headers that need to be sent as part of request invoking the API Gateway API or\n      EventBridge ApiDestination.</p>"
           }
         },
         "QueryStringParameters": {
           "target": "com.amazonaws.eventbridge#QueryStringParametersMap",
           "traits": {
-            "smithy.api#documentation": "<p>The query string keys/values that need to be sent as part of request invoking the API Gateway \n      REST API or EventBridge ApiDestination.</p>"
+            "smithy.api#documentation": "<p>The query string keys/values that need to be sent as part of request invoking the API Gateway \n      API or EventBridge ApiDestination.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>These are custom parameter to be used when the target is an API Gateway REST APIs or\n      EventBridge ApiDestinations. In the latter case, these are merged with any\n      InvocationParameters specified on the Connection, with any values from the Connection taking\n      precedence.</p>"
+        "smithy.api#documentation": "<p>These are custom parameter to be used when the target is an API Gateway APIs or\n      EventBridge ApiDestinations. In the latter case, these are merged with any\n      InvocationParameters specified on the Connection, with any values from the Connection taking\n      precedence.</p>"
       }
     },
     "com.amazonaws.eventbridge#HttpsEndpoint": {
@@ -3927,7 +6486,7 @@
         "InputTemplate": {
           "target": "com.amazonaws.eventbridge#TransformerInput",
           "traits": {
-            "smithy.api#documentation": "<p>Input template where you specify placeholders that will be filled with the values of the\n      keys from <code>InputPathsMap</code> to customize the data sent to the target. Enclose each\n        <code>InputPathsMaps</code> value in brackets: <<i>value</i>> The\n      InputTemplate must be valid JSON.</p>\n\n         <p>If <code>InputTemplate</code> is a JSON object (surrounded by curly braces), the following\n      restrictions apply:</p>\n         <ul>\n            <li>\n               <p>The placeholder cannot be used as an object key.</p>\n            </li>\n         </ul>\n         <p>The following example shows the syntax for using <code>InputPathsMap</code> and\n        <code>InputTemplate</code>.</p>\n         <p>\n            <code> \"InputTransformer\":</code>\n         </p>\n         <p>\n            <code>{</code>\n         </p>\n         <p>\n            <code>\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\":\n        \"$.detail.status\"},</code>\n         </p>\n         <p>\n            <code>\"InputTemplate\": \"<instance> is in state <status>\"</code>\n         </p>\n         <p>\n            <code>}</code>\n         </p>\n         <p>To have the <code>InputTemplate</code> include quote marks within a JSON string, escape\n      each quote marks with a slash, as in the following example:</p>\n         <p>\n            <code> \"InputTransformer\":</code>\n         </p>\n         <p>\n            <code>{</code>\n         </p>\n         <p>\n            <code>\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\":\n        \"$.detail.status\"},</code>\n         </p>\n         <p>\n            <code>\"InputTemplate\": \"<instance> is in state \\\"<status>\\\"\"</code>\n         </p>\n         <p>\n            <code>}</code>\n         </p>\n         <p>The <code>InputTemplate</code> can also be valid JSON with varibles in quotes or out, as\n      in the following example:</p>\n         <p>\n            <code> \"InputTransformer\":</code>\n         </p>\n         <p>\n            <code>{</code>\n         </p>\n         <p>\n            <code>\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\":\n        \"$.detail.status\"},</code>\n         </p>\n         <p>\n            <code>\"InputTemplate\": '{\"myInstance\": <instance>,\"myStatus\": \"<instance> is\n        in state \\\"<status>\\\"\"}'</code>\n         </p>\n         <p>\n            <code>}</code>\n         </p>",
+            "smithy.api#documentation": "<p>Input template where you specify placeholders that will be filled with the values of the\n      keys from <code>InputPathsMap</code> to customize the data sent to the target. Enclose each\n        <code>InputPathsMaps</code> value in brackets: <<i>value</i>>\n    </p>\n         <p>If <code>InputTemplate</code> is a JSON object (surrounded by curly braces), the following\n      restrictions apply:</p>\n         <ul>\n            <li>\n               <p>The placeholder cannot be used as an object key.</p>\n            </li>\n         </ul>\n         <p>The following example shows the syntax for using <code>InputPathsMap</code> and\n        <code>InputTemplate</code>.</p>\n         <p>\n            <code> \"InputTransformer\":</code>\n         </p>\n         <p>\n            <code>{</code>\n         </p>\n         <p>\n            <code>\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\":\n        \"$.detail.status\"},</code>\n         </p>\n         <p>\n            <code>\"InputTemplate\": \"<instance> is in state <status>\"</code>\n         </p>\n         <p>\n            <code>}</code>\n         </p>\n         <p>To have the <code>InputTemplate</code> include quote marks within a JSON string, escape\n      each quote marks with a slash, as in the following example:</p>\n         <p>\n            <code> \"InputTransformer\":</code>\n         </p>\n         <p>\n            <code>{</code>\n         </p>\n         <p>\n            <code>\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\":\n        \"$.detail.status\"},</code>\n         </p>\n         <p>\n            <code>\"InputTemplate\": \"<instance> is in state \\\"<status>\\\"\"</code>\n         </p>\n         <p>\n            <code>}</code>\n         </p>\n         <p>The <code>InputTemplate</code> can also be valid JSON with varibles in quotes or out, as\n      in the following example:</p>\n         <p>\n            <code> \"InputTransformer\":</code>\n         </p>\n         <p>\n            <code>{</code>\n         </p>\n         <p>\n            <code>\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\":\n        \"$.detail.status\"},</code>\n         </p>\n         <p>\n            <code>\"InputTemplate\": '{\"myInstance\": <instance>,\"myStatus\": \"<instance> is\n        in state \\\"<status>\\\"\"}'</code>\n         </p>\n         <p>\n            <code>}</code>\n         </p>",
             "smithy.api#required": {}
           }
         }
@@ -3947,7 +6506,10 @@
       }
     },
     "com.amazonaws.eventbridge#Integer": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.eventbridge#InternalException": {
       "type": "structure",
@@ -4001,22 +6563,26 @@
       }
     },
     "com.amazonaws.eventbridge#LaunchType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EC2",
-            "name": "EC2"
-          },
-          {
-            "value": "FARGATE",
-            "name": "FARGATE"
-          },
-          {
-            "value": "EXTERNAL",
-            "name": "EXTERNAL"
+      "type": "enum",
+      "members": {
+        "EC2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EC2"
           }
-        ]
+        },
+        "FARGATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FARGATE"
+          }
+        },
+        "EXTERNAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXTERNAL"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#LimitExceededException": {
@@ -4034,7 +6600,6 @@
     "com.amazonaws.eventbridge#LimitMax100": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -4044,7 +6609,6 @@
     "com.amazonaws.eventbridge#LimitMin1": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -4283,7 +6847,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page. \n       Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination \n       token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>"
+            "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. \n       Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination \n       token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>"
           }
         },
         "MaxResults": {
@@ -4306,7 +6870,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page. \n       Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination \n       token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>"
+            "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. \n       Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination \n       token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>"
           }
         }
       }
@@ -4706,7 +7270,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists your Amazon EventBridge rules. You can either list all the rules or you can provide\n      a prefix to match to the rule names.</p>\n\n         <p>ListRules does not list the targets of a rule. To see the targets associated with a rule,\n      use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html\">ListTargetsByRule</a>.</p>"
+        "smithy.api#documentation": "<p>Lists your Amazon EventBridge rules. You can either list all the rules or you can provide\n      a prefix to match to the rule names.</p>\n         <p>ListRules does not list the targets of a rule. To see the targets associated with a rule,\n      use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html\">ListTargetsByRule</a>.</p>"
       }
     },
     "com.amazonaws.eventbridge#ListRulesRequest": {
@@ -4866,7 +7430,10 @@
       }
     },
     "com.amazonaws.eventbridge#Long": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.eventbridge#ManagedBy": {
       "type": "string",
@@ -4892,7 +7459,6 @@
     "com.amazonaws.eventbridge#MaximumEventAgeInSeconds": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 60,
           "max": 86400
@@ -4902,7 +7468,6 @@
     "com.amazonaws.eventbridge#MaximumRetryAttempts": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 185
@@ -5099,18 +7664,20 @@
       }
     },
     "com.amazonaws.eventbridge#PlacementConstraintType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "distinctInstance",
-            "name": "DISTINCT_INSTANCE"
-          },
-          {
-            "value": "memberOf",
-            "name": "MEMBER_OF"
+      "type": "enum",
+      "members": {
+        "DISTINCT_INSTANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "distinctInstance"
           }
-        ]
+        },
+        "MEMBER_OF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "memberOf"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#PlacementConstraints": {
@@ -5167,22 +7734,26 @@
       }
     },
     "com.amazonaws.eventbridge#PlacementStrategyType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "random",
-            "name": "RANDOM"
-          },
-          {
-            "value": "spread",
-            "name": "SPREAD"
-          },
-          {
-            "value": "binpack",
-            "name": "BINPACK"
+      "type": "enum",
+      "members": {
+        "RANDOM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "random"
           }
-        ]
+        },
+        "SPREAD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "spread"
+          }
+        },
+        "BINPACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "binpack"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#PolicyLengthExceededException": {
@@ -5223,14 +7794,14 @@
       }
     },
     "com.amazonaws.eventbridge#PropagateTags": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TASK_DEFINITION",
-            "name": "TASK_DEFINITION"
+      "type": "enum",
+      "members": {
+        "TASK_DEFINITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TASK_DEFINITION"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.eventbridge#PutEvents": {
@@ -5263,7 +7834,10 @@
         "EndpointId": {
           "target": "com.amazonaws.eventbridge#EndpointId",
           "traits": {
-            "smithy.api#documentation": "<p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>\n         <important>\n            <p>When using Java, you must include <code>auth-crt</code> on the class path.</p>\n         </important>"
+            "smithy.api#documentation": "<p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>\n         <important>\n            <p>When using Java, you must include <code>auth-crt</code> on the class path.</p>\n         </important>",
+            "smithy.rules#contextParam": {
+              "name": "EndpointId"
+            }
           }
         }
       }
@@ -5292,7 +7866,7 @@
         "DetailType": {
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
-            "smithy.api#documentation": "<p>Free-form string used to decide what fields to expect in the event detail.</p>"
+            "smithy.api#documentation": "<p>Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>"
           }
         },
         "Detail": {
@@ -5336,13 +7910,14 @@
         "FailedEntryCount": {
           "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of failed entries.</p>"
           }
         },
         "Entries": {
           "target": "com.amazonaws.eventbridge#PutEventsResultEntryList",
           "traits": {
-            "smithy.api#documentation": "<p>The successfully and unsuccessfully ingested events results. If the ingestion was\n      successful, the entry has the event ID in it. Otherwise, you can use the error code and error\n      message to identify the problem with the entry.</p>"
+            "smithy.api#documentation": "<p>The successfully and unsuccessfully ingested events results. If the ingestion was\n      successful, the entry has the event ID in it. Otherwise, you can use the error code and error\n      message to identify the problem with the entry.</p>\n         <p>For each record, the index of the response element is the same as the index in the request array.</p>"
           }
         }
       }
@@ -5435,7 +8010,7 @@
         "DetailType": {
           "target": "com.amazonaws.eventbridge#String",
           "traits": {
-            "smithy.api#documentation": "<p>A free-form string used to decide what fields to expect in the event detail.</p>"
+            "smithy.api#documentation": "<p>A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>"
           }
         },
         "Detail": {
@@ -5467,6 +8042,7 @@
         "FailedEntryCount": {
           "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of events from this operation that could not be written to the partner event\n      bus.</p>"
           }
         },
@@ -5515,6 +8091,9 @@
       "input": {
         "target": "com.amazonaws.eventbridge#PutPermissionRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
@@ -5533,7 +8112,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization\n      to put events to the specified <i>event bus</i>. Amazon EventBridge (CloudWatch\n      Events) rules in your account are triggered by these events arriving to an event bus in your\n      account. </p>\n         <p>For another account to send events to your account, that external account must have an\n      EventBridge rule with your account's event bus as a target.</p>\n\n         <p>To enable multiple Amazon Web Services accounts to put events to your event bus, run\n        <code>PutPermission</code> once for each of these accounts. Or, if all the accounts are\n      members of the same Amazon Web Services organization, you can run <code>PutPermission</code> once specifying\n        <code>Principal</code> as \"*\" and specifying the Amazon Web Services organization ID in\n        <code>Condition</code>, to grant permissions to all accounts in that organization.</p>\n\n         <p>If you grant permissions using an organization, then accounts in that organization must\n      specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code> to\n      add your account's event bus as a target. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and\n        Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User\n        Guide</i>.</p>\n\n         <p>The permission policy on the event bus cannot exceed 10 KB in size.</p>"
+        "smithy.api#documentation": "<p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization\n      to put events to the specified <i>event bus</i>. Amazon EventBridge (CloudWatch\n      Events) rules in your account are triggered by these events arriving to an event bus in your\n      account. </p>\n         <p>For another account to send events to your account, that external account must have an\n      EventBridge rule with your account's event bus as a target.</p>\n         <p>To enable multiple Amazon Web Services accounts to put events to your event bus, run\n        <code>PutPermission</code> once for each of these accounts. Or, if all the accounts are\n      members of the same Amazon Web Services organization, you can run <code>PutPermission</code> once specifying\n        <code>Principal</code> as \"*\" and specifying the Amazon Web Services organization ID in\n        <code>Condition</code>, to grant permissions to all accounts in that organization.</p>\n         <p>If you grant permissions using an organization, then accounts in that organization must\n      specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code> to\n      add your account's event bus as a target. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and\n        Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User\n        Guide</i>.</p>\n         <p>The permission policy on the event bus cannot exceed 10 KB in size.</p>"
       }
     },
     "com.amazonaws.eventbridge#PutPermissionRequest": {
@@ -5554,7 +8133,7 @@
         "Principal": {
           "target": "com.amazonaws.eventbridge#Principal",
           "traits": {
-            "smithy.api#documentation": "<p>The 12-digit Amazon Web Services account ID that you are permitting to put events to your default event\n      bus. Specify \"*\" to permit any account to put events to your default event bus.</p>\n\n         <p>If you specify \"*\" without specifying <code>Condition</code>, avoid creating rules that\n      may match undesirable events. To create more secure rules, make sure that the event pattern\n      for each rule contains an <code>account</code> field with a specific account ID from which to\n      receive events. Rules with an account field do not match any events sent from other\n      accounts.</p>"
+            "smithy.api#documentation": "<p>The 12-digit Amazon Web Services account ID that you are permitting to put events to your default event\n      bus. Specify \"*\" to permit any account to put events to your default event bus.</p>\n         <p>If you specify \"*\" without specifying <code>Condition</code>, avoid creating rules that\n      may match undesirable events. To create more secure rules, make sure that the event pattern\n      for each rule contains an <code>account</code> field with a specific account ID from which to\n      receive events. Rules with an account field do not match any events sent from other\n      accounts.</p>"
           }
         },
         "StatementId": {
@@ -5566,7 +8145,7 @@
         "Condition": {
           "target": "com.amazonaws.eventbridge#Condition",
           "traits": {
-            "smithy.api#documentation": "<p>This parameter enables you to limit the permission to accounts that fulfill a certain\n      condition, such as being a member of a certain Amazon Web Services organization. For more information about\n      Amazon Web Services Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html\">What Is Amazon Web Services \n        Organizations</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>\n         <p>If you specify <code>Condition</code> with an Amazon Web Services organization ID, and specify \"*\" as the\n      value for <code>Principal</code>, you grant permission to all the accounts in the named\n      organization.</p>\n\n         <p>The <code>Condition</code> is a JSON string which must contain <code>Type</code>,\n        <code>Key</code>, and <code>Value</code> fields.</p>"
+            "smithy.api#documentation": "<p>This parameter enables you to limit the permission to accounts that fulfill a certain\n      condition, such as being a member of a certain Amazon Web Services organization. For more information about\n      Amazon Web Services Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html\">What Is Amazon Web Services \n        Organizations</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>\n         <p>If you specify <code>Condition</code> with an Amazon Web Services organization ID, and specify \"*\" as the\n      value for <code>Principal</code>, you grant permission to all the accounts in the named\n      organization.</p>\n         <p>The <code>Condition</code> is a JSON string which must contain <code>Type</code>,\n        <code>Key</code>, and <code>Value</code> fields.</p>"
           }
         },
         "Policy": {
@@ -5606,7 +8185,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates or updates the specified rule. Rules are enabled by default, or based on value of\n      the state. You can disable a rule using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html\">DisableRule</a>.</p>\n\n         <p>A single rule watches for events from a single event bus. Events generated by Amazon Web Services services\n      go to your account's default event bus. Events generated by SaaS partner services or\n      applications go to the matching partner event bus. If you have custom applications or\n      services, you can specify whether their events go to your default event bus or a custom event\n      bus that you have created. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html\">CreateEventBus</a>.</p>\n\n         <p>If you are updating an existing rule, the rule is replaced with what you specify in this\n        <code>PutRule</code> command. If you omit arguments in <code>PutRule</code>, the old values\n      for those arguments are not kept. Instead, they are replaced with null values.</p>\n\n         <p>When you create or update a rule, incoming events might not immediately start matching to\n      new or updated rules. Allow a short period of time for changes to take effect.</p>\n\n         <p>A rule must contain at least an EventPattern or ScheduleExpression. Rules with\n      EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions\n      self-trigger based on the given schedule. A rule can have both an EventPattern and a\n      ScheduleExpression, in which case the rule triggers on matching events as well as on a\n      schedule.</p>\n\n         <p>When you initially create a rule, you can optionally assign one or more tags to the rule.\n      Tags can help you organize and categorize your resources. You can also use them to scope user\n      permissions, by granting a user permission to access or change only rules with certain tag\n      values. To use the <code>PutRule</code> operation and assign tags, you must have both the\n        <code>events:PutRule</code> and <code>events:TagResource</code> permissions.</p>\n         <p>If you are updating an existing rule, any tags you specify in the <code>PutRule</code>\n      operation are ignored. To update the tags of an existing rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_TagResource.html\">TagResource</a> and <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p>\n\n         <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs).\n      However, EventBridge uses an exact match in event patterns and rules. Be sure to use the\n      correct ARN characters when creating event patterns so that they match the ARN syntax in the\n      event you want to match.</p>\n\n         <p>In EventBridge, it is possible to create rules that lead to infinite loops, where a rule\n      is fired repeatedly. For example, a rule might detect that ACLs have changed on an S3 bucket,\n      and trigger software to change them to the desired state. If the rule is not written\n      carefully, the subsequent change to the ACLs fires the rule again, creating an infinite\n      loop.</p>\n         <p>To prevent this, write the rules so that the triggered actions do not re-fire the same\n      rule. For example, your rule could fire only if ACLs are found to be in a bad state, instead\n      of after any change. </p>\n         <p>An infinite loop can quickly cause higher than expected charges. We recommend that you use\n      budgeting, which alerts you when charges exceed your specified limit. For more information,\n      see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html\">Managing Your Costs with\n        Budgets</a>.</p>"
+        "smithy.api#documentation": "<p>Creates or updates the specified rule. Rules are enabled by default, or based on value of\n      the state. You can disable a rule using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html\">DisableRule</a>.</p>\n         <p>A single rule watches for events from a single event bus. Events generated by Amazon Web Services services\n      go to your account's default event bus. Events generated by SaaS partner services or\n      applications go to the matching partner event bus. If you have custom applications or\n      services, you can specify whether their events go to your default event bus or a custom event\n      bus that you have created. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html\">CreateEventBus</a>.</p>\n         <p>If you are updating an existing rule, the rule is replaced with what you specify in this\n        <code>PutRule</code> command. If you omit arguments in <code>PutRule</code>, the old values\n      for those arguments are not kept. Instead, they are replaced with null values.</p>\n         <p>When you create or update a rule, incoming events might not immediately start matching to\n      new or updated rules. Allow a short period of time for changes to take effect.</p>\n         <p>A rule must contain at least an EventPattern or ScheduleExpression. Rules with\n      EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions\n      self-trigger based on the given schedule. A rule can have both an EventPattern and a\n      ScheduleExpression, in which case the rule triggers on matching events as well as on a\n      schedule.</p>\n         <p>When you initially create a rule, you can optionally assign one or more tags to the rule.\n      Tags can help you organize and categorize your resources. You can also use them to scope user\n      permissions, by granting a user permission to access or change only rules with certain tag\n      values. To use the <code>PutRule</code> operation and assign tags, you must have both the\n        <code>events:PutRule</code> and <code>events:TagResource</code> permissions.</p>\n         <p>If you are updating an existing rule, any tags you specify in the <code>PutRule</code>\n      operation are ignored. To update the tags of an existing rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_TagResource.html\">TagResource</a> and <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p>\n         <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs).\n      However, EventBridge uses an exact match in event patterns and rules. Be sure to use the\n      correct ARN characters when creating event patterns so that they match the ARN syntax in the\n      event you want to match.</p>\n         <p>In EventBridge, it is possible to create rules that lead to infinite loops, where a rule\n      is fired repeatedly. For example, a rule might detect that ACLs have changed on an S3 bucket,\n      and trigger software to change them to the desired state. If the rule is not written\n      carefully, the subsequent change to the ACLs fires the rule again, creating an infinite\n      loop.</p>\n         <p>To prevent this, write the rules so that the triggered actions do not re-fire the same\n      rule. For example, your rule could fire only if ACLs are found to be in a bad state, instead\n      of after any change. </p>\n         <p>An infinite loop can quickly cause higher than expected charges. We recommend that you use\n      budgeting, which alerts you when charges exceed your specified limit. For more information,\n      see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html\">Managing Your Costs with\n        Budgets</a>.</p>"
       }
     },
     "com.amazonaws.eventbridge#PutRuleRequest": {
@@ -5628,7 +8207,7 @@
         "EventPattern": {
           "target": "com.amazonaws.eventbridge#EventPattern",
           "traits": {
-            "smithy.api#documentation": "<p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html\">EventBridge event\n        patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html\">Amazon EventBridge event\n        patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>"
           }
         },
         "State": {
@@ -5700,7 +8279,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds the specified targets to the specified rule, or updates the targets if they are\n      already associated with the rule.</p>\n         <p>Targets are the resources that are invoked when a rule is triggered.</p>\n         <note>\n            <p>Each rule can have up to five (5) targets associated with it at one time.</p>\n         </note>\n         <p>You can configure the following as targets for Events:</p>\n\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html\">API destination</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html\">API Gateway</a>\n               </p>\n            </li>\n            <li>\n               <p>Batch job queue</p>\n            </li>\n            <li>\n               <p>CloudWatch group</p>\n            </li>\n            <li>\n               <p>CodeBuild project</p>\n            </li>\n            <li>\n               <p>CodePipeline</p>\n            </li>\n            <li>\n               <p>EC2 <code>CreateSnapshot</code> API call</p>\n            </li>\n            <li>\n               <p>EC2 Image Builder</p>\n            </li>\n            <li>\n               <p>EC2 <code>RebootInstances</code> API call</p>\n            </li>\n            <li>\n               <p>EC2 <code>StopInstances</code> API call</p>\n            </li>\n            <li>\n               <p>EC2 <code>TerminateInstances</code> API call</p>\n            </li>\n            <li>\n               <p>ECS task</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html\">Event bus in a different account or \n          Region</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html\">Event bus in the same account and\n          Region</a>\n               </p>\n            </li>\n            <li>\n               <p>Firehose delivery stream</p>\n            </li>\n            <li>\n               <p>Glue workflow</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge\">Incident Manager response plan</a>\n               </p>\n            </li>\n            <li>\n               <p>Inspector assessment template</p>\n            </li>\n            <li>\n               <p>Kinesis stream</p>\n            </li>\n            <li>\n               <p>Lambda function</p>\n            </li>\n            <li>\n               <p>Redshift cluster</p>\n            </li>\n            <li>\n               <p>SageMaker Pipeline</p>\n            </li>\n            <li>\n               <p>SNS topic</p>\n            </li>\n            <li>\n               <p>SQS queue</p>\n            </li>\n            <li>\n               <p>Step Functions state machine</p>\n            </li>\n            <li>\n               <p>Systems Manager Automation</p>\n            </li>\n            <li>\n               <p>Systems Manager OpsItem</p>\n            </li>\n            <li>\n               <p>Systems Manager Run Command</p>\n            </li>\n         </ul>\n\n         <p>Creating rules with built-in targets is supported only in the Amazon Web Services Management Console. The\n      built-in targets are <code>EC2 CreateSnapshot API call</code>, <code>EC2 RebootInstances API\n        call</code>, <code>EC2 StopInstances API call</code>, and <code>EC2 TerminateInstances API\n        call</code>. </p>\n\n         <p>For some target types, <code>PutTargets</code> provides target-specific parameters. If the\n      target is a Kinesis data stream, you can optionally specify which shard the event goes to by\n      using the <code>KinesisParameters</code> argument. To invoke a command on multiple EC2\n      instances with one rule, you can use the <code>RunCommandParameters</code> field.</p>\n\n         <p>To be able to make API calls against the resources that you own, Amazon EventBridge\n      needs the appropriate permissions. For Lambda and Amazon SNS\n      resources, EventBridge relies on resource-based policies. For EC2 instances, Kinesis Data Streams, \n      Step Functions state machines and API Gateway REST APIs, EventBridge relies on\n      IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.\n      For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html\">Authentication\n        and Access Control</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n\n         <p>If another Amazon Web Services account is in the same region and has granted you permission (using\n        <code>PutPermission</code>), you can send events to that account. Set that account's event\n      bus as a target of the rules in your account. To send the matched events to the other account,\n      specify that account's event bus as the <code>Arn</code> value when you run\n        <code>PutTargets</code>. If your account sends events to another account, your account is\n      charged for each sent event. Each event sent to another account is charged as a custom event.\n      The account receiving the event is not charged. For more information, see <a href=\"http://aws.amazon.com/eventbridge/pricing/\">Amazon EventBridge\n        Pricing</a>.</p>\n\n         <note>\n            <p>\n               <code>Input</code>, <code>InputPath</code>, and <code>InputTransformer</code> are not\n        available with <code>PutTarget</code> if the target is an event bus of a different Amazon Web Services \n        account.</p>\n         </note>\n\n         <p>If you are setting the event bus of another account as the target, and that account\n      granted permission to your account through an organization instead of directly by the account\n      ID, then you must specify a <code>RoleArn</code> with proper permissions in the\n        <code>Target</code> structure. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and\n          Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User\n        Guide</i>.</p>\n\n         <p>For more information about enabling cross-account events, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html\">PutPermission</a>.</p>\n\n         <p>\n            <b>Input</b>, <b>InputPath</b>, and\n        <b>InputTransformer</b> are mutually exclusive and optional\n      parameters of a target. When a rule is triggered due to a matched event:</p>\n\n         <ul>\n            <li>\n               <p>If none of the following arguments are specified for a target, then the entire event\n          is passed to the target in JSON format (unless the target is Amazon EC2 Run Command or\n          Amazon ECS task, in which case nothing from the event is passed to the target).</p>\n            </li>\n            <li>\n               <p>If <b>Input</b> is specified in the form of valid JSON, then\n          the matched event is overridden with this constant.</p>\n            </li>\n            <li>\n               <p>If <b>InputPath</b> is specified in the form of JSONPath\n          (for example, <code>$.detail</code>), then only the part of the event specified in the\n          path is passed to the target (for example, only the detail part of the event is\n          passed).</p>\n            </li>\n            <li>\n               <p>If <b>InputTransformer</b> is specified, then one or more\n          specified JSONPaths are extracted from the event and used as values in a template that you\n          specify as the input to the target.</p>\n            </li>\n         </ul>\n\n         <p>When you specify <code>InputPath</code> or <code>InputTransformer</code>, you must use\n      JSON dot notation, not bracket notation.</p>\n\n         <p>When you add targets to a rule and the associated rule triggers soon after, new or updated\n      targets might not be immediately invoked. Allow a short period of time for changes to take\n      effect.</p>\n\n         <p>This action can partially fail if too many requests are made at the same time. If that\n      happens, <code>FailedEntryCount</code> is non-zero in the response and each entry in\n        <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>"
+        "smithy.api#documentation": "<p>Adds the specified targets to the specified rule, or updates the targets if they are\n      already associated with the rule.</p>\n         <p>Targets are the resources that are invoked when a rule is triggered.</p>\n         <note>\n            <p>Each rule can have up to five (5) targets associated with it at one time.</p>\n         </note>\n         <p>You can configure the following as targets for Events:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html\">API destination</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html\">API Gateway</a>\n               </p>\n            </li>\n            <li>\n               <p>Batch job queue</p>\n            </li>\n            <li>\n               <p>CloudWatch group</p>\n            </li>\n            <li>\n               <p>CodeBuild project</p>\n            </li>\n            <li>\n               <p>CodePipeline</p>\n            </li>\n            <li>\n               <p>EC2 <code>CreateSnapshot</code> API call</p>\n            </li>\n            <li>\n               <p>EC2 Image Builder</p>\n            </li>\n            <li>\n               <p>EC2 <code>RebootInstances</code> API call</p>\n            </li>\n            <li>\n               <p>EC2 <code>StopInstances</code> API call</p>\n            </li>\n            <li>\n               <p>EC2 <code>TerminateInstances</code> API call</p>\n            </li>\n            <li>\n               <p>ECS task</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html\">Event bus in a different account or \n          Region</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html\">Event bus in the same account and\n          Region</a>\n               </p>\n            </li>\n            <li>\n               <p>Firehose delivery stream</p>\n            </li>\n            <li>\n               <p>Glue workflow</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge\">Incident Manager response plan</a>\n               </p>\n            </li>\n            <li>\n               <p>Inspector assessment template</p>\n            </li>\n            <li>\n               <p>Kinesis stream</p>\n            </li>\n            <li>\n               <p>Lambda function</p>\n            </li>\n            <li>\n               <p>Redshift cluster</p>\n            </li>\n            <li>\n               <p>Redshift Serverless workgroup</p>\n            </li>\n            <li>\n               <p>SageMaker Pipeline</p>\n            </li>\n            <li>\n               <p>SNS topic</p>\n            </li>\n            <li>\n               <p>SQS queue</p>\n            </li>\n            <li>\n               <p>Step Functions state machine</p>\n            </li>\n            <li>\n               <p>Systems Manager Automation</p>\n            </li>\n            <li>\n               <p>Systems Manager OpsItem</p>\n            </li>\n            <li>\n               <p>Systems Manager Run Command</p>\n            </li>\n         </ul>\n         <p>Creating rules with built-in targets is supported only in the Amazon Web Services Management Console. The\n      built-in targets are <code>EC2 CreateSnapshot API call</code>, <code>EC2 RebootInstances API\n        call</code>, <code>EC2 StopInstances API call</code>, and <code>EC2 TerminateInstances API\n        call</code>. </p>\n         <p>For some target types, <code>PutTargets</code> provides target-specific parameters. If the\n      target is a Kinesis data stream, you can optionally specify which shard the event goes to by\n      using the <code>KinesisParameters</code> argument. To invoke a command on multiple EC2\n      instances with one rule, you can use the <code>RunCommandParameters</code> field.</p>\n         <p>To be able to make API calls against the resources that you own, Amazon EventBridge\n      needs the appropriate permissions. For Lambda and Amazon SNS\n      resources, EventBridge relies on resource-based policies. For EC2 instances, Kinesis Data Streams, \n      Step Functions state machines and API Gateway APIs, EventBridge relies on\n      IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.\n      For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html\">Authentication\n        and Access Control</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         <p>If another Amazon Web Services account is in the same region and has granted you permission (using\n        <code>PutPermission</code>), you can send events to that account. Set that account's event\n      bus as a target of the rules in your account. To send the matched events to the other account,\n      specify that account's event bus as the <code>Arn</code> value when you run\n        <code>PutTargets</code>. If your account sends events to another account, your account is\n      charged for each sent event. Each event sent to another account is charged as a custom event.\n      The account receiving the event is not charged. For more information, see <a href=\"http://aws.amazon.com/eventbridge/pricing/\">Amazon EventBridge\n        Pricing</a>.</p>\n         <note>\n            <p>\n               <code>Input</code>, <code>InputPath</code>, and <code>InputTransformer</code> are not\n        available with <code>PutTarget</code> if the target is an event bus of a different Amazon Web Services \n        account.</p>\n         </note>\n         <p>If you are setting the event bus of another account as the target, and that account\n      granted permission to your account through an organization instead of directly by the account\n      ID, then you must specify a <code>RoleArn</code> with proper permissions in the\n        <code>Target</code> structure. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and\n          Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User\n        Guide</i>.</p>\n         <p>For more information about enabling cross-account events, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html\">PutPermission</a>.</p>\n         <p>\n            <b>Input</b>, <b>InputPath</b>, and\n        <b>InputTransformer</b> are mutually exclusive and optional\n      parameters of a target. When a rule is triggered due to a matched event:</p>\n         <ul>\n            <li>\n               <p>If none of the following arguments are specified for a target, then the entire event\n          is passed to the target in JSON format (unless the target is Amazon EC2 Run Command or\n          Amazon ECS task, in which case nothing from the event is passed to the target).</p>\n            </li>\n            <li>\n               <p>If <b>Input</b> is specified in the form of valid JSON, then\n          the matched event is overridden with this constant.</p>\n            </li>\n            <li>\n               <p>If <b>InputPath</b> is specified in the form of JSONPath\n          (for example, <code>$.detail</code>), then only the part of the event specified in the\n          path is passed to the target (for example, only the detail part of the event is\n          passed).</p>\n            </li>\n            <li>\n               <p>If <b>InputTransformer</b> is specified, then one or more\n          specified JSONPaths are extracted from the event and used as values in a template that you\n          specify as the input to the target.</p>\n            </li>\n         </ul>\n         <p>When you specify <code>InputPath</code> or <code>InputTransformer</code>, you must use\n      JSON dot notation, not bracket notation.</p>\n         <p>When you add targets to a rule and the associated rule triggers soon after, new or updated\n      targets might not be immediately invoked. Allow a short period of time for changes to take\n      effect.</p>\n         <p>This action can partially fail if too many requests are made at the same time. If that\n      happens, <code>FailedEntryCount</code> is non-zero in the response and each entry in\n        <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>"
       }
     },
     "com.amazonaws.eventbridge#PutTargetsRequest": {
@@ -5734,6 +8313,7 @@
         "FailedEntryCount": {
           "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of failed entries.</p>"
           }
         },
@@ -5825,7 +8405,7 @@
         "DbUser": {
           "target": "com.amazonaws.eventbridge#DbUser",
           "traits": {
-            "smithy.api#documentation": "<p>The database user name. Required when authenticating using temporary credentials.</p>"
+            "smithy.api#documentation": "<p>The database user name. Required when authenticating using temporary credentials.</p>\n         <p>Do not provide this parameter when connecting to a Redshift Serverless workgroup.</p>"
           }
         },
         "Sql": {
@@ -5844,12 +8424,13 @@
         "WithEvent": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether to send an event back to EventBridge after the SQL statement\n      runs.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the\n      Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>"
+        "smithy.api#documentation": "<p>These are custom parameters to be used when the target is a Amazon Redshift cluster or Redshift Serverless workgroup to invoke the\n      Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>"
       }
     },
     "com.amazonaws.eventbridge#RedshiftSecretManagerArn": {
@@ -5875,6 +8456,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.eventbridge#RemovePermissionRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -5906,6 +8490,7 @@
         "RemoveAllPermissions": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether to remove all permissions.</p>"
           }
         },
@@ -5940,7 +8525,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes the specified targets from the specified rule. When the rule is triggered, those\n      targets are no longer be invoked.</p>\n    \n         <note>\n            <p>A successful execution of <code>RemoveTargets</code> doesn't guarantee all targets are removed from the rule, it means that the target(s) listed in the request are removed.</p>\n         </note>\n\n         <p>When you remove a target, when the associated rule triggers, removed targets might\n      continue to be invoked. Allow a short period of time for changes to take effect.</p>\n\n         <p>This action can partially fail if too many requests are made at the same time. If that\n      happens, <code>FailedEntryCount</code> is non-zero in the response and each entry in\n        <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>"
+        "smithy.api#documentation": "<p>Removes the specified targets from the specified rule. When the rule is triggered, those\n      targets are no longer be invoked.</p>\n         <note>\n            <p>A successful execution of <code>RemoveTargets</code> doesn't guarantee all targets are removed from the rule, it means that the target(s) listed in the request are removed.</p>\n         </note>\n         <p>When you remove a target, when the associated rule triggers, removed targets might\n      continue to be invoked. Allow a short period of time for changes to take effect.</p>\n         <p>This action can partially fail if too many requests are made at the same time. If that\n      happens, <code>FailedEntryCount</code> is non-zero in the response and each entry in\n        <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>"
       }
     },
     "com.amazonaws.eventbridge#RemoveTargetsRequest": {
@@ -5969,6 +8554,7 @@
         "Force": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If this is a managed rule, created by an Amazon Web Services service on your behalf, you must specify\n        <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored for\n      rules that are not managed rules. You can check whether a rule is a managed rule by using\n        <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code>\n      field of the response.</p>"
           }
         }
@@ -5980,6 +8566,7 @@
         "FailedEntryCount": {
           "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of failed entries.</p>"
           }
         },
@@ -6149,34 +8736,44 @@
       }
     },
     "com.amazonaws.eventbridge#ReplayState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STARTING",
-            "name": "STARTING"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "CANCELLING",
-            "name": "CANCELLING"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "CANCELLED",
-            "name": "CANCELLED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "STARTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STARTING"
           }
-        ]
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "CANCELLING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELLING"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "CANCELLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELLED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#ReplayStateReason": {
@@ -6204,18 +8801,20 @@
       }
     },
     "com.amazonaws.eventbridge#ReplicationState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#ResourceAlreadyExistsException": {
@@ -6254,7 +8853,6 @@
     "com.amazonaws.eventbridge#RetentionDays": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }
@@ -6417,18 +9015,20 @@
       }
     },
     "com.amazonaws.eventbridge#RuleState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.eventbridge#RunCommandParameters": {
@@ -6900,7 +9500,7 @@
         "InputPath": {
           "target": "com.amazonaws.eventbridge#TargetInputPath",
           "traits": {
-            "smithy.api#documentation": "<p>The value of the JSONPath that is used for extracting part of the matched event when\n      passing it to the target. You must use JSON dot notation, not bracket notation. For more\n      information about JSON paths, see <a href=\"http://goessner.net/articles/JsonPath/\">JSONPath</a>.</p>"
+            "smithy.api#documentation": "<p>The value of the JSONPath that is used for extracting part of the matched event when\n      passing it to the target. You may use JSON dot notation or bracket notation. For more\n      information about JSON paths, see <a href=\"http://goessner.net/articles/JsonPath/\">JSONPath</a>.</p>"
           }
         },
         "InputTransformer": {
@@ -6942,7 +9542,7 @@
         "HttpParameters": {
           "target": "com.amazonaws.eventbridge#HttpParameters",
           "traits": {
-            "smithy.api#documentation": "<p>Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or\n      EventBridge ApiDestination.</p>\n         <p>If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can\n      use this parameter to specify headers, path parameters, and query string keys/values as part\n      of your target invoking request. If you're using ApiDestinations, the corresponding Connection\n      can also have these values configured. In case of any conflicting keys, values from the\n      Connection take precedence.</p>"
+            "smithy.api#documentation": "<p>Contains the HTTP parameters to use when the target is a API Gateway endpoint or\n      EventBridge ApiDestination.</p>\n         <p>If you specify an API Gateway API or EventBridge ApiDestination as a target, you can\n      use this parameter to specify headers, path parameters, and query string keys/values as part\n      of your target invoking request. If you're using ApiDestinations, the corresponding Connection\n      can also have these values configured. In case of any conflicting keys, values from the\n      Connection take precedence.</p>"
           }
         },
         "RedshiftDataParameters": {
@@ -6971,7 +9571,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Targets are the resources to be invoked when a rule is triggered. For a complete list of\n      services and resources that can be set as a target, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutTargets.html\">PutTargets</a>.</p>\n\n         <p>If you are setting the event bus of another account as the target, and that account\n      granted permission to your account through an organization instead of directly by the account\n      ID, then you must specify a <code>RoleArn</code> with proper permissions in the\n        <code>Target</code> structure. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and\n          Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User\n        Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Targets are the resources to be invoked when a rule is triggered. For a complete list of\n      services and resources that can be set as a target, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutTargets.html\">PutTargets</a>.</p>\n         <p>If you are setting the event bus of another account as the target, and that account\n      granted permission to your account through an organization instead of directly by the account\n      ID, then you must specify a <code>RoleArn</code> with proper permissions in the\n        <code>Target</code> structure. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and\n          Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User\n        Guide</i>.</p>"
       }
     },
     "com.amazonaws.eventbridge#TargetArn": {
@@ -7089,6 +9689,7 @@
         "Result": {
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether the event matches the event pattern.</p>"
           }
         }
@@ -7621,7 +10222,7 @@
         "RoutingConfig": {
           "target": "com.amazonaws.eventbridge#RoutingConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Configure the routing policy, including the health check and secondary Region..</p>"
+            "smithy.api#documentation": "<p>Configure the routing policy, including the health check and secondary Region.</p>"
           }
         },
         "ReplicationConfig": {

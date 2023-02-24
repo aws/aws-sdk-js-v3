@@ -2,6 +2,21 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  BatchCreateCustomVocabularyItemCommand,
+  BatchCreateCustomVocabularyItemCommandInput,
+  BatchCreateCustomVocabularyItemCommandOutput,
+} from "./commands/BatchCreateCustomVocabularyItemCommand";
+import {
+  BatchDeleteCustomVocabularyItemCommand,
+  BatchDeleteCustomVocabularyItemCommandInput,
+  BatchDeleteCustomVocabularyItemCommandOutput,
+} from "./commands/BatchDeleteCustomVocabularyItemCommand";
+import {
+  BatchUpdateCustomVocabularyItemCommand,
+  BatchUpdateCustomVocabularyItemCommandInput,
+  BatchUpdateCustomVocabularyItemCommandOutput,
+} from "./commands/BatchUpdateCustomVocabularyItemCommand";
+import {
   BuildBotLocaleCommand,
   BuildBotLocaleCommandInput,
   BuildBotLocaleCommandOutput,
@@ -202,6 +217,11 @@ import {
   ListBuiltInSlotTypesCommandInput,
   ListBuiltInSlotTypesCommandOutput,
 } from "./commands/ListBuiltInSlotTypesCommand";
+import {
+  ListCustomVocabularyItemsCommand,
+  ListCustomVocabularyItemsCommandInput,
+  ListCustomVocabularyItemsCommandOutput,
+} from "./commands/ListCustomVocabularyItemsCommand";
 import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import { ListIntentsCommand, ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand";
@@ -232,6 +252,11 @@ import {
   StartBotRecommendationCommandOutput,
 } from "./commands/StartBotRecommendationCommand";
 import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import {
+  StopBotRecommendationCommand,
+  StopBotRecommendationCommandInput,
+  StopBotRecommendationCommandOutput,
+} from "./commands/StopBotRecommendationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -281,6 +306,105 @@ import { LexModelsV2Client } from "./LexModelsV2Client";
  * <p></p>
  */
 export class LexModelsV2 extends LexModelsV2Client {
+  /**
+   * <p>Create a batch of custom vocabulary items for a given bot locale's
+   *          custom vocabulary.</p>
+   */
+  public batchCreateCustomVocabularyItem(
+    args: BatchCreateCustomVocabularyItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateCustomVocabularyItemCommandOutput>;
+  public batchCreateCustomVocabularyItem(
+    args: BatchCreateCustomVocabularyItemCommandInput,
+    cb: (err: any, data?: BatchCreateCustomVocabularyItemCommandOutput) => void
+  ): void;
+  public batchCreateCustomVocabularyItem(
+    args: BatchCreateCustomVocabularyItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateCustomVocabularyItemCommandOutput) => void
+  ): void;
+  public batchCreateCustomVocabularyItem(
+    args: BatchCreateCustomVocabularyItemCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCreateCustomVocabularyItemCommandOutput) => void),
+    cb?: (err: any, data?: BatchCreateCustomVocabularyItemCommandOutput) => void
+  ): Promise<BatchCreateCustomVocabularyItemCommandOutput> | void {
+    const command = new BatchCreateCustomVocabularyItemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete a batch of custom vocabulary items for a given bot locale's
+   *          custom vocabulary.</p>
+   */
+  public batchDeleteCustomVocabularyItem(
+    args: BatchDeleteCustomVocabularyItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteCustomVocabularyItemCommandOutput>;
+  public batchDeleteCustomVocabularyItem(
+    args: BatchDeleteCustomVocabularyItemCommandInput,
+    cb: (err: any, data?: BatchDeleteCustomVocabularyItemCommandOutput) => void
+  ): void;
+  public batchDeleteCustomVocabularyItem(
+    args: BatchDeleteCustomVocabularyItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteCustomVocabularyItemCommandOutput) => void
+  ): void;
+  public batchDeleteCustomVocabularyItem(
+    args: BatchDeleteCustomVocabularyItemCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteCustomVocabularyItemCommandOutput) => void),
+    cb?: (err: any, data?: BatchDeleteCustomVocabularyItemCommandOutput) => void
+  ): Promise<BatchDeleteCustomVocabularyItemCommandOutput> | void {
+    const command = new BatchDeleteCustomVocabularyItemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update a batch of custom vocabulary items for a given bot locale's custom
+   *          vocabulary.</p>
+   */
+  public batchUpdateCustomVocabularyItem(
+    args: BatchUpdateCustomVocabularyItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateCustomVocabularyItemCommandOutput>;
+  public batchUpdateCustomVocabularyItem(
+    args: BatchUpdateCustomVocabularyItemCommandInput,
+    cb: (err: any, data?: BatchUpdateCustomVocabularyItemCommandOutput) => void
+  ): void;
+  public batchUpdateCustomVocabularyItem(
+    args: BatchUpdateCustomVocabularyItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateCustomVocabularyItemCommandOutput) => void
+  ): void;
+  public batchUpdateCustomVocabularyItem(
+    args: BatchUpdateCustomVocabularyItemCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUpdateCustomVocabularyItemCommandOutput) => void),
+    cb?: (err: any, data?: BatchUpdateCustomVocabularyItemCommandOutput) => void
+  ): Promise<BatchUpdateCustomVocabularyItemCommandOutput> | void {
+    const command = new BatchUpdateCustomVocabularyItemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Builds a bot, its intents, and its slot types into a specific
    *          locale. A bot can be built into multiple locales. At runtime the locale
@@ -822,8 +946,8 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
-   * <p>Deletes a specific version of a bot. To delete all version of a bot,
-   *          use the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteBot.html">DeleteBot</a> operation.</p>
+   * <p>Deletes a specific version of a bot. To delete all versions of a bot,
+   *          use the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DeleteBot.html">DeleteBot</a> operation.</p>
    */
   public deleteBotVersion(
     args: DeleteBotVersionCommandInput,
@@ -1112,7 +1236,7 @@ export class LexModelsV2 extends LexModelsV2Client {
   /**
    * <p>Deletes stored utterances.</p>
    *          <p>Amazon Lex stores the utterances that users send to your bot. Utterances
-   *          are stored for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a> operation, and
+   *          are stored for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a> operation, and
    *          then stored indefinitely for use in improving the ability of your bot
    *          to respond to user input..</p>
    *          <p>Use the <code>DeleteUtterances</code> operation to manually delete
@@ -1756,7 +1880,7 @@ export class LexModelsV2 extends LexModelsV2Client {
    *          <p>To use a built-in intent as a the base for your own intent, include
    *          the built-in intent signature in the <code>parentIntentSignature</code>
    *          parameter when you call the <code>CreateIntent</code> operation. For
-   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateIntent.html">CreateIntent</a>.</p>
+   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html">CreateIntent</a>.</p>
    */
   public listBuiltInIntents(
     args: ListBuiltInIntentsCommandInput,
@@ -1810,6 +1934,39 @@ export class LexModelsV2 extends LexModelsV2Client {
     cb?: (err: any, data?: ListBuiltInSlotTypesCommandOutput) => void
   ): Promise<ListBuiltInSlotTypesCommandOutput> | void {
     const command = new ListBuiltInSlotTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Paginated list of custom vocabulary items for a given bot locale's
+   *          custom vocabulary.</p>
+   */
+  public listCustomVocabularyItems(
+    args: ListCustomVocabularyItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomVocabularyItemsCommandOutput>;
+  public listCustomVocabularyItems(
+    args: ListCustomVocabularyItemsCommandInput,
+    cb: (err: any, data?: ListCustomVocabularyItemsCommandOutput) => void
+  ): void;
+  public listCustomVocabularyItems(
+    args: ListCustomVocabularyItemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomVocabularyItemsCommandOutput) => void
+  ): void;
+  public listCustomVocabularyItems(
+    args: ListCustomVocabularyItemsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCustomVocabularyItemsCommandOutput) => void),
+    cb?: (err: any, data?: ListCustomVocabularyItemsCommandOutput) => void
+  ): Promise<ListCustomVocabularyItemsCommandOutput> | void {
+    const command = new ListCustomVocabularyItemsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1902,7 +2059,8 @@ export class LexModelsV2 extends LexModelsV2Client {
 
   /**
    * <p>Gets a list of recommended intents provided by the bot
-   *          recommendation that you can use in your bot.</p>
+   *          recommendation that you can use in your bot. Intents in the
+   *          response are ordered by relevance.</p>
    */
   public listRecommendedIntents(
     args: ListRecommendedIntentsCommandInput,
@@ -2118,6 +2276,38 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
+   * <p>Stop an already running Bot Recommendation request.</p>
+   */
+  public stopBotRecommendation(
+    args: StopBotRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopBotRecommendationCommandOutput>;
+  public stopBotRecommendation(
+    args: StopBotRecommendationCommandInput,
+    cb: (err: any, data?: StopBotRecommendationCommandOutput) => void
+  ): void;
+  public stopBotRecommendation(
+    args: StopBotRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopBotRecommendationCommandOutput) => void
+  ): void;
+  public stopBotRecommendation(
+    args: StopBotRecommendationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopBotRecommendationCommandOutput) => void),
+    cb?: (err: any, data?: StopBotRecommendationCommandOutput) => void
+  ): Promise<StopBotRecommendationCommandOutput> | void {
+    const command = new StopBotRecommendationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds the specified tags to the specified resource. If a tag key
    *          already exists, the existing value is replaced with the new
    *          value.</p>
@@ -2304,7 +2494,7 @@ export class LexModelsV2 extends LexModelsV2Client {
    *          <p>The password is not required. If you don't supply a password, Amazon Lex
    *          generates a zip file that is not protected by a password. This is the
    *          archive that is available at the pre-signed S3 URL provided by the
-   *             <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">DescribeExport</a> operation.</p>
+   *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">DescribeExport</a> operation.</p>
    */
   public updateExport(
     args: UpdateExportCommandInput,

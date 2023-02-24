@@ -158,24 +158,22 @@ import { DevOpsGuruClient } from "./DevOpsGuruClient";
  * 				<i>insight</i> that includes recommendations, related events, and
  * 			related metrics that can help you improve your operational applications. For more
  * 			information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html">What is Amazon DevOps Guru</a>. </p>
- *
- * 		       <p> You can specify 1 or 2 Amazon Simple Notification Service topics so you are notified every time a new insight
+ *          <p> You can specify 1 or 2 Amazon Simple Notification Service topics so you are notified every time a new insight
  * 			is created. You can also enable DevOps Guru to generate an OpsItem in Amazon Web Services Systems Manager for each
  * 			insight to help you manage and track your work addressing insights. </p>
- *
- * 		       <p> To learn about the DevOps Guru workflow, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works">How DevOps Guru works</a>. To
+ *          <p> To learn about the DevOps Guru workflow, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works">How DevOps Guru works</a>. To
  * 			learn about DevOps Guru concepts, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html">Concepts in DevOps Guru</a>. </p>
  */
 export class DevOpsGuru extends DevOpsGuruClient {
   /**
    * <p> Adds a notification channel to DevOps Guru. A notification channel is used to notify you
    * 			about important DevOps Guru events, such as when an insight is generated. </p>
-   * 		       <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
+   *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
    * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
    * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
    * 				for cross account Amazon SNS topics</a>.</p>
-   * 				     <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
-   * 				     <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
+   *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
+   *          <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
    * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
    * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
    */
@@ -1004,11 +1002,10 @@ export class DevOpsGuru extends DevOpsGuruClient {
 
   /**
    * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
-   * 			returned by their start time, one or more statuses (<code>ONGOING</code>,
-   * 				<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
+   * 			returned by their start time, one or more statuses (<code>ONGOING</code> or <code>CLOSED</code>), one or more severities
    * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
    * 				(<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
-   * 		       <p> Use the <code>Filters</code> parameter to specify status and severity search
+   *          <p> Use the <code>Filters</code> parameter to specify status and severity search
    * 			parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or
    * 				<code>PROACTIVE</code> in your search. </p>
    */
@@ -1047,7 +1044,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
    * 				<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
    * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
    * 				(<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
-   * 		       <p> Use the <code>Filters</code> parameter to specify status and severity search
+   *          <p> Use the <code>Filters</code> parameter to specify status and severity search
    * 			parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or
    * 				<code>PROACTIVE</code> in your search. </p>
    */

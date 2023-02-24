@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   UpdateRuntimeConfigurationInputFilterSensitiveLog,
   UpdateRuntimeConfigurationOutput,
   UpdateRuntimeConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateRuntimeConfigurationCommand,
   serializeAws_json1_1UpdateRuntimeConfigurationCommand,
@@ -40,28 +41,12 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  *             Instances immediately begin complying with the new configuration by launching new server
  *             processes or not replacing existing processes when they shut down. Updating a fleet's
  *             runtime configuration never affects existing server processes.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateFleetLocations</a> |
- *                     <a>UpdateFleetAttributes</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>UpdateFleetPortSettings</a> |
- *                     <a>UpdateRuntimeConfiguration</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>StartFleetActions</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DeleteFleet</a> |
- *                     <a>DeleteFleetLocations</a> |
- *                     <a>DeleteScalingPolicy</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *                 <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *                 fleets</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +71,15 @@ export class UpdateRuntimeConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateRuntimeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,6 +95,9 @@ export class UpdateRuntimeConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateRuntimeConfigurationCommandInput, UpdateRuntimeConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateRuntimeConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

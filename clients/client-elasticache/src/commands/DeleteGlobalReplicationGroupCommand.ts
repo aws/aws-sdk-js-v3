@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface DeleteGlobalReplicationGroupCommandOutput
 
 /**
  * <p>Deleting a Global datastore is a two-step process: </p>
- *             <ul>
+ *          <ul>
  *             <li>
  *                <p>First, you must <a>DisassociateGlobalReplicationGroup</a> to remove the secondary clusters in the Global datastore.</p>
  *             </li>
@@ -39,13 +40,10 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  *                <p>Once the Global datastore contains only the primary cluster, you can use the <code>DeleteGlobalReplicationGroup</code> API to delete the Global datastore while retainining the primary cluster using <code>RetainPrimaryReplicationGroup=true</code>.</p>
  *             </li>
  *          </ul>
- *
- *
- *           <p>Since the Global Datastore has only a primary cluster, you can delete the Global Datastore
+ *          <p>Since the Global Datastore has only a primary cluster, you can delete the Global Datastore
  *              while retaining the primary by setting <code>RetainPrimaryReplicationGroup=true</code>. The primary cluster is never deleted when deleting a
  *           Global Datastore. It can only be deleted when it no longer is associated with any Global Datastore.</p>
- *
- *         <p>When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources;
+ *          <p>When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources;
  *             you cannot cancel or revert this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +68,15 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +92,9 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteGlobalReplicationGroupCommandInput, DeleteGlobalReplicationGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteGlobalReplicationGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

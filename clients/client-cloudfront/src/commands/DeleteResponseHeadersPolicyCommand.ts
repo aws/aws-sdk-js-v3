@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,12 +28,12 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
 
 /**
  * <p>Deletes a response headers policy.</p>
- * 		       <p>You cannot delete a response headers policy if it’s attached to a cache behavior.
+ *          <p>You cannot delete a response headers policy if it's attached to a cache behavior.
  * 			First update your distributions to remove the response headers policy from all cache
  * 			behaviors, then delete the response headers policy.</p>
- * 		       <p>To delete a response headers policy, you must provide the policy’s identifier and
+ *          <p>To delete a response headers policy, you must provide the policy's identifier and
  * 			version. To get these values, you can use <code>ListResponseHeadersPolicies</code> or
- * 				<code>GetResponseHeadersPolicy</code>. </p>
+ * 				<code>GetResponseHeadersPolicy</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class DeleteResponseHeadersPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteResponseHeadersPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DeleteResponseHeadersPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteResponseHeadersPolicyCommandInput, DeleteResponseHeadersPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteResponseHeadersPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

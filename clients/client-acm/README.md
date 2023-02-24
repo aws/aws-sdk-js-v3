@@ -9,10 +9,10 @@
 
 AWS SDK for JavaScript ACM Client for Node.js, Browser and React Native.
 
-<fullname>Amazon Web Services Certificate Manager</fullname>
+<fullname>Certificate Manager</fullname>
 
-<p>You can use Amazon Web Services Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites
-and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Amazon Web Services Certificate Manager User Guide</a>.</p>
+<p>You can use Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites
+and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
 
 ## Installing
 

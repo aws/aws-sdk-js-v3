@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -17,8 +17,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "../commands/AddPermissionCommand";
 import {
@@ -52,6 +51,10 @@ import {
   DeleteSMSSandboxPhoneNumberCommandOutput,
 } from "../commands/DeleteSMSSandboxPhoneNumberCommand";
 import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "../commands/DeleteTopicCommand";
+import {
+  GetDataProtectionPolicyCommandInput,
+  GetDataProtectionPolicyCommandOutput,
+} from "../commands/GetDataProtectionPolicyCommand";
 import {
   GetEndpointAttributesCommandInput,
   GetEndpointAttributesCommandOutput,
@@ -103,6 +106,10 @@ import { ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/Lis
 import { OptInPhoneNumberCommandInput, OptInPhoneNumberCommandOutput } from "../commands/OptInPhoneNumberCommand";
 import { PublishBatchCommandInput, PublishBatchCommandOutput } from "../commands/PublishBatchCommand";
 import { PublishCommandInput, PublishCommandOutput } from "../commands/PublishCommand";
+import {
+  PutDataProtectionPolicyCommandInput,
+  PutDataProtectionPolicyCommandOutput,
+} from "../commands/PutDataProtectionPolicyCommand";
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "../commands/RemovePermissionCommand";
 import {
   SetEndpointAttributesCommandInput,
@@ -154,6 +161,8 @@ import {
   Endpoint,
   EndpointDisabledException,
   FilterPolicyLimitExceededException,
+  GetDataProtectionPolicyInput,
+  GetDataProtectionPolicyResponse,
   GetEndpointAttributesInput,
   GetEndpointAttributesResponse,
   GetPlatformApplicationAttributesInput,
@@ -210,6 +219,7 @@ import {
   PublishBatchResultEntry,
   PublishInput,
   PublishResponse,
+  PutDataProtectionPolicyInput,
   RemovePermissionInput,
   ResourceNotFoundException,
   SetEndpointAttributesInput,
@@ -415,6 +425,22 @@ export const serializeAws_queryDeleteTopicCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteTopicInput(input, context),
     Action: "DeleteTopic",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryGetDataProtectionPolicyCommand = async (
+  input: GetDataProtectionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryGetDataProtectionPolicyInput(input, context),
+    Action: "GetDataProtectionPolicy",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -708,6 +734,22 @@ export const serializeAws_queryPublishBatchCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryPutDataProtectionPolicyCommand = async (
+  input: PutDataProtectionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryPutDataProtectionPolicyInput(input, context),
+    Action: "PutDataProtectionPolicy",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryRemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
@@ -904,20 +946,20 @@ const deserializeAws_queryAddPermissionCommandError = async (
 ): Promise<AddPermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -954,20 +996,20 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
 ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -1004,26 +1046,26 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
 ): Promise<ConfirmSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "FilterPolicyLimitExceededException":
+    case "FilterPolicyLimitExceeded":
     case "com.amazonaws.sns#FilterPolicyLimitExceededException":
       throw await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
-    case "SubscriptionLimitExceededException":
+    case "SubscriptionLimitExceeded":
     case "com.amazonaws.sns#SubscriptionLimitExceededException":
       throw await deserializeAws_querySubscriptionLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1060,17 +1102,17 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
 ): Promise<CreatePlatformApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -1107,20 +1149,20 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
 ): Promise<CreatePlatformEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1157,26 +1199,26 @@ const deserializeAws_queryCreateSMSSandboxPhoneNumberCommandError = async (
 ): Promise<CreateSMSSandboxPhoneNumberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "OptedOutException":
+    case "OptedOut":
     case "com.amazonaws.sns#OptedOutException":
       throw await deserializeAws_queryOptedOutExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
-    case "UserErrorException":
+    case "UserError":
     case "com.amazonaws.sns#UserErrorException":
       throw await deserializeAws_queryUserErrorExceptionResponse(parsedOutput, context);
     default:
@@ -1213,35 +1255,35 @@ const deserializeAws_queryCreateTopicCommandError = async (
 ): Promise<CreateTopicCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "ConcurrentAccessException":
+    case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "StaleTagException":
+    case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
       throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
-    case "TagLimitExceededException":
+    case "TagLimitExceeded":
     case "com.amazonaws.sns#TagLimitExceededException":
       throw await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context);
-    case "TagPolicyException":
+    case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
-    case "TopicLimitExceededException":
+    case "TopicLimitExceeded":
     case "com.amazonaws.sns#TopicLimitExceededException":
       throw await deserializeAws_queryTopicLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1275,17 +1317,17 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
 ): Promise<DeleteEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -1319,17 +1361,17 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
 ): Promise<DeletePlatformApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -1366,26 +1408,26 @@ const deserializeAws_queryDeleteSMSSandboxPhoneNumberCommandError = async (
 ): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
-    case "UserErrorException":
+    case "UserError":
     case "com.amazonaws.sns#UserErrorException":
       throw await deserializeAws_queryUserErrorExceptionResponse(parsedOutput, context);
     default:
@@ -1419,31 +1461,84 @@ const deserializeAws_queryDeleteTopicCommandError = async (
 ): Promise<DeleteTopicCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "ConcurrentAccessException":
+    case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
-    case "StaleTagException":
+    case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
       throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
-    case "TagPolicyException":
+    case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryGetDataProtectionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataProtectionPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryGetDataProtectionPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryGetDataProtectionPolicyResponse(data.GetDataProtectionPolicyResult, context);
+  const response: GetDataProtectionPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryGetDataProtectionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataProtectionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationError":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+    case "InternalError":
+    case "com.amazonaws.sns#InternalErrorException":
+      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidParameter":
+    case "com.amazonaws.sns#InvalidParameterException":
+      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidSecurity":
+    case "com.amazonaws.sns#InvalidSecurityException":
+      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+    case "NotFound":
+    case "com.amazonaws.sns#NotFoundException":
+      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1478,20 +1573,20 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
 ): Promise<GetEndpointAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1531,20 +1626,20 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
 ): Promise<GetPlatformApplicationAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1581,20 +1676,20 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
 ): Promise<GetSMSAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -1631,17 +1726,17 @@ const deserializeAws_queryGetSMSSandboxAccountStatusCommandError = async (
 ): Promise<GetSMSSandboxAccountStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -1678,20 +1773,20 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
 ): Promise<GetSubscriptionAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1728,23 +1823,23 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
 ): Promise<GetTopicAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1784,20 +1879,20 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
 ): Promise<ListEndpointsByPlatformApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1834,20 +1929,20 @@ const deserializeAws_queryListOriginationNumbersCommandError = async (
 ): Promise<ListOriginationNumbersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1887,20 +1982,20 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
 ): Promise<ListPhoneNumbersOptedOutCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -1937,17 +2032,17 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
 ): Promise<ListPlatformApplicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -1984,23 +2079,23 @@ const deserializeAws_queryListSMSSandboxPhoneNumbersCommandError = async (
 ): Promise<ListSMSSandboxPhoneNumbersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -2037,17 +2132,17 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
 ): Promise<ListSubscriptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -2084,20 +2179,20 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
 ): Promise<ListSubscriptionsByTopicCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2134,23 +2229,23 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "ConcurrentAccessException":
+    case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "TagPolicyException":
+    case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
     default:
@@ -2187,17 +2282,17 @@ const deserializeAws_queryListTopicsCommandError = async (
 ): Promise<ListTopicsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -2234,20 +2329,20 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
 ): Promise<OptInPhoneNumberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -2284,52 +2379,55 @@ const deserializeAws_queryPublishCommandError = async (
 ): Promise<PublishCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "EndpointDisabledException":
+    case "EndpointDisabled":
     case "com.amazonaws.sns#EndpointDisabledException":
       throw await deserializeAws_queryEndpointDisabledExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.sns#InvalidParameterValueException":
-      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "KMSAccessDeniedException":
+    case "KMSAccessDenied":
     case "com.amazonaws.sns#KMSAccessDeniedException":
       throw await deserializeAws_queryKMSAccessDeniedExceptionResponse(parsedOutput, context);
-    case "KMSDisabledException":
+    case "KMSDisabled":
     case "com.amazonaws.sns#KMSDisabledException":
       throw await deserializeAws_queryKMSDisabledExceptionResponse(parsedOutput, context);
-    case "KMSInvalidStateException":
+    case "KMSInvalidState":
     case "com.amazonaws.sns#KMSInvalidStateException":
       throw await deserializeAws_queryKMSInvalidStateExceptionResponse(parsedOutput, context);
-    case "KMSNotFoundException":
+    case "KMSNotFound":
     case "com.amazonaws.sns#KMSNotFoundException":
       throw await deserializeAws_queryKMSNotFoundExceptionResponse(parsedOutput, context);
     case "KMSOptInRequired":
     case "com.amazonaws.sns#KMSOptInRequired":
       throw await deserializeAws_queryKMSOptInRequiredResponse(parsedOutput, context);
-    case "KMSThrottlingException":
+    case "KMSThrottling":
     case "com.amazonaws.sns#KMSThrottlingException":
       throw await deserializeAws_queryKMSThrottlingExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
-    case "PlatformApplicationDisabledException":
+    case "ParameterValueInvalid":
+    case "com.amazonaws.sns#InvalidParameterValueException":
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "PlatformApplicationDisabled":
     case "com.amazonaws.sns#PlatformApplicationDisabledException":
       throw await deserializeAws_queryPlatformApplicationDisabledExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sns#ValidationException":
+      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2364,67 +2462,120 @@ const deserializeAws_queryPublishBatchCommandError = async (
 ): Promise<PublishBatchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "BatchEntryIdsNotDistinctException":
+    case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sns#BatchEntryIdsNotDistinctException":
       throw await deserializeAws_queryBatchEntryIdsNotDistinctExceptionResponse(parsedOutput, context);
-    case "BatchRequestTooLongException":
+    case "BatchRequestTooLong":
     case "com.amazonaws.sns#BatchRequestTooLongException":
       throw await deserializeAws_queryBatchRequestTooLongExceptionResponse(parsedOutput, context);
-    case "EmptyBatchRequestException":
+    case "EmptyBatchRequest":
     case "com.amazonaws.sns#EmptyBatchRequestException":
       throw await deserializeAws_queryEmptyBatchRequestExceptionResponse(parsedOutput, context);
-    case "EndpointDisabledException":
+    case "EndpointDisabled":
     case "com.amazonaws.sns#EndpointDisabledException":
       throw await deserializeAws_queryEndpointDisabledExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidBatchEntryIdException":
+    case "InvalidBatchEntryId":
     case "com.amazonaws.sns#InvalidBatchEntryIdException":
       throw await deserializeAws_queryInvalidBatchEntryIdExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.sns#InvalidParameterValueException":
-      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "KMSAccessDeniedException":
+    case "KMSAccessDenied":
     case "com.amazonaws.sns#KMSAccessDeniedException":
       throw await deserializeAws_queryKMSAccessDeniedExceptionResponse(parsedOutput, context);
-    case "KMSDisabledException":
+    case "KMSDisabled":
     case "com.amazonaws.sns#KMSDisabledException":
       throw await deserializeAws_queryKMSDisabledExceptionResponse(parsedOutput, context);
-    case "KMSInvalidStateException":
+    case "KMSInvalidState":
     case "com.amazonaws.sns#KMSInvalidStateException":
       throw await deserializeAws_queryKMSInvalidStateExceptionResponse(parsedOutput, context);
-    case "KMSNotFoundException":
+    case "KMSNotFound":
     case "com.amazonaws.sns#KMSNotFoundException":
       throw await deserializeAws_queryKMSNotFoundExceptionResponse(parsedOutput, context);
     case "KMSOptInRequired":
     case "com.amazonaws.sns#KMSOptInRequired":
       throw await deserializeAws_queryKMSOptInRequiredResponse(parsedOutput, context);
-    case "KMSThrottlingException":
+    case "KMSThrottling":
     case "com.amazonaws.sns#KMSThrottlingException":
       throw await deserializeAws_queryKMSThrottlingExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
-    case "PlatformApplicationDisabledException":
+    case "ParameterValueInvalid":
+    case "com.amazonaws.sns#InvalidParameterValueException":
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "PlatformApplicationDisabled":
     case "com.amazonaws.sns#PlatformApplicationDisabledException":
       throw await deserializeAws_queryPlatformApplicationDisabledExceptionResponse(parsedOutput, context);
-    case "TooManyEntriesInBatchRequestException":
+    case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sns#TooManyEntriesInBatchRequestException":
       throw await deserializeAws_queryTooManyEntriesInBatchRequestExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sns#ValidationException":
+      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryPutDataProtectionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDataProtectionPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryPutDataProtectionPolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutDataProtectionPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryPutDataProtectionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDataProtectionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationError":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+    case "InternalError":
+    case "com.amazonaws.sns#InternalErrorException":
+      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidParameter":
+    case "com.amazonaws.sns#InvalidParameterException":
+      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidSecurity":
+    case "com.amazonaws.sns#InvalidSecurityException":
+      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+    case "NotFound":
+    case "com.amazonaws.sns#NotFoundException":
+      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2456,20 +2607,20 @@ const deserializeAws_queryRemovePermissionCommandError = async (
 ): Promise<RemovePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2503,20 +2654,20 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
 ): Promise<SetEndpointAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2550,20 +2701,20 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
 ): Promise<SetPlatformApplicationAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2600,20 +2751,20 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
 ): Promise<SetSMSAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -2647,23 +2798,23 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
 ): Promise<SetSubscriptionAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "FilterPolicyLimitExceededException":
+    case "FilterPolicyLimitExceeded":
     case "com.amazonaws.sns#FilterPolicyLimitExceededException":
       throw await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2697,23 +2848,23 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
 ): Promise<SetTopicAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2750,29 +2901,29 @@ const deserializeAws_querySubscribeCommandError = async (
 ): Promise<SubscribeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "FilterPolicyLimitExceededException":
+    case "FilterPolicyLimitExceeded":
     case "com.amazonaws.sns#FilterPolicyLimitExceededException":
       throw await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
-    case "SubscriptionLimitExceededException":
+    case "SubscriptionLimitExceeded":
     case "com.amazonaws.sns#SubscriptionLimitExceededException":
       throw await deserializeAws_querySubscriptionLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -2809,29 +2960,29 @@ const deserializeAws_queryTagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "ConcurrentAccessException":
+    case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "StaleTagException":
+    case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
       throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
-    case "TagLimitExceededException":
+    case "TagLimitExceeded":
     case "com.amazonaws.sns#TagLimitExceededException":
       throw await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context);
-    case "TagPolicyException":
+    case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
     default:
@@ -2865,23 +3016,23 @@ const deserializeAws_queryUnsubscribeCommandError = async (
 ): Promise<UnsubscribeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2918,29 +3069,29 @@ const deserializeAws_queryUntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "ConcurrentAccessException":
+    case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "StaleTagException":
+    case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
       throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
-    case "TagLimitExceededException":
+    case "TagLimitExceeded":
     case "com.amazonaws.sns#TagLimitExceededException":
       throw await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context);
-    case "TagPolicyException":
+    case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
     default:
@@ -2977,23 +3128,23 @@ const deserializeAws_queryVerifySMSSandboxPhoneNumberCommandError = async (
 ): Promise<VerifySMSSandboxPhoneNumberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     case "VerificationException":
@@ -3449,6 +3600,9 @@ const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context
   }
   if (input.AWSAccountId != null) {
     const memberEntries = serializeAws_queryDelegatesList(input.AWSAccountId, context);
+    if (input.AWSAccountId?.length === 0) {
+      entries.AWSAccountId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AWSAccountId.${key}`;
       entries[loc] = value;
@@ -3456,6 +3610,9 @@ const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context
   }
   if (input.ActionName != null) {
     const memberEntries = serializeAws_queryActionsList(input.ActionName, context);
+    if (input.ActionName?.length === 0) {
+      entries.ActionName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionName.${key}`;
       entries[loc] = value;
@@ -3562,10 +3719,16 @@ const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.DataProtectionPolicy != null) {
+    entries["DataProtectionPolicy"] = input.DataProtectionPolicy;
   }
   return entries;
 };
@@ -3621,6 +3784,17 @@ const serializeAws_queryDeleteTopicInput = (input: DeleteTopicInput, context: __
   return entries;
 };
 
+const serializeAws_queryGetDataProtectionPolicyInput = (
+  input: GetDataProtectionPolicyInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ResourceArn != null) {
+    entries["ResourceArn"] = input.ResourceArn;
+  }
+  return entries;
+};
+
 const serializeAws_queryGetEndpointAttributesInput = (
   input: GetEndpointAttributesInput,
   context: __SerdeContext
@@ -3647,6 +3821,9 @@ const serializeAws_queryGetSMSAttributesInput = (input: GetSMSAttributesInput, c
   const entries: any = {};
   if (input.attributes != null) {
     const memberEntries = serializeAws_queryListString(input.attributes, context);
+    if (input.attributes?.length === 0) {
+      entries.attributes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `attributes.${key}`;
       entries[loc] = value;
@@ -3861,6 +4038,9 @@ const serializeAws_queryPublishBatchInput = (input: PublishBatchInput, context: 
   }
   if (input.PublishBatchRequestEntries != null) {
     const memberEntries = serializeAws_queryPublishBatchRequestEntryList(input.PublishBatchRequestEntries, context);
+    if (input.PublishBatchRequestEntries?.length === 0) {
+      entries.PublishBatchRequestEntries = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PublishBatchRequestEntries.${key}`;
       entries[loc] = value;
@@ -3950,6 +4130,20 @@ const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeCon
   }
   if (input.MessageGroupId != null) {
     entries["MessageGroupId"] = input.MessageGroupId;
+  }
+  return entries;
+};
+
+const serializeAws_queryPutDataProtectionPolicyInput = (
+  input: PutDataProtectionPolicyInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ResourceArn != null) {
+    entries["ResourceArn"] = input.ResourceArn;
+  }
+  if (input.DataProtectionPolicy != null) {
+    entries["DataProtectionPolicy"] = input.DataProtectionPolicy;
   }
   return entries;
 };
@@ -4128,6 +4322,9 @@ const serializeAws_queryTagResourceRequest = (input: TagResourceRequest, context
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -4164,6 +4361,9 @@ const serializeAws_queryUntagResourceRequest = (input: UntagResourceRequest, con
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -4400,6 +4600,19 @@ const deserializeAws_queryFilterPolicyLimitExceededException = (
   };
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGetDataProtectionPolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): GetDataProtectionPolicyResponse => {
+  const contents: any = {
+    DataProtectionPolicy: undefined,
+  };
+  if (output["DataProtectionPolicy"] !== undefined) {
+    contents.DataProtectionPolicy = __expectString(output["DataProtectionPolicy"]);
   }
   return contents;
 };
@@ -4844,10 +5057,8 @@ const deserializeAws_queryMapStringToString = (output: any, context: __SerdeCont
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -4900,7 +5111,7 @@ const deserializeAws_queryPhoneNumberInformation = (output: any, context: __Serd
     NumberCapabilities: undefined,
   };
   if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(output["CreatedAt"]));
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
   }
   if (output["PhoneNumber"] !== undefined) {
     contents.PhoneNumber = __expectString(output["PhoneNumber"]);
@@ -5143,10 +5354,8 @@ const deserializeAws_querySubscriptionAttributesMap = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -5259,10 +5468,8 @@ const deserializeAws_queryTopicAttributesMap = (output: any, context: __SerdeCon
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -5336,7 +5543,8 @@ const deserializeAws_queryVerifySMSSandboxPhoneNumberResult = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -5381,13 +5589,18 @@ const buildHttpRpcRequest = async (
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -5400,13 +5613,21 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

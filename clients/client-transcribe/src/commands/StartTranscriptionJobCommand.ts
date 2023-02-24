@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,40 +29,40 @@ export interface StartTranscriptionJobCommandInput extends StartTranscriptionJob
 export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Transcribes the audio from a media file and applies any additional Request Parameters you
- *             choose to include in your request.</p>
- *         <p>To make a <code>StartTranscriptionJob</code> request, you must first upload your media file
- *             into an Amazon S3 bucket; you can then specify the Amazon S3 location of the file
- *             using the <code>Media</code> parameter.</p>
- *             <p>You must include the following parameters in your <code>StartTranscriptionJob</code>
- *                 request:</p>
- *             <ul>
+ * <p>Transcribes the audio from a media file and applies any additional Request Parameters
+ *             you choose to include in your request.</p>
+ *          <p>To make a <code>StartTranscriptionJob</code> request, you must first upload your media
+ *             file into an Amazon S3 bucket; you can then specify the Amazon S3
+ *             location of the file using the <code>Media</code> parameter.</p>
+ *          <p>You must include the following parameters in your <code>StartTranscriptionJob</code>
+ *             request:</p>
+ *          <ul>
  *             <li>
- *                     <p>
+ *                <p>
  *                   <code>region</code>: The Amazon Web Services Region where you are making your
- *                         request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer
- *                         to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon Transcribe
- *                             endpoints and quotas</a>.</p>
- *                 </li>
+ *                     request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon Transcribe endpoints and
+ *                         quotas</a>.</p>
+ *             </li>
  *             <li>
- *                     <p>
- *                   <code>TranscriptionJobName</code>: A custom name you create for your transcription
- *                         job that is unique within your Amazon Web Services account.</p>
- *                 </li>
+ *                <p>
+ *                   <code>TranscriptionJobName</code>: A custom name you create for your
+ *                     transcription job that is unique within your Amazon Web Services account.</p>
+ *             </li>
  *             <li>
- *                     <p>
- *                   <code>Media</code> (<code>MediaFileUri</code>): The Amazon S3 location of
- *                         your media file.</p>
- *                 </li>
+ *                <p>
+ *                   <code>Media</code> (<code>MediaFileUri</code>): The Amazon S3 location
+ *                     of your media file.</p>
+ *             </li>
  *             <li>
- *                     <p>One of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or
- *                         <code>IdentifyMultipleLanguages</code>: If you know the language of your media file,
- *                         specify it using the <code>LanguageCode</code> parameter; you can find all valid language
- *                         codes in the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.
- *                         If you don't know the languages spoken in your media, use either
- *                         <code>IdentifyLanguage</code> or <code>IdentifyMultipleLanguages</code> and let
- *                         Amazon Transcribe identify the languages for you.</p>
- *                 </li>
+ *                <p>One of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or
+ *                         <code>IdentifyMultipleLanguages</code>: If you know the language of your
+ *                     media file, specify it using the <code>LanguageCode</code> parameter; you can
+ *                     find all valid language codes in the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+ *                         languages</a> table. If you don't know the languages spoken in your
+ *                     media, use either <code>IdentifyLanguage</code> or
+ *                         <code>IdentifyMultipleLanguages</code> and let Amazon Transcribe identify
+ *                     the languages for you.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +87,15 @@ export class StartTranscriptionJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,6 +111,9 @@ export class StartTranscriptionJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartTranscriptionJobCommandInput, StartTranscriptionJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartTranscriptionJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

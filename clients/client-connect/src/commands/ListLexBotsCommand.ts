@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ListLexBotsRequestFilterSensitiveLog,
   ListLexBotsResponse,
   ListLexBotsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListLexBotsCommand,
   serializeAws_restJson1ListLexBotsCommand,
@@ -29,8 +30,9 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Returns a paginated list of all the Amazon Lex bots currently associated with the
- *    instance.</p>
+ *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the
+ *    instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
+ *    </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +56,15 @@ export class ListLexBotsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListLexBotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +80,7 @@ export class ListLexBotsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListLexBotsCommandInput, ListLexBotsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListLexBotsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

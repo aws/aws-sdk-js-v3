@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,7 +37,6 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  *       or TLS listener.</p>
  *          <p>If the certificate in already in the certificate list, the call is successful but the
  *       certificate is not added again.</p>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html">HTTPS
  *         listeners</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html">TLS
  *         listeners</a> in the <i>Network Load Balancers Guide</i>.</p>
@@ -63,6 +63,15 @@ export class AddListenerCertificatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AddListenerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +87,9 @@ export class AddListenerCertificatesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddListenerCertificatesCommandInput, AddListenerCertificatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AddListenerCertificatesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

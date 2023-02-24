@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,14 +30,14 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
 
 /**
  * <p>Returns descriptive information about an Amazon EKS cluster.</p>
- *         <p>The API server endpoint and certificate authority data returned by this operation are
+ *          <p>The API server endpoint and certificate authority data returned by this operation are
  *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
  *             Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create a
  *                 kubeconfig for Amazon EKS</a>.</p>
- *         <note>
+ *          <note>
  *             <p>The API server endpoint and certificate authority data aren't available until the
  *                 cluster reaches the <code>ACTIVE</code> state.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +61,15 @@ export class DescribeClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class DescribeClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeClusterCommandInput, DescribeClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeClusterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

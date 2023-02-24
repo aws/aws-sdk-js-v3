@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,11 +37,9 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *             <p>Availability of device types differ by Amazon Web Services Region. For more information
  *         about Region availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4">Amazon Web Services Regional Services</a>.</p>
  *          </note>
- *
  *          <p></p>
- *
  *          <p class="title">
- *             <b>Snow Family Devices and their capacities.</b>
+ *             <b>Snow Family devices and their capacities.</b>
  *          </p>
  *          <ul>
  *             <li>
@@ -54,7 +53,6 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                      <p>Description: Snowcone </p>
  *                   </li>
  *                </ul>
- *
  *                <p></p>
  *             </li>
  *             <li>
@@ -81,8 +79,6 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                      <p>Description: Snowball Edge Storage Optimized for data transfer only </p>
  *                   </li>
  *                </ul>
- *
- *
  *                <p></p>
  *             </li>
  *             <li>
@@ -181,6 +177,15 @@ export class CreateJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,6 +201,7 @@ export class CreateJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateJobCommandInput, CreateJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateJobCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

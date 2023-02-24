@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -41,10 +42,8 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  *                <p>Head cover</p>
  *             </li>
  *          </ul>
- *
  *          <p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket.
  *          The image must be either a PNG or JPG formatted file. </p>
- *
  *          <p>
  *             <code>DetectProtectiveEquipment</code> detects PPE worn by up to 15 persons detected in an image.</p>
  *          <p>For each person detected in the image the API returns an array of body parts (face, head, left-hand, right-hand).
@@ -66,7 +65,6 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  *             </li>
  *          </ul>
  *          <p>This is a stateless API operation. That is, the operation does not persist any data.</p>
- *
  *          <p>This operation requires permissions to perform the <code>rekognition:DetectProtectiveEquipment</code> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +89,15 @@ export class DetectProtectiveEquipmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetectProtectiveEquipmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,6 +113,9 @@ export class DetectProtectiveEquipmentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetectProtectiveEquipmentCommandInput, DetectProtectiveEquipmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetectProtectiveEquipmentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

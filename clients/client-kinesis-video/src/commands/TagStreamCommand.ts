@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,11 +34,11 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  *             a tag that already exists, the tag value is replaced with the value that you specify in
  *             the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
  *                 Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>. </p>
- *         <p>You must provide either the <code>StreamName</code> or the
+ *          <p>You must provide either the <code>StreamName</code> or the
  *             <code>StreamARN</code>.</p>
- *         <p>This operation requires permission for the <code>KinesisVideo:TagStream</code>
+ *          <p>This operation requires permission for the <code>KinesisVideo:TagStream</code>
  *             action.</p>
- *         <p>A Kinesis video stream can support up to 50 tags.</p>
+ *          <p>A Kinesis video stream can support up to 50 tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,15 @@ export class TagStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TagStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,7 @@ export class TagStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TagStreamCommandInput, TagStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagStreamCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

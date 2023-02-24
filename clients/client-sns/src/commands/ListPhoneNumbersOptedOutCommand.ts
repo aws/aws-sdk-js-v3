@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
 /**
  * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
  *             messages to them.</p>
- *         <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
+ *          <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
  *             returns up to 100 phone numbers. If additional phone numbers are available after the
  *             first page of results, then a <code>NextToken</code> string will be returned. To receive
  *             the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the
@@ -59,6 +60,15 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListPhoneNumbersOptedOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListPhoneNumbersOptedOutCommandInput, ListPhoneNumbersOptedOutCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListPhoneNumbersOptedOutCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

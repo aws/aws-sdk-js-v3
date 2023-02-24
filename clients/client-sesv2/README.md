@@ -33,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SESv2Client` and
-the commands you need, for example `CreateConfigurationSetCommand`:
+the commands you need, for example `BatchGetMetricDataCommand`:
 
 ```js
 // ES5 example
-const { SESv2Client, CreateConfigurationSetCommand } = require("@aws-sdk/client-sesv2");
+const { SESv2Client, BatchGetMetricDataCommand } = require("@aws-sdk/client-sesv2");
 ```
 
 ```ts
 // ES6+ example
-import { SESv2Client, CreateConfigurationSetCommand } from "@aws-sdk/client-sesv2";
+import { SESv2Client, BatchGetMetricDataCommand } from "@aws-sdk/client-sesv2";
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ const client = new SESv2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateConfigurationSetCommand(params);
+const command = new BatchGetMetricDataCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +140,7 @@ const client = new AWS.SESv2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createConfigurationSet(params);
+  const data = await client.batchGetMetricData(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +148,7 @@ try {
 
 // Promises.
 client
-  .createConfigurationSet(params)
+  .batchGetMetricData(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +157,7 @@ client
   });
 
 // callbacks.
-client.createConfigurationSet(params, (err, data) => {
+client.batchGetMetricData(params, (err, data) => {
   // process err and data.
 });
 ```

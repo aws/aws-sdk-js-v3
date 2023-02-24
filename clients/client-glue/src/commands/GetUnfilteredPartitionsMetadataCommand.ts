@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,6 +30,25 @@ export interface GetUnfilteredPartitionsMetadataCommandOutput
   extends GetUnfilteredPartitionsMetadataResponse,
     __MetadataBearer {}
 
+/**
+ * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
+ *           metadata.</p>
+ *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartitions</code>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetUnfilteredPartitionsMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetUnfilteredPartitionsMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetUnfilteredPartitionsMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUnfilteredPartitionsMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetUnfilteredPartitionsMetadataCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ */
 export class GetUnfilteredPartitionsMetadataCommand extends $Command<
   GetUnfilteredPartitionsMetadataCommandInput,
   GetUnfilteredPartitionsMetadataCommandOutput,
@@ -36,6 +56,15 @@ export class GetUnfilteredPartitionsMetadataCommand extends $Command<
 > {
   // Start section: command_properties
   // End section: command_properties
+
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
 
   constructor(readonly input: GetUnfilteredPartitionsMetadataCommandInput) {
     // Start section: command_constructor
@@ -52,6 +81,9 @@ export class GetUnfilteredPartitionsMetadataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetUnfilteredPartitionsMetadataCommandInput, GetUnfilteredPartitionsMetadataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetUnfilteredPartitionsMetadataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,14 +33,13 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *             into a specified order. </p>
  *         <p>This operation is not designed to be continually called to track game session status.
  *             This practice can cause you to exceed your API limit, which results in errors. Instead,
- *             you must configure configure an
- *             Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or queues. Continuously polling game session status
- *             with <code>DescribeGameSessions</code> should only be used for games in development with
- *             low game session usage.
- *         </p>
+ *             you must configure configure an Amazon Simple Notification Service (SNS) topic to receive notifications from
+ *             FlexMatch or queues. Continuously polling game session status with
+ *                 <code>DescribeGameSessions</code> should only be used for games in development with
+ *             low game session usage. </p>
  *         <p>When searching for game sessions, you specify exactly where you want to search and
  *             provide a search filter expression, a sort expression, or both. A search request can
- *             search only one fleet, but it can search all of a fleet's locations.  </p>
+ *             search only one fleet, but it can search all of a fleet's locations. </p>
  *         <p>This operation can be used in the following ways: </p>
  *         <ul>
  *             <li>
@@ -57,25 +57,23 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *         <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
  *         <p>If successful, a <code>GameSession</code> object is returned for each game session
  *             that matches the request. Search finds game sessions that are in <code>ACTIVE</code>
- *             status only. To retrieve information on game sessions in other statuses, use <a>DescribeGameSessions</a>.</p>
+ *             status only. To retrieve information on game sessions in other statuses, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessions.html">DescribeGameSessions</a> .</p>
  *         <p>You can search or sort by the following game session attributes:</p>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <b>gameSessionId</b> -- A unique identifier for the game session. You can use
- *                     either a <code>GameSessionId</code> or <code>GameSessionArn</code> value.
- *                 </p>
+ *                   <b>gameSessionId</b> -- A unique identifier for the game session. You can use either a
+ *                         <code>GameSessionId</code> or <code>GameSessionArn</code> value. </p>
  *             </li>
  *             <li>
  *                 <p>
  *                   <b>gameSessionName</b> -- Name assigned to a game
- *                     session. This value is set when requesting a new game session with <a>CreateGameSession</a> or updating with <a>UpdateGameSession</a>. Game session names do not need to be unique
- *                     to a game session.</p>
+ *                     session. Game session names do not need to be unique to a game session.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>gameSessionProperties</b> -- Custom data
- *                     defined in a game session's <code>GameProperty</code> parameter.
+ *                   <b>gameSessionProperties</b> -- Custom data defined
+ *                     in a game session's <code>GameProperty</code> parameter.
  *                         <code>GameProperty</code> values are stored as key:value pairs; the filter
  *                     expression must indicate the key and a string to search the data values for. For
  *                     example, to search for game sessions with custom data containing the key:value
@@ -85,15 +83,13 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>maximumSessions</b> -- Maximum number of
- *                     player sessions allowed for a game session. This value is set when requesting a
- *                     new game session with <a>CreateGameSession</a> or updating with <a>UpdateGameSession</a>.</p>
+ *                   <b>maximumSessions</b> -- Maximum number of player
+ *                     sessions allowed for a game session.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>creationTimeMillis</b> -- Value indicating
- *                     when a game session was created. It is expressed in Unix time as
- *                     milliseconds.</p>
+ *                   <b>creationTimeMillis</b> -- Value indicating when a
+ *                     game session was created. It is expressed in Unix time as milliseconds.</p>
  *             </li>
  *             <li>
  *                 <p>
@@ -103,11 +99,11 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>hasAvailablePlayerSessions</b> -- Boolean
- *                     value indicating whether a game session has reached its maximum number of
- *                     players. It is highly recommended that all search requests include this filter
- *                     attribute to optimize search performance and return only sessions that players
- *                     can join. </p>
+ *                   <b>hasAvailablePlayerSessions</b> -- Boolean value
+ *                     indicating whether a game session has reached its maximum number of players. It
+ *                     is highly recommended that all search requests include this filter attribute to
+ *                     optimize search performance and return only sessions that players can join.
+ *                 </p>
  *             </li>
  *          </ul>
  *         <note>
@@ -117,19 +113,7 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *                 refresh search results often, and handle sessions that fill up before a player can
  *                 join. </p>
  *         </note>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameSession</a> |
- *                     <a>DescribeGameSessions</a> |
- *                     <a>DescribeGameSessionDetails</a> |
- *                     <a>SearchGameSessions</a> |
- *                     <a>UpdateGameSession</a> |
- *                     <a>GetGameSessionLogUrl</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
- *                     <a>StopGameSessionPlacement</a> |
+ *          <p>
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -155,6 +139,15 @@ export class SearchGameSessionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchGameSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,6 +163,9 @@ export class SearchGameSessionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchGameSessionsCommandInput, SearchGameSessionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchGameSessionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

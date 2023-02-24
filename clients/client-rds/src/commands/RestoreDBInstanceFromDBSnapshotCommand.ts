@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,16 +35,16 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *             of the source's original configuration, including the default security group and DB parameter group. By default, the new DB
  *             instance is created as a Single-AZ deployment, except when the instance is a SQL Server instance that has an option group
  *             associated with mirroring. In this case, the instance becomes a Multi-AZ deployment, not a Single-AZ deployment.</p>
- *         <p>If you want to replace your original DB instance with the new, restored DB instance, then rename your original DB instance
+ *          <p>If you want to replace your original DB instance with the new, restored DB instance, then rename your original DB instance
  *             before you call the RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with the same name. After you
  *             have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as
  *             the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action. The result is that you replace the original
  *             DB instance with the DB instance created from the snapshot.</p>
- *         <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
+ *          <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
  *       must be the ARN of the shared DB snapshot.</p>
- *         <note>
+ *          <note>
  *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +68,15 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RestoreDBInstanceFromDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,9 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RestoreDBInstanceFromDBSnapshotCommandInput, RestoreDBInstanceFromDBSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RestoreDBInstanceFromDBSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

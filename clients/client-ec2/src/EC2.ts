@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AcceptAddressTransferCommand,
+  AcceptAddressTransferCommandInput,
+  AcceptAddressTransferCommandOutput,
+} from "./commands/AcceptAddressTransferCommand";
+import {
   AcceptReservedInstancesExchangeQuoteCommand,
   AcceptReservedInstancesExchangeQuoteCommandInput,
   AcceptReservedInstancesExchangeQuoteCommandOutput,
@@ -67,6 +72,11 @@ import {
   AssignPrivateIpAddressesCommandOutput,
 } from "./commands/AssignPrivateIpAddressesCommand";
 import {
+  AssignPrivateNatGatewayAddressCommand,
+  AssignPrivateNatGatewayAddressCommandInput,
+  AssignPrivateNatGatewayAddressCommandOutput,
+} from "./commands/AssignPrivateNatGatewayAddressCommand";
+import {
   AssociateAddressCommand,
   AssociateAddressCommandInput,
   AssociateAddressCommandOutput,
@@ -96,6 +106,16 @@ import {
   AssociateInstanceEventWindowCommandInput,
   AssociateInstanceEventWindowCommandOutput,
 } from "./commands/AssociateInstanceEventWindowCommand";
+import {
+  AssociateIpamResourceDiscoveryCommand,
+  AssociateIpamResourceDiscoveryCommandInput,
+  AssociateIpamResourceDiscoveryCommandOutput,
+} from "./commands/AssociateIpamResourceDiscoveryCommand";
+import {
+  AssociateNatGatewayAddressCommand,
+  AssociateNatGatewayAddressCommandInput,
+  AssociateNatGatewayAddressCommandOutput,
+} from "./commands/AssociateNatGatewayAddressCommand";
 import {
   AssociateRouteTableCommand,
   AssociateRouteTableCommandInput,
@@ -146,6 +166,11 @@ import {
   AttachNetworkInterfaceCommandInput,
   AttachNetworkInterfaceCommandOutput,
 } from "./commands/AttachNetworkInterfaceCommand";
+import {
+  AttachVerifiedAccessTrustProviderCommand,
+  AttachVerifiedAccessTrustProviderCommandInput,
+  AttachVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/AttachVerifiedAccessTrustProviderCommand";
 import {
   AttachVolumeCommand,
   AttachVolumeCommandInput,
@@ -201,6 +226,11 @@ import {
   CancelExportTaskCommandInput,
   CancelExportTaskCommandOutput,
 } from "./commands/CancelExportTaskCommand";
+import {
+  CancelImageLaunchPermissionCommand,
+  CancelImageLaunchPermissionCommandInput,
+  CancelImageLaunchPermissionCommandOutput,
+} from "./commands/CancelImageLaunchPermissionCommand";
 import {
   CancelImportTaskCommand,
   CancelImportTaskCommandInput,
@@ -263,6 +293,16 @@ import {
   CreateClientVpnRouteCommandOutput,
 } from "./commands/CreateClientVpnRouteCommand";
 import {
+  CreateCoipCidrCommand,
+  CreateCoipCidrCommandInput,
+  CreateCoipCidrCommandOutput,
+} from "./commands/CreateCoipCidrCommand";
+import {
+  CreateCoipPoolCommand,
+  CreateCoipPoolCommandInput,
+  CreateCoipPoolCommandOutput,
+} from "./commands/CreateCoipPoolCommand";
+import {
   CreateCustomerGatewayCommand,
   CreateCustomerGatewayCommandInput,
   CreateCustomerGatewayCommandOutput,
@@ -321,6 +361,11 @@ import {
   CreateIpamPoolCommandOutput,
 } from "./commands/CreateIpamPoolCommand";
 import {
+  CreateIpamResourceDiscoveryCommand,
+  CreateIpamResourceDiscoveryCommandInput,
+  CreateIpamResourceDiscoveryCommandOutput,
+} from "./commands/CreateIpamResourceDiscoveryCommand";
+import {
   CreateIpamScopeCommand,
   CreateIpamScopeCommandInput,
   CreateIpamScopeCommandOutput,
@@ -345,6 +390,16 @@ import {
   CreateLocalGatewayRouteCommandInput,
   CreateLocalGatewayRouteCommandOutput,
 } from "./commands/CreateLocalGatewayRouteCommand";
+import {
+  CreateLocalGatewayRouteTableCommand,
+  CreateLocalGatewayRouteTableCommandInput,
+  CreateLocalGatewayRouteTableCommandOutput,
+} from "./commands/CreateLocalGatewayRouteTableCommand";
+import {
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
+} from "./commands/CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand";
 import {
   CreateLocalGatewayRouteTableVpcAssociationCommand,
   CreateLocalGatewayRouteTableVpcAssociationCommandInput,
@@ -533,6 +588,26 @@ import {
   CreateTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayVpcAttachmentCommand";
 import {
+  CreateVerifiedAccessEndpointCommand,
+  CreateVerifiedAccessEndpointCommandInput,
+  CreateVerifiedAccessEndpointCommandOutput,
+} from "./commands/CreateVerifiedAccessEndpointCommand";
+import {
+  CreateVerifiedAccessGroupCommand,
+  CreateVerifiedAccessGroupCommandInput,
+  CreateVerifiedAccessGroupCommandOutput,
+} from "./commands/CreateVerifiedAccessGroupCommand";
+import {
+  CreateVerifiedAccessInstanceCommand,
+  CreateVerifiedAccessInstanceCommandInput,
+  CreateVerifiedAccessInstanceCommandOutput,
+} from "./commands/CreateVerifiedAccessInstanceCommand";
+import {
+  CreateVerifiedAccessTrustProviderCommand,
+  CreateVerifiedAccessTrustProviderCommandInput,
+  CreateVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/CreateVerifiedAccessTrustProviderCommand";
+import {
   CreateVolumeCommand,
   CreateVolumeCommandInput,
   CreateVolumeCommandOutput,
@@ -589,6 +664,16 @@ import {
   DeleteClientVpnRouteCommandOutput,
 } from "./commands/DeleteClientVpnRouteCommand";
 import {
+  DeleteCoipCidrCommand,
+  DeleteCoipCidrCommandInput,
+  DeleteCoipCidrCommandOutput,
+} from "./commands/DeleteCoipCidrCommand";
+import {
+  DeleteCoipPoolCommand,
+  DeleteCoipPoolCommandInput,
+  DeleteCoipPoolCommandOutput,
+} from "./commands/DeleteCoipPoolCommand";
+import {
   DeleteCustomerGatewayCommand,
   DeleteCustomerGatewayCommandInput,
   DeleteCustomerGatewayCommandOutput,
@@ -635,6 +720,11 @@ import {
   DeleteIpamPoolCommandOutput,
 } from "./commands/DeleteIpamPoolCommand";
 import {
+  DeleteIpamResourceDiscoveryCommand,
+  DeleteIpamResourceDiscoveryCommandInput,
+  DeleteIpamResourceDiscoveryCommandOutput,
+} from "./commands/DeleteIpamResourceDiscoveryCommand";
+import {
   DeleteIpamScopeCommand,
   DeleteIpamScopeCommandInput,
   DeleteIpamScopeCommandOutput,
@@ -659,6 +749,16 @@ import {
   DeleteLocalGatewayRouteCommandInput,
   DeleteLocalGatewayRouteCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteCommand";
+import {
+  DeleteLocalGatewayRouteTableCommand,
+  DeleteLocalGatewayRouteTableCommandInput,
+  DeleteLocalGatewayRouteTableCommandOutput,
+} from "./commands/DeleteLocalGatewayRouteTableCommand";
+import {
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
+} from "./commands/DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationCommand,
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
@@ -837,6 +937,26 @@ import {
   DeleteTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayVpcAttachmentCommand";
 import {
+  DeleteVerifiedAccessEndpointCommand,
+  DeleteVerifiedAccessEndpointCommandInput,
+  DeleteVerifiedAccessEndpointCommandOutput,
+} from "./commands/DeleteVerifiedAccessEndpointCommand";
+import {
+  DeleteVerifiedAccessGroupCommand,
+  DeleteVerifiedAccessGroupCommandInput,
+  DeleteVerifiedAccessGroupCommandOutput,
+} from "./commands/DeleteVerifiedAccessGroupCommand";
+import {
+  DeleteVerifiedAccessInstanceCommand,
+  DeleteVerifiedAccessInstanceCommandInput,
+  DeleteVerifiedAccessInstanceCommandOutput,
+} from "./commands/DeleteVerifiedAccessInstanceCommand";
+import {
+  DeleteVerifiedAccessTrustProviderCommand,
+  DeleteVerifiedAccessTrustProviderCommandInput,
+  DeleteVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/DeleteVerifiedAccessTrustProviderCommand";
+import {
   DeleteVolumeCommand,
   DeleteVolumeCommandInput,
   DeleteVolumeCommandOutput,
@@ -928,6 +1048,11 @@ import {
   DescribeAddressesCommandOutput,
 } from "./commands/DescribeAddressesCommand";
 import {
+  DescribeAddressTransfersCommand,
+  DescribeAddressTransfersCommandInput,
+  DescribeAddressTransfersCommandOutput,
+} from "./commands/DescribeAddressTransfersCommand";
+import {
   DescribeAggregateIdFormatCommand,
   DescribeAggregateIdFormatCommandInput,
   DescribeAggregateIdFormatCommandOutput,
@@ -937,6 +1062,11 @@ import {
   DescribeAvailabilityZonesCommandInput,
   DescribeAvailabilityZonesCommandOutput,
 } from "./commands/DescribeAvailabilityZonesCommand";
+import {
+  DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
+  DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+  DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput,
+} from "./commands/DescribeAwsNetworkPerformanceMetricSubscriptionsCommand";
 import {
   DescribeBundleTasksCommand,
   DescribeBundleTasksCommandInput,
@@ -1172,6 +1302,16 @@ import {
   DescribeIpamPoolsCommandInput,
   DescribeIpamPoolsCommandOutput,
 } from "./commands/DescribeIpamPoolsCommand";
+import {
+  DescribeIpamResourceDiscoveriesCommand,
+  DescribeIpamResourceDiscoveriesCommandInput,
+  DescribeIpamResourceDiscoveriesCommandOutput,
+} from "./commands/DescribeIpamResourceDiscoveriesCommand";
+import {
+  DescribeIpamResourceDiscoveryAssociationsCommand,
+  DescribeIpamResourceDiscoveryAssociationsCommandInput,
+  DescribeIpamResourceDiscoveryAssociationsCommandOutput,
+} from "./commands/DescribeIpamResourceDiscoveryAssociationsCommand";
 import {
   DescribeIpamsCommand,
   DescribeIpamsCommandInput,
@@ -1503,6 +1643,31 @@ import {
   DescribeTrunkInterfaceAssociationsCommandOutput,
 } from "./commands/DescribeTrunkInterfaceAssociationsCommand";
 import {
+  DescribeVerifiedAccessEndpointsCommand,
+  DescribeVerifiedAccessEndpointsCommandInput,
+  DescribeVerifiedAccessEndpointsCommandOutput,
+} from "./commands/DescribeVerifiedAccessEndpointsCommand";
+import {
+  DescribeVerifiedAccessGroupsCommand,
+  DescribeVerifiedAccessGroupsCommandInput,
+  DescribeVerifiedAccessGroupsCommandOutput,
+} from "./commands/DescribeVerifiedAccessGroupsCommand";
+import {
+  DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput,
+} from "./commands/DescribeVerifiedAccessInstanceLoggingConfigurationsCommand";
+import {
+  DescribeVerifiedAccessInstancesCommand,
+  DescribeVerifiedAccessInstancesCommandInput,
+  DescribeVerifiedAccessInstancesCommandOutput,
+} from "./commands/DescribeVerifiedAccessInstancesCommand";
+import {
+  DescribeVerifiedAccessTrustProvidersCommand,
+  DescribeVerifiedAccessTrustProvidersCommandInput,
+  DescribeVerifiedAccessTrustProvidersCommandOutput,
+} from "./commands/DescribeVerifiedAccessTrustProvidersCommand";
+import {
   DescribeVolumeAttributeCommand,
   DescribeVolumeAttributeCommandInput,
   DescribeVolumeAttributeCommandOutput,
@@ -1603,6 +1768,11 @@ import {
   DetachNetworkInterfaceCommandOutput,
 } from "./commands/DetachNetworkInterfaceCommand";
 import {
+  DetachVerifiedAccessTrustProviderCommand,
+  DetachVerifiedAccessTrustProviderCommandInput,
+  DetachVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/DetachVerifiedAccessTrustProviderCommand";
+import {
   DetachVolumeCommand,
   DetachVolumeCommandInput,
   DetachVolumeCommandOutput,
@@ -1612,6 +1782,16 @@ import {
   DetachVpnGatewayCommandInput,
   DetachVpnGatewayCommandOutput,
 } from "./commands/DetachVpnGatewayCommand";
+import {
+  DisableAddressTransferCommand,
+  DisableAddressTransferCommandInput,
+  DisableAddressTransferCommandOutput,
+} from "./commands/DisableAddressTransferCommand";
+import {
+  DisableAwsNetworkPerformanceMetricSubscriptionCommand,
+  DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+  DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
+} from "./commands/DisableAwsNetworkPerformanceMetricSubscriptionCommand";
 import {
   DisableEbsEncryptionByDefaultCommand,
   DisableEbsEncryptionByDefaultCommandInput,
@@ -1688,6 +1868,16 @@ import {
   DisassociateInstanceEventWindowCommandOutput,
 } from "./commands/DisassociateInstanceEventWindowCommand";
 import {
+  DisassociateIpamResourceDiscoveryCommand,
+  DisassociateIpamResourceDiscoveryCommandInput,
+  DisassociateIpamResourceDiscoveryCommandOutput,
+} from "./commands/DisassociateIpamResourceDiscoveryCommand";
+import {
+  DisassociateNatGatewayAddressCommand,
+  DisassociateNatGatewayAddressCommandInput,
+  DisassociateNatGatewayAddressCommandOutput,
+} from "./commands/DisassociateNatGatewayAddressCommand";
+import {
   DisassociateRouteTableCommand,
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
@@ -1723,6 +1913,16 @@ import {
   DisassociateVpcCidrBlockCommandOutput,
 } from "./commands/DisassociateVpcCidrBlockCommand";
 import {
+  EnableAddressTransferCommand,
+  EnableAddressTransferCommandInput,
+  EnableAddressTransferCommandOutput,
+} from "./commands/EnableAddressTransferCommand";
+import {
+  EnableAwsNetworkPerformanceMetricSubscriptionCommand,
+  EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+  EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
+} from "./commands/EnableAwsNetworkPerformanceMetricSubscriptionCommand";
+import {
   EnableEbsEncryptionByDefaultCommand,
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
@@ -1747,6 +1947,11 @@ import {
   EnableIpamOrganizationAdminAccountCommandInput,
   EnableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableIpamOrganizationAdminAccountCommand";
+import {
+  EnableReachabilityAnalyzerOrganizationSharingCommand,
+  EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+  EnableReachabilityAnalyzerOrganizationSharingCommandOutput,
+} from "./commands/EnableReachabilityAnalyzerOrganizationSharingCommand";
 import {
   EnableSerialConsoleAccessCommand,
   EnableSerialConsoleAccessCommandInput,
@@ -1803,6 +2008,11 @@ import {
   GetAssociatedIpv6PoolCidrsCommandInput,
   GetAssociatedIpv6PoolCidrsCommandOutput,
 } from "./commands/GetAssociatedIpv6PoolCidrsCommand";
+import {
+  GetAwsNetworkPerformanceDataCommand,
+  GetAwsNetworkPerformanceDataCommandInput,
+  GetAwsNetworkPerformanceDataCommandOutput,
+} from "./commands/GetAwsNetworkPerformanceDataCommand";
 import {
   GetCapacityReservationUsageCommand,
   GetCapacityReservationUsageCommandInput,
@@ -1868,6 +2078,16 @@ import {
   GetIpamAddressHistoryCommandInput,
   GetIpamAddressHistoryCommandOutput,
 } from "./commands/GetIpamAddressHistoryCommand";
+import {
+  GetIpamDiscoveredAccountsCommand,
+  GetIpamDiscoveredAccountsCommandInput,
+  GetIpamDiscoveredAccountsCommandOutput,
+} from "./commands/GetIpamDiscoveredAccountsCommand";
+import {
+  GetIpamDiscoveredResourceCidrsCommand,
+  GetIpamDiscoveredResourceCidrsCommandInput,
+  GetIpamDiscoveredResourceCidrsCommandOutput,
+} from "./commands/GetIpamDiscoveredResourceCidrsCommand";
 import {
   GetIpamPoolAllocationsCommand,
   GetIpamPoolAllocationsCommandInput,
@@ -1968,6 +2188,16 @@ import {
   GetTransitGatewayRouteTablePropagationsCommandInput,
   GetTransitGatewayRouteTablePropagationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTablePropagationsCommand";
+import {
+  GetVerifiedAccessEndpointPolicyCommand,
+  GetVerifiedAccessEndpointPolicyCommandInput,
+  GetVerifiedAccessEndpointPolicyCommandOutput,
+} from "./commands/GetVerifiedAccessEndpointPolicyCommand";
+import {
+  GetVerifiedAccessGroupPolicyCommand,
+  GetVerifiedAccessGroupPolicyCommandInput,
+  GetVerifiedAccessGroupPolicyCommandOutput,
+} from "./commands/GetVerifiedAccessGroupPolicyCommand";
 import {
   GetVpnConnectionDeviceSampleConfigurationCommand,
   GetVpnConnectionDeviceSampleConfigurationCommandInput,
@@ -2123,6 +2353,11 @@ import {
   ModifyIpamResourceCidrCommandOutput,
 } from "./commands/ModifyIpamResourceCidrCommand";
 import {
+  ModifyIpamResourceDiscoveryCommand,
+  ModifyIpamResourceDiscoveryCommandInput,
+  ModifyIpamResourceDiscoveryCommandOutput,
+} from "./commands/ModifyIpamResourceDiscoveryCommand";
+import {
   ModifyIpamScopeCommand,
   ModifyIpamScopeCommandInput,
   ModifyIpamScopeCommandOutput,
@@ -2132,6 +2367,11 @@ import {
   ModifyLaunchTemplateCommandInput,
   ModifyLaunchTemplateCommandOutput,
 } from "./commands/ModifyLaunchTemplateCommand";
+import {
+  ModifyLocalGatewayRouteCommand,
+  ModifyLocalGatewayRouteCommandInput,
+  ModifyLocalGatewayRouteCommandOutput,
+} from "./commands/ModifyLocalGatewayRouteCommand";
 import {
   ModifyManagedPrefixListCommand,
   ModifyManagedPrefixListCommandInput,
@@ -2207,6 +2447,41 @@ import {
   ModifyTransitGatewayVpcAttachmentCommandInput,
   ModifyTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/ModifyTransitGatewayVpcAttachmentCommand";
+import {
+  ModifyVerifiedAccessEndpointCommand,
+  ModifyVerifiedAccessEndpointCommandInput,
+  ModifyVerifiedAccessEndpointCommandOutput,
+} from "./commands/ModifyVerifiedAccessEndpointCommand";
+import {
+  ModifyVerifiedAccessEndpointPolicyCommand,
+  ModifyVerifiedAccessEndpointPolicyCommandInput,
+  ModifyVerifiedAccessEndpointPolicyCommandOutput,
+} from "./commands/ModifyVerifiedAccessEndpointPolicyCommand";
+import {
+  ModifyVerifiedAccessGroupCommand,
+  ModifyVerifiedAccessGroupCommandInput,
+  ModifyVerifiedAccessGroupCommandOutput,
+} from "./commands/ModifyVerifiedAccessGroupCommand";
+import {
+  ModifyVerifiedAccessGroupPolicyCommand,
+  ModifyVerifiedAccessGroupPolicyCommandInput,
+  ModifyVerifiedAccessGroupPolicyCommandOutput,
+} from "./commands/ModifyVerifiedAccessGroupPolicyCommand";
+import {
+  ModifyVerifiedAccessInstanceCommand,
+  ModifyVerifiedAccessInstanceCommandInput,
+  ModifyVerifiedAccessInstanceCommandOutput,
+} from "./commands/ModifyVerifiedAccessInstanceCommand";
+import {
+  ModifyVerifiedAccessInstanceLoggingConfigurationCommand,
+  ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+  ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput,
+} from "./commands/ModifyVerifiedAccessInstanceLoggingConfigurationCommand";
+import {
+  ModifyVerifiedAccessTrustProviderCommand,
+  ModifyVerifiedAccessTrustProviderCommandInput,
+  ModifyVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/ModifyVerifiedAccessTrustProviderCommand";
 import {
   ModifyVolumeAttributeCommand,
   ModifyVolumeAttributeCommandInput,
@@ -2583,6 +2858,11 @@ import {
   UnassignPrivateIpAddressesCommandOutput,
 } from "./commands/UnassignPrivateIpAddressesCommand";
 import {
+  UnassignPrivateNatGatewayAddressCommand,
+  UnassignPrivateNatGatewayAddressCommandInput,
+  UnassignPrivateNatGatewayAddressCommandOutput,
+} from "./commands/UnassignPrivateNatGatewayAddressCommand";
+import {
   UnmonitorInstancesCommand,
   UnmonitorInstancesCommandInput,
   UnmonitorInstancesCommandOutput,
@@ -2615,24 +2895,56 @@ import { EC2Client } from "./EC2Client";
  *          <p>To learn more, see the following resources:</p>
  *          <ul>
  *             <li>
- *                <p>Amazon EC2: <a href="http://aws.amazon.com/ec2">AmazonEC2 product page</a>, <a href="http://aws.amazon.com/documentation/ec2">Amazon EC2 documentation</a>
+ *                <p>Amazon EC2: <a href="http://aws.amazon.com/ec2">Amazon EC2 product page</a>, <a href="https://docs.aws.amazon.com/ec2/index.html">Amazon EC2 documentation</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon EBS documentation</a>
+ *                <p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="https://docs.aws.amazon.com/ebs/index.html">Amazon EBS documentation</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="http://aws.amazon.com/documentation/vpc">Amazon VPC documentation</a>
+ *                <p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="https://docs.aws.amazon.com/vpc/index.html">Amazon VPC documentation</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon Web Services VPN: <a href="http://aws.amazon.com/vpn">Amazon Web Services VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">Amazon Web Services VPN documentation</a>
+ *                <p>VPN: <a href="http://aws.amazon.com/vpn">VPN product page</a>, <a href="https://docs.aws.amazon.com/vpn/index.html">VPN documentation</a>
  *                </p>
  *             </li>
  *          </ul>
  */
 export class EC2 extends EC2Client {
+  /**
+   * <p>Accepts an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept">Accept a transferred Elastic IP address</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public acceptAddressTransfer(
+    args: AcceptAddressTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptAddressTransferCommandOutput>;
+  public acceptAddressTransfer(
+    args: AcceptAddressTransferCommandInput,
+    cb: (err: any, data?: AcceptAddressTransferCommandOutput) => void
+  ): void;
+  public acceptAddressTransfer(
+    args: AcceptAddressTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptAddressTransferCommandOutput) => void
+  ): void;
+  public acceptAddressTransfer(
+    args: AcceptAddressTransferCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptAddressTransferCommandOutput) => void),
+    cb?: (err: any, data?: AcceptAddressTransferCommandOutput) => void
+  ): Promise<AcceptAddressTransferCommandOutput> | void {
+    const command = new AcceptAddressTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Accepts the Convertible Reserved Instance exchange quote described in the <a>GetReservedInstancesExchangeQuote</a> call.</p>
    */
@@ -2770,7 +3082,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.</p>
+   * <p>Accepts connection requests to your VPC endpoint service.</p>
    */
   public acceptVpcEndpointConnections(
     args: AcceptVpcEndpointConnectionsCommandInput,
@@ -2806,7 +3118,7 @@ export class EC2 extends EC2Client {
    *       be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC.
    *       Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
    *       peering connection requests.</p>
-   *   	      <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
+   *          <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
    *       connection in the Region of the accepter VPC.</p>
    */
   public acceptVpcPeeringConnection(
@@ -2895,7 +3207,7 @@ export class EC2 extends EC2Client {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance). </p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public allocateAddress(
@@ -2928,9 +3240,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported instance
-   *         	type or instance family, the Availability Zone in which to allocate the host, and the number of
-   *         	hosts to allocate.</p>
+   * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported
+   *             instance type or instance family, the Availability Zone in which to allocate the host,
+   *             and the number of hosts to allocate.</p>
    */
   public allocateHosts(
     args: AllocateHostsCommandInput,
@@ -2962,7 +3274,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public allocateIpamPoolCidr(
@@ -3036,8 +3348,8 @@ export class EC2 extends EC2Client {
    *             You can assign as many IPv6 addresses to a network interface as you can assign private
    *             IPv4 addresses, and the limit varies per instance type. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per Network Interface Per Instance Type</a>
    *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *         <p>You must specify either the IPv6 addresses or the IPv6 address count in the request. </p>
-   *         <p>You can optionally use Prefix Delegation on the network interface. You must specify
+   *          <p>You must specify either the IPv6 addresses or the IPv6 address count in the request. </p>
+   *          <p>You can optionally use Prefix Delegation on the network interface. You must specify
    *             either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
    *                 Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -3073,18 +3385,18 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Assigns one or more secondary private IP addresses to the specified network interface.</p>
-   *         <p>You can specify one or more specific secondary IP addresses, or you can specify the number
+   *          <p>You can specify one or more specific secondary IP addresses, or you can specify the number
    *             of secondary IP addresses to be automatically assigned within the subnet's CIDR block range.
    *             The number of secondary IP addresses that you can assign to an instance varies by instance type.
    *             For information about instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about
    *             Elastic IP addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *         <p>When you move a secondary private IP address to another network interface, any Elastic IP address
+   *          <p>When you move a secondary private IP address to another network interface, any Elastic IP address
    *             that is associated with the IP address is also moved.</p>
-   *         <p>Remapping an IP address is an asynchronous operation. When you move an IP address from one network
+   *          <p>Remapping an IP address is an asynchronous operation. When you move an IP address from one network
    *             interface to another, check <code>network/interfaces/macs/mac/local-ipv4s</code> in the instance
    *             metadata to confirm that the remapping is complete.</p>
-   *         <p>You must specify either the IP addresses or the IP address count in the request.</p>
-   *         <p>You can optionally use Prefix Delegation on the network interface. You must specify
+   *          <p>You must specify either the IP addresses or the IP address count in the request.</p>
+   *          <p>You can optionally use Prefix Delegation on the network interface. You must specify
    *             either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
    *                 Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -3108,6 +3420,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AssignPrivateIpAddressesCommandOutput) => void
   ): Promise<AssignPrivateIpAddressesCommandOutput> | void {
     const command = new AssignPrivateIpAddressesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Assigns one or more private IPv4 addresses to a private NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssignPrivateNatGatewayAddressCommandOutput>;
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public assignPrivateNatGatewayAddress(
+    args: AssignPrivateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: AssignPrivateNatGatewayAddressCommandOutput) => void
+  ): Promise<AssignPrivateNatGatewayAddressCommandOutput> | void {
+    const command = new AssignPrivateNatGatewayAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3144,9 +3488,8 @@ export class EC2 extends EC2Client {
    *           Addresses</i> section of <a href="http://aws.amazon.com/ec2/pricing/">Amazon EC2
    *           Pricing</a>.</p>
    *          </important>
-   *
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public associateAddress(
@@ -3180,7 +3523,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p>
-   * 	        <p>If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that's in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>) and change the VPC that's associated with it.</p>
+   *          <p>If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that's in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>) and change the VPC that's associated with it.</p>
    */
   public associateClientVpnTargetNetwork(
     args: AssociateClientVpnTargetNetworkCommandInput,
@@ -3251,12 +3594,10 @@ export class EC2 extends EC2Client {
    * 			This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more
    * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves
    * 					User Guide</i>.</p>
-   *
-   * 		       <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted
-   * 			private key are placed in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate
+   *          <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted
+   * 			private key are placed in an Amazon S3 location that only the associated IAM role can access. The private key of the certificate
    * 			is encrypted with an Amazon Web Services managed key that has an attached attestation-based key policy.</p>
-   *
-   * 		       <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code>
+   *          <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code>
    * 			on the Amazon S3 bucket returned by the command. To enable the IAM role to access the KMS key,
    * 			you must grant it permission to call <code>kms:Decrypt</code> on the KMS key returned by the command.
    * 			For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
@@ -3361,12 +3702,77 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateIpamResourceDiscoveryCommandOutput>;
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public associateIpamResourceDiscovery(
+    args: AssociateIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: AssociateIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<AssociateIpamResourceDiscoveryCommandOutput> | void {
+    const command = new AssociateIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateNatGatewayAddressCommandOutput>;
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: AssociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public associateNatGatewayAddress(
+    args: AssociateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: AssociateNatGatewayAddressCommandOutput) => void
+  ): Promise<AssociateNatGatewayAddressCommandOutput> | void {
+    const command = new AssociateNatGatewayAddressCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Associates a subnet in your VPC or an internet gateway or virtual private gateway
    *             attached to your VPC with a route table in your VPC. This association causes traffic
    *             from the subnet or gateway to be routed according to the routes in the route table. The
    *             action returns an association ID, which you need in order to disassociate the route
    *             table later. A route table can be associated with multiple subnets.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
    *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public associateRouteTable(
@@ -3433,7 +3839,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p>
-   *         <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a>
+   *          <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a>
    *             to see the state of the attachment.</p>
    */
   public associateTransitGatewayMulticastDomain(
@@ -3536,10 +3942,9 @@ export class EC2 extends EC2Client {
    * <note>
    *             <p>This API action is currently in <b>limited preview only</b>.
    *                 If you are interested in using this feature, contact your account manager.</p>
-   *         </note>
-   *
-   *         <p>Associates a branch network interface with a trunk network interface.</p>
-   *         <p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set
+   *          </note>
+   *          <p>Associates a branch network interface with a trunk network interface.</p>
+   *          <p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set
    *             <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
    */
   public associateTrunkInterface(
@@ -3576,9 +3981,9 @@ export class EC2 extends EC2Client {
    *             an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that
    *             you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). The IPv6 CIDR block size is fixed
    *             at /56.</p>
-   *         <p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6
+   *          <p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6
    *             pool, or an Amazon-provided IPv6 CIDR block.</p>
-   *         <p>For more information about associating CIDR blocks with your VPC and applicable
+   *          <p>For more information about associating CIDR blocks with your VPC and applicable
    *             restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing">VPC and subnet sizing</a> in the
    *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
@@ -3613,15 +4018,15 @@ export class EC2 extends EC2Client {
 
   /**
    * <note>
-   * 	           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * 	        </note>
-   * 	        <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          </note>
+   *          <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's
    * 			security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You
    * 			can only link an instance that's in the <code>running</code> state. An instance is
    * 			automatically unlinked from a VPC when it's stopped - you can link it to the VPC again when
    * 			you restart it.</p>
-   * 		       <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p>
-   * 		       <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>
+   *          <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p>
+   *          <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>
    */
   public attachClassicLinkVpc(
     args: AttachClassicLinkVpcCommandInput,
@@ -3718,6 +4123,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
+   *          information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access
+   *          instance.</p>
+   */
+  public attachVerifiedAccessTrustProvider(
+    args: AttachVerifiedAccessTrustProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachVerifiedAccessTrustProviderCommandOutput>;
+  public attachVerifiedAccessTrustProvider(
+    args: AttachVerifiedAccessTrustProviderCommandInput,
+    cb: (err: any, data?: AttachVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public attachVerifiedAccessTrustProvider(
+    args: AttachVerifiedAccessTrustProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public attachVerifiedAccessTrustProvider(
+    args: AttachVerifiedAccessTrustProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachVerifiedAccessTrustProviderCommandOutput) => void),
+    cb?: (err: any, data?: AttachVerifiedAccessTrustProviderCommandOutput) => void
+  ): Promise<AttachVerifiedAccessTrustProviderCommandOutput> | void {
+    const command = new AttachVerifiedAccessTrustProviderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
    *       with the specified device name.</p>
    *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
@@ -3773,7 +4212,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual private
    *             gateway to one VPC at a time.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
    */
   public attachVpnGateway(
@@ -3841,7 +4280,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p>
-   *         <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
+   *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
    *             address ranges, or to the instances that are associated with the specified source
    *             security groups. When specifying an outbound rule for your security group in a VPC, the
    *             <code>IpPermissions</code> must include a destination for the traffic.</p>
@@ -3894,9 +4333,8 @@ export class EC2 extends EC2Client {
    *          <p>Rule changes are propagated to instances within the security group as quickly as possible.
    *          However, a small delay might occur.</p>
    *          <p>For more information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
-   *
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public authorizeSecurityGroupIngress(
@@ -3933,7 +4371,7 @@ export class EC2 extends EC2Client {
    *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p>
    *          <note>
    *             <p>This action is not applicable for Linux/Unix instances or Windows instances that are backed by Amazon EBS.</p>
-   * 			      </note>
+   *          </note>
    */
   public bundleInstance(
     args: BundleInstanceCommandInput,
@@ -3999,7 +4437,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to
    * 			<code>cancelled</code>.</p>
-   * 		       <p>Instances running in the reserved capacity continue running until you stop them. Stopped
+   *          <p>Instances running in the reserved capacity continue running until you stop them. Stopped
    * 			instances that target the Capacity Reservation can no longer launch. Modify these instances to either
    * 			target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation
    * 			that has matching attributes and sufficient capacity.</p>
@@ -4036,18 +4474,18 @@ export class EC2 extends EC2Client {
   /**
    * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation
    * 			Fleet, the following happens:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>The Capacity Reservation Fleet's status changes to <code>cancelled</code>.</p>
-   * 			         </li>
+   *                <p>The Capacity Reservation Fleet's status changes to <code>cancelled</code>.</p>
+   *             </li>
    *             <li>
-   * 				           <p>The individual Capacity Reservations in the Fleet are cancelled. Instances running
+   *                <p>The individual Capacity Reservations in the Fleet are cancelled. Instances running
    * 					in the Capacity Reservations at the time of cancelling the Fleet continue to run in
    * 					shared capacity.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>The Fleet stops creating new Capacity Reservations.</p>
-   * 			         </li>
+   *                <p>The Fleet stops creating new Capacity Reservations.</p>
+   *             </li>
    *          </ul>
    */
   public cancelCapacityReservationFleets(
@@ -4150,6 +4588,41 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html">
+   *         Cancel having an AMI shared with your Amazon Web Services account</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   */
+  public cancelImageLaunchPermission(
+    args: CancelImageLaunchPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelImageLaunchPermissionCommandOutput>;
+  public cancelImageLaunchPermission(
+    args: CancelImageLaunchPermissionCommandInput,
+    cb: (err: any, data?: CancelImageLaunchPermissionCommandOutput) => void
+  ): void;
+  public cancelImageLaunchPermission(
+    args: CancelImageLaunchPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelImageLaunchPermissionCommandOutput) => void
+  ): void;
+  public cancelImageLaunchPermission(
+    args: CancelImageLaunchPermissionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelImageLaunchPermissionCommandOutput) => void),
+    cb?: (err: any, data?: CancelImageLaunchPermissionCommandOutput) => void
+  ): Promise<CancelImageLaunchPermissionCommandOutput> | void {
+    const command = new CancelImageLaunchPermissionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Cancels an in-process import virtual machine or import snapshot task.</p>
    */
   public cancelImportTask(
@@ -4218,7 +4691,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Cancels the specified Spot Fleet requests.</p>
-   *         <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
+   *          <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
    *             You must specify whether the Spot Fleet should also terminate its Spot Instances. If you
    *             terminate the instances, the Spot Fleet request enters the
    *                 <code>cancelled_terminating</code> state. Otherwise, the Spot Fleet request enters
@@ -4256,10 +4729,10 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Cancels one or more Spot Instance requests.</p>
-   *         <important>
+   *          <important>
    *             <p>Canceling a Spot Instance request does not terminate running Spot Instances
    *                 associated with the request.</p>
-   *         </important>
+   *          </important>
    */
   public cancelSpotInstanceRequests(
     args: CancelSpotInstanceRequestsCommandInput,
@@ -4360,25 +4833,22 @@ export class EC2 extends EC2Client {
    * <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a
    *       Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost
    *       to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
-   *
-   *      	   <p>To copy an AMI from one Region to another, specify the source Region using the
+   *          <p>To copy an AMI from one Region to another, specify the source Region using the
    *      		<b>SourceRegion</b> parameter, and specify the
    *      		destination Region using its endpoint. Copies of encrypted backing snapshots for
    *      		the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted,
    *      		unless you set <code>Encrypted</code> during the copy operation. You cannot
    *      		create an unencrypted copy of an encrypted backing snapshot.</p>
-   *
-   *    	     <p>To copy an AMI from a Region to an Outpost, specify the source Region using the
+   *          <p>To copy an AMI from a Region to an Outpost, specify the source Region using the
    *    		<b>SourceRegion</b> parameter, and specify the
    *    		ARN of the destination Outpost using <b>DestinationOutpostArn</b>.
    *    		Backing snapshots copied to an Outpost are encrypted by default using the default
    *    		encryption key for the Region, or a different key that you specify in the request using
    *    		<b>KmsKeyId</b>. Outposts do not support unencrypted
    *    		snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
-   *    			Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *
-   *          <p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying an AMI</a>
-   *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *    			Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an AMI</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
    */
   public copyImage(args: CopyImageCommandInput, options?: __HttpHandlerOptions): Promise<CopyImageCommandOutput>;
   public copyImage(args: CopyImageCommandInput, cb: (err: any, data?: CopyImageCommandOutput) => void): void;
@@ -4409,16 +4879,13 @@ export class EC2 extends EC2Client {
    *       You can't copy a snapshot from an Outpost to a Region, from one Outpost to another, or within
    *       the same Outpost.</p>
    *          <p>You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs).</p>
-   *
-   *
    *          <p>When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
    *     	Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for the
    *     	snapshot copy operation. By default, encrypted snapshot copies use the default Key Management Service (KMS)
    *     	KMS key; however, you can specify a different KMS key. To copy an encrypted
    *     	snapshot that has been shared from another account, you must have permissions for the KMS key
    *     	used to encrypt the snapshot.</p>
-   *
-   *   	      <p>Snapshots copied to an Outpost are encrypted by default using the default
+   *          <p>Snapshots copied to an Outpost are encrypted by default using the default
    *   		encryption key for the Region, or a different key that you specify in the request using
    *   		<b>KmsKeyId</b>. Outposts do not support unencrypted
    *   		snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
@@ -4456,18 +4923,16 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a new Capacity Reservation with the specified attributes.</p>
-   * 		       <p>Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration. This
+   *          <p>Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration. This
    * 			gives you the flexibility to selectively add capacity reservations and still get the Regional RI discounts for that usage.
    * 			By creating Capacity Reservations, you ensure that you always have access to Amazon EC2 capacity when you need it, for as long as you need it.
    * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">Capacity Reservations</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *
-   * 		       <p>Your request to create a Capacity Reservation could fail if Amazon EC2 does not have sufficient capacity to
+   *          <p>Your request to create a Capacity Reservation could fail if Amazon EC2 does not have sufficient capacity to
    * 			fulfill the request. If your request fails due to Amazon EC2 capacity constraints, either try
    * 			again at a later time, try in a different Availability Zone, or request a smaller
    * 			capacity reservation. If your application is flexible across instance types and sizes,
    * 			try to create a Capacity Reservation with different instance attributes.</p>
-   *
-   * 		       <p>Your request could also fail if the requested quantity exceeds your On-Demand Instance
+   *          <p>Your request could also fail if the requested quantity exceeds your On-Demand Instance
    * 			limit for the selected instance type. If your request fails due to limit constraints,
    * 			increase your On-Demand Instance limit for the required instance type and try again. For
    * 			more information about increasing your instance limits, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 Service
@@ -4635,17 +5100,83 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>
+   *      Creates a range of customer-owned IP addresses.
+   *       </p>
+   */
+  public createCoipCidr(
+    args: CreateCoipCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCoipCidrCommandOutput>;
+  public createCoipCidr(
+    args: CreateCoipCidrCommandInput,
+    cb: (err: any, data?: CreateCoipCidrCommandOutput) => void
+  ): void;
+  public createCoipCidr(
+    args: CreateCoipCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCoipCidrCommandOutput) => void
+  ): void;
+  public createCoipCidr(
+    args: CreateCoipCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCoipCidrCommandOutput) => void),
+    cb?: (err: any, data?: CreateCoipCidrCommandOutput) => void
+  ): Promise<CreateCoipCidrCommandOutput> | void {
+    const command = new CreateCoipCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Creates a pool of customer-owned IP (CoIP) addresses. </p>
+   */
+  public createCoipPool(
+    args: CreateCoipPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCoipPoolCommandOutput>;
+  public createCoipPool(
+    args: CreateCoipPoolCommandInput,
+    cb: (err: any, data?: CreateCoipPoolCommandOutput) => void
+  ): void;
+  public createCoipPool(
+    args: CreateCoipPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCoipPoolCommandOutput) => void
+  ): void;
+  public createCoipPool(
+    args: CreateCoipPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCoipPoolCommandOutput) => void),
+    cb?: (err: any, data?: CreateCoipPoolCommandOutput) => void
+  ): Promise<CreateCoipPoolCommandOutput> | void {
+    const command = new CreateCoipPoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides information to Amazon Web Services about your customer gateway device. The
    *             customer gateway device is the appliance at your end of the VPN connection. You
    *             must provide the IP address of the customer gateway device’s external
    *             interface. The IP address must be static and can be behind a device performing network
    *             address translation (NAT).</p>
-   *         <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's
+   *          <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's
    *             BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network.
    *             If you don't have an ASN already, you can use a private ASN. For more information, see
    *             <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html">Customer gateway
    *                 options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
-   *         <p>To create more than one customer gateway with the same VPN type, IP address, and
+   *          <p>To create more than one customer gateway with the same VPN type, IP address, and
    *             BGP ASN, specify a unique device name for each customer gateway. An identical request
    *             returns information about the existing customer gateway; it doesn't create a new customer
    *             gateway.</p>
@@ -4720,16 +5251,16 @@ export class EC2 extends EC2Client {
    * 			see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default VPC and
    * 			default subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot
    * 			specify the components of the default VPC yourself.</p>
-   * 		       <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have
+   *          <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have
    * 			more than one default VPC per Region.</p>
-   * 		       <p>If your account supports EC2-Classic, you cannot use this action to create a default VPC
+   *          <p>If your account supports EC2-Classic, you cannot use this action to create a default VPC
    * 			in a Region that supports EC2-Classic. If you want a default VPC in a Region that
    * 			supports EC2-Classic, see "I really want a default VPC for my existing EC2 account. Is
    * 			that possible?" in the <a href="http://aws.amazon.com/vpc/faqs/#Default_VPCs">Default VPCs
    * 			FAQ</a>.</p>
-   * 	        <note>
-   * 	           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * 	        </note>
+   *          <note>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          </note>
    */
   public createDefaultVpc(
     args: CreateDefaultVpcCommandInput,
@@ -4774,7 +5305,7 @@ export class EC2 extends EC2Client {
    *                     IP addresses in a single parameter, separated by commas. To have your instance
    *                     receive a custom DNS hostname as specified in <code>domain-name</code>, you must
    *                     set <code>domain-name-servers</code> to a custom DNS server.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>domain-name</code> - If you're using AmazonProvidedDNS in
@@ -4789,25 +5320,24 @@ export class EC2 extends EC2Client {
    *                    domain, which results in unexpected behavior. If your DHCP options set is
    *                    associated with a VPC that has instances with multiple operating systems,
    *                    specify only one domain name.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP)
    *                    servers.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name
    *                    servers.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that
    *                    you specify 2 (broadcast and multicast are not currently supported). For more information
    *                    about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
-   *
    *          <p>Your VPC automatically starts out with a set of DHCP options that includes only a DNS
    * 			server that we provide (AmazonProvidedDNS). If you create a set of options, and if your
    * 			VPC has an internet gateway, make sure to set the <code>domain-name-servers</code>
@@ -4911,18 +5441,15 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface,
    *             subnet, or VPC. </p>
-   *
-   *         <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events
+   *          <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events
    *             consisting of fields that describe the traffic flow. For more information, see
    *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log records</a>
    *             in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
-   *
-   *         <p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network
+   *          <p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network
    *             interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all
    *             of the monitored network interfaces are published to a single log file object that is stored in the specified
    *             bucket.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createFlowLogs(
     args: CreateFlowLogsCommandInput,
@@ -4993,25 +5520,21 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
    *      	that is either running or stopped.</p>
-   * 	        <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
+   *          <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
    * 					take snapshots of the attached volumes while data is at rest, in order to ensure a consistent
    * 					state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request,
    * 					or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and
    * 					rebooting the instance.</p>
-   *    	     <important>
-   * 					       <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
+   *          <important>
+   *             <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
    * 					parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option
    * 					in the CLI, we can't guarantee the file system integrity of the created image.</p>
-   * 				     </important>
-   *
-   *
-   *
-   *
-   *    	     <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the
+   *          </important>
+   *          <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the
    *      	new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI,
    *      	the instance automatically launches with those additional volumes.</p>
-   *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a>
-   * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed Linux
+   *         AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
   public createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
@@ -5045,7 +5568,6 @@ export class EC2 extends EC2Client {
    *          <p>When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags)
    *          are not yet associated with it. To ensure that the event window can be used, you must
    *          associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a> API.</p>
-   *
    *          <important>
    *             <p>Event windows are applicable only for scheduled events that stop, reboot, or
    *             terminate instances.</p>
@@ -5055,11 +5577,10 @@ export class EC2 extends EC2Client {
    *                   <p>Expedited scheduled events and network maintenance events. </p>
    *                </li>
    *                <li>
-   *                            <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p>
+   *                   <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p>
    *                </li>
    *             </ul>
    *          </important>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
    *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
@@ -5227,6 +5748,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamResourceDiscoveryCommandOutput>;
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public createIpamResourceDiscovery(
+    args: CreateIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<CreateIpamResourceDiscoveryCommandOutput> | void {
+    const command = new CreateIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
@@ -5265,7 +5818,7 @@ export class EC2 extends EC2Client {
    *             key for you to save to a file. The private key is returned as an unencrypted PEM encoded
    *             PKCS#1 private key or an unencrypted PPK formatted private key for use with PuTTY. If a
    *             key with the specified name already exists, Amazon EC2 returns an error.</p>
-   * 		       <p>The key pair returned to you is available only in the Amazon Web Services Region in which you create it.
+   *          <p>The key pair returned to you is available only in the Amazon Web Services Region in which you create it.
    *             If you prefer, you can create your own key pair using a third-party tool and upload it
    *             to any Region using <a>ImportKeyPair</a>.</p>
    *          <p>You can have up to 5,000 key pairs per Amazon Web Services Region.</p>
@@ -5303,12 +5856,12 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a launch template.</p>
-   *         <p>A launch template contains the parameters to launch an
-   *             instance. When you launch an instance using <a>RunInstances</a>, you can
-   *             specify a launch template instead of providing the launch parameters in the request. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch an instance from a
-   *                 launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *         <p>If you want to clone an existing launch template as the basis for creating a new
+   *          <p>A launch template contains the parameters to launch an instance. When you launch an
+   *             instance using <a>RunInstances</a>, you can specify a launch template instead
+   *             of providing the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch
+   *                 an instance from a launch template</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>If you want to clone an existing launch template as the basis for creating a new
    *             launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support
    *             cloning a template. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template">Create a launch template from an existing launch template</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -5345,11 +5898,12 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates a new version of a launch template. You can specify an existing version of
    *             launch template from which to base the new version.</p>
-   *         <p>Launch template versions are numbered in the order in which they are created. You
+   *          <p>Launch template versions are numbered in the order in which they are created. You
    *             cannot specify, change, or replace the numbering of launch template versions.</p>
-   *         <p>Launch templates are immutable; after you create a launch template, you can't modify it.
-   *             Instead, you can create a new version of the launch template that includes any changes you require.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify a launch template (manage launch template versions)</a> in the
+   *          <p>Launch templates are immutable; after you create a launch template, you can't modify
+   *             it. Instead, you can create a new version of the launch template that includes any
+   *             changes you require.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify a launch template (manage launch template versions)</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createLaunchTemplateVersion(
@@ -5382,7 +5936,20 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a static route for the specified local gateway route table.</p>
+   * <p>Creates a static route for the specified local gateway route table. You must specify one of the
+   *          following targets: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LocalGatewayVirtualInterfaceGroupId</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NetworkInterfaceId</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public createLocalGatewayRoute(
     args: CreateLocalGatewayRouteCommandInput,
@@ -5403,6 +5970,76 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateLocalGatewayRouteCommandOutput) => void
   ): Promise<CreateLocalGatewayRouteCommandOutput> | void {
     const command = new CreateLocalGatewayRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Creates a local gateway route table.
+   *       </p>
+   */
+  public createLocalGatewayRouteTable(
+    args: CreateLocalGatewayRouteTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocalGatewayRouteTableCommandOutput>;
+  public createLocalGatewayRouteTable(
+    args: CreateLocalGatewayRouteTableCommandInput,
+    cb: (err: any, data?: CreateLocalGatewayRouteTableCommandOutput) => void
+  ): void;
+  public createLocalGatewayRouteTable(
+    args: CreateLocalGatewayRouteTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocalGatewayRouteTableCommandOutput) => void
+  ): void;
+  public createLocalGatewayRouteTable(
+    args: CreateLocalGatewayRouteTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocalGatewayRouteTableCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocalGatewayRouteTableCommandOutput) => void
+  ): Promise<CreateLocalGatewayRouteTableCommandOutput> | void {
+    const command = new CreateLocalGatewayRouteTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Creates a local gateway route table virtual interface group association.
+   *       </p>
+   */
+  public createLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput>;
+  public createLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    cb: (err: any, data?: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): void;
+  public createLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): void;
+  public createLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): Promise<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> | void {
+    const command = new CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5523,7 +6160,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createNetworkAcl(
@@ -5560,9 +6197,9 @@ export class EC2 extends EC2Client {
    * 		        and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated
    * 		        with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of
    * 		        ingress rules and a separate set of egress rules.</p>
-   * 		       <p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the
+   *          <p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the
    * 		        other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.</p>
-   * 		       <p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p>
+   *          <p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p>
    *          <p>For more information about network ACLs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createNetworkAclEntry(
@@ -5666,8 +6303,11 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a network interface in the specified subnet.</p>
-   *         <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic Network Interfaces</a>
-   *             in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>The number of IP addresses you can assign to a network interface varies by instance
+   *             type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per ENI Per
+   *                 Instance Type</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic network interfaces</a>
+   *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createNetworkInterface(
     args: CreateNetworkInterfaceCommandInput,
@@ -5701,7 +6341,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Grants an Amazon Web Services-authorized account permission to attach the specified network interface to
    *             an instance in their account.</p>
-   * 	        <p>You can grant permission to a single Amazon Web Services account only, and only one account at a time.</p>
+   *          <p>You can grant permission to a single Amazon Web Services account only, and only one account at a time.</p>
    */
   public createNetworkInterfacePermission(
     args: CreateNetworkInterfacePermissionCommandInput,
@@ -5735,13 +6375,13 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates a placement group in which to launch instances. The strategy of the placement
    *             group determines how the instances are organized within the group. </p>
-   *         <p>A <code>cluster</code> placement group is a logical grouping of instances within a
+   *          <p>A <code>cluster</code> placement group is a logical grouping of instances within a
    *             single Availability Zone that benefit from low network latency, high network throughput.
    *             A <code>spread</code> placement group places instances on distinct hardware. A
    *                 <code>partition</code> placement group places groups of instances in different
    *             partitions, where instances in one partition do not share the same hardware with
    *             instances in another partition.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   public createPlacementGroup(
@@ -5806,11 +6446,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a root volume replacement task for an Amazon EC2 instance. The root volume
-   *       can either be restored to its initial launch state, or it can be restored using a
-   *       specific snapshot.</p>
-   *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new
+   *       volume that is restored to the original root volume's launch state, that is restored to a
+   *       specific snapshot taken from the original root volume, or that is restored from an AMI
+   *       that has the same key characteristics as that of the instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createReplaceRootVolumeTask(
     args: CreateReplaceRootVolumeTaskCommandInput,
@@ -5849,8 +6489,8 @@ export class EC2 extends EC2Client {
    *             <p>Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace.
    *        Convertible Reserved Instances cannot be sold.</p>
    *          </note>
-   * 		       <p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p>
-   * 		       <p>To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance
+   *          <p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p>
+   *          <p>To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance
    *       Marketplace. After completing the registration process, you can create a Reserved Instance
    *       Marketplace listing of some or all of your Standard Reserved Instances, and specify the upfront price
    *       to receive for them. Your Standard Reserved Instance listings then become available for purchase. To
@@ -5892,9 +6532,9 @@ export class EC2 extends EC2Client {
    * <p>Starts a task that restores an AMI from an Amazon S3 object that was previously created by using
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
    *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
-   *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public createRestoreImageTask(
     args: CreateRestoreImageTaskCommandInput,
@@ -5932,17 +6572,17 @@ export class EC2 extends EC2Client {
    *          <p>When determining how to route traffic, we use the route with the most specific match.
    *             For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and the
    *             route table includes the following two IPv4 routes:</p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <code>192.0.2.0/24</code> (goes to some target A)</p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <code>192.0.2.0/28</code> (goes to some target B)</p>
-   * 				        </li>
+   *             </li>
    *          </ul>
-   * 		       <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route
+   *          <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route
    * 				in the list covers a smaller number of IP addresses and is therefore more specific,
    * 				so we use that route to determine where to target the traffic.</p>
    *          <p>For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
@@ -6021,9 +6661,8 @@ export class EC2 extends EC2Client {
    * 					<a>RevokeSecurityGroupIngress</a>, and
    * 					<a>RevokeSecurityGroupEgress</a>.</p>
    *          <p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
-   *
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public createSecurityGroup(
@@ -6059,13 +6698,10 @@ export class EC2 extends EC2Client {
    * <p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for
    *   	backups, to make copies of EBS volumes, and to save data before shutting down an
    *   	instance.</p>
-   *
-   *
    *          <p>You can create snapshots of volumes in a Region and volumes on an Outpost. If you
    *     	create a snapshot of a volume in a Region, the snapshot must be stored in the same
    *     	Region as the volume. If you create a snapshot of a volume on an Outpost, the snapshot
    *     	can be stored on the same Outpost as the volume, or in the Region for that Outpost.</p>
-   *
    *          <p>When a snapshot is created, any Amazon Web Services Marketplace product codes that are associated with the
    *       source volume are propagated to the snapshot.</p>
    *          <p>You can take a snapshot of an attached volume that is in use. However, snapshots only
@@ -6117,9 +6753,9 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates crash-consistent snapshots of multiple EBS volumes and stores the data in S3.
    *     Volumes are chosen by specifying an instance. Any attached volumes will produce one snapshot
-   *     each that is crash-consistent across the instance. Boot volumes can be excluded by changing the
-   *     parameters. </p>
-   *
+   *     each that is crash-consistent across the instance.</p>
+   *          <p>You can include all of the volumes currently attached to the instance, or you can exclude
+   *     the root volume or specific data (non-root) volumes from the multi-volume snapshot set.</p>
    *          <p>You can create multi-volume snapshots of instances in a Region and instances on an
    *   	Outpost. If you create snapshots from an instance in a Region, the snapshots must be stored
    *   	in the same Region as the instance. If you create snapshots from an instance on an Outpost,
@@ -6157,9 +6793,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
-   * 				You can create one data feed per Amazon Web Services account. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
-   *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             You can create one data feed per Amazon Web Services account. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
+   *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   public createSpotDatafeedSubscription(
     args: CreateSpotDatafeedSubscriptionCommandInput,
@@ -6193,9 +6829,9 @@ export class EC2 extends EC2Client {
   /**
    * <p>Stores an AMI as a single object in an Amazon S3 bucket.</p>
    *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
-   *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public createStoreImageTask(
     args: CreateStoreImageTaskCommandInput,
@@ -6227,24 +6863,23 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a subnet in a specified VPC.</p>
-   *         <p>You must specify an IPv4 CIDR block for the subnet. After you create a subnet, you
-   *             can't change its CIDR block. The allowed block size is between a /16 netmask (65,536 IP
-   *             addresses) and /28 netmask (16 IP addresses). The CIDR block must not overlap with the
-   *             CIDR block of an existing subnet in the VPC.</p>
-   *         <p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an
-   *             IPv6 CIDR block that uses a /64 prefix length. </p>
-   *         <important>
-   *             <p>Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR
-   *                 block. They're not available for use.</p>
-   *         </important>
-   *         <p>If you add more than one subnet to a VPC, they're set up in a star topology with a
+   * <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block.
+   *             If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead.
+   *             For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both
+   *             an IPv4 CIDR block and an IPv6 CIDR block.</p>
+   *          <p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC.
+   *             After you create a subnet, you can't change its CIDR block.</p>
+   *          <p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and
+   *             a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and
+   *             the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p>
+   *          <p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block
+   *             with a subnet when you create it. The allowed block size for an IPv6 subnet is a /64 netmask.</p>
+   *          <p>If you add more than one subnet to a VPC, they're set up in a star topology with a
    *             logical router in the middle.</p>
-   *         <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's
+   *          <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's
    *             therefore possible to have a subnet with no running instances (they're all stopped), but
    *             no remaining IP addresses available.</p>
-   *         <p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the
-   *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createSubnet(
     args: CreateSubnetCommandInput,
@@ -6309,7 +6944,6 @@ export class EC2 extends EC2Client {
    *          resources. When you specify an existing tag key, the value is overwritten with
    *          the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and
    *          optional value. Tag keys must be unique per resource.</p>
-   *
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the
    *             <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about
    *          creating IAM policies that control users' access to resources based on tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported
@@ -6529,7 +7163,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p>
-   *         <p>A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.</p>
+   *          <p>A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.</p>
    */
   public createTransitGatewayConnect(
     args: CreateTransitGatewayConnectCommandInput,
@@ -6563,8 +7197,8 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates a Connect peer for a specified transit gateway Connect attachment between a
    *             transit gateway and an appliance.</p>
-   *         <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>
+   *          <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>
    */
   public createTransitGatewayConnectPeer(
     args: CreateTransitGatewayConnectPeerCommandInput,
@@ -6597,7 +7231,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a multicast domain using the specified transit gateway.</p>
-   *         <p>The transit gateway  must be in the available state before you create a domain. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html">DescribeTransitGateways</a> to see the state of transit gateway.</p>
+   *          <p>The transit gateway  must be in the available state before you create a domain. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html">DescribeTransitGateways</a> to see the state of transit gateway.</p>
    */
   public createTransitGatewayMulticastDomain(
     args: CreateTransitGatewayMulticastDomainCommandInput,
@@ -6632,7 +7266,7 @@ export class EC2 extends EC2Client {
    * <p>Requests a transit gateway peering attachment between the specified transit gateway
    *             (requester) and a peer transit gateway (accepter). The peer transit gateway can be in
    *             your account or a different Amazon Web Services account.</p>
-   *         <p>After you create the peering attachment, the owner of the accepter transit gateway
+   *          <p>After you create the peering attachment, the owner of the accepter transit gateway
    *             must accept the attachment request.</p>
    */
   public createTransitGatewayPeeringAttachment(
@@ -6866,6 +7500,141 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
+   */
+  public createVerifiedAccessEndpoint(
+    args: CreateVerifiedAccessEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVerifiedAccessEndpointCommandOutput>;
+  public createVerifiedAccessEndpoint(
+    args: CreateVerifiedAccessEndpointCommandInput,
+    cb: (err: any, data?: CreateVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public createVerifiedAccessEndpoint(
+    args: CreateVerifiedAccessEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public createVerifiedAccessEndpoint(
+    args: CreateVerifiedAccessEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVerifiedAccessEndpointCommandOutput) => void),
+    cb?: (err: any, data?: CreateVerifiedAccessEndpointCommandOutput) => void
+  ): Promise<CreateVerifiedAccessEndpointCommandOutput> | void {
+    const command = new CreateVerifiedAccessEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have
+   *          similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For
+   *          example, you can group all Amazon Web Services Verified Access instances associated with “sales” applications together and
+   *          use one common Amazon Web Services Verified Access policy.</p>
+   */
+  public createVerifiedAccessGroup(
+    args: CreateVerifiedAccessGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVerifiedAccessGroupCommandOutput>;
+  public createVerifiedAccessGroup(
+    args: CreateVerifiedAccessGroupCommandInput,
+    cb: (err: any, data?: CreateVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public createVerifiedAccessGroup(
+    args: CreateVerifiedAccessGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public createVerifiedAccessGroup(
+    args: CreateVerifiedAccessGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVerifiedAccessGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateVerifiedAccessGroupCommandOutput) => void
+  ): Promise<CreateVerifiedAccessGroupCommandOutput> | void {
+    const command = new CreateVerifiedAccessGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants
+   *          access only when your security requirements are met.</p>
+   */
+  public createVerifiedAccessInstance(
+    args: CreateVerifiedAccessInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVerifiedAccessInstanceCommandOutput>;
+  public createVerifiedAccessInstance(
+    args: CreateVerifiedAccessInstanceCommandInput,
+    cb: (err: any, data?: CreateVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public createVerifiedAccessInstance(
+    args: CreateVerifiedAccessInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public createVerifiedAccessInstance(
+    args: CreateVerifiedAccessInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVerifiedAccessInstanceCommandOutput) => void),
+    cb?: (err: any, data?: CreateVerifiedAccessInstanceCommandOutput) => void
+  ): Promise<CreateVerifiedAccessInstanceCommandOutput> | void {
+    const command = new CreateVerifiedAccessInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
+   *          information for users and devices. When an application request is made, the identity
+   *          information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or
+   *          denying the application request.</p>
+   */
+  public createVerifiedAccessTrustProvider(
+    args: CreateVerifiedAccessTrustProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVerifiedAccessTrustProviderCommandOutput>;
+  public createVerifiedAccessTrustProvider(
+    args: CreateVerifiedAccessTrustProviderCommandInput,
+    cb: (err: any, data?: CreateVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public createVerifiedAccessTrustProvider(
+    args: CreateVerifiedAccessTrustProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public createVerifiedAccessTrustProvider(
+    args: CreateVerifiedAccessTrustProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVerifiedAccessTrustProviderCommandOutput) => void),
+    cb?: (err: any, data?: CreateVerifiedAccessTrustProviderCommandOutput) => void
+  ): Promise<CreateVerifiedAccessTrustProviderCommandOutput> | void {
+    const command = new CreateVerifiedAccessTrustProviderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>
    *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
    *       Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p>
@@ -6905,16 +7674,14 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create
-   * 			uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4
-   * 			addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and
-   * 				subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * <p>Creates a VPC with the specified CIDR blocks. For more information, see
+   * 	      <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
    *            IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address
    *            pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p>
-   * 	        <p>By default, each instance you launch in the VPC has the default DHCP options, which
+   *          <p>By default, each instance that you launch in the VPC has the default DHCP options, which
    * 			include only a default DNS server that we provide (AmazonProvidedDNS). For more
-   * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>You can specify the instance tenancy value for the VPC when you create it. You can't change
    *           this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
    *           <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -6982,7 +7749,7 @@ export class EC2 extends EC2Client {
    *             service. A connection notification notifies you of specific endpoint events. You must
    *             create an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Create a Topic</a> in
    *             the <i>Amazon Simple Notification Service Developer Guide</i>.</p>
-   *         <p>You can create a connection notification for interface endpoints only.</p>
+   *          <p>You can create a connection notification for interface endpoints only.</p>
    */
   public createVpcEndpointConnectionNotification(
     args: CreateVpcEndpointConnectionNotificationCommandInput,
@@ -7017,21 +7784,21 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
-   *             IAM users, and IAM roles) can connect.</p>
-   *         <p>Before you create an endpoint service, you must create one of the following for your service:</p>
-   *         <ul>
+   *             users, and IAM roles) can connect.</p>
+   *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
+   *          <ul>
    *             <li>
-   *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>.
+   *                <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>.
    *                     Service consumers connect to your service using an interface endpoint.</p>
    *             </li>
    *             <li>
-   *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>.
+   *                <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>.
    *                     Service consumers connect to your service using a Gateway Load Balancer endpoint.</p>
    *             </li>
    *          </ul>
-   *         <p>If you set the private DNS name, you must prove that you own the private DNS domain
+   *          <p>If you set the private DNS name, you must prove that you own the private DNS domain
    *             name.</p>
-   * 	        <p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
+   *          <p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
    * 	        Guide</a>.</p>
    */
   public createVpcEndpointServiceConfiguration(
@@ -7113,19 +7880,19 @@ export class EC2 extends EC2Client {
    * <p>Creates a VPN connection between an existing virtual private gateway or transit
    *             gateway and a customer gateway. The supported connection type is
    *             <code>ipsec.1</code>.</p>
-   *         <p>The response includes information that you need to give to your network administrator
+   *          <p>The response includes information that you need to give to your network administrator
    *             to configure your customer gateway.</p>
-   *         <important>
+   *          <important>
    *             <p>We strongly recommend that you use HTTPS when calling this operation because the
    *                 response contains sensitive cryptographic information for configuring your customer
    *                 gateway device.</p>
-   *         </important>
-   *         <p>If you decide to shut down your VPN connection for any reason and later create a new
+   *          </important>
+   *          <p>If you decide to shut down your VPN connection for any reason and later create a new
    *             VPN connection, you must reconfigure your customer gateway with the new information
    *             returned from this call.</p>
-   *         <p>This is an idempotent operation. If you perform the operation more than once, Amazon
+   *          <p>This is an idempotent operation. If you perform the operation more than once, Amazon
    *             EC2 doesn't return an error.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
    */
   public createVpnConnection(
@@ -7161,7 +7928,7 @@ export class EC2 extends EC2Client {
    * <p>Creates a static route associated with a VPN connection between an existing virtual
    *             private gateway and a VPN customer gateway. The static route allows traffic to be routed
    *             from the virtual private gateway to the VPN customer gateway.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
    */
   public createVpnConnectionRoute(
@@ -7197,7 +7964,7 @@ export class EC2 extends EC2Client {
    * <p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the
    *             VPC side of your VPN connection. You can create a virtual private gateway before
    *             creating the VPC itself.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
    */
   public createVpnGateway(
@@ -7231,11 +7998,11 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Deletes a carrier gateway.</p>
-   *         <important>
+   *          <important>
    *             <p>If you do not delete the route that contains the carrier gateway as the
    *                 Target, the route is a blackhole route. For information about how to delete a route, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html">DeleteRoute</a>.</p>
-   *         </important>
+   *          </important>
    */
   public deleteCarrierGateway(
     args: DeleteCarrierGatewayCommandInput,
@@ -7324,6 +8091,72 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeleteClientVpnRouteCommandOutput) => void
   ): Promise<DeleteClientVpnRouteCommandOutput> | void {
     const command = new DeleteClientVpnRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Deletes a range of customer-owned IP addresses.
+   *       </p>
+   */
+  public deleteCoipCidr(
+    args: DeleteCoipCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCoipCidrCommandOutput>;
+  public deleteCoipCidr(
+    args: DeleteCoipCidrCommandInput,
+    cb: (err: any, data?: DeleteCoipCidrCommandOutput) => void
+  ): void;
+  public deleteCoipCidr(
+    args: DeleteCoipCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCoipCidrCommandOutput) => void
+  ): void;
+  public deleteCoipCidr(
+    args: DeleteCoipCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCoipCidrCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCoipCidrCommandOutput) => void
+  ): Promise<DeleteCoipCidrCommandOutput> | void {
+    const command = new DeleteCoipCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>
+   */
+  public deleteCoipPool(
+    args: DeleteCoipPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCoipPoolCommandOutput>;
+  public deleteCoipPool(
+    args: DeleteCoipPoolCommandInput,
+    cb: (err: any, data?: DeleteCoipPoolCommandOutput) => void
+  ): void;
+  public deleteCoipPool(
+    args: DeleteCoipPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCoipPoolCommandOutput) => void
+  ): void;
+  public deleteCoipPool(
+    args: DeleteCoipPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCoipPoolCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCoipPoolCommandOutput) => void
+  ): Promise<DeleteCoipPoolCommandOutput> | void {
+    const command = new DeleteCoipPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7456,7 +8289,6 @@ export class EC2 extends EC2Client {
    *                <code>instant</code> fleets.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete an EC2
    *          Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
@@ -7685,6 +8517,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamResourceDiscoveryCommandOutput>;
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public deleteIpamResourceDiscovery(
+    args: DeleteIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<DeleteIpamResourceDiscoveryCommandOutput> | void {
+    const command = new DeleteIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
@@ -7840,6 +8704,76 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeleteLocalGatewayRouteCommandOutput) => void
   ): Promise<DeleteLocalGatewayRouteCommandOutput> | void {
     const command = new DeleteLocalGatewayRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Deletes a local gateway route table.
+   *       </p>
+   */
+  public deleteLocalGatewayRouteTable(
+    args: DeleteLocalGatewayRouteTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLocalGatewayRouteTableCommandOutput>;
+  public deleteLocalGatewayRouteTable(
+    args: DeleteLocalGatewayRouteTableCommandInput,
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableCommandOutput) => void
+  ): void;
+  public deleteLocalGatewayRouteTable(
+    args: DeleteLocalGatewayRouteTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableCommandOutput) => void
+  ): void;
+  public deleteLocalGatewayRouteTable(
+    args: DeleteLocalGatewayRouteTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLocalGatewayRouteTableCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLocalGatewayRouteTableCommandOutput) => void
+  ): Promise<DeleteLocalGatewayRouteTableCommandOutput> | void {
+    const command = new DeleteLocalGatewayRouteTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Deletes a local gateway route table virtual interface group association.
+   *       </p>
+   */
+  public deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput>;
+  public deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): void;
+  public deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): void;
+  public deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> | void {
+    const command = new DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -8373,9 +9307,8 @@ export class EC2 extends EC2Client {
    * 			  referenced by another security group, the operation fails with
    * 				<code>InvalidGroup.InUse</code> in EC2-Classic or
    * 				<code>DependencyViolation</code> in EC2-VPC.</p>
-   *
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public deleteSecurityGroup(
@@ -9062,6 +9995,134 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Delete an Amazon Web Services Verified Access endpoint.</p>
+   */
+  public deleteVerifiedAccessEndpoint(
+    args: DeleteVerifiedAccessEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVerifiedAccessEndpointCommandOutput>;
+  public deleteVerifiedAccessEndpoint(
+    args: DeleteVerifiedAccessEndpointCommandInput,
+    cb: (err: any, data?: DeleteVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessEndpoint(
+    args: DeleteVerifiedAccessEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessEndpoint(
+    args: DeleteVerifiedAccessEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVerifiedAccessEndpointCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVerifiedAccessEndpointCommandOutput) => void
+  ): Promise<DeleteVerifiedAccessEndpointCommandOutput> | void {
+    const command = new DeleteVerifiedAccessEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete an Amazon Web Services Verified Access group.</p>
+   */
+  public deleteVerifiedAccessGroup(
+    args: DeleteVerifiedAccessGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVerifiedAccessGroupCommandOutput>;
+  public deleteVerifiedAccessGroup(
+    args: DeleteVerifiedAccessGroupCommandInput,
+    cb: (err: any, data?: DeleteVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessGroup(
+    args: DeleteVerifiedAccessGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessGroup(
+    args: DeleteVerifiedAccessGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVerifiedAccessGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVerifiedAccessGroupCommandOutput) => void
+  ): Promise<DeleteVerifiedAccessGroupCommandOutput> | void {
+    const command = new DeleteVerifiedAccessGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete an Amazon Web Services Verified Access instance.</p>
+   */
+  public deleteVerifiedAccessInstance(
+    args: DeleteVerifiedAccessInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVerifiedAccessInstanceCommandOutput>;
+  public deleteVerifiedAccessInstance(
+    args: DeleteVerifiedAccessInstanceCommandInput,
+    cb: (err: any, data?: DeleteVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessInstance(
+    args: DeleteVerifiedAccessInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessInstance(
+    args: DeleteVerifiedAccessInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVerifiedAccessInstanceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVerifiedAccessInstanceCommandOutput) => void
+  ): Promise<DeleteVerifiedAccessInstanceCommandOutput> | void {
+    const command = new DeleteVerifiedAccessInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete an Amazon Web Services Verified Access trust provider.</p>
+   */
+  public deleteVerifiedAccessTrustProvider(
+    args: DeleteVerifiedAccessTrustProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVerifiedAccessTrustProviderCommandOutput>;
+  public deleteVerifiedAccessTrustProvider(
+    args: DeleteVerifiedAccessTrustProviderCommandInput,
+    cb: (err: any, data?: DeleteVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessTrustProvider(
+    args: DeleteVerifiedAccessTrustProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessTrustProvider(
+    args: DeleteVerifiedAccessTrustProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVerifiedAccessTrustProviderCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVerifiedAccessTrustProviderCommandOutput) => void
+  ): Promise<DeleteVerifiedAccessTrustProviderCommandOutput> | void {
+    const command = new DeleteVerifiedAccessTrustProviderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state
    *       (not attached to an instance).</p>
    *          <p>The volume can remain in the <code>deleting</code> state for several minutes.</p>
@@ -9121,7 +10182,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes one or more VPC endpoint connection notifications.</p>
+   * <p>Deletes the specified VPC endpoint connection notifications.</p>
    */
   public deleteVpcEndpointConnectionNotifications(
     args: DeleteVpcEndpointConnectionNotificationsCommandInput,
@@ -9155,31 +10216,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints.  </p>
-   *         <ul>
-   *             <li>
-   *                <p>Gateway endpoint,</p>
-   *             </li>
-   *             <li>
-   *                <p>Gateway Load Balancer endpoint,</p>
-   *             </li>
-   *             <li>
-   *                <p>Interface endpoint</p>
-   *             </li>
-   *          </ul>
-   *         <p>The following rules apply when you delete a VPC endpoint:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p>
-   *             </li>
-   *             <li>
-   *                 <p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p>
-   *                 <p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
-   *             </li>
-   *             <li>
-   *                 <p>When you delete an interface endpoint, we delete the  endpoint network interfaces.</p>
-   *             </li>
-   *          </ul>
+   * <p>Deletes the specified VPC endpoints.</p>
+   *          <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p>
+   *          <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
+   *           You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
+   *          <p>When you delete an interface endpoint, we delete its endpoint network interfaces.</p>
    */
   public deleteVpcEndpoints(
     args: DeleteVpcEndpointsCommandInput,
@@ -9211,9 +10252,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes one or more VPC endpoint service configurations in your account. Before you
-   *             delete the endpoint service configuration, you must reject any <code>Available</code> or
-   *                 <code>PendingAcceptance</code> interface endpoint connections that are attached to
+   * <p>Deletes the specified VPC endpoint service configurations. Before you can delete
+   *             an endpoint service configuration, you must reject any <code>Available</code> or
+   *             <code>PendingAcceptance</code> interface endpoint connections that are attached to
    *             the service.</p>
    */
   public deleteVpcEndpointServiceConfigurations(
@@ -9285,14 +10326,14 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Deletes the specified VPN connection.</p>
-   *         <p>If you're deleting the VPC and its associated components, we recommend that you detach
+   *          <p>If you're deleting the VPC and its associated components, we recommend that you detach
    *             the virtual private gateway from the VPC and delete the VPC before deleting the VPN
    *             connection. If you believe that the tunnel credentials for your VPN connection have been
    *             compromised, you can delete the VPN connection and create a new one that has new keys,
    *             without needing to delete the VPC or virtual private gateway. If you create a new VPN
    *             connection, you must reconfigure the customer gateway device using the new configuration
    *             information returned with the new VPN connection ID.</p>
-   *         <p>For certificate-based authentication, delete all Certificate Manager (ACM) private
+   *          <p>For certificate-based authentication, delete all Certificate Manager (ACM) private
    *             certificates used for the Amazon Web Services-side tunnel endpoints for the VPN
    *             connection before deleting the VPN connection.</p>
    */
@@ -9497,17 +10538,13 @@ export class EC2 extends EC2Client {
   /**
    * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to
    *        launch new instances.</p>
-   *
-   *
-   *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is
-   *       retained in the Recycle Bin for the specified retention period. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
-   *         Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
-   *
+   *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
+   *       in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in
+   *       the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>When you deregister an AMI, it doesn't affect any instances that you've already
    *        launched from the AMI. You'll continue to incur usage costs for those instances until
    *        you terminate them.</p>
-   *    	     <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was
+   *          <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was
    * 			created for the root volume of the instance during the AMI creation process. When you
    * 			deregister an instance store-backed AMI, it doesn't affect the files that you uploaded
    * 			to Amazon S3 when you created the AMI.</p>
@@ -9659,7 +10696,7 @@ export class EC2 extends EC2Client {
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>max-instances</code>: This attribute is no longer supported. The returned
+   *                   <code>max-instances</code>: This attribute is no longer supported. The returned
    *                     value does not reflect your actual vCPU limit for running On-Demand Instances.
    *                     For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits">On-Demand Instance Limits</a> in the
    *                         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -9681,7 +10718,7 @@ export class EC2 extends EC2Client {
    *             </li>
    *          </ul>
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          </note>
    */
   public describeAccountAttributes(
@@ -9718,7 +10755,7 @@ export class EC2 extends EC2Client {
    *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
    * 				For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public describeAddresses(
@@ -9783,10 +10820,41 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public describeAddressTransfers(
+    args: DescribeAddressTransfersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAddressTransfersCommandOutput>;
+  public describeAddressTransfers(
+    args: DescribeAddressTransfersCommandInput,
+    cb: (err: any, data?: DescribeAddressTransfersCommandOutput) => void
+  ): void;
+  public describeAddressTransfers(
+    args: DescribeAddressTransfersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAddressTransfersCommandOutput) => void
+  ): void;
+  public describeAddressTransfers(
+    args: DescribeAddressTransfersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddressTransfersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAddressTransfersCommandOutput) => void
+  ): Promise<DescribeAddressTransfersCommandOutput> | void {
+    const command = new DescribeAddressTransfersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the longer ID format settings for all resource types in a specific
    *          Region. This request is useful for performing a quick audit to determine whether a
    *          specific Region is fully opted in for longer IDs (17-character IDs).</p>
-   *
    *          <p>This request only returns information about resource types that support longer IDs.</p>
    *          <p>The following resource types support longer IDs: <code>bundle</code> |
    *         <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
@@ -9858,6 +10926,40 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeAvailabilityZonesCommandOutput) => void
   ): Promise<DescribeAvailabilityZonesCommandOutput> | void {
     const command = new DescribeAvailabilityZonesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the current Infrastructure Performance metric subscriptions.</p>
+   */
+  public describeAwsNetworkPerformanceMetricSubscriptions(
+    args: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput>;
+  public describeAwsNetworkPerformanceMetricSubscriptions(
+    args: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+    cb: (err: any, data?: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput) => void
+  ): void;
+  public describeAwsNetworkPerformanceMetricSubscriptions(
+    args: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput) => void
+  ): void;
+  public describeAwsNetworkPerformanceMetricSubscriptions(
+    args: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput) => void
+  ): Promise<DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput> | void {
+    const command = new DescribeAwsNetworkPerformanceMetricSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -10038,9 +11140,9 @@ export class EC2 extends EC2Client {
    * <p>Describes one or more of your linked EC2-Classic instances. This request only returns
    * 			information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
    * 			use this request to return information about other instances.</p>
-   * 	        <note>
-   * 	           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * 	        </note>
+   *          <note>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          </note>
    */
   public describeClassicLinkInstances(
     args: DescribeClassicLinkInstancesCommandInput,
@@ -10300,7 +11402,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes one or more of your VPN customer gateways.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
    */
   public describeCustomerGateways(
@@ -10334,7 +11436,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes one or more of your DHCP options sets.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public describeDhcpOptions(
@@ -10663,9 +11765,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes one or more flow logs. To view the information in your flow logs (the log
-   *             streams for the network interfaces), you must use the CloudWatch Logs console or the CloudWatch Logs
-   *             API.</p>
+   * <p>Describes one or more flow logs.</p>
+   *          <p>To view the published flow log records, you must view the log destination. For example,
+   *             the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>
    */
   public describeFlowLogs(
     args: DescribeFlowLogsCommandInput,
@@ -10764,11 +11866,11 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the Dedicated Host reservations that are available to purchase.</p>
-   *         <p>The results describe all of the Dedicated Host reservation offerings, including
-   * 			offerings that might not match the instance family and Region of your Dedicated Hosts.
-   * 			When purchasing an offering, ensure that the instance family and Region of the offering
-   * 			matches that of the Dedicated Hosts with which it is to be associated. For more
-   * 			information about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated Hosts</a>
+   *          <p>The results describe all of the Dedicated Host reservation offerings, including
+   *             offerings that might not match the instance family and Region of your Dedicated Hosts.
+   *             When purchasing an offering, ensure that the instance family and Region of the offering
+   *             matches that of the Dedicated Hosts with which it is to be associated. For more
+   *             information about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated Hosts</a>
    *             in the <i>Amazon EC2 User Guide</i>. </p>
    */
   public describeHostReservationOfferings(
@@ -10835,7 +11937,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified Dedicated Hosts or all your Dedicated Hosts.</p>
-   *         <p>The results describe only the Dedicated Hosts in the Region you're currently using.
+   *          <p>The results describe only the Dedicated Hosts in the Region you're currently using.
    *             All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have
    *             recently been released are listed with the state <code>released</code>.</p>
    */
@@ -11145,7 +12247,7 @@ export class EC2 extends EC2Client {
    *             | <code>rootDeviceName</code> | <code>blockDeviceMapping</code> |
    *                 <code>productCodes</code> | <code>sourceDestCheck</code> | <code>groupSet</code> |
    *                 <code>ebsOptimized</code> | <code>sriovNetSupport</code>
-   *         </p>
+   *          </p>
    */
   public describeInstanceAttribute(
     args: DescribeInstanceAttributeCommandInput,
@@ -11180,22 +12282,22 @@ export class EC2 extends EC2Client {
    * <p>Describes the credit option for CPU usage of the specified burstable performance
    *             instances. The credit options are <code>standard</code> and
    *             <code>unlimited</code>.</p>
-   *         <p>If you do not specify an instance ID, Amazon EC2 returns burstable performance
+   *          <p>If you do not specify an instance ID, Amazon EC2 returns burstable performance
    *             instances with the <code>unlimited</code> credit option, as well as instances that were
    *             previously configured as T2, T3, and T3a with the <code>unlimited</code> credit option.
    *             For example, if you resize a T2 instance, while it is configured as
    *                 <code>unlimited</code>, to an M4 instance, Amazon EC2 returns the M4
    *             instance.</p>
-   *         <p>If you specify one or more instance IDs, Amazon EC2 returns the credit option
+   *          <p>If you specify one or more instance IDs, Amazon EC2 returns the credit option
    *                 (<code>standard</code> or <code>unlimited</code>) of those instances. If you specify
    *             an instance ID that is not valid, such as an instance that is not a burstable
    *             performance instance, an error is returned.</p>
-   *         <p>Recently terminated instances might appear in the returned results. This interval is
+   *          <p>Recently terminated instances might appear in the returned results. This interval is
    *             usually less than one hour.</p>
-   *         <p>If an Availability Zone is experiencing a service disruption and you specify instance
+   *          <p>If an Availability Zone is experiencing a service disruption and you specify instance
    *             IDs in the affected zone, or do not specify any instance IDs at all, the call fails. If
    *             you specify only instance IDs in an unaffected zone, the call works normally.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
    *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeInstanceCreditSpecifications(
@@ -11304,24 +12406,21 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified instances or all instances.</p>
-   *         <p>If you specify instance IDs, the output includes information for only the specified
+   *          <p>If you specify instance IDs, the output includes information for only the specified
    *             instances. If you specify filters, the output includes information for only those
    *             instances that meet the filter criteria. If you do not specify instance IDs or filters,
    *             the output includes information for all instances, which can affect performance. We
    *             recommend that you use pagination to ensure that the operation returns quickly and
    *             successfully.</p>
-   *         <p>If you specify an instance ID that is not valid, an error is returned. If you specify
+   *          <p>If you specify an instance ID that is not valid, an error is returned. If you specify
    *             an instance that you do not own, it is not included in the output.</p>
-   *         <p>Recently terminated instances might appear in the returned results. This interval is
+   *          <p>Recently terminated instances might appear in the returned results. This interval is
    *             usually less than one hour.</p>
-   *         <p>If you describe instances in the rare case where an Availability Zone is experiencing
+   *          <p>If you describe instances in the rare case where an Availability Zone is experiencing
    *             a service disruption and you specify instance IDs that are in the affected zone, or do
    *             not specify any instance IDs at all, the call fails. If you describe instances and
    *             specify only instance IDs that are in an unaffected zone, the call works
    *             normally.</p>
-   *         <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *         </note>
    */
   public describeInstances(
     args: DescribeInstancesCommandInput,
@@ -11356,27 +12455,27 @@ export class EC2 extends EC2Client {
    * <p>Describes the status of the specified instances or all of your instances. By default,
    *             only running instances are described, unless you specifically indicate to return the
    *             status of all instances.</p>
-   *         <p>Instance status includes the following components:</p>
-   *         <ul>
+   *          <p>Instance status includes the following components:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <b>Status checks</b> - Amazon EC2 performs status
+   *                <p>
+   *                   <b>Status checks</b> - Amazon EC2 performs status
    *                     checks on running EC2 instances to identify hardware and software issues. For
    *                     more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshoot
    *                         instances with failed status checks</a> in the <i>Amazon EC2 User
    *                         Guide</i>.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <b>Scheduled events</b> - Amazon EC2 can schedule
+   *                <p>
+   *                   <b>Scheduled events</b> - Amazon EC2 can schedule
    *                     events (such as reboot, stop, or terminate) for your instances related to
    *                     hardware issues, software updates, or system maintenance. For more information,
    *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User
    *                         Guide</i>.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <b>Instance state</b> - You can manage your instances
+   *                <p>
+   *                   <b>Instance state</b> - You can manage your instances
    *                     from the moment you launch them through their termination. For more information,
    *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
    *                         lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -11532,6 +12631,72 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeIpamPoolsCommandOutput) => void
   ): Promise<DescribeIpamPoolsCommandOutput> | void {
     const command = new DescribeIpamPoolsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamResourceDiscoveriesCommandOutput>;
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveries(
+    args: DescribeIpamResourceDiscoveriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIpamResourceDiscoveriesCommandOutput) => void
+  ): Promise<DescribeIpamResourceDiscoveriesCommandOutput> | void {
+    const command = new DescribeIpamResourceDiscoveriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes resource discovery association with an Amazon VPC IPAM. An associated resource discovery is a resource discovery that has been associated with an IPAM..</p>
+   */
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput>;
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void
+  ): void;
+  public describeIpamResourceDiscoveryAssociations(
+    args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIpamResourceDiscoveryAssociationsCommandOutput) => void
+  ): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput> | void {
+    const command = new DescribeIpamResourceDiscoveryAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -11945,7 +13110,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.</p>
-   *         <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
+   *          <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
    */
   public describeManagedPrefixLists(
     args: DescribeManagedPrefixListsCommandInput,
@@ -12042,7 +13207,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes one or more of your network ACLs.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public describeNetworkAcls(
@@ -12337,7 +13502,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes available Amazon Web Services services in a prefix list format, which includes the prefix list
    *             name and prefix list ID of the service and the IP address range for the service.</p>
-   *         <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
+   *          <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
    */
   public describePrefixLists(
     args: DescribePrefixListsCommandInput,
@@ -12486,7 +13651,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes a root volume replacement task. For more information, see
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeReplaceRootVolumeTasks(
     args: DescribeReplaceRootVolumeTasksCommandInput,
@@ -12521,9 +13686,6 @@ export class EC2 extends EC2Client {
    * <p>Describes one or more of the Reserved Instances that you purchased.</p>
    *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
    * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          </note>
    */
   public describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
@@ -12556,9 +13718,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes your account's Reserved Instance listings in the Reserved Instance Marketplace.</p>
-   * 		       <p>The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p>
-   * 		       <p>As a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase.</p>
-   * 		       <p>As a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you're searching for with what's available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.</p>
+   *          <p>The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p>
+   *          <p>As a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase.</p>
+   *          <p>As a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you're searching for with what's available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
    *         in the <i>Amazon EC2 User Guide</i>.</p>
    */
@@ -12593,10 +13755,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>
-   *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeReservedInstancesModifications(
     args: DescribeReservedInstancesModificationsCommandInput,
@@ -12634,9 +13793,6 @@ export class EC2 extends EC2Client {
    *          <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
    * 				in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          </note>
    */
   public describeReservedInstancesOfferings(
     args: DescribeReservedInstancesOfferingsCommandInput,
@@ -12670,7 +13826,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes one or more of your route tables.</p>
    *          <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public describeRouteTables(
@@ -12707,10 +13863,6 @@ export class EC2 extends EC2Client {
    *          <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
    *          <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>
    *          to purchase Scheduled Instances with that schedule.</p>
-   *
-   *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          </note>
    */
   public describeScheduledInstanceAvailability(
     args: DescribeScheduledInstanceAvailabilityCommandInput,
@@ -12745,10 +13897,6 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
-   *
-   *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          </note>
    */
   public describeScheduledInstances(
     args: DescribeScheduledInstancesCommandInput,
@@ -12852,7 +14000,7 @@ export class EC2 extends EC2Client {
    * 				<a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security groups for your VPC</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public describeSecurityGroups(
@@ -12959,11 +14107,7 @@ export class EC2 extends EC2Client {
    *         <code>self</code> for snapshots for which you own or have explicit permissions, or
    *         <code>all</code> for public snapshots.</p>
    *          <p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the
-   *       list more manageable. The <code>MaxResults</code> parameter sets the maximum number of results
-   *       returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,
-   *       then that number of results is returned along with a <code>NextToken</code> value that can be
-   *       passed to a subsequent <code>DescribeSnapshots</code> request to retrieve the remaining
-   *       results.</p>
+   *       list more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    *          <p>To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.</p>
    *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -13030,7 +14174,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
-   *                 Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   public describeSpotDatafeedSubscription(
     args: DescribeSpotDatafeedSubscriptionCommandInput,
@@ -13096,11 +14240,11 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the events for the specified Spot Fleet request during the specified
    *             time.</p>
-   *         <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This
+   *          <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This
    *             ensures that you can query by the last evaluated time and not miss a recorded event.
    *             Spot Fleet events are available for 48 hours.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html">Monitor fleet events using Amazon
-   *                 EventBridge</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html">Monitor fleet events using Amazon
+   *                 EventBridge</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeSpotFleetRequestHistory(
     args: DescribeSpotFleetRequestHistoryCommandInput,
@@ -13133,7 +14277,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes your Spot Fleet requests.</p>
-   *         <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances
+   *          <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances
    *             are terminated.</p>
    */
   public describeSpotFleetRequests(
@@ -13167,20 +14311,20 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified Spot Instance requests.</p>
-   *         <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by
+   *          <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by
    *             examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the
    *             instance ID appears in the response and contains the identifier of the instance.
    *             Alternatively, you can use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances">DescribeInstances</a>
    *             with a filter to look for instances where the instance lifecycle is
    *             <code>spot</code>.</p>
-   *         <p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to
+   *          <p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to
    *             limit the number of results returned. This paginates the output, which makes the list
    *             more manageable and returns the results faster. If the list of results exceeds your
    *                 <code>MaxResults</code> value, then that number of results is returned along with a
    *                 <code>NextToken</code> value that can be passed to a subsequent
    *                 <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining
    *             results.</p>
-   *         <p>Spot Instance requests are deleted four hours after they are canceled and their instances are
+   *          <p>Spot Instance requests are deleted four hours after they are canceled and their instances are
    *             terminated.</p>
    */
   public describeSpotInstanceRequests(
@@ -13215,7 +14359,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the Spot price history. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot Instance pricing history</a> in the
    *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   *         <p>When you specify a start and end time, the operation returns the prices of the
+   *          <p>When you specify a start and end time, the operation returns the prices of the
    *             instance types within that time range. It also returns the last price change before the
    *             start time, which is the effective price as of the start time.</p>
    */
@@ -13293,9 +14437,9 @@ export class EC2 extends EC2Client {
    *          <p>Tasks are listed in reverse chronological order. Currently, only tasks from the past 31
    *       days can be viewed.</p>
    *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
-   *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeStoreImageTasks(
     args: DescribeStoreImageTasksCommandInput,
@@ -13821,8 +14965,8 @@ export class EC2 extends EC2Client {
    * <note>
    *             <p>This API action is currently in <b>limited preview only</b>.
    *                 If you are interested in using this feature, contact your account manager.</p>
-   *         </note>
-   *         <p>Describes one or more network interface trunk associations.</p>
+   *          </note>
+   *          <p>Describes one or more network interface trunk associations.</p>
    */
   public describeTrunkInterfaceAssociations(
     args: DescribeTrunkInterfaceAssociationsCommandInput,
@@ -13843,6 +14987,168 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeTrunkInterfaceAssociationsCommandOutput) => void
   ): Promise<DescribeTrunkInterfaceAssociationsCommandOutput> | void {
     const command = new DescribeTrunkInterfaceAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describe Amazon Web Services Verified Access endpoints.</p>
+   */
+  public describeVerifiedAccessEndpoints(
+    args: DescribeVerifiedAccessEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedAccessEndpointsCommandOutput>;
+  public describeVerifiedAccessEndpoints(
+    args: DescribeVerifiedAccessEndpointsCommandInput,
+    cb: (err: any, data?: DescribeVerifiedAccessEndpointsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessEndpoints(
+    args: DescribeVerifiedAccessEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedAccessEndpointsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessEndpoints(
+    args: DescribeVerifiedAccessEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVerifiedAccessEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVerifiedAccessEndpointsCommandOutput) => void
+  ): Promise<DescribeVerifiedAccessEndpointsCommandOutput> | void {
+    const command = new DescribeVerifiedAccessEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describe details of existing Verified Access groups.</p>
+   */
+  public describeVerifiedAccessGroups(
+    args: DescribeVerifiedAccessGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedAccessGroupsCommandOutput>;
+  public describeVerifiedAccessGroups(
+    args: DescribeVerifiedAccessGroupsCommandInput,
+    cb: (err: any, data?: DescribeVerifiedAccessGroupsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessGroups(
+    args: DescribeVerifiedAccessGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedAccessGroupsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessGroups(
+    args: DescribeVerifiedAccessGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVerifiedAccessGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVerifiedAccessGroupsCommandOutput) => void
+  ): Promise<DescribeVerifiedAccessGroupsCommandOutput> | void {
+    const command = new DescribeVerifiedAccessGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>
+   */
+  public describeVerifiedAccessInstanceLoggingConfigurations(
+    args: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput>;
+  public describeVerifiedAccessInstanceLoggingConfigurations(
+    args: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+    cb: (err: any, data?: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessInstanceLoggingConfigurations(
+    args: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessInstanceLoggingConfigurations(
+    args: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput) => void
+  ): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput> | void {
+    const command = new DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describe Verified Access instances.</p>
+   */
+  public describeVerifiedAccessInstances(
+    args: DescribeVerifiedAccessInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedAccessInstancesCommandOutput>;
+  public describeVerifiedAccessInstances(
+    args: DescribeVerifiedAccessInstancesCommandInput,
+    cb: (err: any, data?: DescribeVerifiedAccessInstancesCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessInstances(
+    args: DescribeVerifiedAccessInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedAccessInstancesCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessInstances(
+    args: DescribeVerifiedAccessInstancesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVerifiedAccessInstancesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVerifiedAccessInstancesCommandOutput) => void
+  ): Promise<DescribeVerifiedAccessInstancesCommandOutput> | void {
+    const command = new DescribeVerifiedAccessInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describe details of existing Verified Access trust providers.</p>
+   */
+  public describeVerifiedAccessTrustProviders(
+    args: DescribeVerifiedAccessTrustProvidersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput>;
+  public describeVerifiedAccessTrustProviders(
+    args: DescribeVerifiedAccessTrustProvidersCommandInput,
+    cb: (err: any, data?: DescribeVerifiedAccessTrustProvidersCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessTrustProviders(
+    args: DescribeVerifiedAccessTrustProvidersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedAccessTrustProvidersCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessTrustProviders(
+    args: DescribeVerifiedAccessTrustProvidersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVerifiedAccessTrustProvidersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVerifiedAccessTrustProvidersCommandOutput) => void
+  ): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput> | void {
+    const command = new DescribeVerifiedAccessTrustProvidersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -13890,11 +15196,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the specified EBS volumes or all of your EBS volumes.</p>
    *          <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list
-   *       more manageable. The <code>MaxResults</code> parameter sets the maximum number of results
-   *       returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,
-   *       then that number of results is returned along with a <code>NextToken</code> value that can be
-   *       passed to a subsequent <code>DescribeVolumes</code> request to retrieve the remaining
-   *       results.</p>
+   *       more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeVolumes(
@@ -14063,9 +15365,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the ClassicLink status of one or more VPCs.</p>
-   * 	        <note>
-   * 	           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * 	        </note>
+   *          <note>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          </note>
    */
   public describeVpcClassicLink(
     args: DescribeVpcClassicLinkCommandInput,
@@ -14098,7 +15400,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    *          <p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS
    *             hostname of a linked EC2-Classic instance resolves to its private IP address when
@@ -14204,7 +15506,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes one or more of your VPC endpoints.</p>
+   * <p>Describes your VPC endpoints.</p>
    */
   public describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
@@ -14306,7 +15608,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes available services to which you can create a VPC endpoint.</p>
-   *         <p>When the service provider and the consumer have different accounts in multiple
+   *          <p>When the service provider and the consumer have different accounts in multiple
    *             Availability Zones, and the consumer views the VPC endpoint service information, the
    *             response only includes the common Availability Zones. For example, when the service
    *             provider account uses <code>us-east-1a</code> and <code>us-east-1c</code> and the
@@ -14406,7 +15708,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes one or more of your VPN connections.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
    */
   public describeVpnConnections(
@@ -14440,7 +15742,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes one or more of your virtual private gateways.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
    */
   public describeVpnGateways(
@@ -14474,9 +15776,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <note>
-   * 	           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * 	        </note>
-   * 		       <p>Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          </note>
+   *          <p>Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.</p>
    */
   public detachClassicLinkVpc(
     args: DetachClassicLinkVpcCommandInput,
@@ -14574,6 +15876,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
+   */
+  public detachVerifiedAccessTrustProvider(
+    args: DetachVerifiedAccessTrustProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachVerifiedAccessTrustProviderCommandOutput>;
+  public detachVerifiedAccessTrustProvider(
+    args: DetachVerifiedAccessTrustProviderCommandInput,
+    cb: (err: any, data?: DetachVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public detachVerifiedAccessTrustProvider(
+    args: DetachVerifiedAccessTrustProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public detachVerifiedAccessTrustProvider(
+    args: DetachVerifiedAccessTrustProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachVerifiedAccessTrustProviderCommandOutput) => void),
+    cb?: (err: any, data?: DetachVerifiedAccessTrustProviderCommandOutput) => void
+  ): Promise<DetachVerifiedAccessTrustProviderCommandOutput> | void {
+    const command = new DetachVerifiedAccessTrustProviderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the
    *       device within your operating system before detaching the volume. Failure to do so can result
    *       in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens,
@@ -14617,7 +15951,7 @@ export class EC2 extends EC2Client {
    *             off the VPC and not use it anymore. You can confirm a virtual private gateway has been
    *             completely detached from a VPC by describing the virtual private gateway (any
    *             attachments to the virtual private gateway are also described).</p>
-   *         <p>You must wait for the attachment's state to switch to <code>detached</code> before you
+   *          <p>You must wait for the attachment's state to switch to <code>detached</code> before you
    *             can delete the VPC or attach a different VPC to the virtual private gateway.</p>
    */
   public detachVpnGateway(
@@ -14639,6 +15973,72 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DetachVpnGatewayCommandOutput) => void
   ): Promise<DetachVpnGatewayCommandOutput> | void {
     const command = new DetachVpnGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public disableAddressTransfer(
+    args: DisableAddressTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableAddressTransferCommandOutput>;
+  public disableAddressTransfer(
+    args: DisableAddressTransferCommandInput,
+    cb: (err: any, data?: DisableAddressTransferCommandOutput) => void
+  ): void;
+  public disableAddressTransfer(
+    args: DisableAddressTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableAddressTransferCommandOutput) => void
+  ): void;
+  public disableAddressTransfer(
+    args: DisableAddressTransferCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableAddressTransferCommandOutput) => void),
+    cb?: (err: any, data?: DisableAddressTransferCommandOutput) => void
+  ): Promise<DisableAddressTransferCommandOutput> | void {
+    const command = new DisableAddressTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disables Infrastructure Performance metric subscriptions.</p>
+   */
+  public disableAwsNetworkPerformanceMetricSubscription(
+    args: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput>;
+  public disableAwsNetworkPerformanceMetricSubscription(
+    args: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    cb: (err: any, data?: DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): void;
+  public disableAwsNetworkPerformanceMetricSubscription(
+    args: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): void;
+  public disableAwsNetworkPerformanceMetricSubscription(
+    args: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): Promise<DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput> | void {
+    const command = new DisableAwsNetworkPerformanceMetricSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -14691,9 +16091,9 @@ export class EC2 extends EC2Client {
    * <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots.
    * 			When you disable faster launching, the AMI uses the standard launch process for each
    * 			instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>
-   * 		       <note>
-   * 			         <p>To change these settings, you must own the AMI.</p>
-   * 		       </note>
+   *          <note>
+   *             <p>To change these settings, you must own the AMI.</p>
+   *          </note>
    */
   public disableFastLaunch(
     args: DisableFastLaunchCommandInput,
@@ -14759,7 +16159,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Cancels the deprecation of the specified AMI.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    */
   public disableImageDeprecation(
     args: DisableImageDeprecationCommandInput,
@@ -14929,7 +16329,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public disableVpcClassicLink(
@@ -14967,9 +16367,8 @@ export class EC2 extends EC2Client {
    * 			in the VPC to which it's linked. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
    * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>You must specify a VPC ID in the request.</p>
-   *
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public disableVpcClassicLinkDnsSupport(
@@ -15003,12 +16402,11 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>
-   * 			      <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
+   *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
    * 				Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    *          <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>
    */
@@ -15044,20 +16442,20 @@ export class EC2 extends EC2Client {
   /**
    * <p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the
    * 			last target network from a Client VPN, the following happens:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>The route that was automatically added for the VPC is deleted</p>
-   * 			         </li>
+   *                <p>The route that was automatically added for the VPC is deleted</p>
+   *             </li>
    *             <li>
-   * 				           <p>All active client connections are terminated</p>
-   * 			         </li>
+   *                <p>All active client connections are terminated</p>
+   *             </li>
    *             <li>
-   * 				           <p>New client connections are disallowed</p>
-   * 			         </li>
+   *                <p>New client connections are disallowed</p>
+   *             </li>
    *             <li>
-   * 				           <p>The Client VPN endpoint's status changes to <code>pending-associate</code>
+   *                <p>The Client VPN endpoint's status changes to <code>pending-associate</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   public disassociateClientVpnTargetNetwork(
@@ -15129,7 +16527,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
-   *         <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
+   *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
    *             ID.</p>
    */
   public disassociateIamInstanceProfile(
@@ -15196,8 +16594,78 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateIpamResourceDiscoveryCommandOutput>;
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public disassociateIpamResourceDiscovery(
+    args: DisassociateIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<DisassociateIpamResourceDiscoveryCommandOutput> | void {
+    const command = new DisassociateIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
+   *          <p>An EIP will only be released at the end of MaxDrainDurationSeconds. The EIPs stay
+   *             associated and support the existing connections but do not support any new connections
+   *             (new connections are distributed across the remaining associated EIPs). As the existing
+   *             connections drain out, the EIPs (and the corresponding private IPs mapped to them) get
+   *             released.</p>
+   */
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateNatGatewayAddressCommandOutput>;
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public disassociateNatGatewayAddress(
+    args: DisassociateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateNatGatewayAddressCommandOutput) => void
+  ): Promise<DisassociateNatGatewayAddressCommandOutput> | void {
+    const command = new DisassociateNatGatewayAddressCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates a subnet or gateway from a route table.</p>
-   * 		       <p>After you perform this action, the subnet no longer uses the routes in the route table.
+   *          <p>After you perform this action, the subnet no longer uses the routes in the route table.
    * 				Instead, it uses the routes in the VPC's main route table. For more information
    * 				about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
    * 				tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -15367,8 +16835,8 @@ export class EC2 extends EC2Client {
    * <note>
    *             <p>This API action is currently in <b>limited preview only</b>.
    *                 If you are interested in using this feature, contact your account manager.</p>
-   *         </note>
-   *         <p>Removes an association between a branch network interface with a trunk network interface.</p>
+   *          </note>
+   *          <p>Removes an association between a branch network interface with a trunk network interface.</p>
    */
   public disassociateTrunkInterface(
     args: DisassociateTrunkInterfaceCommandInput,
@@ -15404,7 +16872,7 @@ export class EC2 extends EC2Client {
    *             specify its association ID. You can get the association ID by using
    *                 <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that
    *             are associated with the CIDR block before you can disassociate it. </p>
-   * 		       <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
+   *          <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
    * 			primary CIDR block).</p>
    */
   public disassociateVpcCidrBlock(
@@ -15437,12 +16905,78 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Enables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public enableAddressTransfer(
+    args: EnableAddressTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableAddressTransferCommandOutput>;
+  public enableAddressTransfer(
+    args: EnableAddressTransferCommandInput,
+    cb: (err: any, data?: EnableAddressTransferCommandOutput) => void
+  ): void;
+  public enableAddressTransfer(
+    args: EnableAddressTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableAddressTransferCommandOutput) => void
+  ): void;
+  public enableAddressTransfer(
+    args: EnableAddressTransferCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableAddressTransferCommandOutput) => void),
+    cb?: (err: any, data?: EnableAddressTransferCommandOutput) => void
+  ): Promise<EnableAddressTransferCommandOutput> | void {
+    const command = new EnableAddressTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables Infrastructure Performance subscriptions.</p>
+   */
+  public enableAwsNetworkPerformanceMetricSubscription(
+    args: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput>;
+  public enableAwsNetworkPerformanceMetricSubscription(
+    args: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    cb: (err: any, data?: EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): void;
+  public enableAwsNetworkPerformanceMetricSubscription(
+    args: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): void;
+  public enableAwsNetworkPerformanceMetricSubscription(
+    args: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): Promise<EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput> | void {
+    const command = new EnableAwsNetworkPerformanceMetricSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Enables EBS encryption by default for your account in the current Region.</p>
    *          <p>After you enable encryption by default, the EBS volumes that you create are
    *     	always encrypted, either using the default KMS key or the KMS key that you specified
    *       when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *   	      <p>You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
+   *          <p>You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
    *       or <a>ResetEbsDefaultKmsKeyId</a>.</p>
    *          <p>Enabling encryption by default has no effect on the encryption status of your
    *       existing volumes.</p>
@@ -15486,9 +17020,9 @@ export class EC2 extends EC2Client {
    * 			Then it creates a set of reserved snapshots that are used for subsequent launches. The
    * 			reserved snapshots are automatically replenished as they are used, depending on your
    * 			settings for launch frequency.</p>
-   * 		       <note>
-   * 			         <p>To change these settings, you must own the AMI.</p>
-   * 		       </note>
+   *          <note>
+   *             <p>To change these settings, you must own the AMI.</p>
+   *          </note>
    */
   public enableFastLaunch(
     args: EnableFastLaunchCommandInput,
@@ -15558,7 +17092,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Enables deprecation of the specified AMI at the specified date and time.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public enableImageDeprecation(
     args: EnableImageDeprecationCommandInput,
@@ -15612,6 +17146,44 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: EnableIpamOrganizationAdminAccountCommandOutput) => void
   ): Promise<EnableIpamOrganizationAdminAccountCommandOutput> | void {
     const command = new EnableIpamOrganizationAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Establishes a trust relationship between Reachability Analyzer and Organizations.
+   *          This operation must be performed by the management account for the organization.</p>
+   *          <p>After you establish a trust relationship, a user in the management account or
+   *          a delegated administrator account can run a cross-account analysis using resources
+   *          from the member accounts.</p>
+   */
+  public enableReachabilityAnalyzerOrganizationSharing(
+    args: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableReachabilityAnalyzerOrganizationSharingCommandOutput>;
+  public enableReachabilityAnalyzerOrganizationSharing(
+    args: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+    cb: (err: any, data?: EnableReachabilityAnalyzerOrganizationSharingCommandOutput) => void
+  ): void;
+  public enableReachabilityAnalyzerOrganizationSharing(
+    args: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableReachabilityAnalyzerOrganizationSharingCommandOutput) => void
+  ): void;
+  public enableReachabilityAnalyzerOrganizationSharing(
+    args: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableReachabilityAnalyzerOrganizationSharingCommandOutput) => void),
+    cb?: (err: any, data?: EnableReachabilityAnalyzerOrganizationSharingCommandOutput) => void
+  ): Promise<EnableReachabilityAnalyzerOrganizationSharingCommandOutput> | void {
+    const command = new EnableReachabilityAnalyzerOrganizationSharingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -15759,7 +17331,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    *          <p>Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your
    * 			ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot
@@ -15800,7 +17372,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    *          <p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS
    * 			hostname of a linked EC2-Classic instance resolves to its private IP address when
@@ -16041,6 +17613,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Gets network performance data.</p>
+   */
+  public getAwsNetworkPerformanceData(
+    args: GetAwsNetworkPerformanceDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAwsNetworkPerformanceDataCommandOutput>;
+  public getAwsNetworkPerformanceData(
+    args: GetAwsNetworkPerformanceDataCommandInput,
+    cb: (err: any, data?: GetAwsNetworkPerformanceDataCommandOutput) => void
+  ): void;
+  public getAwsNetworkPerformanceData(
+    args: GetAwsNetworkPerformanceDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAwsNetworkPerformanceDataCommandOutput) => void
+  ): void;
+  public getAwsNetworkPerformanceData(
+    args: GetAwsNetworkPerformanceDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAwsNetworkPerformanceDataCommandOutput) => void),
+    cb?: (err: any, data?: GetAwsNetworkPerformanceDataCommandOutput) => void
+  ): Promise<GetAwsNetworkPerformanceDataCommandOutput> | void {
+    const command = new GetAwsNetworkPerformanceDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner
    * 			and each Amazon Web Services account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only
    * 			the Capacity Reservation owner's usage.</p>
@@ -16111,14 +17715,14 @@ export class EC2 extends EC2Client {
    *             console output displays the exact console output that would normally be displayed on a
    *             physical monitor attached to a computer. For Windows instances, the instance console
    *             output includes the last three system event log errors.</p>
-   *         <p>By default, the console output returns buffered information that was posted shortly
+   *          <p>By default, the console output returns buffered information that was posted shortly
    *             after an instance transition state (start, stop, reboot, or terminate). This information
    *             is available for at least one hour after the most recent post. Only the most recent 64
    *             KB of console output is available.</p>
-   *         <p>You can optionally retrieve the latest serial console output at any time during the
+   *          <p>You can optionally retrieve the latest serial console output at any time during the
    *             instance lifecycle. This option is supported on instance types that use the Nitro
    *             hypervisor.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output">Instance
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output">Instance
    *                 console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public getConsoleOutput(
@@ -16153,7 +17757,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Retrieve a JPG-format screenshot of a running instance to help with
    *             troubleshooting.</p>
-   *         <p>The returned content is Base64-encoded.</p>
+   *          <p>The returned content is Base64-encoded.</p>
    */
   public getConsoleScreenshot(
     args: GetConsoleScreenshotCommandInput,
@@ -16187,7 +17791,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the default credit option for CPU usage of a burstable performance instance
    *             family.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
    *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public getDefaultCreditSpecification(
@@ -16294,19 +17898,19 @@ export class EC2 extends EC2Client {
    * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs
    *             with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data.
    *             Based on the information that you provide, we configure resources in the template to do the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Create a table in Athena that maps fields to a custom log format</p>
+   *                <p>Create a table in Athena that maps fields to a custom log format</p>
    *             </li>
    *             <li>
-   *                 <p>Create a Lambda function that updates the table with new partitions on a daily, weekly, or
+   *                <p>Create a Lambda function that updates the table with new partitions on a daily, weekly, or
    *                     monthly basis</p>
    *             </li>
    *             <li>
-   *                 <p>Create a table partitioned between two timestamps in the past</p>
+   *                <p>Create a table partitioned between two timestamps in the past</p>
    *             </li>
    *             <li>
-   *                 <p>Create a set of named queries in Athena that you can use to get started quickly</p>
+   *                <p>Create a set of named queries in Athena that you can use to get started quickly</p>
    *             </li>
    *          </ul>
    */
@@ -16372,11 +17976,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Preview a reservation purchase with configurations that match those of your
-   *             Dedicated Host. You must have active Dedicated Hosts in your account before you purchase
-   *             a reservation.</p>
-   *         <p>This is a preview of the <a>PurchaseHostReservation</a> action and does
-   *             not result in the offering being purchased.</p>
+   * <p>Preview a reservation purchase with configurations that match those of your Dedicated
+   *             Host. You must have active Dedicated Hosts in your account before you purchase a
+   *             reservation.</p>
+   *          <p>This is a preview of the <a>PurchaseHostReservation</a> action and does not
+   *             result in the offering being purchased.</p>
    */
   public getHostReservationPurchasePreview(
     args: GetHostReservationPurchasePreviewCommandInput,
@@ -16454,12 +18058,13 @@ export class EC2 extends EC2Client {
    * <p>A binary representation of the UEFI variable store. Only non-volatile variables are
    *             stored. This is a base64 encoded and zlib compressed binary value that must be properly
    *             encoded.</p>
-   *         <p>When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a>
-   *             to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code>
-   *             parameter. You can modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a>
-   *             on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can
-   *             inspect and modify, and then convert back into the binary format to use with register-image.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
+   *          <p>When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a> to create
+   *             an AMI, you can create an exact copy of your variable store by passing the UEFI data in
+   *             the <code>UefiData</code> parameter. You can modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
+   *             GitHub. You can use the tool to convert the UEFI data into a human-readable format
+   *             (JSON), which you can inspect and modify, and then convert back into the binary format
+   *             to use with register-image.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   public getInstanceUefiData(
@@ -16513,6 +18118,70 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: GetIpamAddressHistoryCommandOutput) => void
   ): Promise<GetIpamAddressHistoryCommandOutput> | void {
     const command = new GetIpamAddressHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts. Only the IPAM account can get all discovered accounts in the organization.</p>
+   */
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamDiscoveredAccountsCommandOutput>;
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    cb: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void),
+    cb?: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): Promise<GetIpamDiscoveredAccountsCommandOutput> | void {
+    const command = new GetIpamDiscoveredAccountsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>
+   */
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamDiscoveredResourceCidrsCommandOutput>;
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    cb: (err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void
+  ): void;
+  public getIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void),
+    cb?: (err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void
+  ): Promise<GetIpamDiscoveredResourceCidrsCommandOutput> | void {
+    const command = new GetIpamDiscoveredResourceCidrsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -16588,7 +18257,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Get information about the resources in a scope.</p>
+   * <p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public getIpamResourceCidrs(
     args: GetIpamResourceCidrsCommandInput,
@@ -16622,11 +18291,12 @@ export class EC2 extends EC2Client {
   /**
    * <p>Retrieves the configuration data of the specified instance. You can use this data to
    *             create a launch template. </p>
-   *         <p>This action calls on other describe actions to get instance information. Depending on
+   *          <p>This action calls on other describe actions to get instance information. Depending on
    *             your instance configuration, you may need to allow the following actions in your IAM
-   *             policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>,
-   *             <code>DescribeVolumes</code>, <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or, you can allow
-   *                 <code>describe*</code> depending on your instance requirements.</p>
+   *             policy: <code>DescribeSpotInstanceRequests</code>,
+   *                 <code>DescribeInstanceCreditSpecifications</code>, <code>DescribeVolumes</code>,
+   *                 <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or,
+   *             you can allow <code>describe*</code> depending on your instance requirements.</p>
    */
   public getLaunchTemplateData(
     args: GetLaunchTemplateDataCommandInput,
@@ -16789,15 +18459,15 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Retrieves the encrypted administrator password for a running Windows instance.</p>
-   *         <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
+   *          <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
    *                 <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
    *             happens the first time an instance is launched. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html">EC2Config</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html">EC2Launch</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>For the <code>EC2Config</code> service, the password is not generated for rebundled
+   *          <p>For the <code>EC2Config</code> service, the password is not generated for rebundled
    *             AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p>
-   *         <p>The password is encrypted using the key pair that you specified when you launched the
+   *          <p>The password is encrypted using the key pair that you specified when you launched the
    *             instance. You must provide the corresponding key pair file.</p>
-   *         <p>When you launch an instance, password generation and encryption may take a few
+   *          <p>When you launch an instance, password generation and encryption may take a few
    *             minutes. If you try to retrieve the password before it's available, the output returns
    *             an empty string. We recommend that you wait up to 15 minutes after launching an instance
    *             before trying to retrieve the generated password.</p>
@@ -17208,6 +18878,70 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Get the Verified Access policy associated with the endpoint.</p>
+   */
+  public getVerifiedAccessEndpointPolicy(
+    args: GetVerifiedAccessEndpointPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVerifiedAccessEndpointPolicyCommandOutput>;
+  public getVerifiedAccessEndpointPolicy(
+    args: GetVerifiedAccessEndpointPolicyCommandInput,
+    cb: (err: any, data?: GetVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): void;
+  public getVerifiedAccessEndpointPolicy(
+    args: GetVerifiedAccessEndpointPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): void;
+  public getVerifiedAccessEndpointPolicy(
+    args: GetVerifiedAccessEndpointPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVerifiedAccessEndpointPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): Promise<GetVerifiedAccessEndpointPolicyCommandOutput> | void {
+    const command = new GetVerifiedAccessEndpointPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Shows the contents of the Verified Access policy associated with the group.</p>
+   */
+  public getVerifiedAccessGroupPolicy(
+    args: GetVerifiedAccessGroupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVerifiedAccessGroupPolicyCommandOutput>;
+  public getVerifiedAccessGroupPolicy(
+    args: GetVerifiedAccessGroupPolicyCommandInput,
+    cb: (err: any, data?: GetVerifiedAccessGroupPolicyCommandOutput) => void
+  ): void;
+  public getVerifiedAccessGroupPolicy(
+    args: GetVerifiedAccessGroupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVerifiedAccessGroupPolicyCommandOutput) => void
+  ): void;
+  public getVerifiedAccessGroupPolicy(
+    args: GetVerifiedAccessGroupPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVerifiedAccessGroupPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetVerifiedAccessGroupPolicyCommandOutput) => void
+  ): Promise<GetVerifiedAccessGroupPolicyCommandOutput> | void {
+    const command = new GetVerifiedAccessGroupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer
    *             gateway device specified for your Site-to-Site VPN connection.</p>
    */
@@ -17279,7 +19013,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>
-   * 		       <p>Uploading a client certificate revocation list resets existing client connections.</p>
+   *          <p>Uploading a client certificate revocation list resets existing client connections.</p>
    */
   public importClientVpnClientCertificateRevocationList(
     args: ImportClientVpnClientCertificateRevocationListCommandInput,
@@ -17314,6 +19048,12 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p>
+   *          <important>
+   *             <p>Amazon Web Services VM Import/Export strongly recommends specifying a value for either the
+   *      <code>--license-type</code> or <code>--usage-operation</code> parameter when you create a new
+   *     VM Import task. This ensures your operating system is licensed appropriately and your billing is
+   *     optimized.</p>
+   *          </important>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing a
    *    VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
    */
@@ -17487,7 +19227,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Lists one or more AMIs that are currently in the Recycle Bin. For more information,
    *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
-   *         Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+   *         Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public listImagesInRecycleBin(
     args: ListImagesInRecycleBinCommandInput,
@@ -17655,7 +19395,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modifies a Capacity Reservation Fleet.</p>
-   * 		       <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically
+   *          <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically
    * 			creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet
    * 			to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for
    * 			all of the individual Capacity Reservations in the Fleet are updated accordingly.</p>
@@ -17726,7 +19466,7 @@ export class EC2 extends EC2Client {
    *             The default credit option is set at the account level per Amazon Web Services Region, and
    *             is specified per instance family. All new burstable performance instances in the account
    *             launch using the default credit option.</p>
-   *         <p>
+   *          <p>
    *             <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which
    *             works at an Amazon Web Services Region level and modifies the credit option for each
    *             Availability Zone. All zones in a Region are updated within five minutes. But if
@@ -17734,7 +19474,7 @@ export class EC2 extends EC2Client {
    *             until the zone is updated. To verify whether the update has occurred, you can call
    *                 <code>GetDefaultCreditSpecification</code> and check
    *                 <code>DefaultCreditSpecification</code> for updates.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
    *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyDefaultCreditSpecification(
@@ -17768,7 +19508,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Changes the default KMS key for EBS encryption by default for your account in this Region.</p>
-   *   	      <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If
+   *          <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If
    *       you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services
    *       managed KMS key. To reset the default KMS key to the Amazon Web Services managed KMS key for EBS, use <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric KMS keys.</p>
    *          <p>If you delete or disable the customer managed KMS key that you specified for use with
@@ -17886,13 +19626,14 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
-   *             any instances that you launch with a tenancy of <code>host</code> but without a specific host
-   *         	ID are placed onto any available Dedicated Host in your account that has auto-placement enabled.
-   *         	When auto-placement is disabled, you need to provide a host ID to have the instance launch onto
-   *         	a specific host. If no host ID is provided, the instance is launched onto a suitable host with
-   *         	auto-placement enabled.</p>
-   *     	    <p>You can also use this API action to modify a Dedicated Host to support either multiple
-   *     		instance types in an instance family, or to support a specific instance type only.</p>
+   *             any instances that you launch with a tenancy of <code>host</code> but without a specific
+   *             host ID are placed onto any available Dedicated Host in your account that has
+   *             auto-placement enabled. When auto-placement is disabled, you need to provide a host ID
+   *             to have the instance launch onto a specific host. If no host ID is provided, the
+   *             instance is launched onto a suitable host with auto-placement enabled.</p>
+   *          <p>You can also use this API action to modify a Dedicated Host to support either multiple
+   *             instance types in an instance family, or to support a specific instance type
+   *             only.</p>
    */
   public modifyHosts(args: ModifyHostsCommandInput, options?: __HttpHandlerOptions): Promise<ModifyHostsCommandOutput>;
   public modifyHosts(args: ModifyHostsCommandInput, cb: (err: any, data?: ModifyHostsCommandOutput) => void): void;
@@ -17933,7 +19674,7 @@ export class EC2 extends EC2Client {
    *                 <code>security-group</code> | <code>subnet</code> |
    *                 <code>subnet-cidr-block-association</code> | <code>vpc</code> |
    *         <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
    *          <p>This setting applies to the principal specified in the request; it does not apply to the
    *       principal that makes the request. </p>
@@ -18029,7 +19770,7 @@ export class EC2 extends EC2Client {
    * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.
    *        You can use the <code>Attribute</code> parameter to specify the attribute or one of the following parameters:
    *        <code>Description</code> or <code>LaunchPermission</code>.</p>
-   *    	     <p>Images with an Amazon Web Services Marketplace product code cannot be made public.</p>
+   *          <p>Images with an Amazon Web Services Marketplace product code cannot be made public.</p>
    *          <p>To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance
    *        and create an AMI from the instance.</p>
    */
@@ -18065,13 +19806,13 @@ export class EC2 extends EC2Client {
   /**
    * <p>Modifies the specified attribute of the specified instance. You can specify only one
    *             attribute at a time.</p>
-   *         <p>
+   *          <p>
    *             <b>Note: </b>Using this action to change the security groups
    *             associated with an elastic network interface (ENI) attached to an instance in a VPC can
    *             result in an error if the instance has more than one ENI. To change the security groups
    *             associated with an ENI attached to an instance that has multiple ENIs, we recommend that
    *             you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p>
-   *         <p>To modify some attributes, the instance must be stopped. For more information, see
+   *          <p>To modify some attributes, the instance must be stopped. For more information, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify a stopped instance</a> in the
    *             <i>Amazon EC2 User Guide</i>.</p>
    */
@@ -18144,7 +19885,7 @@ export class EC2 extends EC2Client {
    * <p>Modifies the credit option for CPU usage on a running or stopped burstable performance
    *             instance. The credit options are <code>standard</code> and
    *             <code>unlimited</code>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
    *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyInstanceCreditSpecification(
@@ -18323,29 +20064,29 @@ export class EC2 extends EC2Client {
   /**
    * <p>Modifies the placement attributes for a specified instance. You can do the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Modify the affinity between an instance and a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
+   *                <p>Modify the affinity between an instance and a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
    *                         Host</a>. When affinity is set to <code>host</code> and the instance is
    *                     not associated with a specific Dedicated Host, the next time the instance is
    *                     launched, it is automatically associated with the host on which it lands. If the
    *                     instance is restarted or rebooted, this relationship persists.</p>
    *             </li>
    *             <li>
-   *                 <p>Change the Dedicated Host with which an instance is associated.</p>
+   *                <p>Change the Dedicated Host with which an instance is associated.</p>
    *             </li>
    *             <li>
-   *                 <p>Change the instance tenancy of an instance.</p>
+   *                <p>Change the instance tenancy of an instance.</p>
    *             </li>
    *             <li>
-   *                 <p>Move an instance to or from a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement
+   *                <p>Move an instance to or from a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement
    *                     group</a>.</p>
    *             </li>
    *          </ul>
-   *         <p>At least one attribute for affinity, host ID, tenancy, or placement group name must
-   *             be specified in the request. Affinity and tenancy can be modified in the same
+   *          <p>At least one attribute for affinity, host ID, tenancy, or placement group name must be
+   *             specified in the request. Affinity and tenancy can be modified in the same
    *             request.</p>
-   *         <p>To modify the host ID, tenancy, placement group, or partition for an instance, the
+   *          <p>To modify the host ID, tenancy, placement group, or partition for an instance, the
    *             instance must be in the <code>stopped</code> state.</p>
    */
   public modifyInstancePlacement(
@@ -18472,6 +20213,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+   */
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamResourceDiscoveryCommandOutput>;
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    cb: (err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+  public modifyIpamResourceDiscovery(
+    args: ModifyIpamResourceDiscoveryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void
+  ): Promise<ModifyIpamResourceDiscoveryCommandOutput> | void {
+    const command = new ModifyIpamResourceDiscoveryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modify an IPAM scope.</p>
    */
   public modifyIpamScope(
@@ -18538,10 +20311,42 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Modifies the specified local gateway route.</p>
+   */
+  public modifyLocalGatewayRoute(
+    args: ModifyLocalGatewayRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyLocalGatewayRouteCommandOutput>;
+  public modifyLocalGatewayRoute(
+    args: ModifyLocalGatewayRouteCommandInput,
+    cb: (err: any, data?: ModifyLocalGatewayRouteCommandOutput) => void
+  ): void;
+  public modifyLocalGatewayRoute(
+    args: ModifyLocalGatewayRouteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyLocalGatewayRouteCommandOutput) => void
+  ): void;
+  public modifyLocalGatewayRoute(
+    args: ModifyLocalGatewayRouteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyLocalGatewayRouteCommandOutput) => void),
+    cb?: (err: any, data?: ModifyLocalGatewayRouteCommandOutput) => void
+  ): Promise<ModifyLocalGatewayRouteCommandOutput> | void {
+    const command = new ModifyLocalGatewayRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modifies the specified managed prefix list.</p>
-   *         <p>Adding or removing entries in a prefix list creates a new version of the prefix list.
+   *          <p>Adding or removing entries in a prefix list creates a new version of the prefix list.
    *             Changing the name of the prefix list does not affect the version.</p>
-   *         <p>If you specify a current version number that does not match the true current version
+   *          <p>If you specify a current version number that does not match the true current version
    *             number, the request fails.</p>
    */
   public modifyManagedPrefixList(
@@ -18640,15 +20445,13 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Modifies the Availability Zone, instance count, instance type, or network platform
-   *             (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be
-   *             modified must be identical, except for Availability Zone, network platform, and instance
-   *             type.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved
+   * <p>Modifies the configuration of your Reserved Instances, such as the Availability Zone,
+   *        instance count, or instance type. The Reserved Instances to be modified must be identical,
+   *        except for Availability Zone, network platform, and instance type.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved
    * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public modifyReservedInstances(
@@ -18789,10 +20592,10 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modifies the specified Spot Fleet request.</p>
-   *         <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p>
-   *         <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code>
+   *          <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p>
+   *          <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code>
    *             state.</p>
-   *         <p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the
+   *          <p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the
    *             additional Spot Instances according to the allocation strategy for the Spot Fleet
    *             request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches
    *             instances using the Spot Instance pool with the lowest price. If the allocation strategy
@@ -18800,7 +20603,7 @@ export class EC2 extends EC2Client {
    *             Instance pools. If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet
    *             launches instances from Spot Instance pools with optimal capacity for the number of instances
    *             that are launching.</p>
-   *         <p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet
+   *          <p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet
    *             cancels any open requests that exceed the new target capacity. You can request that the
    *             Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the
    *             new target capacity. If the allocation strategy is <code>lowestPrice</code>, the Spot
@@ -18811,7 +20614,7 @@ export class EC2 extends EC2Client {
    *             Spot Instance pools. Alternatively, you can request that the Spot Fleet keep the fleet
    *             at its current size, but not replace any Spot Instances that are interrupted or that you
    *             terminate manually.</p>
-   *         <p>If you are finished with your Spot Fleet for now, but will use it again later, you can
+   *          <p>If you are finished with your Spot Fleet for now, but will use it again later, you can
    *             set the target capacity to 0.</p>
    */
   public modifySpotFleetRequest(
@@ -18845,25 +20648,22 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
-   *
-   * 	        <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
-   *         <ul>
+   *          <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
+   *          <ul>
    *             <li>
-   *                 <p>To modify a subnet on an Outpost rack, set both
+   *                <p>To modify a subnet on an Outpost rack, set both
    *                         <code>MapCustomerOwnedIpOnLaunch</code> and
    *                         <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single
    *                     attribute.</p>
    *             </li>
    *             <li>
-   *                 <p>To modify a subnet on an Outpost server, set either
+   *                <p>To modify a subnet on an Outpost server, set either
    *                         <code>EnableLniAtDeviceIndex</code> or
    *                     <code>DisableLniAtDeviceIndex</code>.</p>
    *             </li>
    *          </ul>
-   *
-   * 	        <p>For more information about Amazon Web Services Outposts, see the following:</p>
-   *
-   * 	        <ul>
+   *          <p>For more information about Amazon Web Services Outposts, see the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost servers</a>
@@ -19108,6 +20908,232 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>
+   */
+  public modifyVerifiedAccessEndpoint(
+    args: ModifyVerifiedAccessEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessEndpointCommandOutput>;
+  public modifyVerifiedAccessEndpoint(
+    args: ModifyVerifiedAccessEndpointCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessEndpoint(
+    args: ModifyVerifiedAccessEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessEndpoint(
+    args: ModifyVerifiedAccessEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessEndpointCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessEndpointCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessEndpointCommandOutput> | void {
+    const command = new ModifyVerifiedAccessEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the specified Verified Access endpoint policy.</p>
+   */
+  public modifyVerifiedAccessEndpointPolicy(
+    args: ModifyVerifiedAccessEndpointPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessEndpointPolicyCommandOutput>;
+  public modifyVerifiedAccessEndpointPolicy(
+    args: ModifyVerifiedAccessEndpointPolicyCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessEndpointPolicy(
+    args: ModifyVerifiedAccessEndpointPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessEndpointPolicy(
+    args: ModifyVerifiedAccessEndpointPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessEndpointPolicyCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessEndpointPolicyCommandOutput> | void {
+    const command = new ModifyVerifiedAccessEndpointPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the specified Verified Access group configuration.</p>
+   */
+  public modifyVerifiedAccessGroup(
+    args: ModifyVerifiedAccessGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessGroupCommandOutput>;
+  public modifyVerifiedAccessGroup(
+    args: ModifyVerifiedAccessGroupCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessGroup(
+    args: ModifyVerifiedAccessGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessGroup(
+    args: ModifyVerifiedAccessGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessGroupCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessGroupCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessGroupCommandOutput> | void {
+    const command = new ModifyVerifiedAccessGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the specified Verified Access group policy.</p>
+   */
+  public modifyVerifiedAccessGroupPolicy(
+    args: ModifyVerifiedAccessGroupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessGroupPolicyCommandOutput>;
+  public modifyVerifiedAccessGroupPolicy(
+    args: ModifyVerifiedAccessGroupPolicyCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessGroupPolicyCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessGroupPolicy(
+    args: ModifyVerifiedAccessGroupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessGroupPolicyCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessGroupPolicy(
+    args: ModifyVerifiedAccessGroupPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessGroupPolicyCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessGroupPolicyCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessGroupPolicyCommandOutput> | void {
+    const command = new ModifyVerifiedAccessGroupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the configuration of the specified Verified Access instance.</p>
+   */
+  public modifyVerifiedAccessInstance(
+    args: ModifyVerifiedAccessInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessInstanceCommandOutput>;
+  public modifyVerifiedAccessInstance(
+    args: ModifyVerifiedAccessInstanceCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessInstance(
+    args: ModifyVerifiedAccessInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessInstance(
+    args: ModifyVerifiedAccessInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessInstanceCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessInstanceCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessInstanceCommandOutput> | void {
+    const command = new ModifyVerifiedAccessInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
+   */
+  public modifyVerifiedAccessInstanceLoggingConfiguration(
+    args: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput>;
+  public modifyVerifiedAccessInstanceLoggingConfiguration(
+    args: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessInstanceLoggingConfiguration(
+    args: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessInstanceLoggingConfiguration(
+    args: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput> | void {
+    const command = new ModifyVerifiedAccessInstanceLoggingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
+   */
+  public modifyVerifiedAccessTrustProvider(
+    args: ModifyVerifiedAccessTrustProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessTrustProviderCommandOutput>;
+  public modifyVerifiedAccessTrustProvider(
+    args: ModifyVerifiedAccessTrustProviderCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessTrustProvider(
+    args: ModifyVerifiedAccessTrustProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessTrustProvider(
+    args: ModifyVerifiedAccessTrustProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessTrustProviderCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessTrustProviderCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessTrustProviderCommandOutput> | void {
+    const command = new ModifyVerifiedAccessTrustProviderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>You can modify several parameters of an existing EBS volume, including volume size, volume
    *       type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance
    *       type, you might be able to apply these changes without stopping the instance or detaching the
@@ -19297,7 +21323,7 @@ export class EC2 extends EC2Client {
    *             Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is
    *             required for requests to connect to your endpoint service through an interface VPC
    *             endpoint.</p>
-   * 	        <p>If you set or modify the private DNS name, you must prove that you own the private DNS
+   *          <p>If you set or modify the private DNS name, you must prove that you own the private DNS
    *             domain name.</p>
    */
   public modifyVpcEndpointServiceConfiguration(
@@ -19366,9 +21392,10 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers
-   * 	        (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p>
-   * 	        <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
+   * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions
+   *             for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
+   *             your endpoint service.</p>
+   *          <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
    * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
    * 	        attachments are automatically approved.</p>
    */
@@ -19403,7 +21430,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    *          <p>Modifies the VPC peering connection options on one side of a VPC peering connection. You can do the following:</p>
    *          <ul>
@@ -19461,10 +21488,10 @@ export class EC2 extends EC2Client {
    * <p>Modifies the instance tenancy attribute of the specified VPC. You can change the
    *             instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the
    *             instance tenancy attribute to <code>dedicated</code>.</p>
-   *         <p>After you modify the tenancy of the VPC, any new instances that you launch into the
+   *          <p>After you modify the tenancy of the VPC, any new instances that you launch into the
    *             VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch.
    *             The tenancy of any existing instances in the VPC is not affected.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
    * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public modifyVpcTenancy(
@@ -19499,40 +21526,38 @@ export class EC2 extends EC2Client {
   /**
    * <p>Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site VPN connection. To
    *             modify the target gateway, the following migration options are available:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>An existing virtual private gateway to a new virtual private gateway</p>
+   *                <p>An existing virtual private gateway to a new virtual private gateway</p>
    *             </li>
    *             <li>
-   *                 <p>An existing virtual private gateway to a transit gateway</p>
+   *                <p>An existing virtual private gateway to a transit gateway</p>
    *             </li>
    *             <li>
-   *                 <p>An existing transit gateway to a new transit gateway</p>
+   *                <p>An existing transit gateway to a new transit gateway</p>
    *             </li>
    *             <li>
-   *                 <p>An existing transit gateway to a virtual private gateway</p>
+   *                <p>An existing transit gateway to a virtual private gateway</p>
    *             </li>
    *          </ul>
-   *         <p>Before you perform the migration to the new gateway, you must configure the new
+   *          <p>Before you perform the migration to the new gateway, you must configure the new
    *             gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or
    *                 <a>CreateTransitGateway</a> to create a transit gateway.</p>
-   *         <p>This step is required when you migrate from a virtual private gateway with static
+   *          <p>This step is required when you migrate from a virtual private gateway with static
    *             routes to a transit gateway. </p>
-   *         <p>You must delete the static routes before you migrate to the new gateway.</p>
-   *
-   *         <p>Keep a copy of the static route before you delete it. You will need to add back these
+   *          <p>You must delete the static routes before you migrate to the new gateway.</p>
+   *          <p>Keep a copy of the static route before you delete it. You will need to add back these
    *             routes to the transit gateway after the VPN connection migration is complete.</p>
-   *
-   *         <p>After you migrate to the new gateway, you might need to modify your VPC route table.
+   *          <p>After you migrate to the new gateway, you might need to modify your VPC route table.
    *             Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes
    *             described in <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">Update VPC route
    *                 tables</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
-   *         <p>When the new gateway is a transit gateway, modify the transit gateway route table to
+   *          <p>When the new gateway is a transit gateway, modify the transit gateway route table to
    *             allow traffic between the VPC and the Amazon Web Services Site-to-Site VPN connection.
    *             Use <a>CreateTransitGatewayRoute</a> to add the routes.</p>
-   *         <p> If you deleted VPN static routes, you must add the static routes to the transit
+   *          <p> If you deleted VPN static routes, you must add the static routes to the transit
    *             gateway route table.</p>
-   *         <p>After you perform this operation, the VPN endpoint's IP addresses on the Amazon Web Services side and the tunnel options remain intact. Your Amazon Web Services Site-to-Site VPN connection will
+   *          <p>After you perform this operation, the VPN endpoint's IP addresses on the Amazon Web Services side and the tunnel options remain intact. Your Amazon Web Services Site-to-Site VPN connection will
    *             be temporarily unavailable for a brief period while we provision the new
    *             endpoints.</p>
    */
@@ -19567,7 +21592,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modifies the connection options for your Site-to-Site VPN connection.</p>
-   *         <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the
+   *          <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the
    *                 Amazon Web Services side do not change, and the tunnel options do not change. Your
    *             VPN connection will be temporarily unavailable for a brief period while the VPN
    *             connection is updated.</p>
@@ -19672,7 +21697,7 @@ export class EC2 extends EC2Client {
    * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
    *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using
    *                 CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>To disable detailed monitoring, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html">UnmonitorInstances</a>.</p>
+   *          <p>To disable detailed monitoring, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html">UnmonitorInstances</a>.</p>
    */
   public monitorInstances(
     args: MonitorInstancesCommandInput,
@@ -19711,7 +21736,7 @@ export class EC2 extends EC2Client {
    *         <a>RestoreAddressToClassic</a> request. You cannot move an Elastic IP address that was
    *       originally allocated for use in the EC2-VPC platform to the EC2-Classic platform.</p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public moveAddressToVpc(
@@ -19744,8 +21769,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p>
-   *          <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
+   * <p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p>
+   *          <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
    */
   public moveByoipCidrToIpam(
     args: MoveByoipCidrToIpamCommandInput,
@@ -19924,14 +21949,17 @@ export class EC2 extends EC2Client {
   /**
    * <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower
    *        hourly rate compared to On-Demand instance pricing.</p>
-   * 		       <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings
+   *          <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings
    * 			that match your specifications. After you've purchased a Reserved Instance, you can check for your
    * 			new Reserved Instance with <a>DescribeReservedInstances</a>.</p>
    *          <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a
    *       purchase time, the default is the current time.</p>
-   *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and
    *    	   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
    *    	   in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <note>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          </note>
    */
   public purchaseReservedInstancesOffering(
     args: PurchaseReservedInstancesOfferingCommandInput,
@@ -19963,7 +21991,10 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Purchases the Scheduled Instances with the specified schedule.</p>
+   * <note>
+   *             <p>You can no longer purchase Scheduled Instances.</p>
+   *          </note>
+   *          <p>Purchases the Scheduled Instances with the specified schedule.</p>
    *          <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term.
    *          Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a>
    *          to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance,
@@ -20004,9 +22035,9 @@ export class EC2 extends EC2Client {
    *             queues a request to reboot the specified instances. The operation succeeds if the
    *             instances are valid and belong to you. Requests to reboot terminated instances are
    *             ignored.</p>
-   *         <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
+   *          <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
    *             hard reboot.</p>
-   *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot an unreachable
+   *          <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot an unreachable
    *                 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public rebootInstances(
@@ -20041,33 +22072,30 @@ export class EC2 extends EC2Client {
   /**
    * <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete
    *       before you can launch an instance from the AMI. For more information about creating AMIs, see
-   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your
-   *         own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your
+   *         own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <note>
-   *      	      <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
+   *             <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
    *         in a single request, so you don't have to register the AMI yourself. We recommend that you
    *         always use <a>CreateImage</a> unless you have a specific reason to use
    *         RegisterImage.</p>
    *          </note>
-   *
    *          <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration.
    *        If you make changes to an image, deregister the previous image and register the new image.</p>
-   *
    *          <p>
    *             <b>Register a snapshot of a root device volume</b>
    *          </p>
-   *    	     <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
+   *          <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
    *        a snapshot of a root device volume. You specify the snapshot using a block device mapping.
    *        You can't set the encryption state of the volume using the block device mapping. If the
    *        snapshot is encrypted, or encryption by default is enabled, the root volume of an instance
    *        launched from the AMI is encrypted.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a>
    *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *
-   *    	     <p>
+   *          <p>
    *             <b>Amazon Web Services Marketplace product codes</b>
    *          </p>
-   *    	     <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new
+   *          <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new
    *       AMI.</p>
    *          <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE
    *       Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to
@@ -20089,8 +22117,8 @@ export class EC2 extends EC2Client {
    *       from an AMI with a billing product code, make sure that the Reserved Instance has the matching
    *       billing product code. If you purchase a Reserved Instance without the matching billing product
    *       code, the Reserved Instance will not be applied to the On-Demand Instance. For information
-   *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI
-   *       	billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand AMI
+   *         billing information</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public registerImage(
     args: RegisterImageCommandInput,
@@ -20162,7 +22190,7 @@ export class EC2 extends EC2Client {
    *             with a supported EC2 instance that receives multicast traffic. For information about
    *             supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast
    *                 Consideration</a> in <i>Amazon VPC Transit Gateways</i>.</p>
-   *         <p>After you add the members, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html">SearchTransitGatewayMulticastGroups</a> to verify that the members were added
+   *          <p>After you add the members, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html">SearchTransitGatewayMulticastGroups</a> to verify that the members were added
    *             to the  transit gateway multicast group.</p>
    */
   public registerTransitGatewayMulticastGroupMembers(
@@ -20198,10 +22226,10 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Registers sources (network interfaces) with the specified  transit gateway multicast group.</p>
-   *         <p>A multicast source is a network interface attached to a supported instance that sends
+   *          <p>A multicast source is a network interface attached to a supported instance that sends
    *             multicast traffic. For information about supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast
    *                 Considerations</a> in <i>Amazon VPC Transit Gateways</i>.</p>
-   *         <p>After you add the source, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html">SearchTransitGatewayMulticastGroups</a> to verify that the source was added to the multicast
+   *          <p>After you add the source, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html">SearchTransitGatewayMulticastGroups</a> to verify that the source was added to the multicast
    *             group.</p>
    */
   public registerTransitGatewayMulticastGroupSources(
@@ -20339,8 +22367,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Rejects one or more VPC endpoint connection requests to your VPC endpoint
-   *             service.</p>
+   * <p>Rejects VPC endpoint connection requests to your VPC endpoint service.</p>
    */
   public rejectVpcEndpointConnections(
     args: RejectVpcEndpointConnectionsCommandInput,
@@ -20412,7 +22439,7 @@ export class EC2 extends EC2Client {
    * 				from any instance that it's associated with. To disassociate an Elastic IP address without
    * 				releasing it, use <a>DisassociateAddress</a>.</p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    *          <p>[Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic IP address
    * 			  before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p>
@@ -20461,10 +22488,10 @@ export class EC2 extends EC2Client {
    *             host ID of Dedicated Hosts that have been released can no longer be specified in another
    *             request, for example, to modify the host. You must stop or terminate all instances on a
    *             host before it can be released.</p>
-   *         <p>When Dedicated Hosts are released, it may take some time for them to stop counting
+   *          <p>When Dedicated Hosts are released, it may take some time for them to stop counting
    *             toward your limit and you may receive capacity errors when trying to allocate new
    *             Dedicated Hosts. Wait a few minutes and then try again.</p>
-   *         <p>Released hosts still appear in a <a>DescribeHosts</a> response.</p>
+   *          <p>Released hosts still appear in a <a>DescribeHosts</a> response.</p>
    */
   public releaseHosts(
     args: ReleaseHostsCommandInput,
@@ -20529,7 +22556,7 @@ export class EC2 extends EC2Client {
    * <p>Replaces an IAM instance profile for the specified running instance. You can use
    *             this action to change the IAM instance profile that's associated with an instance
    *             without having to disassociate the existing IAM instance profile first.</p>
-   *         <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
+   *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
    *             ID.</p>
    */
   public replaceIamInstanceProfileAssociation(
@@ -20566,7 +22593,7 @@ export class EC2 extends EC2Client {
    * 			subnet, it's automatically associated with the default network ACL. For more
    * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
    * 			ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
-   *         <p>This is an idempotent operation.</p>
+   *          <p>This is an idempotent operation.</p>
    */
   public replaceNetworkAclAssociation(
     args: ReplaceNetworkAclAssociationCommandInput,
@@ -20737,7 +22764,7 @@ export class EC2 extends EC2Client {
    *                 <code>running</code> state. If your experience with the instance differs from the
    *             instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon
    *             EC2 collects this information to improve the accuracy of status checks.</p>
-   *         <p>Use of this action does not change the value returned by <a>DescribeInstanceStatus</a>.</p>
+   *          <p>Use of this action does not change the value returned by <a>DescribeInstanceStatus</a>.</p>
    */
   public reportInstanceStatus(
     args: ReportInstanceStatusCommandInput,
@@ -20770,33 +22797,32 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a Spot Fleet request.</p>
-   *         <p>The Spot Fleet request specifies the total target capacity and the On-Demand target
+   *          <p>The Spot Fleet request specifies the total target capacity and the On-Demand target
    *             capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand
    *             capacity, and launches the difference as Spot capacity.</p>
-   *         <p>You can submit a single request that includes multiple launch specifications that vary
+   *          <p>You can submit a single request that includes multiple launch specifications that vary
    *             by instance type, AMI, Availability Zone, or subnet.</p>
-   *         <p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the
+   *          <p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the
    *             price per unit is the lowest. Each launch specification can include its own instance
    *             weighting that reflects the value of the instance type to your application
    *             workload.</p>
-   *         <p>Alternatively, you can specify that the Spot Fleet distribute the target capacity
+   *          <p>Alternatively, you can specify that the Spot Fleet distribute the target capacity
    *             across the Spot pools included in its launch specifications. By ensuring that the Spot
    *             Instances in your Spot Fleet are in different Spot pools, you can improve the
    *             availability of your fleet.</p>
-   *         <p>You can specify tags for the Spot Fleet request and instances launched by the fleet.
+   *          <p>You can specify tags for the Spot Fleet request and instances launched by the fleet.
    *             You cannot tag other resource types in a Spot Fleet request because only the
    *                 <code>spot-fleet-request</code> and <code>instance</code> resource types are
    *             supported.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet requests</a>
-   *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   *
-   *         <important>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet requests</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <important>
    *             <p>We strongly discourage using the RequestSpotFleet API because it is a legacy
    *                 API with no planned investment. For options for requesting Spot Instances, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which
    *                     is the best Spot request method to use?</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   *         </important>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *          </important>
    */
   public requestSpotFleet(
     args: RequestSpotFleetCommandInput,
@@ -20829,19 +22855,18 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a Spot Instance request.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in
    *             the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   *
-   *         <important>
+   *          <important>
    *             <p>We strongly discourage using the RequestSpotInstances API because it is a legacy
    *                 API with no planned investment. For options for requesting Spot Instances, see
    *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which
    *                     is the best Spot request method to use?</a> in the
    *                     <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   *         </important>
-   *         <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   *         </note>
+   *          </important>
+   *          <note>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *          </note>
    */
   public requestSpotInstances(
     args: RequestSpotInstancesCommandInput,
@@ -21011,7 +23036,7 @@ export class EC2 extends EC2Client {
    *                 <code>kernel</code> or <code>ramdisk</code>, the instance must be in a stopped
    *             state. To reset the <code>sourceDestCheck</code>, the instance can be either running or
    *             stopped.</p>
-   *         <p>The <code>sourceDestCheck</code> attribute controls whether source/destination
+   *          <p>The <code>sourceDestCheck</code> attribute controls whether source/destination
    *             checking is enabled. The default value is <code>true</code>, which means checking is
    *             enabled. This value must be <code>false</code> for a NAT instance to perform NAT. For
    *             more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT Instances</a> in the
@@ -21115,7 +23140,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.</p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public restoreAddressToClassic(
@@ -21148,7 +23173,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+   * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public restoreImageFromRecycleBin(
     args: RestoreImageFromRecycleBinCommandInput,
@@ -21247,7 +23272,6 @@ export class EC2 extends EC2Client {
   /**
    * <p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore
    *       period or restore type for a snapshot that was previously temporarily restored.</p>
-   *
    *          <p>For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot">
    *       Restore an archived snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#modify-temp-restore-period">
    *         modify the restore period or restore type for a temporarily restored snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -21316,7 +23340,6 @@ export class EC2 extends EC2Client {
   /**
    * <p>[VPC only] Removes the specified outbound (egress) rules from a security group for EC2-VPC.
    *        This action does not apply to security groups for use in EC2-Classic.</p>
-   *
    *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
    *          rule properties, the values that you specify (for example, ports) must match the existing rule's
    *          values exactly. Each rule has a protocol, from and to ports, and destination (CIDR range,
@@ -21327,7 +23350,6 @@ export class EC2 extends EC2Client {
    *          <p>[Default VPC] If the values you specify do not match the existing rule's values, no error is
    *          returned, and the output describes the security group rules that were not revoked.</p>
    *          <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p>
-   *
    *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However,
    *          a small delay might occur.</p>
    */
@@ -21362,7 +23384,6 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Removes the specified inbound (ingress) rules from a security group.</p>
-   *
    *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
    *            rule properties, the values that you specify (for example, ports) must match the existing rule's
    *            values exactly. Each rule has a protocol, from and to ports, and source (CIDR range,
@@ -21373,11 +23394,9 @@ export class EC2 extends EC2Client {
    *          <p>[EC2-Classic, default VPC] If the values you specify do not match the existing rule's values, no error is
    *            returned, and the output describes the security group rules that were not revoked.</p>
    *          <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p>
-   *
    *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
-   *
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public revokeSecurityGroupIngress(
@@ -21412,65 +23431,66 @@ export class EC2 extends EC2Client {
   /**
    * <p>Launches the specified number of instances using an AMI for which you have
    *             permissions.</p>
-   *         <p>You can specify a number of options, or leave the default options. The following rules
+   *          <p>You can specify a number of options, or leave the default options. The following rules
    *             apply:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from
+   *                <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from
    *                     your default VPC for you. If you don't have a default VPC, you must specify a
    *                     subnet ID in the request.</p>
    *             </li>
    *             <li>
-   *                 <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for
+   *                <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for
    *                     you.</p>
    *             </li>
    *             <li>
-   *                 <p>Some instance types must be launched into a VPC. If you do not have a default
+   *                <p>Some instance types must be launched into a VPC. If you do not have a default
    *                     VPC, or if you do not specify a subnet ID, the request fails. For more
    *                     information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance types available only in a VPC</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>[EC2-VPC] All instances have a network interface with a primary private IPv4
+   *                <p>[EC2-VPC] All instances have a network interface with a primary private IPv4
    *                     address. If you don't specify this address, we choose one from the IPv4 range of
    *                     your subnet.</p>
    *             </li>
    *             <li>
-   *                 <p>Not all instance types support IPv6 addresses. For more information, see
+   *                <p>Not all instance types support IPv6 addresses. For more information, see
    *                         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
    *                     types</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>If you don't specify a security group ID, we use the default security group.
+   *                <p>If you don't specify a security group ID, we use the default security group.
    *                     For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security
    *                         groups</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>If any of the AMIs have a product code attached for which the user has not
+   *                <p>If any of the AMIs have a product code attached for which the user has not
    *                     subscribed, the request fails.</p>
    *             </li>
    *          </ul>
-   *         <p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>,
+   *          <p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>,
    *             which is a resource that contains the parameters to launch an instance. When you launch
    *             an instance using <a>RunInstances</a>, you can specify the launch template
    *             instead of specifying the launch parameters.</p>
-   *         <p>To ensure faster instance launches, break up large requests into smaller batches. For
+   *          <p>To ensure faster instance launches, break up large requests into smaller batches. For
    *             example, create five separate launch requests for 100 instances each instead of one
    *             launch request for 500 instances.</p>
-   *         <p>An instance is ready for you to use when it's in the <code>running</code> state. You
+   *          <p>An instance is ready for you to use when it's in the <code>running</code> state. You
    *             can check the state of your instance using <a>DescribeInstances</a>. You can
    *             tag instances and EBS volumes during launch, after launch, or both. For more
    *             information, see <a>CreateTags</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
    *                 resources</a>.</p>
-   *         <p>Linux instances have access to the public key of the key pair at boot. You can use
+   *          <p>Linux instances have access to the public key of the key pair at boot. You can use
    *             this key to provide secure access to the instance. Amazon EC2 public images use this
    *             feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
    *                 pairs</a>.</p>
-   *         <p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if
+   *          <p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if
    *                 an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p>
-   *
-   *         <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *         </note>
+   *          <note>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a
+   *                 VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a
+   *                     VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          </note>
    */
   public runInstances(
     args: RunInstancesCommandInput,
@@ -21637,16 +23657,13 @@ export class EC2 extends EC2Client {
    *                 screen</i>/<i>stop error</i> (on Windows instances). For
    *             instances based on Intel and AMD processors, the interrupt is received as a
    *                 <i>non-maskable interrupt</i> (NMI).</p>
-   *
-   *         <p>In general, the operating system crashes and reboots when a kernel panic or stop error
+   *          <p>In general, the operating system crashes and reboots when a kernel panic or stop error
    *             is triggered. The operating system can also be configured to perform diagnostic tasks,
    *             such as generating a memory dump file, loading a secondary kernel, or obtaining a call
    *             trace.</p>
-   *
-   *         <p>Before sending a diagnostic interrupt to your instance, ensure that its operating
+   *          <p>Before sending a diagnostic interrupt to your instance, ensure that its operating
    *             system is configured to perform the required diagnostic tasks.</p>
-   *
-   *         <p>For more information about configuring your operating system to generate a crash dump
+   *          <p>For more information about configuring your operating system to generate a crash dump
    *             when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt
    *                 (for advanced users)</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a diagnostic
    *                 interrupt (for advanced users)</a> (Windows instances).</p>
@@ -21682,25 +23699,23 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p>
-   *         <p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and
+   *          <p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and
    *             started. When an instance is stopped, the compute resources are released and you are not
    *             billed for instance usage. However, your root partition Amazon EBS volume remains and
    *             continues to persist your data, and you are charged for Amazon EBS volume usage. You can
    *             restart your instance at any time. Every time you start your instance, Amazon EC2
    *             charges a one-minute minimum for instance usage, and thereafter charges per second for
    *             instance usage.</p>
-   *         <p>Before stopping an instance, make sure it is in a state from which it can be
+   *          <p>Before stopping an instance, make sure it is in a state from which it can be
    *             restarted. Stopping an instance does not preserve data stored in RAM.</p>
-   *         <p>Performing this operation on an instance that uses an instance store as its root
+   *          <p>Performing this operation on an instance that uses an instance store as its root
    *             device returns an error.</p>
-   *
-   *         <p>If you attempt to start a T3 instance with <code>host</code> tenancy and the
+   *          <p>If you attempt to start a T3 instance with <code>host</code> tenancy and the
    *                 <code>unlimted</code> CPU credit option, the request fails. The
    *                 <code>unlimited</code> CPU credit option is not supported on Dedicated Hosts. Before
    *             you start the instance, either change its CPU credit option to <code>standard</code>, or
    *             change its tenancy to <code>default</code> or <code>dedicated</code>.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start your instance</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start your instance</a>
    *             in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public startInstances(
@@ -21802,8 +23817,8 @@ export class EC2 extends EC2Client {
   /**
    * <p>Initiates the verification process to prove that the service provider owns the private
    *             DNS name domain for the endpoint service.</p>
-   *         <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
-   *         <p>Before the service provider runs this command, they must add a record to the DNS server.</p>
+   *          <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
+   *          <p>Before the service provider runs this command, they must add a record to the DNS server.</p>
    */
   public startVpcEndpointServicePrivateDnsVerification(
     args: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
@@ -21839,32 +23854,32 @@ export class EC2 extends EC2Client {
   /**
    * <p>Stops an Amazon EBS-backed instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start
    *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for
+   *          <p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for
    *                 hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
    *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>We don't charge usage for a stopped instance, or data transfer fees; however, your
+   *          <p>We don't charge usage for a stopped instance, or data transfer fees; however, your
    *             root partition Amazon EBS volume remains and continues to persist your data, and you are
    *             charged for Amazon EBS volume usage. Every time you start your instance, Amazon EC2
    *             charges a one-minute minimum for instance usage, and thereafter charges per second for
    *             instance usage.</p>
-   *         <p>You can't stop or hibernate instance store-backed instances. You can't use the Stop
+   *          <p>You can't stop or hibernate instance store-backed instances. You can't use the Stop
    *             action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate
    *             Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>When you stop or hibernate an instance, we shut it down. You can restart your instance
+   *          <p>When you stop or hibernate an instance, we shut it down. You can restart your instance
    *             at any time. Before stopping or hibernating an instance, make sure it is in a state from
    *             which it can be restarted. Stopping an instance does not preserve data stored in RAM,
    *             but hibernating an instance does preserve data stored in RAM. If an instance cannot
    *             hibernate successfully, a normal shutdown occurs.</p>
-   *         <p>Stopping and hibernating an instance is different to rebooting or terminating it. For
+   *          <p>Stopping and hibernating an instance is different to rebooting or terminating it. For
    *             example, when you stop or hibernate an instance, the root device and any other devices
    *             attached to the instance persist. When you terminate an instance, the root device and
    *             any other devices attached during the instance launch are automatically deleted. For
    *             more information about the differences between rebooting, stopping, hibernating, and
    *             terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
    *             in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>When you stop an instance, we attempt to shut it down forcibly after a short while. If
+   *          <p>When you stop an instance, we attempt to shut it down forcibly after a short while. If
    *             your instance appears stuck in the stopping state after a period of time, there may be
    *             an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
    *                 stopping your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -21933,60 +23948,55 @@ export class EC2 extends EC2Client {
   /**
    * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an
    *             instance more than once, each call succeeds. </p>
-   *
-   *         <p>If you specify multiple instances and the request fails (for example, because of a
+   *          <p>If you specify multiple instances and the request fails (for example, because of a
    *             single incorrect instance ID), none of the instances are terminated.</p>
-   *
-   *         <p>If you terminate multiple instances across multiple Availability Zones, and one or
+   *          <p>If you terminate multiple instances across multiple Availability Zones, and one or
    *             more of the specified instances are enabled for termination protection, the request
    *             fails with the following results:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The specified instances that are in the same Availability Zone as the
+   *                <p>The specified instances that are in the same Availability Zone as the
    *                     protected instance are not terminated.</p>
    *             </li>
    *             <li>
-   *                 <p>The specified instances that are in different Availability Zones, where no
+   *                <p>The specified instances that are in different Availability Zones, where no
    *                     other specified instances are protected, are successfully terminated.</p>
    *             </li>
    *          </ul>
-   *
-   *         <p>For example, say you have the following instances:</p>
-   *         <ul>
+   *          <p>For example, say you have the following instances:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Instance A: <code>us-east-1a</code>; Not protected</p>
+   *                <p>Instance A: <code>us-east-1a</code>; Not protected</p>
    *             </li>
    *             <li>
-   *                 <p>Instance B: <code>us-east-1a</code>; Not protected</p>
+   *                <p>Instance B: <code>us-east-1a</code>; Not protected</p>
    *             </li>
    *             <li>
-   *                 <p>Instance C: <code>us-east-1b</code>; Protected</p>
+   *                <p>Instance C: <code>us-east-1b</code>; Protected</p>
    *             </li>
    *             <li>
-   *                 <p>Instance D: <code>us-east-1b</code>; not protected</p>
+   *                <p>Instance D: <code>us-east-1b</code>; not protected</p>
    *             </li>
    *          </ul>
-   *         <p>If you attempt to terminate all of these instances in the same request, the request
+   *          <p>If you attempt to terminate all of these instances in the same request, the request
    *             reports failure with the following results:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Instance A and Instance B are successfully terminated because none of the
+   *                <p>Instance A and Instance B are successfully terminated because none of the
    *                     specified instances in <code>us-east-1a</code> are enabled for termination
    *                     protection.</p>
    *             </li>
    *             <li>
-   *                 <p>Instance C and Instance D fail to terminate because at least one of the
+   *                <p>Instance C and Instance D fail to terminate because at least one of the
    *                     specified instances in <code>us-east-1b</code> (Instance C) is enabled for
    *                     termination protection.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *         <p>Terminated instances remain visible after termination (for approximately one
+   *          <p>Terminated instances remain visible after termination (for approximately one
    *             hour).</p>
-   *         <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance
+   *          <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance
    *             launched. Volumes attached after instance launch continue running.</p>
-   *         <p>You can stop, start, and terminate EBS-backed instances. You can only terminate
+   *          <p>You can stop, start, and terminate EBS-backed instances. You can only terminate
    *             instance store-backed instances. What happens to an instance differs if you stop it or
    *             terminate it. For example, when you stop an instance, the root device and any other
    *             devices attached to the instance persist. When you terminate an instance, any attached
@@ -21994,7 +24004,7 @@ export class EC2 extends EC2Client {
    *             to <code>true</code> are automatically deleted. For more information about the
    *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
    *             in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the
+   *          <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   public terminateInstances(
@@ -22059,7 +24069,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a network interface.</p>
+   * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a
+   *         	network interface.</p>
    */
   public unassignPrivateIpAddresses(
     args: UnassignPrivateIpAddressesCommandInput,
@@ -22080,6 +24091,46 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: UnassignPrivateIpAddressesCommandOutput) => void
   ): Promise<UnassignPrivateIpAddressesCommandOutput> | void {
     const command = new UnassignPrivateIpAddressesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
+   *          <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The
+   *             private IP addresses stay associated and support the existing connections but do not
+   *             support any new connections (new connections are distributed across the remaining
+   *             assigned private IP address). After the existing connections drain out, the private IP
+   *             addresses get released. </p>
+   *          <p></p>
+   *          <p></p>
+   */
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnassignPrivateNatGatewayAddressCommandOutput>;
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    cb: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+  public unassignPrivateNatGatewayAddress(
+    args: UnassignPrivateNatGatewayAddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void),
+    cb?: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): Promise<UnassignPrivateNatGatewayAddressCommandOutput> | void {
+    const command = new UnassignPrivateNatGatewayAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

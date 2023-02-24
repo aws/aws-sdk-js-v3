@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   DisassociateTrunkInterfaceRequestFilterSensitiveLog,
   DisassociateTrunkInterfaceResult,
   DisassociateTrunkInterfaceResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateTrunkInterfaceCommand,
   serializeAws_ec2DisassociateTrunkInterfaceCommand,
@@ -31,8 +32,8 @@ export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTru
  * <note>
  *             <p>This API action is currently in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
- *         </note>
- *         <p>Removes an association between a branch network interface with a trunk network interface.</p>
+ *          </note>
+ *          <p>Removes an association between a branch network interface with a trunk network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class DisassociateTrunkInterfaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisassociateTrunkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DisassociateTrunkInterfaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateTrunkInterfaceCommandInput, DisassociateTrunkInterfaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateTrunkInterfaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

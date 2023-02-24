@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,15 +34,15 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * <p>Generates suggestions for addresses and points of interest based on partial or
  *             misspelled free-form text. This operation is also known as autocomplete, autosuggest, or
  *             fuzzy matching.</p>
- *         <p>Optional parameters let you narrow your search results by bounding box or country, or
+ *          <p>Optional parameters let you narrow your search results by bounding box or country, or
  *             bias your search toward a specific position on the globe.</p>
- *         <note>
+ *          <note>
  *             <p>You can search for suggested place names near a specified position by using
  *                     <code>BiasPosition</code>, or filter results within a bounding box by using
  *                     <code>FilterBBox</code>. These parameters are mutually exclusive; using both
  *                     <code>BiasPosition</code> and <code>FilterBBox</code> in the same command
  *                 returns an error.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +66,15 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchPlaceIndexForSuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +90,9 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchPlaceIndexForSuggestionsCommandInput, SearchPlaceIndexForSuggestionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchPlaceIndexForSuggestionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

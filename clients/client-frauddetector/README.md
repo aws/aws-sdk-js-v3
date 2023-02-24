@@ -12,7 +12,6 @@ AWS SDK for JavaScript FraudDetector Client for Node.js, Browser and React Nativ
 <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need
 detailed information about Amazon Fraud Detector API actions, data types, and errors. For
 more information about Amazon Fraud Detector features, see the <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/">Amazon Fraud Detector User Guide</a>.</p>
-
 <p>We provide the Query API as well as AWS software development kits (SDK) for Amazon Fraud Detector in Java and Python programming languages.</p>
 <p>The Amazon Fraud Detector Query API provides HTTPS requests that use the HTTP verb GET or POST and a Query parameter <code>Action</code>. AWS SDK provides libraries,
 sample code, tutorials, and other resources for software developers who prefer to build applications using language-specific APIs instead of submitting a request over

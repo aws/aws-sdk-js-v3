@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -38,7 +39,6 @@ export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRe
  *       To get the results of the celebrity recognition analysis, first check that the status value published to the Amazon SNS
  *       topic is <code>SUCCEEDED</code>. If so, call  <a>GetCelebrityRecognition</a> and pass the job identifier
  *       (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>. </p>
- *
  *          <p>For more information, see Recognizing celebrities in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +63,15 @@ export class StartCelebrityRecognitionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartCelebrityRecognitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +87,9 @@ export class StartCelebrityRecognitionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartCelebrityRecognitionCommandInput, StartCelebrityRecognitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartCelebrityRecognitionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

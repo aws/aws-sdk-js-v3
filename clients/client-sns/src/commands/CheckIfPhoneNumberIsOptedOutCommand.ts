@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,9 +32,9 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
 
 /**
  * <p>Accepts a phone number and indicates whether the phone holder has opted out of
- *             receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number that
- *             is opted out.</p>
- *         <p>To resume sending messages, you can opt in the number by using the
+ *             receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number
+ *             that is opted out.</p>
+ *          <p>To resume sending messages, you can opt in the number by using the
  *                 <code>OptInPhoneNumber</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +59,15 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CheckIfPhoneNumberIsOptedOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CheckIfPhoneNumberIsOptedOutCommandInput, CheckIfPhoneNumberIsOptedOutCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CheckIfPhoneNumberIsOptedOutCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,7 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  *        the Apps and files associated with the Domain's Amazon Elastic File System (EFS) volume.
  *        This operation can only be called when the authentication mode equals IAM.
  *    </p>
- *          <p>The IAM role or user used to call this API defines the permissions to access the app. Once
+ *          <p>The IAM role or user passed to this API defines the permissions to access the app. Once
  *       the presigned URL is created, no additional permission is required to access this URL. IAM
  *          authorization policies for this API are also enforced for every HTTP request and WebSocket
  *          frame that attempts to connect to the app.</p>
@@ -68,6 +69,15 @@ export class CreatePresignedDomainUrlCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreatePresignedDomainUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +93,9 @@ export class CreatePresignedDomainUrlCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePresignedDomainUrlCommandInput, CreatePresignedDomainUrlCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePresignedDomainUrlCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

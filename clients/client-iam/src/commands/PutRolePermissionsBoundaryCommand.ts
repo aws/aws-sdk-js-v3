@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,13 +32,13 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  *             a role. Use the boundary to control the maximum permissions that the role can have.
  *             Setting a permissions boundary is an advanced feature that can affect the permissions
  *             for the role.</p>
- *         <p>You cannot set the boundary for a service-linked role. </p>
- *         <important>
+ *          <p>You cannot set the boundary for a service-linked role. </p>
+ *          <important>
  *             <p>Policies used as permissions boundaries do not provide permissions. You must also
  *                 attach a permissions policy to the role. To learn how the effective permissions for
  *                 a role are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON policy
  *                     evaluation logic</a> in the IAM User Guide. </p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,15 @@ export class PutRolePermissionsBoundaryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutRolePermissionsBoundaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class PutRolePermissionsBoundaryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutRolePermissionsBoundaryCommandInput, PutRolePermissionsBoundaryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutRolePermissionsBoundaryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

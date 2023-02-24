@@ -26,6 +26,10 @@ import { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "../comm
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import { CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput } from "../commands/CreateSamplingRuleCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { DeleteSamplingRuleCommandInput, DeleteSamplingRuleCommandOutput } from "../commands/DeleteSamplingRuleCommand";
 import {
   GetEncryptionConfigCommandInput,
@@ -57,6 +61,10 @@ import {
 import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "../commands/GetTraceGraphCommand";
 import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "../commands/GetTraceSummariesCommand";
 import {
+  ListResourcePoliciesCommandInput,
+  ListResourcePoliciesCommandOutput,
+} from "../commands/ListResourcePoliciesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -64,6 +72,7 @@ import {
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput,
 } from "../commands/PutEncryptionConfigCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   PutTelemetryRecordsCommandInput,
   PutTelemetryRecordsCommandOutput,
@@ -104,10 +113,16 @@ import {
   InsightState,
   InsightSummary,
   InstanceIdDetail,
+  InvalidPolicyRevisionIdException,
   InvalidRequestException,
+  LockoutPreventionException,
+  MalformedPolicyDocumentException,
+  PolicyCountLimitExceededException,
+  PolicySizeLimitExceededException,
   RequestImpactStatistics,
   ResourceARNDetail,
   ResourceNotFoundException,
+  ResourcePolicy,
   ResponseTimeRootCause,
   ResponseTimeRootCauseEntity,
   ResponseTimeRootCauseService,
@@ -232,6 +247,31 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
   body = JSON.stringify({
     ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
     ...(input.GroupName != null && { GroupName: input.GroupName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteResourcePolicy";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
+    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -642,6 +682,30 @@ export const serializeAws_restJson1GetTraceSummariesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListResourcePoliciesCommand = async (
+  input: ListResourcePoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListResourcePolicies";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -680,6 +744,33 @@ export const serializeAws_restJson1PutEncryptionConfigCommand = async (
   body = JSON.stringify({
     ...(input.KeyId != null && { KeyId: input.KeyId }),
     ...(input.Type != null && { Type: input.Type }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutResourcePolicy";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.BypassPolicyLockoutCheck != null && { BypassPolicyLockoutCheck: input.BypassPolicyLockoutCheck }),
+    ...(input.PolicyDocument != null && { PolicyDocument: input.PolicyDocument }),
+    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
+    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -881,7 +972,7 @@ const deserializeAws_restJson1BatchGetTracesCommandError = async (
 ): Promise<BatchGetTracesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -925,7 +1016,7 @@ const deserializeAws_restJson1CreateGroupCommandError = async (
 ): Promise<CreateGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -969,7 +1060,7 @@ const deserializeAws_restJson1CreateSamplingRuleCommandError = async (
 ): Promise<CreateSamplingRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1013,10 +1104,54 @@ const deserializeAws_restJson1DeleteGroupCommandError = async (
 ): Promise<DeleteGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteResourcePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.xray#InvalidPolicyRevisionIdException":
+      throw await deserializeAws_restJson1InvalidPolicyRevisionIdExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.xray#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
@@ -1057,7 +1192,7 @@ const deserializeAws_restJson1DeleteSamplingRuleCommandError = async (
 ): Promise<DeleteSamplingRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1101,7 +1236,7 @@ const deserializeAws_restJson1GetEncryptionConfigCommandError = async (
 ): Promise<GetEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1145,7 +1280,7 @@ const deserializeAws_restJson1GetGroupCommandError = async (
 ): Promise<GetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1192,7 +1327,7 @@ const deserializeAws_restJson1GetGroupsCommandError = async (
 ): Promise<GetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1236,7 +1371,7 @@ const deserializeAws_restJson1GetInsightCommandError = async (
 ): Promise<GetInsightCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1283,7 +1418,7 @@ const deserializeAws_restJson1GetInsightEventsCommandError = async (
 ): Promise<GetInsightEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1345,7 +1480,7 @@ const deserializeAws_restJson1GetInsightImpactGraphCommandError = async (
 ): Promise<GetInsightImpactGraphCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1392,7 +1527,7 @@ const deserializeAws_restJson1GetInsightSummariesCommandError = async (
 ): Promise<GetInsightSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1439,7 +1574,7 @@ const deserializeAws_restJson1GetSamplingRulesCommandError = async (
 ): Promise<GetSamplingRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1489,7 +1624,7 @@ const deserializeAws_restJson1GetSamplingStatisticSummariesCommandError = async 
 ): Promise<GetSamplingStatisticSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1545,7 +1680,7 @@ const deserializeAws_restJson1GetSamplingTargetsCommandError = async (
 ): Promise<GetSamplingTargetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1601,7 +1736,7 @@ const deserializeAws_restJson1GetServiceGraphCommandError = async (
 ): Promise<GetServiceGraphCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1654,7 +1789,7 @@ const deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommandError = async
 ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1701,7 +1836,7 @@ const deserializeAws_restJson1GetTraceGraphCommandError = async (
 ): Promise<GetTraceGraphCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1754,7 +1889,54 @@ const deserializeAws_restJson1GetTraceSummariesCommandError = async (
 ): Promise<GetTraceSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListResourcePoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourcePoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListResourcePoliciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.ResourcePolicies != null) {
+    contents.ResourcePolicies = deserializeAws_restJson1ResourcePolicyList(data.ResourcePolicies, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListResourcePoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourcePoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1801,7 +1983,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1848,13 +2030,69 @@ const deserializeAws_restJson1PutEncryptionConfigCommandError = async (
 ): Promise<PutEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.xray#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutResourcePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ResourcePolicy != null) {
+    contents.ResourcePolicy = deserializeAws_restJson1ResourcePolicy(data.ResourcePolicy, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.xray#InvalidPolicyRevisionIdException":
+      throw await deserializeAws_restJson1InvalidPolicyRevisionIdExceptionResponse(parsedOutput, context);
+    case "LockoutPreventionException":
+    case "com.amazonaws.xray#LockoutPreventionException":
+      throw await deserializeAws_restJson1LockoutPreventionExceptionResponse(parsedOutput, context);
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.xray#MalformedPolicyDocumentException":
+      throw await deserializeAws_restJson1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+    case "PolicyCountLimitExceededException":
+    case "com.amazonaws.xray#PolicyCountLimitExceededException":
+      throw await deserializeAws_restJson1PolicyCountLimitExceededExceptionResponse(parsedOutput, context);
+    case "PolicySizeLimitExceededException":
+    case "com.amazonaws.xray#PolicySizeLimitExceededException":
+      throw await deserializeAws_restJson1PolicySizeLimitExceededExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.xray#ThrottledException":
       throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
@@ -1889,7 +2127,7 @@ const deserializeAws_restJson1PutTelemetryRecordsCommandError = async (
 ): Promise<PutTelemetryRecordsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1936,7 +2174,7 @@ const deserializeAws_restJson1PutTraceSegmentsCommandError = async (
 ): Promise<PutTraceSegmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1977,7 +2215,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2024,7 +2262,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2071,7 +2309,7 @@ const deserializeAws_restJson1UpdateGroupCommandError = async (
 ): Promise<UpdateGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2115,7 +2353,7 @@ const deserializeAws_restJson1UpdateSamplingRuleCommandError = async (
 ): Promise<UpdateSamplingRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2137,6 +2375,22 @@ const deserializeAws_restJson1UpdateSamplingRuleCommandError = async (
 };
 
 const map = __map;
+const deserializeAws_restJson1InvalidPolicyRevisionIdExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidPolicyRevisionIdException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new InvalidPolicyRevisionIdException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2147,6 +2401,70 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
     contents.Message = __expectString(data.Message);
   }
   const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1LockoutPreventionExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<LockoutPreventionException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new LockoutPreventionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1MalformedPolicyDocumentExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MalformedPolicyDocumentException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new MalformedPolicyDocumentException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1PolicyCountLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PolicyCountLimitExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new PolicyCountLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1PolicySizeLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PolicySizeLimitExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new PolicySizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -2228,10 +2546,8 @@ const serializeAws_restJson1AttributeMap = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2431,10 +2747,8 @@ const deserializeAws_restJson1Annotations = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ValuesWithServiceIds(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ValuesWithServiceIds(value, context);
+    return acc;
   }, {});
 };
 
@@ -2474,10 +2788,8 @@ const deserializeAws_restJson1AttributeMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2493,8 +2805,13 @@ const deserializeAws_restJson1AvailabilityZoneDetail = (
 const deserializeAws_restJson1Edge = (output: any, context: __SerdeContext): Edge => {
   return {
     Aliases: output.Aliases != null ? deserializeAws_restJson1AliasList(output.Aliases, context) : undefined,
+    EdgeType: __expectString(output.EdgeType),
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    ReceivedEventAgeHistogram:
+      output.ReceivedEventAgeHistogram != null
+        ? deserializeAws_restJson1Histogram(output.ReceivedEventAgeHistogram, context)
+        : undefined,
     ReferenceId: __expectInt32(output.ReferenceId),
     ResponseTimeHistogram:
       output.ResponseTimeHistogram != null
@@ -2986,6 +3303,30 @@ const deserializeAws_restJson1ResourceARNDetail = (output: any, context: __Serde
   return {
     ARN: __expectString(output.ARN),
   } as any;
+};
+
+const deserializeAws_restJson1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
+  return {
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    PolicyDocument: __expectString(output.PolicyDocument),
+    PolicyName: __expectString(output.PolicyName),
+    PolicyRevisionId: __expectString(output.PolicyRevisionId),
+  } as any;
+};
+
+const deserializeAws_restJson1ResourcePolicyList = (output: any, context: __SerdeContext): ResourcePolicy[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResourcePolicy(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResponseTimeRootCause = (output: any, context: __SerdeContext): ResponseTimeRootCause => {
@@ -3580,7 +3921,8 @@ const deserializeAws_restJson1ValueWithServiceIds = (output: any, context: __Ser
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3612,6 +3954,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3622,6 +3970,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

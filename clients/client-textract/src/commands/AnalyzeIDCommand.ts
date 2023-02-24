@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,10 +26,10 @@ export interface AnalyzeIDCommandInput extends AnalyzeIDRequest {}
 export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBearer {}
 
 /**
- * <p>Analyzes identity documents for relevant information. This information is extracted
- *          and returned as <code>IdentityDocumentFields</code>, which records both the normalized
- *          field and value of the extracted text.Unlike other Amazon Textract operations, <code>AnalyzeID</code>
- *       doesn't return any Geometry data.</p>
+ * <p>Analyzes identity documents for relevant information. This information is extracted and
+ *          returned as <code>IdentityDocumentFields</code>, which records both the normalized field
+ *          and value of the extracted text.Unlike other Amazon Textract operations,
+ *             <code>AnalyzeID</code> doesn't return any Geometry data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +53,15 @@ export class AnalyzeIDCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AnalyzeIDCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,7 @@ export class AnalyzeIDCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AnalyzeIDCommandInput, AnalyzeIDCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AnalyzeIDCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

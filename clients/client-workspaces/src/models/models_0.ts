@@ -278,6 +278,11 @@ export interface AuthorizeIpRulesRequest {
 
 export interface AuthorizeIpRulesResult {}
 
+export enum BundleType {
+  REGULAR = "REGULAR",
+  STANDBY = "STANDBY",
+}
+
 export enum Compute {
   GRAPHICS = "GRAPHICS",
   GRAPHICSPRO = "GRAPHICSPRO",
@@ -308,6 +313,12 @@ export interface RootStorage {
    * <p>The size of the root volume.</p>
    */
   Capacity?: string;
+}
+
+export enum WorkspaceBundleState {
+  AVAILABLE = "AVAILABLE",
+  ERROR = "ERROR",
+  PENDING = "PENDING",
 }
 
 /**
@@ -375,6 +386,37 @@ export interface WorkspaceBundle {
    * <p>The time when the bundle was created.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>The state of the WorkSpace bundle.</p>
+   */
+  State?: WorkspaceBundleState | string;
+
+  /**
+   * <p>The type of WorkSpace bundle.</p>
+   */
+  BundleType?: BundleType | string;
+}
+
+export enum CertificateBasedAuthStatusEnum {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Describes the properties of the certificate-based authentication you want to use
+ *          with your WorkSpaces.</p>
+ */
+export interface CertificateBasedAuthProperties {
+  /**
+   * <p>The status of the certificate-based authentication properties.</p>
+   */
+  Status?: CertificateBasedAuthStatusEnum | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.</p>
+   */
+  CertificateAuthorityArn?: string;
 }
 
 export enum ClientDeviceType {
@@ -384,6 +426,11 @@ export enum ClientDeviceType {
   DEVICE_TYPE_OSX = "DeviceTypeOsx",
   DEVICE_TYPE_WEB = "DeviceTypeWeb",
   DEVICE_TYPE_WINDOWS = "DeviceTypeWindows",
+}
+
+export enum LogUploadEnum {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
 }
 
 export enum ReconnectEnum {
@@ -401,6 +448,14 @@ export interface ClientProperties {
    *          credentials. </p>
    */
   ReconnectEnabled?: ReconnectEnum | string;
+
+  /**
+   * <p>Specifies whether users can upload diagnostic log files of Amazon WorkSpaces client directly to
+   *          WorkSpaces to troubleshoot issues when using the WorkSpaces client.
+   *          When enabled, the log files will be sent to WorkSpaces automatically and will be applied to all
+   *          users in the specified directory.</p>
+   */
+  LogUploadEnabled?: LogUploadEnum | string;
 }
 
 /**
@@ -727,6 +782,125 @@ export interface CreateIpGroupResult {
   GroupId?: string;
 }
 
+/**
+ * <p>Describes a standby WorkSpace.</p>
+ */
+export interface StandbyWorkspace {
+  /**
+   * <p>The identifier of the standby WorkSpace.</p>
+   */
+  PrimaryWorkspaceId: string | undefined;
+
+  /**
+   * <p>The volume encryption key of the standby WorkSpace.</p>
+   */
+  VolumeEncryptionKey?: string;
+
+  /**
+   * <p>The identifier of the directory for the standby WorkSpace.</p>
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The tags associated with the standby WorkSpace.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateStandbyWorkspacesRequest {
+  /**
+   * <p>The Region of the primary WorkSpace.</p>
+   */
+  PrimaryRegion: string | undefined;
+
+  /**
+   * <p>Information about the standby WorkSpace to be created.</p>
+   */
+  StandbyWorkspaces: StandbyWorkspace[] | undefined;
+}
+
+/**
+ * <p>Describes the standby WorkSpace that could not be created.</p>
+ */
+export interface FailedCreateStandbyWorkspacesRequest {
+  /**
+   * <p>Information about the standby WorkSpace that could not be created.</p>
+   */
+  StandbyWorkspaceRequest?: StandbyWorkspace;
+
+  /**
+   * <p>The error code that is returned if the standby WorkSpace could not be created.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The text of the error message that is returned if the standby WorkSpace could not be created.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export enum WorkspaceState {
+  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
+  AVAILABLE = "AVAILABLE",
+  ERROR = "ERROR",
+  IMPAIRED = "IMPAIRED",
+  MAINTENANCE = "MAINTENANCE",
+  PENDING = "PENDING",
+  REBOOTING = "REBOOTING",
+  REBUILDING = "REBUILDING",
+  RESTORING = "RESTORING",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+  SUSPENDED = "SUSPENDED",
+  TERMINATED = "TERMINATED",
+  TERMINATING = "TERMINATING",
+  UNHEALTHY = "UNHEALTHY",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>Information about the standby WorkSpace.</p>
+ */
+export interface PendingCreateStandbyWorkspacesRequest {
+  /**
+   * <p>Describes the standby WorkSpace that was created.</p>
+   *          <p>Because this operation is asynchronous, the identifier returned is not immediately
+   *          available for use with other operations. For example, if you call
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html">
+   *             DescribeWorkspaces</a>
+   *          before the WorkSpace is created, the information returned can be incomplete. </p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The identifier of the directory for the standby WorkSpace.</p>
+   */
+  DirectoryId?: string;
+
+  /**
+   * <p>The operational state of the standby WorkSpace.</p>
+   */
+  State?: WorkspaceState | string;
+
+  /**
+   * <p>The identifier of the standby WorkSpace.</p>
+   */
+  WorkspaceId?: string;
+}
+
+export interface CreateStandbyWorkspacesResult {
+  /**
+   * <p>Information about the standby WorkSpace that could not be created. </p>
+   */
+  FailedStandbyRequests?: FailedCreateStandbyWorkspacesRequest[];
+
+  /**
+   * <p>Information about the standby WorkSpace that was created.</p>
+   */
+  PendingStandbyRequests?: PendingCreateStandbyWorkspacesRequest[];
+}
+
 export interface CreateTagsRequest {
   /**
    * <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,
@@ -810,7 +984,6 @@ export interface CreateWorkspaceBundleRequest {
 
   /**
    * <p>The tags associated with the bundle.</p>
-   *
    *          <note>
    *             <p>To add tags at the same time when you're creating the bundle, you must create an IAM policy that
    *             grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p>
@@ -907,8 +1080,7 @@ export interface CreateWorkspaceImageResult {
    *          When Bring Your Own License (BYOL) is enabled, this value is set
    *          to DEDICATED. For more information, see
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm">
-   *             Bring Your Own Windows Desktop Images.</a>
-   *          </p>
+   *             Bring Your Own Windows Desktop Images.</a>.</p>
    */
   RequiredTenancy?: WorkspaceImageRequiredTenancy | string;
 
@@ -918,14 +1090,20 @@ export interface CreateWorkspaceImageResult {
   Created?: Date;
 
   /**
-   * <p>The identifier of the AWS account that owns the image.</p>
+   * <p>The identifier of the Amazon Web Services account that owns the image.</p>
    */
   OwnerAccountId?: string;
+}
+
+export enum Protocol {
+  PCOIP = "PCOIP",
+  WSP = "WSP",
 }
 
 export enum RunningMode {
   ALWAYS_ON = "ALWAYS_ON",
   AUTO_STOP = "AUTO_STOP",
+  MANUAL = "MANUAL",
 }
 
 /**
@@ -934,7 +1112,12 @@ export enum RunningMode {
 export interface WorkspaceProperties {
   /**
    * <p>The running mode. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html">Manage the WorkSpace Running
-   *             Mode</a>.</p>
+   *          Mode</a>.</p>
+   *          <note>
+   *             <p>The <code>MANUAL</code> value is only supported by Amazon WorkSpaces Core. Contact
+   *             your account team to be allow-listed to use this value. For more information, see
+   *             <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
+   *          </note>
    */
   RunningMode?: RunningMode | string;
 
@@ -963,6 +1146,27 @@ export interface WorkspaceProperties {
    *          Bundles</a>.</p>
    */
   ComputeTypeName?: Compute | string;
+
+  /**
+   * <p>The protocol. For more information, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html">
+   *             Protocols for Amazon WorkSpaces</a>.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>Only available for WorkSpaces created with PCoIP bundles.</p>
+   *                </li>
+   *                <li>
+   *                   <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>WSP</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles
+   *                (Graphics, GraphicsPro, Graphics.g4dn, and GraphicsPro.g4dn).</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  Protocols?: (Protocol | string)[];
 }
 
 /**
@@ -1065,24 +1269,35 @@ export interface ModificationState {
   State?: ModificationStateEnum | string;
 }
 
-export enum WorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  IMPAIRED = "IMPAIRED",
-  MAINTENANCE = "MAINTENANCE",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  REBUILDING = "REBUILDING",
-  RESTORING = "RESTORING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING",
+export enum StandbyWorkspaceRelationshipType {
+  PRIMARY = "PRIMARY",
+  STANDBY = "STANDBY",
+}
+
+/**
+ * <p>Describes the related WorkSpace. The related WorkSpace could be a standby WorkSpace or
+ *          primary WorkSpace related to the specified WorkSpace.</p>
+ */
+export interface RelatedWorkspaceProperties {
+  /**
+   * <p>The identifier of the related WorkSpace.</p>
+   */
+  WorkspaceId?: string;
+
+  /**
+   * <p>The Region of the related WorkSpace.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>Indicates the state of the WorkSpace.</p>
+   */
+  State?: WorkspaceState | string;
+
+  /**
+   * <p>Indicates the type of WorkSpace.</p>
+   */
+  Type?: StandbyWorkspaceRelationshipType | string;
 }
 
 /**
@@ -1175,6 +1390,11 @@ export interface Workspace {
    * <p>The modification states of the WorkSpace.</p>
    */
   ModificationStates?: ModificationState[];
+
+  /**
+   * <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
+   */
+  RelatedWorkspaces?: RelatedWorkspaceProperties[];
 }
 
 export interface CreateWorkspacesResult {
@@ -1371,6 +1591,10 @@ export interface DefaultWorkspaceCreationProperties {
    *             Maintenance</a>.</p>
    */
   EnableMaintenanceMode?: boolean;
+}
+
+export enum DeletableCertificateBasedAuthProperty {
+  CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN = "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
 }
 
 export enum DeletableSamlProperty {
@@ -1926,7 +2150,6 @@ export interface SamlProperties {
    * <p>The relay state parameter name supported by the SAML 2.0 identity provider (IdP). When the end user is redirected to
    *          the user access URL from the WorkSpaces client application, this relay state parameter name is appended as a query
    *          parameter to the URL along with the relay state endpoint to return the user to the client application session.</p>
-   *
    *          <p>To use SAML 2.0 authentication with WorkSpaces, the IdP must support IdP-initiated deep linking for the relay state
    *          URL. Consult your IdP documentation for more information.</p>
    */
@@ -2124,6 +2347,12 @@ export interface WorkspaceDirectory {
    *          federation with an SAML 2.0 identity provider.</p>
    */
   SamlProperties?: SamlProperties;
+
+  /**
+   * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP)
+   *          user identities to Active Directory for WorkSpaces login.</p>
+   */
+  CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 }
 
 export interface DescribeWorkspaceDirectoriesResult {
@@ -2661,7 +2890,9 @@ export enum WorkspaceImageIngestionProcess {
   BYOL_GRAPHICS = "BYOL_GRAPHICS",
   BYOL_GRAPHICSPRO = "BYOL_GRAPHICSPRO",
   BYOL_GRAPHICS_G4DN = "BYOL_GRAPHICS_G4DN",
+  BYOL_GRAPHICS_G4DN_BYOP = "BYOL_GRAPHICS_G4DN_BYOP",
   BYOL_REGULAR = "BYOL_REGULAR",
+  BYOL_REGULAR_BYOP = "BYOL_REGULAR_BYOP",
   BYOL_REGULAR_WSP = "BYOL_REGULAR_WSP",
 }
 
@@ -2673,12 +2904,18 @@ export interface ImportWorkspaceImageRequest {
 
   /**
    * <p>The ingestion process to be used when importing the image, depending on which protocol
-   *          you want to use for your BYOL Workspace image, either PCoIP or WorkSpaces Streaming
-   *          Protocol (WSP). To use WSP, specify a value that ends in <code>_WSP</code>. To use PCoIP,
-   *          specify a value that does not end in <code>_WSP</code>. </p>
+   *          you want to use for your BYOL Workspace image, either PCoIP, WorkSpaces Streaming Protocol
+   *          (WSP), or bring your own protocol (BYOP). To use WSP, specify a value that ends in
+   *          <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>.
+   *          To use BYOP, specify a value that ends in <code>_BYOP</code>.</p>
    *          <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify
-   *             <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>, depending on the
-   *          protocol.</p>
+   *          <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_WSP</code>, or <code>BYOL_REGULAR_BYOP</code>,
+   *          depending on the protocol.</p>
+   *          <note>
+   *             <p>The <code>BYOL_REGULAR_BYOP</code> and <code>BYOL_GRAPHICS_G4DN_BYOP</code> values
+   *             are only supported by Amazon WorkSpaces Core. Contact your account team to be
+   *             allow-listed to use these values. For more information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
+   *          </note>
    */
   IngestionProcess: WorkspaceImageIngestionProcess | string | undefined;
 
@@ -2809,6 +3046,25 @@ export interface ModifyAccountRequest {
 }
 
 export interface ModifyAccountResult {}
+
+export interface ModifyCertificateBasedAuthPropertiesRequest {
+  /**
+   * <p>The resource identifiers, in the form of directory IDs.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The properties of the certificate-based authentication.</p>
+   */
+  CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
+
+  /**
+   * <p>The properties of the certificate-based authentication you want to delete.</p>
+   */
+  PropertiesToDelete?: (DeletableCertificateBasedAuthProperty | string)[];
+}
+
+export interface ModifyCertificateBasedAuthPropertiesResult {}
 
 export interface ModifyClientPropertiesRequest {
   /**
@@ -3430,6 +3686,13 @@ export const WorkspaceBundleFilterSensitiveLog = (obj: WorkspaceBundle): any => 
 /**
  * @internal
  */
+export const CertificateBasedAuthPropertiesFilterSensitiveLog = (obj: CertificateBasedAuthProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ClientPropertiesFilterSensitiveLog = (obj: ClientProperties): any => ({
   ...obj,
 });
@@ -3535,6 +3798,45 @@ export const CreateIpGroupResultFilterSensitiveLog = (obj: CreateIpGroupResult):
 /**
  * @internal
  */
+export const StandbyWorkspaceFilterSensitiveLog = (obj: StandbyWorkspace): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStandbyWorkspacesRequestFilterSensitiveLog = (obj: CreateStandbyWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedCreateStandbyWorkspacesRequestFilterSensitiveLog = (
+  obj: FailedCreateStandbyWorkspacesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingCreateStandbyWorkspacesRequestFilterSensitiveLog = (
+  obj: PendingCreateStandbyWorkspacesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStandbyWorkspacesResultFilterSensitiveLog = (obj: CreateStandbyWorkspacesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
   ...obj,
 });
@@ -3627,6 +3929,13 @@ export const FailedCreateWorkspaceRequestFilterSensitiveLog = (obj: FailedCreate
  * @internal
  */
 export const ModificationStateFilterSensitiveLog = (obj: ModificationState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelatedWorkspacePropertiesFilterSensitiveLog = (obj: RelatedWorkspaceProperties): any => ({
   ...obj,
 });
 
@@ -4211,6 +4520,24 @@ export const ModifyAccountRequestFilterSensitiveLog = (obj: ModifyAccountRequest
  * @internal
  */
 export const ModifyAccountResultFilterSensitiveLog = (obj: ModifyAccountResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyCertificateBasedAuthPropertiesRequestFilterSensitiveLog = (
+  obj: ModifyCertificateBasedAuthPropertiesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyCertificateBasedAuthPropertiesResultFilterSensitiveLog = (
+  obj: ModifyCertificateBasedAuthPropertiesResult
+): any => ({
   ...obj,
 });
 

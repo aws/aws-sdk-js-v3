@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  *             or unencrypted, but not shared or public.
  *
  *     </p>
- *         <p>Amazon RDS supports upgrading DB snapshots for MySQL, PostgreSQL, and Oracle. This command
+ *          <p>Amazon RDS supports upgrading DB snapshots for MySQL, PostgreSQL, and Oracle. This command
  *           doesn't apply to RDS Custom.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +58,15 @@ export class ModifyDBSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class ModifyDBSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBSnapshotCommandInput, ModifyDBSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyDBSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

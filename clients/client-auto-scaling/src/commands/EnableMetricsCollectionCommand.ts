@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
 
 /**
  * <p>Enables group metrics collection for the specified Auto Scaling group.</p>
- *         <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on
+ *          <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on
  *             threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch
  *             console. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html">Monitor
  *                 CloudWatch metrics for your Auto Scaling groups and instances</a> in the
@@ -52,6 +53,15 @@ export class EnableMetricsCollectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EnableMetricsCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,9 @@ export class EnableMetricsCollectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableMetricsCollectionCommandInput, EnableMetricsCollectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableMetricsCollectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

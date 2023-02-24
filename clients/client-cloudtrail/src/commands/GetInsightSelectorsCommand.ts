@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,13 +29,13 @@ export interface GetInsightSelectorsCommandInput extends GetInsightSelectorsRequ
 export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the settings for the Insights event selectors that you configured for your trail. <code>GetInsightSelectors</code> shows
- *          if CloudTrail Insights event logging is enabled on the trail, and if it is, which insight types are enabled.
- *          If you run <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled, the operation throws the exception
- *          <code>InsightNotEnabledException</code>
+ * <p>Describes the settings for the Insights event selectors that you configured for your
+ *          trail. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
+ *          is enabled on the trail, and if it is, which insight types are enabled. If you run
+ *             <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled,
+ *          the operation throws the exception <code>InsightNotEnabledException</code>
  *          </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights Events for Trails
- *       </a> in the <i>CloudTrail User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights Events for Trails </a> in the <i>CloudTrail User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class GetInsightSelectorsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetInsightSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class GetInsightSelectorsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetInsightSelectorsCommandInput, GetInsightSelectorsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetInsightSelectorsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

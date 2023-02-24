@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,10 +30,10 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
 
 /**
  * <p>Creates a <i>workspace</i>. In a workspace, you can create Grafana
- *          dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to
- *          build, package, or deploy any hardware to run the Grafana server.</p>
- *          <p>Don't use <code>CreateWorkspace</code> to modify an existing workspace. Instead,
- *          use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html">UpdateWorkspace</a>.</p>
+ *             dashboards and visualizations to analyze your metrics, logs, and traces. You don't have
+ *             to build, package, or deploy any hardware to run the Grafana server.</p>
+ *          <p>Don't use <code>CreateWorkspace</code> to modify an existing workspace. Instead, use
+ *                 <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html">UpdateWorkspace</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class CreateWorkspaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class CreateWorkspaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateWorkspaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

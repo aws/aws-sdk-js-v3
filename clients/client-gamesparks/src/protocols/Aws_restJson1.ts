@@ -9,7 +9,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -831,7 +831,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -977,7 +980,7 @@ const deserializeAws_restJson1CreateGameCommandError = async (
 ): Promise<CreateGameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1033,7 +1036,7 @@ const deserializeAws_restJson1CreateSnapshotCommandError = async (
 ): Promise<CreateSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1089,7 +1092,7 @@ const deserializeAws_restJson1CreateStageCommandError = async (
 ): Promise<CreateStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1142,7 +1145,7 @@ const deserializeAws_restJson1DeleteGameCommandError = async (
 ): Promise<DeleteGameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1192,7 +1195,7 @@ const deserializeAws_restJson1DeleteStageCommandError = async (
 ): Promise<DeleteStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1251,7 +1254,7 @@ const deserializeAws_restJson1DisconnectPlayerCommandError = async (
 ): Promise<DisconnectPlayerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1304,7 +1307,7 @@ const deserializeAws_restJson1ExportSnapshotCommandError = async (
 ): Promise<ExportSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1357,7 +1360,7 @@ const deserializeAws_restJson1GetExtensionCommandError = async (
 ): Promise<GetExtensionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1410,7 +1413,7 @@ const deserializeAws_restJson1GetExtensionVersionCommandError = async (
 ): Promise<GetExtensionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1463,7 +1466,7 @@ const deserializeAws_restJson1GetGameCommandError = async (
 ): Promise<GetGameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1516,7 +1519,7 @@ const deserializeAws_restJson1GetGameConfigurationCommandError = async (
 ): Promise<GetGameConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1569,7 +1572,7 @@ const deserializeAws_restJson1GetGeneratedCodeJobCommandError = async (
 ): Promise<GetGeneratedCodeJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1622,7 +1625,7 @@ const deserializeAws_restJson1GetPlayerConnectionStatusCommandError = async (
 ): Promise<GetPlayerConnectionStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1675,7 +1678,7 @@ const deserializeAws_restJson1GetSnapshotCommandError = async (
 ): Promise<GetSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1728,7 +1731,7 @@ const deserializeAws_restJson1GetStageCommandError = async (
 ): Promise<GetStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1781,7 +1784,7 @@ const deserializeAws_restJson1GetStageDeploymentCommandError = async (
 ): Promise<GetStageDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1834,7 +1837,7 @@ const deserializeAws_restJson1ImportGameConfigurationCommandError = async (
 ): Promise<ImportGameConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1893,7 +1896,7 @@ const deserializeAws_restJson1ListExtensionsCommandError = async (
 ): Promise<ListExtensionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1946,7 +1949,7 @@ const deserializeAws_restJson1ListExtensionVersionsCommandError = async (
 ): Promise<ListExtensionVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2002,7 +2005,7 @@ const deserializeAws_restJson1ListGamesCommandError = async (
 ): Promise<ListGamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2055,7 +2058,7 @@ const deserializeAws_restJson1ListGeneratedCodeJobsCommandError = async (
 ): Promise<ListGeneratedCodeJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2111,7 +2114,7 @@ const deserializeAws_restJson1ListSnapshotsCommandError = async (
 ): Promise<ListSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2167,7 +2170,7 @@ const deserializeAws_restJson1ListStageDeploymentsCommandError = async (
 ): Promise<ListStageDeploymentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2223,7 +2226,7 @@ const deserializeAws_restJson1ListStagesCommandError = async (
 ): Promise<ListStagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2276,7 +2279,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2323,7 +2326,7 @@ const deserializeAws_restJson1StartGeneratedCodeJobCommandError = async (
 ): Promise<StartGeneratedCodeJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2376,7 +2379,7 @@ const deserializeAws_restJson1StartStageDeploymentCommandError = async (
 ): Promise<StartStageDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2429,7 +2432,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2473,7 +2476,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2520,7 +2523,7 @@ const deserializeAws_restJson1UpdateGameCommandError = async (
 ): Promise<UpdateGameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2573,7 +2576,7 @@ const deserializeAws_restJson1UpdateGameConfigurationCommandError = async (
 ): Promise<UpdateGameConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2629,7 +2632,7 @@ const deserializeAws_restJson1UpdateSnapshotCommandError = async (
 ): Promise<UpdateSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2682,7 +2685,7 @@ const deserializeAws_restJson1UpdateStageCommandError = async (
 ): Promise<UpdateStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2868,16 +2871,14 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
 const deserializeAws_restJson1Connection = (output: any, context: __SerdeContext): Connection => {
   return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     Id: __expectString(output.Id),
   } as any;
 };
@@ -2969,8 +2970,9 @@ const deserializeAws_restJson1GameConfigurationDetails = (
   context: __SerdeContext
 ): GameConfigurationDetails => {
   return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     Sections: output.Sections != null ? deserializeAws_restJson1Sections(output.Sections, context) : undefined,
   } as any;
 };
@@ -2978,10 +2980,11 @@ const deserializeAws_restJson1GameConfigurationDetails = (
 const deserializeAws_restJson1GameDetails = (output: any, context: __SerdeContext): GameDetails => {
   return {
     Arn: __expectString(output.Arn),
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     Description: __expectString(output.Description),
     EnableTerminationProtection: __expectBoolean(output.EnableTerminationProtection),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     Name: __expectString(output.Name),
     State: __expectString(output.State),
     Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
@@ -3016,7 +3019,9 @@ const deserializeAws_restJson1GeneratedCodeJobDetails = (
   return {
     Description: __expectString(output.Description),
     ExpirationTime:
-      output.ExpirationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationTime)) : undefined,
+      output.ExpirationTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationTime))
+        : undefined,
     GeneratedCodeJobId: __expectString(output.GeneratedCodeJobId),
     S3Url: __expectString(output.S3Url),
     Status: __expectString(output.Status),
@@ -3051,29 +3056,29 @@ const deserializeAws_restJson1Sections = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Section(value, context),
-    };
+    acc[key] = deserializeAws_restJson1Section(value, context);
+    return acc;
   }, {});
 };
 
 const deserializeAws_restJson1SnapshotDetails = (output: any, context: __SerdeContext): SnapshotDetails => {
   return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     Sections: output.Sections != null ? deserializeAws_restJson1Sections(output.Sections, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SnapshotSummary = (output: any, context: __SerdeContext): SnapshotSummary => {
   return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
   } as any;
 };
 
@@ -3094,7 +3099,7 @@ const deserializeAws_restJson1StageDeploymentDetails = (
   context: __SerdeContext
 ): StageDeploymentDetails => {
   return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     DeploymentAction: __expectString(output.DeploymentAction),
     DeploymentId: __expectString(output.DeploymentId),
     DeploymentResult:
@@ -3102,7 +3107,8 @@ const deserializeAws_restJson1StageDeploymentDetails = (
         ? deserializeAws_restJson1DeploymentResult(output.DeploymentResult, context)
         : undefined,
     DeploymentState: __expectString(output.DeploymentState),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     SnapshotId: __expectString(output.SnapshotId),
   } as any;
 };
@@ -3134,7 +3140,8 @@ const deserializeAws_restJson1StageDeploymentSummary = (
         ? deserializeAws_restJson1DeploymentResult(output.DeploymentResult, context)
         : undefined,
     DeploymentState: __expectString(output.DeploymentState),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     SnapshotId: __expectString(output.SnapshotId),
   } as any;
 };
@@ -3142,10 +3149,11 @@ const deserializeAws_restJson1StageDeploymentSummary = (
 const deserializeAws_restJson1StageDetails = (output: any, context: __SerdeContext): StageDetails => {
   return {
     Arn: __expectString(output.Arn),
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
     Description: __expectString(output.Description),
     GameKey: __expectString(output.GameKey),
-    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated:
+      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
     LogGroup: __expectString(output.LogGroup),
     Name: __expectString(output.Name),
     Role: __expectString(output.Role),
@@ -3181,16 +3189,15 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3222,6 +3229,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3232,6 +3245,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

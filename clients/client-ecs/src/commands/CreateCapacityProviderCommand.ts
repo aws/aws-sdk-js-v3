@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * <p>Creates a new capacity provider. Capacity providers are associated with an Amazon ECS
  * 			cluster and are used in capacity provider strategies to facilitate cluster auto
  * 			scaling.</p>
- * 		       <p>Only capacity providers that use an Auto Scaling group can be created. Amazon ECS tasks on
+ *          <p>Only capacity providers that use an Auto Scaling group can be created. Amazon ECS tasks on
  * 			Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers.
  * 			These providers are available to all accounts in the Amazon Web Services Regions that Fargate
  * 			supports.</p>
@@ -58,6 +59,15 @@ export class CreateCapacityProviderCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateCapacityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class CreateCapacityProviderCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateCapacityProviderCommandInput, CreateCapacityProviderCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateCapacityProviderCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

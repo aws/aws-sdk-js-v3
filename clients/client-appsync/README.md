@@ -9,8 +9,8 @@
 
 AWS SDK for JavaScript AppSync Client for Node.js, Browser and React Native.
 
-<p>AppSync provides API actions for creating and interacting with data
-sources using GraphQL from your application.</p>
+<p>AppSync provides API actions for creating and interacting with data sources using GraphQL
+from your application.</p>
 
 ## Installing
 

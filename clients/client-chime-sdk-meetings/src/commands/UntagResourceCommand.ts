@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Removes the specified tags from the specified resources. When you specify a tag key, the action removes both that key and its associated value. The operation succeeds even if you
  *                 attempt to remove tags from a resource that were already removed. Note the following:</p>
- *             <ul>
+ *          <ul>
  *             <li>
  *                <p>To remove tags from a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for removing tags. For more information,
  *                 see the documentation for the service whose resource you want to untag.</p>
@@ -39,19 +40,15 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *                <p>You can only tag resources that are located in the specified AWS Region for the calling AWS account.</p>
  *             </li>
  *          </ul>
- *
- *                 <p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
- *
- *                 <p>In addition to the <code>tag:UntagResources</code> permission required by this operation, you must also have the remove tags permission defined by the service that created the resource.
+ *          <p>In addition to the <code>tag:UntagResources</code> permission required by this operation, you must also have the remove tags permission defined by the service that created the resource.
  *                 For example, to remove the tags from an Amazon EC2 instance using the <code>UntagResources</code> operation, you must have both of the following permissions:</p>
- *
- *                <p>
+ *          <p>
  *             <code>tag:UntagResource</code>
  *          </p>
- *
- *                 <p>
+ *          <p>
  *             <code>ChimeSDKMeetings:DeleteTags</code>
  *          </p>
  * @example
@@ -77,6 +74,15 @@ export class UntagResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +98,7 @@ export class UntagResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

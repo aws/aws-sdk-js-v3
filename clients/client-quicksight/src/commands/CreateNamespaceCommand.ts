@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   CreateNamespaceRequestFilterSensitiveLog,
   CreateNamespaceResponse,
   CreateNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateNamespaceCommand,
   serializeAws_restJson1CreateNamespaceCommand,
@@ -29,7 +30,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
 
 /**
  * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight.</p>
- *         <p>A namespace allows you to isolate the Amazon QuickSight users and groups that are registered
+ *          <p>A namespace allows you to isolate the Amazon QuickSight users and groups that are registered
  *             for that namespace. Users that access the namespace can share assets only with other
  *             users or groups in the same namespace. They can't see users and groups in other
  *             namespaces. You can create a namespace after your Amazon Web Services account is subscribed to
@@ -59,6 +60,15 @@ export class CreateNamespaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class CreateNamespaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateNamespaceCommandInput, CreateNamespaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateNamespaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

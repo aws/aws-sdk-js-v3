@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,6 +33,13 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
 
 /**
  * <p>Describes the status of importing resources to an application version.</p>
+ *          <note>
+ *             <p>If you get a 404 error with
+ *           <code>ResourceImportStatusNotFoundAppMetadataException</code>, you must call
+ *           <code>importResourcesToDraftAppVersion</code>  after creating the application and before
+ *         calling <code>describeDraftAppVersionResourcesImportStatus</code> to obtain the
+ *         status.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +63,15 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeDraftAppVersionResourcesImportStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +90,12 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
     DescribeDraftAppVersionResourcesImportStatusCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DescribeDraftAppVersionResourcesImportStatusCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

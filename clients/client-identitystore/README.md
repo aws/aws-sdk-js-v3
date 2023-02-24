@@ -9,9 +9,18 @@
 
 AWS SDK for JavaScript Identitystore Client for Node.js, Browser and React Native.
 
-<p>The identity store service used by Amazon Web Services Single Sign On provides a single place to retrieve all of
-your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">Amazon Web Services SSO User
+<p>The Identity Store service used by AWS IAM Identity Center (successor to AWS Single Sign-On) provides a single place to retrieve all of
+your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center User
 Guide</a>.</p>
+
+<note>
+<p>Although AWS Single Sign-On was renamed, the <code>sso</code> and
+<code>identitystore</code> API namespaces will continue to retain their original name for
+backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM Identity Center rename</a>.</p>
+</note>
+
+<p>This reference guide describes the identity store operations that you can call
+programatically and includes detailed information on data types and errors.</p>
 
 ## Installing
 
@@ -28,16 +37,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IdentitystoreClient` and
-the commands you need, for example `DescribeGroupCommand`:
+the commands you need, for example `CreateGroupCommand`:
 
 ```js
 // ES5 example
-const { IdentitystoreClient, DescribeGroupCommand } = require("@aws-sdk/client-identitystore");
+const { IdentitystoreClient, CreateGroupCommand } = require("@aws-sdk/client-identitystore");
 ```
 
 ```ts
 // ES6+ example
-import { IdentitystoreClient, DescribeGroupCommand } from "@aws-sdk/client-identitystore";
+import { IdentitystoreClient, CreateGroupCommand } from "@aws-sdk/client-identitystore";
 ```
 
 ### Usage
@@ -56,7 +65,7 @@ const client = new IdentitystoreClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeGroupCommand(params);
+const command = new CreateGroupCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +144,7 @@ const client = new AWS.Identitystore({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeGroup(params);
+  const data = await client.createGroup(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +152,7 @@ try {
 
 // Promises.
 client
-  .describeGroup(params)
+  .createGroup(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +161,7 @@ client
   });
 
 // callbacks.
-client.describeGroup(params, (err, data) => {
+client.createGroup(params, (err, data) => {
   // process err and data.
 });
 ```

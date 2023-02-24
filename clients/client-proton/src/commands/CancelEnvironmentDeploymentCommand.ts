@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,8 +30,8 @@ export interface CancelEnvironmentDeploymentCommandOutput extends CancelEnvironm
 
 /**
  * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is <code>IN_PROGRESS</code>. For more
- *       information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update an environment</a> in the <i>Proton
- *         Administrator guide</i>.</p>
+ *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-update.html">Update an environment</a> in the <i>Proton
+ *         User guide</i>.</p>
  *          <p>The following list includes potential cancellation scenarios.</p>
  *          <ul>
  *             <li>
@@ -67,6 +68,15 @@ export class CancelEnvironmentDeploymentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CancelEnvironmentDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,9 @@ export class CancelEnvironmentDeploymentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelEnvironmentDeploymentCommandInput, CancelEnvironmentDeploymentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CancelEnvironmentDeploymentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

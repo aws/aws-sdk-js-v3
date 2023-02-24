@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -9,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
@@ -25,7 +29,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAssetRequest {}
-export interface GetPackageVersionAssetCommandOutput extends GetPackageVersionAssetResult, __MetadataBearer {}
+export interface GetPackageVersionAssetCommandOutput
+  extends __WithSdkStreamMixin<GetPackageVersionAssetResult, "asset">,
+    __MetadataBearer {}
 
 /**
  * <p>
@@ -56,6 +62,15 @@ export class GetPackageVersionAssetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetPackageVersionAssetCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +86,9 @@ export class GetPackageVersionAssetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPackageVersionAssetCommandInput, GetPackageVersionAssetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetPackageVersionAssetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -96,7 +114,10 @@ export class GetPackageVersionAssetCommand extends $Command<
     return serializeAws_restJson1GetPackageVersionAssetCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPackageVersionAssetCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetPackageVersionAssetCommandOutput> {
     return deserializeAws_restJson1GetPackageVersionAssetCommand(output, context);
   }
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,11 +31,12 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
 /**
  * <p>Retrieves the configuration data of the specified instance. You can use this data to
  *             create a launch template. </p>
- *         <p>This action calls on other describe actions to get instance information. Depending on
+ *          <p>This action calls on other describe actions to get instance information. Depending on
  *             your instance configuration, you may need to allow the following actions in your IAM
- *             policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>,
- *             <code>DescribeVolumes</code>, <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or, you can allow
- *                 <code>describe*</code> depending on your instance requirements.</p>
+ *             policy: <code>DescribeSpotInstanceRequests</code>,
+ *                 <code>DescribeInstanceCreditSpecifications</code>, <code>DescribeVolumes</code>,
+ *                 <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or,
+ *             you can allow <code>describe*</code> depending on your instance requirements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +60,15 @@ export class GetLaunchTemplateDataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetLaunchTemplateDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +84,9 @@ export class GetLaunchTemplateDataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetLaunchTemplateDataCommandInput, GetLaunchTemplateDataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetLaunchTemplateDataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

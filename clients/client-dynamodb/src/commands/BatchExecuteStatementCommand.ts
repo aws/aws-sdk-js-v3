@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,9 +30,9 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
 
 /**
  * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
- *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify an equality
- *             condition on all key attributes. This enforces that each <code>SELECT</code> statement in a
- *             batch returns at most a single item.</p>
+ *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
+ *             an equality condition on all key attributes. This enforces that each <code>SELECT</code>
+ *             statement in a batch returns at most a single item.</p>
  *         <note>
  *             <p>The entire batch must consist of either read statements or write statements, you
  *                 cannot mix both in one batch.</p>
@@ -64,6 +65,15 @@ export class BatchExecuteStatementCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +89,9 @@ export class BatchExecuteStatementCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchExecuteStatementCommandInput, BatchExecuteStatementCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchExecuteStatementCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

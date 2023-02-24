@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,8 +35,6 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
 /**
  * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
  *       Gateway Load Balancer.</p>
- *
- *
  *          <p>For more information, see the following:</p>
  *          <ul>
  *             <li>
@@ -57,7 +56,6 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <p>This operation is idempotent, which means that it completes at most one time. If you
  *       attempt to create multiple listeners with the same settings, each call succeeds.</p>
  * @example
@@ -83,6 +81,15 @@ export class CreateListenerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,6 +105,9 @@ export class CreateListenerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateListenerCommandInput, CreateListenerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateListenerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

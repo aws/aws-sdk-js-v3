@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,11 +32,8 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  * <p>Returns the Region the bucket resides in. You set the bucket's Region using the
  *             <code>LocationConstraint</code> request parameter in a <code>CreateBucket</code>
  *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>.</p>
- *
  *          <p>To use this implementation of the operation, you must be the bucket owner.</p>
- *
  *          <p>To use this API against an access point, provide the alias of the access point in place of the bucket name.</p>
- *
  *          <p>The following operations are related to <code>GetBucketLocation</code>:</p>
  *          <ul>
  *             <li>
@@ -73,6 +70,21 @@ export class GetBucketLocationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetBucketLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +100,9 @@ export class GetBucketLocationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetBucketLocationCommandInput, GetBucketLocationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetBucketLocationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

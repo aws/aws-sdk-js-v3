@@ -7,7 +7,6 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   throwDefaultError,
@@ -68,7 +67,7 @@ const deserializeAws_json1_1GetEntitlementsCommandError = async (
 ): Promise<GetEntitlementsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -145,10 +144,8 @@ const serializeAws_json1_1GetEntitlementFilters = (input: Record<string, string[
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1FilterValueList(value, context),
-      };
+      acc[key] = serializeAws_json1_1FilterValueList(value, context);
+      return acc;
     },
     {}
   );
@@ -172,8 +169,7 @@ const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext)
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationDate)))
         : undefined,
     ProductCode: __expectString(output.ProductCode),
-    Value:
-      output.Value != null ? deserializeAws_json1_1EntitlementValue(__expectUnion(output.Value), context) : undefined,
+    Value: output.Value != null ? deserializeAws_json1_1EntitlementValue(output.Value, context) : undefined,
   } as any;
 };
 
@@ -190,19 +186,12 @@ const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeContext): EntitlementValue => {
-  if (__expectBoolean(output.BooleanValue) !== undefined) {
-    return { BooleanValue: __expectBoolean(output.BooleanValue) as any };
-  }
-  if (__limitedParseDouble(output.DoubleValue) !== undefined) {
-    return { DoubleValue: __limitedParseDouble(output.DoubleValue) as any };
-  }
-  if (__expectInt32(output.IntegerValue) !== undefined) {
-    return { IntegerValue: __expectInt32(output.IntegerValue) as any };
-  }
-  if (__expectString(output.StringValue) !== undefined) {
-    return { StringValue: __expectString(output.StringValue) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
+  return {
+    BooleanValue: __expectBoolean(output.BooleanValue),
+    DoubleValue: __limitedParseDouble(output.DoubleValue),
+    IntegerValue: __expectInt32(output.IntegerValue),
+    StringValue: __expectString(output.StringValue),
+  } as any;
 };
 
 const deserializeAws_json1_1GetEntitlementsResult = (output: any, context: __SerdeContext): GetEntitlementsResult => {
@@ -239,7 +228,8 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -289,6 +279,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -299,6 +295,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

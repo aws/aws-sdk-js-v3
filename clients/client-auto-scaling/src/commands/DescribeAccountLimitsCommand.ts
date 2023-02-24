@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
 
 /**
  * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p>
- *         <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum
+ *          <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum
  *             number of Auto Scaling groups and launch configurations that you can create in a given Region.
  *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -51,6 +52,15 @@ export class DescribeAccountLimitsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeAccountLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +76,9 @@ export class DescribeAccountLimitsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAccountLimitsCommandInput, DescribeAccountLimitsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAccountLimitsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

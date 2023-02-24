@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,22 +26,22 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
 /**
  * <p>Describes the available adjustment types for step scaling and simple scaling
  *             policies.</p>
- *         <p>The following adjustment types are supported:</p>
- *         <ul>
+ *          <p>The following adjustment types are supported:</p>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <code>ChangeInCapacity</code>
- *                 </p>
+ *                <p>
+ *                   <code>ChangeInCapacity</code>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <code>ExactCapacity</code>
- *                 </p>
+ *                <p>
+ *                   <code>ExactCapacity</code>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <code>PercentChangeInCapacity</code>
- *                 </p>
+ *                <p>
+ *                   <code>PercentChangeInCapacity</code>
+ *                </p>
  *             </li>
  *          </ul>
  * @example
@@ -66,6 +67,15 @@ export class DescribeAdjustmentTypesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeAdjustmentTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +91,9 @@ export class DescribeAdjustmentTypesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAdjustmentTypesCommandInput, DescribeAdjustmentTypesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAdjustmentTypesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

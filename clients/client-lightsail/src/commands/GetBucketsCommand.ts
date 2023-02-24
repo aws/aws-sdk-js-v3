@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,6 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * <p>Returns information about one or more Amazon Lightsail buckets. The information returned
  *       includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
  *       account-level block public access feature for your Lightsail buckets.</p>
- *
  *          <p>For more information about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
  *         Guide</i>.</p>
  * @example
@@ -57,6 +57,15 @@ export class GetBucketsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetBucketsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +81,7 @@ export class GetBucketsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetBucketsCommandInput, GetBucketsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetBucketsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

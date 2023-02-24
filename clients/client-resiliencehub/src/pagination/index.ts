@@ -4,6 +4,8 @@ export * from "./ListAlarmRecommendationsPaginator";
 export * from "./ListAppAssessmentsPaginator";
 export * from "./ListAppComponentCompliancesPaginator";
 export * from "./ListAppComponentRecommendationsPaginator";
+export * from "./ListAppInputSourcesPaginator";
+export * from "./ListAppVersionAppComponentsPaginator";
 export * from "./ListAppVersionResourceMappingsPaginator";
 export * from "./ListAppVersionResourcesPaginator";
 export * from "./ListAppVersionsPaginator";

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,12 +32,12 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster.
  *           When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
  *           Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
- *         <p>For more information on Amazon Aurora, see
+ *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *         <p>For more information on Multi-AZ DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+ *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+ *                 cluster deployments</a> in the <i>Amazon RDS User
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +61,15 @@ export class DeleteDBClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class DeleteDBClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteDBClusterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

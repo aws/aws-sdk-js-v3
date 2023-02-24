@@ -36,6 +36,10 @@ import {
   BatchDetectSentimentCommandOutput,
 } from "../commands/BatchDetectSentimentCommand";
 import { BatchDetectSyntaxCommandInput, BatchDetectSyntaxCommandOutput } from "../commands/BatchDetectSyntaxCommand";
+import {
+  BatchDetectTargetedSentimentCommandInput,
+  BatchDetectTargetedSentimentCommandOutput,
+} from "../commands/BatchDetectTargetedSentimentCommand";
 import { ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput } from "../commands/ClassifyDocumentCommand";
 import {
   ContainsPiiEntitiesCommandInput,
@@ -121,6 +125,10 @@ import { DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput } from "../
 import { DetectPiiEntitiesCommandInput, DetectPiiEntitiesCommandOutput } from "../commands/DetectPiiEntitiesCommand";
 import { DetectSentimentCommandInput, DetectSentimentCommandOutput } from "../commands/DetectSentimentCommand";
 import { DetectSyntaxCommandInput, DetectSyntaxCommandOutput } from "../commands/DetectSyntaxCommand";
+import {
+  DetectTargetedSentimentCommandInput,
+  DetectTargetedSentimentCommandOutput,
+} from "../commands/DetectTargetedSentimentCommand";
 import { ImportModelCommandInput, ImportModelCommandOutput } from "../commands/ImportModelCommand";
 import {
   ListDocumentClassificationJobsCommandInput,
@@ -273,8 +281,15 @@ import {
   BatchDetectSyntaxItemResult,
   BatchDetectSyntaxRequest,
   BatchDetectSyntaxResponse,
+  BatchDetectTargetedSentimentItemResult,
+  BatchDetectTargetedSentimentRequest,
+  BatchDetectTargetedSentimentResponse,
   BatchItemError,
   BatchSizeLimitExceededException,
+  Block,
+  BlockReference,
+  BoundingBox,
+  ChildBlock,
   ClassifierEvaluationMetrics,
   ClassifierMetadata,
   ClassifyDocumentRequest,
@@ -334,6 +349,8 @@ import {
   DetectSentimentResponse,
   DetectSyntaxRequest,
   DetectSyntaxResponse,
+  DetectTargetedSentimentRequest,
+  DetectTargetedSentimentResponse,
   DocumentClass,
   DocumentClassificationJobFilter,
   DocumentClassificationJobProperties,
@@ -343,8 +360,10 @@ import {
   DocumentClassifierProperties,
   DocumentClassifierSummary,
   DocumentLabel,
+  DocumentMetadata,
   DocumentReaderConfig,
   DocumentReadFeatureTypes,
+  DocumentTypeListItem,
   DominantLanguage,
   DominantLanguageDetectionJobFilter,
   DominantLanguageDetectionJobProperties,
@@ -366,13 +385,17 @@ import {
   EntityRecognizerSummary,
   EntityTypesEvaluationMetrics,
   EntityTypesListItem,
+  ErrorsListItem,
   EventsDetectionJobFilter,
   EventsDetectionJobProperties,
+  ExtractedCharactersListItem,
+  Geometry,
   ImportModelRequest,
   ImportModelResponse,
   InputDataConfig,
   InternalServerException,
   InvalidFilterException,
+  InvalidRequestDetail,
   InvalidRequestException,
   JobNotFoundException,
   KeyPhrase,
@@ -409,6 +432,7 @@ import {
   ListTargetedSentimentDetectionJobsResponse,
   ListTopicsDetectionJobsRequest,
   ListTopicsDetectionJobsResponse,
+  MentionSentiment,
   OutputDataConfig,
   PartOfSpeechTag,
   PiiEntitiesDetectionJobFilter,
@@ -416,9 +440,11 @@ import {
   PiiEntity,
   PiiEntityType,
   PiiOutputDataConfig,
+  Point,
   PutResourcePolicyRequest,
   PutResourcePolicyResponse,
   RedactionConfig,
+  RelationshipsListItem,
   ResourceInUseException,
   ResourceLimitExceededException,
   ResourceNotFoundException,
@@ -468,6 +494,8 @@ import {
   TagResourceResponse,
   TargetedSentimentDetectionJobFilter,
   TargetedSentimentDetectionJobProperties,
+  TargetedSentimentEntity,
+  TargetedSentimentMention,
   TextSizeLimitExceededException,
   TooManyRequestsException,
   TooManyTagKeysException,
@@ -544,6 +572,19 @@ export const serializeAws_json1_1BatchDetectSyntaxCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDetectSyntaxRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchDetectTargetedSentimentCommand = async (
+  input: BatchDetectTargetedSentimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.BatchDetectTargetedSentiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchDetectTargetedSentimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -908,6 +949,19 @@ export const serializeAws_json1_1DetectSyntaxCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetectSyntaxRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DetectTargetedSentimentCommand = async (
+  input: DetectTargetedSentimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.DetectTargetedSentiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DetectTargetedSentimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1428,7 +1482,7 @@ const deserializeAws_json1_1BatchDetectDominantLanguageCommandError = async (
 ): Promise<BatchDetectDominantLanguageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1478,7 +1532,7 @@ const deserializeAws_json1_1BatchDetectEntitiesCommandError = async (
 ): Promise<BatchDetectEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1531,7 +1585,7 @@ const deserializeAws_json1_1BatchDetectKeyPhrasesCommandError = async (
 ): Promise<BatchDetectKeyPhrasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1584,7 +1638,7 @@ const deserializeAws_json1_1BatchDetectSentimentCommandError = async (
 ): Promise<BatchDetectSentimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1637,7 +1691,60 @@ const deserializeAws_json1_1BatchDetectSyntaxCommandError = async (
 ): Promise<BatchDetectSyntaxCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BatchSizeLimitExceededException":
+    case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
+      throw await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "TextSizeLimitExceededException":
+    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
+    case "UnsupportedLanguageException":
+    case "com.amazonaws.comprehend#UnsupportedLanguageException":
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1BatchDetectTargetedSentimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDetectTargetedSentimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchDetectTargetedSentimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchDetectTargetedSentimentResponse(data, context);
+  const response: BatchDetectTargetedSentimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchDetectTargetedSentimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDetectTargetedSentimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1690,7 +1797,7 @@ const deserializeAws_json1_1ClassifyDocumentCommandError = async (
 ): Promise<ClassifyDocumentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1740,7 +1847,7 @@ const deserializeAws_json1_1ContainsPiiEntitiesCommandError = async (
 ): Promise<ContainsPiiEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1790,7 +1897,7 @@ const deserializeAws_json1_1CreateDocumentClassifierCommandError = async (
 ): Promise<CreateDocumentClassifierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1852,7 +1959,7 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
 ): Promise<CreateEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1914,7 +2021,7 @@ const deserializeAws_json1_1CreateEntityRecognizerCommandError = async (
 ): Promise<CreateEntityRecognizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1976,7 +2083,7 @@ const deserializeAws_json1_1DeleteDocumentClassifierCommandError = async (
 ): Promise<DeleteDocumentClassifierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2032,7 +2139,7 @@ const deserializeAws_json1_1DeleteEndpointCommandError = async (
 ): Promise<DeleteEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2085,7 +2192,7 @@ const deserializeAws_json1_1DeleteEntityRecognizerCommandError = async (
 ): Promise<DeleteEntityRecognizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2141,7 +2248,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2188,7 +2295,7 @@ const deserializeAws_json1_1DescribeDocumentClassificationJobCommandError = asyn
 ): Promise<DescribeDocumentClassificationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2238,7 +2345,7 @@ const deserializeAws_json1_1DescribeDocumentClassifierCommandError = async (
 ): Promise<DescribeDocumentClassifierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2288,7 +2395,7 @@ const deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommandError = a
 ): Promise<DescribeDominantLanguageDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2338,7 +2445,7 @@ const deserializeAws_json1_1DescribeEndpointCommandError = async (
 ): Promise<DescribeEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2388,7 +2495,7 @@ const deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError = async (
 ): Promise<DescribeEntitiesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2438,7 +2545,7 @@ const deserializeAws_json1_1DescribeEntityRecognizerCommandError = async (
 ): Promise<DescribeEntityRecognizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2488,7 +2595,7 @@ const deserializeAws_json1_1DescribeEventsDetectionJobCommandError = async (
 ): Promise<DescribeEventsDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2538,7 +2645,7 @@ const deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError = async (
 ): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2588,7 +2695,7 @@ const deserializeAws_json1_1DescribePiiEntitiesDetectionJobCommandError = async 
 ): Promise<DescribePiiEntitiesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2638,7 +2745,7 @@ const deserializeAws_json1_1DescribeResourcePolicyCommandError = async (
 ): Promise<DescribeResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2685,7 +2792,7 @@ const deserializeAws_json1_1DescribeSentimentDetectionJobCommandError = async (
 ): Promise<DescribeSentimentDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2735,7 +2842,7 @@ const deserializeAws_json1_1DescribeTargetedSentimentDetectionJobCommandError = 
 ): Promise<DescribeTargetedSentimentDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2785,7 +2892,7 @@ const deserializeAws_json1_1DescribeTopicsDetectionJobCommandError = async (
 ): Promise<DescribeTopicsDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2835,7 +2942,7 @@ const deserializeAws_json1_1DetectDominantLanguageCommandError = async (
 ): Promise<DetectDominantLanguageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2882,7 +2989,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
 ): Promise<DetectEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2935,7 +3042,7 @@ const deserializeAws_json1_1DetectKeyPhrasesCommandError = async (
 ): Promise<DetectKeyPhrasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2985,7 +3092,7 @@ const deserializeAws_json1_1DetectPiiEntitiesCommandError = async (
 ): Promise<DetectPiiEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3035,7 +3142,7 @@ const deserializeAws_json1_1DetectSentimentCommandError = async (
 ): Promise<DetectSentimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3085,7 +3192,57 @@ const deserializeAws_json1_1DetectSyntaxCommandError = async (
 ): Promise<DetectSyntaxCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "TextSizeLimitExceededException":
+    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
+    case "UnsupportedLanguageException":
+    case "com.amazonaws.comprehend#UnsupportedLanguageException":
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DetectTargetedSentimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectTargetedSentimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DetectTargetedSentimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DetectTargetedSentimentResponse(data, context);
+  const response: DetectTargetedSentimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DetectTargetedSentimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectTargetedSentimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3135,7 +3292,7 @@ const deserializeAws_json1_1ImportModelCommandError = async (
 ): Promise<ImportModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3200,7 +3357,7 @@ const deserializeAws_json1_1ListDocumentClassificationJobsCommandError = async (
 ): Promise<ListDocumentClassificationJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3250,7 +3407,7 @@ const deserializeAws_json1_1ListDocumentClassifiersCommandError = async (
 ): Promise<ListDocumentClassifiersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3300,7 +3457,7 @@ const deserializeAws_json1_1ListDocumentClassifierSummariesCommandError = async 
 ): Promise<ListDocumentClassifierSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3347,7 +3504,7 @@ const deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandError = asyn
 ): Promise<ListDominantLanguageDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3397,7 +3554,7 @@ const deserializeAws_json1_1ListEndpointsCommandError = async (
 ): Promise<ListEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3444,7 +3601,7 @@ const deserializeAws_json1_1ListEntitiesDetectionJobsCommandError = async (
 ): Promise<ListEntitiesDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3494,7 +3651,7 @@ const deserializeAws_json1_1ListEntityRecognizersCommandError = async (
 ): Promise<ListEntityRecognizersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3544,7 +3701,7 @@ const deserializeAws_json1_1ListEntityRecognizerSummariesCommandError = async (
 ): Promise<ListEntityRecognizerSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3591,7 +3748,7 @@ const deserializeAws_json1_1ListEventsDetectionJobsCommandError = async (
 ): Promise<ListEventsDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3641,7 +3798,7 @@ const deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError = async (
 ): Promise<ListKeyPhrasesDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3691,7 +3848,7 @@ const deserializeAws_json1_1ListPiiEntitiesDetectionJobsCommandError = async (
 ): Promise<ListPiiEntitiesDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3741,7 +3898,7 @@ const deserializeAws_json1_1ListSentimentDetectionJobsCommandError = async (
 ): Promise<ListSentimentDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3791,7 +3948,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3838,7 +3995,7 @@ const deserializeAws_json1_1ListTargetedSentimentDetectionJobsCommandError = asy
 ): Promise<ListTargetedSentimentDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3888,7 +4045,7 @@ const deserializeAws_json1_1ListTopicsDetectionJobsCommandError = async (
 ): Promise<ListTopicsDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3938,7 +4095,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
 ): Promise<PutResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3985,7 +4142,7 @@ const deserializeAws_json1_1StartDocumentClassificationJobCommandError = async (
 ): Promise<StartDocumentClassificationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4044,7 +4201,7 @@ const deserializeAws_json1_1StartDominantLanguageDetectionJobCommandError = asyn
 ): Promise<StartDominantLanguageDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4097,7 +4254,7 @@ const deserializeAws_json1_1StartEntitiesDetectionJobCommandError = async (
 ): Promise<StartEntitiesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4156,7 +4313,7 @@ const deserializeAws_json1_1StartEventsDetectionJobCommandError = async (
 ): Promise<StartEventsDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4209,7 +4366,7 @@ const deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError = async (
 ): Promise<StartKeyPhrasesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4262,7 +4419,7 @@ const deserializeAws_json1_1StartPiiEntitiesDetectionJobCommandError = async (
 ): Promise<StartPiiEntitiesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4315,7 +4472,7 @@ const deserializeAws_json1_1StartSentimentDetectionJobCommandError = async (
 ): Promise<StartSentimentDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4368,7 +4525,7 @@ const deserializeAws_json1_1StartTargetedSentimentDetectionJobCommandError = asy
 ): Promise<StartTargetedSentimentDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4421,7 +4578,7 @@ const deserializeAws_json1_1StartTopicsDetectionJobCommandError = async (
 ): Promise<StartTopicsDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4474,7 +4631,7 @@ const deserializeAws_json1_1StopDominantLanguageDetectionJobCommandError = async
 ): Promise<StopDominantLanguageDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4521,7 +4678,7 @@ const deserializeAws_json1_1StopEntitiesDetectionJobCommandError = async (
 ): Promise<StopEntitiesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4568,7 +4725,7 @@ const deserializeAws_json1_1StopEventsDetectionJobCommandError = async (
 ): Promise<StopEventsDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4615,7 +4772,7 @@ const deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError = async (
 ): Promise<StopKeyPhrasesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4662,7 +4819,7 @@ const deserializeAws_json1_1StopPiiEntitiesDetectionJobCommandError = async (
 ): Promise<StopPiiEntitiesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4709,7 +4866,7 @@ const deserializeAws_json1_1StopSentimentDetectionJobCommandError = async (
 ): Promise<StopSentimentDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4756,7 +4913,7 @@ const deserializeAws_json1_1StopTargetedSentimentDetectionJobCommandError = asyn
 ): Promise<StopTargetedSentimentDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4803,7 +4960,7 @@ const deserializeAws_json1_1StopTrainingDocumentClassifierCommandError = async (
 ): Promise<StopTrainingDocumentClassifierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4853,7 +5010,7 @@ const deserializeAws_json1_1StopTrainingEntityRecognizerCommandError = async (
 ): Promise<StopTrainingEntityRecognizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4903,7 +5060,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4956,7 +5113,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5009,7 +5166,7 @@ const deserializeAws_json1_1UpdateEndpointCommandError = async (
 ): Promise<UpdateEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5326,8 +5483,22 @@ const serializeAws_json1_1BatchDetectSyntaxRequest = (
   };
 };
 
+const serializeAws_json1_1BatchDetectTargetedSentimentRequest = (
+  input: BatchDetectTargetedSentimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.TextList != null && { TextList: serializeAws_json1_1CustomerInputStringList(input.TextList, context) }),
+  };
+};
+
 const serializeAws_json1_1ClassifyDocumentRequest = (input: ClassifyDocumentRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Bytes != null && { Bytes: context.base64Encoder(input.Bytes) }),
+    ...(input.DocumentReaderConfig != null && {
+      DocumentReaderConfig: serializeAws_json1_1DocumentReaderConfig(input.DocumentReaderConfig, context),
+    }),
     ...(input.EndpointArn != null && { EndpointArn: input.EndpointArn }),
     ...(input.Text != null && { Text: input.Text }),
   };
@@ -5567,6 +5738,10 @@ const serializeAws_json1_1DetectDominantLanguageRequest = (
 
 const serializeAws_json1_1DetectEntitiesRequest = (input: DetectEntitiesRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Bytes != null && { Bytes: context.base64Encoder(input.Bytes) }),
+    ...(input.DocumentReaderConfig != null && {
+      DocumentReaderConfig: serializeAws_json1_1DocumentReaderConfig(input.DocumentReaderConfig, context),
+    }),
     ...(input.EndpointArn != null && { EndpointArn: input.EndpointArn }),
     ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
     ...(input.Text != null && { Text: input.Text }),
@@ -5598,6 +5773,16 @@ const serializeAws_json1_1DetectSentimentRequest = (input: DetectSentimentReques
 };
 
 const serializeAws_json1_1DetectSyntaxRequest = (input: DetectSyntaxRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.Text != null && { Text: input.Text }),
+  };
+};
+
+const serializeAws_json1_1DetectTargetedSentimentRequest = (
+  input: DetectTargetedSentimentRequest,
+  context: __SerdeContext
+): any => {
   return {
     ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
     ...(input.Text != null && { Text: input.Text }),
@@ -6606,6 +6791,33 @@ const deserializeAws_json1_1BatchDetectSyntaxResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1BatchDetectTargetedSentimentItemResult = (
+  output: any,
+  context: __SerdeContext
+): BatchDetectTargetedSentimentItemResult => {
+  return {
+    Entities:
+      output.Entities != null
+        ? deserializeAws_json1_1ListOfTargetedSentimentEntities(output.Entities, context)
+        : undefined,
+    Index: __expectInt32(output.Index),
+  } as any;
+};
+
+const deserializeAws_json1_1BatchDetectTargetedSentimentResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchDetectTargetedSentimentResponse => {
+  return {
+    ErrorList:
+      output.ErrorList != null ? deserializeAws_json1_1BatchItemErrorList(output.ErrorList, context) : undefined,
+    ResultList:
+      output.ResultList != null
+        ? deserializeAws_json1_1ListOfDetectTargetedSentimentResult(output.ResultList, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1BatchItemError = (output: any, context: __SerdeContext): BatchItemError => {
   return {
     ErrorCode: __expectString(output.ErrorCode),
@@ -6632,6 +6844,47 @@ const deserializeAws_json1_1BatchSizeLimitExceededException = (
 ): BatchSizeLimitExceededException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Block => {
+  return {
+    BlockType: __expectString(output.BlockType),
+    Geometry: output.Geometry != null ? deserializeAws_json1_1Geometry(output.Geometry, context) : undefined,
+    Id: __expectString(output.Id),
+    Page: __expectInt32(output.Page),
+    Relationships:
+      output.Relationships != null
+        ? deserializeAws_json1_1ListOfRelationships(output.Relationships, context)
+        : undefined,
+    Text: __expectString(output.Text),
+  } as any;
+};
+
+const deserializeAws_json1_1BlockReference = (output: any, context: __SerdeContext): BlockReference => {
+  return {
+    BeginOffset: __expectInt32(output.BeginOffset),
+    BlockId: __expectString(output.BlockId),
+    ChildBlocks:
+      output.ChildBlocks != null ? deserializeAws_json1_1ListOfChildBlocks(output.ChildBlocks, context) : undefined,
+    EndOffset: __expectInt32(output.EndOffset),
+  } as any;
+};
+
+const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
+  return {
+    Height: __limitedParseFloat32(output.Height),
+    Left: __limitedParseFloat32(output.Left),
+    Top: __limitedParseFloat32(output.Top),
+    Width: __limitedParseFloat32(output.Width),
+  } as any;
+};
+
+const deserializeAws_json1_1ChildBlock = (output: any, context: __SerdeContext): ChildBlock => {
+  return {
+    BeginOffset: __expectInt32(output.BeginOffset),
+    ChildBlockId: __expectString(output.ChildBlockId),
+    EndOffset: __expectInt32(output.EndOffset),
   } as any;
 };
 
@@ -6669,6 +6922,13 @@ const deserializeAws_json1_1ClassifyDocumentResponse = (
 ): ClassifyDocumentResponse => {
   return {
     Classes: output.Classes != null ? deserializeAws_json1_1ListOfClasses(output.Classes, context) : undefined,
+    DocumentMetadata:
+      output.DocumentMetadata != null
+        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
+        : undefined,
+    DocumentType:
+      output.DocumentType != null ? deserializeAws_json1_1ListOfDocumentType(output.DocumentType, context) : undefined,
+    Errors: output.Errors != null ? deserializeAws_json1_1ListOfErrors(output.Errors, context) : undefined,
     Labels: output.Labels != null ? deserializeAws_json1_1ListOfLabels(output.Labels, context) : undefined,
   } as any;
 };
@@ -6920,7 +7180,15 @@ const deserializeAws_json1_1DetectDominantLanguageResponse = (
 
 const deserializeAws_json1_1DetectEntitiesResponse = (output: any, context: __SerdeContext): DetectEntitiesResponse => {
   return {
+    Blocks: output.Blocks != null ? deserializeAws_json1_1ListOfBlocks(output.Blocks, context) : undefined,
+    DocumentMetadata:
+      output.DocumentMetadata != null
+        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
+        : undefined,
+    DocumentType:
+      output.DocumentType != null ? deserializeAws_json1_1ListOfDocumentType(output.DocumentType, context) : undefined,
     Entities: output.Entities != null ? deserializeAws_json1_1ListOfEntities(output.Entities, context) : undefined,
+    Errors: output.Errors != null ? deserializeAws_json1_1ListOfErrors(output.Errors, context) : undefined,
   } as any;
 };
 
@@ -6961,9 +7229,22 @@ const deserializeAws_json1_1DetectSyntaxResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1DetectTargetedSentimentResponse = (
+  output: any,
+  context: __SerdeContext
+): DetectTargetedSentimentResponse => {
+  return {
+    Entities:
+      output.Entities != null
+        ? deserializeAws_json1_1ListOfTargetedSentimentEntities(output.Entities, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DocumentClass = (output: any, context: __SerdeContext): DocumentClass => {
   return {
     Name: __expectString(output.Name),
+    Page: __expectInt32(output.Page),
     Score: __limitedParseFloat32(output.Score),
   } as any;
 };
@@ -7145,7 +7426,18 @@ const deserializeAws_json1_1DocumentClassifierSummary = (
 const deserializeAws_json1_1DocumentLabel = (output: any, context: __SerdeContext): DocumentLabel => {
   return {
     Name: __expectString(output.Name),
+    Page: __expectInt32(output.Page),
     Score: __limitedParseFloat32(output.Score),
+  } as any;
+};
+
+const deserializeAws_json1_1DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
+  return {
+    ExtractedCharacters:
+      output.ExtractedCharacters != null
+        ? deserializeAws_json1_1ListOfExtractedCharacters(output.ExtractedCharacters, context)
+        : undefined,
+    Pages: __expectInt32(output.Pages),
   } as any;
 };
 
@@ -7157,6 +7449,13 @@ const deserializeAws_json1_1DocumentReaderConfig = (output: any, context: __Serd
       output.FeatureTypes != null
         ? deserializeAws_json1_1ListOfDocumentReadFeatureTypes(output.FeatureTypes, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DocumentTypeListItem = (output: any, context: __SerdeContext): DocumentTypeListItem => {
+  return {
+    Page: __expectInt32(output.Page),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -7292,6 +7591,10 @@ const deserializeAws_json1_1EntitiesDetectionJobPropertiesList = (
 const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Entity => {
   return {
     BeginOffset: __expectInt32(output.BeginOffset),
+    BlockReferences:
+      output.BlockReferences != null
+        ? deserializeAws_json1_1ListOfBlockReferences(output.BlockReferences, context)
+        : undefined,
     EndOffset: __expectInt32(output.EndOffset),
     Score: __limitedParseFloat32(output.Score),
     Text: __expectString(output.Text),
@@ -7547,6 +7850,14 @@ const deserializeAws_json1_1EntityTypesListItem = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1ErrorsListItem = (output: any, context: __SerdeContext): ErrorsListItem => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    Page: __expectInt32(output.Page),
+  } as any;
+};
+
 const deserializeAws_json1_1EventsDetectionJobProperties = (
   output: any,
   context: __SerdeContext
@@ -7593,6 +7904,24 @@ const deserializeAws_json1_1EventsDetectionJobPropertiesList = (
   return retVal;
 };
 
+const deserializeAws_json1_1ExtractedCharactersListItem = (
+  output: any,
+  context: __SerdeContext
+): ExtractedCharactersListItem => {
+  return {
+    Count: __expectInt32(output.Count),
+    Page: __expectInt32(output.Page),
+  } as any;
+};
+
+const deserializeAws_json1_1Geometry = (output: any, context: __SerdeContext): Geometry => {
+  return {
+    BoundingBox:
+      output.BoundingBox != null ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context) : undefined,
+    Polygon: output.Polygon != null ? deserializeAws_json1_1Polygon(output.Polygon, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ImportModelResponse = (output: any, context: __SerdeContext): ImportModelResponse => {
   return {
     ModelArn: __expectString(output.ModelArn),
@@ -7625,12 +7954,20 @@ const deserializeAws_json1_1InvalidFilterException = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1InvalidRequestDetail = (output: any, context: __SerdeContext): InvalidRequestDetail => {
+  return {
+    Reason: __expectString(output.Reason),
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
+    Detail: output.Detail != null ? deserializeAws_json1_1InvalidRequestDetail(output.Detail, context) : undefined,
     Message: __expectString(output.Message),
+    Reason: __expectString(output.Reason),
   } as any;
 };
 
@@ -7838,6 +8175,42 @@ const deserializeAws_json1_1ListKeyPhrasesDetectionJobsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListOfBlockReferences = (output: any, context: __SerdeContext): BlockReference[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BlockReference(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfBlocks = (output: any, context: __SerdeContext): Block[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Block(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfChildBlocks = (output: any, context: __SerdeContext): ChildBlock[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ChildBlock(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ListOfClasses = (output: any, context: __SerdeContext): DocumentClass[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -7846,6 +8219,18 @@ const deserializeAws_json1_1ListOfClasses = (output: any, context: __SerdeContex
         return null as any;
       }
       return deserializeAws_json1_1DocumentClass(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfDescriptiveMentionIndices = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
     });
   return retVal;
 };
@@ -7925,6 +8310,21 @@ const deserializeAws_json1_1ListOfDetectSyntaxResult = (
   return retVal;
 };
 
+const deserializeAws_json1_1ListOfDetectTargetedSentimentResult = (
+  output: any,
+  context: __SerdeContext
+): BatchDetectTargetedSentimentItemResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchDetectTargetedSentimentItemResult(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ListOfDocumentReadFeatureTypes = (
   output: any,
   context: __SerdeContext
@@ -7936,6 +8336,18 @@ const deserializeAws_json1_1ListOfDocumentReadFeatureTypes = (
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfDocumentType = (output: any, context: __SerdeContext): DocumentTypeListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DocumentTypeListItem(entry, context);
     });
   return retVal;
 };
@@ -7976,6 +8388,33 @@ const deserializeAws_json1_1ListOfEntityLabels = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_json1_1ListOfErrors = (output: any, context: __SerdeContext): ErrorsListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ErrorsListItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfExtractedCharacters = (
+  output: any,
+  context: __SerdeContext
+): ExtractedCharactersListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExtractedCharactersListItem(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ListOfKeyPhrases = (output: any, context: __SerdeContext): KeyPhrase[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -7996,6 +8435,18 @@ const deserializeAws_json1_1ListOfLabels = (output: any, context: __SerdeContext
         return null as any;
       }
       return deserializeAws_json1_1DocumentLabel(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfMentions = (output: any, context: __SerdeContext): TargetedSentimentMention[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TargetedSentimentMention(entry, context);
     });
   return retVal;
 };
@@ -8027,6 +8478,18 @@ const deserializeAws_json1_1ListOfPiiEntityTypes = (
   return retVal;
 };
 
+const deserializeAws_json1_1ListOfRelationships = (output: any, context: __SerdeContext): RelationshipsListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RelationshipsListItem(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ListOfSyntaxTokens = (output: any, context: __SerdeContext): SyntaxToken[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -8035,6 +8498,21 @@ const deserializeAws_json1_1ListOfSyntaxTokens = (output: any, context: __SerdeC
         return null as any;
       }
       return deserializeAws_json1_1SyntaxToken(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfTargetedSentimentEntities = (
+  output: any,
+  context: __SerdeContext
+): TargetedSentimentEntity[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TargetedSentimentEntity(entry, context);
     });
   return retVal;
 };
@@ -8104,6 +8582,14 @@ const deserializeAws_json1_1ListTopicsDetectionJobsResponse = (
       output.TopicsDetectionJobPropertiesList != null
         ? deserializeAws_json1_1TopicsDetectionJobPropertiesList(output.TopicsDetectionJobPropertiesList, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MentionSentiment = (output: any, context: __SerdeContext): MentionSentiment => {
+  return {
+    Sentiment: __expectString(output.Sentiment),
+    SentimentScore:
+      output.SentimentScore != null ? deserializeAws_json1_1SentimentScore(output.SentimentScore, context) : undefined,
   } as any;
 };
 
@@ -8184,6 +8670,25 @@ const deserializeAws_json1_1PiiOutputDataConfig = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Point => {
+  return {
+    X: __limitedParseFloat32(output.X),
+    Y: __limitedParseFloat32(output.Y),
+  } as any;
+};
+
+const deserializeAws_json1_1Polygon = (output: any, context: __SerdeContext): Point[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Point(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1PutResourcePolicyResponse = (
   output: any,
   context: __SerdeContext
@@ -8201,6 +8706,13 @@ const deserializeAws_json1_1RedactionConfig = (output: any, context: __SerdeCont
       output.PiiEntityTypes != null
         ? deserializeAws_json1_1ListOfPiiEntityTypes(output.PiiEntityTypes, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RelationshipsListItem = (output: any, context: __SerdeContext): RelationshipsListItem => {
+  return {
+    Ids: output.Ids != null ? deserializeAws_json1_1StringList(output.Ids, context) : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -8485,6 +8997,18 @@ const deserializeAws_json1_1StopTrainingEntityRecognizerResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1Subnets = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -8573,6 +9097,37 @@ const deserializeAws_json1_1TargetedSentimentDetectionJobPropertiesList = (
       return deserializeAws_json1_1TargetedSentimentDetectionJobProperties(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1TargetedSentimentEntity = (
+  output: any,
+  context: __SerdeContext
+): TargetedSentimentEntity => {
+  return {
+    DescriptiveMentionIndex:
+      output.DescriptiveMentionIndex != null
+        ? deserializeAws_json1_1ListOfDescriptiveMentionIndices(output.DescriptiveMentionIndex, context)
+        : undefined,
+    Mentions: output.Mentions != null ? deserializeAws_json1_1ListOfMentions(output.Mentions, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TargetedSentimentMention = (
+  output: any,
+  context: __SerdeContext
+): TargetedSentimentMention => {
+  return {
+    BeginOffset: __expectInt32(output.BeginOffset),
+    EndOffset: __expectInt32(output.EndOffset),
+    GroupScore: __limitedParseFloat32(output.GroupScore),
+    MentionSentiment:
+      output.MentionSentiment != null
+        ? deserializeAws_json1_1MentionSentiment(output.MentionSentiment, context)
+        : undefined,
+    Score: __limitedParseFloat32(output.Score),
+    Text: __expectString(output.Text),
+    Type: __expectString(output.Type),
+  } as any;
 };
 
 const deserializeAws_json1_1TargetEventTypes = (output: any, context: __SerdeContext): string[] => {
@@ -8693,7 +9248,8 @@ const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): 
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -8743,6 +9299,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -8753,6 +9315,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

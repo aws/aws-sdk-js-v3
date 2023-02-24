@@ -11,7 +11,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -104,6 +104,7 @@ import {
 import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "../commands/UpdateConnectivityCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "../commands/UpdateMonitoringCommand";
 import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "../commands/UpdateSecurityCommand";
+import { UpdateStorageCommandInput, UpdateStorageCommandOutput } from "../commands/UpdateStorageCommand";
 import { KafkaServiceException as __BaseException } from "../models/KafkaServiceException";
 import {
   BadRequestException,
@@ -257,6 +258,7 @@ export const serializeAws_restJson1CreateClusterCommand = async (
     ...(input.OpenMonitoring != null && {
       openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
     }),
+    ...(input.StorageMode != null && { storageMode: input.StorageMode }),
     ...(input.Tags != null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -815,7 +817,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1093,6 +1098,37 @@ export const serializeAws_restJson1UpdateSecurityCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateStorageCommand = async (
+  input: UpdateStorageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/storage";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
+    ...(input.ProvisionedThroughput != null && {
+      provisionedThroughput: serializeAws_restJson1ProvisionedThroughput(input.ProvisionedThroughput, context),
+    }),
+    ...(input.StorageMode != null && { storageMode: input.StorageMode }),
+    ...(input.VolumeSizeGB != null && { volumeSizeGB: input.VolumeSizeGB }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const deserializeAws_restJson1BatchAssociateScramSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1122,7 +1158,7 @@ const deserializeAws_restJson1BatchAssociateScramSecretCommandError = async (
 ): Promise<BatchAssociateScramSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1187,7 +1223,7 @@ const deserializeAws_restJson1BatchDisassociateScramSecretCommandError = async (
 ): Promise<BatchDisassociateScramSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1252,7 +1288,7 @@ const deserializeAws_restJson1CreateClusterCommandError = async (
 ): Promise<CreateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1320,7 +1356,7 @@ const deserializeAws_restJson1CreateClusterV2CommandError = async (
 ): Promise<CreateClusterV2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1371,7 +1407,7 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
     contents.Arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.latestRevision != null) {
     contents.LatestRevision = deserializeAws_restJson1ConfigurationRevision(data.latestRevision, context);
@@ -1391,7 +1427,7 @@ const deserializeAws_restJson1CreateConfigurationCommandError = async (
 ): Promise<CreateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1453,7 +1489,7 @@ const deserializeAws_restJson1DeleteClusterCommandError = async (
 ): Promise<DeleteClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1506,7 +1542,7 @@ const deserializeAws_restJson1DeleteConfigurationCommandError = async (
 ): Promise<DeleteConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1556,7 +1592,7 @@ const deserializeAws_restJson1DescribeClusterCommandError = async (
 ): Promise<DescribeClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1609,7 +1645,7 @@ const deserializeAws_restJson1DescribeClusterOperationCommandError = async (
 ): Promise<DescribeClusterOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1662,7 +1698,7 @@ const deserializeAws_restJson1DescribeClusterV2CommandError = async (
 ): Promise<DescribeClusterV2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1707,7 +1743,7 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
     contents.Arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -1733,7 +1769,7 @@ const deserializeAws_restJson1DescribeConfigurationCommandError = async (
 ): Promise<DescribeConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1781,7 +1817,7 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
     contents.Arn = __expectString(data.arn);
   }
   if (data.creationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -1801,7 +1837,7 @@ const deserializeAws_restJson1DescribeConfigurationRevisionCommandError = async 
 ): Promise<DescribeConfigurationRevisionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1875,7 +1911,7 @@ const deserializeAws_restJson1GetBootstrapBrokersCommandError = async (
 ): Promise<GetBootstrapBrokersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1931,7 +1967,7 @@ const deserializeAws_restJson1GetCompatibleKafkaVersionsCommandError = async (
 ): Promise<GetCompatibleKafkaVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1996,7 +2032,7 @@ const deserializeAws_restJson1ListClusterOperationsCommandError = async (
 ): Promise<ListClusterOperationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2049,7 +2085,7 @@ const deserializeAws_restJson1ListClustersCommandError = async (
 ): Promise<ListClustersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2102,7 +2138,7 @@ const deserializeAws_restJson1ListClustersV2CommandError = async (
 ): Promise<ListClustersV2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2155,7 +2191,7 @@ const deserializeAws_restJson1ListConfigurationRevisionsCommandError = async (
 ): Promise<ListConfigurationRevisionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2214,7 +2250,7 @@ const deserializeAws_restJson1ListConfigurationsCommandError = async (
 ): Promise<ListConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2270,7 +2306,7 @@ const deserializeAws_restJson1ListKafkaVersionsCommandError = async (
 ): Promise<ListKafkaVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2323,7 +2359,7 @@ const deserializeAws_restJson1ListNodesCommandError = async (
 ): Promise<ListNodesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2376,7 +2412,7 @@ const deserializeAws_restJson1ListScramSecretsCommandError = async (
 ): Promise<ListScramSecretsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2435,7 +2471,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2485,7 +2521,7 @@ const deserializeAws_restJson1RebootBrokerCommandError = async (
 ): Promise<RebootBrokerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2541,7 +2577,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2585,7 +2621,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2635,7 +2671,7 @@ const deserializeAws_restJson1UpdateBrokerCountCommandError = async (
 ): Promise<UpdateBrokerCountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2691,7 +2727,7 @@ const deserializeAws_restJson1UpdateBrokerStorageCommandError = async (
 ): Promise<UpdateBrokerStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2747,7 +2783,7 @@ const deserializeAws_restJson1UpdateBrokerTypeCommandError = async (
 ): Promise<UpdateBrokerTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2809,7 +2845,7 @@ const deserializeAws_restJson1UpdateClusterConfigurationCommandError = async (
 ): Promise<UpdateClusterConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2868,7 +2904,7 @@ const deserializeAws_restJson1UpdateClusterKafkaVersionCommandError = async (
 ): Promise<UpdateClusterKafkaVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2930,7 +2966,7 @@ const deserializeAws_restJson1UpdateConfigurationCommandError = async (
 ): Promise<UpdateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2989,7 +3025,7 @@ const deserializeAws_restJson1UpdateConnectivityCommandError = async (
 ): Promise<UpdateConnectivityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3048,7 +3084,7 @@ const deserializeAws_restJson1UpdateMonitoringCommandError = async (
 ): Promise<UpdateMonitoringCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3104,7 +3140,69 @@ const deserializeAws_restJson1UpdateSecurityCommandError = async (
 ): Promise<UpdateSecurityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateStorageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStorageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateStorageCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.clusterArn != null) {
+    contents.ClusterArn = __expectString(data.clusterArn);
+  }
+  if (data.clusterOperationArn != null) {
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateStorageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStorageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3325,10 +3423,8 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3503,6 +3599,7 @@ const serializeAws_restJson1ProvisionedRequest = (input: ProvisionedRequest, con
     ...(input.OpenMonitoring != null && {
       openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
     }),
+    ...(input.StorageMode != null && { storageMode: input.StorageMode }),
   };
 };
 
@@ -3775,10 +3872,8 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3873,7 +3968,7 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
     ClusterName: __expectString(output.clusterName),
     ClusterType: __expectString(output.clusterType),
     CreationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     CurrentVersion: __expectString(output.currentVersion),
     Provisioned:
       output.provisioned != null ? deserializeAws_restJson1Provisioned(output.provisioned, context) : undefined,
@@ -3898,7 +3993,7 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
     ClusterArn: __expectString(output.clusterArn),
     ClusterName: __expectString(output.clusterName),
     CreationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     CurrentBrokerSoftwareInfo:
       output.currentBrokerSoftwareInfo != null
         ? deserializeAws_restJson1BrokerSoftwareInfo(output.currentBrokerSoftwareInfo, context)
@@ -3918,6 +4013,7 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
         : undefined,
     State: __expectString(output.state),
     StateInfo: output.stateInfo != null ? deserializeAws_restJson1StateInfo(output.stateInfo, context) : undefined,
+    StorageMode: __expectString(output.storageMode),
     Tags: output.tags != null ? deserializeAws_restJson1__mapOf__string(output.tags, context) : undefined,
     ZookeeperConnectString: __expectString(output.zookeeperConnectString),
     ZookeeperConnectStringTls: __expectString(output.zookeeperConnectStringTls),
@@ -3929,8 +4025,8 @@ const deserializeAws_restJson1ClusterOperationInfo = (output: any, context: __Se
     ClientRequestId: __expectString(output.clientRequestId),
     ClusterArn: __expectString(output.clusterArn),
     CreationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
-    EndTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
+    EndTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     ErrorInfo: output.errorInfo != null ? deserializeAws_restJson1ErrorInfo(output.errorInfo, context) : undefined,
     OperationArn: __expectString(output.operationArn),
     OperationState: __expectString(output.operationState),
@@ -3984,7 +4080,7 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.arn),
     CreationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     Description: __expectString(output.description),
     KafkaVersions:
       output.kafkaVersions != null
@@ -4009,7 +4105,7 @@ const deserializeAws_restJson1ConfigurationInfo = (output: any, context: __Serde
 const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
   return {
     CreationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
+      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     Description: __expectString(output.description),
     Revision: __expectLong(output.revision),
   } as any;
@@ -4135,6 +4231,7 @@ const deserializeAws_restJson1MutableClusterInfo = (output: any, context: __Serd
       output.openMonitoring != null
         ? deserializeAws_restJson1OpenMonitoring(output.openMonitoring, context)
         : undefined,
+    StorageMode: __expectString(output.storageMode),
   } as any;
 };
 
@@ -4224,6 +4321,7 @@ const deserializeAws_restJson1Provisioned = (output: any, context: __SerdeContex
       output.openMonitoring != null
         ? deserializeAws_restJson1OpenMonitoringInfo(output.openMonitoring, context)
         : undefined,
+    StorageMode: __expectString(output.storageMode),
     ZookeeperConnectString: __expectString(output.zookeeperConnectString),
     ZookeeperConnectStringTls: __expectString(output.zookeeperConnectStringTls),
   } as any;
@@ -4356,7 +4454,8 @@ const deserializeAws_restJson1ZookeeperNodeInfo = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -4388,6 +4487,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -4398,6 +4503,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

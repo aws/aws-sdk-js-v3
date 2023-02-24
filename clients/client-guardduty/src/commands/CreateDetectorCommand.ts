@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,6 +33,9 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  *       GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
  *       you enable the service. You can have only one detector per account per Region. All data
  *       sources are enabled in a new detector by default.</p>
+ *          <p>There might be regional differences because some data sources might not be
+ *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+ *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +59,15 @@ export class CreateDetectorCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +83,9 @@ export class CreateDetectorCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDetectorCommandInput, CreateDetectorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDetectorCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

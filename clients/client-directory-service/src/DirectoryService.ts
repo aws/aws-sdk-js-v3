@@ -147,6 +147,11 @@ import {
   DescribeTrustsCommandOutput,
 } from "./commands/DescribeTrustsCommand";
 import {
+  DescribeUpdateDirectoryCommand,
+  DescribeUpdateDirectoryCommandInput,
+  DescribeUpdateDirectoryCommandOutput,
+} from "./commands/DescribeUpdateDirectoryCommand";
+import {
   DisableClientAuthenticationCommand,
   DisableClientAuthenticationCommandInput,
   DisableClientAuthenticationCommandOutput,
@@ -269,6 +274,11 @@ import {
   UpdateConditionalForwarderCommandInput,
   UpdateConditionalForwarderCommandOutput,
 } from "./commands/UpdateConditionalForwarderCommand";
+import {
+  UpdateDirectorySetupCommand,
+  UpdateDirectorySetupCommandInput,
+  UpdateDirectorySetupCommandOutput,
+} from "./commands/UpdateDirectorySetupCommand";
 import {
   UpdateNumberOfDomainControllersCommand,
   UpdateNumberOfDomainControllersCommandInput,
@@ -1405,6 +1415,40 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
+   * <p>
+   *       Describes the updates of a directory for a particular update type.
+   *     </p>
+   */
+  public describeUpdateDirectory(
+    args: DescribeUpdateDirectoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUpdateDirectoryCommandOutput>;
+  public describeUpdateDirectory(
+    args: DescribeUpdateDirectoryCommandInput,
+    cb: (err: any, data?: DescribeUpdateDirectoryCommandOutput) => void
+  ): void;
+  public describeUpdateDirectory(
+    args: DescribeUpdateDirectoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeUpdateDirectoryCommandOutput) => void
+  ): void;
+  public describeUpdateDirectory(
+    args: DescribeUpdateDirectoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUpdateDirectoryCommandOutput) => void),
+    cb?: (err: any, data?: DescribeUpdateDirectoryCommandOutput) => void
+  ): Promise<DescribeUpdateDirectoryCommandOutput> | void {
+    const command = new DescribeUpdateDirectoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disables alternative client authentication methods for the specified directory. </p>
    */
   public disableClientAuthentication(
@@ -2273,6 +2317,40 @@ export class DirectoryService extends DirectoryServiceClient {
     cb?: (err: any, data?: UpdateConditionalForwarderCommandOutput) => void
   ): Promise<UpdateConditionalForwarderCommandOutput> | void {
     const command = new UpdateConditionalForwarderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Updates the directory for a particular update type.
+   *     </p>
+   */
+  public updateDirectorySetup(
+    args: UpdateDirectorySetupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDirectorySetupCommandOutput>;
+  public updateDirectorySetup(
+    args: UpdateDirectorySetupCommandInput,
+    cb: (err: any, data?: UpdateDirectorySetupCommandOutput) => void
+  ): void;
+  public updateDirectorySetup(
+    args: UpdateDirectorySetupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDirectorySetupCommandOutput) => void
+  ): void;
+  public updateDirectorySetup(
+    args: UpdateDirectorySetupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDirectorySetupCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDirectorySetupCommandOutput) => void
+  ): Promise<UpdateDirectorySetupCommandOutput> | void {
+    const command = new UpdateDirectorySetupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

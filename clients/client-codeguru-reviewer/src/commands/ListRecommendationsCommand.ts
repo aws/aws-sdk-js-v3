@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,7 @@ export interface ListRecommendationsCommandInput extends ListRecommendationsRequ
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns the list of all recommendations for a completed code review.
- *       </p>
+ * <p>Returns the list of all recommendations for a completed code review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +53,15 @@ export class ListRecommendationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +77,9 @@ export class ListRecommendationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListRecommendationsCommandInput, ListRecommendationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListRecommendationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   DescribeManagedPrefixListsRequestFilterSensitiveLog,
   DescribeManagedPrefixListsResult,
   DescribeManagedPrefixListsResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeManagedPrefixListsCommand,
   serializeAws_ec2DescribeManagedPrefixListsCommand,
@@ -29,7 +30,7 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
 
 /**
  * <p>Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.</p>
- *         <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
+ *          <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,15 @@ export class DescribeManagedPrefixListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeManagedPrefixListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class DescribeManagedPrefixListsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeManagedPrefixListsCommandInput, DescribeManagedPrefixListsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeManagedPrefixListsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

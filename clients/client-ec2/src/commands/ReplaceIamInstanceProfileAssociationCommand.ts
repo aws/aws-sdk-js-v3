@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,7 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  * <p>Replaces an IAM instance profile for the specified running instance. You can use
  *             this action to change the IAM instance profile that's associated with an instance
  *             without having to disassociate the existing IAM instance profile first.</p>
- *         <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
+ *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
  *             ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +59,15 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ReplaceIamInstanceProfileAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ReplaceIamInstanceProfileAssociationCommandInput, ReplaceIamInstanceProfileAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ReplaceIamInstanceProfileAssociationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

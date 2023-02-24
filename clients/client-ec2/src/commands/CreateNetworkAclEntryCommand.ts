@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,9 +28,9 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * 		        and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated
  * 		        with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of
  * 		        ingress rules and a separate set of egress rules.</p>
- * 		       <p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the
+ *          <p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the
  * 		        other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.</p>
- * 		       <p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p>
+ *          <p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p>
  *          <p>For more information about network ACLs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +55,15 @@ export class CreateNetworkAclEntryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateNetworkAclEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class CreateNetworkAclEntryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateNetworkAclEntryCommandInput, CreateNetworkAclEntryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateNetworkAclEntryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

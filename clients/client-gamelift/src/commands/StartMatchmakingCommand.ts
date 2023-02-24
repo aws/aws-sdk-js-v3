@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -48,26 +49,15 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
- *             Add FlexMatch to a game client</a>
+ *                 Add FlexMatch to a game client</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
- *             Set Up FlexMatch event notification</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html"> Set Up FlexMatch event
+ *                 notification</a>
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
- *             How GameLift FlexMatch works</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>StartMatchmaking</a> |
- *                     <a>DescribeMatchmaking</a> |
- *                     <a>StopMatchmaking</a> |
- *                     <a>AcceptMatch</a> |
- *                     <a>StartMatchBackfill</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *                 How GameLift FlexMatch works</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +82,15 @@ export class StartMatchmakingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartMatchmakingCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,6 +106,9 @@ export class StartMatchmakingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartMatchmakingCommandInput, StartMatchmakingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartMatchmakingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,25 +26,41 @@ export interface CreateKeyCommandInput extends CreateKeyRequest {}
 export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and
- *       Region.</p>
- *          <p>In addition to the required parameters, you can use the optional parameters to specify a key policy, description, tags, and other useful elements for any key type.</p>
+ * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and Region.
+ *       You can use a KMS key in cryptographic operations, such as encryption and signing. Some Amazon Web Services
+ *       services let you use KMS keys that you create and manage to protect your service
+ *       resources.</p>
+ *          <p>A KMS key is a logical representation of a cryptographic key. In addition to the key
+ *       material used in cryptographic operations, a KMS key includes metadata, such as the key ID,
+ *       key policy, creation date, description, and key state. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html">Managing keys</a> in the
+ *       <i>Key Management Service Developer Guide</i>
+ *          </p>
+ *          <p>Use the parameters of <code>CreateKey</code> to specify the type of KMS key, the source of
+ *       its key material, its key policy, description, tags, and other properties.</p>
  *          <note>
- *             <p>KMS is replacing the term <i>customer master key (CMK)</i> with <i>KMS key</i> and <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
+ *             <p>KMS has replaced the term <i>customer master key (CMK)</i> with <i>KMS key</i> and <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
  *          </note>
+ *
  *
  *          <p>To create different types of KMS keys, use the following guidance:</p>
  *
  *          <dl>
  *             <dt>Symmetric encryption KMS key</dt>
  *             <dd>
- *                <p>To create a symmetric encryption KMS key, you aren't required to specify any parameters. The default value for
- *             <code>KeySpec</code>, <code>SYMMETRIC_DEFAULT</code>, and the default value for
- *             <code>KeyUsage</code>, <code>ENCRYPT_DECRYPT</code>, create a symmetric encryption KMS key. For technical details, see
- *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default">
- *               SYMMETRIC_DEFAULT key spec</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *                <p>If you need a key for basic encryption and decryption or you
- *             are creating a KMS key to protect your resources in an Amazon Web Services service, create a symmetric encryption KMS key. The key material in a symmetric encryption key never leaves KMS unencrypted. You can use a symmetric encryption KMS key to encrypt and decrypt data up to 4,096 bytes, but they are typically used to generate data keys and data keys pairs. For details, see <a>GenerateDataKey</a> and <a>GenerateDataKeyPair</a>.</p>
+ *                <p>By default, <code>CreateKey</code> creates a symmetric encryption KMS key with key
+ *             material that KMS generates. This is the basic and most widely used type of KMS key, and
+ *             provides the best performance.</p>
+ *                <p>To create a symmetric encryption KMS key, you don't need to specify any parameters.
+ *             The default value for <code>KeySpec</code>, <code>SYMMETRIC_DEFAULT</code>, the default
+ *             value for <code>KeyUsage</code>, <code>ENCRYPT_DECRYPT</code>, and the default value for
+ *               <code>Origin</code>, <code>AWS_KMS</code>, create a symmetric encryption KMS key with
+ *             KMS key material.</p>
+ *                <p>If you need a key for basic encryption and decryption or you are creating a KMS key
+ *             to protect your resources in an Amazon Web Services service, create a symmetric encryption KMS key.
+ *             The key material in a symmetric encryption key never leaves KMS unencrypted. You can
+ *             use a symmetric encryption KMS key to encrypt and decrypt data up to 4,096 bytes, but
+ *             they are typically used to generate data keys and data keys pairs. For details, see
+ *               <a>GenerateDataKey</a> and <a>GenerateDataKeyPair</a>.</p>
  *                <p> </p>
  *             </dd>
  *             <dt>Asymmetric KMS keys</dt>
@@ -61,11 +78,11 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             </dd>
  *             <dt>HMAC KMS key</dt>
  *             <dd>
- *                <p>To create an HMAC KMS key, set the <code>KeySpec</code> parameter to a
- *           key spec value for HMAC KMS keys. Then set the <code>KeyUsage</code> parameter to
- *           <code>GENERATE_VERIFY_MAC</code>. You must set the key usage even though
- *           <code>GENERATE_VERIFY_MAC</code> is the only valid key usage value for HMAC KMS keys.
- *           You can't change these properties after the KMS key is created.</p>
+ *                <p>To create an HMAC KMS key, set the <code>KeySpec</code> parameter to a key spec
+ *             value for HMAC KMS keys. Then set the <code>KeyUsage</code> parameter to
+ *               <code>GENERATE_VERIFY_MAC</code>. You must set the key usage even though
+ *               <code>GENERATE_VERIFY_MAC</code> is the only valid key usage value for HMAC KMS keys.
+ *             You can't change these properties after the KMS key is created.</p>
  *                <p>HMAC KMS keys are symmetric keys that never leave KMS unencrypted. You can use
  *             HMAC keys to generate (<a>GenerateMac</a>) and verify (<a>VerifyMac</a>) HMAC codes for messages up to 4096 bytes.</p>
  *                <p>HMAC KMS keys are not supported in all Amazon Web Services Regions. If you try to create an HMAC
@@ -96,34 +113,59 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *                <p> </p>
  *             </dd>
  *             <dd>
- *                <p>To import your own key material, begin by creating a symmetric encryption KMS key with no key
- *             material. To do this, use the <code>Origin</code> parameter of <code>CreateKey</code>
- *             with a value of <code>EXTERNAL</code>. Next, use <a>GetParametersForImport</a> operation to get a public key and import token, and use the public key to encrypt
- *             your key material. Then, use <a>ImportKeyMaterial</a> with your import token
- *             to import the key material. For step-by-step instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>
+ *                <p>To import your own key material into a KMS key, begin by creating a symmetric
+ *             encryption KMS key with no key material. To do this, use the <code>Origin</code>
+ *             parameter of <code>CreateKey</code> with a value of <code>EXTERNAL</code>. Next, use
+ *               <a>GetParametersForImport</a> operation to get a public key and import
+ *             token, and use the public key to encrypt your key material. Then, use <a>ImportKeyMaterial</a> with your import token to import the key material. For
+ *             step-by-step instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>
  *                      <i>Key Management Service Developer Guide</i>
  *                   </i>.</p>
- *                <p>This feature supports only symmetric encryption KMS keys, including multi-Region symmetric encryption KMS keys. You cannot import key
- *             material into any other type of KMS key.</p>
+ *                <p>This feature supports only symmetric encryption KMS keys, including multi-Region
+ *             symmetric encryption KMS keys. You cannot import key material into any other type of KMS
+ *             key.</p>
  *                <p>To create a multi-Region primary key with imported key material, use the
  *               <code>Origin</code> parameter of <code>CreateKey</code> with a value of
  *               <code>EXTERNAL</code> and the <code>MultiRegion</code> parameter with a value of
- *               <code>True</code>. To create replicas of the multi-Region primary key, use the <a>ReplicateKey</a> operation. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *               <code>True</code>. To create replicas of the multi-Region primary key, use the <a>ReplicateKey</a> operation. For instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html ">Importing key material into
+ *               multi-Region keys</a>. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *                <p> </p>
  *             </dd>
  *             <dt>Custom key store</dt>
  *             <dd>
- *                <p>To create a symmetric encryption KMS key in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>, use the
- *               <code>CustomKeyStoreId</code> parameter to specify the custom key store. You must also
- *             use the <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The
- *             CloudHSM cluster that is associated with the custom key store must have at least two active
- *             HSMs in different Availability Zones in the Amazon Web Services Region. </p>
- *                <p>Custom key stores support only symmetric encryption KMS keys. You cannot create an
- *             HMAC KMS key or an asymmetric KMS key in a custom key store. For information about
- *             custom key stores in KMS see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom key stores in KMS</a> in
- *             the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
+ *                <p>A <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> lets you protect your Amazon Web Services resources using keys in a backing key
+ *             store that you own and manage. When you request a cryptographic operation with a KMS key
+ *             in a custom key store, the operation is performed in the backing key store using its
+ *             cryptographic keys.</p>
+ *                <p>KMS supports <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a> backed by an CloudHSM cluster and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key stores</a> backed by an
+ *             external key manager outside of Amazon Web Services. When you create a KMS key in an CloudHSM key store,
+ *             KMS generates an encryption key in the CloudHSM cluster and associates it with the KMS
+ *             key. When you create a KMS key in an external key store, you specify an existing
+ *             encryption key in the external key manager.</p>
+ *                <note>
+ *                   <p>Some external key managers provide a simpler method for creating a KMS key in an
+ *               external key store. For details, see your external key manager documentation.</p>
+ *                </note>
+ *                <p>Before you create a KMS key in a custom key store, the <code>ConnectionState</code>
+ *             of the key store must be <code>CONNECTED</code>. To connect the custom key store, use
+ *             the <a>ConnectCustomKeyStore</a> operation. To find the
+ *               <code>ConnectionState</code>, use the <a>DescribeCustomKeyStores</a>
+ *             operation.</p>
+ *                <p>To create a KMS key in a custom key store, use the <code>CustomKeyStoreId</code>.
+ *             Use the default <code>KeySpec</code> value, <code>SYMMETRIC_DEFAULT</code>, and the
+ *             default <code>KeyUsage</code> value, <code>ENCRYPT_DECRYPT</code> to create a symmetric
+ *             encryption key. No other key type is supported in a custom key store.</p>
+ *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key store</a>, use the
+ *               <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The CloudHSM
+ *             cluster that is associated with the custom key store must have at least two active HSMs
+ *             in different Availability Zones in the Amazon Web Services Region.</p>
+ *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key store</a>, use the <code>Origin</code> parameter
+ *             with a value of <code>EXTERNAL_KEY_STORE</code> and an <code>XksKeyId</code> parameter
+ *             that identifies an existing external key.</p>
+ *                <note>
+ *                   <p>Some external key managers provide a simpler method for creating a KMS key in an
+ *               external key store. For details, see your external key manager documentation.</p>
+ *                </note>
  *             </dd>
  *          </dl>
  *          <p>
@@ -174,6 +216,15 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,6 +240,7 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
     options?: __HttpHandlerOptions
   ): Handler<CreateKeyCommandInput, CreateKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateKeyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

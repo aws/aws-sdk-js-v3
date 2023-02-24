@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,12 +32,12 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * <p>Modify the settings for an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
  *            You can change one or more settings by specifying these parameters and the new values in the
  *            request.</p>
- *         <p>For more information on Amazon Aurora DB clusters, see
+ *          <p>For more information on Amazon Aurora DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *         <p>For more information on Multi-AZ DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+ *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+ *                 cluster deployments</a> in the <i>Amazon RDS User
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +61,15 @@ export class ModifyDBClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class ModifyDBClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyDBClusterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

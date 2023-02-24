@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getPredictEndpointPlugin } from "@aws-sdk/middleware-sdk-machinelearning";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -53,6 +54,15 @@ export class PredictCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PredictCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,7 @@ export class PredictCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PredictCommandInput, PredictCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PredictCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getPredictEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

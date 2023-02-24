@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,18 +31,18 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
 /**
  * <p> Creates a new Amazon Web Services secret access key and corresponding Amazon Web Services access key ID for the
  *             specified user. The default status for new keys is <code>Active</code>.</p>
- *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
+ *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
  *             the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
  *             user credentials. This is true even if the Amazon Web Services account has no associated users.</p>
- *         <p> For information about quotas on the number of keys you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
+ *          <p> For information about quotas on the number of keys you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
  *                 quotas</a> in the <i>IAM User Guide</i>.</p>
- *         <important>
+ *          <important>
  *             <p>To ensure the security of your Amazon Web Services account, the secret access key is accessible
  *                 only during key and user creation. You must save the key (for example, in a text
  *                 file) if you want to be able to access it again. If a secret key is lost, you can
  *                 delete the access keys for the associated user and then create new keys.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +66,15 @@ export class CreateAccessKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +90,9 @@ export class CreateAccessKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateAccessKeyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

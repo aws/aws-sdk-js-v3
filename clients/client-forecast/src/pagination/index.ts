@@ -11,3 +11,6 @@ export * from "./ListMonitorEvaluationsPaginator";
 export * from "./ListMonitorsPaginator";
 export * from "./ListPredictorBacktestExportJobsPaginator";
 export * from "./ListPredictorsPaginator";
+export * from "./ListWhatIfAnalysesPaginator";
+export * from "./ListWhatIfForecastExportsPaginator";
+export * from "./ListWhatIfForecastsPaginator";

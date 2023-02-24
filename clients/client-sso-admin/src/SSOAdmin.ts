@@ -185,7 +185,28 @@ import {
 import { SSOAdminClient } from "./SSOAdminClient";
 
 /**
- * <p></p>
+ * <p>AWS IAM Identity Center (successor to AWS Single Sign-On) helps you securely create, or connect, your workforce identities and manage their
+ *       access centrally across AWS accounts and applications. IAM Identity Center is the recommended
+ *       approach for workforce authentication and authorization in AWS, for organizations of any size
+ *       and type.</p>
+ *          <note>
+ *             <p>Although AWS Single Sign-On was renamed, the <code>sso</code> and
+ *         <code>identitystore</code> API namespaces will continue to retain their original name for
+ *         backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM Identity Center rename</a>.</p>
+ *          </note>
+ *          <p>This reference guide provides information on single sign-on operations which could be used for
+ *       access management of AWS accounts. For information about IAM Identity Center features, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center User
+ *         Guide</a>.</p>
+ *          <p>Many operations in the IAM Identity Center APIs rely on identifiers for users and groups, known as
+ *       principals. For more information about how to work with principals and principal IDs in IAM Identity Center,
+ *       see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Identity Store API
+ *         Reference</a>.</p>
+ *          <note>
+ *             <p>AWS provides SDKs that consist of libraries and sample code for various programming
+ *         languages and platforms (Java, Ruby, .Net, iOS, Android, and more). The SDKs provide a
+ *         convenient way to create programmatic access to IAM Identity Center and other AWS services. For more
+ *         information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
+ *          </note>
  */
 export class SSOAdmin extends SSOAdminClient {
   /**
@@ -223,7 +244,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Attaches an Amazon Web Services managed policy ARN to a permission set.</p>
+   * <p>Attaches an AWS managed policy ARN to a permission set.</p>
    *          <note>
    *             <p>If the permission set is already referenced by one or more account assignments, you will
    *         need to call <code>
@@ -263,20 +284,25 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Assigns access to a principal for a specified Amazon Web Services account using a specified
+   * <p>Assigns access to a principal for a specified AWS account using a specified
    *       permission set.</p>
    *          <note>
    *             <p>The term <i>principal</i> here refers to a user or group that is defined
-   *         in Amazon Web Services SSO.</p>
+   *         in IAM Identity Center.</p>
    *          </note>
    *          <note>
    *             <p>As part of a successful <code>CreateAccountAssignment</code> call, the specified
    *         permission set will automatically be provisioned to the account in the form of an IAM
-   *         policy. That policy is attached to the IAM role created in Amazon Web Services SSO. If the permission set
+   *         policy. That policy is attached to the IAM role created in IAM Identity Center. If the permission set
    *         is subsequently updated, the corresponding IAM policies attached to roles in your accounts
    *         will not be updated automatically. In this case, you must call <code>
    *                   <a>ProvisionPermissionSet</a>
    *                </code> to make these updates.</p>
+   *          </note>
+   *          <note>
+   *             <p>
+   *         After a successful response, call <code>DescribeAccountAssignmentCreationStatus</code> to describe the status of an assignment creation request.
+   *       </p>
    *          </note>
    */
   public createAccountAssignment(
@@ -309,9 +335,13 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Enables the attributes-based access control (ABAC) feature for the specified Amazon Web Services SSO
+   * <p>Enables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
    *       instance. You can also specify new attributes to add to your ABAC configuration during the
-   *       enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+   *       enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
+   *          <note>
+   *             <p>After a successful response, call <code>DescribeInstanceAccessControlAttributeConfiguration</code> to validate that
+   *       <code>InstanceAccessControlAttributeConfiguration</code> was created.</p>
+   *          </note>
    */
   public createInstanceAccessControlAttributeConfiguration(
     args: CreateInstanceAccessControlAttributeConfigurationCommandInput,
@@ -345,9 +375,9 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Creates a permission set within a specified Amazon Web Services SSO instance.</p>
+   * <p>Creates a permission set within a specified IAM Identity Center instance.</p>
    *          <note>
-   *             <p>To grant users and groups access to Amazon Web Services account resources, use <code>
+   *             <p>To grant users and groups access to AWS account resources, use <code>
    *                   <a>CreateAccountAssignment</a>
    *                </code>.</p>
    *          </note>
@@ -382,8 +412,11 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Deletes a principal's access from a specified Amazon Web Services account using a specified permission
+   * <p>Deletes a principal's access from a specified AWS account using a specified permission
    *       set.</p>
+   *          <note>
+   *             <p>After a successful response, call <code>DescribeAccountAssignmentCreationStatus</code> to describe the status of an assignment deletion request.</p>
+   *          </note>
    */
   public deleteAccountAssignment(
     args: DeleteAccountAssignmentCommandInput,
@@ -447,10 +480,10 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Disables the attributes-based access control (ABAC) feature for the specified Amazon Web Services SSO
+   * <p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
    *       instance and deletes all of the attribute mappings that have been configured. Once deleted,
    *       any attributes that are received from an identity source and any custom attributes you have
-   *       previously configured will not be passed. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+   *       previously configured will not be passed. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
    */
   public deleteInstanceAccessControlAttributeConfiguration(
     args: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
@@ -618,9 +651,9 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Returns the list of Amazon Web Services SSO identity store attributes that have been configured to work
-   *       with attributes-based access control (ABAC) for the specified Amazon Web Services SSO instance. This will not
-   *       return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+   * <p>Returns the list of IAM Identity Center identity store attributes that have been configured to work
+   *       with attributes-based access control (ABAC) for the specified IAM Identity Center instance. This will not
+   *       return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
    */
   public describeInstanceAccessControlAttributeConfiguration(
     args: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
@@ -754,7 +787,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Detaches the attached Amazon Web Services managed policy ARN from the specified permission set.</p>
+   * <p>Detaches the attached AWS managed policy ARN from the specified permission set.</p>
    */
   public detachManagedPolicyFromPermissionSet(
     args: DetachManagedPolicyFromPermissionSetCommandInput,
@@ -852,7 +885,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the status of the Amazon Web Services account assignment creation requests for a specified Amazon Web Services SSO
+   * <p>Lists the status of the AWS account assignment creation requests for a specified IAM Identity Center
    *       instance.</p>
    */
   public listAccountAssignmentCreationStatus(
@@ -885,7 +918,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the status of the Amazon Web Services account assignment deletion requests for a specified Amazon Web Services SSO
+   * <p>Lists the status of the AWS account assignment deletion requests for a specified IAM Identity Center
    *       instance.</p>
    */
   public listAccountAssignmentDeletionStatus(
@@ -918,7 +951,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the assignee of the specified Amazon Web Services account with the specified permission set.</p>
+   * <p>Lists the assignee of the specified AWS account with the specified permission set.</p>
    */
   public listAccountAssignments(
     args: ListAccountAssignmentsCommandInput,
@@ -950,7 +983,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists all the Amazon Web Services accounts where the specified permission set is provisioned.</p>
+   * <p>Lists all the AWS accounts where the specified permission set is provisioned.</p>
    */
   public listAccountsForProvisionedPermissionSet(
     args: ListAccountsForProvisionedPermissionSetCommandInput,
@@ -1018,7 +1051,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the Amazon Web Services SSO instances that the caller has access to.</p>
+   * <p>Lists the IAM Identity Center instances that the caller has access to.</p>
    */
   public listInstances(
     args: ListInstancesCommandInput,
@@ -1050,7 +1083,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the Amazon Web Services managed policy that is attached to a specified permission set.</p>
+   * <p>Lists the AWS managed policy that is attached to a specified permission set.</p>
    */
   public listManagedPoliciesInPermissionSet(
     args: ListManagedPoliciesInPermissionSetCommandInput,
@@ -1082,7 +1115,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the status of the permission set provisioning requests for a specified Amazon Web Services SSO
+   * <p>Lists the status of the permission set provisioning requests for a specified IAM Identity Center
    *       instance.</p>
    */
   public listPermissionSetProvisioningStatus(
@@ -1115,7 +1148,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the <a>PermissionSet</a>s in an Amazon Web Services SSO instance.</p>
+   * <p>Lists the <a>PermissionSet</a>s in an IAM Identity Center instance.</p>
    */
   public listPermissionSets(
     args: ListPermissionSetsCommandInput,
@@ -1147,7 +1180,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists all the permission sets that are provisioned to a specified Amazon Web Services account.</p>
+   * <p>Lists all the permission sets that are provisioned to a specified AWS account.</p>
    */
   public listPermissionSetsProvisionedToAccount(
     args: ListPermissionSetsProvisionedToAccountCommandInput,
@@ -1285,7 +1318,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Attaches an Amazon Web Services managed or customer managed policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
+   * <p>Attaches an AWS managed or customer managed policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
    */
   public putPermissionsBoundaryToPermissionSet(
     args: PutPermissionsBoundaryToPermissionSetCommandInput,
@@ -1377,12 +1410,12 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Updates the Amazon Web Services SSO identity store attributes that you can use with the Amazon Web Services SSO instance
+   * <p>Updates the IAM Identity Center identity store attributes that you can use with the IAM Identity Center instance
    *       for attributes-based access control (ABAC). When using an external identity provider as an
    *       identity source, you can pass attributes through the SAML assertion as an alternative to
-   *       configuring attributes from the Amazon Web Services SSO identity store. If a SAML assertion passes any of
-   *       these attributes, Amazon Web Services SSO replaces the attribute value with the value from the Amazon Web Services SSO
-   *       identity store. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+   *       configuring attributes from the IAM Identity Center identity store. If a SAML assertion passes any of
+   *       these attributes, IAM Identity Center replaces the attribute value with the value from the IAM Identity Center
+   *       identity store. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
    */
   public updateInstanceAccessControlAttributeConfiguration(
     args: UpdateInstanceAccessControlAttributeConfigurationCommandInput,

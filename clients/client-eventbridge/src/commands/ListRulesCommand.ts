@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,7 +28,6 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
 /**
  * <p>Lists your Amazon EventBridge rules. You can either list all the rules or you can provide
  *       a prefix to match to the rule names.</p>
- *
  *          <p>ListRules does not list the targets of a rule. To see the targets associated with a rule,
  *       use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.</p>
  * @example
@@ -53,6 +53,15 @@ export class ListRulesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +77,7 @@ export class ListRulesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListRulesCommandInput, ListRulesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListRulesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

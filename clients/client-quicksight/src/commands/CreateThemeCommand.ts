@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   CreateThemeRequestFilterSensitiveLog,
   CreateThemeResponse,
   CreateThemeResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateThemeCommand,
   serializeAws_restJson1CreateThemeCommand,
@@ -29,7 +30,7 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
 
 /**
  * <p>Creates a theme.</p>
- * 		       <p>A <i>theme</i> is set of configuration options for color and layout.
+ *          <p>A <i>theme</i> is set of configuration options for color and layout.
  * 			Themes apply to analyses and dashboards. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using
  * 			Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  * @example
@@ -55,6 +56,15 @@ export class CreateThemeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateThemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,7 @@ export class CreateThemeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateThemeCommandInput, CreateThemeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateThemeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

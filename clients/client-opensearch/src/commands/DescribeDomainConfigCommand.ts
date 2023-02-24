@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,7 @@ export interface DescribeDomainConfigCommandInput extends DescribeDomainConfigRe
 export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Provides cluster configuration information about the specified domain, such as the state, creation
- *       date, update version, and update date for cluster options.
- *     </p>
+ * <p>Returns the configuration of an Amazon OpenSearch Service domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +53,15 @@ export class DescribeDomainConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeDomainConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +77,9 @@ export class DescribeDomainConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDomainConfigCommandInput, DescribeDomainConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDomainConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

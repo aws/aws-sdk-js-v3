@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -27,18 +27,14 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
 /**
  * <p> Creates a replication configuration or replaces an existing one. For more information,
  *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon S3 User Guide</i>. </p>
- *
  *          <p>Specify the replication configuration in the request body. In the replication
  *          configuration, you provide the name of the destination bucket or buckets where you want
  *          Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume to replicate objects on your
  *          behalf, and other relevant information.</p>
- *
- *
  *          <p>A replication configuration must include at least one rule, and can contain a maximum of
  *          1,000. Each rule identifies a subset of objects to replicate by filtering the objects in
  *          the source bucket. To choose additional subsets of objects to replicate, add a rule for
  *          each subset.</p>
- *
  *          <p>To specify a subset of the objects in the source bucket to apply a replication rule to,
  *          add the Filter element as a child of the Rule element. You can filter objects based on an
  *          object key prefix, one or more object tags, or both. When you add the Filter element in the
@@ -50,7 +46,6 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *             replication of delete markers differently. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward Compatibility</a>.</p>
  *          </note>
  *          <p>For information about enabling versioning on a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Using Versioning</a>.</p>
- *
  *          <p>
  *             <b>Handling Replication of Encrypted Objects</b>
  *          </p>
@@ -61,11 +56,9 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *             <code>ReplicaKmsKeyID</code>. For information about replication configuration, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating Objects
  *                Created with SSE Using KMS keys</a>.</p>
- *
  *          <p>For information on <code>PutBucketReplication</code> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List of
  *             replication-related error codes</a>
  *          </p>
- *
  *          <p>
  *             <b>Permissions</b>
  *          </p>
@@ -81,7 +74,6 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *             <p>To perform this operation, the user or role performing the action must have the
  *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> permission.</p>
  *          </note>
- *
  *          <p>The following operations are related to <code>PutBucketReplication</code>:</p>
  *          <ul>
  *             <li>
@@ -118,6 +110,21 @@ export class PutBucketReplicationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutBucketReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,7 +140,9 @@ export class PutBucketReplicationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutBucketReplicationCommandInput, PutBucketReplicationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutBucketReplicationCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,

@@ -43,7 +43,7 @@ export const serializeAws_restJson1GetLatestConfigurationCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration";
   const query: any = map({
-    configuration_token: [, input.ConfigurationToken!],
+    configuration_token: [, __expectNonNull(input.ConfigurationToken!, `ConfigurationToken`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -104,6 +104,7 @@ export const deserializeAws_restJson1GetLatestConfigurationCommand = async (
       () => __strictParseInt32(output.headers["next-poll-interval-in-seconds"]),
     ],
     ContentType: [, output.headers["content-type"]],
+    VersionLabel: [, output.headers["version-label"]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Configuration = data;
@@ -116,7 +117,7 @@ const deserializeAws_restJson1GetLatestConfigurationCommandError = async (
 ): Promise<GetLatestConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -166,7 +167,7 @@ const deserializeAws_restJson1StartConfigurationSessionCommandError = async (
 ): Promise<StartConfigurationSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -296,10 +297,8 @@ const deserializeAws_restJson1InvalidParameterMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1InvalidParameterDetail(value, context),
-    };
+    acc[key] = deserializeAws_restJson1InvalidParameterDetail(value, context);
+    return acc;
   }, {});
 };
 
@@ -308,16 +307,15 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -349,6 +347,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -359,6 +363,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

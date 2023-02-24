@@ -1,42 +1,44 @@
-const { Before, Given, Then } = require("cucumber");
+const { After, Before, Given, Then } = require("@cucumber/cucumber");
 
-Before({ tags: "@elasticbeanstalk" }, function (scenario, callback) {
+Before({ tags: "@elasticbeanstalk" }, function () {
   const { ElasticBeanstalk } = require("../../../clients/client-elastic-beanstalk");
   this.service = new ElasticBeanstalk({});
-  callback();
 });
 
-Given("I create an Elastic Beanstalk application with name prefix {string}", function (prefix, callback) {
+After({ tags: "@elasticbeanstalk" }, async function () {
+  if (this.appName) {
+    await this.service.deleteApplication({ ApplicationName: this.appName });
+    this.appName = undefined;
+  }
+});
+
+Given("I create an Elastic Beanstalk application with name prefix {string}", async function (prefix) {
   this.appName = this.uniqueName(prefix);
-  const params = { ApplicationName: this.appName };
-  this.request(null, "createApplication", params, callback, false);
+  try {
+    this.data = await this.service.createApplication({ ApplicationName: this.appName });
+  } catch (error) {
+    this.error = error;
+  }
 });
 
-Given("I create an Elastic Beanstalk application version with label {string}", function (label, callback) {
+Given("I create an Elastic Beanstalk application version with label {string}", async function (label) {
   this.appVersion = label;
   const params = {
     ApplicationName: this.appName,
     VersionLabel: this.appVersion,
   };
-  this.request(null, "createApplicationVersion", params, callback);
+  await this.service.createApplicationVersion(params);
 });
 
-Given("I describe the Elastic Beanstalk application", function (callback) {
+Given("I describe the Elastic Beanstalk application", async function () {
   const params = { ApplicationNames: [this.appName] };
-  this.request(null, "describeApplications", params, callback);
+  this.data = await this.service.describeApplications(params);
 });
 
-Then("the result should contain the Elastic Beanstalk application version", function (callback) {
+Then("the result should contain the Elastic Beanstalk application version", function () {
   this.assert.deepEqual(this.data.Applications[0].Versions, [this.appVersion]);
-  callback();
 });
 
-Then("the result should contain the Elastic Beanstalk application name", function (callback) {
+Then("the result should contain the Elastic Beanstalk application name", function () {
   this.assert.equal(this.data.Applications[0].ApplicationName, this.appName);
-  callback();
-});
-
-Then("I delete the Elastic Beanstalk application", function (callback) {
-  const params = { ApplicationName: this.appName };
-  this.request(null, "deleteApplication", params, callback);
 });

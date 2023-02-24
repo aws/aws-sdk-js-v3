@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,27 +30,27 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
 
 /**
  * <p>Updates the specified fleet.</p>
- *         <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
+ *          <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
  *             the fleet name.</p>
- *         <p>If the fleet is in the <code>RUNNING</code> state, you can update the following based
+ *          <p>If the fleet is in the <code>RUNNING</code> state, you can update the following based
  *             on the fleet type:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>Always-On and On-Demand fleet types</p>
- *                 <p>You can update the  <code>DisplayName</code>, <code>ComputeCapacity</code>,
+ *                <p>You can update the  <code>DisplayName</code>, <code>ComputeCapacity</code>,
  *                         <code>ImageARN</code>, <code>ImageName</code>,
  *                         <code>IdleDisconnectTimeoutInSeconds</code>, and
  *                         <code>DisconnectTimeoutInSeconds</code> attributes.</p>
  *             </li>
  *             <li>
  *                <p>Elastic fleet type</p>
- *                 <p>You can update the  <code>DisplayName</code>,
+ *                <p>You can update the  <code>DisplayName</code>,
  *                         <code>IdleDisconnectTimeoutInSeconds</code>,
  *                     <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>, <code>SessionScriptS3Location</code>
  *                     and <code>UsbDeviceFilterStrings</code> attributes.</p>
  *             </li>
  *          </ul>
- *         <p>If the fleet is in the <code>STARTING</code> or <code>STOPPED</code> state, you can't update it.</p>
+ *          <p>If the fleet is in the <code>STARTING</code> or <code>STOPPED</code> state, you can't update it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +74,15 @@ export class UpdateFleetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,6 +98,7 @@ export class UpdateFleetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateFleetCommandInput, UpdateFleetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateFleetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

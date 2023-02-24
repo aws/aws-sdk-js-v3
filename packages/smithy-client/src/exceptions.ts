@@ -3,12 +3,12 @@ import { HttpResponse, MetadataBearer, ResponseMetadata, RetryableTrait, SmithyE
 /**
  * The type of the exception class constructor parameter. The returned type contains the properties
  * in the `ExceptionType` but not in the `BaseExceptionType`. If the `BaseExceptionType` contains
- * `$metadata` property, it's also included in the returned type.
+ * `$metadata` and `message` properties, it's also included in the returned type.
  * @internal
  */
 export type ExceptionOptionType<ExceptionType extends Error, BaseExceptionType extends Error> = Omit<
   ExceptionType,
-  Exclude<keyof BaseExceptionType, "$metadata">
+  Exclude<keyof BaseExceptionType, "$metadata" | "message">
 >;
 
 export interface ServiceExceptionOptions extends SmithyException, MetadataBearer {

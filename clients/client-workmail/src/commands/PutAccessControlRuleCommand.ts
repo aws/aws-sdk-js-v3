@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
 /**
  * <p>Adds a new access control rule for the specified organization. The rule allows or
  *          denies access to the organization for the specified IPv4 addresses, access protocol
- *          actions, and user IDs. Adding a new rule with the same name as an existing rule replaces
+ *          actions, user IDs and impersonation IDs. Adding a new rule with the same name as an existing rule replaces
  *          the older rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +56,15 @@ export class PutAccessControlRuleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutAccessControlRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class PutAccessControlRuleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutAccessControlRuleCommandInput, PutAccessControlRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutAccessControlRuleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

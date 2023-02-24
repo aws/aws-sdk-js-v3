@@ -8,7 +8,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -79,6 +79,10 @@ import {
 } from "../commands/GetLaunchProfileMemberCommand";
 import { GetStreamingImageCommandInput, GetStreamingImageCommandOutput } from "../commands/GetStreamingImageCommand";
 import {
+  GetStreamingSessionBackupCommandInput,
+  GetStreamingSessionBackupCommandOutput,
+} from "../commands/GetStreamingSessionBackupCommand";
+import {
   GetStreamingSessionCommandInput,
   GetStreamingSessionCommandOutput,
 } from "../commands/GetStreamingSessionCommand";
@@ -103,6 +107,10 @@ import {
   ListStreamingImagesCommandInput,
   ListStreamingImagesCommandOutput,
 } from "../commands/ListStreamingImagesCommand";
+import {
+  ListStreamingSessionBackupsCommandInput,
+  ListStreamingSessionBackupsCommandOutput,
+} from "../commands/ListStreamingSessionBackupsCommand";
 import {
   ListStreamingSessionsCommandInput,
   ListStreamingSessionsCommandOutput,
@@ -176,11 +184,13 @@ import {
   SharedFileSystemConfiguration,
   StreamConfiguration,
   StreamConfigurationCreate,
+  StreamConfigurationSessionBackup,
   StreamConfigurationSessionStorage,
   StreamingImage,
   StreamingImageEncryptionConfiguration,
   StreamingInstanceType,
   StreamingSession,
+  StreamingSessionBackup,
   StreamingSessionStorageMode,
   StreamingSessionStorageRoot,
   StreamingSessionStream,
@@ -194,6 +204,7 @@ import {
   ThrottlingException,
   ValidationException,
   ValidationResult,
+  VolumeConfiguration,
 } from "../models/models_0";
 import { NimbleServiceException as __BaseException } from "../models/NimbleServiceException";
 
@@ -754,11 +765,11 @@ export const serializeAws_restJson1GetLaunchProfileInitializationCommand = async
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
     launchProfileProtocolVersions: [
-      () => input.launchProfileProtocolVersions !== void 0,
+      __expectNonNull(input.launchProfileProtocolVersions, `launchProfileProtocolVersions`) != null,
       () => (input.launchProfileProtocolVersions! || []).map((_entry) => _entry as any),
     ],
-    launchPurpose: [, input.launchPurpose!],
-    platform: [, input.platform!],
+    launchPurpose: [, __expectNonNull(input.launchPurpose!, `launchPurpose`)],
+    platform: [, __expectNonNull(input.platform!, `platform`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -844,6 +855,29 @@ export const serializeAws_restJson1GetStreamingSessionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetStreamingSessionBackupCommand = async (
+  input: GetStreamingSessionBackupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-session-backups/{backupId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "backupId", () => input.backupId!, "{backupId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   return new __HttpRequest({
@@ -1097,6 +1131,33 @@ export const serializeAws_restJson1ListStreamingImagesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListStreamingSessionBackupsCommand = async (
+  input: ListStreamingSessionBackupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-session-backups";
+  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    ownedBy: [, input.ownedBy!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListStreamingSessionsCommand = async (
   input: ListStreamingSessionsCommandInput,
   context: __SerdeContext
@@ -1296,6 +1357,7 @@ export const serializeAws_restJson1StartStreamingSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -1304,6 +1366,9 @@ export const serializeAws_restJson1StartStreamingSessionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
+  body = JSON.stringify({
+    ...(input.backupId != null && { backupId: input.backupId }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1345,6 +1410,7 @@ export const serializeAws_restJson1StopStreamingSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -1353,6 +1419,9 @@ export const serializeAws_restJson1StopStreamingSessionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
+  body = JSON.stringify({
+    ...(input.volumeRetentionMode != null && { volumeRetentionMode: input.volumeRetentionMode }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1400,7 +1469,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1651,7 +1723,7 @@ const deserializeAws_restJson1AcceptEulasCommandError = async (
 ): Promise<AcceptEulasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1710,7 +1782,7 @@ const deserializeAws_restJson1CreateLaunchProfileCommandError = async (
 ): Promise<CreateLaunchProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1769,7 +1841,7 @@ const deserializeAws_restJson1CreateStreamingImageCommandError = async (
 ): Promise<CreateStreamingImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1828,7 +1900,7 @@ const deserializeAws_restJson1CreateStreamingSessionCommandError = async (
 ): Promise<CreateStreamingSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1887,7 +1959,7 @@ const deserializeAws_restJson1CreateStreamingSessionStreamCommandError = async (
 ): Promise<CreateStreamingSessionStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1946,7 +2018,7 @@ const deserializeAws_restJson1CreateStudioCommandError = async (
 ): Promise<CreateStudioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2005,7 +2077,7 @@ const deserializeAws_restJson1CreateStudioComponentCommandError = async (
 ): Promise<CreateStudioComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2064,7 +2136,7 @@ const deserializeAws_restJson1DeleteLaunchProfileCommandError = async (
 ): Promise<DeleteLaunchProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2120,7 +2192,7 @@ const deserializeAws_restJson1DeleteLaunchProfileMemberCommandError = async (
 ): Promise<DeleteLaunchProfileMemberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2179,7 +2251,7 @@ const deserializeAws_restJson1DeleteStreamingImageCommandError = async (
 ): Promise<DeleteStreamingImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2238,7 +2310,7 @@ const deserializeAws_restJson1DeleteStreamingSessionCommandError = async (
 ): Promise<DeleteStreamingSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2297,7 +2369,7 @@ const deserializeAws_restJson1DeleteStudioCommandError = async (
 ): Promise<DeleteStudioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2356,7 +2428,7 @@ const deserializeAws_restJson1DeleteStudioComponentCommandError = async (
 ): Promise<DeleteStudioComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2412,7 +2484,7 @@ const deserializeAws_restJson1DeleteStudioMemberCommandError = async (
 ): Promise<DeleteStudioMemberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2471,7 +2543,7 @@ const deserializeAws_restJson1GetEulaCommandError = async (
 ): Promise<GetEulaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2530,7 +2602,7 @@ const deserializeAws_restJson1GetLaunchProfileCommandError = async (
 ): Promise<GetLaunchProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2598,7 +2670,7 @@ const deserializeAws_restJson1GetLaunchProfileDetailsCommandError = async (
 ): Promise<GetLaunchProfileDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2660,7 +2732,7 @@ const deserializeAws_restJson1GetLaunchProfileInitializationCommandError = async
 ): Promise<GetLaunchProfileInitializationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2719,7 +2791,7 @@ const deserializeAws_restJson1GetLaunchProfileMemberCommandError = async (
 ): Promise<GetLaunchProfileMemberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2778,7 +2850,7 @@ const deserializeAws_restJson1GetStreamingImageCommandError = async (
 ): Promise<GetStreamingImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2837,7 +2909,7 @@ const deserializeAws_restJson1GetStreamingSessionCommandError = async (
 ): Promise<GetStreamingSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2856,6 +2928,65 @@ const deserializeAws_restJson1GetStreamingSessionCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.nimble#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.nimble#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetStreamingSessionBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStreamingSessionBackupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetStreamingSessionBackupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.streamingSessionBackup != null) {
+    contents.streamingSessionBackup = deserializeAws_restJson1StreamingSessionBackup(
+      data.streamingSessionBackup,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetStreamingSessionBackupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStreamingSessionBackupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.nimble#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.nimble#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.nimble#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.nimble#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -2896,7 +3027,7 @@ const deserializeAws_restJson1GetStreamingSessionStreamCommandError = async (
 ): Promise<GetStreamingSessionStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2955,7 +3086,7 @@ const deserializeAws_restJson1GetStudioCommandError = async (
 ): Promise<GetStudioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3014,7 +3145,7 @@ const deserializeAws_restJson1GetStudioComponentCommandError = async (
 ): Promise<GetStudioComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3073,7 +3204,7 @@ const deserializeAws_restJson1GetStudioMemberCommandError = async (
 ): Promise<GetStudioMemberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3135,7 +3266,7 @@ const deserializeAws_restJson1ListEulaAcceptancesCommandError = async (
 ): Promise<ListEulaAcceptancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3197,7 +3328,7 @@ const deserializeAws_restJson1ListEulasCommandError = async (
 ): Promise<ListEulasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3259,7 +3390,7 @@ const deserializeAws_restJson1ListLaunchProfileMembersCommandError = async (
 ): Promise<ListLaunchProfileMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3321,7 +3452,7 @@ const deserializeAws_restJson1ListLaunchProfilesCommandError = async (
 ): Promise<ListLaunchProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3383,7 +3514,7 @@ const deserializeAws_restJson1ListStreamingImagesCommandError = async (
 ): Promise<ListStreamingImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3402,6 +3533,68 @@ const deserializeAws_restJson1ListStreamingImagesCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.nimble#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.nimble#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListStreamingSessionBackupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStreamingSessionBackupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListStreamingSessionBackupsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.streamingSessionBackups != null) {
+    contents.streamingSessionBackups = deserializeAws_restJson1StreamingSessionBackupList(
+      data.streamingSessionBackups,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListStreamingSessionBackupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStreamingSessionBackupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.nimble#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.nimble#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.nimble#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.nimble#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -3445,7 +3638,7 @@ const deserializeAws_restJson1ListStreamingSessionsCommandError = async (
 ): Promise<ListStreamingSessionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3507,7 +3700,7 @@ const deserializeAws_restJson1ListStudioComponentsCommandError = async (
 ): Promise<ListStudioComponentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3569,7 +3762,7 @@ const deserializeAws_restJson1ListStudioMembersCommandError = async (
 ): Promise<ListStudioMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3631,7 +3824,7 @@ const deserializeAws_restJson1ListStudiosCommandError = async (
 ): Promise<ListStudiosCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3690,7 +3883,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3746,7 +3939,7 @@ const deserializeAws_restJson1PutLaunchProfileMembersCommandError = async (
 ): Promise<PutLaunchProfileMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3802,7 +3995,7 @@ const deserializeAws_restJson1PutStudioMembersCommandError = async (
 ): Promise<PutStudioMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3861,7 +4054,7 @@ const deserializeAws_restJson1StartStreamingSessionCommandError = async (
 ): Promise<StartStreamingSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3920,7 +4113,7 @@ const deserializeAws_restJson1StartStudioSSOConfigurationRepairCommandError = as
 ): Promise<StartStudioSSOConfigurationRepairCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3979,7 +4172,7 @@ const deserializeAws_restJson1StopStreamingSessionCommandError = async (
 ): Promise<StopStreamingSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4035,7 +4228,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4091,7 +4284,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4150,7 +4343,7 @@ const deserializeAws_restJson1UpdateLaunchProfileCommandError = async (
 ): Promise<UpdateLaunchProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4209,7 +4402,7 @@ const deserializeAws_restJson1UpdateLaunchProfileMemberCommandError = async (
 ): Promise<UpdateLaunchProfileMemberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4268,7 +4461,7 @@ const deserializeAws_restJson1UpdateStreamingImageCommandError = async (
 ): Promise<UpdateStreamingImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4327,7 +4520,7 @@ const deserializeAws_restJson1UpdateStudioCommandError = async (
 ): Promise<UpdateStudioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4386,7 +4579,7 @@ const deserializeAws_restJson1UpdateStudioComponentCommandError = async (
 ): Promise<UpdateStudioComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4725,6 +4918,7 @@ const serializeAws_restJson1StreamConfigurationCreate = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.automaticTerminationMode != null && { automaticTerminationMode: input.automaticTerminationMode }),
     ...(input.clipboardMode != null && { clipboardMode: input.clipboardMode }),
     ...(input.ec2InstanceTypes != null && {
       ec2InstanceTypes: serializeAws_restJson1StreamingInstanceTypeList(input.ec2InstanceTypes, context),
@@ -4733,12 +4927,29 @@ const serializeAws_restJson1StreamConfigurationCreate = (
     ...(input.maxStoppedSessionLengthInMinutes != null && {
       maxStoppedSessionLengthInMinutes: input.maxStoppedSessionLengthInMinutes,
     }),
+    ...(input.sessionBackup != null && {
+      sessionBackup: serializeAws_restJson1StreamConfigurationSessionBackup(input.sessionBackup, context),
+    }),
+    ...(input.sessionPersistenceMode != null && { sessionPersistenceMode: input.sessionPersistenceMode }),
     ...(input.sessionStorage != null && {
       sessionStorage: serializeAws_restJson1StreamConfigurationSessionStorage(input.sessionStorage, context),
     }),
     ...(input.streamingImageIds != null && {
       streamingImageIds: serializeAws_restJson1StreamingImageIdList(input.streamingImageIds, context),
     }),
+    ...(input.volumeConfiguration != null && {
+      volumeConfiguration: serializeAws_restJson1VolumeConfiguration(input.volumeConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1StreamConfigurationSessionBackup = (
+  input: StreamConfigurationSessionBackup,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxBackupsToRetain != null && { maxBackupsToRetain: input.maxBackupsToRetain }),
+    ...(input.mode != null && { mode: input.mode }),
   };
 };
 
@@ -4880,11 +5091,17 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
+};
+
+const serializeAws_restJson1VolumeConfiguration = (input: VolumeConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.iops != null && { iops: input.iops }),
+    ...(input.size != null && { size: input.size }),
+    ...(input.throughput != null && { throughput: input.throughput }),
+  };
 };
 
 const deserializeAws_restJson1ActiveDirectoryComputerAttribute = (
@@ -4963,16 +5180,19 @@ const deserializeAws_restJson1EC2SubnetIdList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1Eula = (output: any, context: __SerdeContext): Eula => {
   return {
     content: __expectString(output.content),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     eulaId: __expectString(output.eulaId),
     name: __expectString(output.name),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1EulaAcceptance = (output: any, context: __SerdeContext): EulaAcceptance => {
   return {
-    acceptedAt: output.acceptedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.acceptedAt)) : undefined,
+    acceptedAt:
+      output.acceptedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.acceptedAt)) : undefined,
     acceptedBy: __expectString(output.acceptedBy),
     accepteeId: __expectString(output.accepteeId),
     eulaAcceptanceId: __expectString(output.eulaAcceptanceId),
@@ -5021,17 +5241,16 @@ const deserializeAws_restJson1ExceptionContext = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
 const deserializeAws_restJson1LaunchProfile = (output: any, context: __SerdeContext): LaunchProfile => {
   return {
     arn: __expectString(output.arn),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     ec2SubnetIds:
@@ -5054,7 +5273,8 @@ const deserializeAws_restJson1LaunchProfile = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1LaunchProfileStudioComponentIdList(output.studioComponentIds, context)
         : undefined,
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
     validationResults:
       output.validationResults != null
@@ -5250,6 +5470,7 @@ const deserializeAws_restJson1SharedFileSystemConfiguration = (
 
 const deserializeAws_restJson1StreamConfiguration = (output: any, context: __SerdeContext): StreamConfiguration => {
   return {
+    automaticTerminationMode: __expectString(output.automaticTerminationMode),
     clipboardMode: __expectString(output.clipboardMode),
     ec2InstanceTypes:
       output.ec2InstanceTypes != null
@@ -5257,6 +5478,11 @@ const deserializeAws_restJson1StreamConfiguration = (output: any, context: __Ser
         : undefined,
     maxSessionLengthInMinutes: __expectInt32(output.maxSessionLengthInMinutes),
     maxStoppedSessionLengthInMinutes: __expectInt32(output.maxStoppedSessionLengthInMinutes),
+    sessionBackup:
+      output.sessionBackup != null
+        ? deserializeAws_restJson1StreamConfigurationSessionBackup(output.sessionBackup, context)
+        : undefined,
+    sessionPersistenceMode: __expectString(output.sessionPersistenceMode),
     sessionStorage:
       output.sessionStorage != null
         ? deserializeAws_restJson1StreamConfigurationSessionStorage(output.sessionStorage, context)
@@ -5265,6 +5491,20 @@ const deserializeAws_restJson1StreamConfiguration = (output: any, context: __Ser
       output.streamingImageIds != null
         ? deserializeAws_restJson1StreamingImageIdList(output.streamingImageIds, context)
         : undefined,
+    volumeConfiguration:
+      output.volumeConfiguration != null
+        ? deserializeAws_restJson1VolumeConfiguration(output.volumeConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StreamConfigurationSessionBackup = (
+  output: any,
+  context: __SerdeContext
+): StreamConfigurationSessionBackup => {
+  return {
+    maxBackupsToRetain: __expectInt32(output.maxBackupsToRetain),
+    mode: __expectString(output.mode),
   } as any;
 };
 
@@ -5352,26 +5592,75 @@ const deserializeAws_restJson1StreamingInstanceTypeList = (
 const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeContext): StreamingSession => {
   return {
     arn: __expectString(output.arn),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    automaticTerminationMode: __expectString(output.automaticTerminationMode),
+    backupMode: __expectString(output.backupMode),
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     ec2InstanceType: __expectString(output.ec2InstanceType),
     launchProfileId: __expectString(output.launchProfileId),
+    maxBackupsToRetain: __expectInt32(output.maxBackupsToRetain),
     ownedBy: __expectString(output.ownedBy),
     sessionId: __expectString(output.sessionId),
-    startedAt: output.startedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.startedAt)) : undefined,
+    sessionPersistenceMode: __expectString(output.sessionPersistenceMode),
+    startedAt:
+      output.startedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startedAt)) : undefined,
     startedBy: __expectString(output.startedBy),
+    startedFromBackupId: __expectString(output.startedFromBackupId),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
     statusMessage: __expectString(output.statusMessage),
-    stopAt: output.stopAt != null ? __expectNonNull(__parseRfc3339DateTime(output.stopAt)) : undefined,
-    stoppedAt: output.stoppedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.stoppedAt)) : undefined,
+    stopAt: output.stopAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stopAt)) : undefined,
+    stoppedAt:
+      output.stoppedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stoppedAt)) : undefined,
     stoppedBy: __expectString(output.stoppedBy),
     streamingImageId: __expectString(output.streamingImageId),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    terminateAt: output.terminateAt != null ? __expectNonNull(__parseRfc3339DateTime(output.terminateAt)) : undefined,
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    terminateAt:
+      output.terminateAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.terminateAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
+    volumeConfiguration:
+      output.volumeConfiguration != null
+        ? deserializeAws_restJson1VolumeConfiguration(output.volumeConfiguration, context)
+        : undefined,
+    volumeRetentionMode: __expectString(output.volumeRetentionMode),
   } as any;
+};
+
+const deserializeAws_restJson1StreamingSessionBackup = (
+  output: any,
+  context: __SerdeContext
+): StreamingSessionBackup => {
+  return {
+    arn: __expectString(output.arn),
+    backupId: __expectString(output.backupId),
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
+    launchProfileId: __expectString(output.launchProfileId),
+    ownedBy: __expectString(output.ownedBy),
+    sessionId: __expectString(output.sessionId),
+    state: __expectString(output.state),
+    statusCode: __expectString(output.statusCode),
+    statusMessage: __expectString(output.statusMessage),
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StreamingSessionBackupList = (
+  output: any,
+  context: __SerdeContext
+): StreamingSessionBackup[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StreamingSessionBackup(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1StreamingSessionList = (output: any, context: __SerdeContext): StreamingSession[] => {
@@ -5416,9 +5705,11 @@ const deserializeAws_restJson1StreamingSessionStream = (
   context: __SerdeContext
 ): StreamingSessionStream => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
-    expiresAt: output.expiresAt != null ? __expectNonNull(__parseRfc3339DateTime(output.expiresAt)) : undefined,
+    expiresAt:
+      output.expiresAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.expiresAt)) : undefined,
     ownedBy: __expectString(output.ownedBy),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
@@ -5431,7 +5722,8 @@ const deserializeAws_restJson1Studio = (output: any, context: __SerdeContext): S
   return {
     adminRoleArn: __expectString(output.adminRoleArn),
     arn: __expectString(output.arn),
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     displayName: __expectString(output.displayName),
     homeRegion: __expectString(output.homeRegion),
     ssoClientId: __expectString(output.ssoClientId),
@@ -5446,7 +5738,8 @@ const deserializeAws_restJson1Studio = (output: any, context: __SerdeContext): S
     studioName: __expectString(output.studioName),
     studioUrl: __expectString(output.studioUrl),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     userRoleArn: __expectString(output.userRoleArn),
   } as any;
 };
@@ -5458,7 +5751,8 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
       output.configuration != null
         ? deserializeAws_restJson1StudioComponentConfiguration(output.configuration, context)
         : undefined,
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     ec2SecurityGroupIds:
@@ -5483,7 +5777,8 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
     subtype: __expectString(output.subtype),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     type: __expectString(output.type),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
   } as any;
 };
@@ -5583,14 +5878,16 @@ const deserializeAws_restJson1StudioComponentSummary = (
   context: __SerdeContext
 ): StudioComponentSummary => {
   return {
-    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     name: __expectString(output.name),
     studioComponentId: __expectString(output.studioComponentId),
     subtype: __expectString(output.subtype),
     type: __expectString(output.type),
-    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
   } as any;
 };
@@ -5658,10 +5955,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5686,9 +5981,18 @@ const deserializeAws_restJson1ValidationResults = (output: any, context: __Serde
   return retVal;
 };
 
+const deserializeAws_restJson1VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
+  return {
+    iops: __expectInt32(output.iops),
+    size: __expectInt32(output.size),
+    throughput: __expectInt32(output.throughput),
+  } as any;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -5720,6 +6024,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -5730,6 +6040,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

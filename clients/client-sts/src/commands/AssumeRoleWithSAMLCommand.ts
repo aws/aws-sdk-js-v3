@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -75,9 +76,9 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *          operations.</p>
  *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
- *          policy. You can also specify up to 10 managed policies to use as managed session policies.
- *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
- *          characters. Passing policies to this operation returns new
+ *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+ *          managed session policies. The plaintext that you use for both inline and managed session
+ *          policies can't exceed 2,048 characters. Passing policies to this operation returns new
  *          temporary credentials. The resulting session's permissions are the intersection of the
  *          role's identity-based policy and the session policies. You can use the role's temporary
  *          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -107,16 +108,13 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *          characters and the values can’t exceed 256 characters. For these and additional limits, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
  *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
- *
  *          <note>
- *             <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
- *             packed binary format that has a separate limit. Your request can fail for this limit
- *             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
- *             response element indicates by percentage how close the policies and tags for your
- *             request are to the upper size limit.
- *             </p>
+ *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+ *             and session tags into a packed binary format that has a separate limit. Your request can
+ *             fail for this limit even if your plaintext meets the other requirements. The
+ *                <code>PackedPolicySize</code> response element indicates by percentage how close the
+ *             policies and tags for your request are to the upper size limit.</p>
  *          </note>
- *
  *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
  *          you do, session tags override the role's tags with the same key.</p>
  *          <p>An administrator must grant you the permissions necessary to pass session tags. The
@@ -183,6 +181,16 @@ export class AssumeRoleWithSAMLCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AssumeRoleWithSAMLCommandInput) {
     // Start section: command_constructor
     super();
@@ -198,6 +206,9 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssumeRoleWithSAMLCommandInput, AssumeRoleWithSAMLCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssumeRoleWithSAMLCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

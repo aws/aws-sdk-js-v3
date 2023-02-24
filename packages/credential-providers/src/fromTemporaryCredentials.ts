@@ -1,11 +1,12 @@
 import { AssumeRoleCommand, AssumeRoleCommandInput, STSClient, STSClientConfig } from "@aws-sdk/client-sts";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { CredentialProvider, Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@aws-sdk/types";
 
 export interface FromTemporaryCredentialsOptions {
-  params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string };
-  masterCredentials?: Credentials | CredentialProvider;
+  params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string; };
+  masterCredentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
   clientConfig?: STSClientConfig;
+  clientPlugins?: Pluggable<any, any>[];
   mfaCodeProvider?: (mfaSerial: string) => Promise<string>;
 }
 
@@ -37,6 +38,9 @@ export interface FromTemporaryCredentialsOptions {
  *     },
  *     // Optional. Custom STS client configurations overriding the default ones.
  *     clientConfig: { region },
+ *     // Optional. Custom STS client middleware plugin to modify the client default behavior.
+ *     // e.g. adding custom headers.
+ *     clientPlugins: [addFooHeadersPlugin],
  *     // Optional. A function that returns a promise fulfilled with an MFA token code for the provided MFA Serial code.
  *     // Required if `params` has `SerialNumber` config.
  *     mfaCodeProvider: async mfaSerial => {
@@ -46,9 +50,9 @@ export interface FromTemporaryCredentialsOptions {
  * });
  * ```
  */
-export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOptions): CredentialProvider => {
+export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOptions): AwsCredentialIdentityProvider => {
   let stsClient: STSClient;
-  return async (): Promise<Credentials> => {
+  return async (): Promise<AwsCredentialIdentity> => {
     const params = { ...options.params, RoleSessionName: options.params.RoleSessionName ?? "aws-sdk-js-" + Date.now() };
     if (params?.SerialNumber) {
       if (!options.mfaCodeProvider) {
@@ -60,6 +64,11 @@ export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOption
       params.TokenCode = await options.mfaCodeProvider(params?.SerialNumber);
     }
     if (!stsClient) stsClient = new STSClient({ ...options.clientConfig, credentials: options.masterCredentials });
+    if (options.clientPlugins) {
+      for (const plugin of options.clientPlugins) {
+        stsClient.middlewareStack.use(plugin);
+      }
+    }
     const { Credentials } = await stsClient.send(new AssumeRoleCommand(params));
     if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
       throw new CredentialsProviderError(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`);

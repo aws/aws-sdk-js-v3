@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,12 +32,12 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  *             a user. Use the boundary to control the maximum permissions that the user can have.
  *             Setting a permissions boundary is an advanced feature that can affect the permissions
  *             for the user.</p>
- *         <important>
+ *          <important>
  *             <p>Policies that are used as permissions boundaries do not provide permissions. You
  *                 must also attach a permissions policy to the user. To learn how the effective
  *                 permissions for a user are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON policy
  *                     evaluation logic</a> in the IAM User Guide. </p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +61,15 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutUserPermissionsBoundaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutUserPermissionsBoundaryCommandInput, PutUserPermissionsBoundaryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutUserPermissionsBoundaryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

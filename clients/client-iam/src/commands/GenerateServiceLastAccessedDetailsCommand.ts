@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,7 +36,7 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *             usually appears within four hours. IAM reports activity for at least the last 400
  *             days, or less if your Region began supporting this feature within the last year. For
  *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a>.</p>
- *         <important>
+ *          <important>
  *             <p>The service last accessed data includes all attempts to access an Amazon Web Services API, not
  *                 just the successful ones. This includes all attempts that were made using the
  *                 Amazon Web Services Management Console, the Amazon Web Services API through any of the SDKs, or any of the command line tools.
@@ -45,44 +46,44 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *                 and whether they were successful or denied access. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
  *                     IAM events with CloudTrail</a> in the
  *                     <i>IAM User Guide</i>.</p>
- *         </important>
- *         <p>The <code>GenerateServiceLastAccessedDetails</code> operation returns a
+ *          </important>
+ *          <p>The <code>GenerateServiceLastAccessedDetails</code> operation returns a
  *                 <code>JobId</code>. Use this parameter in the following operations to retrieve the
  *             following details from your report: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a>GetServiceLastAccessedDetails</a> – Use this operation
  *                     for users, groups, roles, or policies to list every Amazon Web Services service that the
  *                     resource could access using permissions policies. For each service, the response
  *                     includes information about the most recent access attempt.</p>
- *                 <p>The <code>JobId</code> returned by
+ *                <p>The <code>JobId</code> returned by
  *                         <code>GenerateServiceLastAccessedDetail</code> must be used by the same role
  *                     within a session, or by the same user when used to call
  *                         <code>GetServiceLastAccessedDetail</code>.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a>GetServiceLastAccessedDetailsWithEntities</a> – Use this
  *                     operation for groups and policies to list information about the associated
  *                     entities (users or roles) that attempted to access a specific Amazon Web Services service.
  *                 </p>
  *             </li>
  *          </ul>
- *         <p>To check the status of the <code>GenerateServiceLastAccessedDetails</code> request,
+ *          <p>To check the status of the <code>GenerateServiceLastAccessedDetails</code> request,
  *             use the <code>JobId</code> parameter in the same operations and test the
  *                 <code>JobStatus</code> response parameter.</p>
- *         <p>For additional information about the permissions policies that allow an identity
+ *          <p>For additional information about the permissions policies that allow an identity
  *             (user, group, or role) to access specific services, use the <a>ListPoliciesGrantingServiceAccess</a> operation.</p>
- *         <note>
+ *          <note>
  *             <p>Service last accessed data does not use other policy types when determining
  *                 whether a resource could access a service. These other policy types include
  *                 resource-based policies, access control lists, Organizations policies, IAM permissions
  *                 boundaries, and STS assume role policies. It only applies permissions policy
  *                 logic. For more about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
  *                 <i>IAM User Guide</i>.</p>
- *         </note>
- *         <p>For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing permissions using service last accessed data</a> in the
+ *          </note>
+ *          <p>For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing permissions using service last accessed data</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +108,15 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GenerateServiceLastAccessedDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GenerateServiceLastAccessedDetailsCommandInput, GenerateServiceLastAccessedDetailsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GenerateServiceLastAccessedDetailsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

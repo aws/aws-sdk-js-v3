@@ -13,6 +13,11 @@ import {
   AssociatePackageCommandOutput,
 } from "./commands/AssociatePackageCommand";
 import {
+  AuthorizeVpcEndpointAccessCommand,
+  AuthorizeVpcEndpointAccessCommandInput,
+  AuthorizeVpcEndpointAccessCommandOutput,
+} from "./commands/AuthorizeVpcEndpointAccessCommand";
+import {
   CancelServiceSoftwareUpdateCommand,
   CancelServiceSoftwareUpdateCommandInput,
   CancelServiceSoftwareUpdateCommandOutput,
@@ -33,6 +38,11 @@ import {
   CreatePackageCommandOutput,
 } from "./commands/CreatePackageCommand";
 import {
+  CreateVpcEndpointCommand,
+  CreateVpcEndpointCommandInput,
+  CreateVpcEndpointCommandOutput,
+} from "./commands/CreateVpcEndpointCommand";
+import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
@@ -52,6 +62,11 @@ import {
   DeletePackageCommandInput,
   DeletePackageCommandOutput,
 } from "./commands/DeletePackageCommand";
+import {
+  DeleteVpcEndpointCommand,
+  DeleteVpcEndpointCommandInput,
+  DeleteVpcEndpointCommandOutput,
+} from "./commands/DeleteVpcEndpointCommand";
 import {
   DescribeDomainAutoTunesCommand,
   DescribeDomainAutoTunesCommandInput,
@@ -77,6 +92,11 @@ import {
   DescribeDomainsCommandInput,
   DescribeDomainsCommandOutput,
 } from "./commands/DescribeDomainsCommand";
+import {
+  DescribeDryRunProgressCommand,
+  DescribeDryRunProgressCommandInput,
+  DescribeDryRunProgressCommandOutput,
+} from "./commands/DescribeDryRunProgressCommand";
 import {
   DescribeInboundConnectionsCommand,
   DescribeInboundConnectionsCommandInput,
@@ -107,6 +127,11 @@ import {
   DescribeReservedInstancesCommandInput,
   DescribeReservedInstancesCommandOutput,
 } from "./commands/DescribeReservedInstancesCommand";
+import {
+  DescribeVpcEndpointsCommand,
+  DescribeVpcEndpointsCommandInput,
+  DescribeVpcEndpointsCommandOutput,
+} from "./commands/DescribeVpcEndpointsCommand";
 import {
   DissociatePackageCommand,
   DissociatePackageCommandInput,
@@ -152,12 +177,32 @@ import {
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
 } from "./commands/ListPackagesForDomainCommand";
+import {
+  ListScheduledActionsCommand,
+  ListScheduledActionsCommandInput,
+  ListScheduledActionsCommandOutput,
+} from "./commands/ListScheduledActionsCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   ListVersionsCommand,
   ListVersionsCommandInput,
   ListVersionsCommandOutput,
 } from "./commands/ListVersionsCommand";
+import {
+  ListVpcEndpointAccessCommand,
+  ListVpcEndpointAccessCommandInput,
+  ListVpcEndpointAccessCommandOutput,
+} from "./commands/ListVpcEndpointAccessCommand";
+import {
+  ListVpcEndpointsCommand,
+  ListVpcEndpointsCommandInput,
+  ListVpcEndpointsCommandOutput,
+} from "./commands/ListVpcEndpointsCommand";
+import {
+  ListVpcEndpointsForDomainCommand,
+  ListVpcEndpointsForDomainCommandInput,
+  ListVpcEndpointsForDomainCommandOutput,
+} from "./commands/ListVpcEndpointsForDomainCommand";
 import {
   PurchaseReservedInstanceOfferingCommand,
   PurchaseReservedInstanceOfferingCommandInput,
@@ -169,6 +214,11 @@ import {
   RejectInboundConnectionCommandOutput,
 } from "./commands/RejectInboundConnectionCommand";
 import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import {
+  RevokeVpcEndpointAccessCommand,
+  RevokeVpcEndpointAccessCommandInput,
+  RevokeVpcEndpointAccessCommandOutput,
+} from "./commands/RevokeVpcEndpointAccessCommand";
 import {
   StartServiceSoftwareUpdateCommand,
   StartServiceSoftwareUpdateCommandInput,
@@ -185,6 +235,16 @@ import {
   UpdatePackageCommandOutput,
 } from "./commands/UpdatePackageCommand";
 import {
+  UpdateScheduledActionCommand,
+  UpdateScheduledActionCommandInput,
+  UpdateScheduledActionCommandOutput,
+} from "./commands/UpdateScheduledActionCommand";
+import {
+  UpdateVpcEndpointCommand,
+  UpdateVpcEndpointCommandInput,
+  UpdateVpcEndpointCommandOutput,
+} from "./commands/UpdateVpcEndpointCommand";
+import {
   UpgradeDomainCommand,
   UpgradeDomainCommandInput,
   UpgradeDomainCommandOutput,
@@ -192,22 +252,22 @@ import {
 import { OpenSearchClient } from "./OpenSearchClient";
 
 /**
- * <fullname>Amazon OpenSearch Configuration Service</fullname>
- *     <p>Use the Amazon OpenSearch configuration API to create, configure, and manage Amazon OpenSearch Service domains.</p>
- *     <p>For sample code that uses the configuration API, see the <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html">
- *       Amazon OpenSearch Service Developer Guide</a>.
- *       The guide also contains <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html">
- *         sample
- *         code for sending signed HTTP requests to the OpenSearch APIs</a>.
- *     </p>
- *     <p>The endpoint for configuration service requests is region-specific: es.<i>region</i>.amazonaws.com.
- *       For example, es.us-east-1.amazonaws.com. For a current list of supported regions and endpoints,
- *       see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions" target="_blank">Regions and Endpoints</a>.
- *     </p>
+ * <p>Use the Amazon OpenSearch Service configuration API to create, configure, and manage
+ *    OpenSearch Service domains.</p>
+ *          <p>For sample code that uses the configuration API, see the <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html">
+ *                <i>Amazon OpenSearch Service Developer Guide</i>
+ *             </a>. The guide also
+ *    contains <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html">sample code</a> for
+ *    sending signed HTTP requests to the OpenSearch APIs. The endpoint for configuration service
+ *    requests is Region specific: es.<i>region</i>.amazonaws.com. For example,
+ *    es.us-east-1.amazonaws.com. For a current list of supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions">Amazon Web Services
+ *     service endpoints</a>.</p>
  */
 export class OpenSearch extends OpenSearchClient {
   /**
-   * <p>Allows the remote domain owner to accept an inbound cross-cluster connection request.</p>
+   * <p>Allows the destination Amazon OpenSearch Service domain owner to accept an inbound
+   *    cross-cluster search connection request. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
+   *     for Amazon OpenSearch Service</a>.</p>
    */
   public acceptInboundConnection(
     args: AcceptInboundConnectionCommandInput,
@@ -239,11 +299,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Attaches tags to an existing domain. Tags are a set of case-sensitive key value pairs. An
-   *       domain can have up to 10 tags. See
-   *       <a href="http://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging" target="_blank">
-   *         Tagging Amazon OpenSearch Service domains</a> for more information.
-   *     </p>
+   * <p>Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of
+   *    case-sensitive key-value pairs. A domain can have up to 10 tags. For more information, see
+   *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
   public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
@@ -269,7 +327,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Associates a package with an Amazon OpenSearch Service domain.</p>
+   * <p>Associates a package with an Amazon OpenSearch Service domain. For more information, see
+   *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages
+   *     for Amazon OpenSearch Service</a>.</p>
    */
   public associatePackage(
     args: AssociatePackageCommandInput,
@@ -301,9 +361,42 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can only perform this operation before
-   *       the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.
-   *     </p>
+   * <p>Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC
+   *    endpoint.</p>
+   */
+  public authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AuthorizeVpcEndpointAccessCommandOutput>;
+  public authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    cb: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
+  ): Promise<AuthorizeVpcEndpointAccessCommandOutput> | void {
+    const command = new AuthorizeVpcEndpointAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can
+   *    only perform this operation before the <code>AutomatedUpdateDate</code> and when the domain's
+   *     <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in Amazon OpenSearch Service</a>.</p>
    */
   public cancelServiceSoftwareUpdate(
     args: CancelServiceSoftwareUpdateCommandInput,
@@ -335,10 +428,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Creates a new Amazon OpenSearch Service domain. For more information,
-   *       see <a href="http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html" target="_blank">Creating and managing Amazon OpenSearch Service domains
-   *       </a> in the <i>Amazon OpenSearch Service Developer Guide</i>.
-   *     </p>
+   * <p>Creates an Amazon OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html">Creating and managing Amazon OpenSearch Service domains</a>.</p>
    */
   public createDomain(
     args: CreateDomainCommandInput,
@@ -367,7 +457,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Creates a new cross-cluster connection from a local OpenSearch domain to a remote OpenSearch domain.</p>
+   * <p>Creates a new cross-cluster search connection from a source Amazon OpenSearch Service domain
+   *    to a destination domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
+   *     for Amazon OpenSearch Service</a>.</p>
    */
   public createOutboundConnection(
     args: CreateOutboundConnectionCommandInput,
@@ -399,7 +491,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Create a package for use with Amazon OpenSearch Service domains.</p>
+   * <p>Creates a package for use with Amazon OpenSearch Service domains. For more information, see
+   *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon OpenSearch Service</a>.</p>
    */
   public createPackage(
     args: CreatePackageCommandInput,
@@ -431,9 +524,40 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Permanently deletes the specified domain and all of its data. Once a domain is deleted, it cannot
-   *       be recovered.
-   *     </p>
+   * <p>Creates an Amazon OpenSearch Service-managed VPC endpoint.</p>
+   */
+  public createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcEndpointCommandOutput>;
+  public createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): void;
+  public createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): void;
+  public createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcEndpointCommandOutput) => void),
+    cb?: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): Promise<CreateVpcEndpointCommandOutput> | void {
+    const command = new CreateVpcEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an Amazon OpenSearch Service domain and all of its data. You can't recover a domain
+   *    after you delete it.</p>
    */
   public deleteDomain(
     args: DeleteDomainCommandInput,
@@ -462,7 +586,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Allows the remote domain owner to delete an existing inbound cross-cluster connection.</p>
+   * <p>Allows the destination Amazon OpenSearch Service domain owner to delete an existing inbound
+   *    cross-cluster search connection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
+   *     for Amazon OpenSearch Service</a>.</p>
    */
   public deleteInboundConnection(
     args: DeleteInboundConnectionCommandInput,
@@ -494,7 +620,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Allows the local domain owner to delete an existing outbound cross-cluster connection.</p>
+   * <p>Allows the source Amazon OpenSearch Service domain owner to delete an existing outbound
+   *    cross-cluster search connection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
+   *     for Amazon OpenSearch Service</a>.</p>
    */
   public deleteOutboundConnection(
     args: DeleteOutboundConnectionCommandInput,
@@ -526,7 +654,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Deletes the package.</p>
+   * <p>Deletes an Amazon OpenSearch Service package. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+   *     packages for Amazon OpenSearch Service</a>.</p>
    */
   public deletePackage(
     args: DeletePackageCommandInput,
@@ -558,9 +687,40 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Returns domain configuration information about the specified domain, including the domain ID,
-   *       domain endpoint, and domain ARN.
-   *     </p>
+   * <p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
+   */
+  public deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcEndpointCommandOutput>;
+  public deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
+  ): void;
+  public deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
+  ): void;
+  public deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcEndpointCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
+  ): Promise<DeleteVpcEndpointCommandOutput> | void {
+    const command = new DeleteVpcEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the domain configuration for the specified Amazon OpenSearch Service domain,
+   *    including the domain ID, domain service endpoint, and domain ARN.</p>
    */
   public describeDomain(
     args: DescribeDomainCommandInput,
@@ -592,9 +752,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Provides scheduled Auto-Tune action details for the domain, such as Auto-Tune action type,
-   *       description, severity, and scheduled date.
-   *     </p>
+   * <p>Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch Service
+   *    domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
+   *     Service</a>.</p>
    */
   public describeDomainAutoTunes(
     args: DescribeDomainAutoTunesCommandInput,
@@ -626,8 +786,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Returns information about the current blue/green deployment happening on a domain, including
-   *       a change ID, status, and progress stages.</p>
+   * <p>Returns information about the current blue/green deployment happening on an Amazon
+   *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html">Making configuration changes in Amazon OpenSearch Service</a>.</p>
    */
   public describeDomainChangeProgress(
     args: DescribeDomainChangeProgressCommandInput,
@@ -659,9 +819,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Provides cluster configuration information about the specified domain, such as the state, creation
-   *       date, update version, and update date for cluster options.
-   *     </p>
+   * <p>Returns the configuration of an Amazon OpenSearch Service domain.</p>
    */
   public describeDomainConfig(
     args: DescribeDomainConfigCommandInput,
@@ -693,9 +851,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Returns domain configuration information about the specified domains, including the domain ID,
-   *       domain endpoint, and domain ARN.
-   *     </p>
+   * <p>Returns domain configuration information about the specified Amazon OpenSearch Service
+   *    domains.</p>
    */
   public describeDomains(
     args: DescribeDomainsCommandInput,
@@ -727,7 +884,42 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Lists all the inbound cross-cluster connections for a remote domain.</p>
+   * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
+   *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
+   */
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDryRunProgressCommandOutput>;
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    cb: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): void;
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): void;
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDryRunProgressCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): Promise<DescribeDryRunProgressCommandOutput> | void {
+    const command = new DescribeDryRunProgressCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the inbound cross-cluster search connections for a destination (remote) Amazon
+   *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
+   *     for Amazon OpenSearch Service</a>.</p>
    */
   public describeInboundConnections(
     args: DescribeInboundConnectionsCommandInput,
@@ -759,14 +951,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>
-   *       Describe the limits for a given instance type and OpenSearch or Elasticsearch version.
-   *       When modifying an existing domain, specify the
-   *       <code>
-   *         <a>DomainName</a>
-   *       </code>
-   *       to see which limits you can modify.
-   *     </p>
+   * <p>Describes the instance count, storage, and master node limits for a given OpenSearch or
+   *    Elasticsearch version and instance type.</p>
    */
   public describeInstanceTypeLimits(
     args: DescribeInstanceTypeLimitsCommandInput,
@@ -798,7 +984,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Lists all the outbound cross-cluster connections for a local domain.</p>
+   * <p>Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch
+   *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
+   *     for Amazon OpenSearch Service</a>.</p>
    */
   public describeOutboundConnections(
     args: DescribeOutboundConnectionsCommandInput,
@@ -830,9 +1018,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Describes all packages available to Amazon OpenSearch Service domains. Includes options for filtering, limiting the number of results,
-   *       and pagination.
-   *     </p>
+   * <p>Describes all packages available to OpenSearch Service. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+   *     packages for Amazon OpenSearch Service</a>.</p>
    */
   public describePackages(
     args: DescribePackagesCommandInput,
@@ -864,7 +1051,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Lists available reserved OpenSearch instance offerings.</p>
+   * <p>Describes the available Amazon OpenSearch Service Reserved Instance offerings for a given
+   *    Region. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch Service</a>.</p>
    */
   public describeReservedInstanceOfferings(
     args: DescribeReservedInstanceOfferingsCommandInput,
@@ -896,7 +1084,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Returns information about reserved OpenSearch instances for this account.</p>
+   * <p>Describes the Amazon OpenSearch Service instances that you have reserved in a given Region.
+   *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch
+   *     Service</a>.</p>
    */
   public describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
@@ -928,7 +1118,42 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Dissociates a package from the Amazon OpenSearch Service domain.</p>
+   * <p>Describes one or more Amazon OpenSearch Service-managed VPC endpoints.</p>
+   */
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcEndpointsCommandOutput>;
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): void;
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): void;
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): Promise<DescribeVpcEndpointsCommandOutput> | void {
+    const command = new DescribeVpcEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a package from the specified Amazon OpenSearch Service domain. The package can't be
+   *    in use with any OpenSearch index for the dissociation to succeed. The package is still available
+   *    in OpenSearch Service for association later. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+   *     packages for Amazon OpenSearch Service</a>.</p>
    */
   public dissociatePackage(
     args: DissociatePackageCommandInput,
@@ -960,14 +1185,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>
-   *       Returns a list of upgrade-compatible versions of OpenSearch/Elasticsearch.
-   *       You can optionally pass a
-   *       <code>
-   *         <a>DomainName</a>
-   *       </code>
-   *       to get all upgrade-compatible versions of OpenSearch/Elasticsearch for that specific domain.
-   *     </p>
+   * <p>Returns a map of OpenSearch or Elasticsearch versions and the versions you can upgrade them
+   *    to.</p>
    */
   public getCompatibleVersions(
     args: GetCompatibleVersionsCommandInput,
@@ -999,7 +1218,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Returns a list of package versions, along with their creation time and commit message.</p>
+   * <p>Returns a list of Amazon OpenSearch Service package versions, along with their creation time
+   *    and commit message. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
+   *     OpenSearch Service</a>.</p>
    */
   public getPackageVersionHistory(
     args: GetPackageVersionHistoryCommandInput,
@@ -1031,7 +1252,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Retrieves the complete history of the last 10 upgrades performed on the domain.</p>
+   * <p>Retrieves the complete history of the last 10 upgrades performed on an Amazon OpenSearch
+   *    Service domain.</p>
    */
   public getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
@@ -1063,8 +1285,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check performed on the domain.
-   *     </p>
+   * <p>Returns the most recent status of the last upgrade or upgrade eligibility check performed on
+   *    an Amazon OpenSearch Service domain.</p>
    */
   public getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
@@ -1096,7 +1318,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Returns the names of all domains owned by the current user's account.</p>
+   * <p>Returns the names of all Amazon OpenSearch Service domains owned by the current user in the
+   *    active Region.</p>
    */
   public listDomainNames(
     args: ListDomainNamesCommandInput,
@@ -1128,7 +1351,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Lists all Amazon OpenSearch Service domains associated with the package.</p>
+   * <p>Lists all Amazon OpenSearch Service domains associated with a given package. For more
+   *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
+   *     OpenSearch Service</a>.</p>
    */
   public listDomainsForPackage(
     args: ListDomainsForPackageCommandInput,
@@ -1159,6 +1384,10 @@ export class OpenSearch extends OpenSearchClient {
     }
   }
 
+  /**
+   * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
+   *    version.</p>
+   */
   public listInstanceTypeDetails(
     args: ListInstanceTypeDetailsCommandInput,
     options?: __HttpHandlerOptions
@@ -1189,7 +1418,9 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Lists all packages associated with the Amazon OpenSearch Service domain.</p>
+   * <p>Lists all packages associated with an Amazon OpenSearch Service domain. For more
+   *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
+   *     OpenSearch Service</a>.</p>
    */
   public listPackagesForDomain(
     args: ListPackagesForDomainCommandInput,
@@ -1221,7 +1452,43 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Returns all tags for the given domain.</p>
+   * <p>Retrieves a list of configuration changes that are scheduled for a domain. These changes can
+   *    be <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
+   *     updates</a> or <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
+   *      Auto-Tune enhancements</a>.</p>
+   */
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScheduledActionsCommandOutput>;
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    cb: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): void;
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): void;
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListScheduledActionsCommandOutput) => void),
+    cb?: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): Promise<ListScheduledActionsCommandOutput> | void {
+    const command = new ListScheduledActionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns all resource tags for an Amazon OpenSearch Service domain. For more information, see
+   *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
    */
   public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
   public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
@@ -1247,7 +1514,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>List all supported versions of OpenSearch and Elasticsearch.</p>
+   * <p>Lists all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service
+   *    supports.</p>
    */
   public listVersions(
     args: ListVersionsCommandInput,
@@ -1276,7 +1544,105 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Allows you to purchase reserved OpenSearch instances.</p>
+   * <p>Retrieves information about each Amazon Web Services principal that is allowed to access a
+   *    given Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
+   */
+  public listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointAccessCommandOutput>;
+  public listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    cb: (err: any, data?: ListVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVpcEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: ListVpcEndpointAccessCommandOutput) => void
+  ): Promise<ListVpcEndpointAccessCommandOutput> | void {
+    const command = new ListVpcEndpointAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current Amazon Web Services account and Region.</p>
+   */
+  public listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointsCommandOutput>;
+  public listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
+  ): void;
+  public listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
+  ): void;
+  public listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVpcEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: ListVpcEndpointsCommandOutput) => void
+  ): Promise<ListVpcEndpointsCommandOutput> | void {
+    const command = new ListVpcEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a particular
+   *    domain.</p>
+   */
+  public listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointsForDomainCommandOutput>;
+  public listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    cb: (err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void
+  ): void;
+  public listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void
+  ): void;
+  public listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void),
+    cb?: (err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void
+  ): Promise<ListVpcEndpointsForDomainCommandOutput> | void {
+    const command = new ListVpcEndpointsForDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Allows you to purchase Amazon OpenSearch Service Reserved Instances.</p>
    */
   public purchaseReservedInstanceOffering(
     args: PurchaseReservedInstanceOfferingCommandInput,
@@ -1308,7 +1674,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Allows the remote domain owner to reject an inbound cross-cluster connection request.</p>
+   * <p>Allows the remote Amazon OpenSearch Service domain owner to reject an inbound cross-cluster
+   *    connection request.</p>
    */
   public rejectInboundConnection(
     args: RejectInboundConnectionCommandInput,
@@ -1340,7 +1707,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Removes the specified set of tags from the given domain.</p>
+   * <p>Removes the specified set of tags from an Amazon OpenSearch Service domain. For more
+   *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging"> Tagging Amazon OpenSearch Service domains</a>.</p>
    */
   public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
   public removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
@@ -1366,7 +1734,42 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Schedules a service software update for an Amazon OpenSearch Service domain.</p>
+   * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface
+   *    VPC endpoint.</p>
+   */
+  public revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeVpcEndpointAccessCommandOutput>;
+  public revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    cb: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
+  ): Promise<RevokeVpcEndpointAccessCommandOutput> | void {
+    const command = new RevokeVpcEndpointAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Schedules a service software update for an Amazon OpenSearch Service domain. For more
+   *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in
+   *     Amazon OpenSearch Service</a>.</p>
    */
   public startServiceSoftwareUpdate(
     args: StartServiceSoftwareUpdateCommandInput,
@@ -1398,9 +1801,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Modifies the cluster configuration of the specified domain, such as setting the instance type
-   *       and the number of instances.
-   *     </p>
+   * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.</p>
    */
   public updateDomainConfig(
     args: UpdateDomainConfigCommandInput,
@@ -1432,7 +1833,8 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Updates a package for use with Amazon OpenSearch Service domains.</p>
+   * <p>Updates a package for use with Amazon OpenSearch Service domains. For more information, see
+   *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon OpenSearch Service</a>.</p>
    */
   public updatePackage(
     args: UpdatePackageCommandInput,
@@ -1464,8 +1866,75 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
-   * <p>Allows you to either upgrade your domain or perform an upgrade eligibility check to a compatible version of OpenSearch or Elasticsearch.
-   *     </p>
+   * <p>Reschedules a planned domain configuration change for a later time. This change can be a
+   *    scheduled <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
+   *     update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
+   *      Auto-Tune enhancement</a>.</p>
+   */
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateScheduledActionCommandOutput>;
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    cb: (err: any, data?: UpdateScheduledActionCommandOutput) => void
+  ): void;
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateScheduledActionCommandOutput) => void
+  ): void;
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateScheduledActionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateScheduledActionCommandOutput) => void
+  ): Promise<UpdateScheduledActionCommandOutput> | void {
+    const command = new UpdateScheduledActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
+   */
+  public updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVpcEndpointCommandOutput>;
+  public updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
+  ): void;
+  public updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
+  ): void;
+  public updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVpcEndpointCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
+  ): Promise<UpdateVpcEndpointCommandOutput> | void {
+    const command = new UpdateVpcEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Allows you to either upgrade your Amazon OpenSearch Service domain or perform an upgrade
+   *    eligibility check to a compatible version of OpenSearch or Elasticsearch.</p>
    */
   public upgradeDomain(
     args: UpgradeDomainCommandInput,

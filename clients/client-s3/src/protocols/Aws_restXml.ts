@@ -16,7 +16,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   map as __map,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
@@ -27,11 +27,11 @@ import {
   Endpoint as __Endpoint,
   EventStreamSerdeContext as __EventStreamSerdeContext,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import {
   AbortMultipartUploadCommandInput,
@@ -440,12 +440,12 @@ export const serializeAws_restXmlAbortMultipartUploadCommand = async (
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "AbortMultipartUpload"],
-    uploadId: [, input.UploadId!],
+    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -477,12 +477,12 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
     "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "CompleteMultipartUpload"],
-    uploadId: [, input.UploadId!],
+    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
   if (input.MultipartUpload !== undefined) {
@@ -565,15 +565,12 @@ export const serializeAws_restXmlCopyObjectCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-source-expected-bucket-owner": input.ExpectedSourceBucketOwner!,
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -611,7 +608,7 @@ export const serializeAws_restXmlCreateBucketCommand = async (
     ],
     "x-amz-object-ownership": input.ObjectOwnership!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   if (input.CreateBucketConfiguration !== undefined) {
@@ -675,15 +672,12 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-checksum-algorithm": input.ChecksumAlgorithm!,
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -711,7 +705,7 @@ export const serializeAws_restXmlDeleteBucketCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   return new __HttpRequest({
@@ -733,11 +727,11 @@ export const serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand = asy
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     analytics: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -760,7 +754,7 @@ export const serializeAws_restXmlDeleteBucketCorsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     cors: [, ""],
@@ -786,7 +780,7 @@ export const serializeAws_restXmlDeleteBucketEncryptionCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     encryption: [, ""],
@@ -810,11 +804,11 @@ export const serializeAws_restXmlDeleteBucketIntelligentTieringConfigurationComm
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     "intelligent-tiering": [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -837,11 +831,11 @@ export const serializeAws_restXmlDeleteBucketInventoryConfigurationCommand = asy
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     inventory: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -864,7 +858,7 @@ export const serializeAws_restXmlDeleteBucketLifecycleCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     lifecycle: [, ""],
@@ -890,11 +884,11 @@ export const serializeAws_restXmlDeleteBucketMetricsConfigurationCommand = async
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     metrics: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -917,7 +911,7 @@ export const serializeAws_restXmlDeleteBucketOwnershipControlsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     ownershipControls: [, ""],
@@ -943,7 +937,7 @@ export const serializeAws_restXmlDeleteBucketPolicyCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     policy: [, ""],
@@ -969,7 +963,7 @@ export const serializeAws_restXmlDeleteBucketReplicationCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     replication: [, ""],
@@ -995,7 +989,7 @@ export const serializeAws_restXmlDeleteBucketTaggingCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     tagging: [, ""],
@@ -1021,7 +1015,7 @@ export const serializeAws_restXmlDeleteBucketWebsiteCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     website: [, ""],
@@ -1053,7 +1047,7 @@ export const serializeAws_restXmlDeleteObjectCommand = async (
     ],
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -1089,7 +1083,7 @@ export const serializeAws_restXmlDeleteObjectsCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     delete: [, ""],
@@ -1126,7 +1120,7 @@ export const serializeAws_restXmlDeleteObjectTaggingCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -1154,7 +1148,7 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     publicAccessBlock: [, ""],
@@ -1180,7 +1174,7 @@ export const serializeAws_restXmlGetBucketAccelerateConfigurationCommand = async
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     accelerate: [, ""],
@@ -1206,7 +1200,7 @@ export const serializeAws_restXmlGetBucketAclCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     acl: [, ""],
@@ -1232,12 +1226,12 @@ export const serializeAws_restXmlGetBucketAnalyticsConfigurationCommand = async 
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     analytics: [, ""],
     "x-id": [, "GetBucketAnalyticsConfiguration"],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1260,7 +1254,7 @@ export const serializeAws_restXmlGetBucketCorsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     cors: [, ""],
@@ -1286,7 +1280,7 @@ export const serializeAws_restXmlGetBucketEncryptionCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     encryption: [, ""],
@@ -1310,12 +1304,12 @@ export const serializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     "intelligent-tiering": [, ""],
     "x-id": [, "GetBucketIntelligentTieringConfiguration"],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1338,12 +1332,12 @@ export const serializeAws_restXmlGetBucketInventoryConfigurationCommand = async 
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     inventory: [, ""],
     "x-id": [, "GetBucketInventoryConfiguration"],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1366,7 +1360,7 @@ export const serializeAws_restXmlGetBucketLifecycleConfigurationCommand = async 
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     lifecycle: [, ""],
@@ -1392,7 +1386,7 @@ export const serializeAws_restXmlGetBucketLocationCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     location: [, ""],
@@ -1418,7 +1412,7 @@ export const serializeAws_restXmlGetBucketLoggingCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     logging: [, ""],
@@ -1444,12 +1438,12 @@ export const serializeAws_restXmlGetBucketMetricsConfigurationCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     metrics: [, ""],
     "x-id": [, "GetBucketMetricsConfiguration"],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1472,7 +1466,7 @@ export const serializeAws_restXmlGetBucketNotificationConfigurationCommand = asy
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     notification: [, ""],
@@ -1498,7 +1492,7 @@ export const serializeAws_restXmlGetBucketOwnershipControlsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     ownershipControls: [, ""],
@@ -1524,7 +1518,7 @@ export const serializeAws_restXmlGetBucketPolicyCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     policy: [, ""],
@@ -1550,7 +1544,7 @@ export const serializeAws_restXmlGetBucketPolicyStatusCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     policyStatus: [, ""],
@@ -1576,7 +1570,7 @@ export const serializeAws_restXmlGetBucketReplicationCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     replication: [, ""],
@@ -1602,7 +1596,7 @@ export const serializeAws_restXmlGetBucketRequestPaymentCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     requestPayment: [, ""],
@@ -1628,7 +1622,7 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     tagging: [, ""],
@@ -1654,7 +1648,7 @@ export const serializeAws_restXmlGetBucketVersioningCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     versioning: [, ""],
@@ -1680,7 +1674,7 @@ export const serializeAws_restXmlGetBucketWebsiteCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     website: [, ""],
@@ -1722,7 +1716,7 @@ export const serializeAws_restXmlGetObjectCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-checksum-mode": input.ChecksumMode!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -1761,7 +1755,7 @@ export const serializeAws_restXmlGetObjectAclCommand = async (
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -1799,7 +1793,7 @@ export const serializeAws_restXmlGetObjectAttributesCommand = async (
       () => (input.ObjectAttributes! || []).map((_entry) => _entry as any).join(", "),
     ],
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -1828,7 +1822,7 @@ export const serializeAws_restXmlGetObjectLegalHoldCommand = async (
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -1856,7 +1850,7 @@ export const serializeAws_restXmlGetObjectLockConfigurationCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     "object-lock": [, ""],
@@ -1883,7 +1877,7 @@ export const serializeAws_restXmlGetObjectRetentionCommand = async (
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -1912,7 +1906,7 @@ export const serializeAws_restXmlGetObjectTaggingCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-request-payer": input.RequestPayer!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -1941,7 +1935,7 @@ export const serializeAws_restXmlGetObjectTorrentCommand = async (
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -1968,7 +1962,7 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     publicAccessBlock: [, ""],
@@ -1994,7 +1988,7 @@ export const serializeAws_restXmlHeadBucketCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   return new __HttpRequest({
@@ -2032,7 +2026,7 @@ export const serializeAws_restXmlHeadObjectCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-checksum-mode": input.ChecksumMode!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -2060,7 +2054,7 @@ export const serializeAws_restXmlListBucketAnalyticsConfigurationsCommand = asyn
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     analytics: [, ""],
@@ -2086,7 +2080,7 @@ export const serializeAws_restXmlListBucketIntelligentTieringConfigurationsComma
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     "intelligent-tiering": [, ""],
@@ -2114,7 +2108,7 @@ export const serializeAws_restXmlListBucketInventoryConfigurationsCommand = asyn
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     inventory: [, ""],
@@ -2142,7 +2136,7 @@ export const serializeAws_restXmlListBucketMetricsConfigurationsCommand = async 
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     metrics: [, ""],
@@ -2192,7 +2186,7 @@ export const serializeAws_restXmlListMultipartUploadsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     uploads: [, ""],
@@ -2225,7 +2219,7 @@ export const serializeAws_restXmlListObjectsCommand = async (
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     delimiter: [, input.Delimiter!],
@@ -2256,7 +2250,7 @@ export const serializeAws_restXmlListObjectsV2Command = async (
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     "list-type": [, "2"],
@@ -2289,7 +2283,7 @@ export const serializeAws_restXmlListObjectVersionsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     versions: [, ""],
@@ -2325,14 +2319,14 @@ export const serializeAws_restXmlListPartsCommand = async (
     "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "ListParts"],
     "max-parts": [() => input.MaxParts !== void 0, () => input.MaxParts!.toString()],
     "part-number-marker": [, input.PartNumberMarker!],
-    uploadId: [, input.UploadId!],
+    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2357,7 +2351,7 @@ export const serializeAws_restXmlPutBucketAccelerateConfigurationCommand = async
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     accelerate: [, ""],
@@ -2402,7 +2396,7 @@ export const serializeAws_restXmlPutBucketAclCommand = async (
     "x-amz-grant-write-acp": input.GrantWriteACP!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     acl: [, ""],
@@ -2439,11 +2433,11 @@ export const serializeAws_restXmlPutBucketAnalyticsConfigurationCommand = async 
     "content-type": "application/xml",
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     analytics: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   if (input.AnalyticsConfiguration !== undefined) {
@@ -2479,7 +2473,7 @@ export const serializeAws_restXmlPutBucketCorsCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     cors: [, ""],
@@ -2518,7 +2512,7 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     encryption: [, ""],
@@ -2554,11 +2548,11 @@ export const serializeAws_restXmlPutBucketIntelligentTieringConfigurationCommand
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     "intelligent-tiering": [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   if (input.IntelligentTieringConfiguration !== undefined) {
@@ -2592,11 +2586,11 @@ export const serializeAws_restXmlPutBucketInventoryConfigurationCommand = async 
     "content-type": "application/xml",
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     inventory: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   if (input.InventoryConfiguration !== undefined) {
@@ -2631,7 +2625,7 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     lifecycle: [, ""],
@@ -2671,7 +2665,7 @@ export const serializeAws_restXmlPutBucketLoggingCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     logging: [, ""],
@@ -2708,11 +2702,11 @@ export const serializeAws_restXmlPutBucketMetricsConfigurationCommand = async (
     "content-type": "application/xml",
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     metrics: [, ""],
-    id: [, input.Id!],
+    id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
   if (input.MetricsConfiguration !== undefined) {
@@ -2750,7 +2744,7 @@ export const serializeAws_restXmlPutBucketNotificationConfigurationCommand = asy
       () => input.SkipDestinationValidation!.toString(),
     ],
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     notification: [, ""],
@@ -2788,7 +2782,7 @@ export const serializeAws_restXmlPutBucketOwnershipControlsCommand = async (
     "content-md5": input.ContentMD5!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     ownershipControls: [, ""],
@@ -2831,7 +2825,7 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
     ],
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     policy: [, ""],
@@ -2869,7 +2863,7 @@ export const serializeAws_restXmlPutBucketReplicationCommand = async (
     "x-amz-bucket-object-lock-token": input.Token!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     replication: [, ""],
@@ -2908,7 +2902,7 @@ export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     requestPayment: [, ""],
@@ -2947,7 +2941,7 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     tagging: [, ""],
@@ -2987,7 +2981,7 @@ export const serializeAws_restXmlPutBucketVersioningCommand = async (
     "x-amz-mfa": input.MFA!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     versioning: [, ""],
@@ -3026,7 +3020,7 @@ export const serializeAws_restXmlPutBucketWebsiteCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     website: [, ""],
@@ -3100,15 +3094,12 @@ export const serializeAws_restXmlPutObjectCommand = async (
     "x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -3153,7 +3144,7 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -3195,7 +3186,7 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -3239,7 +3230,7 @@ export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     "object-lock": [, ""],
@@ -3283,7 +3274,7 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -3326,7 +3317,7 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-request-payer": input.RequestPayer!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -3367,7 +3358,7 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     publicAccessBlock: [, ""],
@@ -3406,7 +3397,7 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -3449,7 +3440,7 @@ export const serializeAws_restXmlSelectObjectContentCommand = async (
     "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
@@ -3522,13 +3513,13 @@ export const serializeAws_restXmlUploadPartCommand = async (
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "UploadPart"],
-    partNumber: [() => input.PartNumber !== void 0, () => input.PartNumber!.toString()],
-    uploadId: [, input.UploadId!],
+    partNumber: [__expectNonNull(input.PartNumber, `PartNumber`) != null, () => input.PartNumber!.toString()],
+    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
   if (input.Body !== undefined) {
@@ -3579,13 +3570,13 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-source-expected-bucket-owner": input.ExpectedSourceBucketOwner!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "UploadPartCopy"],
-    partNumber: [() => input.PartNumber !== void 0, () => input.PartNumber!.toString()],
-    uploadId: [, input.UploadId!],
+    partNumber: [__expectNonNull(input.PartNumber, `PartNumber`) != null, () => input.PartNumber!.toString()],
+    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -3671,13 +3662,10 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
       () => input.BucketKeyEnabled!.toString(),
     ],
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/WriteGetObjectResponse";
@@ -3737,7 +3725,7 @@ const deserializeAws_restXmlAbortMultipartUploadCommandError = async (
 ): Promise<AbortMultipartUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3808,7 +3796,7 @@ const deserializeAws_restXmlCompleteMultipartUploadCommandError = async (
 ): Promise<CompleteMultipartUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3854,7 +3842,7 @@ const deserializeAws_restXmlCopyObjectCommandError = async (
 ): Promise<CopyObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3893,7 +3881,7 @@ const deserializeAws_restXmlCreateBucketCommandError = async (
 ): Promise<CreateBucketCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3959,7 +3947,7 @@ const deserializeAws_restXmlCreateMultipartUploadCommandError = async (
 ): Promise<CreateMultipartUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3991,7 +3979,7 @@ const deserializeAws_restXmlDeleteBucketCommandError = async (
 ): Promise<DeleteBucketCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4023,7 +4011,7 @@ const deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommandError = asy
 ): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4055,7 +4043,7 @@ const deserializeAws_restXmlDeleteBucketCorsCommandError = async (
 ): Promise<DeleteBucketCorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4087,7 +4075,7 @@ const deserializeAws_restXmlDeleteBucketEncryptionCommandError = async (
 ): Promise<DeleteBucketEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4119,7 +4107,7 @@ const deserializeAws_restXmlDeleteBucketIntelligentTieringConfigurationCommandEr
 ): Promise<DeleteBucketIntelligentTieringConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4151,7 +4139,7 @@ const deserializeAws_restXmlDeleteBucketInventoryConfigurationCommandError = asy
 ): Promise<DeleteBucketInventoryConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4183,7 +4171,7 @@ const deserializeAws_restXmlDeleteBucketLifecycleCommandError = async (
 ): Promise<DeleteBucketLifecycleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4215,7 +4203,7 @@ const deserializeAws_restXmlDeleteBucketMetricsConfigurationCommandError = async
 ): Promise<DeleteBucketMetricsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4247,7 +4235,7 @@ const deserializeAws_restXmlDeleteBucketOwnershipControlsCommandError = async (
 ): Promise<DeleteBucketOwnershipControlsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4279,7 +4267,7 @@ const deserializeAws_restXmlDeleteBucketPolicyCommandError = async (
 ): Promise<DeleteBucketPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4311,7 +4299,7 @@ const deserializeAws_restXmlDeleteBucketReplicationCommandError = async (
 ): Promise<DeleteBucketReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4343,7 +4331,7 @@ const deserializeAws_restXmlDeleteBucketTaggingCommandError = async (
 ): Promise<DeleteBucketTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4375,7 +4363,7 @@ const deserializeAws_restXmlDeleteBucketWebsiteCommandError = async (
 ): Promise<DeleteBucketWebsiteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4413,7 +4401,7 @@ const deserializeAws_restXmlDeleteObjectCommandError = async (
 ): Promise<DeleteObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4456,7 +4444,7 @@ const deserializeAws_restXmlDeleteObjectsCommandError = async (
 ): Promise<DeleteObjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4489,7 +4477,7 @@ const deserializeAws_restXmlDeleteObjectTaggingCommandError = async (
 ): Promise<DeleteObjectTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4521,7 +4509,7 @@ const deserializeAws_restXmlDeletePublicAccessBlockCommandError = async (
 ): Promise<DeletePublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4556,7 +4544,7 @@ const deserializeAws_restXmlGetBucketAccelerateConfigurationCommandError = async
 ): Promise<GetBucketAccelerateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4596,7 +4584,7 @@ const deserializeAws_restXmlGetBucketAclCommandError = async (
 ): Promise<GetBucketAclCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4629,7 +4617,7 @@ const deserializeAws_restXmlGetBucketAnalyticsConfigurationCommandError = async 
 ): Promise<GetBucketAnalyticsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4666,7 +4654,7 @@ const deserializeAws_restXmlGetBucketCorsCommandError = async (
 ): Promise<GetBucketCorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4699,7 +4687,7 @@ const deserializeAws_restXmlGetBucketEncryptionCommandError = async (
 ): Promise<GetBucketEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4732,7 +4720,7 @@ const deserializeAws_restXmlGetBucketIntelligentTieringConfigurationCommandError
 ): Promise<GetBucketIntelligentTieringConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4765,7 +4753,7 @@ const deserializeAws_restXmlGetBucketInventoryConfigurationCommandError = async 
 ): Promise<GetBucketInventoryConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4802,7 +4790,7 @@ const deserializeAws_restXmlGetBucketLifecycleConfigurationCommandError = async 
 ): Promise<GetBucketLifecycleConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4837,7 +4825,7 @@ const deserializeAws_restXmlGetBucketLocationCommandError = async (
 ): Promise<GetBucketLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4872,7 +4860,7 @@ const deserializeAws_restXmlGetBucketLoggingCommandError = async (
 ): Promise<GetBucketLoggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4905,7 +4893,7 @@ const deserializeAws_restXmlGetBucketMetricsConfigurationCommandError = async (
 ): Promise<GetBucketMetricsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4967,7 +4955,7 @@ const deserializeAws_restXmlGetBucketNotificationConfigurationCommandError = asy
 ): Promise<GetBucketNotificationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5000,7 +4988,7 @@ const deserializeAws_restXmlGetBucketOwnershipControlsCommandError = async (
 ): Promise<GetBucketOwnershipControlsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5033,7 +5021,7 @@ const deserializeAws_restXmlGetBucketPolicyCommandError = async (
 ): Promise<GetBucketPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5066,7 +5054,7 @@ const deserializeAws_restXmlGetBucketPolicyStatusCommandError = async (
 ): Promise<GetBucketPolicyStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5099,7 +5087,7 @@ const deserializeAws_restXmlGetBucketReplicationCommandError = async (
 ): Promise<GetBucketReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5134,7 +5122,7 @@ const deserializeAws_restXmlGetBucketRequestPaymentCommandError = async (
 ): Promise<GetBucketRequestPaymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5171,7 +5159,7 @@ const deserializeAws_restXmlGetBucketTaggingCommandError = async (
 ): Promise<GetBucketTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5209,7 +5197,7 @@ const deserializeAws_restXmlGetBucketVersioningCommandError = async (
 ): Promise<GetBucketVersioningCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5261,7 +5249,7 @@ const deserializeAws_restXmlGetBucketWebsiteCommandError = async (
 ): Promise<GetBucketWebsiteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5275,7 +5263,7 @@ const deserializeAws_restXmlGetBucketWebsiteCommandError = async (
 
 export const deserializeAws_restXmlGetObjectCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectCommandError(output, context);
@@ -5340,7 +5328,7 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     ObjectLockMode: [, output.headers["x-amz-object-lock-mode"]],
     ObjectLockRetainUntilDate: [
       () => void 0 !== output.headers["x-amz-object-lock-retain-until-date"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-amz-object-lock-retain-until-date"])),
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-amz-object-lock-retain-until-date"])),
     ],
     ObjectLockLegalHoldStatus: [, output.headers["x-amz-object-lock-legal-hold"]],
     Metadata: [
@@ -5354,6 +5342,7 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     ],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.Body = data;
   return contents;
 };
@@ -5364,7 +5353,7 @@ const deserializeAws_restXmlGetObjectCommandError = async (
 ): Promise<GetObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5414,7 +5403,7 @@ const deserializeAws_restXmlGetObjectAclCommandError = async (
 ): Promise<GetObjectAclCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5477,7 +5466,7 @@ const deserializeAws_restXmlGetObjectAttributesCommandError = async (
 ): Promise<GetObjectAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5516,7 +5505,7 @@ const deserializeAws_restXmlGetObjectLegalHoldCommandError = async (
 ): Promise<GetObjectLegalHoldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5549,7 +5538,7 @@ const deserializeAws_restXmlGetObjectLockConfigurationCommandError = async (
 ): Promise<GetObjectLockConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5582,7 +5571,7 @@ const deserializeAws_restXmlGetObjectRetentionCommandError = async (
 ): Promise<GetObjectRetentionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5620,7 +5609,7 @@ const deserializeAws_restXmlGetObjectTaggingCommandError = async (
 ): Promise<GetObjectTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5634,7 +5623,7 @@ const deserializeAws_restXmlGetObjectTaggingCommandError = async (
 
 export const deserializeAws_restXmlGetObjectTorrentCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetObjectTorrentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectTorrentCommandError(output, context);
@@ -5644,6 +5633,7 @@ export const deserializeAws_restXmlGetObjectTorrentCommand = async (
     RequestCharged: [, output.headers["x-amz-request-charged"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.Body = data;
   return contents;
 };
@@ -5654,7 +5644,7 @@ const deserializeAws_restXmlGetObjectTorrentCommandError = async (
 ): Promise<GetObjectTorrentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5687,7 +5677,7 @@ const deserializeAws_restXmlGetPublicAccessBlockCommandError = async (
 ): Promise<GetPublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5719,7 +5709,7 @@ const deserializeAws_restXmlHeadBucketCommandError = async (
 ): Promise<HeadBucketCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5800,7 +5790,7 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
     ObjectLockMode: [, output.headers["x-amz-object-lock-mode"]],
     ObjectLockRetainUntilDate: [
       () => void 0 !== output.headers["x-amz-object-lock-retain-until-date"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-amz-object-lock-retain-until-date"])),
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-amz-object-lock-retain-until-date"])),
     ],
     ObjectLockLegalHoldStatus: [, output.headers["x-amz-object-lock-legal-hold"]],
     Metadata: [
@@ -5823,7 +5813,7 @@ const deserializeAws_restXmlHeadObjectCommandError = async (
 ): Promise<HeadObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5878,7 +5868,7 @@ const deserializeAws_restXmlListBucketAnalyticsConfigurationsCommandError = asyn
 ): Promise<ListBucketAnalyticsConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5927,7 +5917,7 @@ const deserializeAws_restXmlListBucketIntelligentTieringConfigurationsCommandErr
 ): Promise<ListBucketIntelligentTieringConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5976,7 +5966,7 @@ const deserializeAws_restXmlListBucketInventoryConfigurationsCommandError = asyn
 ): Promise<ListBucketInventoryConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6025,7 +6015,7 @@ const deserializeAws_restXmlListBucketMetricsConfigurationsCommandError = async 
 ): Promise<ListBucketMetricsConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6065,7 +6055,7 @@ const deserializeAws_restXmlListBucketsCommandError = async (
 ): Promise<ListBucketsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6140,7 +6130,7 @@ const deserializeAws_restXmlListMultipartUploadsCommandError = async (
 ): Promise<ListMultipartUploadsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6209,7 +6199,7 @@ const deserializeAws_restXmlListObjectsCommandError = async (
 ): Promise<ListObjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6290,7 +6280,7 @@ const deserializeAws_restXmlListObjectsV2CommandError = async (
 ): Promise<ListObjectsV2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6376,7 +6366,7 @@ const deserializeAws_restXmlListObjectVersionsCommandError = async (
 ): Promise<ListObjectVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6452,7 +6442,7 @@ const deserializeAws_restXmlListPartsCommandError = async (
 ): Promise<ListPartsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6484,7 +6474,7 @@ const deserializeAws_restXmlPutBucketAccelerateConfigurationCommandError = async
 ): Promise<PutBucketAccelerateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6516,7 +6506,7 @@ const deserializeAws_restXmlPutBucketAclCommandError = async (
 ): Promise<PutBucketAclCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6548,7 +6538,7 @@ const deserializeAws_restXmlPutBucketAnalyticsConfigurationCommandError = async 
 ): Promise<PutBucketAnalyticsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6580,7 +6570,7 @@ const deserializeAws_restXmlPutBucketCorsCommandError = async (
 ): Promise<PutBucketCorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6612,7 +6602,7 @@ const deserializeAws_restXmlPutBucketEncryptionCommandError = async (
 ): Promise<PutBucketEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6644,7 +6634,7 @@ const deserializeAws_restXmlPutBucketIntelligentTieringConfigurationCommandError
 ): Promise<PutBucketIntelligentTieringConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6676,7 +6666,7 @@ const deserializeAws_restXmlPutBucketInventoryConfigurationCommandError = async 
 ): Promise<PutBucketInventoryConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6708,7 +6698,7 @@ const deserializeAws_restXmlPutBucketLifecycleConfigurationCommandError = async 
 ): Promise<PutBucketLifecycleConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6740,7 +6730,7 @@ const deserializeAws_restXmlPutBucketLoggingCommandError = async (
 ): Promise<PutBucketLoggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6772,7 +6762,7 @@ const deserializeAws_restXmlPutBucketMetricsConfigurationCommandError = async (
 ): Promise<PutBucketMetricsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6804,7 +6794,7 @@ const deserializeAws_restXmlPutBucketNotificationConfigurationCommandError = asy
 ): Promise<PutBucketNotificationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6836,7 +6826,7 @@ const deserializeAws_restXmlPutBucketOwnershipControlsCommandError = async (
 ): Promise<PutBucketOwnershipControlsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6868,7 +6858,7 @@ const deserializeAws_restXmlPutBucketPolicyCommandError = async (
 ): Promise<PutBucketPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6900,7 +6890,7 @@ const deserializeAws_restXmlPutBucketReplicationCommandError = async (
 ): Promise<PutBucketReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6932,7 +6922,7 @@ const deserializeAws_restXmlPutBucketRequestPaymentCommandError = async (
 ): Promise<PutBucketRequestPaymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6964,7 +6954,7 @@ const deserializeAws_restXmlPutBucketTaggingCommandError = async (
 ): Promise<PutBucketTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6996,7 +6986,7 @@ const deserializeAws_restXmlPutBucketVersioningCommandError = async (
 ): Promise<PutBucketVersioningCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7028,7 +7018,7 @@ const deserializeAws_restXmlPutBucketWebsiteCommandError = async (
 ): Promise<PutBucketWebsiteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7077,7 +7067,7 @@ const deserializeAws_restXmlPutObjectCommandError = async (
 ): Promise<PutObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7110,7 +7100,7 @@ const deserializeAws_restXmlPutObjectAclCommandError = async (
 ): Promise<PutObjectAclCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7149,7 +7139,7 @@ const deserializeAws_restXmlPutObjectLegalHoldCommandError = async (
 ): Promise<PutObjectLegalHoldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7182,7 +7172,7 @@ const deserializeAws_restXmlPutObjectLockConfigurationCommandError = async (
 ): Promise<PutObjectLockConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7215,7 +7205,7 @@ const deserializeAws_restXmlPutObjectRetentionCommandError = async (
 ): Promise<PutObjectRetentionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7248,7 +7238,7 @@ const deserializeAws_restXmlPutObjectTaggingCommandError = async (
 ): Promise<PutObjectTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7280,7 +7270,7 @@ const deserializeAws_restXmlPutPublicAccessBlockCommandError = async (
 ): Promise<PutPublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7314,7 +7304,7 @@ const deserializeAws_restXmlRestoreObjectCommandError = async (
 ): Promise<RestoreObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7353,7 +7343,7 @@ const deserializeAws_restXmlSelectObjectContentCommandError = async (
 ): Promise<SelectObjectContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7399,7 +7389,7 @@ const deserializeAws_restXmlUploadPartCommandError = async (
 ): Promise<UploadPartCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7442,7 +7432,7 @@ const deserializeAws_restXmlUploadPartCopyCommandError = async (
 ): Promise<UploadPartCopyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7474,7 +7464,7 @@ const deserializeAws_restXmlWriteGetObjectResponseCommandError = async (
 ): Promise<WriteGetObjectResponseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -8589,7 +8579,7 @@ const serializeAws_restXmlLambdaFunctionConfigurationList = (
 const serializeAws_restXmlLifecycleExpiration = (input: LifecycleExpiration, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LifecycleExpiration");
   if (input.Date != null) {
-    const node = __XmlNode.of("Date", input.Date.toISOString().split(".")[0] + "Z").withName("Date");
+    const node = __XmlNode.of("Date", (input.Date.toISOString().split(".")[0] + "Z").toString()).withName("Date");
     bodyNode.addChildNode(node);
   }
   if (input.Days != null) {
@@ -8990,7 +8980,7 @@ const serializeAws_restXmlObjectLockRetention = (input: ObjectLockRetention, con
   }
   if (input.RetainUntilDate != null) {
     const node = __XmlNode
-      .of("Date", input.RetainUntilDate.toISOString().split(".")[0] + "Z")
+      .of("Date", (input.RetainUntilDate.toISOString().split(".")[0] + "Z").toString())
       .withName("RetainUntilDate");
     bodyNode.addChildNode(node);
   }
@@ -9739,7 +9729,7 @@ const serializeAws_restXmlTopicConfigurationList = (input: TopicConfiguration[],
 const serializeAws_restXmlTransition = (input: Transition, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Transition");
   if (input.Date != null) {
-    const node = __XmlNode.of("Date", input.Date.toISOString().split(".")[0] + "Z").withName("Date");
+    const node = __XmlNode.of("Date", (input.Date.toISOString().split(".")[0] + "Z").toString()).withName("Date");
     bodyNode.addChildNode(node);
   }
   if (input.Days != null) {
@@ -9977,7 +9967,7 @@ const deserializeAws_restXmlBucket = (output: any, context: __SerdeContext): Buc
     contents.Name = __expectString(output["Name"]);
   }
   if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(output["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
   }
   return contents;
 };
@@ -10073,7 +10063,7 @@ const deserializeAws_restXmlCopyObjectResult = (output: any, context: __SerdeCon
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   if (output["ChecksumCRC32"] !== undefined) {
     contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
@@ -10103,7 +10093,7 @@ const deserializeAws_restXmlCopyPartResult = (output: any, context: __SerdeConte
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   if (output["ChecksumCRC32"] !== undefined) {
     contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
@@ -10247,7 +10237,7 @@ const deserializeAws_restXmlDeleteMarkerEntry = (output: any, context: __SerdeCo
     contents.IsLatest = __parseBoolean(output["IsLatest"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   return contents;
 };
@@ -10797,7 +10787,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
     ExpiredObjectDeleteMarker: undefined,
   };
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   if (output["Days"] !== undefined) {
     contents.Days = __strictParseInt32(output["Days"]) as number;
@@ -11054,7 +11044,7 @@ const deserializeAws_restXmlMultipartUpload = (output: any, context: __SerdeCont
     contents.Key = __expectString(output["Key"]);
   }
   if (output["Initiated"] !== undefined) {
-    contents.Initiated = __expectNonNull(__parseRfc3339DateTime(output["Initiated"]));
+    contents.Initiated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Initiated"]));
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);
@@ -11155,7 +11145,7 @@ const deserializeAws_restXml_Object = (output: any, context: __SerdeContext): _O
     contents.Key = __expectString(output["Key"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   if (output["ETag"] !== undefined) {
     contents.ETag = __expectString(output["ETag"]);
@@ -11224,7 +11214,7 @@ const deserializeAws_restXmlObjectLockRetention = (output: any, context: __Serde
     contents.Mode = __expectString(output["Mode"]);
   }
   if (output["RetainUntilDate"] !== undefined) {
-    contents.RetainUntilDate = __expectNonNull(__parseRfc3339DateTime(output["RetainUntilDate"]));
+    contents.RetainUntilDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RetainUntilDate"]));
   }
   return contents;
 };
@@ -11308,7 +11298,7 @@ const deserializeAws_restXmlObjectVersion = (output: any, context: __SerdeContex
     contents.IsLatest = __parseBoolean(output["IsLatest"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   if (output["Owner"] !== undefined) {
     contents.Owner = deserializeAws_restXmlOwner(output["Owner"], context);
@@ -11386,7 +11376,7 @@ const deserializeAws_restXmlPart = (output: any, context: __SerdeContext): Part 
     contents.PartNumber = __strictParseInt32(output["PartNumber"]) as number;
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
   }
   if (output["ETag"] !== undefined) {
     contents.ETag = __expectString(output["ETag"]);
@@ -11994,7 +11984,7 @@ const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext):
     StorageClass: undefined,
   };
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   if (output["Days"] !== undefined) {
     contents.Days = __strictParseInt32(output["Days"]) as number;
@@ -12015,7 +12005,8 @@ const deserializeAws_restXmlTransitionList = (output: any, context: __SerdeConte
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -12042,13 +12033,18 @@ const isSerializableHeaderValue = (value: any): boolean =>
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -12061,8 +12057,16 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Code !== undefined) {
+  if (data?.Code !== undefined) {
     return data.Code;
   }
   if (output.statusCode == 404) {

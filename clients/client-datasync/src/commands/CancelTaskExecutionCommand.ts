@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,14 +29,13 @@ export interface CancelTaskExecutionCommandInput extends CancelTaskExecutionRequ
 export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels execution of a task. </p>
- *          <p>When you cancel a task execution, the transfer of some files is abruptly interrupted.
- *       The contents of files that are transferred to the destination might be incomplete or
- *       inconsistent with the source files. However, if you start a new task execution on the same
- *       task and you allow the task execution to complete, file content on the destination is complete
- *       and consistent. This applies to other unexpected failures that interrupt a task execution. In
- *       all of these cases, DataSync successfully complete the transfer when you start the next
- *       task execution.</p>
+ * <p>Stops an DataSync task execution that's in progress. The transfer of some
+ *       files are abruptly interrupted. File contents that're transferred to the destination might be
+ *       incomplete or inconsistent with the source files.</p>
+ *          <p>However, if you start a new task execution using the same task and allow it to finish,
+ *       file content on the destination will be complete and consistent. This applies to other
+ *       unexpected failures that interrupt a task execution. In all of these cases, DataSync successfully completes the transfer when you start the next task
+ *       execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +59,15 @@ export class CancelTaskExecutionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CancelTaskExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +83,9 @@ export class CancelTaskExecutionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelTaskExecutionCommandInput, CancelTaskExecutionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CancelTaskExecutionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

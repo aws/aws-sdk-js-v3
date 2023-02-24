@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,10 +31,10 @@ export interface DeleteApplicationFromEnvironmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a specific application from a specified environment where it has been previously
- *          deployed. You cannot delete an environment using DeleteEnvironment, if any application has
+ * <p>Deletes a specific application from the specific runtime environment where it was previously
+ *          deployed. You cannot delete a runtime environment using DeleteEnvironment if any application has
  *          ever been deployed to it. This API removes the association of the application with the
- *          environment so you can delete the environment smoothly.</p>
+ *          runtime environment so you can delete the environment smoothly.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class DeleteApplicationFromEnvironmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteApplicationFromEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class DeleteApplicationFromEnvironmentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteApplicationFromEnvironmentCommandInput, DeleteApplicationFromEnvironmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteApplicationFromEnvironmentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

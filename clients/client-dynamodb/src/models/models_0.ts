@@ -35,9 +35,17 @@ export interface ArchivalSummary {
   ArchivalBackupArn?: string;
 }
 
-export type AttributeAction = "ADD" | "DELETE" | "PUT";
+export enum AttributeAction {
+  ADD = "ADD",
+  DELETE = "DELETE",
+  PUT = "PUT",
+}
 
-export type ScalarAttributeType = "B" | "N" | "S";
+export enum ScalarAttributeType {
+  B = "B",
+  N = "N",
+  S = "S",
+}
 
 /**
  * <p>Represents an attribute for describing the key schema for the table and
@@ -243,7 +251,11 @@ export interface AutoScalingSettingsUpdate {
   ScalingPolicyUpdate?: AutoScalingPolicyUpdate;
 }
 
-export type BackupStatus = "AVAILABLE" | "CREATING" | "DELETED";
+export enum BackupStatus {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+}
 
 export enum BackupType {
   AWS_BACKUP = "AWS_BACKUP",
@@ -266,8 +278,8 @@ export interface BackupDetails {
   BackupName: string | undefined;
 
   /**
-   * <p>Size of the backup in bytes. DynamoDB updates this value approximately every six hours.
-   *          Recent changes might not be reflected in this value.</p>
+   * <p>Size of the backup in bytes. DynamoDB updates this value approximately every six
+   *             hours. Recent changes might not be reflected in this value.</p>
    */
   BackupSizeBytes?: number;
 
@@ -312,9 +324,15 @@ export interface BackupDetails {
   BackupExpiryDateTime?: Date;
 }
 
-export type BillingMode = "PAY_PER_REQUEST" | "PROVISIONED";
+export enum BillingMode {
+  PAY_PER_REQUEST = "PAY_PER_REQUEST",
+  PROVISIONED = "PROVISIONED",
+}
 
-export type KeyType = "HASH" | "RANGE";
+export enum KeyType {
+  HASH = "HASH",
+  RANGE = "RANGE",
+}
 
 /**
  * <p>Represents <i>a single element</i> of a key schema. A key schema
@@ -452,7 +470,11 @@ export interface SourceTableDetails {
   BillingMode?: BillingMode | string;
 }
 
-export type ProjectionType = "ALL" | "INCLUDE" | "KEYS_ONLY";
+export enum ProjectionType {
+  ALL = "ALL",
+  INCLUDE = "INCLUDE",
+  KEYS_ONLY = "KEYS_ONLY",
+}
 
 /**
  * <p>Represents attributes that are copied (projected) from the table into an index. These
@@ -586,9 +608,18 @@ export interface LocalSecondaryIndexInfo {
   Projection?: Projection;
 }
 
-export type SSEType = "AES256" | "KMS";
+export enum SSEType {
+  AES256 = "AES256",
+  KMS = "KMS",
+}
 
-export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING" | "UPDATING";
+export enum SSEStatus {
+  DISABLED = "DISABLED",
+  DISABLING = "DISABLING",
+  ENABLED = "ENABLED",
+  ENABLING = "ENABLING",
+  UPDATING = "UPDATING",
+}
 
 /**
  * <p>The description of the server-side encryption status on the specified table.</p>
@@ -623,8 +654,7 @@ export interface SSEDescription {
   SSEType?: SSEType | string;
 
   /**
-   * <p>The KMS key ARN used for the KMS
-   *             encryption.</p>
+   * <p>The KMS key ARN used for the KMS encryption.</p>
    */
   KMSMasterKeyArn?: string;
 
@@ -637,7 +667,12 @@ export interface SSEDescription {
   InaccessibleEncryptionDateTime?: Date;
 }
 
-export type StreamViewType = "KEYS_ONLY" | "NEW_AND_OLD_IMAGES" | "NEW_IMAGE" | "OLD_IMAGE";
+export enum StreamViewType {
+  KEYS_ONLY = "KEYS_ONLY",
+  NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES",
+  NEW_IMAGE = "NEW_IMAGE",
+  OLD_IMAGE = "OLD_IMAGE",
+}
 
 /**
  * <p>Represents the DynamoDB Streams configuration for a table in DynamoDB.</p>
@@ -679,7 +714,12 @@ export interface StreamSpecification {
   StreamViewType?: StreamViewType | string;
 }
 
-export type TimeToLiveStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
+export enum TimeToLiveStatus {
+  DISABLED = "DISABLED",
+  DISABLING = "DISABLING",
+  ENABLED = "ENABLED",
+  ENABLING = "ENABLING",
+}
 
 /**
  * <p>The description of the Time to Live (TTL) status on the specified table. </p>
@@ -874,7 +914,11 @@ export enum BackupTypeFilter {
   USER = "USER",
 }
 
-export type ReturnConsumedCapacity = "INDEXES" | "NONE" | "TOTAL";
+export enum ReturnConsumedCapacity {
+  INDEXES = "INDEXES",
+  NONE = "NONE",
+  TOTAL = "TOTAL",
+}
 
 /**
  * <p>Represents the amount of provisioned throughput capacity consumed on a table or an
@@ -967,7 +1011,7 @@ export interface BatchStatementError {
   Code?: BatchStatementErrorCodeEnum | string;
 
   /**
-   * <p> The error message associated with the PartiQL batch resposne. </p>
+   * <p> The error message associated with the PartiQL batch response. </p>
    */
   Message?: string;
 }
@@ -1072,7 +1116,10 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export type ReturnItemCollectionMetrics = "NONE" | "SIZE";
+export enum ReturnItemCollectionMetrics {
+  NONE = "NONE",
+  SIZE = "SIZE",
+}
 
 /**
  * <p>An item collection is too large. This exception is only returned for tables that
@@ -1095,7 +1142,13 @@ export class ItemCollectionSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Contains the details for the read/write capacity mode.</p>
+ * <p>Contains the details for the read/write capacity mode. This page talks about
+ *                 <code>PROVISIONED</code> and <code>PAY_PER_REQUEST</code> billing modes. For more
+ *             information about these modes, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html">Read/write capacity mode</a>.</p>
+ *         <note>
+ *             <p>You may need to switch to on-demand mode at least once in order to return a
+ *                     <code>BillingModeSummary</code> response.</p>
+ *         </note>
  */
 export interface BillingModeSummary {
   /**
@@ -1125,20 +1178,21 @@ export interface BillingModeSummary {
   LastUpdateToPayPerRequestDateTime?: Date;
 }
 
-export type ComparisonOperator =
-  | "BEGINS_WITH"
-  | "BETWEEN"
-  | "CONTAINS"
-  | "EQ"
-  | "GE"
-  | "GT"
-  | "IN"
-  | "LE"
-  | "LT"
-  | "NE"
-  | "NOT_CONTAINS"
-  | "NOT_NULL"
-  | "NULL";
+export enum ComparisonOperator {
+  BEGINS_WITH = "BEGINS_WITH",
+  BETWEEN = "BETWEEN",
+  CONTAINS = "CONTAINS",
+  EQ = "EQ",
+  GE = "GE",
+  GT = "GT",
+  IN = "IN",
+  LE = "LE",
+  LT = "LT",
+  NE = "NE",
+  NOT_CONTAINS = "NOT_CONTAINS",
+  NOT_NULL = "NOT_NULL",
+  NULL = "NULL",
+}
 
 /**
  * <p>A condition specified in the operation could not be evaluated.</p>
@@ -1159,13 +1213,25 @@ export class ConditionalCheckFailedException extends __BaseException {
   }
 }
 
-export type ConditionalOperator = "AND" | "OR";
+export enum ConditionalOperator {
+  AND = "AND",
+  OR = "OR",
+}
 
-export type ReturnValuesOnConditionCheckFailure = "ALL_OLD" | "NONE";
+export enum ReturnValuesOnConditionCheckFailure {
+  ALL_OLD = "ALL_OLD",
+  NONE = "NONE",
+}
 
-export type ContinuousBackupsStatus = "DISABLED" | "ENABLED";
+export enum ContinuousBackupsStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
 
-export type PointInTimeRecoveryStatus = "DISABLED" | "ENABLED";
+export enum PointInTimeRecoveryStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
 
 /**
  * <p>The description of the point in time settings applied to the table.</p>
@@ -1237,9 +1303,18 @@ export class ContinuousBackupsUnavailableException extends __BaseException {
   }
 }
 
-export type ContributorInsightsAction = "DISABLE" | "ENABLE";
+export enum ContributorInsightsAction {
+  DISABLE = "DISABLE",
+  ENABLE = "ENABLE",
+}
 
-export type ContributorInsightsStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING" | "FAILED";
+export enum ContributorInsightsStatus {
+  DISABLED = "DISABLED",
+  DISABLING = "DISABLING",
+  ENABLED = "ENABLED",
+  ENABLING = "ENABLING",
+  FAILED = "FAILED",
+}
 
 /**
  * <p>Represents a Contributor Insights summary entry.</p>
@@ -1283,14 +1358,15 @@ export interface CreateBackupOutput {
 
 /**
  * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *         <p>Up to 500 simultaneous table operations are allowed per account. These operations
+ *         <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
  *             include <code>CreateTable</code>, <code>UpdateTable</code>,
  *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
  *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *         <p>The only exception is when you are creating a table with one or more secondary
- *             indexes. You can have up to 250 such requests running at a time; however, if the table or
- *             index specifications are complex, DynamoDB might temporarily reduce the number
+ *         <p>When you are creating a table with one or more secondary
+ *             indexes, you can have up to 250 such requests running at a time. However, if the table or
+ *             index specifications are complex, then DynamoDB might temporarily reduce the number
  *             of concurrent operations.</p>
+ *         <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
  *         <p>There is a soft account quota of 2,500 tables.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -1402,7 +1478,12 @@ export interface CreateGlobalTableInput {
   ReplicationGroup: Replica[] | undefined;
 }
 
-export type GlobalTableStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
+export enum GlobalTableStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  UPDATING = "UPDATING",
+}
 
 /**
  * <p>Replica-specific provisioned throughput settings. If not specified, uses the source
@@ -1431,14 +1512,15 @@ export interface ReplicaGlobalSecondaryIndexDescription {
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
 }
 
-export type ReplicaStatus =
-  | "ACTIVE"
-  | "CREATING"
-  | "CREATION_FAILED"
-  | "DELETING"
-  | "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
-  | "REGION_DISABLED"
-  | "UPDATING";
+export enum ReplicaStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  CREATION_FAILED = "CREATION_FAILED",
+  DELETING = "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  REGION_DISABLED = "REGION_DISABLED",
+  UPDATING = "UPDATING",
+}
 
 export enum TableClass {
   STANDARD = "STANDARD",
@@ -1526,8 +1608,8 @@ export interface ReplicaDescription {
   ReplicaStatusPercentProgress?: string;
 
   /**
-   * <p>The KMS key of the replica that will be used for
-   *                 KMS encryption.</p>
+   * <p>The KMS key of the replica that will be used for KMS
+   *             encryption.</p>
    */
   KMSMasterKeyId?: string;
 
@@ -1684,8 +1766,8 @@ export interface CreateReplicationGroupMemberAction {
   GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[];
 
   /**
-   * <p>Replica-specific table class. If not specified, uses the source table's
-   *             table class.</p>
+   * <p>Replica-specific table class. If not specified, uses the source table's table
+   *             class.</p>
    */
   TableClassOverride?: TableClass | string;
 }
@@ -2123,7 +2205,12 @@ export interface CreateTableInput {
   TableClass?: TableClass | string;
 }
 
-export type IndexStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
+export enum IndexStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  UPDATING = "UPDATING",
+}
 
 /**
  * <p>Represents the provisioned throughput settings for the table, consisting of read and
@@ -2362,14 +2449,15 @@ export interface RestoreSummary {
   RestoreInProgress: boolean | undefined;
 }
 
-export type TableStatus =
-  | "ACTIVE"
-  | "ARCHIVED"
-  | "ARCHIVING"
-  | "CREATING"
-  | "DELETING"
-  | "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
-  | "UPDATING";
+export enum TableStatus {
+  ACTIVE = "ACTIVE",
+  ARCHIVED = "ARCHIVED",
+  ARCHIVING = "ARCHIVING",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  UPDATING = "UPDATING",
+}
 
 /**
  * <p>Represents the properties of a table.</p>
@@ -2445,7 +2533,9 @@ export interface TableDescription {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>UPDATING</code> - The table is being updated.</p>
+   *                     <code>UPDATING</code> - The table/index configuration is being updated. The
+   *                     table/index remains available for data operations when
+   *                     <code>UPDATING</code>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -2802,6 +2892,24 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * <p> Processing options for the CSV file being imported. </p>
+ */
+export interface CsvOptions {
+  /**
+   * <p> The delimiter used for separating items in the CSV file being imported. </p>
+   */
+  Delimiter?: string;
+
+  /**
+   * <p> List of the headers used to specify a common header for all source CSV files being
+   *             imported. If this field is specified then the first line of each CSV file is treated as
+   *             data instead of the header. If this field is not specified the the first line of each
+   *             CSV file is treated as the header. </p>
+   */
+  HeaderList?: string[];
+}
+
 export interface DeleteBackupInput {
   /**
    * <p>The ARN associated with the backup.</p>
@@ -2826,7 +2934,13 @@ export interface DeleteGlobalSecondaryIndexAction {
   IndexName: string | undefined;
 }
 
-export type ReturnValue = "ALL_NEW" | "ALL_OLD" | "NONE" | "UPDATED_NEW" | "UPDATED_OLD";
+export enum ReturnValue {
+  ALL_NEW = "ALL_NEW",
+  ALL_OLD = "ALL_OLD",
+  NONE = "NONE",
+  UPDATED_NEW = "UPDATED_NEW",
+  UPDATED_OLD = "UPDATED_OLD",
+}
 
 /**
  * <p>Operation was rejected because there is an ongoing transaction for the
@@ -3039,7 +3153,10 @@ export enum ExportStatus {
   IN_PROGRESS = "IN_PROGRESS",
 }
 
-export type S3SseAlgorithm = "AES256" | "KMS";
+export enum S3SseAlgorithm {
+  AES256 = "AES256",
+  KMS = "KMS",
+}
 
 /**
  * <p>Represents the properties of the exported table.</p>
@@ -3369,6 +3486,257 @@ export interface DescribeGlobalTableSettingsOutput {
   ReplicaSettings?: ReplicaSettingsDescription[];
 }
 
+export interface DescribeImportInput {
+  /**
+   * <p> The Amazon Resource Name (ARN) associated with the table you're importing to. </p>
+   */
+  ImportArn: string | undefined;
+}
+
+export enum ImportStatus {
+  CANCELLED = "CANCELLED",
+  CANCELLING = "CANCELLING",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+}
+
+export enum InputCompressionType {
+  GZIP = "GZIP",
+  NONE = "NONE",
+  ZSTD = "ZSTD",
+}
+
+export enum InputFormat {
+  CSV = "CSV",
+  DYNAMODB_JSON = "DYNAMODB_JSON",
+  ION = "ION",
+}
+
+/**
+ * <p> The format options for the data that was imported into the target table. There is one
+ *             value, CsvOption.</p>
+ */
+export interface InputFormatOptions {
+  /**
+   * <p> The options for imported source files in CSV format. The values are Delimiter and
+   *             HeaderList. </p>
+   */
+  Csv?: CsvOptions;
+}
+
+/**
+ * <p> The S3 bucket that is being imported from. </p>
+ */
+export interface S3BucketSource {
+  /**
+   * <p> The account number of the S3 bucket that is being imported from. If the bucket is
+   *             owned by the requester this is optional. </p>
+   */
+  S3BucketOwner?: string;
+
+  /**
+   * <p> The S3 bucket that is being imported from. </p>
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p> The key prefix shared by all S3 Objects that are being imported. </p>
+   */
+  S3KeyPrefix?: string;
+}
+
+/**
+ * <p> The parameters for the table created as part of the import operation. </p>
+ */
+export interface TableCreationParameters {
+  /**
+   * <p> The name of the table created as part of the import operation. </p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p> The attributes of the table created as part of the import operation. </p>
+   */
+  AttributeDefinitions: AttributeDefinition[] | undefined;
+
+  /**
+   * <p> The primary key and option sort key of the table created as part of the import
+   *             operation. </p>
+   */
+  KeySchema: KeySchemaElement[] | undefined;
+
+  /**
+   * <p> The billing mode for provisioning the table created as part of the import operation.
+   *         </p>
+   */
+  BillingMode?: BillingMode | string;
+
+  /**
+   * <p>Represents the provisioned throughput settings for a specified table or index. The
+   *             settings can be modified using the <code>UpdateTable</code> operation.</p>
+   *         <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
+   *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * <p>Represents the settings used to enable server-side encryption.</p>
+   */
+  SSESpecification?: SSESpecification;
+
+  /**
+   * <p> The Global Secondary Indexes (GSI) of the table to be created as part of the import
+   *             operation. </p>
+   */
+  GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
+}
+
+/**
+ * <p> Represents the properties of the table being imported into.
+ *             </p>
+ */
+export interface ImportTableDescription {
+  /**
+   * <p> The Amazon Resource Number (ARN) corresponding to the import request.
+   *             </p>
+   */
+  ImportArn?: string;
+
+  /**
+   * <p> The status of the import. </p>
+   */
+  ImportStatus?: ImportStatus | string;
+
+  /**
+   * <p> The Amazon Resource Number (ARN) of the table being imported into.
+   *             </p>
+   */
+  TableArn?: string;
+
+  /**
+   * <p> The table id corresponding to the table created by import table process.
+   *             </p>
+   */
+  TableId?: string;
+
+  /**
+   * <p> The client token that was provided for the import task. Reusing the client token on
+   *             retry makes a call to <code>ImportTable</code> idempotent. </p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p> Values for the S3 bucket the source file is imported from. Includes bucket name
+   *             (required), key prefix (optional) and bucket account owner ID (optional). </p>
+   */
+  S3BucketSource?: S3BucketSource;
+
+  /**
+   * <p> The number of errors occurred on importing the source file into the target table.
+   *         </p>
+   */
+  ErrorCount?: number;
+
+  /**
+   * <p> The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with the
+   *             target table. </p>
+   */
+  CloudWatchLogGroupArn?: string;
+
+  /**
+   * <p> The format of the source data going into the target table.
+   *             </p>
+   */
+  InputFormat?: InputFormat | string;
+
+  /**
+   * <p> The format options for the data that was imported into the target table. There is one
+   *             value, CsvOption. </p>
+   */
+  InputFormatOptions?: InputFormatOptions;
+
+  /**
+   * <p> The compression options for the data that has been imported into the target table.
+   *             The values are NONE, GZIP, or ZSTD. </p>
+   */
+  InputCompressionType?: InputCompressionType | string;
+
+  /**
+   * <p> The parameters for the new table that is being imported into. </p>
+   */
+  TableCreationParameters?: TableCreationParameters;
+
+  /**
+   * <p> The time when this import task started. </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p> The time at which the creation of the table associated with this import task
+   *             completed. </p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p> The total size of data processed from the source file, in Bytes. </p>
+   */
+  ProcessedSizeBytes?: number;
+
+  /**
+   * <p> The total number of items processed from the source file. </p>
+   */
+  ProcessedItemCount?: number;
+
+  /**
+   * <p> The number of items successfully imported into the new table. </p>
+   */
+  ImportedItemCount?: number;
+
+  /**
+   * <p> The error code corresponding to the failure that the import job ran into during
+   *             execution. </p>
+   */
+  FailureCode?: string;
+
+  /**
+   * <p> The error message corresponding to the failure that the import job ran into during
+   *             execution. </p>
+   */
+  FailureMessage?: string;
+}
+
+export interface DescribeImportOutput {
+  /**
+   * <p> Represents the properties of the table created for the import, and parameters of the
+   *             import. The import parameters include import status, how many items were processed, and
+   *             how many errors were encountered. </p>
+   */
+  ImportTableDescription: ImportTableDescription | undefined;
+}
+
+/**
+ * <p>
+ *             The specified import was not found.
+ *             </p>
+ */
+export class ImportNotFoundException extends __BaseException {
+  readonly name: "ImportNotFoundException" = "ImportNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImportNotFoundException, __BaseException>) {
+    super({
+      name: "ImportNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImportNotFoundException.prototype);
+  }
+}
+
 export interface DescribeKinesisStreamingDestinationInput {
   /**
    * <p>The name of the table being described.</p>
@@ -3376,7 +3744,13 @@ export interface DescribeKinesisStreamingDestinationInput {
   TableName: string | undefined;
 }
 
-export type DestinationStatus = "ACTIVE" | "DISABLED" | "DISABLING" | "ENABLE_FAILED" | "ENABLING";
+export enum DestinationStatus {
+  ACTIVE = "ACTIVE",
+  DISABLED = "DISABLED",
+  DISABLING = "DISABLING",
+  ENABLE_FAILED = "ENABLE_FAILED",
+  ENABLING = "ENABLING",
+}
 
 /**
  * <p>Describes a Kinesis data stream destination.</p>
@@ -3492,7 +3866,11 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>UPDATING</code> - The index is being updated.</p>
+   *                     <code>UPDATING</code> - The table/index configuration is being updated. The
+   *                     table/index remains available for data operations when
+   *                     <code>UPDATING</code>
+   *                </p>
+   *
    *             </li>
    *             <li>
    *                 <p>
@@ -3762,7 +4140,7 @@ export interface ExportTableToPointInTimeInput {
    *             result might not be idempotent.</p>
    *         <p>If you submit a request with the same client token but a change in other parameters
    *             within the 8-hour idempotency window, DynamoDB returns an
-   *                 <code>IdempotentParameterMismatch</code> exception.</p>
+   *                 <code>ImportConflictException</code>.</p>
    */
   ClientToken?: string;
 
@@ -3860,6 +4238,80 @@ export class PointInTimeRecoveryUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * <p>
+ *             There was a conflict when importing from the specified S3 source.
+ *             This can occur when the current import conflicts with a previous import request
+ *             that had the same client token.
+ *             </p>
+ */
+export class ImportConflictException extends __BaseException {
+  readonly name: "ImportConflictException" = "ImportConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImportConflictException, __BaseException>) {
+    super({
+      name: "ImportConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImportConflictException.prototype);
+  }
+}
+
+export interface ImportTableInput {
+  /**
+   * <p>Providing a <code>ClientToken</code> makes the call to <code>ImportTableInput</code>
+   *             idempotent, meaning that multiple identical calls have the same effect as one single
+   *             call.</p>
+   *         <p>A client token is valid for 8 hours after the first request that uses it is completed.
+   *             After 8 hours, any request with the same client token is treated as a new request. Do
+   *             not resubmit the same request with the same client token for more than 8 hours, or the
+   *             result might not be idempotent.</p>
+   *         <p>If you submit a request with the same client token but a change in other parameters
+   *             within the 8-hour idempotency window, DynamoDB returns an
+   *                 <code>IdempotentParameterMismatch</code> exception.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p> The S3 bucket that provides the source for the import. </p>
+   */
+  S3BucketSource: S3BucketSource | undefined;
+
+  /**
+   * <p> The format of the source data. Valid values for <code>ImportFormat</code> are
+   *                 <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>. </p>
+   */
+  InputFormat: InputFormat | string | undefined;
+
+  /**
+   * <p> Additional properties that specify how the input is formatted, </p>
+   */
+  InputFormatOptions?: InputFormatOptions;
+
+  /**
+   * <p> Type of compression to be used on the input coming from the imported table. </p>
+   */
+  InputCompressionType?: InputCompressionType | string;
+
+  /**
+   * <p>Parameters for the table to import the data into. </p>
+   */
+  TableCreationParameters: TableCreationParameters | undefined;
+}
+
+export interface ImportTableOutput {
+  /**
+   * <p> Represents the properties of the table created for the import, and parameters of the
+   *             import. The import parameters include import status, how many items were processed, and
+   *             how many errors were encountered. </p>
+   */
+  ImportTableDescription: ImportTableDescription | undefined;
+}
+
 export interface ListBackupsInput {
   /**
    * <p>The backups from the table specified by <code>TableName</code> are listed. </p>
@@ -3899,7 +4351,8 @@ export interface ListBackupsInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p>
+   *                     <code>USER</code> - On-demand backup created by you. (The default setting if no
+   *                     other backup types are specified.)</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4061,6 +4514,91 @@ export interface ListGlobalTablesOutput {
   LastEvaluatedGlobalTableName?: string;
 }
 
+export interface ListImportsInput {
+  /**
+   * <p> The Amazon Resource Name (ARN) associated with the table that was imported to.
+   *         </p>
+   */
+  TableArn?: string;
+
+  /**
+   * <p> The number of <code>ImportSummary </code>objects returned in a single page. </p>
+   */
+  PageSize?: number;
+
+  /**
+   * <p> An optional string that, if supplied, must be copied from the output of a previous
+   *             call to <code>ListImports</code>. When provided in this manner, the API fetches the next
+   *             page of results. </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p> Summary information about the source file for the import.
+ *             </p>
+ */
+export interface ImportSummary {
+  /**
+   * <p> The Amazon Resource Number (ARN) corresponding to the import request. </p>
+   */
+  ImportArn?: string;
+
+  /**
+   * <p> The status of the import operation. </p>
+   */
+  ImportStatus?: ImportStatus | string;
+
+  /**
+   * <p> The Amazon Resource Number (ARN) of the table being imported into. </p>
+   */
+  TableArn?: string;
+
+  /**
+   * <p> The path and S3 bucket of the source file that is being imported. This includes the
+   *             S3Bucket (required), S3KeyPrefix (optional) and S3BucketOwner (optional if the bucket is
+   *             owned by the requester). </p>
+   */
+  S3BucketSource?: S3BucketSource;
+
+  /**
+   * <p> The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with this
+   *             import task. </p>
+   */
+  CloudWatchLogGroupArn?: string;
+
+  /**
+   * <p> The format of the source data. Valid values are <code>CSV</code>,
+   *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+   */
+  InputFormat?: InputFormat | string;
+
+  /**
+   * <p> The time at which this import task began. </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p> The time at which this import task ended. (Does this include the successful complete
+   *             creation of the table it was imported to?) </p>
+   */
+  EndTime?: Date;
+}
+
+export interface ListImportsOutput {
+  /**
+   * <p> A list of <code>ImportSummary</code> objects. </p>
+   */
+  ImportSummaryList?: ImportSummary[];
+
+  /**
+   * <p> If this value is returned, there are additional results to be displayed. To retrieve
+   *             them, call <code>ListImports</code> again, with <code>NextToken</code> set to this
+   *             value. </p>
+   */
+  NextToken?: string;
+}
+
 /**
  * <p>Represents the input of a <code>ListTables</code> operation.</p>
  */
@@ -4130,7 +4668,12 @@ export interface ListTagsOfResourceOutput {
   NextToken?: string;
 }
 
-export type Select = "ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "COUNT" | "SPECIFIC_ATTRIBUTES";
+export enum Select {
+  ALL_ATTRIBUTES = "ALL_ATTRIBUTES",
+  ALL_PROJECTED_ATTRIBUTES = "ALL_PROJECTED_ATTRIBUTES",
+  COUNT = "COUNT",
+  SPECIFIC_ATTRIBUTES = "SPECIFIC_ATTRIBUTES",
+}
 
 export interface RestoreTableFromBackupInput {
   /**
@@ -4556,8 +5099,8 @@ export interface ReplicaSettingsUpdate {
   ReplicaGlobalSecondaryIndexSettingsUpdate?: ReplicaGlobalSecondaryIndexSettingsUpdate[];
 
   /**
-   * <p>Replica-specific table class. If not specified, uses the source table's
-   *             table class.</p>
+   * <p>Replica-specific table class. If not specified, uses the source table's table
+   *             class.</p>
    */
   ReplicaTableClass?: TableClass | string;
 }
@@ -4717,11 +5260,10 @@ export interface UpdateReplicationGroupMemberAction {
   RegionName: string | undefined;
 
   /**
-   * <p>The KMS key of the replica that should be used
-   *             for KMS encryption. To specify a key, use its key ID, Amazon Resource
-   *             Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter
-   *             if the key is different from the default DynamoDB KMS key
-   *                 <code>alias/aws/dynamodb</code>.</p>
+   * <p>The KMS key of the replica that should be used for KMS
+   *             encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or
+   *             alias ARN. Note that you should only provide this parameter if the key is different from
+   *             the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
    */
   KMSMasterKeyId?: string;
 
@@ -4737,8 +5279,8 @@ export interface UpdateReplicationGroupMemberAction {
   GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[];
 
   /**
-   * <p>Replica-specific table class. If not specified, uses the source table's
-   *             table class.</p>
+   * <p>Replica-specific table class. If not specified, uses the source table's table
+   *             class.</p>
    */
   TableClassOverride?: TableClass | string;
 }
@@ -4762,9 +5304,9 @@ export interface UpdateReplicationGroupMemberAction {
  *             </li>
  *          </ul>
  *         <note>
- *             <p>When you manually remove a table or global table replica, you do not
- *                 automatically remove any associated scalable targets, scaling policies, or
- *                 CloudWatch alarms.</p>
+ *             <p>When you manually remove a table or global table replica, you do not automatically
+ *                 remove any associated scalable targets, scaling policies, or CloudWatch
+ *                 alarms.</p>
  *         </note>
  */
 export interface ReplicationGroupUpdate {
@@ -5408,8 +5950,8 @@ export interface AttributeValueUpdate {
    *             <li>
    *                 <p>
    *                     <code>ADD</code> - DynamoDB creates a new item with the supplied primary key and
-   *                     number (or set) for the attribute value. The only data types allowed
-   *                     are number, number set, string set or binary set.</p>
+   *                     number (or set) for the attribute value. The only data types allowed are number,
+   *                     number set, string set or binary set.</p>
    *             </li>
    *          </ul>
    */
@@ -6228,7 +6770,7 @@ export interface TransactGetItemsOutput {
   ConsumedCapacity?: ConsumedCapacity[];
 
   /**
-   * <p>An ordered array of up to 25 <code>ItemResponse</code> objects, each of which
+   * <p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which
    *             corresponds to the <code>TransactGetItem</code> object in the same position in the
    *                 <i>TransactItems</i> array. Each <code>ItemResponse</code> object
    *             contains a Map of the name-value pairs that are the projected attributes of the
@@ -6921,7 +7463,7 @@ export interface ExpectedAttributeValue {
 
 export interface TransactGetItemsInput {
   /**
-   * <p>An ordered array of up to 25 <code>TransactGetItem</code> objects, each of which
+   * <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which
    *             contains a <code>Get</code> structure.</p>
    */
   TransactItems: TransactGetItem[] | undefined;
@@ -7940,9 +8482,9 @@ export interface DeleteItemInput {
    *                     <code>ALL_OLD</code> - The content of the old item is returned.</p>
    *             </li>
    *          </ul>
-   *         <p>There is no additional cost associated with requesting a return value aside from the small
-   *             network and processing overhead of receiving a larger response. No read capacity units are
-   *             consumed.</p>
+   *         <p>There is no additional cost associated with requesting a return value aside from the
+   *             small network and processing overhead of receiving a larger response. No read capacity
+   *             units are consumed.</p>
    *         <note>
    *             <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations;
    *                 however, <code>DeleteItem</code> does not recognize any values other than
@@ -8150,9 +8692,9 @@ export interface PutItemInput {
    *             </li>
    *          </ul>
    *         <p>The values returned are strongly consistent.</p>
-   *         <p>There is no additional cost associated with requesting a return value aside from the small
-   *             network and processing overhead of receiving a larger response. No read capacity units are
-   *             consumed.</p>
+   *         <p>There is no additional cost associated with requesting a return value aside from the
+   *             small network and processing overhead of receiving a larger response. No read capacity
+   *             units are consumed.</p>
    *         <note>
    *             <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations;
    *                 however, <code>PutItem</code> does not recognize any values other than
@@ -8727,7 +9269,7 @@ export interface BatchWriteItemOutput {
    * <p>A map of tables and requests against those tables that were not processed. The
    *                 <code>UnprocessedItems</code> value is in the same form as
    *             <code>RequestItems</code>, so you can provide this value directly to a subsequent
-   *                 <code>BatchGetItem</code> operation. For more information, see
+   *                 <code>BatchWriteItem</code> operation. For more information, see
    *                 <code>RequestItems</code> in the Request Parameters section.</p>
    *         <p>Each <code>UnprocessedItems</code> entry consists of a table name and, for that table,
    *             a list of operations to perform (<code>DeleteRequest</code> or
@@ -9175,7 +9717,7 @@ export interface TransactWriteItem {
 
 export interface TransactWriteItemsInput {
   /**
-   * <p>An ordered array of up to 25 <code>TransactWriteItem</code> objects, each of which
+   * <p>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which
    *             contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or
    *                 <code>Delete</code> object. These can operate on items in different tables, but the
    *             tables must reside in the same Amazon Web Services account and Region, and no two of them
@@ -9622,6 +10164,13 @@ export const CreateTableOutputFilterSensitiveLog = (obj: CreateTableOutput): any
 /**
  * @internal
  */
+export const CsvOptionsFilterSensitiveLog = (obj: CsvOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteBackupInputFilterSensitiveLog = (obj: DeleteBackupInput): any => ({
   ...obj,
 });
@@ -9806,6 +10355,48 @@ export const DescribeGlobalTableSettingsOutputFilterSensitiveLog = (obj: Describ
 /**
  * @internal
  */
+export const DescribeImportInputFilterSensitiveLog = (obj: DescribeImportInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputFormatOptionsFilterSensitiveLog = (obj: InputFormatOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3BucketSourceFilterSensitiveLog = (obj: S3BucketSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableCreationParametersFilterSensitiveLog = (obj: TableCreationParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTableDescriptionFilterSensitiveLog = (obj: ImportTableDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImportOutputFilterSensitiveLog = (obj: DescribeImportOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeKinesisStreamingDestinationInputFilterSensitiveLog = (
   obj: DescribeKinesisStreamingDestinationInput
 ): any => ({
@@ -9942,6 +10533,20 @@ export const ExportTableToPointInTimeOutputFilterSensitiveLog = (obj: ExportTabl
 /**
  * @internal
  */
+export const ImportTableInputFilterSensitiveLog = (obj: ImportTableInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTableOutputFilterSensitiveLog = (obj: ImportTableOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListBackupsInputFilterSensitiveLog = (obj: ListBackupsInput): any => ({
   ...obj,
 });
@@ -10006,6 +10611,27 @@ export const GlobalTableFilterSensitiveLog = (obj: GlobalTable): any => ({
  * @internal
  */
 export const ListGlobalTablesOutputFilterSensitiveLog = (obj: ListGlobalTablesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsInputFilterSensitiveLog = (obj: ListImportsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportSummaryFilterSensitiveLog = (obj: ImportSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsOutputFilterSensitiveLog = (obj: ListImportsOutput): any => ({
   ...obj,
 });
 
@@ -10291,10 +10917,9 @@ export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
   if (obj.M !== undefined)
     return {
       M: Object.entries(obj.M).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       ),
     };
@@ -10327,10 +10952,7 @@ export const BatchStatementResponseFilterSensitiveLog = (obj: BatchStatementResp
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10343,10 +10965,7 @@ export const CancellationReasonFilterSensitiveLog = (obj: CancellationReason): a
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10369,10 +10988,7 @@ export const DeleteRequestFilterSensitiveLog = (obj: DeleteRequest): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10393,10 +11009,7 @@ export const GetFilterSensitiveLog = (obj: Get): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10409,10 +11022,7 @@ export const GetItemInputFilterSensitiveLog = (obj: GetItemInput): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10425,10 +11035,7 @@ export const GetItemOutputFilterSensitiveLog = (obj: GetItemOutput): any => ({
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10441,10 +11048,7 @@ export const ItemCollectionMetricsFilterSensitiveLog = (obj: ItemCollectionMetri
   ...obj,
   ...(obj.ItemCollectionKey && {
     ItemCollectionKey: Object.entries(obj.ItemCollectionKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10457,10 +11061,7 @@ export const ItemResponseFilterSensitiveLog = (obj: ItemResponse): any => ({
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10481,10 +11082,7 @@ export const PutRequestFilterSensitiveLog = (obj: PutRequest): any => ({
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10498,10 +11096,9 @@ export const KeysAndAttributesFilterSensitiveLog = (obj: KeysAndAttributes): any
   ...(obj.Keys && {
     Keys: obj.Keys.map((item) =>
       Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       )
     ),
@@ -10565,10 +11162,9 @@ export const BatchGetItemInputFilterSensitiveLog = (obj: BatchGetItemInput): any
   ...obj,
   ...(obj.RequestItems && {
     RequestItems: Object.entries(obj.RequestItems).reduce(
-      (acc: any, [key, value]: [string, KeysAndAttributes]) => ({
-        ...acc,
-        [key]: KeysAndAttributesFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, KeysAndAttributes]) => (
+        (acc[key] = KeysAndAttributesFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -10600,10 +11196,9 @@ export const TransactWriteItemsOutputFilterSensitiveLog = (obj: TransactWriteIte
   ...obj,
   ...(obj.ItemCollectionMetrics && {
     ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
-      (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => ({
-        ...acc,
-        [key]: value.map((item) => ItemCollectionMetricsFilterSensitiveLog(item)),
-      }),
+      (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => (
+        (acc[key] = value.map((item) => ItemCollectionMetricsFilterSensitiveLog(item))), acc
+      ),
       {}
     ),
   }),
@@ -10616,19 +11211,13 @@ export const ConditionCheckFilterSensitiveLog = (obj: ConditionCheck): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10641,19 +11230,13 @@ export const DeleteFilterSensitiveLog = (obj: Delete): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10666,19 +11249,13 @@ export const PutFilterSensitiveLog = (obj: Put): any => ({
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10691,19 +11268,13 @@ export const UpdateFilterSensitiveLog = (obj: Update): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10716,10 +11287,7 @@ export const DeleteItemOutputFilterSensitiveLog = (obj: DeleteItemOutput): any =
   ...obj,
   ...(obj.Attributes && {
     Attributes: Object.entries(obj.Attributes).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10736,20 +11304,16 @@ export const ExecuteStatementOutputFilterSensitiveLog = (obj: ExecuteStatementOu
   ...(obj.Items && {
     Items: obj.Items.map((item) =>
       Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       )
     ),
   }),
   ...(obj.LastEvaluatedKey && {
     LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10762,10 +11326,7 @@ export const PutItemOutputFilterSensitiveLog = (obj: PutItemOutput): any => ({
   ...obj,
   ...(obj.Attributes && {
     Attributes: Object.entries(obj.Attributes).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10782,20 +11343,16 @@ export const QueryOutputFilterSensitiveLog = (obj: QueryOutput): any => ({
   ...(obj.Items && {
     Items: obj.Items.map((item) =>
       Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       )
     ),
   }),
   ...(obj.LastEvaluatedKey && {
     LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10809,20 +11366,16 @@ export const ScanOutputFilterSensitiveLog = (obj: ScanOutput): any => ({
   ...(obj.Items && {
     Items: obj.Items.map((item) =>
       Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       )
     ),
   }),
   ...(obj.LastEvaluatedKey && {
     LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10835,10 +11388,7 @@ export const UpdateItemOutputFilterSensitiveLog = (obj: UpdateItemOutput): any =
   ...obj,
   ...(obj.Attributes && {
     Attributes: Object.entries(obj.Attributes).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10863,27 +11413,25 @@ export const BatchGetItemOutputFilterSensitiveLog = (obj: BatchGetItemOutput): a
   ...obj,
   ...(obj.Responses && {
     Responses: Object.entries(obj.Responses).reduce(
-      (acc: any, [key, value]: [string, Record<string, AttributeValue>[]]) => ({
-        ...acc,
-        [key]: value.map((item) =>
+      (acc: any, [key, value]: [string, Record<string, AttributeValue>[]]) => (
+        (acc[key] = value.map((item) =>
           Object.entries(item).reduce(
-            (acc: any, [key, value]: [string, AttributeValue]) => ({
-              ...acc,
-              [key]: AttributeValueFilterSensitiveLog(value),
-            }),
+            (acc: any, [key, value]: [string, AttributeValue]) => (
+              (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+            ),
             {}
           )
-        ),
-      }),
+        )),
+        acc
+      ),
       {}
     ),
   }),
   ...(obj.UnprocessedKeys && {
     UnprocessedKeys: Object.entries(obj.UnprocessedKeys).reduce(
-      (acc: any, [key, value]: [string, KeysAndAttributes]) => ({
-        ...acc,
-        [key]: KeysAndAttributesFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, KeysAndAttributes]) => (
+        (acc[key] = KeysAndAttributesFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -10896,28 +11444,19 @@ export const ScanInputFilterSensitiveLog = (obj: ScanInput): any => ({
   ...obj,
   ...(obj.ScanFilter && {
     ScanFilter: Object.entries(obj.ScanFilter).reduce(
-      (acc: any, [key, value]: [string, Condition]) => ({
-        ...acc,
-        [key]: ConditionFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Condition]) => ((acc[key] = ConditionFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExclusiveStartKey && {
     ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10930,10 +11469,9 @@ export const BatchWriteItemInputFilterSensitiveLog = (obj: BatchWriteItemInput):
   ...obj,
   ...(obj.RequestItems && {
     RequestItems: Object.entries(obj.RequestItems).reduce(
-      (acc: any, [key, value]: [string, WriteRequest[]]) => ({
-        ...acc,
-        [key]: value.map((item) => WriteRequestFilterSensitiveLog(item)),
-      }),
+      (acc: any, [key, value]: [string, WriteRequest[]]) => (
+        (acc[key] = value.map((item) => WriteRequestFilterSensitiveLog(item))), acc
+      ),
       {}
     ),
   }),
@@ -10946,28 +11484,21 @@ export const DeleteItemInputFilterSensitiveLog = (obj: DeleteItemInput): any => 
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.Expected && {
     Expected: Object.entries(obj.Expected).reduce(
-      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
-        ...acc,
-        [key]: ExpectedAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => (
+        (acc[key] = ExpectedAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10980,28 +11511,21 @@ export const PutItemInputFilterSensitiveLog = (obj: PutItemInput): any => ({
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.Expected && {
     Expected: Object.entries(obj.Expected).reduce(
-      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
-        ...acc,
-        [key]: ExpectedAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => (
+        (acc[key] = ExpectedAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11014,37 +11538,25 @@ export const QueryInputFilterSensitiveLog = (obj: QueryInput): any => ({
   ...obj,
   ...(obj.KeyConditions && {
     KeyConditions: Object.entries(obj.KeyConditions).reduce(
-      (acc: any, [key, value]: [string, Condition]) => ({
-        ...acc,
-        [key]: ConditionFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Condition]) => ((acc[key] = ConditionFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.QueryFilter && {
     QueryFilter: Object.entries(obj.QueryFilter).reduce(
-      (acc: any, [key, value]: [string, Condition]) => ({
-        ...acc,
-        [key]: ConditionFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Condition]) => ((acc[key] = ConditionFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExclusiveStartKey && {
     ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11057,19 +11569,17 @@ export const BatchWriteItemOutputFilterSensitiveLog = (obj: BatchWriteItemOutput
   ...obj,
   ...(obj.UnprocessedItems && {
     UnprocessedItems: Object.entries(obj.UnprocessedItems).reduce(
-      (acc: any, [key, value]: [string, WriteRequest[]]) => ({
-        ...acc,
-        [key]: value.map((item) => WriteRequestFilterSensitiveLog(item)),
-      }),
+      (acc: any, [key, value]: [string, WriteRequest[]]) => (
+        (acc[key] = value.map((item) => WriteRequestFilterSensitiveLog(item))), acc
+      ),
       {}
     ),
   }),
   ...(obj.ItemCollectionMetrics && {
     ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
-      (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => ({
-        ...acc,
-        [key]: value.map((item) => ItemCollectionMetricsFilterSensitiveLog(item)),
-      }),
+      (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => (
+        (acc[key] = value.map((item) => ItemCollectionMetricsFilterSensitiveLog(item))), acc
+      ),
       {}
     ),
   }),
@@ -11082,37 +11592,29 @@ export const UpdateItemInputFilterSensitiveLog = (obj: UpdateItemInput): any => 
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.AttributeUpdates && {
     AttributeUpdates: Object.entries(obj.AttributeUpdates).reduce(
-      (acc: any, [key, value]: [string, AttributeValueUpdate]) => ({
-        ...acc,
-        [key]: AttributeValueUpdateFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValueUpdate]) => (
+        (acc[key] = AttributeValueUpdateFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
   ...(obj.Expected && {
     Expected: Object.entries(obj.Expected).reduce(
-      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
-        ...acc,
-        [key]: ExpectedAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => (
+        (acc[key] = ExpectedAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),

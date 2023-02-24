@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,7 +27,7 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
 
 /**
  * <p>Displays the details of the dashboard that you specify.</p>
- * 		       <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
+ *          <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
  * 			within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code> to create
  * 			the copy.</p>
  * @example
@@ -52,6 +53,15 @@ export class GetDashboardCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,7 @@ export class GetDashboardCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDashboardCommandInput, GetDashboardCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetDashboardCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

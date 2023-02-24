@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,23 +30,18 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
 
 /**
  * <p>Retrieves properties for a Realtime script. </p>
- *         <p>To request a script record, specify the script ID. If successful, an object containing the script properties
- *         is returned.</p>
+ *         <p>To request a script record, specify the script ID. If successful, an object containing
+ *             the script properties is returned.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
  *         </p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateScript</a> |
- *                     <a>ListScripts</a> |
- *                     <a>DescribeScript</a> |
- *                     <a>UpdateScript</a> |
- *                     <a>DeleteScript</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -71,6 +67,15 @@ export class DescribeScriptCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +91,9 @@ export class DescribeScriptCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeScriptCommandInput, DescribeScriptCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeScriptCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

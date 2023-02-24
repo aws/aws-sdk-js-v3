@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,7 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  * 				<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
  * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
  * 				(<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
- * 		       <p> Use the <code>Filters</code> parameter to specify status and severity search
+ *          <p> Use the <code>Filters</code> parameter to specify status and severity search
  * 			parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or
  * 				<code>PROACTIVE</code> in your search. </p>
  * @example
@@ -59,6 +60,15 @@ export class SearchOrganizationInsightsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchOrganizationInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class SearchOrganizationInsightsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchOrganizationInsightsCommandInput, SearchOrganizationInsightsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchOrganizationInsightsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

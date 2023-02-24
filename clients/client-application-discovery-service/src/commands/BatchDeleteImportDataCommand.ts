@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,7 +35,6 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
 /**
  * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
  *       a number of records that can identify servers or applications. </p>
- *
  *          <p>Amazon Web Services Application Discovery Service has built-in matching logic that will identify when
  *       discovered servers match existing entries that you've previously discovered, the information
  *       for the already-existing discovered server is updated. When you delete an import task that
@@ -63,6 +63,15 @@ export class BatchDeleteImportDataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchDeleteImportDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +87,9 @@ export class BatchDeleteImportDataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteImportDataCommandInput, BatchDeleteImportDataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchDeleteImportDataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

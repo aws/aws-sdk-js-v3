@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface CreateStreamingSessionStreamCommandOutput
 /**
  * <p>Creates a streaming session stream for a streaming session.</p>
  *         <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId
- *             to poll the resource until it is in state READY.</p>
+ *             to poll the resource until it is in the <code>READY</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class CreateStreamingSessionStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateStreamingSessionStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class CreateStreamingSessionStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateStreamingSessionStreamCommandInput, CreateStreamingSessionStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateStreamingSessionStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

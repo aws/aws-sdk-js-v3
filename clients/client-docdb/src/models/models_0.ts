@@ -5217,7 +5217,6 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *                 source DB cluster.</p>
    *             </li>
    *          </ul>
-   *         <p>Constraints: You can't specify <code>copy-on-write</code> if the engine version of the source DB cluster is earlier than 1.11.</p>
    *         <p>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
    *             restored as a full copy of the source DB cluster.</p>
    */

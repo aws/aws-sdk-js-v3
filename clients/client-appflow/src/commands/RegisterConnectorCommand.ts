@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,9 @@ export interface RegisterConnectorCommandInput extends RegisterConnectorRequest 
 export interface RegisterConnectorCommandOutput extends RegisterConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a new connector with your Amazon Web Services account. Before you can register
- *       the connector, you must deploy lambda in your account.</p>
+ * <p>Registers a new custom connector with your Amazon Web Services account. Before you can
+ *       register the connector, you must deploy the associated AWS lambda function in your
+ *       account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +55,15 @@ export class RegisterConnectorCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +79,9 @@ export class RegisterConnectorCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterConnectorCommandInput, RegisterConnectorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterConnectorCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

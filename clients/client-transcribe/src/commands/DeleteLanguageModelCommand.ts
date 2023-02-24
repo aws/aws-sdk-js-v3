@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,9 +24,9 @@ export interface DeleteLanguageModelCommandInput extends DeleteLanguageModelRequ
 export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a custom language model. To use this operation, specify the name of the language
- *             model you want to delete using <code>ModelName</code>. Language model names are case
- *             sensitive.</p>
+ * <p>Deletes a custom language model. To use this operation, specify the name of the
+ *             language model you want to delete using <code>ModelName</code>. custom language model
+ *             names are case sensitive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +50,15 @@ export class DeleteLanguageModelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteLanguageModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +74,9 @@ export class DeleteLanguageModelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLanguageModelCommandInput, DeleteLanguageModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteLanguageModelCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

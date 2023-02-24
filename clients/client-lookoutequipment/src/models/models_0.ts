@@ -326,22 +326,20 @@ export interface CreateInferenceSchedulerRequest {
   InferenceSchedulerName: string | undefined;
 
   /**
-   * <p>A period of time (in minutes) by which inference on the data is delayed after the data
-   *          starts. For instance, if you select an offset delay time of five minutes, inference will
-   *          not begin on the data until the first data measurement after the five minute mark. For
-   *          example, if five minutes is selected, the inference scheduler will wake up at the
-   *          configured frequency with the additional five minute delay time to check the customer S3
-   *          bucket. The customer can upload data at the same frequency and they don't need to stop and
-   *          restart the scheduler when uploading new data. </p>
+   * <p>The interval (in minutes) of planned delay at the start of each inference segment. For
+   *          example, if inference is set to run every ten minutes, the delay is set to five minutes and the time is 09:08. The inference scheduler will wake up at the
+   *          configured interval (which, without a delay configured, would be 09:10) plus the additional five minute delay time (so 09:15) to check your Amazon S3
+   *          bucket. The delay provides a buffer for you to upload data at the same frequency, so that you don't have to stop and
+   *          restart the scheduler when uploading new data.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html">Understanding the inference process</a>.</p>
    */
   DataDelayOffsetInMinutes?: number;
 
   /**
-   * <p> How often data is uploaded to the source S3 bucket for the input data. The value chosen
-   *          is the length of time between data uploads. For instance, if you select 5 minutes, Amazon
-   *          Lookout for Equipment will upload the real-time data to the source bucket once every 5
-   *          minutes. This frequency also determines how often Amazon Lookout for Equipment starts a
-   *          scheduled inference on your data. In this example, it starts once every 5 minutes. </p>
+   * <p> How often data is uploaded to the source Amazon S3 bucket for the input data. The value chosen
+   *          is the length of time between data uploads. For instance, if you select 5 minutes, Amazon Lookout for Equipment will upload the real-time data to the source bucket once every 5
+   *          minutes. This frequency also determines how often Amazon Lookout for Equipment runs inference on your data.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html">Understanding the inference process</a>.</p>
    */
   DataUploadFrequency: DataUploadFrequency | string | undefined;
 
@@ -427,6 +425,131 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+export enum LabelRating {
+  ANOMALY = "ANOMALY",
+  NEUTRAL = "NEUTRAL",
+  NO_ANOMALY = "NO_ANOMALY",
+}
+
+export interface CreateLabelRequest {
+  /**
+   * <p>
+   * The name of a group of labels. </p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.
+   * </p>
+   */
+  LabelGroupName: string | undefined;
+
+  /**
+   * <p>
+   * The start time of the labeled event.
+   * </p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>
+   * The end time of the labeled event.
+   * </p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>
+   * Indicates whether a labeled event represents an anomaly.
+   * </p>
+   */
+  Rating: LabelRating | string | undefined;
+
+  /**
+   * <p>
+   * Provides additional information about the label. The fault code must be defined in the FaultCodes attribute of the label group.</p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.
+   * </p>
+   */
+  FaultCode?: string;
+
+  /**
+   * <p>
+   * Metadata providing additional information about the label.
+   * </p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
+   */
+  Notes?: string;
+
+  /**
+   * <p>
+   * Indicates that a label pertains to a particular piece of equipment.
+   * </p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
+   */
+  Equipment?: string;
+
+  /**
+   * <p>
+   * A unique identifier for the request to create a label. If you do not set the client request token, Lookout for Equipment generates one.
+   * </p>
+   */
+  ClientToken?: string;
+}
+
+export interface CreateLabelResponse {
+  /**
+   * <p>
+   * The ID of the label that you have created.
+   * </p>
+   */
+  LabelId?: string;
+}
+
+export interface CreateLabelGroupRequest {
+  /**
+   * <p>
+   * Names a group of labels.</p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.
+   * </p>
+   */
+  LabelGroupName: string | undefined;
+
+  /**
+   * <p>
+   * The acceptable fault codes (indicating the type of anomaly associated with the label) that can be used with this label group.</p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
+   */
+  FaultCodes?: string[];
+
+  /**
+   * <p>
+   * A unique identifier for the request to create a label group. If you do not set the client request token, Lookout for Equipment generates one.
+   * </p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>
+   * Tags that provide metadata about the label group you are creating.
+   * </p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateLabelGroupResponse {
+  /**
+   * <p>
+   * The name of the label group that you have created. Data in this field will be retained for service usage. Follow best practices for the security of your data.
+   * </p>
+   */
+  LabelGroupName?: string;
+
+  /**
+   * <p>
+   * The ARN of the label group that you have created.
+   * </p>
+   */
+  LabelGroupArn?: string;
+}
+
 export enum TargetSamplingRate {
   PT10M = "PT10M",
   PT10S = "PT10S",
@@ -492,7 +615,14 @@ export interface LabelsInputConfiguration {
   /**
    * <p>Contains location information for the S3 location being used for label data. </p>
    */
-  S3InputConfiguration: LabelsS3InputConfiguration | undefined;
+  S3InputConfiguration?: LabelsS3InputConfiguration;
+
+  /**
+   * <p>
+   * The name of the label group to be used for label data.
+   * </p>
+   */
+  LabelGroupName?: string;
 }
 
 export interface CreateModelRequest {
@@ -616,6 +746,31 @@ export interface DeleteInferenceSchedulerRequest {
    * <p>The name of the inference scheduler to be deleted. </p>
    */
   InferenceSchedulerName: string | undefined;
+}
+
+export interface DeleteLabelRequest {
+  /**
+   * <p>
+   * The name of the label group that contains the label that you want to delete. Data in this field will be retained for service usage. Follow best practices for the security of your data.
+   * </p>
+   */
+  LabelGroupName: string | undefined;
+
+  /**
+   * <p>
+   * The ID of the label that you want to delete.
+   * </p>
+   */
+  LabelId: string | undefined;
+}
+
+export interface DeleteLabelGroupRequest {
+  /**
+   * <p>
+   * The name of the label group that you want to delete. Data in this field will be retained for service usage. Follow best practices for the security of your data.
+   * </p>
+   */
+  LabelGroupName: string | undefined;
 }
 
 export interface DeleteModelRequest {
@@ -893,30 +1048,25 @@ export interface DescribeDataIngestionJobResponse {
   IngestedFilesSummary?: IngestedFilesSummary;
 
   /**
-   * <p>
-   *          Provides details about status of the ingestion job that is currently in progress.
+   * <p> Provides details about status of the ingestion job that is currently in progress.
    *       </p>
    */
   StatusDetail?: string;
 
   /**
-   * <p>
-   *          Indicates the size of the ingested dataset.
-   *       </p>
+   * <p> Indicates the size of the ingested dataset. </p>
    */
   IngestedDataSize?: number;
 
   /**
-   * <p>
-   *          Indicates the earliest timestamp corresponding to data that was successfully ingested during this specific ingestion job.
-   *       </p>
+   * <p> Indicates the earliest timestamp corresponding to data that was successfully ingested
+   *          during this specific ingestion job. </p>
    */
   DataStartTime?: Date;
 
   /**
-   * <p>
-   *          Indicates the latest timestamp corresponding to data that was successfully ingested during this specific ingestion job.
-   *       </p>
+   * <p> Indicates the latest timestamp corresponding to data that was successfully ingested
+   *          during this specific ingestion job. </p>
    */
   DataEndTime?: Date;
 }
@@ -987,23 +1137,20 @@ export interface DescribeDatasetResponse {
   IngestedFilesSummary?: IngestedFilesSummary;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the IAM role that you are using for this the data ingestion job.
-   *       </p>
+   * <p> The Amazon Resource Name (ARN) of the IAM role that you are using for this the data
+   *          ingestion job. </p>
    */
   RoleArn?: string;
 
   /**
-   * <p>
-   *          Indicates the earliest timestamp corresponding to data that was successfully ingested during the most recent ingestion of this particular dataset.
-   *       </p>
+   * <p> Indicates the earliest timestamp corresponding to data that was successfully ingested
+   *          during the most recent ingestion of this particular dataset. </p>
    */
   DataStartTime?: Date;
 
   /**
-   * <p>
-   *          Indicates the latest timestamp corresponding to data that was successfully ingested during the most recent ingestion of this particular dataset.
-   *       </p>
+   * <p> Indicates the latest timestamp corresponding to data that was successfully ingested
+   *          during the most recent ingestion of this particular dataset. </p>
    */
   DataEndTime?: Date;
 }
@@ -1013,6 +1160,11 @@ export interface DescribeInferenceSchedulerRequest {
    * <p>The name of the inference scheduler being described. </p>
    */
   InferenceSchedulerName: string | undefined;
+}
+
+export enum LatestInferenceResult {
+  ANOMALOUS = "ANOMALOUS",
+  NORMAL = "NORMAL",
 }
 
 export interface DescribeInferenceSchedulerResponse {
@@ -1095,6 +1247,146 @@ export interface DescribeInferenceSchedulerResponse {
    *          Amazon Lookout for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
+
+  /**
+   * <p>Indicates whether the latest execution for the inference scheduler was Anomalous
+   *          (anomalous events found) or Normal (no anomalous events found).</p>
+   */
+  LatestInferenceResult?: LatestInferenceResult | string;
+}
+
+export interface DescribeLabelRequest {
+  /**
+   * <p>
+   * Returns the name of the group containing the label.
+   * </p>
+   */
+  LabelGroupName: string | undefined;
+
+  /**
+   * <p>
+   * Returns the ID of the label.
+   * </p>
+   */
+  LabelId: string | undefined;
+}
+
+export interface DescribeLabelResponse {
+  /**
+   * <p>
+   * The name of the requested label group.
+   * </p>
+   */
+  LabelGroupName?: string;
+
+  /**
+   * <p>
+   * The ARN of the requested label group.
+   * </p>
+   */
+  LabelGroupArn?: string;
+
+  /**
+   * <p>
+   * The ID of the requested label.
+   * </p>
+   */
+  LabelId?: string;
+
+  /**
+   * <p>
+   * The start time of the requested label.
+   * </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>
+   * The end time of the requested label.
+   * </p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>
+   * Indicates whether a labeled event represents an anomaly.
+   * </p>
+   */
+  Rating?: LabelRating | string;
+
+  /**
+   * <p>
+   * Indicates the type of anomaly associated with the label.
+   * </p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
+   */
+  FaultCode?: string;
+
+  /**
+   * <p>Metadata providing additional information about the label.</p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
+   */
+  Notes?: string;
+
+  /**
+   * <p>
+   * Indicates that a label pertains to a particular piece of equipment.
+   * </p>
+   */
+  Equipment?: string;
+
+  /**
+   * <p>
+   * The time at which the label was created.
+   * </p>
+   */
+  CreatedAt?: Date;
+}
+
+export interface DescribeLabelGroupRequest {
+  /**
+   * <p>
+   * Returns the name of the label group.
+   * </p>
+   */
+  LabelGroupName: string | undefined;
+}
+
+export interface DescribeLabelGroupResponse {
+  /**
+   * <p>
+   * The name of the label group.
+   * </p>
+   */
+  LabelGroupName?: string;
+
+  /**
+   * <p>
+   * The ARN of the label group.
+   * </p>
+   */
+  LabelGroupArn?: string;
+
+  /**
+   * <p>
+   * Codes indicating the type of anomaly associated with the labels in the lagbel group.
+   * </p>
+   */
+  FaultCodes?: string[];
+
+  /**
+   * <p>
+   * The time at which the label group was created.
+   * </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>
+   * The time at which the label group was updated.
+   * </p>
+   */
+  UpdatedAt?: Date;
 }
 
 export interface DescribeModelRequest {
@@ -1243,7 +1535,7 @@ export interface ListDataIngestionJobsRequest {
   DatasetName?: string;
 
   /**
-   * <p> An opaque pagination token indicating where to continue the listing of data ingestion
+   * <p>An opaque pagination token indicating where to continue the listing of data ingestion
    *          jobs. </p>
    */
   NextToken?: string;
@@ -1381,12 +1673,13 @@ export interface ListInferenceEventsRequest {
   InferenceSchedulerName: string | undefined;
 
   /**
-   * <p> Lookout for Equipment will return all the inference events with start time equal to or greater than the start time given.</p>
+   * <p> Lookout for Equipment will return all the inference events with an end time equal to or greater than the
+   *          start time given.</p>
    */
   IntervalStartTime: Date | undefined;
 
   /**
-   * <p>Lookout for Equipment will return all the inference events with end time equal to or less than the end time given.</p>
+   * <p>Returns all the inference events with an end start time equal to or greater than less than the end time given</p>
    */
   IntervalEndTime: Date | undefined;
 }
@@ -1408,25 +1701,23 @@ export interface InferenceEventSummary {
   InferenceSchedulerName?: string;
 
   /**
-   * <p>Indicates the starting time of an inference event.
-   *       </p>
+   * <p>Indicates the starting time of an inference event. </p>
    */
   EventStartTime?: Date;
 
   /**
-   * <p>Indicates the ending time of an inference event.
-   *       </p>
+   * <p>Indicates the ending time of an inference event. </p>
    */
   EventEndTime?: Date;
 
   /**
-   * <p> An array which specifies the names and values of all sensors contributing to an inference event.</p>
+   * <p> An array which specifies the names and values of all sensors contributing to an
+   *          inference event.</p>
    */
   Diagnostics?: string;
 
   /**
-   * <p> Indicates the size of an inference event in seconds.
-   *       </p>
+   * <p> Indicates the size of an inference event in seconds. </p>
    */
   EventDurationInSeconds?: number;
 }
@@ -1439,8 +1730,8 @@ export interface ListInferenceEventsResponse {
   NextToken?: string;
 
   /**
-   * <p>Provides an array of information about the individual inference events returned from
-   *          the <code>ListInferenceEvents</code> operation, including scheduler used, event start time,
+   * <p>Provides an array of information about the individual inference events returned from the
+   *             <code>ListInferenceEvents</code> operation, including scheduler used, event start time,
    *          event end time, diagnostics, and so on. </p>
    */
   InferenceEventSummaries?: InferenceEventSummary[];
@@ -1597,6 +1888,11 @@ export interface ListInferenceSchedulersRequest {
    * <p>The name of the ML model used by the inference scheduler to be listed. </p>
    */
   ModelName?: string;
+
+  /**
+   * <p>Specifies the current status of the inference schedulers to list.</p>
+   */
+  Status?: InferenceSchedulerStatus | string;
 }
 
 /**
@@ -1648,6 +1944,12 @@ export interface InferenceSchedulerSummary {
    *          inference on your data. In this example, it starts once every 5 minutes. </p>
    */
   DataUploadFrequency?: DataUploadFrequency | string;
+
+  /**
+   * <p>Indicates whether the latest execution for the inference scheduler was Anomalous
+   *          (anomalous events found) or Normal (no anomalous events found).</p>
+   */
+  LatestInferenceResult?: LatestInferenceResult | string;
 }
 
 export interface ListInferenceSchedulersResponse {
@@ -1662,6 +1964,218 @@ export interface ListInferenceSchedulersResponse {
    *          frequency, model name and ARN, and status. </p>
    */
   InferenceSchedulerSummaries?: InferenceSchedulerSummary[];
+}
+
+export interface ListLabelGroupsRequest {
+  /**
+   * <p>
+   * The beginning of the name of the label groups to be listed.
+   * </p>
+   */
+  LabelGroupNameBeginsWith?: string;
+
+  /**
+   * <p>
+   * An opaque pagination token indicating where to continue the listing of label groups.
+   * </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   * Specifies the maximum number of label groups to list.
+   * </p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>
+ * Contains information about the label group.
+ * </p>
+ */
+export interface LabelGroupSummary {
+  /**
+   * <p>
+   * The name of the label group.
+   * </p>
+   */
+  LabelGroupName?: string;
+
+  /**
+   * <p>
+   * The ARN of the label group.
+   * </p>
+   */
+  LabelGroupArn?: string;
+
+  /**
+   * <p>
+   * The time at which the label group was created.
+   * </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>
+   * The time at which the label group was updated.
+   * </p>
+   */
+  UpdatedAt?: Date;
+}
+
+export interface ListLabelGroupsResponse {
+  /**
+   * <p>
+   * An opaque pagination token indicating where to continue the listing of label groups.
+   * </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   * A summary of the label groups.
+   * </p>
+   */
+  LabelGroupSummaries?: LabelGroupSummary[];
+}
+
+export interface ListLabelsRequest {
+  /**
+   * <p>
+   * Retruns the name of the label group.
+   * </p>
+   */
+  LabelGroupName: string | undefined;
+
+  /**
+   * <p>
+   * Returns all the labels with a end time equal to or later than the start time given.
+   * </p>
+   */
+  IntervalStartTime?: Date;
+
+  /**
+   * <p>
+   * Returns all labels with a start time earlier than the end time given.
+   * </p>
+   */
+  IntervalEndTime?: Date;
+
+  /**
+   * <p>
+   * Returns labels with a particular fault code.
+   * </p>
+   */
+  FaultCode?: string;
+
+  /**
+   * <p>
+   * Lists the labels that pertain to a particular piece of equipment.
+   * </p>
+   */
+  Equipment?: string;
+
+  /**
+   * <p>
+   * An opaque pagination token indicating where to continue the listing of label groups.
+   * </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   * Specifies the maximum number of labels to list.
+   * </p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>
+ * Information about the label.
+ * </p>
+ */
+export interface LabelSummary {
+  /**
+   * <p>
+   * The name of the label group.
+   * </p>
+   */
+  LabelGroupName?: string;
+
+  /**
+   * <p>
+   * The ID of the label.
+   * </p>
+   */
+  LabelId?: string;
+
+  /**
+   * <p>
+   * The ARN of the label group.
+   * </p>
+   */
+  LabelGroupArn?: string;
+
+  /**
+   * <p>
+   * The timestamp indicating the start of the label.
+   * </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>
+   * The timestamp indicating the end of the label.
+   * </p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>
+   * Indicates whether a labeled event represents an anomaly.
+   * </p>
+   */
+  Rating?: LabelRating | string;
+
+  /**
+   * <p>
+   * Indicates the type of anomaly associated with the label.
+   * </p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
+   */
+  FaultCode?: string;
+
+  /**
+   * <p>
+   * Indicates that a label pertains to a particular piece of equipment.
+   * </p>
+   */
+  Equipment?: string;
+
+  /**
+   * <p>
+   * The time at which the label was created.
+   * </p>
+   */
+  CreatedAt?: Date;
+}
+
+export interface ListLabelsResponse {
+  /**
+   * <p>
+   * An opaque pagination token indicating where to continue the listing of datasets.
+   * </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   * A summary of the items in the label group.
+   * </p>
+   */
+  LabelSummaries?: LabelSummary[];
 }
 
 export interface ListModelsRequest {
@@ -1756,12 +2270,12 @@ export interface ListSensorStatisticsRequest {
   IngestionJobId?: string;
 
   /**
-   * <p> Specifies the maximum number of sensors for which to retrieve statistics. </p>
+   * <p>Specifies the maximum number of sensors for which to retrieve statistics. </p>
    */
   MaxResults?: number;
 
   /**
-   * <p> An opaque pagination token indicating where to continue the listing of sensor
+   * <p>An opaque pagination token indicating where to continue the listing of sensor
    *          statistics. </p>
    */
   NextToken?: string;
@@ -1943,14 +2457,14 @@ export interface SensorStatisticsSummary {
 
 export interface ListSensorStatisticsResponse {
   /**
-   * <p> Provides ingestion-based statistics regarding the specified sensor with respect to
+   * <p>Provides ingestion-based statistics regarding the specified sensor with respect to
    *          various validation types, such as whether data exists, the number and percentage of missing
    *          values, and the number and percentage of duplicate timestamps. </p>
    */
   SensorStatisticsSummaries?: SensorStatisticsSummary[];
 
   /**
-   * <p> An opaque pagination token indicating where to continue the listing of sensor
+   * <p>An opaque pagination token indicating where to continue the listing of sensor
    *          statistics. </p>
    */
   NextToken?: string;
@@ -2154,6 +2668,23 @@ export interface UpdateInferenceSchedulerRequest {
   RoleArn?: string;
 }
 
+export interface UpdateLabelGroupRequest {
+  /**
+   * <p>
+   * The name of the label group to be updated.
+   * </p>
+   */
+  LabelGroupName: string | undefined;
+
+  /**
+   * <p>
+   * Updates the code indicating the type of anomaly associated with the label.
+   * </p>
+   *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
+   */
+  FaultCodes?: string[];
+}
+
 /**
  * @internal
  */
@@ -2234,6 +2765,34 @@ export const CreateInferenceSchedulerResponseFilterSensitiveLog = (obj: CreateIn
 /**
  * @internal
  */
+export const CreateLabelRequestFilterSensitiveLog = (obj: CreateLabelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLabelResponseFilterSensitiveLog = (obj: CreateLabelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLabelGroupRequestFilterSensitiveLog = (obj: CreateLabelGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLabelGroupResponseFilterSensitiveLog = (obj: CreateLabelGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DataPreProcessingConfigurationFilterSensitiveLog = (obj: DataPreProcessingConfiguration): any => ({
   ...obj,
 });
@@ -2277,6 +2836,20 @@ export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest
  * @internal
  */
 export const DeleteInferenceSchedulerRequestFilterSensitiveLog = (obj: DeleteInferenceSchedulerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLabelRequestFilterSensitiveLog = (obj: DeleteLabelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLabelGroupRequestFilterSensitiveLog = (obj: DeleteLabelGroupRequest): any => ({
   ...obj,
 });
 
@@ -2416,6 +2989,34 @@ export const DescribeInferenceSchedulerResponseFilterSensitiveLog = (obj: Descri
 /**
  * @internal
  */
+export const DescribeLabelRequestFilterSensitiveLog = (obj: DescribeLabelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLabelResponseFilterSensitiveLog = (obj: DescribeLabelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLabelGroupRequestFilterSensitiveLog = (obj: DescribeLabelGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLabelGroupResponseFilterSensitiveLog = (obj: DescribeLabelGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeModelRequestFilterSensitiveLog = (obj: DescribeModelRequest): any => ({
   ...obj,
 });
@@ -2529,6 +3130,48 @@ export const InferenceSchedulerSummaryFilterSensitiveLog = (obj: InferenceSchedu
  * @internal
  */
 export const ListInferenceSchedulersResponseFilterSensitiveLog = (obj: ListInferenceSchedulersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLabelGroupsRequestFilterSensitiveLog = (obj: ListLabelGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelGroupSummaryFilterSensitiveLog = (obj: LabelGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLabelGroupsResponseFilterSensitiveLog = (obj: ListLabelGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLabelsRequestFilterSensitiveLog = (obj: ListLabelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelSummaryFilterSensitiveLog = (obj: LabelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLabelsResponseFilterSensitiveLog = (obj: ListLabelsResponse): any => ({
   ...obj,
 });
 
@@ -2697,5 +3340,12 @@ export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceRespon
  * @internal
  */
 export const UpdateInferenceSchedulerRequestFilterSensitiveLog = (obj: UpdateInferenceSchedulerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLabelGroupRequestFilterSensitiveLog = (obj: UpdateLabelGroupRequest): any => ({
   ...obj,
 });

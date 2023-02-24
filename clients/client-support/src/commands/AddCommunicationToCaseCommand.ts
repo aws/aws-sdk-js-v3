@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,21 +34,20 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  *             email addresses to copy on the communication by using the <code>ccEmailAddresses</code>
  *             parameter. The <code>communicationBody</code> value contains the text of the
  *             communication.</p>
- *
- *         <note>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
  *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +71,15 @@ export class AddCommunicationToCaseCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AddCommunicationToCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +95,9 @@ export class AddCommunicationToCaseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddCommunicationToCaseCommandInput, AddCommunicationToCaseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AddCommunicationToCaseCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

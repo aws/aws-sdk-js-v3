@@ -21,7 +21,13 @@ import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from ".
 import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "../commands/DescribeEntityCommand";
 import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "../commands/ListChangeSetsCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "../commands/ListEntitiesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { StartChangeSetCommandInput, StartChangeSetCommandOutput } from "../commands/StartChangeSetCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { MarketplaceCatalogServiceException as __BaseException } from "../models/MarketplaceCatalogServiceException";
 import {
   AccessDeniedException,
@@ -38,6 +44,7 @@ import {
   ResourceNotSupportedException,
   ServiceQuotaExceededException,
   Sort,
+  Tag,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
@@ -50,8 +57,8 @@ export const serializeAws_restJson1CancelChangeSetCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CancelChangeSet";
   const query: any = map({
-    catalog: [, input.Catalog!],
-    changeSetId: [, input.ChangeSetId!],
+    catalog: [, __expectNonNull(input.Catalog!, `Catalog`)],
+    changeSetId: [, __expectNonNull(input.ChangeSetId!, `ChangeSetId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -74,8 +81,8 @@ export const serializeAws_restJson1DescribeChangeSetCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeChangeSet";
   const query: any = map({
-    catalog: [, input.Catalog!],
-    changeSetId: [, input.ChangeSetId!],
+    catalog: [, __expectNonNull(input.Catalog!, `Catalog`)],
+    changeSetId: [, __expectNonNull(input.ChangeSetId!, `ChangeSetId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -98,8 +105,8 @@ export const serializeAws_restJson1DescribeEntityCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeEntity";
   const query: any = map({
-    catalog: [, input.Catalog!],
-    entityId: [, input.EntityId!],
+    catalog: [, __expectNonNull(input.Catalog!, `Catalog`)],
+    entityId: [, __expectNonNull(input.EntityId!, `EntityId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -171,6 +178,30 @@ export const serializeAws_restJson1ListEntitiesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTagsForResource";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1StartChangeSetCommand = async (
   input: StartChangeSetCommandInput,
   context: __SerdeContext
@@ -185,7 +216,58 @@ export const serializeAws_restJson1StartChangeSetCommand = async (
     ...(input.Catalog != null && { Catalog: input.Catalog }),
     ...(input.ChangeSet != null && { ChangeSet: serializeAws_restJson1RequestedChangeList(input.ChangeSet, context) }),
     ...(input.ChangeSetName != null && { ChangeSetName: input.ChangeSetName }),
+    ...(input.ChangeSetTags != null && { ChangeSetTags: serializeAws_restJson1TagList(input.ChangeSetTags, context) }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TagResource";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UntagResource";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -224,7 +306,7 @@ const deserializeAws_restJson1CancelChangeSetCommandError = async (
 ): Promise<CancelChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -304,7 +386,7 @@ const deserializeAws_restJson1DescribeChangeSetCommandError = async (
 ): Promise<DescribeChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -369,7 +451,7 @@ const deserializeAws_restJson1DescribeEntityCommandError = async (
 ): Promise<DescribeEntityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -428,7 +510,7 @@ const deserializeAws_restJson1ListChangeSetsCommandError = async (
 ): Promise<ListChangeSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -481,7 +563,63 @@ const deserializeAws_restJson1ListEntitiesCommandError = async (
 ): Promise<ListEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ResourceArn != null) {
+    contents.ResourceArn = __expectString(data.ResourceArn);
+  }
+  if (data.Tags != null) {
+    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -537,7 +675,7 @@ const deserializeAws_restJson1StartChangeSetCommandError = async (
 ): Promise<StartChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -556,6 +694,106 @@ const deserializeAws_restJson1StartChangeSetCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.marketplacecatalog#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplacecatalog#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -708,6 +946,7 @@ const serializeAws_restJson1Change = (input: Change, context: __SerdeContext): a
     ...(input.ChangeType != null && { ChangeType: input.ChangeType }),
     ...(input.Details != null && { Details: input.Details }),
     ...(input.Entity != null && { Entity: serializeAws_restJson1Entity(input.Entity, context) }),
+    ...(input.EntityTags != null && { EntityTags: serializeAws_restJson1TagList(input.EntityTags, context) }),
   };
 };
 
@@ -746,6 +985,29 @@ const serializeAws_restJson1Sort = (input: Sort, context: __SerdeContext): any =
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
+};
+
+const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const serializeAws_restJson1ValueList = (input: string[], context: __SerdeContext): any => {
@@ -874,9 +1136,29 @@ const deserializeAws_restJson1ResourceIdList = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -908,6 +1190,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -918,6 +1206,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

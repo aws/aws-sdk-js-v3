@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,15 +26,15 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
 /**
  * <p>Associates an alias (also known as a CNAME or an alternate domain name) with a CloudFront
  * 			distribution.</p>
- * 		       <p>With this operation you can move an alias that’s already in use on a CloudFront distribution
+ *          <p>With this operation you can move an alias that's already in use on a CloudFront distribution
  * 			to a different distribution in one step. This prevents the downtime that could occur if
  * 			you first remove the alias from one distribution and then separately add the alias to
  * 			another distribution.</p>
- * 		       <p>To use this operation to associate an alias with a distribution, you provide the alias
+ *          <p>To use this operation to associate an alias with a distribution, you provide the alias
  * 			and the ID of the target distribution for the alias. For more information, including how
  * 			to set up the target distribution, prerequisites that you must complete, and other
- * 			restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different distribution</a>
- * 			in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * 			restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different
+ * 				distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class AssociateAliasCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AssociateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class AssociateAliasCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateAliasCommandInput, AssociateAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateAliasCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

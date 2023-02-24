@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,32 +29,17 @@ export interface DescribeGameSessionQueuesCommandInput extends DescribeGameSessi
 export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSessionQueuesOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the properties for one or more game session queues. When requesting
- *             multiple queues, use the pagination parameters to retrieve results as a set of
- *             sequential pages. If successful, a <a>GameSessionQueue</a> object is returned
- *             for each requested queue. When specifying a list of queues, objects are returned only
- *             for queues that currently exist in the Region.</p>
+ * <p>Retrieves the properties for one or more game session queues. When requesting multiple
+ *             queues, use the pagination parameters to retrieve results as a set of sequential pages.
+ *             When specifying a list of queues, objects are returned only for queues that currently
+ *             exist in the Region.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html">
- *            View Your Queues</a>
+ *                 View Your Queues</a>
  *         </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html">CreateGameSessionQueue</a>
- *                     |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html">DescribeGameSessionQueues</a>
- *                     |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html">UpdateGameSessionQueue</a>
- *                     |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html">DeleteGameSessionQueue</a>
- *                     |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +63,15 @@ export class DescribeGameSessionQueuesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeGameSessionQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +87,9 @@ export class DescribeGameSessionQueuesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeGameSessionQueuesCommandInput, DescribeGameSessionQueuesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeGameSessionQueuesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

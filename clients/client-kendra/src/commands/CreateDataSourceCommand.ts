@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,20 +29,19 @@ export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data source that you want to use with an Amazon Kendra index. </p>
- *          <p>You specify a name, data source connector type and description for
- *       your data source. You also specify configuration information for the
- *       data source connector.</p>
+ * <p>Creates a data source connector that you want to use with an Amazon Kendra
+ *       index.</p>
+ *          <p>You specify a name, data source connector type and description for your data source. You
+ *       also specify configuration information for the data source connector.</p>
  *          <p>
- *             <code>CreateDataSource</code> is a synchronous operation. The
- *       operation returns 200 if the data source was successfully created.
- *       Otherwise, an exception is raised.</p>
- *          <p>Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a> data sources are
- *       the only supported data sources in the Amazon Web Services GovCloud (US-West) region.</p>
- *          <p>For an example of creating an index and data source using the Python SDK,
- *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
- *         started with Python SDK</a>. For an example of creating an index and data
- *       source using the Java SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java SDK</a>.</p>
+ *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the
+ *       data source was successfully created. Otherwise, an exception is raised.</p>
+ *          <p>Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a> data sources are the only
+ *       supported data sources in the Amazon Web Services GovCloud (US-West) region.</p>
+ *          <p>For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting started with Python
+ *         SDK</a>. For an example of creating an index and data source using the Java SDK, see
+ *         <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java
+ *         SDK</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +65,15 @@ export class CreateDataSourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +89,9 @@ export class CreateDataSourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDataSourceCommandInput, CreateDataSourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDataSourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

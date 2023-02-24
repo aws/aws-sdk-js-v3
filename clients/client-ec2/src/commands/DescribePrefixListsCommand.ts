@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
 /**
  * <p>Describes available Amazon Web Services services in a prefix list format, which includes the prefix list
  *             name and prefix list ID of the service and the IP address range for the service.</p>
- *         <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
+ *          <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class DescribePrefixListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribePrefixListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class DescribePrefixListsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribePrefixListsCommandInput, DescribePrefixListsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribePrefixListsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

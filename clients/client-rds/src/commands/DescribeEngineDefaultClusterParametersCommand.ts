@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
 
 /**
  * <p>Returns the default engine and system parameter information for the cluster database engine.</p>
- *         <p>For more information on Amazon Aurora, see
+ *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
@@ -58,6 +59,15 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeEngineDefaultClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeEngineDefaultClusterParametersCommandInput, DescribeEngineDefaultClusterParametersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeEngineDefaultClusterParametersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

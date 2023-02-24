@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,15 +30,15 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
 
 /**
  * <p>Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the StopDBInstance action.</p>
- *         <p>For more information, see
+ *          <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
  *                 Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the
  *             <i>Amazon RDS User Guide.</i>
  *          </p>
- *         <note>
+ *          <note>
  *             <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
  *             For Aurora DB clusters, use <code>StartDBCluster</code> instead.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,15 @@ export class StartDBInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class StartDBInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartDBInstanceCommandInput, StartDBInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartDBInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

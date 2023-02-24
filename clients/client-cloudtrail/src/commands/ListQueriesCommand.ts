@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,11 +29,13 @@ export interface ListQueriesCommandInput extends ListQueriesRequest {}
 export interface ListQueriesCommandOutput extends ListQueriesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of queries and query statuses for the past seven days. You must specify an ARN value for
- *          <code>EventDataStore</code>. Optionally, to shorten the list of results, you can specify a time range,
- *          formatted as timestamps, by adding <code>StartTime</code> and <code>EndTime</code> parameters, and a
- *          <code>QueryStatus</code> value. Valid values for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
- *          <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code>.</p>
+ * <p>Returns a list of queries and query statuses for the past seven days. You must specify
+ *          an ARN value for <code>EventDataStore</code>. Optionally, to shorten the list of results,
+ *          you can specify a time range, formatted as timestamps, by adding <code>StartTime</code> and
+ *             <code>EndTime</code> parameters, and a <code>QueryStatus</code> value. Valid values for
+ *             <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
+ *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
+ *             <code>CANCELLED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +59,15 @@ export class ListQueriesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +83,7 @@ export class ListQueriesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListQueriesCommandInput, ListQueriesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListQueriesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

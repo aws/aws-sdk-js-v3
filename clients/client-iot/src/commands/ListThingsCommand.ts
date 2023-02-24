@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,16 +29,15 @@ export interface ListThingsCommandInput extends ListThingsRequest {}
 export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists your things. Use the <b>attributeName</b> and
- * 				<b>attributeValue</b> parameters to filter your things.
- * 			For example, calling <code>ListThings</code> with attributeName=Color and
- * 			attributeValue=Red retrieves all things in the registry that contain an attribute
- * 				<b>Color</b> with the value <b>Red</b>. </p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThings</a> action.</p>
- *
- * 		       <note>
- * 			         <p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p>
- * 		       </note>
+ * <p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example,
+ * 			calling <code>ListThings</code> with attributeName=Color and attributeValue=Red
+ * 			retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things">List Things</a> from the <i>Amazon Web Services IoT Core Developer
+ * 				Guide</i>.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThings</a> action.</p>
+ *          <note>
+ *             <p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +61,15 @@ export class ListThingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListThingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +85,7 @@ export class ListThingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListThingsCommandInput, ListThingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListThingsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

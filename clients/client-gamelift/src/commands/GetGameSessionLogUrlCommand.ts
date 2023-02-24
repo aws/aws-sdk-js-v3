@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,27 +29,15 @@ export interface GetGameSessionLogUrlCommandInput extends GetGameSessionLogUrlIn
 export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the location of stored game session logs for a specified game session.
- *             When a game session is terminated, GameLift automatically stores the logs in Amazon S3 and
+ * <p>Retrieves the location of stored game session logs for a specified game session. When
+ *             a game session is terminated, GameLift automatically stores the logs in Amazon S3 and
  *             retains them for 14 days. Use this URL to download the logs.</p>
  *         <note>
  *             <p>See the <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">Amazon Web Services Service
  *                     Limits</a> page for maximum log file sizes. Log files that exceed this limit
  *                 are not saved.</p>
  *         </note>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameSession</a> |
- *                     <a>DescribeGameSessions</a> |
- *                     <a>DescribeGameSessionDetails</a> |
- *                     <a>SearchGameSessions</a> |
- *                     <a>UpdateGameSession</a> |
- *                     <a>GetGameSessionLogUrl</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
- *                     <a>StopGameSessionPlacement</a> |
+ *          <p>
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -74,6 +63,15 @@ export class GetGameSessionLogUrlCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetGameSessionLogUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,6 +87,9 @@ export class GetGameSessionLogUrlCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetGameSessionLogUrlCommandInput, GetGameSessionLogUrlCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetGameSessionLogUrlCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

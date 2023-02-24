@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BackupClient` and
-the commands you need, for example `CreateBackupPlanCommand`:
+the commands you need, for example `CancelLegalHoldCommand`:
 
 ```js
 // ES5 example
-const { BackupClient, CreateBackupPlanCommand } = require("@aws-sdk/client-backup");
+const { BackupClient, CancelLegalHoldCommand } = require("@aws-sdk/client-backup");
 ```
 
 ```ts
 // ES6+ example
-import { BackupClient, CreateBackupPlanCommand } from "@aws-sdk/client-backup";
+import { BackupClient, CancelLegalHoldCommand } from "@aws-sdk/client-backup";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new BackupClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateBackupPlanCommand(params);
+const command = new CancelLegalHoldCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.Backup({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createBackupPlan(params);
+  const data = await client.cancelLegalHold(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .createBackupPlan(params)
+  .cancelLegalHold(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.createBackupPlan(params, (err, data) => {
+client.cancelLegalHold(params, (err, data) => {
   // process err and data.
 });
 ```

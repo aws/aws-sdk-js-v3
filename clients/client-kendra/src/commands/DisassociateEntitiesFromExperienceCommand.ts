@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DisassociateEntitiesFromExperienceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Prevents users or groups in your Amazon Web Services SSO identity source
+ * <p>Prevents users or groups in your IAM Identity Center identity source
  *             from accessing your Amazon Kendra experience. You can create an Amazon Kendra experience
  *             such as a search application. For more information on creating a search
  *             application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
@@ -58,6 +59,15 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisassociateEntitiesFromExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateEntitiesFromExperienceCommandInput, DisassociateEntitiesFromExperienceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateEntitiesFromExperienceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

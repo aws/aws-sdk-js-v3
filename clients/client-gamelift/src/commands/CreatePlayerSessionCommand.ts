@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,30 +29,22 @@ export interface CreatePlayerSessionCommandInput extends CreatePlayerSessionInpu
 export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOutput, __MetadataBearer {}
 
 /**
- * <p>Reserves an open player slot in a game session for a player. New player sessions can be
- *             created in any game session with an open slot that is in <code>ACTIVE</code> status and
- *             has a player creation policy of <code>ACCEPT_ALL</code>. You can add a group of players
- *             to a game session with <a>CreatePlayerSessions</a>. </p>
- *          <p>To create a player session, specify a game session ID, player ID, and optionally a set of
- *             player data. </p>
- *         <p>If successful, a slot is reserved in the game session for the player and a new <a>PlayerSession</a> object is returned with a player session ID. The player
+ * <p>Reserves an open player slot in a game session for a player. New player sessions can
+ *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
+ *             and has a player creation policy of <code>ACCEPT_ALL</code>. You can add a group of
+ *             players to a game session with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSessions.html">CreatePlayerSessions</a> . </p>
+ *         <p>To create a player session, specify a game session ID, player ID, and optionally a set
+ *             of player data. </p>
+ *         <p>If successful, a slot is reserved in the game session for the player and a new
+ *                 <code>PlayerSessions</code> object is returned with a player session ID. The player
  *             references the player session ID when sending a connection request to the game session,
- *             and the game server can use it to validate the player reservation with the GameLift service. Player
- *             sessions cannot be updated. </p>
- *          <p>The maximum number of players per game session is 200. It is not adjustable.
- *     </p>
- *          <p>
- *             <i>Available in Amazon GameLift Local.</i>
- *          </p>
- *          <p>
+ *             and the game server can use it to validate the player reservation with the GameLift
+ *             service. Player sessions cannot be updated. </p>
+ *         <p>The maximum number of players per game session is 200. It is not adjustable. </p>
+ *         <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreatePlayerSession</a> |
- *                     <a>CreatePlayerSessions</a> |
- *                     <a>DescribePlayerSessions</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -77,6 +70,15 @@ export class CreatePlayerSessionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreatePlayerSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +94,9 @@ export class CreatePlayerSessionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePlayerSessionCommandInput, CreatePlayerSessionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePlayerSessionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface ListOperationsCommandInput extends ListOperationsRequest {}
 export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all of the operations that return an operation ID and that have ever been
- * 			performed on domains that were registered by the current account. </p>
- * 		       <p>This command runs only in the us-east-1 Region.</p>
+ * <p>Returns information about all of the operations that return an operation ID and that
+ * 			have ever been performed on domains that were registered by the current account. </p>
+ *          <p>This command runs only in the us-east-1 Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class ListOperationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class ListOperationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListOperationsCommandInput, ListOperationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListOperationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   CreateDefaultVpcRequestFilterSensitiveLog,
   CreateDefaultVpcResult,
   CreateDefaultVpcResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateDefaultVpcCommand,
   serializeAws_ec2CreateDefaultVpcCommand,
@@ -33,16 +34,16 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * 			see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default VPC and
  * 			default subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot
  * 			specify the components of the default VPC yourself.</p>
- * 		       <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have
+ *          <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have
  * 			more than one default VPC per Region.</p>
- * 		       <p>If your account supports EC2-Classic, you cannot use this action to create a default VPC
+ *          <p>If your account supports EC2-Classic, you cannot use this action to create a default VPC
  * 			in a Region that supports EC2-Classic. If you want a default VPC in a Region that
  * 			supports EC2-Classic, see "I really want a default VPC for my existing EC2 account. Is
  * 			that possible?" in the <a href="http://aws.amazon.com/vpc/faqs/#Default_VPCs">Default VPCs
  * 			FAQ</a>.</p>
- * 	        <note>
- * 	           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- * 	        </note>
+ *          <note>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +67,15 @@ export class CreateDefaultVpcCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDefaultVpcCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +91,9 @@ export class CreateDefaultVpcCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDefaultVpcCommandInput, CreateDefaultVpcCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDefaultVpcCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

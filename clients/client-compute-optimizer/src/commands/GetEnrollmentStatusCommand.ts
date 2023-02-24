@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusRes
 /**
  * <p>Returns the enrollment (opt in) status of an account to the Compute Optimizer
  *             service.</p>
- *         <p>If the account is the management account of an organization, this action also confirms
+ *          <p>If the account is the management account of an organization, this action also confirms
  *             the enrollment status of member accounts of the organization. Use the <a>GetEnrollmentStatusesForOrganization</a> action to get detailed information
  *             about the enrollment status of member accounts of an organization.</p>
  * @example
@@ -56,6 +57,15 @@ export class GetEnrollmentStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetEnrollmentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class GetEnrollmentStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetEnrollmentStatusCommandInput, GetEnrollmentStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetEnrollmentStatusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

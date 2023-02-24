@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,31 +29,31 @@ export interface SearchResourcesCommandInput extends SearchResourcesInput {}
 export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of AWS resource identifiers that matches the specified query. The
- *             query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery
- *             operation.</p>
- *         <p>
+ * <p>Returns a list of Amazon Web Services resource identifiers that matches the specified query. The
+ *             query uses the same format as a resource query in a <a>CreateGroup</a> or
+ *                 <a>UpdateGroupQuery</a> operation.</p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:SearchResources</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>cloudformation:DescribeStacks</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>cloudformation:ListStackResources</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>tag:GetResources</code>
  *                </p>
  *             </li>
@@ -80,6 +81,15 @@ export class SearchResourcesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,6 +105,9 @@ export class SearchResourcesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchResourcesCommandInput, SearchResourcesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchResourcesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

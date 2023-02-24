@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,10 +26,10 @@ export interface PutImageCommandInput extends PutImageRequest {}
 export interface PutImageCommandOutput extends PutImageResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the image manifest and tags associated with an image.</p>
+ * <p>Creates or updates the image manifest and tags that are associated with an image.</p>
  *          <p>When an image is pushed and all new image layers have been uploaded, the PutImage API is
- *          called once to create or update the image manifest and the tags associated with the
- *          image.</p>
+ *          called once to create or update the image manifest and the tags that are associated with
+ *          the image.</p>
  *
  *          <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
@@ -56,6 +57,15 @@ export class PutImageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,7 @@ export class PutImageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutImageCommandInput, PutImageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutImageCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

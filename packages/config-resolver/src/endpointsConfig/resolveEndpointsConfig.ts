@@ -5,7 +5,8 @@ import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
 
 export interface EndpointsInputConfig {
   /**
-   * The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).
+   * The fully qualified endpoint of the webservice. This is only required when using
+   * a custom endpoint (for example, when using a local version of S3).
    */
   endpoint?: string | Endpoint | Provider<Endpoint>;
 
@@ -37,7 +38,7 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
    * Whether the endpoint is specified by caller.
    * @internal
    */
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
 
   /**
    * Resolved value for input {@link EndpointsInputConfig.useDualstackEndpoint}
@@ -45,10 +46,14 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
   useDualstackEndpoint: Provider<boolean>;
 }
 
+/**
+ * @deprecated endpoints rulesets use @aws-sdk/middleware-endpoint resolveEndpointConfig.
+ * All generated clients should migrate to Endpoints 2.0 endpointRuleSet traits.
+ */
 export const resolveEndpointsConfig = <T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
 ): T & EndpointsResolvedConfig => {
-  const useDualstackEndpoint = normalizeProvider(input.useDualstackEndpoint!);
+  const useDualstackEndpoint = normalizeProvider(input.useDualstackEndpoint ?? false);
   const { endpoint, useFipsEndpoint, urlParser } = input;
   return {
     ...input,
@@ -56,7 +61,7 @@ export const resolveEndpointsConfig = <T>(
     endpoint: endpoint
       ? normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint)
       : () => getEndpointFromRegion({ ...input, useDualstackEndpoint, useFipsEndpoint }),
-    isCustomEndpoint: endpoint ? true : false,
+    isCustomEndpoint: !!endpoint,
     useDualstackEndpoint,
   };
 };

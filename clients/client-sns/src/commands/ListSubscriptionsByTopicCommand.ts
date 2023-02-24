@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptions
  *             list of subscriptions, up to 100. If there are more subscriptions, a
  *                 <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in
  *             a new <code>ListSubscriptionsByTopic</code> call to get further results.</p>
- *         <p>This action is throttled at 30 transactions per second (TPS).</p>
+ *          <p>This action is throttled at 30 transactions per second (TPS).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class ListSubscriptionsByTopicCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListSubscriptionsByTopicCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class ListSubscriptionsByTopicCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListSubscriptionsByTopicCommandInput, ListSubscriptionsByTopicCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListSubscriptionsByTopicCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

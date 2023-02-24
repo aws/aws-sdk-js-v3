@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -50,6 +51,7 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  *       remove the <code>DeletionDate</code> and cancel the deletion of the secret.</p>
  *          <p>When a secret is scheduled for deletion, you cannot retrieve the secret value.
  *       You must first cancel the deletion with <a>RestoreSecret</a> and then you can retrieve the secret.</p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:DeleteSecret</code>.
@@ -79,6 +81,15 @@ export class DeleteSecretCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,6 +105,7 @@ export class DeleteSecretCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSecretCommandInput, DeleteSecretCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteSecretCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   UpdateDataSetRequestFilterSensitiveLog,
   UpdateDataSetResponse,
   UpdateDataSetResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDataSetCommand,
   serializeAws_restJson1UpdateDataSetCommand,
@@ -28,7 +29,7 @@ export interface UpdateDataSetCommandInput extends UpdateDataSetRequest {}
 export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a dataset. This operation doesn't support datasets that include uploaded files as a source.</p>
+ * <p>Updates a dataset. This operation doesn't support datasets that include uploaded files as a source. Partial updates are not supported by this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +53,15 @@ export class UpdateDataSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,7 @@ export class UpdateDataSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDataSetCommandInput, UpdateDataSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateDataSetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

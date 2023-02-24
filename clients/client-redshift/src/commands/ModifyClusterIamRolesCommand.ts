@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
 /**
  * <p>Modifies the list of Identity and Access Management (IAM) roles that can be
  *             used by the cluster to access other Amazon Web Services services.</p>
- *         <p>The maximum number of IAM roles that you can associate is subject to a quota.
+ *          <p>The maximum number of IAM roles that you can associate is subject to a quota.
  *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas and limits</a>
  *             in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
  * @example
@@ -56,6 +57,15 @@ export class ModifyClusterIamRolesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyClusterIamRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class ModifyClusterIamRolesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyClusterIamRolesCommandInput, ModifyClusterIamRolesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyClusterIamRolesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

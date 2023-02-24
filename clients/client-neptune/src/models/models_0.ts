@@ -983,6 +983,25 @@ export interface CopyDBParameterGroupResult {
   DBParameterGroup?: DBParameterGroup;
 }
 
+/**
+ * <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html">Using Amazon Neptune Serverless</a> in the
+ *       <i>Amazon Neptune User Guide</i>.</p>
+ */
+export interface ServerlessV2ScalingConfiguration {
+  /**
+   * <p>The minimum number of Neptune capacity units (NCUs) for a DB instance in a Neptune Serverless cluster.
+   *       You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on.</p>
+   */
+  MinCapacity?: number;
+
+  /**
+   * <p>The maximum number of Neptune capacity units (NCUs) for a DB instance in a Neptune Serverless cluster.
+   *       You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on.</p>
+   */
+  MaxCapacity?: number;
+}
+
 export interface CreateDBClusterMessage {
   /**
    * <p>A list of EC2 Availability Zones that instances in the DB cluster can be created
@@ -1215,6 +1234,13 @@ export interface CreateDBClusterMessage {
   DeletionProtection?: boolean;
 
   /**
+   * <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html">Using Amazon Neptune Serverless</a> in the
+   *       <i>Amazon Neptune User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+
+  /**
    * <p>The ID of the Neptune global database to which this new DB cluster
    *       should be added.</p>
    */
@@ -1305,6 +1331,25 @@ export interface DBClusterOptionGroupStatus {
    * <p>Not supported by Neptune.</p>
    */
   Status?: string;
+}
+
+/**
+ * <p>Shows the scaling configuration for a Neptune Serverless DB cluster.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html">Using Amazon Neptune Serverless</a> in the
+ *       <i>Amazon Neptune User Guide</i>.</p>
+ */
+export interface ServerlessV2ScalingConfigurationInfo {
+  /**
+   * <p>The minimum number of Neptune capacity units (NCUs) for a DB instance in a Neptune Serverless cluster.
+   *       You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on.</p>
+   */
+  MinCapacity?: number;
+
+  /**
+   * <p>The maximum number of Neptune capacity units (NCUs) for a DB instance in a Neptune Serverless cluster.
+   *       You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on.</p>
+   */
+  MaxCapacity?: number;
 }
 
 /**
@@ -1556,6 +1601,13 @@ export interface DBCluster {
    * <p>Time at which the DB cluster will be automatically restarted.</p>
    */
   AutomaticRestartTime?: Date;
+
+  /**
+   * <p>Shows the scaling configuration for a Neptune Serverless DB cluster.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html">Using Amazon Neptune Serverless</a> in the
+   *       <i>Amazon Neptune User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo;
 }
 
 export interface CreateDBClusterResult {
@@ -4380,7 +4432,10 @@ export interface DescribeDBClusterParameterGroupsMessage {
   Marker?: string;
 }
 
-export type ApplyMethod = "immediate" | "pending-reboot";
+export enum ApplyMethod {
+  immediate = "immediate",
+  pending_reboot = "pending-reboot",
+}
 
 /**
  * <p>Specifies a parameter.</p>
@@ -5300,13 +5355,14 @@ export interface EventCategoriesMessage {
   EventCategoriesMapList?: EventCategoriesMap[];
 }
 
-export type SourceType =
-  | "db-cluster"
-  | "db-cluster-snapshot"
-  | "db-instance"
-  | "db-parameter-group"
-  | "db-security-group"
-  | "db-snapshot";
+export enum SourceType {
+  db_cluster = "db-cluster",
+  db_cluster_snapshot = "db-cluster-snapshot",
+  db_instance = "db-instance",
+  db_parameter_group = "db-parameter-group",
+  db_security_group = "db-security-group",
+  db_snapshot = "db-snapshot",
+}
 
 export interface DescribeEventsMessage {
   /**
@@ -6183,6 +6239,13 @@ export interface ModifyDBClusterMessage {
    *          </p>
    */
   CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html">Using Amazon Neptune Serverless</a> in the
+   *       <i>Amazon Neptune User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
 }
 
 export interface ModifyDBClusterResult {
@@ -7382,6 +7445,13 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          </p>
    */
   CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html">Using Amazon Neptune Serverless</a> in the
+   *       <i>Amazon Neptune User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
 }
 
 export interface RestoreDBClusterFromSnapshotResult {
@@ -7567,6 +7637,13 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *     </p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html">Using Amazon Neptune Serverless</a> in the
+   *       <i>Amazon Neptune User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
 }
 
 export interface RestoreDBClusterToPointInTimeResult {
@@ -7753,6 +7830,13 @@ export const CopyDBParameterGroupResultFilterSensitiveLog = (obj: CopyDBParamete
 /**
  * @internal
  */
+export const ServerlessV2ScalingConfigurationFilterSensitiveLog = (obj: ServerlessV2ScalingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateDBClusterMessageFilterSensitiveLog = (obj: CreateDBClusterMessage): any => ({
   ...obj,
 });
@@ -7775,6 +7859,15 @@ export const DBClusterMemberFilterSensitiveLog = (obj: DBClusterMember): any => 
  * @internal
  */
 export const DBClusterOptionGroupStatusFilterSensitiveLog = (obj: DBClusterOptionGroupStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerlessV2ScalingConfigurationInfoFilterSensitiveLog = (
+  obj: ServerlessV2ScalingConfigurationInfo
+): any => ({
   ...obj,
 });
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,6 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
 
 /**
  * <p>Stops a pipeline execution.</p>
- *
  *          <p>
  *             <b>Callback Step</b>
  *          </p>
@@ -43,7 +43,6 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  *         <code>SendPipelineExecutionStepSuccess</code> or
  *         <code>SendPipelineExecutionStepFailure</code>.</p>
  *          <p>Only when SageMaker Pipelines receives one of these calls will it stop the pipeline execution.</p>
- *
  *          <p>
  *             <b>Lambda Step</b>
  *          </p>
@@ -76,6 +75,15 @@ export class StopPipelineExecutionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopPipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +99,9 @@ export class StopPipelineExecutionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopPipelineExecutionCommandInput, StopPipelineExecutionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopPipelineExecutionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

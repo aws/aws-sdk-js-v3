@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,8 +33,8 @@ export interface CreateTransitGatewayConnectPeerCommandOutput
 /**
  * <p>Creates a Connect peer for a specified transit gateway Connect attachment between a
  *             transit gateway and an appliance.</p>
- *         <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>
+ *          <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class CreateTransitGatewayConnectPeerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateTransitGatewayConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class CreateTransitGatewayConnectPeerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateTransitGatewayConnectPeerCommandInput, CreateTransitGatewayConnectPeerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateTransitGatewayConnectPeerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

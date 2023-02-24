@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,13 @@ export interface GetKeyGroupCommandInput extends GetKeyGroupRequest {}
 export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataBearer {}
 
 /**
- * <p>Gets a key group, including the date and time when the key group was last modified.</p>
- * 		       <p>To get a key group, you must provide the key group’s identifier. If the key group is
- * 			referenced in a distribution’s cache behavior, you can get the key group’s identifier
+ * <p>Gets a key group, including the date and time when the key group was last
+ * 			modified.</p>
+ *          <p>To get a key group, you must provide the key group's identifier. If the key group is
+ * 			referenced in a distribution's cache behavior, you can get the key group's identifier
  * 			using <code>ListDistributions</code> or <code>GetDistribution</code>. If the key group
  * 			is not referenced in a cache behavior, you can get the identifier using
- * 			<code>ListKeyGroups</code>.</p>
+ * 				<code>ListKeyGroups</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +59,15 @@ export class GetKeyGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +83,7 @@ export class GetKeyGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetKeyGroupCommandInput, GetKeyGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetKeyGroupCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

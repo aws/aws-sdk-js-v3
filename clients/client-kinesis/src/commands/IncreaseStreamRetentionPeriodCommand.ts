@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,11 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * <p>Increases the Kinesis data stream's retention period, which is the length of time data
  *             records are accessible after they are added to the stream. The maximum value of a
  *             stream's retention period is 8760 hours (365 days).</p>
- *         <p>If you choose a longer stream retention period, this operation increases the time
+ *          <note>
+ *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+ *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *          </note>
+ *          <p>If you choose a longer stream retention period, this operation increases the time
  *             period during which records that have not yet expired are accessible. However, it does
  *             not make previous, expired data (older than the stream's previous retention period)
  *             accessible after the operation has been called. For example, if a stream's retention
@@ -58,6 +63,17 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: IncreaseStreamRetentionPeriodCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +89,9 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<IncreaseStreamRetentionPeriodCommandInput, IncreaseStreamRetentionPeriodCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, IncreaseStreamRetentionPeriodCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

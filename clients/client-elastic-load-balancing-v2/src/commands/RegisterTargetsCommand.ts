@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,15 +34,12 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
 
 /**
  * <p>Registers the specified targets with the specified target group.</p>
- *
  *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you
  *       register it.</p>
- *
  *          <p>By default, the load balancer routes requests to registered targets using the protocol and
  *       port for the target group. Alternatively, you can override the port for a target when you
  *       register it. You can register each EC2 instance or IP address with the same target group
  *       multiple times using different ports.</p>
- *
  *          <p>With a Network Load Balancer, you cannot register instances by instance ID if they have
  *       the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3,
  *       and T1. You can register instances of these types by IP address.</p>
@@ -68,6 +66,15 @@ export class RegisterTargetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +90,9 @@ export class RegisterTargetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterTargetsCommandInput, RegisterTargetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterTargetsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,14 +25,14 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p>
- *         <p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the
+ *          <p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the
  *             number of instances being attached. If the number of instances being attached plus the
  *             desired capacity of the group exceeds the maximum size of the group, the operation
  *             fails.</p>
- *         <p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are
+ *          <p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are
  *             also registered with the load balancer. If there are target groups attached to your Auto Scaling
  *             group, the instances are also registered with the target groups.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach EC2 instances to
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach EC2 instances to
  *                 your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +57,15 @@ export class AttachInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AttachInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class AttachInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AttachInstancesCommandInput, AttachInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AttachInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

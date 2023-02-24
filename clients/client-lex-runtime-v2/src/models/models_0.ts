@@ -308,6 +308,7 @@ export enum ConfirmationState {
 }
 
 export enum Shape {
+  COMPOSITE = "Composite",
   LIST = "List",
   SCALAR = "Scalar",
 }
@@ -514,64 +515,6 @@ export enum DialogActionType {
 }
 
 /**
- * <p>The next action that Amazon Lex V2 should take.</p>
- */
-export interface DialogAction {
-  /**
-   * <p>The next action that the bot should take in its interaction with the
-   *          user. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Close</code> - Indicates that there will not be a
-   *                response from the user. For example, the statement "Your order
-   *                has been placed" does not require a response.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfirmIntent</code> - The next action is asking the
-   *                user if the intent is complete and ready to be fulfilled. This is
-   *                a yes/no question such as "Place the order?"</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Delegate</code> - The next action is determined by
-   *                Amazon Lex V2.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ElicitSlot</code> - The next action is to elicit a slot
-   *                value from the user.</p>
-   *             </li>
-   *          </ul>
-   */
-  type: DialogActionType | string | undefined;
-
-  /**
-   * <p>The name of the slot that should be elicited from the user.</p>
-   */
-  slotToElicit?: string;
-
-  /**
-   * <p>Configures the slot to use spell-by-letter or spell-by-word style.
-   *          When you use a style on a slot, users can spell out their input to make
-   *          it clear to your bot.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Spell by letter - "b" "o" "b"</p>
-   *             </li>
-   *             <li>
-   *                <p>Spell by word - "b as in boy" "o as in oscar" "b as in
-   *                boy"</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-spelling.html">
-   *             Using spelling to enter slot values </a>.</p>
-   */
-  slotElicitationStyle?: StyleType | string;
-}
-
-/**
  * <p>Provides the phrase that Amazon Lex V2 should look for in the user's input
  *          to the bot.</p>
  */
@@ -581,43 +524,6 @@ export interface RuntimeHintValue {
    *          bot.</p>
    */
   phrase: string | undefined;
-}
-
-/**
- * <p>Provides an array of phrases that should be given preference when
- *          resolving values for a slot.</p>
- */
-export interface RuntimeHintDetails {
-  /**
-   * <p>One or more strings that Amazon Lex V2 should look for in the input to the
-   *          bot. Each phrase is given preference when deciding on slot
-   *          values.</p>
-   */
-  runtimeHintValues: RuntimeHintValue[] | undefined;
-}
-
-/**
- * <p>You can provide Amazon Lex V2 with hints to the phrases that a customer is
- *          likely to use for a slot. When a slot with hints is resolved, the
- *          phrases in the runtime hints are preferred in the resolution. You can
- *          provide hints for a maximum of 100 intents. You can provide a maximum
- *          of 100 slots.</p>
- *          <p>Before you can use runtime hints with an existing bot, you must
- *          first rebuild the bot.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.xml">Using hints to improve
- *             accuracy</a>.</p>
- */
-export interface RuntimeHints {
-  /**
-   * <p>A list of the slots in the intent that should have runtime hints
-   *          added, and the phrases that should be added for each slot.</p>
-   *          <p>The first level of the <code>slotHints</code> map is the name of the
-   *          intent. The second level is the name of the slot within the intent. For
-   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.xml">Using hints to improve
-   *             accuracy</a>.</p>
-   *          <p>The intent name and slot name must exist.</p>
-   */
-  slotHints?: Record<string, Record<string, RuntimeHintDetails>>;
 }
 
 /**
@@ -697,6 +603,21 @@ export interface PutSessionResponse {
    *          message to convey to the user.</p>
    */
   audioStream?: Readable | ReadableStream | Blob;
+}
+
+/**
+ * <p>The bot member that processes the request.</p>
+ */
+export interface RecognizedBotMember {
+  /**
+   * <p>The identifier of the bot member that processes the request.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The name of the bot member that processes the request.</p>
+   */
+  botName?: string;
 }
 
 export interface RecognizeUtteranceRequest {
@@ -794,7 +715,7 @@ export interface RecognizeUtteranceRequest {
    *                <p>If the value begins with <code>audio/</code>, Amazon Lex V2 returns
    *                speech in the response. Amazon Lex V2 uses Amazon Polly to generate the speech
    *                using the configuration that you specified in the
-   *                   <code>requestContentType</code> parameter. For example, if you
+   *                   <code>responseContentType</code> parameter. For example, if you
    *                specify <code>audio/mpeg</code> as the value, Amazon Lex V2 returns
    *                speech in the MPEG format.</p>
    *             </li>
@@ -925,6 +846,11 @@ export interface RecognizeUtteranceResponse {
    *          response.</p>
    */
   audioStream?: Readable | ReadableStream | Blob;
+
+  /**
+   * <p>The bot member that recognized the utterance.</p>
+   */
+  recognizedBotMember?: string;
 }
 
 export enum ConversationMode {
@@ -1116,6 +1042,135 @@ export interface TranscriptEvent {
 }
 
 /**
+ * <p>The specific constituent sub slot of the composite slot to elicit in dialog action.</p>
+ */
+export interface ElicitSubSlot {
+  /**
+   * <p>The name of the slot that should be elicited from the user.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The field is not supported.</p>
+   */
+  subSlotToElicit?: ElicitSubSlot;
+}
+
+/**
+ * <p>The next action that Amazon Lex V2 should take.</p>
+ */
+export interface DialogAction {
+  /**
+   * <p>The next action that the bot should take in its interaction with the
+   *          user. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Close</code> - Indicates that there will not be a
+   *                response from the user. For example, the statement "Your order
+   *                has been placed" does not require a response.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfirmIntent</code> - The next action is asking the
+   *                user if the intent is complete and ready to be fulfilled. This is
+   *                a yes/no question such as "Place the order?"</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Delegate</code> - The next action is determined by
+   *                Amazon Lex V2.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ElicitIntent</code> - The next action is to elicit an
+   *                intent from the user.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ElicitSlot</code> - The next action is to elicit a slot
+   *                value from the user.</p>
+   *             </li>
+   *          </ul>
+   */
+  type: DialogActionType | string | undefined;
+
+  /**
+   * <p>The name of the slot that should be elicited from the user.</p>
+   */
+  slotToElicit?: string;
+
+  /**
+   * <p>Configures the slot to use spell-by-letter or spell-by-word style.
+   *          When you use a style on a slot, users can spell out their input to make
+   *          it clear to your bot.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Spell by letter - "b" "o" "b"</p>
+   *             </li>
+   *             <li>
+   *                <p>Spell by word - "b as in boy" "o as in oscar" "b as in
+   *                boy"</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-spelling.html">
+   *             Using spelling to enter slot values </a>.</p>
+   */
+  slotElicitationStyle?: StyleType | string;
+
+  /**
+   * <p>The name of the constituent sub slot of the composite slot
+   *       specified in slotToElicit that should be elicited from the user.</p>
+   */
+  subSlotToElicit?: ElicitSubSlot;
+}
+
+/**
+ * <p>Provides an array of phrases that should be given preference when
+ *          resolving values for a slot.</p>
+ */
+export interface RuntimeHintDetails {
+  /**
+   * <p>One or more strings that Amazon Lex V2 should look for in the input to the
+   *          bot. Each phrase is given preference when deciding on slot
+   *          values.</p>
+   */
+  runtimeHintValues?: RuntimeHintValue[];
+
+  /**
+   * <p>A map of constituent sub slot names inside a composite slot in the intent and the phrases
+   *       that should be added for each sub slot. Inside each composite slot hints, this structure provides
+   *       a mechanism to add granular sub slot phrases. Only sub slot hints are supported for composite slots.
+   *       The intent name, composite slot name and the constituent sub slot names must exist.</p>
+   */
+  subSlotHints?: Record<string, RuntimeHintDetails>;
+}
+
+/**
+ * <p>You can provide Amazon Lex V2 with hints to the phrases that a customer is
+ *          likely to use for a slot. When a slot with hints is resolved, the
+ *          phrases in the runtime hints are preferred in the resolution. You can
+ *          provide hints for a maximum of 100 intents. You can provide a maximum
+ *          of 100 slots.</p>
+ *          <p>Before you can use runtime hints with an existing bot, you must
+ *          first rebuild the bot.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.html">Using runtime hints to
+ *             improve recognition of slot values</a>.</p>
+ */
+export interface RuntimeHints {
+  /**
+   * <p>A list of the slots in the intent that should have runtime hints
+   *          added, and the phrases that should be added for each slot.</p>
+   *          <p>The first level of the <code>slotHints</code> map is the name of the
+   *          intent. The second level is the name of the slot within the intent. For
+   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.html">Using hints to improve
+   *             accuracy</a>.</p>
+   *          <p>The intent name and slot name must exist.</p>
+   */
+  slotHints?: Record<string, Record<string, RuntimeHintDetails>>;
+}
+
+/**
  * <p>A value that Amazon Lex V2 uses to fulfill an intent. </p>
  */
 export interface Slot {
@@ -1138,6 +1193,11 @@ export interface Slot {
    *          might be "pepperoni" and "pineapple." </p>
    */
   values?: Slot[];
+
+  /**
+   * <p>The constituent sub slots of a composite slot.</p>
+   */
+  subSlots?: Record<string, Slot>;
 }
 
 /**
@@ -1233,9 +1293,8 @@ export interface SessionState {
   originatingRequestId?: string;
 
   /**
-   * <p>Hints for phrases that a customer is likely to use
-   *       for a slot. Amazon Lex V2 uses the hints to help determine the correct
-   *       value of a slot.</p>
+   * <p>Hints for phrases that a customer is likely to use for a slot. Amazon Lex V2
+   *          uses the hints to help determine the correct value of a slot.</p>
    */
   runtimeHints?: RuntimeHints;
 }
@@ -1306,6 +1365,12 @@ export interface ConfigurationEvent {
 
   /**
    * <p>A list of messages to send to the user.</p>
+   *          <p>If you set the <code>welcomeMessage</code> field, you must also set
+   *          the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_DialogAction.html">
+   *                <code>DialogAction</code>
+   *             </a> structure's <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_DialogAction.html#lexv2-Type-runtime_DialogAction-type">
+   *                <code>type</code>
+   *             </a> field.</p>
    */
   welcomeMessages?: Message[];
 
@@ -1667,7 +1732,6 @@ export interface IntentResultEvent {
   /**
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's
    *          utterance.</p>
-   *
    *          <p>Each interpretation includes the intent, a score that indicates how
    *          confident Amazon Lex V2 is that the interpretation is the correct one, and an
    *          optional sentiment response that indicates the sentiment expressed in
@@ -1697,6 +1761,11 @@ export interface IntentResultEvent {
    *          session.</p>
    */
   eventId?: string;
+
+  /**
+   * <p>The bot member that is processing the intent.</p>
+   */
+  recognizedBotMember?: RecognizedBotMember;
 }
 
 export interface RecognizeTextResponse {
@@ -1734,6 +1803,11 @@ export interface RecognizeTextResponse {
    * <p>The identifier of the session in use.</p>
    */
   sessionId?: string;
+
+  /**
+   * <p>The bot member that recognized the text.</p>
+   */
+  recognizedBotMember?: RecognizedBotMember;
 }
 
 /**
@@ -2241,13 +2315,6 @@ export const MessageFilterSensitiveLog = (obj: Message): any => ({
 /**
  * @internal
  */
-export const DialogActionFilterSensitiveLog = (obj: DialogAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RuntimeHintValueFilterSensitiveLog = (obj: RuntimeHintValue): any => ({
   ...obj,
 });
@@ -2255,21 +2322,14 @@ export const RuntimeHintValueFilterSensitiveLog = (obj: RuntimeHintValue): any =
 /**
  * @internal
  */
-export const RuntimeHintDetailsFilterSensitiveLog = (obj: RuntimeHintDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuntimeHintsFilterSensitiveLog = (obj: RuntimeHints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PutSessionResponseFilterSensitiveLog = (obj: PutSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecognizedBotMemberFilterSensitiveLog = (obj: RecognizedBotMember): any => ({
   ...obj,
 });
 
@@ -2345,6 +2405,34 @@ export const TextResponseEventFilterSensitiveLog = (obj: TextResponseEvent): any
  * @internal
  */
 export const TranscriptEventFilterSensitiveLog = (obj: TranscriptEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElicitSubSlotFilterSensitiveLog = (obj: ElicitSubSlot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DialogActionFilterSensitiveLog = (obj: DialogAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuntimeHintDetailsFilterSensitiveLog = (obj: RuntimeHintDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuntimeHintsFilterSensitiveLog = (obj: RuntimeHints): any => ({
   ...obj,
 });
 

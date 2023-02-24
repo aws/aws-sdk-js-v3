@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,10 +31,9 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
 /**
  * <p>Lists the API keys for a given API.</p>
  *          <note>
- *             <p>API keys are deleted automatically 60 days after they expire. However, they may still
- *             be included in the response until they have actually been deleted. You can safely call
- *                <code>DeleteApiKey</code> to manually delete a key before it's automatically
- *             deleted.</p>
+ *             <p>API keys are deleted automatically 60 days after they expire. However, they may still be included in the
+ *             response until they have actually been deleted. You can safely call <code>DeleteApiKey</code> to manually
+ *             delete a key before it's automatically deleted.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +58,15 @@ export class ListApiKeysCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListApiKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +82,7 @@ export class ListApiKeysCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListApiKeysCommandInput, ListApiKeysCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListApiKeysCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

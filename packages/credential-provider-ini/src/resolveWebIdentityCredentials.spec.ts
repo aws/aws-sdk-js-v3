@@ -1,5 +1,5 @@
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
-import { Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 
 import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWebIdentityCredentials";
 
@@ -42,7 +42,7 @@ describe(isWebIdentityProfile.name, () => {
 });
 
 describe(resolveWebIdentityCredentials.name, () => {
-  const mockCreds: Credentials = {
+  const mockCreds: AwsCredentialIdentity = {
     accessKeyId: "mockAccessKeyId",
     secretAccessKey: "mockSecretAccessKey",
   };

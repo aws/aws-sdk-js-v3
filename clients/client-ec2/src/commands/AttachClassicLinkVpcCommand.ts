@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,15 +30,15 @@ export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcR
 
 /**
  * <note>
- * 	           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- * 	        </note>
- * 	        <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
+ *          <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's
  * 			security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You
  * 			can only link an instance that's in the <code>running</code> state. An instance is
  * 			automatically unlinked from a VPC when it's stopped - you can link it to the VPC again when
  * 			you restart it.</p>
- * 		       <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p>
- * 		       <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>
+ *          <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p>
+ *          <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,15 @@ export class AttachClassicLinkVpcCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AttachClassicLinkVpcCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class AttachClassicLinkVpcCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AttachClassicLinkVpcCommandInput, AttachClassicLinkVpcCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AttachClassicLinkVpcCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

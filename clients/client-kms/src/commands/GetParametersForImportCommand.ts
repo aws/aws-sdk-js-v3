@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,12 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
 
 /**
  * <p>Returns the items you need to import key material into a symmetric encryption KMS key. For
- *       more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing key material</a>
- *       in the <i>Key Management Service Developer Guide</i>.</p>
+ *       more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing key material</a> in the
+ *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>This operation returns a public key and an import token. Use the public key to encrypt the
  *       symmetric key material. Store the import token to send with a subsequent <a>ImportKeyMaterial</a> request.</p>
  *          <p>You must specify the key ID of the symmetric encryption KMS key into which you will import
- *       key material. This KMS key's <code>Origin</code> must be <code>EXTERNAL</code>. You must also
+ *       key material. The KMS key <code>Origin</code> must be <code>EXTERNAL</code>. You must also
  *       specify the wrapping algorithm and type of wrapping key (public key) that you will use to
  *       encrypt the key material. You cannot perform this operation on an asymmetric KMS key, an HMAC KMS key, or on any KMS key in a different Amazon Web Services account.</p>
  *          <p>To import key material, you must use the public key and import token from the same
@@ -86,6 +87,15 @@ export class GetParametersForImportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetParametersForImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,6 +111,9 @@ export class GetParametersForImportCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetParametersForImportCommandInput, GetParametersForImportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetParametersForImportCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

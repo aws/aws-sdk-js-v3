@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,15 +30,15 @@ export interface GetTranscriptionJobCommandOutput extends GetTranscriptionJobRes
 
 /**
  * <p>Provides information about the specified transcription job.</p>
- *         <p>To view the status of the specified transcription job, check the
- *             <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the
- *             job is finished and you can find the results at the location specified in
- *             <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>,
- *             <code>FailureReason</code> provides details on why your transcription job failed.</p>
- *         <p>If you enabled content redaction, the redacted transcript
- *             can be found at the location specified in <code>RedactedTranscriptFileUri</code>.</p>
- *         <p>To get a list of your transcription jobs, use the
- *             operation.</p>
+ *          <p>To view the status of the specified transcription job, check the
+ *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
+ *             the job is finished. You can find the results at the location specified in
+ *                 <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>,
+ *                 <code>FailureReason</code> provides details on why your transcription job
+ *             failed.</p>
+ *          <p>If you enabled content redaction, the redacted transcript can be found at the location
+ *             specified in <code>RedactedTranscriptFileUri</code>.</p>
+ *          <p>To get a list of your transcription jobs, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,15 @@ export class GetTranscriptionJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class GetTranscriptionJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetTranscriptionJobCommandInput, GetTranscriptionJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetTranscriptionJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,8 +37,10 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *       Refactor Spaces applications, services, and routes created within the environment. They are referred
  *       to as the <i>environment owner</i>. The environment owner has cross-account
  *       visibility and control of Refactor Spaces resources that are added to the environment by other
- *       accounts that the environment is shared with. When creating an environment, Refactor Spaces
- *       provisions a transit gateway in your account.</p>
+ *       accounts that the environment is shared with.</p>
+ *          <p>When creating an environment with
+ *       a network fabric type of <code>TRANSIT_GATEWAY</code>,
+ *       Refactor Spaces provisions a transit gateway in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +64,15 @@ export class CreateEnvironmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +88,9 @@ export class CreateEnvironmentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateEnvironmentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

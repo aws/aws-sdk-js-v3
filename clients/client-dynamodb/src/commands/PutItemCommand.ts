@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,7 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *             the same operation, using the <code>ReturnValues</code> parameter.</p>
  *
  *         <p>When you add an item, the primary key attributes are the only required attributes.
- *             Attribute values cannot be null.</p>
+ *             </p>
  *         <p>Empty String and Binary attribute values are allowed. Attribute values of type String
  *             and Binary must have a length greater than zero if the attribute is used as a key
  *             attribute for a table or index. Set type attributes cannot be empty. </p>
@@ -67,6 +68,15 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,7 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
     options?: __HttpHandlerOptions
   ): Handler<PutItemCommandInput, PutItemCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutItemCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

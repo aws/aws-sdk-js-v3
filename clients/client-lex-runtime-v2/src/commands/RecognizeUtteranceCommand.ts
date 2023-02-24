@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -9,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
@@ -34,7 +38,9 @@ type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "input
  * This interface extends from `RecognizeUtteranceRequest` interface. There are more parameters than `inputStream` defined in {@link RecognizeUtteranceRequest}
  */
 export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceCommandInputType {}
-export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceResponse, __MetadataBearer {}
+export interface RecognizeUtteranceCommandOutput
+  extends __WithSdkStreamMixin<RecognizeUtteranceResponse, "audioStream">,
+    __MetadataBearer {}
 
 /**
  * <p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use
@@ -123,6 +129,15 @@ export class RecognizeUtteranceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RecognizeUtteranceCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +153,9 @@ export class RecognizeUtteranceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RecognizeUtteranceCommandInput, RecognizeUtteranceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RecognizeUtteranceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -163,7 +181,10 @@ export class RecognizeUtteranceCommand extends $Command<
     return serializeAws_restJson1RecognizeUtteranceCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecognizeUtteranceCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<RecognizeUtteranceCommandOutput> {
     return deserializeAws_restJson1RecognizeUtteranceCommand(output, context);
   }
 

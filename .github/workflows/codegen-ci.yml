@@ -12,15 +12,16 @@ jobs:
     name: Java ${{ matrix.java }}
     strategy: 
       matrix:
-        java: [8, 11] 
+        java: [17]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       - name: Set up JDK ${{ matrix.java }}
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java }}
+          distribution: 'corretto'
       
       - name: build and publish smithy-typescript
         run: |

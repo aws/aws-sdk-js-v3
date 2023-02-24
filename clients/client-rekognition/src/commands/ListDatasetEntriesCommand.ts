@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -39,7 +40,6 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  *    same information is reported in the training and testing validation result manifests that
  *    Amazon Rekognition Custom Labels creates during model training.
  *  </p>
- *
  *          <p>You can filter the response in variety of ways, such as choosing which labels to return and returning JSON Lines created after a specific date.
  * </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:ListDatasetEntries</code> action.</p>
@@ -66,6 +66,15 @@ export class ListDatasetEntriesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListDatasetEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +90,9 @@ export class ListDatasetEntriesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDatasetEntriesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

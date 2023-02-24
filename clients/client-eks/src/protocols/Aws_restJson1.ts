@@ -46,6 +46,10 @@ import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "../co
 import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "../commands/DeregisterClusterCommand";
 import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "../commands/DescribeAddonCommand";
 import {
+  DescribeAddonConfigurationCommandInput,
+  DescribeAddonConfigurationCommandOutput,
+} from "../commands/DescribeAddonConfigurationCommand";
+import {
   DescribeAddonVersionsCommandInput,
   DescribeAddonVersionsCommandOutput,
 } from "../commands/DescribeAddonVersionsCommand";
@@ -113,9 +117,13 @@ import {
   Certificate,
   ClientException,
   Cluster,
+  ClusterHealth,
+  ClusterIssue,
   Compatibility,
   ConnectorConfigRequest,
   ConnectorConfigResponse,
+  ControlPlanePlacementRequest,
+  ControlPlanePlacementResponse,
   EncryptionConfig,
   ErrorDetail,
   FargateProfile,
@@ -132,6 +140,7 @@ import {
   Logging,
   LogSetup,
   LogType,
+  MarketplaceInformation,
   Nodegroup,
   NodegroupHealth,
   NodegroupResources,
@@ -141,6 +150,8 @@ import {
   OIDC,
   OidcIdentityProviderConfig,
   OidcIdentityProviderConfigRequest,
+  OutpostConfigRequest,
+  OutpostConfigResponse,
   Provider,
   RemoteAccessConfig,
   ResourceInUseException,
@@ -234,6 +245,7 @@ export const serializeAws_restJson1CreateAddonCommand = async (
     ...(input.addonName != null && { addonName: input.addonName }),
     ...(input.addonVersion != null && { addonVersion: input.addonVersion }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.configurationValues != null && { configurationValues: input.configurationValues }),
     ...(input.resolveConflicts != null && { resolveConflicts: input.resolveConflicts }),
     ...(input.serviceAccountRoleArn != null && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
@@ -272,6 +284,9 @@ export const serializeAws_restJson1CreateClusterCommand = async (
     }),
     ...(input.logging != null && { logging: serializeAws_restJson1Logging(input.logging, context) }),
     ...(input.name != null && { name: input.name }),
+    ...(input.outpostConfig != null && {
+      outpostConfig: serializeAws_restJson1OutpostConfigRequest(input.outpostConfig, context),
+    }),
     ...(input.resourcesVpcConfig != null && {
       resourcesVpcConfig: serializeAws_restJson1VpcConfigRequest(input.resourcesVpcConfig, context),
     }),
@@ -526,6 +541,31 @@ export const serializeAws_restJson1DescribeAddonCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeAddonConfigurationCommand = async (
+  input: DescribeAddonConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/addons/configuration-schemas";
+  const query: any = map({
+    addonName: [, __expectNonNull(input.addonName!, `addonName`)],
+    addonVersion: [, __expectNonNull(input.addonVersion!, `addonVersion`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeAddonVersionsCommand = async (
   input: DescribeAddonVersionsCommandInput,
   context: __SerdeContext
@@ -539,6 +579,9 @@ export const serializeAws_restJson1DescribeAddonVersionsCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     addonName: [, input.addonName!],
+    types: [() => input.types !== void 0, () => (input.types! || []).map((_entry) => _entry as any)],
+    publishers: [() => input.publishers !== void 0, () => (input.publishers! || []).map((_entry) => _entry as any)],
+    owners: [() => input.owners !== void 0, () => (input.owners! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -959,7 +1002,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -991,6 +1037,7 @@ export const serializeAws_restJson1UpdateAddonCommand = async (
   body = JSON.stringify({
     ...(input.addonVersion != null && { addonVersion: input.addonVersion }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.configurationValues != null && { configurationValues: input.configurationValues }),
     ...(input.resolveConflicts != null && { resolveConflicts: input.resolveConflicts }),
     ...(input.serviceAccountRoleArn != null && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
   });
@@ -1168,7 +1215,7 @@ const deserializeAws_restJson1AssociateEncryptionConfigCommandError = async (
 ): Promise<AssociateEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1227,7 +1274,7 @@ const deserializeAws_restJson1AssociateIdentityProviderConfigCommandError = asyn
 ): Promise<AssociateIdentityProviderConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1283,7 +1330,7 @@ const deserializeAws_restJson1CreateAddonCommandError = async (
 ): Promise<CreateAddonCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1339,7 +1386,7 @@ const deserializeAws_restJson1CreateClusterCommandError = async (
 ): Promise<CreateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1398,7 +1445,7 @@ const deserializeAws_restJson1CreateFargateProfileCommandError = async (
 ): Promise<CreateFargateProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1454,7 +1501,7 @@ const deserializeAws_restJson1CreateNodegroupCommandError = async (
 ): Promise<CreateNodegroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1513,7 +1560,7 @@ const deserializeAws_restJson1DeleteAddonCommandError = async (
 ): Promise<DeleteAddonCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1566,7 +1613,7 @@ const deserializeAws_restJson1DeleteClusterCommandError = async (
 ): Promise<DeleteClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1619,7 +1666,7 @@ const deserializeAws_restJson1DeleteFargateProfileCommandError = async (
 ): Promise<DeleteFargateProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1669,7 +1716,7 @@ const deserializeAws_restJson1DeleteNodegroupCommandError = async (
 ): Promise<DeleteNodegroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1725,7 +1772,7 @@ const deserializeAws_restJson1DeregisterClusterCommandError = async (
 ): Promise<DeregisterClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1781,7 +1828,7 @@ const deserializeAws_restJson1DescribeAddonCommandError = async (
 ): Promise<DescribeAddonCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1794,6 +1841,59 @@ const deserializeAws_restJson1DescribeAddonCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.eks#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeAddonConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddonConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAddonConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.addonName != null) {
+    contents.addonName = __expectString(data.addonName);
+  }
+  if (data.addonVersion != null) {
+    contents.addonVersion = __expectString(data.addonVersion);
+  }
+  if (data.configurationSchema != null) {
+    contents.configurationSchema = __expectString(data.configurationSchema);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeAddonConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddonConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.eks#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1837,7 +1937,7 @@ const deserializeAws_restJson1DescribeAddonVersionsCommandError = async (
 ): Promise<DescribeAddonVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1884,7 +1984,7 @@ const deserializeAws_restJson1DescribeClusterCommandError = async (
 ): Promise<DescribeClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1934,7 +2034,7 @@ const deserializeAws_restJson1DescribeFargateProfileCommandError = async (
 ): Promise<DescribeFargateProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1987,7 +2087,7 @@ const deserializeAws_restJson1DescribeIdentityProviderConfigCommandError = async
 ): Promise<DescribeIdentityProviderConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2040,7 +2140,7 @@ const deserializeAws_restJson1DescribeNodegroupCommandError = async (
 ): Promise<DescribeNodegroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2093,7 +2193,7 @@ const deserializeAws_restJson1DescribeUpdateCommandError = async (
 ): Promise<DescribeUpdateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2143,7 +2243,7 @@ const deserializeAws_restJson1DisassociateIdentityProviderConfigCommandError = a
 ): Promise<DisassociateIdentityProviderConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2202,7 +2302,7 @@ const deserializeAws_restJson1ListAddonsCommandError = async (
 ): Promise<ListAddonsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2258,7 +2358,7 @@ const deserializeAws_restJson1ListClustersCommandError = async (
 ): Promise<ListClustersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2311,7 +2411,7 @@ const deserializeAws_restJson1ListFargateProfilesCommandError = async (
 ): Promise<ListFargateProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2367,7 +2467,7 @@ const deserializeAws_restJson1ListIdentityProviderConfigsCommandError = async (
 ): Promise<ListIdentityProviderConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2423,7 +2523,7 @@ const deserializeAws_restJson1ListNodegroupsCommandError = async (
 ): Promise<ListNodegroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2476,7 +2576,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2523,7 +2623,7 @@ const deserializeAws_restJson1ListUpdatesCommandError = async (
 ): Promise<ListUpdatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2573,7 +2673,7 @@ const deserializeAws_restJson1RegisterClusterCommandError = async (
 ): Promise<RegisterClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2632,7 +2732,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2673,7 +2773,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2717,7 +2817,7 @@ const deserializeAws_restJson1UpdateAddonCommandError = async (
 ): Promise<UpdateAddonCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2773,7 +2873,7 @@ const deserializeAws_restJson1UpdateClusterConfigCommandError = async (
 ): Promise<UpdateClusterConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2829,7 +2929,7 @@ const deserializeAws_restJson1UpdateClusterVersionCommandError = async (
 ): Promise<UpdateClusterVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2885,7 +2985,7 @@ const deserializeAws_restJson1UpdateNodegroupConfigCommandError = async (
 ): Promise<UpdateNodegroupConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2941,7 +3041,7 @@ const deserializeAws_restJson1UpdateNodegroupVersionCommandError = async (
 ): Promise<UpdateNodegroupVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3265,6 +3365,15 @@ const serializeAws_restJson1ConnectorConfigRequest = (input: ConnectorConfigRequ
   };
 };
 
+const serializeAws_restJson1ControlPlanePlacementRequest = (
+  input: ControlPlanePlacementRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.groupName != null && { groupName: input.groupName }),
+  };
+};
+
 const serializeAws_restJson1EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
   return {
     ...(input.provider != null && { provider: serializeAws_restJson1Provider(input.provider, context) }),
@@ -3285,10 +3394,8 @@ const serializeAws_restJson1FargateProfileLabel = (input: Record<string, string>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3340,10 +3447,8 @@ const serializeAws_restJson1labelsMap = (input: Record<string, string>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3422,6 +3527,16 @@ const serializeAws_restJson1OidcIdentityProviderConfigRequest = (
   };
 };
 
+const serializeAws_restJson1OutpostConfigRequest = (input: OutpostConfigRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.controlPlaneInstanceType != null && { controlPlaneInstanceType: input.controlPlaneInstanceType }),
+    ...(input.controlPlanePlacement != null && {
+      controlPlanePlacement: serializeAws_restJson1ControlPlanePlacementRequest(input.controlPlanePlacement, context),
+    }),
+    ...(input.outpostArns != null && { outpostArns: serializeAws_restJson1StringList(input.outpostArns, context) }),
+  };
+};
+
 const serializeAws_restJson1Provider = (input: Provider, context: __SerdeContext): any => {
   return {
     ...(input.keyArn != null && { keyArn: input.keyArn }),
@@ -3442,10 +3557,8 @@ const serializeAws_restJson1requiredClaimsMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3462,10 +3575,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3525,11 +3636,18 @@ const deserializeAws_restJson1Addon = (output: any, context: __SerdeContext): Ad
     addonName: __expectString(output.addonName),
     addonVersion: __expectString(output.addonVersion),
     clusterName: __expectString(output.clusterName),
+    configurationValues: __expectString(output.configurationValues),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     health: output.health != null ? deserializeAws_restJson1AddonHealth(output.health, context) : undefined,
+    marketplaceInformation:
+      output.marketplaceInformation != null
+        ? deserializeAws_restJson1MarketplaceInformation(output.marketplaceInformation, context)
+        : undefined,
     modifiedAt:
       output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
+    owner: __expectString(output.owner),
+    publisher: __expectString(output.publisher),
     serviceAccountRoleArn: __expectString(output.serviceAccountRoleArn),
     status: __expectString(output.status),
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
@@ -3549,6 +3667,12 @@ const deserializeAws_restJson1AddonInfo = (output: any, context: __SerdeContext)
       output.addonVersions != null
         ? deserializeAws_restJson1AddonVersionInfoList(output.addonVersions, context)
         : undefined,
+    marketplaceInformation:
+      output.marketplaceInformation != null
+        ? deserializeAws_restJson1MarketplaceInformation(output.marketplaceInformation, context)
+        : undefined,
+    owner: __expectString(output.owner),
+    publisher: __expectString(output.publisher),
     type: __expectString(output.type),
   } as any;
 };
@@ -3595,6 +3719,7 @@ const deserializeAws_restJson1AddonVersionInfo = (output: any, context: __SerdeC
       output.compatibilities != null
         ? deserializeAws_restJson1Compatibilities(output.compatibilities, context)
         : undefined,
+    requiresConfiguration: __expectBoolean(output.requiresConfiguration),
   } as any;
 };
 
@@ -3653,6 +3778,8 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1EncryptionConfigList(output.encryptionConfig, context)
         : undefined,
     endpoint: __expectString(output.endpoint),
+    health: output.health != null ? deserializeAws_restJson1ClusterHealth(output.health, context) : undefined,
+    id: __expectString(output.id),
     identity: output.identity != null ? deserializeAws_restJson1Identity(output.identity, context) : undefined,
     kubernetesNetworkConfig:
       output.kubernetesNetworkConfig != null
@@ -3660,6 +3787,10 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
         : undefined,
     logging: output.logging != null ? deserializeAws_restJson1Logging(output.logging, context) : undefined,
     name: __expectString(output.name),
+    outpostConfig:
+      output.outpostConfig != null
+        ? deserializeAws_restJson1OutpostConfigResponse(output.outpostConfig, context)
+        : undefined,
     platformVersion: __expectString(output.platformVersion),
     resourcesVpcConfig:
       output.resourcesVpcConfig != null
@@ -3670,6 +3801,33 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     version: __expectString(output.version),
   } as any;
+};
+
+const deserializeAws_restJson1ClusterHealth = (output: any, context: __SerdeContext): ClusterHealth => {
+  return {
+    issues: output.issues != null ? deserializeAws_restJson1ClusterIssueList(output.issues, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ClusterIssue = (output: any, context: __SerdeContext): ClusterIssue => {
+  return {
+    code: __expectString(output.code),
+    message: __expectString(output.message),
+    resourceIds:
+      output.resourceIds != null ? deserializeAws_restJson1StringList(output.resourceIds, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ClusterIssueList = (output: any, context: __SerdeContext): ClusterIssue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ClusterIssue(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1Compatibilities = (output: any, context: __SerdeContext): Compatibility[] => {
@@ -3708,6 +3866,15 @@ const deserializeAws_restJson1ConnectorConfigResponse = (
     activationId: __expectString(output.activationId),
     provider: __expectString(output.provider),
     roleArn: __expectString(output.roleArn),
+  } as any;
+};
+
+const deserializeAws_restJson1ControlPlanePlacementResponse = (
+  output: any,
+  context: __SerdeContext
+): ControlPlanePlacementResponse => {
+  return {
+    groupName: __expectString(output.groupName),
   } as any;
 };
 
@@ -3772,10 +3939,8 @@ const deserializeAws_restJson1FargateProfileLabel = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3881,10 +4046,8 @@ const deserializeAws_restJson1labelsMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3935,6 +4098,16 @@ const deserializeAws_restJson1LogTypes = (output: any, context: __SerdeContext):
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1MarketplaceInformation = (
+  output: any,
+  context: __SerdeContext
+): MarketplaceInformation => {
+  return {
+    productId: __expectString(output.productId),
+    productUrl: __expectString(output.productUrl),
+  } as any;
 };
 
 const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
@@ -4044,6 +4217,18 @@ const deserializeAws_restJson1OidcIdentityProviderConfig = (
   } as any;
 };
 
+const deserializeAws_restJson1OutpostConfigResponse = (output: any, context: __SerdeContext): OutpostConfigResponse => {
+  return {
+    controlPlaneInstanceType: __expectString(output.controlPlaneInstanceType),
+    controlPlanePlacement:
+      output.controlPlanePlacement != null
+        ? deserializeAws_restJson1ControlPlanePlacementResponse(output.controlPlanePlacement, context)
+        : undefined,
+    outpostArns:
+      output.outpostArns != null ? deserializeAws_restJson1StringList(output.outpostArns, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Provider = (output: any, context: __SerdeContext): Provider => {
   return {
     keyArn: __expectString(output.keyArn),
@@ -4065,10 +4250,8 @@ const deserializeAws_restJson1requiredClaimsMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4089,10 +4272,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4167,7 +4348,8 @@ const deserializeAws_restJson1VpcConfigResponse = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -4199,6 +4381,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -4209,6 +4397,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

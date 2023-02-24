@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,25 +24,11 @@ export interface DeleteScalingPolicyCommandInput extends DeleteScalingPolicyInpu
 export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in
- *             force and GameLift removes all record of it. To delete a scaling policy, specify both the scaling
+ * <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in force and
+ *             GameLift removes all record of it. To delete a scaling policy, specify both the scaling
  *             policy name and the fleet ID it is associated with.</p>
- *         <p>To temporarily suspend scaling policies, call <a>StopFleetActions</a>.
- *             This operation suspends all policies for the fleet.</p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>DescribeFleetCapacity</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DescribeScalingPolicies</a> |
- *                     <a>DeleteScalingPolicy</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>StartFleetActions</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ *         <p>To temporarily suspend scaling policies, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. This operation suspends all policies for the
+ *             fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +52,15 @@ export class DeleteScalingPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +76,9 @@ export class DeleteScalingPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteScalingPolicyCommandInput, DeleteScalingPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteScalingPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

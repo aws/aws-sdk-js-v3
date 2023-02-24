@@ -20,23 +20,28 @@ description = "Generates TypeScript code for AWS protocols from Smithy models"
 extra["displayName"] = "Smithy :: AWS :: Typescript :: Codegen"
 extra["moduleName"] = "software.amazon.smithy.aws.typescript.codegen"
 
+val smithyVersion: String by project
+
 buildscript {
+    val smithyVersion: String by project
+
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath("software.amazon.smithy:smithy-model:${rootProject.extra["smithyVersion"]}")
+        classpath("software.amazon.smithy:smithy-model:$smithyVersion")
     }
 }
 
 dependencies {
-    api("software.amazon.smithy:smithy-aws-cloudformation-traits:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy:smithy-aws-traits:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy:smithy-waiters:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy:smithy-aws-iam-traits:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy:smithy-protocol-test-traits:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy:smithy-model:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.11.0")
+    api("software.amazon.smithy:smithy-aws-cloudformation-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-waiters:$smithyVersion")
+    api("software.amazon.smithy:smithy-aws-iam-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-protocol-test-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-model:$smithyVersion")
+    api("software.amazon.smithy:smithy-rules-engine:$smithyVersion")
+    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.14.0")
 }
 
 tasks.register("set-aws-sdk-versions") {

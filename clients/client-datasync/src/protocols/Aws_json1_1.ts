@@ -829,7 +829,7 @@ const deserializeAws_json1_1CancelTaskExecutionCommandError = async (
 ): Promise<CancelTaskExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -873,7 +873,7 @@ const deserializeAws_json1_1CreateAgentCommandError = async (
 ): Promise<CreateAgentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -917,7 +917,7 @@ const deserializeAws_json1_1CreateLocationEfsCommandError = async (
 ): Promise<CreateLocationEfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -961,7 +961,7 @@ const deserializeAws_json1_1CreateLocationFsxLustreCommandError = async (
 ): Promise<CreateLocationFsxLustreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1005,7 +1005,7 @@ const deserializeAws_json1_1CreateLocationFsxOntapCommandError = async (
 ): Promise<CreateLocationFsxOntapCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1049,7 +1049,7 @@ const deserializeAws_json1_1CreateLocationFsxOpenZfsCommandError = async (
 ): Promise<CreateLocationFsxOpenZfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1093,7 +1093,7 @@ const deserializeAws_json1_1CreateLocationFsxWindowsCommandError = async (
 ): Promise<CreateLocationFsxWindowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1137,7 +1137,7 @@ const deserializeAws_json1_1CreateLocationHdfsCommandError = async (
 ): Promise<CreateLocationHdfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1181,7 +1181,7 @@ const deserializeAws_json1_1CreateLocationNfsCommandError = async (
 ): Promise<CreateLocationNfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1225,7 +1225,7 @@ const deserializeAws_json1_1CreateLocationObjectStorageCommandError = async (
 ): Promise<CreateLocationObjectStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1269,7 +1269,7 @@ const deserializeAws_json1_1CreateLocationS3CommandError = async (
 ): Promise<CreateLocationS3CommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1313,7 +1313,7 @@ const deserializeAws_json1_1CreateLocationSmbCommandError = async (
 ): Promise<CreateLocationSmbCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1357,7 +1357,7 @@ const deserializeAws_json1_1CreateTaskCommandError = async (
 ): Promise<CreateTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1401,7 +1401,7 @@ const deserializeAws_json1_1DeleteAgentCommandError = async (
 ): Promise<DeleteAgentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1445,7 +1445,7 @@ const deserializeAws_json1_1DeleteLocationCommandError = async (
 ): Promise<DeleteLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1489,7 +1489,7 @@ const deserializeAws_json1_1DeleteTaskCommandError = async (
 ): Promise<DeleteTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1533,7 +1533,7 @@ const deserializeAws_json1_1DescribeAgentCommandError = async (
 ): Promise<DescribeAgentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1577,7 +1577,7 @@ const deserializeAws_json1_1DescribeLocationEfsCommandError = async (
 ): Promise<DescribeLocationEfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1621,7 +1621,7 @@ const deserializeAws_json1_1DescribeLocationFsxLustreCommandError = async (
 ): Promise<DescribeLocationFsxLustreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1665,7 +1665,7 @@ const deserializeAws_json1_1DescribeLocationFsxOntapCommandError = async (
 ): Promise<DescribeLocationFsxOntapCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1709,7 +1709,7 @@ const deserializeAws_json1_1DescribeLocationFsxOpenZfsCommandError = async (
 ): Promise<DescribeLocationFsxOpenZfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1753,7 +1753,7 @@ const deserializeAws_json1_1DescribeLocationFsxWindowsCommandError = async (
 ): Promise<DescribeLocationFsxWindowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1797,7 +1797,7 @@ const deserializeAws_json1_1DescribeLocationHdfsCommandError = async (
 ): Promise<DescribeLocationHdfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1841,7 +1841,7 @@ const deserializeAws_json1_1DescribeLocationNfsCommandError = async (
 ): Promise<DescribeLocationNfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1885,7 +1885,7 @@ const deserializeAws_json1_1DescribeLocationObjectStorageCommandError = async (
 ): Promise<DescribeLocationObjectStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1929,7 +1929,7 @@ const deserializeAws_json1_1DescribeLocationS3CommandError = async (
 ): Promise<DescribeLocationS3CommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1973,7 +1973,7 @@ const deserializeAws_json1_1DescribeLocationSmbCommandError = async (
 ): Promise<DescribeLocationSmbCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2017,7 +2017,7 @@ const deserializeAws_json1_1DescribeTaskCommandError = async (
 ): Promise<DescribeTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2061,7 +2061,7 @@ const deserializeAws_json1_1DescribeTaskExecutionCommandError = async (
 ): Promise<DescribeTaskExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2105,7 +2105,7 @@ const deserializeAws_json1_1ListAgentsCommandError = async (
 ): Promise<ListAgentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2149,7 +2149,7 @@ const deserializeAws_json1_1ListLocationsCommandError = async (
 ): Promise<ListLocationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2193,7 +2193,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2237,7 +2237,7 @@ const deserializeAws_json1_1ListTaskExecutionsCommandError = async (
 ): Promise<ListTaskExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2281,7 +2281,7 @@ const deserializeAws_json1_1ListTasksCommandError = async (
 ): Promise<ListTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2325,7 +2325,7 @@ const deserializeAws_json1_1StartTaskExecutionCommandError = async (
 ): Promise<StartTaskExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2369,7 +2369,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2413,7 +2413,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2457,7 +2457,7 @@ const deserializeAws_json1_1UpdateAgentCommandError = async (
 ): Promise<UpdateAgentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2501,7 +2501,7 @@ const deserializeAws_json1_1UpdateLocationHdfsCommandError = async (
 ): Promise<UpdateLocationHdfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2545,7 +2545,7 @@ const deserializeAws_json1_1UpdateLocationNfsCommandError = async (
 ): Promise<UpdateLocationNfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2589,7 +2589,7 @@ const deserializeAws_json1_1UpdateLocationObjectStorageCommandError = async (
 ): Promise<UpdateLocationObjectStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2633,7 +2633,7 @@ const deserializeAws_json1_1UpdateLocationSmbCommandError = async (
 ): Promise<UpdateLocationSmbCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2677,7 +2677,7 @@ const deserializeAws_json1_1UpdateTaskCommandError = async (
 ): Promise<UpdateTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2721,7 +2721,7 @@ const deserializeAws_json1_1UpdateTaskExecutionCommandError = async (
 ): Promise<UpdateTaskExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2921,6 +2921,7 @@ const serializeAws_json1_1CreateLocationObjectStorageRequest = (
     ...(input.AgentArns != null && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
     ...(input.BucketName != null && { BucketName: input.BucketName }),
     ...(input.SecretKey != null && { SecretKey: input.SecretKey }),
+    ...(input.ServerCertificate != null && { ServerCertificate: context.base64Encoder(input.ServerCertificate) }),
     ...(input.ServerHostname != null && { ServerHostname: input.ServerHostname }),
     ...(input.ServerPort != null && { ServerPort: input.ServerPort }),
     ...(input.ServerProtocol != null && { ServerProtocol: input.ServerProtocol }),
@@ -3330,6 +3331,7 @@ const serializeAws_json1_1StartTaskExecutionRequest = (
     ...(input.OverrideOptions != null && {
       OverrideOptions: serializeAws_json1_1Options(input.OverrideOptions, context),
     }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
     ...(input.TaskArn != null && { TaskArn: input.TaskArn }),
   };
 };
@@ -3438,6 +3440,7 @@ const serializeAws_json1_1UpdateLocationObjectStorageRequest = (
     ...(input.AgentArns != null && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
     ...(input.LocationArn != null && { LocationArn: input.LocationArn }),
     ...(input.SecretKey != null && { SecretKey: input.SecretKey }),
+    ...(input.ServerCertificate != null && { ServerCertificate: context.base64Encoder(input.ServerCertificate) }),
     ...(input.ServerPort != null && { ServerPort: input.ServerPort }),
     ...(input.ServerProtocol != null && { ServerProtocol: input.ServerProtocol }),
     ...(input.Subdirectory != null && { Subdirectory: input.Subdirectory }),
@@ -3810,6 +3813,7 @@ const deserializeAws_json1_1DescribeLocationObjectStorageResponse = (
         : undefined,
     LocationArn: __expectString(output.LocationArn),
     LocationUri: __expectString(output.LocationUri),
+    ServerCertificate: output.ServerCertificate != null ? context.base64Decoder(output.ServerCertificate) : undefined,
     ServerPort: __expectInt32(output.ServerPort),
     ServerProtocol: __expectString(output.ServerProtocol),
   } as any;
@@ -3856,6 +3860,7 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
   context: __SerdeContext
 ): DescribeTaskExecutionResponse => {
   return {
+    BytesCompressed: __expectLong(output.BytesCompressed),
     BytesTransferred: __expectLong(output.BytesTransferred),
     BytesWritten: __expectLong(output.BytesWritten),
     EstimatedBytesToTransfer: __expectLong(output.EstimatedBytesToTransfer),
@@ -4322,7 +4327,8 @@ const deserializeAws_json1_1UpdateTaskResponse = (output: any, context: __SerdeC
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -4372,6 +4378,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -4382,6 +4394,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

@@ -99,6 +99,10 @@ import {
 import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "../commands/DescribeSnapshotsCommand";
 import { DescribeTrustsCommandInput, DescribeTrustsCommandOutput } from "../commands/DescribeTrustsCommand";
 import {
+  DescribeUpdateDirectoryCommandInput,
+  DescribeUpdateDirectoryCommandOutput,
+} from "../commands/DescribeUpdateDirectoryCommand";
+import {
   DisableClientAuthenticationCommandInput,
   DisableClientAuthenticationCommandOutput,
 } from "../commands/DisableClientAuthenticationCommand";
@@ -158,6 +162,10 @@ import {
   UpdateConditionalForwarderCommandInput,
   UpdateConditionalForwarderCommandOutput,
 } from "../commands/UpdateConditionalForwarderCommand";
+import {
+  UpdateDirectorySetupCommandInput,
+  UpdateDirectorySetupCommandOutput,
+} from "../commands/UpdateDirectorySetupCommand";
 import {
   UpdateNumberOfDomainControllersCommandInput,
   UpdateNumberOfDomainControllersCommandOutput,
@@ -248,6 +256,8 @@ import {
   DescribeSnapshotsResult,
   DescribeTrustsRequest,
   DescribeTrustsResult,
+  DescribeUpdateDirectoryRequest,
+  DescribeUpdateDirectoryResult,
   DirectoryAlreadyInRegionException,
   DirectoryAlreadySharedException,
   DirectoryConfigurationStatus,
@@ -255,6 +265,7 @@ import {
   DirectoryConnectSettingsDescription,
   DirectoryDescription,
   DirectoryDoesNotExistException,
+  DirectoryInDesiredStateException,
   DirectoryLimitExceededException,
   DirectoryLimits,
   DirectoryNotSharedException,
@@ -312,6 +323,7 @@ import {
   LogSubscription,
   NoAvailableCertificateException,
   OrganizationsException,
+  OSUpdateSettings,
   OwnerDirectoryDescription,
   RadiusSettings,
   RegionDescription,
@@ -357,6 +369,9 @@ import {
   UnsupportedSettingsException,
   UpdateConditionalForwarderRequest,
   UpdateConditionalForwarderResult,
+  UpdateDirectorySetupRequest,
+  UpdateDirectorySetupResult,
+  UpdateInfoEntry,
   UpdateNumberOfDomainControllersRequest,
   UpdateNumberOfDomainControllersResult,
   UpdateRadiusRequest,
@@ -365,6 +380,7 @@ import {
   UpdateSettingsResult,
   UpdateTrustRequest,
   UpdateTrustResult,
+  UpdateValue,
   UserDoesNotExistException,
   VerifyTrustRequest,
   VerifyTrustResult,
@@ -799,6 +815,19 @@ export const serializeAws_json1_1DescribeTrustsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeUpdateDirectoryCommand = async (
+  input: DescribeUpdateDirectoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "DirectoryService_20150416.DescribeUpdateDirectory",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeUpdateDirectoryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DisableClientAuthenticationCommand = async (
   input: DisableClientAuthenticationCommandInput,
   context: __SerdeContext
@@ -1150,6 +1179,19 @@ export const serializeAws_json1_1UpdateConditionalForwarderCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateDirectorySetupCommand = async (
+  input: UpdateDirectorySetupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "DirectoryService_20150416.UpdateDirectorySetup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateDirectorySetupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateNumberOfDomainControllersCommand = async (
   input: UpdateNumberOfDomainControllersCommandInput,
   context: __SerdeContext
@@ -1238,7 +1280,7 @@ const deserializeAws_json1_1AcceptSharedDirectoryCommandError = async (
 ): Promise<AcceptSharedDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1291,7 +1333,7 @@ const deserializeAws_json1_1AddIpRoutesCommandError = async (
 ): Promise<AddIpRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1350,7 +1392,7 @@ const deserializeAws_json1_1AddRegionCommandError = async (
 ): Promise<AddRegionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1418,7 +1460,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
 ): Promise<AddTagsToResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1471,7 +1513,7 @@ const deserializeAws_json1_1CancelSchemaExtensionCommandError = async (
 ): Promise<CancelSchemaExtensionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1518,7 +1560,7 @@ const deserializeAws_json1_1ConnectDirectoryCommandError = async (
 ): Promise<ConnectDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1568,7 +1610,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
 ): Promise<CreateAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1621,7 +1663,7 @@ const deserializeAws_json1_1CreateComputerCommandError = async (
 ): Promise<CreateComputerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1683,7 +1725,7 @@ const deserializeAws_json1_1CreateConditionalForwarderCommandError = async (
 ): Promise<CreateConditionalForwarderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1742,7 +1784,7 @@ const deserializeAws_json1_1CreateDirectoryCommandError = async (
 ): Promise<CreateDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1792,7 +1834,7 @@ const deserializeAws_json1_1CreateLogSubscriptionCommandError = async (
 ): Promise<CreateLogSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1848,7 +1890,7 @@ const deserializeAws_json1_1CreateMicrosoftADCommandError = async (
 ): Promise<CreateMicrosoftADCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1901,7 +1943,7 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
 ): Promise<CreateSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1954,7 +1996,7 @@ const deserializeAws_json1_1CreateTrustCommandError = async (
 ): Promise<CreateTrustCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2010,7 +2052,7 @@ const deserializeAws_json1_1DeleteConditionalForwarderCommandError = async (
 ): Promise<DeleteConditionalForwarderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2066,7 +2108,7 @@ const deserializeAws_json1_1DeleteDirectoryCommandError = async (
 ): Promise<DeleteDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2113,7 +2155,7 @@ const deserializeAws_json1_1DeleteLogSubscriptionCommandError = async (
 ): Promise<DeleteLogSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2163,7 +2205,7 @@ const deserializeAws_json1_1DeleteSnapshotCommandError = async (
 ): Promise<DeleteSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2213,7 +2255,7 @@ const deserializeAws_json1_1DeleteTrustCommandError = async (
 ): Promise<DeleteTrustCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2266,7 +2308,7 @@ const deserializeAws_json1_1DeregisterCertificateCommandError = async (
 ): Promise<DeregisterCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2328,7 +2370,7 @@ const deserializeAws_json1_1DeregisterEventTopicCommandError = async (
 ): Promise<DeregisterEventTopicCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2378,7 +2420,7 @@ const deserializeAws_json1_1DescribeCertificateCommandError = async (
 ): Promise<DescribeCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2434,7 +2476,7 @@ const deserializeAws_json1_1DescribeClientAuthenticationSettingsCommandError = a
 ): Promise<DescribeClientAuthenticationSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2490,7 +2532,7 @@ const deserializeAws_json1_1DescribeConditionalForwardersCommandError = async (
 ): Promise<DescribeConditionalForwardersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2546,7 +2588,7 @@ const deserializeAws_json1_1DescribeDirectoriesCommandError = async (
 ): Promise<DescribeDirectoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2599,7 +2641,7 @@ const deserializeAws_json1_1DescribeDomainControllersCommandError = async (
 ): Promise<DescribeDomainControllersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2655,7 +2697,7 @@ const deserializeAws_json1_1DescribeEventTopicsCommandError = async (
 ): Promise<DescribeEventTopicsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2705,7 +2747,7 @@ const deserializeAws_json1_1DescribeLDAPSSettingsCommandError = async (
 ): Promise<DescribeLDAPSSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2761,7 +2803,7 @@ const deserializeAws_json1_1DescribeRegionsCommandError = async (
 ): Promise<DescribeRegionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2820,7 +2862,7 @@ const deserializeAws_json1_1DescribeSettingsCommandError = async (
 ): Promise<DescribeSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2876,7 +2918,7 @@ const deserializeAws_json1_1DescribeSharedDirectoriesCommandError = async (
 ): Promise<DescribeSharedDirectoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2932,7 +2974,7 @@ const deserializeAws_json1_1DescribeSnapshotsCommandError = async (
 ): Promise<DescribeSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2985,7 +3027,7 @@ const deserializeAws_json1_1DescribeTrustsCommandError = async (
 ): Promise<DescribeTrustsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3007,6 +3049,62 @@ const deserializeAws_json1_1DescribeTrustsCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeUpdateDirectoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUpdateDirectoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeUpdateDirectoryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeUpdateDirectoryResult(data, context);
+  const response: DescribeUpdateDirectoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeUpdateDirectoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUpdateDirectoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.directoryservice#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      throw await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.directoryservice#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.directoryservice#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3041,7 +3139,7 @@ const deserializeAws_json1_1DisableClientAuthenticationCommandError = async (
 ): Promise<DisableClientAuthenticationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3097,7 +3195,7 @@ const deserializeAws_json1_1DisableLDAPSCommandError = async (
 ): Promise<DisableLDAPSCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3156,7 +3254,7 @@ const deserializeAws_json1_1DisableRadiusCommandError = async (
 ): Promise<DisableRadiusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3203,7 +3301,7 @@ const deserializeAws_json1_1DisableSsoCommandError = async (
 ): Promise<DisableSsoCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3256,7 +3354,7 @@ const deserializeAws_json1_1EnableClientAuthenticationCommandError = async (
 ): Promise<EnableClientAuthenticationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3315,7 +3413,7 @@ const deserializeAws_json1_1EnableLDAPSCommandError = async (
 ): Promise<EnableLDAPSCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3377,7 +3475,7 @@ const deserializeAws_json1_1EnableRadiusCommandError = async (
 ): Promise<EnableRadiusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3430,7 +3528,7 @@ const deserializeAws_json1_1EnableSsoCommandError = async (
 ): Promise<EnableSsoCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3483,7 +3581,7 @@ const deserializeAws_json1_1GetDirectoryLimitsCommandError = async (
 ): Promise<GetDirectoryLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3530,7 +3628,7 @@ const deserializeAws_json1_1GetSnapshotLimitsCommandError = async (
 ): Promise<GetSnapshotLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3577,7 +3675,7 @@ const deserializeAws_json1_1ListCertificatesCommandError = async (
 ): Promise<ListCertificatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3633,7 +3731,7 @@ const deserializeAws_json1_1ListIpRoutesCommandError = async (
 ): Promise<ListIpRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3686,7 +3784,7 @@ const deserializeAws_json1_1ListLogSubscriptionsCommandError = async (
 ): Promise<ListLogSubscriptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3736,7 +3834,7 @@ const deserializeAws_json1_1ListSchemaExtensionsCommandError = async (
 ): Promise<ListSchemaExtensionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3786,7 +3884,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3839,7 +3937,7 @@ const deserializeAws_json1_1RegisterCertificateCommandError = async (
 ): Promise<RegisterCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3904,7 +4002,7 @@ const deserializeAws_json1_1RegisterEventTopicCommandError = async (
 ): Promise<RegisterEventTopicCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3954,7 +4052,7 @@ const deserializeAws_json1_1RejectSharedDirectoryCommandError = async (
 ): Promise<RejectSharedDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4007,7 +4105,7 @@ const deserializeAws_json1_1RemoveIpRoutesCommandError = async (
 ): Promise<RemoveIpRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4060,7 +4158,7 @@ const deserializeAws_json1_1RemoveRegionCommandError = async (
 ): Promise<RemoveRegionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4116,7 +4214,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4166,7 +4264,7 @@ const deserializeAws_json1_1ResetUserPasswordCommandError = async (
 ): Promise<ResetUserPasswordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4225,7 +4323,7 @@ const deserializeAws_json1_1RestoreFromSnapshotCommandError = async (
 ): Promise<RestoreFromSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4275,7 +4373,7 @@ const deserializeAws_json1_1ShareDirectoryCommandError = async (
 ): Promise<ShareDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4343,7 +4441,7 @@ const deserializeAws_json1_1StartSchemaExtensionCommandError = async (
 ): Promise<StartSchemaExtensionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4399,7 +4497,7 @@ const deserializeAws_json1_1UnshareDirectoryCommandError = async (
 ): Promise<UnshareDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4452,7 +4550,7 @@ const deserializeAws_json1_1UpdateConditionalForwarderCommandError = async (
 ): Promise<UpdateConditionalForwarderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4471,6 +4569,71 @@ const deserializeAws_json1_1UpdateConditionalForwarderCommandError = async (
     case "ServiceException":
     case "com.amazonaws.directoryservice#ServiceException":
       throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.directoryservice#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateDirectorySetupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectorySetupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateDirectorySetupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateDirectorySetupResult(data, context);
+  const response: UpdateDirectorySetupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateDirectorySetupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectorySetupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.directoryservice#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      throw await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context);
+    case "DirectoryInDesiredStateException":
+    case "com.amazonaws.directoryservice#DirectoryInDesiredStateException":
+      throw await deserializeAws_json1_1DirectoryInDesiredStateExceptionResponse(parsedOutput, context);
+    case "DirectoryUnavailableException":
+    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
+      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.directoryservice#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "SnapshotLimitExceededException":
+    case "com.amazonaws.directoryservice#SnapshotLimitExceededException":
+      throw await deserializeAws_json1_1SnapshotLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -4508,7 +4671,7 @@ const deserializeAws_json1_1UpdateNumberOfDomainControllersCommandError = async 
 ): Promise<UpdateNumberOfDomainControllersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4567,7 +4730,7 @@ const deserializeAws_json1_1UpdateRadiusCommandError = async (
 ): Promise<UpdateRadiusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4617,7 +4780,7 @@ const deserializeAws_json1_1UpdateSettingsCommandError = async (
 ): Promise<UpdateSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4679,7 +4842,7 @@ const deserializeAws_json1_1UpdateTrustCommandError = async (
 ): Promise<UpdateTrustCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4729,7 +4892,7 @@ const deserializeAws_json1_1VerifyTrustCommandError = async (
 ): Promise<VerifyTrustCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4883,6 +5046,19 @@ const deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DirectoryDoesNotExistException(body, context);
   const exception = new DirectoryDoesNotExistException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1DirectoryInDesiredStateExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DirectoryInDesiredStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DirectoryInDesiredStateException(body, context);
+  const exception = new DirectoryInDesiredStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5605,6 +5781,18 @@ const serializeAws_json1_1DescribeTrustsRequest = (input: DescribeTrustsRequest,
   };
 };
 
+const serializeAws_json1_1DescribeUpdateDirectoryRequest = (
+  input: DescribeUpdateDirectoryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.RegionName != null && { RegionName: input.RegionName }),
+    ...(input.UpdateType != null && { UpdateType: input.UpdateType }),
+  };
+};
+
 const serializeAws_json1_1DirectoryConnectSettings = (
   input: DirectoryConnectSettings,
   context: __SerdeContext
@@ -5792,6 +5980,12 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+  };
+};
+
+const serializeAws_json1_1OSUpdateSettings = (input: OSUpdateSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.OSVersion != null && { OSVersion: input.OSVersion }),
   };
 };
 
@@ -6024,6 +6218,20 @@ const serializeAws_json1_1UpdateConditionalForwarderRequest = (
     ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
     ...(input.DnsIpAddrs != null && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
     ...(input.RemoteDomainName != null && { RemoteDomainName: input.RemoteDomainName }),
+  };
+};
+
+const serializeAws_json1_1UpdateDirectorySetupRequest = (
+  input: UpdateDirectorySetupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreateSnapshotBeforeUpdate != null && { CreateSnapshotBeforeUpdate: input.CreateSnapshotBeforeUpdate }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.OSUpdateSettings != null && {
+      OSUpdateSettings: serializeAws_json1_1OSUpdateSettings(input.OSUpdateSettings, context),
+    }),
+    ...(input.UpdateType != null && { UpdateType: input.UpdateType }),
   };
 };
 
@@ -6559,6 +6767,19 @@ const deserializeAws_json1_1DescribeTrustsResult = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1DescribeUpdateDirectoryResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeUpdateDirectoryResult => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    UpdateActivities:
+      output.UpdateActivities != null
+        ? deserializeAws_json1_1UpdateActivities(output.UpdateActivities, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DirectoryAlreadyInRegionException = (
   output: any,
   context: __SerdeContext
@@ -6588,10 +6809,8 @@ const deserializeAws_json1_1DirectoryConfigurationSettingRequestDetailedStatus =
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -6630,6 +6849,7 @@ const deserializeAws_json1_1DirectoryDescription = (output: any, context: __Serd
     LaunchTime:
       output.LaunchTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime))) : undefined,
     Name: __expectString(output.Name),
+    OsVersion: __expectString(output.OsVersion),
     OwnerDirectoryDescription:
       output.OwnerDirectoryDescription != null
         ? deserializeAws_json1_1OwnerDirectoryDescription(output.OwnerDirectoryDescription, context)
@@ -6675,6 +6895,16 @@ const deserializeAws_json1_1DirectoryDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): DirectoryDoesNotExistException => {
+  return {
+    Message: __expectString(output.Message),
+    RequestId: __expectString(output.RequestId),
+  } as any;
+};
+
+const deserializeAws_json1_1DirectoryInDesiredStateException = (
+  output: any,
+  context: __SerdeContext
+): DirectoryInDesiredStateException => {
   return {
     Message: __expectString(output.Message),
     RequestId: __expectString(output.RequestId),
@@ -7157,6 +7387,12 @@ const deserializeAws_json1_1OrganizationsException = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1OSUpdateSettings = (output: any, context: __SerdeContext): OSUpdateSettings => {
+  return {
+    OSVersion: __expectString(output.OSVersion),
+  } as any;
+};
+
 const deserializeAws_json1_1OwnerDirectoryDescription = (
   output: any,
   context: __SerdeContext
@@ -7588,11 +7824,48 @@ const deserializeAws_json1_1UnsupportedSettingsException = (
   } as any;
 };
 
+const deserializeAws_json1_1UpdateActivities = (output: any, context: __SerdeContext): UpdateInfoEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UpdateInfoEntry(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1UpdateConditionalForwarderResult = (
   output: any,
   context: __SerdeContext
 ): UpdateConditionalForwarderResult => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UpdateDirectorySetupResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateDirectorySetupResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateInfoEntry = (output: any, context: __SerdeContext): UpdateInfoEntry => {
+  return {
+    InitiatedBy: __expectString(output.InitiatedBy),
+    LastUpdatedDateTime:
+      output.LastUpdatedDateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
+        : undefined,
+    NewValue: output.NewValue != null ? deserializeAws_json1_1UpdateValue(output.NewValue, context) : undefined,
+    PreviousValue:
+      output.PreviousValue != null ? deserializeAws_json1_1UpdateValue(output.PreviousValue, context) : undefined,
+    Region: __expectString(output.Region),
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+    Status: __expectString(output.Status),
+    StatusReason: __expectString(output.StatusReason),
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateNumberOfDomainControllersResult = (
@@ -7619,6 +7892,15 @@ const deserializeAws_json1_1UpdateTrustResult = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1UpdateValue = (output: any, context: __SerdeContext): UpdateValue => {
+  return {
+    OSUpdateSettings:
+      output.OSUpdateSettings != null
+        ? deserializeAws_json1_1OSUpdateSettings(output.OSUpdateSettings, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UserDoesNotExistException = (
   output: any,
   context: __SerdeContext
@@ -7637,7 +7919,8 @@ const deserializeAws_json1_1VerifyTrustResult = (output: any, context: __SerdeCo
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -7687,6 +7970,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -7697,6 +7986,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

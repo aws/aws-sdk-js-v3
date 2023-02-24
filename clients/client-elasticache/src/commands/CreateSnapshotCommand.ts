@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,8 +31,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
 /**
  * <p>Creates a copy of an entire cluster or replication group at a
  *             specific moment in time.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
  * @example
@@ -57,6 +57,15 @@ export class CreateSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +81,9 @@ export class CreateSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateSnapshotCommandInput, CreateSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

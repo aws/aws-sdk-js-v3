@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `QueryProtocolClient` and
-the commands you need, for example `EmptyInputAndEmptyOutputCommand`:
+the commands you need, for example `DatetimeOffsetsCommand`:
 
 ```js
 // ES5 example
-const { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-protocoltests-query");
+const { QueryProtocolClient, DatetimeOffsetsCommand } = require("@aws-sdk/aws-protocoltests-query");
 ```
 
 ```ts
 // ES6+ example
-import { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-protocoltests-query";
+import { QueryProtocolClient, DatetimeOffsetsCommand } from "@aws-sdk/aws-protocoltests-query";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new QueryProtocolClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new EmptyInputAndEmptyOutputCommand(params);
+const command = new DatetimeOffsetsCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.QueryProtocol({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.emptyInputAndEmptyOutput(params);
+  const data = await client.datetimeOffsets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .emptyInputAndEmptyOutput(params)
+  .datetimeOffsets(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.emptyInputAndEmptyOutput(params, (err, data) => {
+client.datetimeOffsets(params, (err, data) => {
   // process err and data.
 });
 ```

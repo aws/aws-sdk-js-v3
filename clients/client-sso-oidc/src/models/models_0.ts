@@ -81,7 +81,7 @@ export interface CreateTokenRequest {
    *       used to identify this authentication attempt. This should come from an in-memory reference to
    *       the result of the <a>StartDeviceAuthorization</a> API.</p>
    */
-  deviceCode: string | undefined;
+  deviceCode?: string;
 
   /**
    * <p>The authorization code received from the authorization service. This parameter is required
@@ -91,8 +91,8 @@ export interface CreateTokenRequest {
 
   /**
    * <p>Currently, <code>refreshToken</code> is not yet implemented and is not supported. For more
-   *       information about the features and limitations of the current Amazon Web Services SSO OIDC implementation,
-   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">Amazon Web Services SSO
+   *       information about the features and limitations of the current IAM Identity Center OIDC implementation,
+   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
    *         OIDC API Reference</a>.</p>
    *          <p>The token used to obtain an access token in the event that the access token is invalid or
    *       expired.</p>
@@ -114,7 +114,7 @@ export interface CreateTokenRequest {
 
 export interface CreateTokenResponse {
   /**
-   * <p>An opaque token to access Amazon Web Services SSO resources assigned to a user.</p>
+   * <p>An opaque token to access IAM Identity Center resources assigned to a user.</p>
    */
   accessToken?: string;
 
@@ -131,8 +131,8 @@ export interface CreateTokenResponse {
 
   /**
    * <p>Currently, <code>refreshToken</code> is not yet implemented and is not supported. For more
-   *       information about the features and limitations of the current Amazon Web Services SSO OIDC implementation,
-   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">Amazon Web Services SSO
+   *       information about the features and limitations of the current IAM Identity Center OIDC implementation,
+   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
    *         OIDC API Reference</a>.</p>
    *          <p>A token that, if present, can be used to refresh a previously issued access token that
    *       might have expired.</p>
@@ -141,8 +141,8 @@ export interface CreateTokenResponse {
 
   /**
    * <p>Currently, <code>idToken</code> is not yet implemented and is not supported. For more
-   *       information about the features and limitations of the current Amazon Web Services SSO OIDC implementation,
-   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">Amazon Web Services SSO
+   *       information about the features and limitations of the current IAM Identity Center OIDC implementation,
+   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
    *         OIDC API Reference</a>.</p>
    *          <p>The identifier of the user that associated with the access token, if present.</p>
    */
@@ -444,7 +444,7 @@ export interface RegisterClientResponse {
 
 export interface StartDeviceAuthorizationRequest {
   /**
-   * <p>The unique identifier string for the client that is registered with Amazon Web Services SSO. This value
+   * <p>The unique identifier string for the client that is registered with IAM Identity Center. This value
    *       should come from the persisted result of the <a>RegisterClient</a> API
    *       operation.</p>
    */
@@ -458,7 +458,7 @@ export interface StartDeviceAuthorizationRequest {
 
   /**
    * <p>The URL for the AWS access portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
-   *       the AWS access portal</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+   *       the AWS access portal</a> in the <i>IAM Identity Center User Guide</i>.</p>
    */
   startUrl: string | undefined;
 }

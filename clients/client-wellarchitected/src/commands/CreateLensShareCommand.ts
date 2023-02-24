@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,8 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
 
 /**
  * <p>Create a lens share.</p>
- *         <p>The owner of a lens can share it with other Amazon Web Services accounts and IAM users in the same Amazon Web Services Region.
+ *         <p>The owner of a lens can share it with other Amazon Web Services accounts, IAM users, an organization,
+ *             and organizational units (OUs) in the same Amazon Web Services Region.
  *             Shared access to a lens is not removed until the lens invitation is deleted.</p>
  *         <note>
  *             <p>
@@ -65,6 +67,15 @@ export class CreateLensShareCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateLensShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +91,9 @@ export class CreateLensShareCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLensShareCommandInput, CreateLensShareCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLensShareCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

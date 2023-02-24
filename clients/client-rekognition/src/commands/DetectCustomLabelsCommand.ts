@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -39,16 +40,6 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  *          Each <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level
  *          of confidence that the image contains the object (<code>Confidence</code>), and
  *          object location information, if it exists,  for the label on the image (<code>Geometry</code>). </p>
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
  *          <p>To filter labels that are returned, specify a value for <code>MinConfidence</code>.
  *          <code>DetectCustomLabelsLabels</code> only returns labels with a confidence that's higher than
  *          the specified value.
@@ -62,21 +53,12 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  *          You can use <code>MinConfidence</code> to change the precision and recall or your model.
  *          For more information, see
  *          <i>Analyzing an image</i> in the Amazon Rekognition Custom Labels Developer Guide. </p>
- *
  *          <p>If you don't specify a value for <code>MinConfidence</code>,  <code>DetectCustomLabels</code>
  *       returns labels based on the assumed threshold of each label.</p>
- *
- *
- *
- *
- *
  *          <p>This is a stateless API operation. That is, the operation does not persist any
  *          data.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>rekognition:DetectCustomLabels</code> action. </p>
- *
- *
- *
  *          <p>For more information, see
  *       <i>Analyzing an image</i> in the Amazon Rekognition Custom Labels Developer Guide. </p>
  * @example
@@ -102,6 +84,15 @@ export class DetectCustomLabelsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetectCustomLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +108,9 @@ export class DetectCustomLabelsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetectCustomLabelsCommandInput, DetectCustomLabelsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetectCustomLabelsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

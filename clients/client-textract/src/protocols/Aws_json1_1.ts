@@ -28,6 +28,11 @@ import {
   GetDocumentTextDetectionCommandOutput,
 } from "../commands/GetDocumentTextDetectionCommand";
 import { GetExpenseAnalysisCommandInput, GetExpenseAnalysisCommandOutput } from "../commands/GetExpenseAnalysisCommand";
+import { GetLendingAnalysisCommandInput, GetLendingAnalysisCommandOutput } from "../commands/GetLendingAnalysisCommand";
+import {
+  GetLendingAnalysisSummaryCommandInput,
+  GetLendingAnalysisSummaryCommandOutput,
+} from "../commands/GetLendingAnalysisSummaryCommand";
 import {
   StartDocumentAnalysisCommandInput,
   StartDocumentAnalysisCommandOutput,
@@ -40,6 +45,10 @@ import {
   StartExpenseAnalysisCommandInput,
   StartExpenseAnalysisCommandOutput,
 } from "../commands/StartExpenseAnalysisCommand";
+import {
+  StartLendingAnalysisCommandInput,
+  StartLendingAnalysisCommandOutput,
+} from "../commands/StartLendingAnalysisCommand";
 import {
   AccessDeniedException,
   AnalyzeDocumentRequest,
@@ -55,15 +64,20 @@ import {
   ContentClassifier,
   DetectDocumentTextRequest,
   DetectDocumentTextResponse,
+  DetectedSignature,
   Document,
+  DocumentGroup,
   DocumentLocation,
   DocumentMetadata,
   DocumentTooLargeException,
   EntityType,
+  ExpenseCurrency,
   ExpenseDetection,
   ExpenseDocument,
   ExpenseField,
+  ExpenseGroupProperty,
   ExpenseType,
+  Extraction,
   FeatureType,
   Geometry,
   GetDocumentAnalysisRequest,
@@ -72,6 +86,10 @@ import {
   GetDocumentTextDetectionResponse,
   GetExpenseAnalysisRequest,
   GetExpenseAnalysisResponse,
+  GetLendingAnalysisRequest,
+  GetLendingAnalysisResponse,
+  GetLendingAnalysisSummaryRequest,
+  GetLendingAnalysisSummaryResponse,
   HumanLoopActivationOutput,
   HumanLoopConfig,
   HumanLoopDataAttributes,
@@ -84,25 +102,37 @@ import {
   InvalidKMSKeyException,
   InvalidParameterException,
   InvalidS3ObjectException,
+  LendingDetection,
+  LendingDocument,
+  LendingField,
+  LendingResult,
+  LendingSummary,
   LimitExceededException,
   LineItemFields,
   LineItemGroup,
   NormalizedValue,
   NotificationChannel,
   OutputConfig,
+  PageClassification,
   Point,
+  Prediction,
   ProvisionedThroughputExceededException,
   QueriesConfig,
   Query,
   Relationship,
   S3Object,
+  SignatureDetection,
+  SplitDocument,
   StartDocumentAnalysisRequest,
   StartDocumentAnalysisResponse,
   StartDocumentTextDetectionRequest,
   StartDocumentTextDetectionResponse,
   StartExpenseAnalysisRequest,
   StartExpenseAnalysisResponse,
+  StartLendingAnalysisRequest,
+  StartLendingAnalysisResponse,
   ThrottlingException,
+  UndetectedSignature,
   UnsupportedDocumentException,
   Warning,
 } from "../models/models_0";
@@ -199,6 +229,32 @@ export const serializeAws_json1_1GetExpenseAnalysisCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetLendingAnalysisCommand = async (
+  input: GetLendingAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Textract.GetLendingAnalysis",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetLendingAnalysisRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetLendingAnalysisSummaryCommand = async (
+  input: GetLendingAnalysisSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Textract.GetLendingAnalysisSummary",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetLendingAnalysisSummaryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartDocumentAnalysisCommand = async (
   input: StartDocumentAnalysisCommandInput,
   context: __SerdeContext
@@ -238,6 +294,19 @@ export const serializeAws_json1_1StartExpenseAnalysisCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartLendingAnalysisCommand = async (
+  input: StartLendingAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Textract.StartLendingAnalysis",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartLendingAnalysisRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const deserializeAws_json1_1AnalyzeDocumentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -261,7 +330,7 @@ const deserializeAws_json1_1AnalyzeDocumentCommandError = async (
 ): Promise<AnalyzeDocumentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -329,7 +398,7 @@ const deserializeAws_json1_1AnalyzeExpenseCommandError = async (
 ): Promise<AnalyzeExpenseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -394,7 +463,7 @@ const deserializeAws_json1_1AnalyzeIDCommandError = async (
 ): Promise<AnalyzeIDCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -459,7 +528,7 @@ const deserializeAws_json1_1DetectDocumentTextCommandError = async (
 ): Promise<DetectDocumentTextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -524,7 +593,7 @@ const deserializeAws_json1_1GetDocumentAnalysisCommandError = async (
 ): Promise<GetDocumentAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -586,7 +655,7 @@ const deserializeAws_json1_1GetDocumentTextDetectionCommandError = async (
 ): Promise<GetDocumentTextDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -648,7 +717,131 @@ const deserializeAws_json1_1GetExpenseAnalysisCommandError = async (
 ): Promise<GetExpenseAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidJobIdException":
+    case "com.amazonaws.textract#InvalidJobIdException":
+      throw await deserializeAws_json1_1InvalidJobIdExceptionResponse(parsedOutput, context);
+    case "InvalidKMSKeyException":
+    case "com.amazonaws.textract#InvalidKMSKeyException":
+      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.textract#InvalidS3ObjectException":
+      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetLendingAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLendingAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetLendingAnalysisCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetLendingAnalysisResponse(data, context);
+  const response: GetLendingAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetLendingAnalysisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLendingAnalysisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidJobIdException":
+    case "com.amazonaws.textract#InvalidJobIdException":
+      throw await deserializeAws_json1_1InvalidJobIdExceptionResponse(parsedOutput, context);
+    case "InvalidKMSKeyException":
+    case "com.amazonaws.textract#InvalidKMSKeyException":
+      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.textract#InvalidS3ObjectException":
+      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetLendingAnalysisSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLendingAnalysisSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetLendingAnalysisSummaryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetLendingAnalysisSummaryResponse(data, context);
+  const response: GetLendingAnalysisSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetLendingAnalysisSummaryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLendingAnalysisSummaryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -710,7 +903,7 @@ const deserializeAws_json1_1StartDocumentAnalysisCommandError = async (
 ): Promise<StartDocumentAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -784,7 +977,7 @@ const deserializeAws_json1_1StartDocumentTextDetectionCommandError = async (
 ): Promise<StartDocumentTextDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -858,7 +1051,81 @@ const deserializeAws_json1_1StartExpenseAnalysisCommandError = async (
 ): Promise<StartExpenseAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadDocumentException":
+    case "com.amazonaws.textract#BadDocumentException":
+      throw await deserializeAws_json1_1BadDocumentExceptionResponse(parsedOutput, context);
+    case "DocumentTooLargeException":
+    case "com.amazonaws.textract#DocumentTooLargeException":
+      throw await deserializeAws_json1_1DocumentTooLargeExceptionResponse(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.textract#IdempotentParameterMismatchException":
+      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidKMSKeyException":
+    case "com.amazonaws.textract#InvalidKMSKeyException":
+      throw await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.textract#InvalidS3ObjectException":
+      throw await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.textract#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnsupportedDocumentException":
+    case "com.amazonaws.textract#UnsupportedDocumentException":
+      throw await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1StartLendingAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartLendingAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartLendingAnalysisCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartLendingAnalysisResponse(data, context);
+  const response: StartLendingAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartLendingAnalysisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartLendingAnalysisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1200,6 +1467,26 @@ const serializeAws_json1_1GetExpenseAnalysisRequest = (
   };
 };
 
+const serializeAws_json1_1GetLendingAnalysisRequest = (
+  input: GetLendingAnalysisRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId != null && { JobId: input.JobId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1GetLendingAnalysisSummaryRequest = (
+  input: GetLendingAnalysisSummaryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId != null && { JobId: input.JobId }),
+  };
+};
+
 const serializeAws_json1_1HumanLoopConfig = (input: HumanLoopConfig, context: __SerdeContext): any => {
   return {
     ...(input.DataAttributes != null && {
@@ -1312,6 +1599,24 @@ const serializeAws_json1_1StartDocumentTextDetectionRequest = (
 
 const serializeAws_json1_1StartExpenseAnalysisRequest = (
   input: StartExpenseAnalysisRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.DocumentLocation != null && {
+      DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
+    }),
+    ...(input.JobTag != null && { JobTag: input.JobTag }),
+    ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
+    ...(input.NotificationChannel != null && {
+      NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+    }),
+    ...(input.OutputConfig != null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
+  };
+};
+
+const serializeAws_json1_1StartLendingAnalysisRequest = (
+  input: StartLendingAnalysisRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -1455,6 +1760,54 @@ const deserializeAws_json1_1DetectDocumentTextResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DetectedSignature = (output: any, context: __SerdeContext): DetectedSignature => {
+  return {
+    Page: __expectInt32(output.Page),
+  } as any;
+};
+
+const deserializeAws_json1_1DetectedSignatureList = (output: any, context: __SerdeContext): DetectedSignature[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DetectedSignature(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1DocumentGroup = (output: any, context: __SerdeContext): DocumentGroup => {
+  return {
+    DetectedSignatures:
+      output.DetectedSignatures != null
+        ? deserializeAws_json1_1DetectedSignatureList(output.DetectedSignatures, context)
+        : undefined,
+    SplitDocuments:
+      output.SplitDocuments != null
+        ? deserializeAws_json1_1SplitDocumentList(output.SplitDocuments, context)
+        : undefined,
+    Type: __expectString(output.Type),
+    UndetectedSignatures:
+      output.UndetectedSignatures != null
+        ? deserializeAws_json1_1UndetectedSignatureList(output.UndetectedSignatures, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DocumentGroupList = (output: any, context: __SerdeContext): DocumentGroup[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DocumentGroup(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
   return {
     Pages: __expectInt32(output.Pages),
@@ -1483,6 +1836,13 @@ const deserializeAws_json1_1EntityTypes = (output: any, context: __SerdeContext)
   return retVal;
 };
 
+const deserializeAws_json1_1ExpenseCurrency = (output: any, context: __SerdeContext): ExpenseCurrency => {
+  return {
+    Code: __expectString(output.Code),
+    Confidence: __limitedParseFloat32(output.Confidence),
+  } as any;
+};
+
 const deserializeAws_json1_1ExpenseDetection = (output: any, context: __SerdeContext): ExpenseDetection => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
@@ -1493,6 +1853,7 @@ const deserializeAws_json1_1ExpenseDetection = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ExpenseDocument = (output: any, context: __SerdeContext): ExpenseDocument => {
   return {
+    Blocks: output.Blocks != null ? deserializeAws_json1_1BlockList(output.Blocks, context) : undefined,
     ExpenseIndex: __expectInt32(output.ExpenseIndex),
     LineItemGroups:
       output.LineItemGroups != null
@@ -1517,6 +1878,11 @@ const deserializeAws_json1_1ExpenseDocumentList = (output: any, context: __Serde
 
 const deserializeAws_json1_1ExpenseField = (output: any, context: __SerdeContext): ExpenseField => {
   return {
+    Currency: output.Currency != null ? deserializeAws_json1_1ExpenseCurrency(output.Currency, context) : undefined,
+    GroupProperties:
+      output.GroupProperties != null
+        ? deserializeAws_json1_1ExpenseGroupPropertyList(output.GroupProperties, context)
+        : undefined,
     LabelDetection:
       output.LabelDetection != null
         ? deserializeAws_json1_1ExpenseDetection(output.LabelDetection, context)
@@ -1542,11 +1908,62 @@ const deserializeAws_json1_1ExpenseFieldList = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1ExpenseGroupProperty = (output: any, context: __SerdeContext): ExpenseGroupProperty => {
+  return {
+    Id: __expectString(output.Id),
+    Types: output.Types != null ? deserializeAws_json1_1StringList(output.Types, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ExpenseGroupPropertyList = (
+  output: any,
+  context: __SerdeContext
+): ExpenseGroupProperty[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExpenseGroupProperty(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ExpenseType = (output: any, context: __SerdeContext): ExpenseType => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
     Text: __expectString(output.Text),
   } as any;
+};
+
+const deserializeAws_json1_1Extraction = (output: any, context: __SerdeContext): Extraction => {
+  return {
+    ExpenseDocument:
+      output.ExpenseDocument != null
+        ? deserializeAws_json1_1ExpenseDocument(output.ExpenseDocument, context)
+        : undefined,
+    IdentityDocument:
+      output.IdentityDocument != null
+        ? deserializeAws_json1_1IdentityDocument(output.IdentityDocument, context)
+        : undefined,
+    LendingDocument:
+      output.LendingDocument != null
+        ? deserializeAws_json1_1LendingDocument(output.LendingDocument, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ExtractionList = (output: any, context: __SerdeContext): Extraction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Extraction(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1Geometry = (output: any, context: __SerdeContext): Geometry => {
@@ -1614,6 +2031,41 @@ const deserializeAws_json1_1GetExpenseAnalysisResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GetLendingAnalysisResponse = (
+  output: any,
+  context: __SerdeContext
+): GetLendingAnalysisResponse => {
+  return {
+    AnalyzeLendingModelVersion: __expectString(output.AnalyzeLendingModelVersion),
+    DocumentMetadata:
+      output.DocumentMetadata != null
+        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
+        : undefined,
+    JobStatus: __expectString(output.JobStatus),
+    NextToken: __expectString(output.NextToken),
+    Results: output.Results != null ? deserializeAws_json1_1LendingResultList(output.Results, context) : undefined,
+    StatusMessage: __expectString(output.StatusMessage),
+    Warnings: output.Warnings != null ? deserializeAws_json1_1Warnings(output.Warnings, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetLendingAnalysisSummaryResponse = (
+  output: any,
+  context: __SerdeContext
+): GetLendingAnalysisSummaryResponse => {
+  return {
+    AnalyzeLendingModelVersion: __expectString(output.AnalyzeLendingModelVersion),
+    DocumentMetadata:
+      output.DocumentMetadata != null
+        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
+        : undefined,
+    JobStatus: __expectString(output.JobStatus),
+    StatusMessage: __expectString(output.StatusMessage),
+    Summary: output.Summary != null ? deserializeAws_json1_1LendingSummary(output.Summary, context) : undefined,
+    Warnings: output.Warnings != null ? deserializeAws_json1_1Warnings(output.Warnings, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1HumanLoopActivationOutput = (
   output: any,
   context: __SerdeContext
@@ -1668,6 +2120,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
 
 const deserializeAws_json1_1IdentityDocument = (output: any, context: __SerdeContext): IdentityDocument => {
   return {
+    Blocks: output.Blocks != null ? deserializeAws_json1_1BlockList(output.Blocks, context) : undefined,
     DocumentIndex: __expectInt32(output.DocumentIndex),
     IdentityDocumentFields:
       output.IdentityDocumentFields != null
@@ -1766,6 +2219,99 @@ const deserializeAws_json1_1InvalidS3ObjectException = (
   } as any;
 };
 
+const deserializeAws_json1_1LendingDetection = (output: any, context: __SerdeContext): LendingDetection => {
+  return {
+    Confidence: __limitedParseFloat32(output.Confidence),
+    Geometry: output.Geometry != null ? deserializeAws_json1_1Geometry(output.Geometry, context) : undefined,
+    SelectionStatus: __expectString(output.SelectionStatus),
+    Text: __expectString(output.Text),
+  } as any;
+};
+
+const deserializeAws_json1_1LendingDetectionList = (output: any, context: __SerdeContext): LendingDetection[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LendingDetection(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LendingDocument = (output: any, context: __SerdeContext): LendingDocument => {
+  return {
+    LendingFields:
+      output.LendingFields != null ? deserializeAws_json1_1LendingFieldList(output.LendingFields, context) : undefined,
+    SignatureDetections:
+      output.SignatureDetections != null
+        ? deserializeAws_json1_1SignatureDetectionList(output.SignatureDetections, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LendingField = (output: any, context: __SerdeContext): LendingField => {
+  return {
+    KeyDetection:
+      output.KeyDetection != null ? deserializeAws_json1_1LendingDetection(output.KeyDetection, context) : undefined,
+    Type: __expectString(output.Type),
+    ValueDetections:
+      output.ValueDetections != null
+        ? deserializeAws_json1_1LendingDetectionList(output.ValueDetections, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LendingFieldList = (output: any, context: __SerdeContext): LendingField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LendingField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LendingResult = (output: any, context: __SerdeContext): LendingResult => {
+  return {
+    Extractions:
+      output.Extractions != null ? deserializeAws_json1_1ExtractionList(output.Extractions, context) : undefined,
+    Page: __expectInt32(output.Page),
+    PageClassification:
+      output.PageClassification != null
+        ? deserializeAws_json1_1PageClassification(output.PageClassification, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LendingResultList = (output: any, context: __SerdeContext): LendingResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LendingResult(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LendingSummary = (output: any, context: __SerdeContext): LendingSummary => {
+  return {
+    DocumentGroups:
+      output.DocumentGroups != null
+        ? deserializeAws_json1_1DocumentGroupList(output.DocumentGroups, context)
+        : undefined,
+    UndetectedDocumentTypes:
+      output.UndetectedDocumentTypes != null
+        ? deserializeAws_json1_1UndetectedDocumentTypeList(output.UndetectedDocumentTypes, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Code: __expectString(output.Code),
@@ -1820,6 +2366,26 @@ const deserializeAws_json1_1NormalizedValue = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1PageClassification = (output: any, context: __SerdeContext): PageClassification => {
+  return {
+    PageNumber:
+      output.PageNumber != null ? deserializeAws_json1_1PredictionList(output.PageNumber, context) : undefined,
+    PageType: output.PageType != null ? deserializeAws_json1_1PredictionList(output.PageType, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PageList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1Pages = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -1847,6 +2413,25 @@ const deserializeAws_json1_1Polygon = (output: any, context: __SerdeContext): Po
         return null as any;
       }
       return deserializeAws_json1_1Point(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1Prediction = (output: any, context: __SerdeContext): Prediction => {
+  return {
+    Confidence: __limitedParseFloat32(output.Confidence),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_1PredictionList = (output: any, context: __SerdeContext): Prediction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Prediction(entry, context);
     });
   return retVal;
 };
@@ -1900,6 +2485,44 @@ const deserializeAws_json1_1RelationshipList = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1SignatureDetection = (output: any, context: __SerdeContext): SignatureDetection => {
+  return {
+    Confidence: __limitedParseFloat32(output.Confidence),
+    Geometry: output.Geometry != null ? deserializeAws_json1_1Geometry(output.Geometry, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SignatureDetectionList = (output: any, context: __SerdeContext): SignatureDetection[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SignatureDetection(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1SplitDocument = (output: any, context: __SerdeContext): SplitDocument => {
+  return {
+    Index: __expectInt32(output.Index),
+    Pages: output.Pages != null ? deserializeAws_json1_1PageList(output.Pages, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SplitDocumentList = (output: any, context: __SerdeContext): SplitDocument[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SplitDocument(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1StartDocumentAnalysisResponse = (
   output: any,
   context: __SerdeContext
@@ -1927,11 +2550,62 @@ const deserializeAws_json1_1StartExpenseAnalysisResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StartLendingAnalysisResponse = (
+  output: any,
+  context: __SerdeContext
+): StartLendingAnalysisResponse => {
+  return {
+    JobId: __expectString(output.JobId),
+  } as any;
+};
+
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_1UndetectedDocumentTypeList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1UndetectedSignature = (output: any, context: __SerdeContext): UndetectedSignature => {
+  return {
+    Page: __expectInt32(output.Page),
+  } as any;
+};
+
+const deserializeAws_json1_1UndetectedSignatureList = (output: any, context: __SerdeContext): UndetectedSignature[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UndetectedSignature(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1UnsupportedDocumentException = (
@@ -1965,7 +2639,8 @@ const deserializeAws_json1_1Warnings = (output: any, context: __SerdeContext): W
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2015,6 +2690,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2025,6 +2706,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

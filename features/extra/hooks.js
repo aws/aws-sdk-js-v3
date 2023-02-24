@@ -7,7 +7,7 @@ const isType = (obj, type) => {
   return Object.prototype.toString.call(obj) === "[object " + type + "]";
 };
 
-const { Before, Given, Then, When, setDefaultTimeout, setWorldConstructor } = require("cucumber");
+const { Before, Given, Then, When, setDefaultTimeout, setWorldConstructor } = require("@cucumber/cucumber");
 
 setDefaultTimeout(300 * 1000);
 setWorldConstructor(require("./world.js").World);
@@ -45,10 +45,6 @@ Given("I create a bucket", function (callback) {
   });
 });
 
-When("I delete the bucket", function (callback) {
-  this.request("s3", "deleteBucket", { Bucket: this.bucket }, callback);
-});
-
 Then("the bucket should exist", function (next) {
   this.waitForBucketExists(this.s3, { Bucket: this.bucket }, next);
 });
@@ -68,7 +64,7 @@ Given("I run the {string} operation with params:", function (operation, params, 
 });
 
 Then("the request should be successful", function (callback) {
-  this.assert.ok(!this.error, "Response was not successful");
+  this.assert.ok(!this.error, "Response was not successful: " + this.error);
   callback();
 });
 

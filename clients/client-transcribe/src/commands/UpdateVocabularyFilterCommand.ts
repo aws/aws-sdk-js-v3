@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface UpdateVocabularyFilterCommandInput extends UpdateVocabularyFilt
 export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing custom vocabulary filter with a new list of words. The new list you provide
- *             overwrites all previous entries; you cannot append new terms onto an existing vocabulary
- *             filter.</p>
+ * <p>Updates an existing custom vocabulary filter with a new list of words. The new list
+ *             you provide overwrites all previous entries; you cannot append new terms onto an
+ *             existing custom vocabulary filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class UpdateVocabularyFilterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class UpdateVocabularyFilterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateVocabularyFilterCommandInput, UpdateVocabularyFilterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateVocabularyFilterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

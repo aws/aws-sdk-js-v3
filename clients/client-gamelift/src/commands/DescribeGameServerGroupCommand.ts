@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,32 +32,20 @@ export interface DescribeGameServerGroupCommandOutput extends DescribeGameServer
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
- *         <p>Retrieves information on a game server group. This operation returns only properties
- *             related to GameLift FleetIQ. To view or update properties for the corresponding Auto Scaling group,
- *             such as launch template, auto scaling policies, and maximum/minimum group size, access
- *             the Auto Scaling group directly.</p>
+ *          <p>Retrieves information on a
+ *             game server group. This operation returns only properties related to GameLift FleetIQ. To view or
+ *             update properties for the corresponding Auto Scaling group, such as launch template,
+ *             auto scaling policies, and maximum/minimum group size, access the Auto Scaling group
+ *             directly.</p>
  *         <p>To get attributes for a game server group, provide a group name or ARN value. If
- *             successful, a <a>GameServerGroup</a> object is returned.</p>
+ *             successful, a <code>GameServerGroup</code> object is returned.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *                 Guide</a>
  *         </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameServerGroup</a> |
- *                     <a>ListGameServerGroups</a> |
- *                     <a>DescribeGameServerGroup</a> |
- *                     <a>UpdateGameServerGroup</a> |
- *                     <a>DeleteGameServerGroup</a> |
- *                     <a>ResumeGameServerGroup</a> |
- *                     <a>SuspendGameServerGroup</a> |
- *                     <a>DescribeGameServerInstances</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +69,15 @@ export class DescribeGameServerGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeGameServerGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,6 +93,9 @@ export class DescribeGameServerGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeGameServerGroupCommandInput, DescribeGameServerGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeGameServerGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -2187,6 +2187,11 @@ export interface TransitGatewayPeering {
    * <p>The ARN of the transit gateway.</p>
    */
   TransitGatewayArn?: string;
+
+  /**
+   * <p>The ID of the transit gateway peering attachment.</p>
+   */
+  TransitGatewayPeeringAttachmentId?: string;
 }
 
 export interface CreateTransitGatewayPeeringResponse {
@@ -2253,6 +2258,11 @@ export interface VpcOptions {
    * <p>Indicates whether IPv6 is supported.</p>
    */
   Ipv6Support?: boolean;
+
+  /**
+   * <p>Indicates whether appliance mode is supported.  If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. The default value is <code>false</code>.</p>
+   */
+  ApplianceModeSupport?: boolean;
 }
 
 export interface CreateVpcAttachmentRequest {

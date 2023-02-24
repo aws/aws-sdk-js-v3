@@ -47,7 +47,7 @@ export enum AudioChannelTag {
  */
 export interface AudioChannelTaggingSettings {
   /**
-   * You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
+   * You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout. For example, if this track is the left surround channel, choose Left surround (LS).
    */
   ChannelTag?: AudioChannelTag | string;
 }
@@ -107,6 +107,11 @@ export interface AudioNormalizationSettings {
    * When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
    */
   TargetLkfs?: number;
+
+  /**
+   * Specify the True-peak limiter threshold in decibels relative to full scale (dBFS). The peak inter-audio sample loudness in your output will be limited to the value that you specify, without affecting the overall target LKFS. Enter a value from 0 to -20. Leave blank to use the default value 0.
+   */
+  TruePeakLimiterThreshold?: number;
 }
 
 export enum AudioTypeControl {
@@ -156,11 +161,11 @@ export enum AacVbrQuality {
 }
 
 /**
- * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
+ * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
  */
 export interface AacSettings {
   /**
-   * Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and  FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
+   * Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
    */
   AudioDescriptionBroadcasterMix?: AacAudioDescriptionBroadcasterMix | string;
 
@@ -175,7 +180,7 @@ export interface AacSettings {
   CodecProfile?: AacCodecProfile | string;
 
   /**
-   * Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. "1.0 - Audio Description (Receiver Mix)" setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
+   * The Coding mode that you specify determines the number of audio channels and the audio channel layout metadata in your AAC output. Valid coding modes depend on the Rate control mode and Profile that you select. The following list shows the number of audio channels and channel layout for each coding mode. * 1.0 Audio Description (Receiver Mix): One channel, C. Includes audio description data from your stereo input. For more information see ETSI TS 101 154 Annex E. * 1.0 Mono: One channel, C. * 2.0 Stereo: Two channels, L, R. * 5.1 Surround: Five channels, C, L, R, Ls, Rs, LFE.
    */
   CodingMode?: AacCodingMode | string;
 
@@ -190,7 +195,7 @@ export interface AacSettings {
   RawFormat?: AacRawFormat | string;
 
   /**
-   * Sample rate in Hz. Valid values depend on rate control mode and profile.
+   * Specify the Sample rate in Hz. Valid sample rates depend on the Profile and Coding mode that you select. The following list shows valid sample rates for each Profile and Coding mode. * LC Profile, Coding mode 1.0, 2.0, and Receiver Mix: 8000, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 88200, 96000. * LC Profile, Coding mode 5.1: 32000, 44100, 48000, 96000. * HEV1 Profile, Coding mode 1.0 and Receiver Mix: 22050, 24000, 32000, 44100, 48000. * HEV1 Profile, Coding mode 2.0 and 5.1: 32000, 44100, 48000, 96000. * HEV2 Profile, Coding mode 2.0: 22050, 24000, 32000, 44100, 48000.
    */
   SampleRate?: number;
 
@@ -261,7 +266,7 @@ export enum Ac3MetadataControl {
  */
 export interface Ac3Settings {
   /**
-   * Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
+   * Specify the average bitrate in bits per second. The bitrate that you specify must be a multiple of 8000 within the allowed minimum and maximum values. Leave blank to use the default bitrate for the coding mode you select according ETSI TS 102 366. Valid bitrates for coding mode 1/0: Default: 96000. Minimum: 64000. Maximum: 128000. Valid bitrates for coding mode 1/1: Default: 192000. Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 2/0: Default: 192000. Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 3/2 with FLE: Default: 384000. Minimum: 384000. Maximum: 640000.
    */
   Bitrate?: number;
 
@@ -435,7 +440,7 @@ export interface Eac3AtmosSettings {
   DialogueIntelligence?: Eac3AtmosDialogueIntelligence | string;
 
   /**
-   * Specify whether MediaConvert should use any downmix metadata from your input file. Keep the default value, Custom (SPECIFIED) to provide downmix values in your job settings. Choose Follow source (INITIALIZE_FROM_SOURCE) to use the metadata from your input. Related settings--Use these settings to specify your downmix values: Left only/Right only surround (LoRoSurroundMixLevel), Left total/Right total surround (LtRtSurroundMixLevel), Left total/Right total center (LtRtCenterMixLevel), Left only/Right only center (LoRoCenterMixLevel),  and Stereo downmix (StereoDownmix). When you keep Custom (SPECIFIED) for Downmix control (DownmixControl) and you don't specify values for the related settings, MediaConvert uses default values for those settings.
+   * Specify whether MediaConvert should use any downmix metadata from your input file. Keep the default value, Custom (SPECIFIED) to provide downmix values in your job settings. Choose Follow source (INITIALIZE_FROM_SOURCE) to use the metadata from your input. Related settings--Use these settings to specify your downmix values: Left only/Right only surround (LoRoSurroundMixLevel), Left total/Right total surround (LtRtSurroundMixLevel), Left total/Right total center (LtRtCenterMixLevel), Left only/Right only center (LoRoCenterMixLevel), and Stereo downmix (StereoDownmix). When you keep Custom (SPECIFIED) for Downmix control (DownmixControl) and you don't specify values for the related settings, MediaConvert uses default values for those settings.
    */
   DownmixControl?: Eac3AtmosDownmixControl | string;
 
@@ -596,7 +601,7 @@ export interface Eac3Settings {
   AttenuationControl?: Eac3AttenuationControl | string;
 
   /**
-   * Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
+   * Specify the average bitrate in bits per second. The bitrate that you specify must be a multiple of 8000 within the allowed minimum and maximum values. Leave blank to use the default bitrate for the coding mode you select according ETSI TS 102 366. Valid bitrates for coding mode 1/0: Default: 96000. Minimum: 32000. Maximum: 3024000. Valid bitrates for coding mode 2/0: Default: 192000. Minimum: 96000. Maximum: 3024000. Valid bitrates for coding mode 3/2: Default: 384000. Minimum: 192000. Maximum: 3024000.
    */
   Bitrate?: number;
 
@@ -826,7 +831,7 @@ export interface WavSettings {
  */
 export interface AudioCodecSettings {
   /**
-   * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
+   * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
    */
   AacSettings?: AacSettings;
 
@@ -2054,7 +2059,7 @@ export interface Id3Insertion {
  */
 export interface AudioSelectorGroup {
   /**
-   * Name of an Audio Selector within the same input to include in the group.  Audio selector names are standardized, based on their order within the input (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
+   * Name of an Audio Selector within the same input to include in the group. Audio selector names are standardized, based on their order within the input (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
    */
   AudioSelectorNames?: string[];
 }
@@ -2375,7 +2380,7 @@ export interface CaptionSourceSettings {
   FileSourceSettings?: FileSourceSettings;
 
   /**
-   * Use Source (SourceType) to identify the format of your input captions.  The service cannot auto-detect caption format.
+   * Use Source (SourceType) to identify the format of your input captions. The service cannot auto-detect caption format.
    */
   SourceType?: CaptionSourceType | string;
 
@@ -2555,6 +2560,11 @@ export interface ImageInserter {
    * Specify the images that you want to overlay on your video. The images must be PNG or TGA files.
    */
   InsertableImages?: InsertableImage[];
+
+  /**
+   * Specify the reference white level, in nits, for all of your image inserter images. Use to correct brightness levels within HDR10 outputs. For 1,000 nit peak brightness displays, we recommend that you set SDR reference white level to 203 (according to ITU-R BT.2408). Leave blank to use the default value of 100, or specify an integer from 100 to 1000.
+   */
+  SdrReferenceWhiteLevel?: number;
 }
 
 /**
@@ -2607,6 +2617,8 @@ export enum ColorSpace {
   FOLLOW = "FOLLOW",
   HDR10 = "HDR10",
   HLG_2020 = "HLG_2020",
+  P3D65_SDR = "P3D65_SDR",
+  P3DCI = "P3DCI",
   REC_601 = "REC_601",
   REC_709 = "REC_709",
 }
@@ -2646,7 +2658,7 @@ export interface Hdr10Metadata {
   GreenPrimaryY?: number;
 
   /**
-   * Maximum light level among all samples in the coded video sequence, in units of candelas per square meter.  This setting doesn't have a default value; you must specify a value that is suitable for the content.
+   * Maximum light level among all samples in the coded video sequence, in units of candelas per square meter. This setting doesn't have a default value; you must specify a value that is suitable for the content.
    */
   MaxContentLightLevel?: number;
 
@@ -2715,7 +2727,10 @@ export interface VideoSelector {
   AlphaBehavior?: AlphaBehavior | string;
 
   /**
-   * If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value Follow (FOLLOW). The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, specify the accurate color space here. If your input video is HDR 10 and the SMPTE ST 2086 Mastering Display Color Volume static metadata isn't present in your video stream, or if that metadata is present but not accurate, choose Force HDR 10 (FORCE_HDR10) here and specify correct values in the input HDR 10 metadata (Hdr10Metadata) settings. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
+   * If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value Follow. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, specify the accurate color space here. If your input video is HDR 10 and the SMPTE ST 2086 Mastering Display Color Volume static metadata isn't present in your video stream, or if that metadata is present but not accurate, choose Force HDR 10 here and specify correct values in the input HDR 10 metadata settings. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr. Select P3D65 (SDR) to set the input color space metadata to the following:
+   *  * Color primaries: Display P3
+   *  * Transfer characteristics: SMPTE 428M
+   *  * Matrix coefficients: BT.709
    */
   ColorSpace?: ColorSpace | string;
 
@@ -2795,7 +2810,7 @@ export interface Input {
   DecryptionSettings?: InputDecryptionSettings;
 
   /**
-   * Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
+   * Enable Denoise (InputDenoiseFilter) to filter noise from the input. Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
    */
   DenoiseFilter?: InputDenoiseFilter | string;
 
@@ -2815,7 +2830,7 @@ export interface Input {
   FilterEnable?: InputFilterEnable | string;
 
   /**
-   * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is -5 to 5. Default is 0.
+   * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is 0 to 5. Default is 0.
    */
   FilterStrength?: number;
 
@@ -2905,7 +2920,7 @@ export interface InputTemplate {
   DeblockFilter?: InputDeblockFilter | string;
 
   /**
-   * Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
+   * Enable Denoise (InputDenoiseFilter) to filter noise from the input. Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
    */
   DenoiseFilter?: InputDenoiseFilter | string;
 
@@ -2920,7 +2935,7 @@ export interface InputTemplate {
   FilterEnable?: InputFilterEnable | string;
 
   /**
-   * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is -5 to 5. Default is 0.
+   * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is 0 to 5. Default is 0.
    */
   FilterStrength?: number;
 
@@ -3146,12 +3161,12 @@ export enum VchipAction {
  */
 export interface ExtendedDataServices {
   /**
-   * The action to take on copy and redistribution control XDS packets.  If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.
+   * The action to take on content advisory XDS packets. If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.
    */
   CopyProtectionAction?: CopyProtectionAction | string;
 
   /**
-   * The action to take on content advisory XDS packets.  If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.
+   * The action to take on content advisory XDS packets. If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.
    */
   VchipAction?: VchipAction | string;
 }
@@ -3333,7 +3348,7 @@ export enum NielsenUniqueTicPerAudioTrackType {
 }
 
 /**
- * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+ * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
  */
 export interface NielsenNonLinearWatermarkSettings {
   /**
@@ -3342,7 +3357,7 @@ export interface NielsenNonLinearWatermarkSettings {
   ActiveWatermarkProcess?: NielsenActiveWatermarkProcessType | string;
 
   /**
-   * Optional. Use this setting when you want the service to include an ADI file in the Nielsen  metadata .zip file. To provide an ADI file, store it in Amazon S3 and provide a URL to it  here. The URL should be in the following format: S3://bucket/path/ADI-file. For more information about the metadata .zip file, see the setting Metadata destination (metadataDestination).
+   * Optional. Use this setting when you want the service to include an ADI file in the Nielsen metadata .zip file. To provide an ADI file, store it in Amazon S3 and provide a URL to it here. The URL should be in the following format: S3://bucket/path/ADI-file. For more information about the metadata .zip file, see the setting Metadata destination (metadataDestination).
    */
   AdiFilename?: string;
 
@@ -3377,7 +3392,7 @@ export interface NielsenNonLinearWatermarkSettings {
   SourceId?: number;
 
   /**
-   * Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already  have non-linear Nielsen watermarks.
+   * Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already have non-linear Nielsen watermarks.
    */
   SourceWatermarkStatus?: NielsenSourceWatermarkStatusType | string;
 
@@ -3437,6 +3452,12 @@ export enum CmafCodecSpecification {
   RFC_6381 = "RFC_6381",
 }
 
+export enum DashManifestStyle {
+  BASIC = "BASIC",
+  COMPACT = "COMPACT",
+  DISTINCT = "DISTINCT",
+}
+
 export enum S3ObjectCannedAcl {
   AUTHENTICATED_READ = "AUTHENTICATED_READ",
   BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
@@ -3464,7 +3485,7 @@ export enum S3ServerSideEncryptionType {
  */
 export interface S3EncryptionSettings {
   /**
-   * Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting  KMS ARN (kmsKeyArn).
+   * Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
    */
   EncryptionType?: S3ServerSideEncryptionType | string;
 
@@ -3626,22 +3647,22 @@ export enum CmafIntervalCadence {
  */
 export interface CmafImageBasedTrickPlaySettings {
   /**
-   * The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
+   * The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
    */
   IntervalCadence?: CmafIntervalCadence | string;
 
   /**
-   * Height of each thumbnail within each tile image, in pixels.  Leave blank to maintain aspect ratio with thumbnail width.  If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected.  Must be divisible by 2.
+   * Height of each thumbnail within each tile image, in pixels. Leave blank to maintain aspect ratio with thumbnail width. If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected. Must be divisible by 2.
    */
   ThumbnailHeight?: number;
 
   /**
-   * Enter the interval, in seconds, that MediaConvert uses to generate thumbnails.  If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate.  For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.
+   * Enter the interval, in seconds, that MediaConvert uses to generate thumbnails. If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate. For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.
    */
   ThumbnailInterval?: number;
 
   /**
-   * Width of each thumbnail within each tile image, in pixels.  Default is 312.  Must be divisible by 8.
+   * Width of each thumbnail within each tile image, in pixels. Default is 312. Must be divisible by 8.
    */
   ThumbnailWidth?: number;
 
@@ -3651,7 +3672,7 @@ export interface CmafImageBasedTrickPlaySettings {
   TileHeight?: number;
 
   /**
-   * Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.
+   * Number of thumbnails in each row of a tile image. Set a value between 1 and 512.
    */
   TileWidth?: number;
 }
@@ -3664,6 +3685,11 @@ export enum CmafManifestCompression {
 export enum CmafManifestDurationFormat {
   FLOATING_POINT = "FLOATING_POINT",
   INTEGER = "INTEGER",
+}
+
+export enum CmafMpdManifestBandwidthType {
+  AVERAGE = "AVERAGE",
+  MAX = "MAX",
 }
 
 export enum CmafMpdProfile {
@@ -3694,6 +3720,11 @@ export enum CmafStreamInfResolution {
 export enum CmafTargetDurationCompatibilityMode {
   LEGACY = "LEGACY",
   SPEC_COMPLIANT = "SPEC_COMPLIANT",
+}
+
+export enum CmafVideoCompositionOffsets {
+  SIGNED = "SIGNED",
+  UNSIGNED = "UNSIGNED",
 }
 
 export enum CmafWriteDASHManifest {
@@ -3734,6 +3765,11 @@ export interface CmafGroupSettings {
    * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
    */
   CodecSpecification?: CmafCodecSpecification | string;
+
+  /**
+   * Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline in each video Representation: Keep the default value, Basic. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct.
+   */
+  DashManifestStyle?: DashManifestStyle | string;
 
   /**
    * Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
@@ -3786,7 +3822,12 @@ export interface CmafGroupSettings {
   MinFinalSegmentLength?: number;
 
   /**
-   * Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).
+   * Specify how the value for bandwidth is determined for each video Representation in your output MPD manifest. We recommend that you choose a MPD manifest bandwidth type that is compatible with your downstream player configuration. Max: Use the same value that you specify for Max bitrate in the video output, in bits per second. Average: Use the calculated average bitrate of the encoded video output, in bits per second.
+   */
+  MpdManifestBandwidthType?: CmafMpdManifestBandwidthType | string;
+
+  /**
+   * Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).
    */
   MpdProfile?: CmafMpdProfile | string;
 
@@ -3821,6 +3862,11 @@ export interface CmafGroupSettings {
   TargetDurationCompatibilityMode?: CmafTargetDurationCompatibilityMode | string;
 
   /**
+   * Specify the video sample composition time offset mode in the output fMP4 TRUN box. For wider player compatibility, set Video composition offsets to Unsigned or leave blank. The earliest presentation time may be greater than zero, and sample composition time offsets will increment using unsigned integers. For strict fMP4 video and audio timing, set Video composition offsets to Signed. The earliest presentation time will be equal to zero, and sample composition time offsets will increment using signed integers.
+   */
+  VideoCompositionOffsets?: CmafVideoCompositionOffsets | string;
+
+  /**
    * When set to ENABLED, a DASH MPD manifest will be generated for this output.
    */
   WriteDashManifest?: CmafWriteDASHManifest | string;
@@ -3847,7 +3893,7 @@ export enum DashIsoPlaybackDeviceCompatibility {
 }
 
 /**
- * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
+ * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
  */
 export interface SpekeKeyProvider {
   /**
@@ -3882,7 +3928,7 @@ export interface DashIsoEncryptionSettings {
   PlaybackDeviceCompatibility?: DashIsoPlaybackDeviceCompatibility | string;
 
   /**
-   * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
+   * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
    */
   SpekeKeyProvider?: SpekeKeyProvider;
 }
@@ -3909,22 +3955,22 @@ export enum DashIsoIntervalCadence {
  */
 export interface DashIsoImageBasedTrickPlaySettings {
   /**
-   * The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
+   * The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
    */
   IntervalCadence?: DashIsoIntervalCadence | string;
 
   /**
-   * Height of each thumbnail within each tile image, in pixels.  Leave blank to maintain aspect ratio with thumbnail width.  If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected.  Must be divisible by 2.
+   * Height of each thumbnail within each tile image, in pixels. Leave blank to maintain aspect ratio with thumbnail width. If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected. Must be divisible by 2.
    */
   ThumbnailHeight?: number;
 
   /**
-   * Enter the interval, in seconds, that MediaConvert uses to generate thumbnails.  If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate.  For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.
+   * Enter the interval, in seconds, that MediaConvert uses to generate thumbnails. If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate. For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.
    */
   ThumbnailInterval?: number;
 
   /**
-   * Width of each thumbnail within each tile image, in pixels.  Default is 312.  Must be divisible by 8.
+   * Width of each thumbnail within each tile image, in pixels. Default is 312. Must be divisible by 8.
    */
   ThumbnailWidth?: number;
 
@@ -3934,9 +3980,14 @@ export interface DashIsoImageBasedTrickPlaySettings {
   TileHeight?: number;
 
   /**
-   * Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.
+   * Number of thumbnails in each row of a tile image. Set a value between 1 and 512.
    */
   TileWidth?: number;
+}
+
+export enum DashIsoMpdManifestBandwidthType {
+  AVERAGE = "AVERAGE",
+  MAX = "MAX",
 }
 
 export enum DashIsoMpdProfile {
@@ -3957,6 +4008,11 @@ export enum DashIsoSegmentControl {
 export enum DashIsoSegmentLengthControl {
   EXACT = "EXACT",
   GOP_MULTIPLE = "GOP_MULTIPLE",
+}
+
+export enum DashIsoVideoCompositionOffsets {
+  SIGNED = "SIGNED",
+  UNSIGNED = "UNSIGNED",
 }
 
 export enum DashIsoWriteSegmentTimelineInRepresentation {
@@ -3982,6 +4038,11 @@ export interface DashIsoGroupSettings {
    * A partial URI prefix that will be put in the manifest (.mpd) file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file.
    */
   BaseUrl?: string;
+
+  /**
+   * Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline in each video Representation: Keep the default value, Basic. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct.
+   */
+  DashManifestStyle?: DashManifestStyle | string;
 
   /**
    * Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
@@ -4029,7 +4090,12 @@ export interface DashIsoGroupSettings {
   MinFinalSegmentLength?: number;
 
   /**
-   * Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).
+   * Specify how the value for bandwidth is determined for each video Representation in your output MPD manifest. We recommend that you choose a MPD manifest bandwidth type that is compatible with your downstream player configuration. Max: Use the same value that you specify for Max bitrate in the video output, in bits per second. Average: Use the calculated average bitrate of the encoded video output, in bits per second.
+   */
+  MpdManifestBandwidthType?: DashIsoMpdManifestBandwidthType | string;
+
+  /**
+   * Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).
    */
   MpdProfile?: DashIsoMpdProfile | string;
 
@@ -4052,6 +4118,11 @@ export interface DashIsoGroupSettings {
    * Specify how you want MediaConvert to determine the segment length. Choose Exact (EXACT) to have the encoder use the exact length that you specify with the setting Segment length (SegmentLength). This might result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have the encoder round up the segment lengths to match the next GOP boundary.
    */
   SegmentLengthControl?: DashIsoSegmentLengthControl | string;
+
+  /**
+   * Specify the video sample composition time offset mode in the output fMP4 TRUN box. For wider player compatibility, set Video composition offsets to Unsigned or leave blank. The earliest presentation time may be greater than zero, and sample composition time offsets will increment using unsigned integers. For strict fMP4 video and audio timing, set Video composition offsets to Signed. The earliest presentation time will be equal to zero, and sample composition time offsets will increment using signed integers.
+   */
+  VideoCompositionOffsets?: DashIsoVideoCompositionOffsets | string;
 
   /**
    * If you get an HTTP error in the 400 range when you play back your DASH output, enable this setting and run your transcoding job again. When you enable this setting, the service writes precise segment durations in the DASH manifest. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When you don't enable this setting, the service writes approximate segment durations in your DASH manifest.
@@ -4150,7 +4221,7 @@ export interface HlsEncryptionSettings {
   OfflineEncrypted?: HlsOfflineEncrypted | string;
 
   /**
-   * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
+   * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
    */
   SpekeKeyProvider?: SpekeKeyProvider;
 
@@ -4182,22 +4253,22 @@ export enum HlsIntervalCadence {
  */
 export interface HlsImageBasedTrickPlaySettings {
   /**
-   * The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
+   * The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
    */
   IntervalCadence?: HlsIntervalCadence | string;
 
   /**
-   * Height of each thumbnail within each tile image, in pixels.  Leave blank to maintain aspect ratio with thumbnail width.  If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected.  Must be divisible by 2.
+   * Height of each thumbnail within each tile image, in pixels. Leave blank to maintain aspect ratio with thumbnail width. If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected. Must be divisible by 2.
    */
   ThumbnailHeight?: number;
 
   /**
-   * Enter the interval, in seconds, that MediaConvert uses to generate thumbnails.  If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate.  For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.
+   * Enter the interval, in seconds, that MediaConvert uses to generate thumbnails. If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate. For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.
    */
   ThumbnailInterval?: number;
 
   /**
-   * Width of each thumbnail within each tile image, in pixels.  Default is 312.  Must be divisible by 8.
+   * Width of each thumbnail within each tile image, in pixels. Default is 312. Must be divisible by 8.
    */
   ThumbnailWidth?: number;
 
@@ -4207,7 +4278,7 @@ export interface HlsImageBasedTrickPlaySettings {
   TileHeight?: number;
 
   /**
-   * Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.
+   * Number of thumbnails in each row of a tile image. Set a value between 1 and 512.
    */
   TileWidth?: number;
 }
@@ -4443,7 +4514,7 @@ export enum MsSmoothAudioDeduplication {
  */
 export interface MsSmoothEncryptionSettings {
   /**
-   * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
+   * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
    */
   SpekeKeyProvider?: SpekeKeyProvider;
 }
@@ -4572,6 +4643,11 @@ export enum CmfcKlvMetadata {
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+export enum CmfcManifestMetadataSignaling {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 export enum CmfcScte35Esam {
   INSERT = "INSERT",
   NONE = "NONE",
@@ -4585,6 +4661,11 @@ export enum CmfcScte35Source {
 export enum CmfcTimedMetadata {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
+}
+
+export enum CmfcTimedMetadataBoxVersion {
+  VERSION_0 = "VERSION_0",
+  VERSION_1 = "VERSION_1",
 }
 
 /**
@@ -4627,6 +4708,11 @@ export interface CmfcSettings {
   KlvMetadata?: CmfcKlvMetadata | string;
 
   /**
+   * To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be "urn:scte:scte35:2013:bin". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled. To enable Manifest metadata signaling, you must also set SCTE-35 source to Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to Passthrough.
+   */
+  ManifestMetadataSignaling?: CmfcManifestMetadataSignaling | string;
+
+  /**
    * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
    */
   Scte35Esam?: CmfcScte35Esam | string;
@@ -4640,6 +4726,24 @@ export interface CmfcSettings {
    * To include ID3 metadata in this output: Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3 metadata inserter (timedMetadataInsertion). MediaConvert writes each instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave blank.
    */
   TimedMetadata?: CmfcTimedMetadata | string;
+
+  /**
+   * Specify the event message box (eMSG) version for ID3 timed metadata in your output.
+   * For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.3 Syntax.
+   * Leave blank to use the default value Version 0.
+   * When you specify Version 1, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   */
+  TimedMetadataBoxVersion?: CmfcTimedMetadataBoxVersion | string;
+
+  /**
+   * Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   */
+  TimedMetadataSchemeIdUri?: string;
+
+  /**
+   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   */
+  TimedMetadataValue?: string;
 }
 
 export enum ContainerType {
@@ -4709,68 +4813,6 @@ export interface DvbNitSettings {
    * The number of milliseconds between instances of this table in the output transport stream.
    */
   NitInterval?: number;
-}
-
-export enum OutputSdt {
-  SDT_FOLLOW = "SDT_FOLLOW",
-  SDT_FOLLOW_IF_PRESENT = "SDT_FOLLOW_IF_PRESENT",
-  SDT_MANUAL = "SDT_MANUAL",
-  SDT_NONE = "SDT_NONE",
-}
-
-/**
- * Use these settings to insert a DVB Service Description Table (SDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
- */
-export interface DvbSdtSettings {
-  /**
-   * Selects method of inserting SDT information into output stream.  "Follow input SDT" copies SDT information from input stream to  output stream. "Follow input SDT if present" copies SDT information from  input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT  Manually" means user will enter the SDT information. "No SDT" means output  stream will not contain SDT information.
-   */
-  OutputSdt?: OutputSdt | string;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.
-   */
-  SdtInterval?: number;
-
-  /**
-   * The service name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters.
-   */
-  ServiceName?: string;
-
-  /**
-   * The service provider name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters.
-   */
-  ServiceProviderName?: string;
-}
-
-/**
- * Use these settings to insert a DVB Time and Date Table (TDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
- */
-export interface DvbTdtSettings {
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.
-   */
-  TdtInterval?: number;
-}
-
-export enum M2tsEbpAudioInterval {
-  VIDEO_AND_FIXED_INTERVALS = "VIDEO_AND_FIXED_INTERVALS",
-  VIDEO_INTERVAL = "VIDEO_INTERVAL",
-}
-
-export enum M2tsEbpPlacement {
-  VIDEO_AND_AUDIO_PIDS = "VIDEO_AND_AUDIO_PIDS",
-  VIDEO_PID = "VIDEO_PID",
-}
-
-export enum M2tsEsRateInPes {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum M2tsForceTsVideoEbpOrder {
-  DEFAULT = "DEFAULT",
-  FORCE = "FORCE",
 }
 
 /**
@@ -5521,19 +5563,5 @@ export const F4vSettingsFilterSensitiveLog = (obj: F4vSettings): any => ({
  * @internal
  */
 export const DvbNitSettingsFilterSensitiveLog = (obj: DvbNitSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DvbSdtSettingsFilterSensitiveLog = (obj: DvbSdtSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DvbTdtSettingsFilterSensitiveLog = (obj: DvbTdtSettings): any => ({
   ...obj,
 });

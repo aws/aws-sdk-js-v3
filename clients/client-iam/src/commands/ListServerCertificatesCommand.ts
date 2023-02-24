@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,16 +31,16 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
 /**
  * <p>Lists the server certificates stored in IAM that have the specified path prefix. If
  *             none exist, the operation returns an empty list.</p>
- *         <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
- *         <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+ *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
  *             topic also includes a list of Amazon Web Services services that can use the server certificates that
  *             you manage with IAM.</p>
- *         <note>
+ *          <note>
  *             <p>IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a servercertificate, see <a>GetServerCertificate</a>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +64,15 @@ export class ListServerCertificatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListServerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class ListServerCertificatesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListServerCertificatesCommandInput, ListServerCertificatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListServerCertificatesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

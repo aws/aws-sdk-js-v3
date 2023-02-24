@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   UpdateThemePermissionsRequestFilterSensitiveLog,
   UpdateThemePermissionsResponse,
   UpdateThemePermissionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateThemePermissionsCommand,
   serializeAws_restJson1UpdateThemePermissionsCommand,
@@ -30,12 +31,12 @@ export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissi
 /**
  * <p>Updates the resource permissions for a theme. Permissions apply to the action to grant or
  * 			revoke permissions on, for example <code>"quicksight:DescribeTheme"</code>.</p>
- * 		       <p>Theme permissions apply in groupings. Valid groupings include the following for the three
+ *          <p>Theme permissions apply in groupings. Valid groupings include the following for the three
  * 			levels of permissions, which are user, owner, or no permissions: </p>
- * 			      <ul>
+ *          <ul>
  *             <li>
  *                <p>User</p>
- * 					          <ul>
+ *                <ul>
  *                   <li>
  *                      <p>
  *                         <code>"quicksight:DescribeTheme"</code>
@@ -57,10 +58,10 @@ export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissi
  *                      </p>
  *                   </li>
  *                </ul>
- * 				        </li>
+ *             </li>
  *             <li>
  *                <p>Owner</p>
- * 					          <ul>
+ *                <ul>
  *                   <li>
  *                      <p>
  *                         <code>"quicksight:DescribeTheme"</code>
@@ -117,7 +118,7 @@ export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissi
  *                      </p>
  *                   </li>
  *                </ul>
- * 				        </li>
+ *             </li>
  *             <li>
  *                <p>To specify no permissions, omit the permissions list.</p>
  *             </li>
@@ -145,6 +146,15 @@ export class UpdateThemePermissionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateThemePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,6 +170,9 @@ export class UpdateThemePermissionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateThemePermissionsCommandInput, UpdateThemePermissionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateThemePermissionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

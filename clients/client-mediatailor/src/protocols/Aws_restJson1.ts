@@ -22,6 +22,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  ConfigureLogsForChannelCommandInput,
+  ConfigureLogsForChannelCommandOutput,
+} from "../commands/ConfigureLogsForChannelCommand";
+import {
   ConfigureLogsForPlaybackConfigurationCommandInput,
   ConfigureLogsForPlaybackConfigurationCommandOutput,
 } from "../commands/ConfigureLogsForPlaybackConfigurationCommand";
@@ -106,6 +110,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
 import { UpdateLiveSourceCommandInput, UpdateLiveSourceCommandOutput } from "../commands/UpdateLiveSourceCommand";
+import { UpdateProgramCommandInput, UpdateProgramCommandOutput } from "../commands/UpdateProgramCommand";
 import {
   UpdateSourceLocationCommandInput,
   UpdateSourceLocationCommandOutput,
@@ -123,6 +128,7 @@ import {
   Bumper,
   CdnConfiguration,
   Channel,
+  ClipRange,
   DashConfiguration,
   DashConfigurationForPut,
   DashPlaylistSettings,
@@ -134,6 +140,8 @@ import {
   LivePreRollConfiguration,
   LiveSource,
   LogConfiguration,
+  LogConfigurationForChannel,
+  LogType,
   ManifestProcessingRules,
   PlaybackConfiguration,
   PrefetchConsumption,
@@ -145,13 +153,42 @@ import {
   ScheduleConfiguration,
   ScheduleEntry,
   SecretsManagerAccessTokenConfiguration,
+  SegmentationDescriptor,
   SegmentDeliveryConfiguration,
   SlateSource,
   SourceLocation,
   SpliceInsertMessage,
+  TimeSignalMessage,
   Transition,
+  UpdateProgramScheduleConfiguration,
+  UpdateProgramTransition,
   VodSource,
 } from "../models/models_0";
+
+export const serializeAws_restJson1ConfigureLogsForChannelCommand = async (
+  input: ConfigureLogsForChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configureLogs/channel";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ChannelName != null && { ChannelName: input.ChannelName }),
+    ...(input.LogTypes != null && { LogTypes: serializeAws_restJson1LogTypes(input.LogTypes, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand = async (
   input: ConfigureLogsForPlaybackConfigurationCommandInput,
@@ -899,7 +936,7 @@ export const serializeAws_restJson1ListAlertsCommand = async (
   const query: any = map({
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
-    resourceArn: [, input.ResourceArn!],
+    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1264,7 +1301,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1337,6 +1377,40 @@ export const serializeAws_restJson1UpdateLiveSourceCommand = async (
     ...(input.HttpPackageConfigurations != null && {
       HttpPackageConfigurations: serializeAws_restJson1HttpPackageConfigurations(
         input.HttpPackageConfigurations,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateProgramCommand = async (
+  input: UpdateProgramCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/channel/{ChannelName}/program/{ProgramName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AdBreaks != null && { AdBreaks: serializeAws_restJson1__listOfAdBreak(input.AdBreaks, context) }),
+    ...(input.ScheduleConfiguration != null && {
+      ScheduleConfiguration: serializeAws_restJson1UpdateProgramScheduleConfiguration(
+        input.ScheduleConfiguration,
         context
       ),
     }),
@@ -1449,6 +1523,44 @@ export const serializeAws_restJson1UpdateVodSourceCommand = async (
   });
 };
 
+export const deserializeAws_restJson1ConfigureLogsForChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConfigureLogsForChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ConfigureLogsForChannelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ChannelName != null) {
+    contents.ChannelName = __expectString(data.ChannelName);
+  }
+  if (data.LogTypes != null) {
+    contents.LogTypes = deserializeAws_restJson1LogTypes(data.LogTypes, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ConfigureLogsForChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConfigureLogsForChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1475,7 +1587,7 @@ const deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommandError 
 ): Promise<ConfigureLogsForPlaybackConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1537,7 +1649,7 @@ const deserializeAws_restJson1CreateChannelCommandError = async (
 ): Promise<CreateChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1593,7 +1705,7 @@ const deserializeAws_restJson1CreateLiveSourceCommandError = async (
 ): Promise<CreateLiveSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1643,7 +1755,7 @@ const deserializeAws_restJson1CreatePrefetchScheduleCommandError = async (
 ): Promise<CreatePrefetchScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1675,8 +1787,14 @@ export const deserializeAws_restJson1CreateProgramCommand = async (
   if (data.ChannelName != null) {
     contents.ChannelName = __expectString(data.ChannelName);
   }
+  if (data.ClipRange != null) {
+    contents.ClipRange = deserializeAws_restJson1ClipRange(data.ClipRange, context);
+  }
   if (data.CreationTime != null) {
     contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+  }
+  if (data.DurationMillis != null) {
+    contents.DurationMillis = __expectLong(data.DurationMillis);
   }
   if (data.LiveSourceName != null) {
     contents.LiveSourceName = __expectString(data.LiveSourceName);
@@ -1702,7 +1820,7 @@ const deserializeAws_restJson1CreateProgramCommandError = async (
 ): Promise<CreateProgramCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1767,7 +1885,7 @@ const deserializeAws_restJson1CreateSourceLocationCommandError = async (
 ): Promise<CreateSourceLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1823,7 +1941,7 @@ const deserializeAws_restJson1CreateVodSourceCommandError = async (
 ): Promise<CreateVodSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1855,7 +1973,7 @@ const deserializeAws_restJson1DeleteChannelCommandError = async (
 ): Promise<DeleteChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1887,7 +2005,7 @@ const deserializeAws_restJson1DeleteChannelPolicyCommandError = async (
 ): Promise<DeleteChannelPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1919,7 +2037,7 @@ const deserializeAws_restJson1DeleteLiveSourceCommandError = async (
 ): Promise<DeleteLiveSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1951,7 +2069,7 @@ const deserializeAws_restJson1DeletePlaybackConfigurationCommandError = async (
 ): Promise<DeletePlaybackConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1983,7 +2101,7 @@ const deserializeAws_restJson1DeletePrefetchScheduleCommandError = async (
 ): Promise<DeletePrefetchScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2015,7 +2133,7 @@ const deserializeAws_restJson1DeleteProgramCommandError = async (
 ): Promise<DeleteProgramCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2047,7 +2165,7 @@ const deserializeAws_restJson1DeleteSourceLocationCommandError = async (
 ): Promise<DeleteSourceLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2079,7 +2197,7 @@ const deserializeAws_restJson1DeleteVodSourceCommandError = async (
 ): Promise<DeleteVodSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2120,6 +2238,9 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
   if (data.LastModifiedTime != null) {
     contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
   }
+  if (data.LogConfiguration != null) {
+    contents.LogConfiguration = deserializeAws_restJson1LogConfigurationForChannel(data.LogConfiguration, context);
+  }
   if (data.Outputs != null) {
     contents.Outputs = deserializeAws_restJson1ResponseOutputs(data.Outputs, context);
   }
@@ -2141,7 +2262,7 @@ const deserializeAws_restJson1DescribeChannelCommandError = async (
 ): Promise<DescribeChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2197,7 +2318,7 @@ const deserializeAws_restJson1DescribeLiveSourceCommandError = async (
 ): Promise<DescribeLiveSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2229,8 +2350,14 @@ export const deserializeAws_restJson1DescribeProgramCommand = async (
   if (data.ChannelName != null) {
     contents.ChannelName = __expectString(data.ChannelName);
   }
+  if (data.ClipRange != null) {
+    contents.ClipRange = deserializeAws_restJson1ClipRange(data.ClipRange, context);
+  }
   if (data.CreationTime != null) {
     contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+  }
+  if (data.DurationMillis != null) {
+    contents.DurationMillis = __expectLong(data.DurationMillis);
   }
   if (data.LiveSourceName != null) {
     contents.LiveSourceName = __expectString(data.LiveSourceName);
@@ -2256,7 +2383,7 @@ const deserializeAws_restJson1DescribeProgramCommandError = async (
 ): Promise<DescribeProgramCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2321,7 +2448,7 @@ const deserializeAws_restJson1DescribeSourceLocationCommandError = async (
 ): Promise<DescribeSourceLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2377,7 +2504,7 @@ const deserializeAws_restJson1DescribeVodSourceCommandError = async (
 ): Promise<DescribeVodSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2412,7 +2539,7 @@ const deserializeAws_restJson1GetChannelPolicyCommandError = async (
 ): Promise<GetChannelPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2450,7 +2577,7 @@ const deserializeAws_restJson1GetChannelScheduleCommandError = async (
 ): Promise<GetChannelScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2548,7 +2675,7 @@ const deserializeAws_restJson1GetPlaybackConfigurationCommandError = async (
 ): Promise<GetPlaybackConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2598,7 +2725,7 @@ const deserializeAws_restJson1GetPrefetchScheduleCommandError = async (
 ): Promise<GetPrefetchScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2636,7 +2763,7 @@ const deserializeAws_restJson1ListAlertsCommandError = async (
 ): Promise<ListAlertsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2674,7 +2801,7 @@ const deserializeAws_restJson1ListChannelsCommandError = async (
 ): Promise<ListChannelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2712,7 +2839,7 @@ const deserializeAws_restJson1ListLiveSourcesCommandError = async (
 ): Promise<ListLiveSourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2750,7 +2877,7 @@ const deserializeAws_restJson1ListPlaybackConfigurationsCommandError = async (
 ): Promise<ListPlaybackConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2788,7 +2915,7 @@ const deserializeAws_restJson1ListPrefetchSchedulesCommandError = async (
 ): Promise<ListPrefetchSchedulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2826,7 +2953,7 @@ const deserializeAws_restJson1ListSourceLocationsCommandError = async (
 ): Promise<ListSourceLocationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2861,7 +2988,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2905,7 +3032,7 @@ const deserializeAws_restJson1ListVodSourcesCommandError = async (
 ): Promise<ListVodSourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2937,7 +3064,7 @@ const deserializeAws_restJson1PutChannelPolicyCommandError = async (
 ): Promise<PutChannelPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3035,7 +3162,7 @@ const deserializeAws_restJson1PutPlaybackConfigurationCommandError = async (
 ): Promise<PutPlaybackConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3067,7 +3194,7 @@ const deserializeAws_restJson1StartChannelCommandError = async (
 ): Promise<StartChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3099,7 +3226,7 @@ const deserializeAws_restJson1StopChannelCommandError = async (
 ): Promise<StopChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3131,7 +3258,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3169,7 +3296,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3237,7 +3364,7 @@ const deserializeAws_restJson1UpdateChannelCommandError = async (
 ): Promise<UpdateChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3293,7 +3420,72 @@ const deserializeAws_restJson1UpdateLiveSourceCommandError = async (
 ): Promise<UpdateLiveSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restJson1UpdateProgramCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProgramCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateProgramCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AdBreaks != null) {
+    contents.AdBreaks = deserializeAws_restJson1__listOfAdBreak(data.AdBreaks, context);
+  }
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.ChannelName != null) {
+    contents.ChannelName = __expectString(data.ChannelName);
+  }
+  if (data.ClipRange != null) {
+    contents.ClipRange = deserializeAws_restJson1ClipRange(data.ClipRange, context);
+  }
+  if (data.CreationTime != null) {
+    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+  }
+  if (data.DurationMillis != null) {
+    contents.DurationMillis = __expectLong(data.DurationMillis);
+  }
+  if (data.LiveSourceName != null) {
+    contents.LiveSourceName = __expectString(data.LiveSourceName);
+  }
+  if (data.ProgramName != null) {
+    contents.ProgramName = __expectString(data.ProgramName);
+  }
+  if (data.ScheduledStartTime != null) {
+    contents.ScheduledStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ScheduledStartTime)));
+  }
+  if (data.SourceLocationName != null) {
+    contents.SourceLocationName = __expectString(data.SourceLocationName);
+  }
+  if (data.VodSourceName != null) {
+    contents.VodSourceName = __expectString(data.VodSourceName);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateProgramCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProgramCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3358,7 +3550,7 @@ const deserializeAws_restJson1UpdateSourceLocationCommandError = async (
 ): Promise<UpdateSourceLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3414,7 +3606,7 @@ const deserializeAws_restJson1UpdateVodSourceCommandError = async (
 ): Promise<UpdateVodSourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3478,10 +3670,8 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3504,6 +3694,9 @@ const serializeAws_restJson1AdBreak = (input: AdBreak, context: __SerdeContext):
     ...(input.Slate != null && { Slate: serializeAws_restJson1SlateSource(input.Slate, context) }),
     ...(input.SpliceInsertMessage != null && {
       SpliceInsertMessage: serializeAws_restJson1SpliceInsertMessage(input.SpliceInsertMessage, context),
+    }),
+    ...(input.TimeSignalMessage != null && {
+      TimeSignalMessage: serializeAws_restJson1TimeSignalMessage(input.TimeSignalMessage, context),
     }),
   };
 };
@@ -3542,6 +3735,12 @@ const serializeAws_restJson1CdnConfiguration = (input: CdnConfiguration, context
   };
 };
 
+const serializeAws_restJson1ClipRange = (input: ClipRange, context: __SerdeContext): any => {
+  return {
+    ...(input.EndOffsetMillis != null && { EndOffsetMillis: input.EndOffsetMillis }),
+  };
+};
+
 const serializeAws_restJson1ConfigurationAliasesRequest = (
   input: Record<string, Record<string, string>>,
   context: __SerdeContext
@@ -3550,10 +3749,8 @@ const serializeAws_restJson1ConfigurationAliasesRequest = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1__mapOf__string(value, context),
-    };
+    acc[key] = serializeAws_restJson1__mapOf__string(value, context);
+    return acc;
   }, {});
 };
 
@@ -3631,6 +3828,14 @@ const serializeAws_restJson1LivePreRollConfiguration = (
   };
 };
 
+const serializeAws_restJson1LogTypes = (input: (LogType | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ManifestProcessingRules = (
   input: ManifestProcessingRules,
   context: __SerdeContext
@@ -3685,6 +3890,7 @@ const serializeAws_restJson1RequestOutputs = (input: RequestOutputItem[], contex
 
 const serializeAws_restJson1ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.ClipRange != null && { ClipRange: serializeAws_restJson1ClipRange(input.ClipRange, context) }),
     ...(input.Transition != null && { Transition: serializeAws_restJson1Transition(input.Transition, context) }),
   };
 };
@@ -3698,6 +3904,30 @@ const serializeAws_restJson1SecretsManagerAccessTokenConfiguration = (
     ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
     ...(input.SecretStringKey != null && { SecretStringKey: input.SecretStringKey }),
   };
+};
+
+const serializeAws_restJson1SegmentationDescriptor = (input: SegmentationDescriptor, context: __SerdeContext): any => {
+  return {
+    ...(input.SegmentNum != null && { SegmentNum: input.SegmentNum }),
+    ...(input.SegmentationEventId != null && { SegmentationEventId: input.SegmentationEventId }),
+    ...(input.SegmentationTypeId != null && { SegmentationTypeId: input.SegmentationTypeId }),
+    ...(input.SegmentationUpid != null && { SegmentationUpid: input.SegmentationUpid }),
+    ...(input.SegmentationUpidType != null && { SegmentationUpidType: input.SegmentationUpidType }),
+    ...(input.SegmentsExpected != null && { SegmentsExpected: input.SegmentsExpected }),
+    ...(input.SubSegmentNum != null && { SubSegmentNum: input.SubSegmentNum }),
+    ...(input.SubSegmentsExpected != null && { SubSegmentsExpected: input.SubSegmentsExpected }),
+  };
+};
+
+const serializeAws_restJson1SegmentationDescriptorList = (
+  input: SegmentationDescriptor[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SegmentationDescriptor(entry, context);
+    });
 };
 
 const serializeAws_restJson1SegmentDeliveryConfiguration = (
@@ -3726,6 +3956,14 @@ const serializeAws_restJson1SpliceInsertMessage = (input: SpliceInsertMessage, c
   };
 };
 
+const serializeAws_restJson1TimeSignalMessage = (input: TimeSignalMessage, context: __SerdeContext): any => {
+  return {
+    ...(input.SegmentationDescriptors != null && {
+      SegmentationDescriptors: serializeAws_restJson1SegmentationDescriptorList(input.SegmentationDescriptors, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1Transition = (input: Transition, context: __SerdeContext): any => {
   return {
     ...(input.DurationMillis != null && { DurationMillis: input.DurationMillis }),
@@ -3733,6 +3971,28 @@ const serializeAws_restJson1Transition = (input: Transition, context: __SerdeCon
     ...(input.RelativeProgram != null && { RelativeProgram: input.RelativeProgram }),
     ...(input.ScheduledStartTimeMillis != null && { ScheduledStartTimeMillis: input.ScheduledStartTimeMillis }),
     ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1UpdateProgramScheduleConfiguration = (
+  input: UpdateProgramScheduleConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClipRange != null && { ClipRange: serializeAws_restJson1ClipRange(input.ClipRange, context) }),
+    ...(input.Transition != null && {
+      Transition: serializeAws_restJson1UpdateProgramTransition(input.Transition, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1UpdateProgramTransition = (
+  input: UpdateProgramTransition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DurationMillis != null && { DurationMillis: input.DurationMillis }),
+    ...(input.ScheduledStartTimeMillis != null && { ScheduledStartTimeMillis: input.ScheduledStartTimeMillis }),
   };
 };
 
@@ -3906,10 +4166,8 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3934,6 +4192,10 @@ const deserializeAws_restJson1AdBreak = (output: any, context: __SerdeContext): 
     SpliceInsertMessage:
       output.SpliceInsertMessage != null
         ? deserializeAws_restJson1SpliceInsertMessage(output.SpliceInsertMessage, context)
+        : undefined,
+    TimeSignalMessage:
+      output.TimeSignalMessage != null
+        ? deserializeAws_restJson1TimeSignalMessage(output.TimeSignalMessage, context)
         : undefined,
   } as any;
 };
@@ -4003,10 +4265,20 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
       output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    LogConfiguration:
+      output.LogConfiguration != null
+        ? deserializeAws_restJson1LogConfigurationForChannel(output.LogConfiguration, context)
+        : undefined,
     Outputs: output.Outputs != null ? deserializeAws_restJson1ResponseOutputs(output.Outputs, context) : undefined,
     PlaybackMode: __expectString(output.PlaybackMode),
     Tags: output.tags != null ? deserializeAws_restJson1__mapOf__string(output.tags, context) : undefined,
     Tier: __expectString(output.Tier),
+  } as any;
+};
+
+const deserializeAws_restJson1ClipRange = (output: any, context: __SerdeContext): ClipRange => {
+  return {
+    EndOffsetMillis: __expectLong(output.EndOffsetMillis),
   } as any;
 };
 
@@ -4018,10 +4290,8 @@ const deserializeAws_restJson1ConfigurationAliasesResponse = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1__mapOf__string(value, context),
-    };
+    acc[key] = deserializeAws_restJson1__mapOf__string(value, context);
+    return acc;
   }, {});
 };
 
@@ -4130,6 +4400,27 @@ const deserializeAws_restJson1LogConfiguration = (output: any, context: __SerdeC
   return {
     PercentEnabled: __expectInt32(output.PercentEnabled),
   } as any;
+};
+
+const deserializeAws_restJson1LogConfigurationForChannel = (
+  output: any,
+  context: __SerdeContext
+): LogConfigurationForChannel => {
+  return {
+    LogTypes: output.LogTypes != null ? deserializeAws_restJson1LogTypes(output.LogTypes, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LogTypes = (output: any, context: __SerdeContext): (LogType | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ManifestProcessingRules = (
@@ -4303,6 +4594,37 @@ const deserializeAws_restJson1SecretsManagerAccessTokenConfiguration = (
   } as any;
 };
 
+const deserializeAws_restJson1SegmentationDescriptor = (
+  output: any,
+  context: __SerdeContext
+): SegmentationDescriptor => {
+  return {
+    SegmentNum: __expectInt32(output.SegmentNum),
+    SegmentationEventId: __expectInt32(output.SegmentationEventId),
+    SegmentationTypeId: __expectInt32(output.SegmentationTypeId),
+    SegmentationUpid: __expectString(output.SegmentationUpid),
+    SegmentationUpidType: __expectInt32(output.SegmentationUpidType),
+    SegmentsExpected: __expectInt32(output.SegmentsExpected),
+    SubSegmentNum: __expectInt32(output.SubSegmentNum),
+    SubSegmentsExpected: __expectInt32(output.SubSegmentsExpected),
+  } as any;
+};
+
+const deserializeAws_restJson1SegmentationDescriptorList = (
+  output: any,
+  context: __SerdeContext
+): SegmentationDescriptor[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SegmentationDescriptor(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1SegmentDeliveryConfiguration = (
   output: any,
   context: __SerdeContext
@@ -4364,6 +4686,15 @@ const deserializeAws_restJson1SpliceInsertMessage = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_restJson1TimeSignalMessage = (output: any, context: __SerdeContext): TimeSignalMessage => {
+  return {
+    SegmentationDescriptors:
+      output.SegmentationDescriptors != null
+        ? deserializeAws_restJson1SegmentationDescriptorList(output.SegmentationDescriptors, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1VodSource = (output: any, context: __SerdeContext): VodSource => {
   return {
     Arn: __expectString(output.Arn),
@@ -4387,7 +4718,8 @@ const deserializeAws_restJson1VodSource = (output: any, context: __SerdeContext)
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -4419,6 +4751,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -4429,6 +4767,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

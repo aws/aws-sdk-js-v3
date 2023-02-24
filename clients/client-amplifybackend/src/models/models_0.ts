@@ -1404,6 +1404,11 @@ export interface GetBackendAPIModelsResponse {
    * <p>The current status of the request.</p>
    */
   Status?: Status | string;
+
+  /**
+   * <p>Stringified JSON of the model introspection schema for an existing backend API resource.</p>
+   */
+  ModelIntrospectionSchema?: string;
 }
 
 /**

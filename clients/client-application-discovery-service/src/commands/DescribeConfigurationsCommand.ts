@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,6 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
 
 /**
  * <p>Retrieves attributes for a list of configuration item IDs.</p>
- *
  *          <note>
  *             <p>All of the supplied IDs must be for the same asset type from one of the
  *         following:</p>
@@ -51,7 +51,6 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  *                   <p>connection</p>
  *                </li>
  *             </ul>
- *
  *             <p>Output fields are specific to the asset type specified. For example, the output for a
  *           <i>server</i> configuration item includes a list of attributes about the
  *         server, such as host name, operating system, number of network cards, etc.</p>
@@ -81,6 +80,15 @@ export class DescribeConfigurationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,6 +104,9 @@ export class DescribeConfigurationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeConfigurationsCommandInput, DescribeConfigurationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeConfigurationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

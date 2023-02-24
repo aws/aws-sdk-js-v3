@@ -94,8 +94,9 @@ export const constructStack = <Input extends object, Output extends object>(): M
 
   /**
    * Get a final list of middleware in the order of being executed in the resolved handler.
+   * @param debug - don't throw, getting info only.
    */
-  const getMiddlewareList = (): Array<MiddlewareType<Input, Output>> => {
+  const getMiddlewareList = (debug = false): Array<MiddlewareEntry<Input, Output>> => {
     const normalizedAbsoluteEntries: Normalized<AbsoluteMiddlewareEntry<Input, Output>, Input, Output>[] = [];
     const normalizedRelativeEntries: Normalized<RelativeMiddlewareEntry<Input, Output>, Input, Output>[] = [];
     const normalizedEntriesNameMap: Record<string, Normalized<MiddlewareEntry<Input, Output>, Input, Output>> = {};
@@ -124,6 +125,9 @@ export const constructStack = <Input extends object, Output extends object>(): M
       if (entry.toMiddleware) {
         const toMiddleware = normalizedEntriesNameMap[entry.toMiddleware];
         if (toMiddleware === undefined) {
+          if (debug) {
+            return;
+          }
           throw new Error(
             `${entry.toMiddleware} is not found when adding ${entry.name || "anonymous"} middleware ${entry.relation} ${
               entry.toMiddleware
@@ -146,10 +150,10 @@ export const constructStack = <Input extends object, Output extends object>(): M
         wholeList.push(...expendedMiddlewareList);
         return wholeList;
       }, [] as MiddlewareEntry<Input, Output>[]);
-    return mainChain.map((entry) => entry.middleware);
+    return mainChain;
   };
 
-  const stack = {
+  const stack: MiddlewareStack<Input, Output> = {
     add: (middleware: MiddlewareType<Input, Output>, options: HandlerOptions & AbsoluteLocation = {}) => {
       const { name, override } = options;
       const entry: AbsoluteMiddlewareEntry<Input, Output> = {
@@ -237,11 +241,19 @@ export const constructStack = <Input extends object, Output extends object>(): M
 
     applyToStack: cloneTo,
 
+    identify: (): string[] => {
+      return getMiddlewareList(true).map((mw: MiddlewareEntry<Input, Output>) => {
+        return mw.name + ": " + (mw.tags || []).join(",");
+      });
+    },
+
     resolve: <InputType extends Input, OutputType extends Output>(
       handler: DeserializeHandler<InputType, OutputType>,
       context: HandlerExecutionContext
     ): Handler<InputType, OutputType> => {
-      for (const middleware of getMiddlewareList().reverse()) {
+      for (const middleware of getMiddlewareList()
+        .map((entry) => entry.middleware)
+        .reverse()) {
         handler = middleware(handler as Handler<Input, OutputType>, context) as any;
       }
       return handler as Handler<InputType, OutputType>;

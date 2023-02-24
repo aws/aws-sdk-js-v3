@@ -54,10 +54,11 @@ export const updateDiscoveredEndpointInCache = async (
           resolve();
         })
         .catch((error: any) => {
-          if (error.name === "InvalidEndpointException" || error.$metadata?.httpStatusCode === 421) {
-            // Endpoint is invalid, delete the cache entry.
-            endpointCache.delete(cacheKey);
-          }
+          // The cache entry must be deleted
+          // because a subsequent blocking request will be stuck
+          // in a waiting state if it sees the cache entry
+          // but we have already flushed the request queue.
+          endpointCache.delete(cacheKey);
 
           const errorToThrow = Object.assign(
             new Error(

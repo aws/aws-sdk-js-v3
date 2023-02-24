@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getCheckContentLengthHeaderPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -40,16 +40,12 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
 /**
  * <p>Adds an object to a bucket. You must have WRITE permissions on a bucket to add an object
  *          to it.</p>
- *
- *
  *          <p>Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added the
  *          entire object to the bucket.</p>
- *
  *          <p>Amazon S3 is a distributed system. If it receives multiple write requests for the same object
  *          simultaneously, it overwrites all but the last object written. Amazon S3 does not provide object
  *          locking; if you need this, make sure to build it into your application layer or use
  *          versioning instead.</p>
- *
  *          <p>To ensure that data is not corrupted traversing the network, use the
  *             <code>Content-MD5</code> header. When you use this header, Amazon S3 checks the object
  *          against the provided MD5 value and, if they do not match, returns an error. Additionally,
@@ -116,8 +112,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *          performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses
  *          the OUTPOSTS Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
  *          <i>Amazon S3 User Guide</i>.</p>
- *
- *
  *          <p>
  *             <b>Versioning</b>
  *          </p>
@@ -128,8 +122,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *          <p>For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html">Adding Objects to
  *             Versioning Enabled Buckets</a>. For information about returning the versioning state
  *          of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a>. </p>
- *
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>
@@ -164,6 +156,21 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -179,9 +186,9 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
     options?: __HttpHandlerOptions
   ): Handler<PutObjectCommandInput, PutObjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutObjectCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getCheckContentLengthHeaderPlugin(configuration));
     this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,

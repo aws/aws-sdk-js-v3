@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,11 +29,11 @@ export interface ListFleetsCommandInput extends ListFleetsInput {}
 export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can call this operation
- *             to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or specify a Region in your
- *             request. You can filter the result set to find only those fleets that are deployed with
- *             a specific build or script. For fleets that have multiple locations, this operation
- *             retrieves fleets based on their home Region only.</p>
+ * <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can call this
+ *             operation to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
+ *             specify a Region in your request. You can filter the result set to find only those
+ *             fleets that are deployed with a specific build or script. For fleets that have multiple
+ *             locations, this operation retrieves fleets based on their home Region only.</p>
  *         <p>This operation can be used in the following ways: </p>
  *         <ul>
  *             <li>
@@ -54,26 +55,12 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  *         <note>
  *             <p>Fleet resources are not listed in a particular order.</p>
  *         </note>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateFleet</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
- *                     <a>DescribeFleetAttributes</a> |
- *                     <a>DescribeFleetLocationAttributes</a> |
- *                     <a>UpdateFleetAttributes</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>DeleteFleet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *                 fleets</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +85,15 @@ export class ListFleetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +109,7 @@ export class ListFleetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListFleetsCommandInput, ListFleetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListFleetsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

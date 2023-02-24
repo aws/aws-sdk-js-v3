@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataB
  * <p>Retrieves a vector data tile from the map resource. Map tiles are used by clients to
  *             render a map. they're addressed using a grid arrangement with an X coordinate, Y
  *             coordinate, and Z (zoom) level. </p>
- *         <p>The origin (0, 0) is the top left of the map. Increasing the zoom level by 1 doubles
+ *          <p>The origin (0, 0) is the top left of the map. Increasing the zoom level by 1 doubles
  *             both the X and Y dimensions, so a tile containing data for the entire world at (0/0/0)
  *             will be split into 4 tiles at zoom 1 (1/0/0, 1/0/1, 1/1/0, 1/1/1).</p>
  * @example
@@ -57,6 +58,15 @@ export class GetMapTileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetMapTileCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,7 @@ export class GetMapTileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetMapTileCommandInput, GetMapTileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetMapTileCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

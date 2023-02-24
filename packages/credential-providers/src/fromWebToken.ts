@@ -3,10 +3,11 @@ import {
   fromWebToken as _fromWebToken,
   FromWebTokenInit as _FromWebTokenInit,
 } from "@aws-sdk/credential-provider-web-identity";
-import { CredentialProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider, Pluggable } from "@aws-sdk/types";
 
 export interface FromWebTokenInit extends _FromWebTokenInit {
   clientConfig?: STSClientConfig;
+  clientPlugins?: Pluggable<any, any>[];
 }
 
 /**
@@ -26,6 +27,9 @@ export interface FromWebTokenInit extends _FromWebTokenInit {
  *     webIdentityToken: await openIdProvider()
  *     // Optional. Custom STS client configurations overriding the default ones.
  *     clientConfig: { region }
+ *     // Optional. Custom STS client middleware plugin to modify the client default behavior.
+ *     // e.g. adding custom headers.
+ *     clientPlugins: [addFooHeadersPlugin],
  *     // Optional. A function that assumes a role with web identity and returns a promise fulfilled with credentials for
  *     // the assumed role.
  *     roleAssumerWithWebIdentity,
@@ -43,9 +47,9 @@ export interface FromWebTokenInit extends _FromWebTokenInit {
  * });
  * ```
  */
-export const fromWebToken = (init: FromWebTokenInit): CredentialProvider =>
+export const fromWebToken = (init: FromWebTokenInit): AwsCredentialIdentityProvider =>
   _fromWebToken({
     ...init,
     roleAssumerWithWebIdentity:
-      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig),
+      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig, init.clientPlugins),
   });

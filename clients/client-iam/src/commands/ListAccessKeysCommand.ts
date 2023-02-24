@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,17 +31,19 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
 /**
  * <p>Returns information about the access key IDs associated with the specified IAM user.
  *             If there is none, the operation returns an empty list.</p>
- *         <p>Although each user is limited to a small number of keys, you can still paginate the
+ *          <p>Although each user is limited to a small number of keys, you can still paginate the
  *             results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
- *         <p>If the <code>UserName</code> field is not specified, the user name is determined
- *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
- *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
- *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
- *             associated users.</p>
- *         <note>
+ *          <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
+ *             based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is
+ *             used, then <code>UserName</code> is required. If a long-term key is assigned to the
+ *             user, then <code>UserName</code> is not required. This operation works for access keys
+ *             under the Amazon Web Services account. Consequently, you can use this operation to manage
+ *             Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
+ *             users.</p>
+ *          <note>
  *             <p>To ensure the security of your Amazon Web Services account, the secret access key is accessible
  *                 only during key and user creation.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +67,15 @@ export class ListAccessKeysCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListAccessKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +91,9 @@ export class ListAccessKeysCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAccessKeysCommandInput, ListAccessKeysCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListAccessKeysCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

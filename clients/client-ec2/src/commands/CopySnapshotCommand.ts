@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getCopySnapshotPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -31,16 +32,13 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *       You can't copy a snapshot from an Outpost to a Region, from one Outpost to another, or within
  *       the same Outpost.</p>
  *          <p>You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs).</p>
- *
- *
  *          <p>When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
  *     	Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for the
  *     	snapshot copy operation. By default, encrypted snapshot copies use the default Key Management Service (KMS)
  *     	KMS key; however, you can specify a different KMS key. To copy an encrypted
  *     	snapshot that has been shared from another account, you must have permissions for the KMS key
  *     	used to encrypt the snapshot.</p>
- *
- *   	      <p>Snapshots copied to an Outpost are encrypted by default using the default
+ *          <p>Snapshots copied to an Outpost are encrypted by default using the default
  *   		encryption key for the Region, or a different key that you specify in the request using
  *   		<b>KmsKeyId</b>. Outposts do not support unencrypted
  *   		snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
@@ -72,6 +70,15 @@ export class CopySnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CopySnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +94,7 @@ export class CopySnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CopySnapshotCommandInput, CopySnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CopySnapshotCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getCopySnapshotPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

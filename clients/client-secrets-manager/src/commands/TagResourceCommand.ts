@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,8 +26,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Attaches tags to a secret. Tags consist of a key name and a value. Tags are part of the
  *       secret's metadata. They are not associated with specific versions of the secret. This operation appends tags to the existing list of tags.</p>
- *             <p>The following restrictions apply to tags:</p>
- *         <ul>
+ *          <p>The following restrictions apply to tags:</p>
+ *          <ul>
  *             <li>
  *                <p>Maximum number of tags per secret: 50</p>
  *             </li>
@@ -51,13 +52,13 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *               following special characters: + - = . _ : / @.</p>
  *             </li>
  *          </ul>
- *
  *          <important>
  *             <p>If you use tags as part of your security strategy, then adding or removing a tag can
  *         change permissions. If successfully completing this operation would result in you losing
  *         your permissions for this secret, then the operation is blocked and returns an Access Denied
  *         error.</p>
  *          </important>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:TagResource</code>.
@@ -87,6 +88,15 @@ export class TagResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,6 +112,7 @@ export class TagResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

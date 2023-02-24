@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,19 +32,16 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * <p>Use this operation to create a workforce. This operation will return an error
  *           if a workforce already exists in the Amazon Web Services Region that you specify. You can only
  *           create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p>
- *
- *         <p>If you want to create a new workforce in an Amazon Web Services Region where
+ *          <p>If you want to create a new workforce in an Amazon Web Services Region where
  *       a workforce already exists, use the  API
  *       operation to delete the existing workforce and then use <code>CreateWorkforce</code>
  *       to create a new workforce.</p>
- *
  *          <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool
  *     in <code>CognitoConfig</code>.
  *     You can also create an Amazon Cognito workforce using the Amazon SageMaker console.
  *     For more information, see
  *       <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">
  *       Create a Private Workforce (Amazon Cognito)</a>.</p>
- *
  *          <p>To create a private workforce using your own OIDC Identity Provider (IdP), specify your IdP
  *       configuration in <code>OidcConfig</code>. Your OIDC IdP must support <i>groups</i>
  *       because groups are used by Ground Truth and Amazon A2I to create work teams.
@@ -72,6 +70,15 @@ export class CreateWorkforceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateWorkforceCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +94,9 @@ export class CreateWorkforceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateWorkforceCommandInput, CreateWorkforceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateWorkforceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

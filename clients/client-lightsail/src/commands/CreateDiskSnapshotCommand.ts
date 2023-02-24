@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -45,7 +46,6 @@ export interface CreateDiskSnapshotCommandOutput extends CreateDiskSnapshotResul
  *       when issuing the snapshot command, and a snapshot of the defined instance's system volume will
  *       be created. After the snapshot is available, you can create a block storage disk from the
  *       snapshot and attach it to a running instance to access the data on the disk.</p>
- *
  *          <p>The <code>create disk snapshot</code> operation supports tag-based access control via
  *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
@@ -71,6 +71,15 @@ export class CreateDiskSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDiskSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +95,9 @@ export class CreateDiskSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDiskSnapshotCommandInput, CreateDiskSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDiskSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

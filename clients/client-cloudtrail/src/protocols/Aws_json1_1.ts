@@ -20,31 +20,47 @@ import {
 
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import { CancelQueryCommandInput, CancelQueryCommandOutput } from "../commands/CancelQueryCommand";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
 import {
   CreateEventDataStoreCommandInput,
   CreateEventDataStoreCommandOutput,
 } from "../commands/CreateEventDataStoreCommand";
 import { CreateTrailCommandInput, CreateTrailCommandOutput } from "../commands/CreateTrailCommand";
+import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "../commands/DeleteChannelCommand";
 import {
   DeleteEventDataStoreCommandInput,
   DeleteEventDataStoreCommandOutput,
 } from "../commands/DeleteEventDataStoreCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "../commands/DeleteTrailCommand";
+import {
+  DeregisterOrganizationDelegatedAdminCommandInput,
+  DeregisterOrganizationDelegatedAdminCommandOutput,
+} from "../commands/DeregisterOrganizationDelegatedAdminCommand";
 import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "../commands/DescribeQueryCommand";
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "../commands/DescribeTrailsCommand";
+import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "../commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "../commands/GetEventSelectorsCommand";
+import { GetImportCommandInput, GetImportCommandOutput } from "../commands/GetImportCommand";
 import {
   GetInsightSelectorsCommandInput,
   GetInsightSelectorsCommandOutput,
 } from "../commands/GetInsightSelectorsCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "../commands/GetQueryResultsCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { GetTrailCommandInput, GetTrailCommandOutput } from "../commands/GetTrailCommand";
 import { GetTrailStatusCommandInput, GetTrailStatusCommandOutput } from "../commands/GetTrailStatusCommand";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
 import {
   ListEventDataStoresCommandInput,
   ListEventDataStoresCommandOutput,
 } from "../commands/ListEventDataStoresCommand";
+import { ListImportFailuresCommandInput, ListImportFailuresCommandOutput } from "../commands/ListImportFailuresCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
 import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "../commands/ListPublicKeysCommand";
 import { ListQueriesCommandInput, ListQueriesCommandOutput } from "../commands/ListQueriesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
@@ -55,14 +71,22 @@ import {
   PutInsightSelectorsCommandInput,
   PutInsightSelectorsCommandOutput,
 } from "../commands/PutInsightSelectorsCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
+import {
+  RegisterOrganizationDelegatedAdminCommandInput,
+  RegisterOrganizationDelegatedAdminCommandOutput,
+} from "../commands/RegisterOrganizationDelegatedAdminCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "../commands/RemoveTagsCommand";
 import {
   RestoreEventDataStoreCommandInput,
   RestoreEventDataStoreCommandOutput,
 } from "../commands/RestoreEventDataStoreCommand";
+import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
 import { StartLoggingCommandInput, StartLoggingCommandOutput } from "../commands/StartLoggingCommand";
 import { StartQueryCommandInput, StartQueryCommandOutput } from "../commands/StartQueryCommand";
+import { StopImportCommandInput, StopImportCommandOutput } from "../commands/StopImportCommand";
 import { StopLoggingCommandInput, StopLoggingCommandOutput } from "../commands/StopLoggingCommand";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
 import {
   UpdateEventDataStoreCommandInput,
   UpdateEventDataStoreCommandOutput,
@@ -70,52 +94,86 @@ import {
 import { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "../commands/UpdateTrailCommand";
 import { CloudTrailServiceException as __BaseException } from "../models/CloudTrailServiceException";
 import {
+  AccountHasOngoingImportException,
+  AccountNotFoundException,
+  AccountNotRegisteredException,
+  AccountRegisteredException,
   AddTagsRequest,
   AddTagsResponse,
   AdvancedEventSelector,
   AdvancedFieldSelector,
   CancelQueryRequest,
   CancelQueryResponse,
+  CannotDelegateManagementAccountException,
+  Channel,
+  ChannelAlreadyExistsException,
+  ChannelARNInvalidException,
+  ChannelExistsForEDSException,
+  ChannelMaxLimitExceededException,
+  ChannelNotFoundException,
   CloudTrailAccessNotEnabledException,
   CloudTrailARNInvalidException,
   CloudTrailInvalidClientTokenIdException,
   CloudWatchLogsDeliveryUnavailableException,
   ConflictException,
+  CreateChannelRequest,
+  CreateChannelResponse,
   CreateEventDataStoreRequest,
   CreateEventDataStoreResponse,
   CreateTrailRequest,
   CreateTrailResponse,
   DataResource,
+  DelegatedAdminAccountLimitExceededException,
+  DeleteChannelRequest,
+  DeleteChannelResponse,
   DeleteEventDataStoreRequest,
   DeleteEventDataStoreResponse,
+  DeleteResourcePolicyRequest,
+  DeleteResourcePolicyResponse,
   DeleteTrailRequest,
   DeleteTrailResponse,
+  DeregisterOrganizationDelegatedAdminRequest,
+  DeregisterOrganizationDelegatedAdminResponse,
   DescribeQueryRequest,
   DescribeQueryResponse,
   DescribeTrailsRequest,
   DescribeTrailsResponse,
+  Destination,
   Event,
   EventDataStore,
   EventDataStoreAlreadyExistsException,
   EventDataStoreARNInvalidException,
+  EventDataStoreHasOngoingImportException,
   EventDataStoreMaxLimitExceededException,
   EventDataStoreNotFoundException,
   EventDataStoreTerminationProtectedException,
   EventSelector,
+  GetChannelRequest,
+  GetChannelResponse,
   GetEventDataStoreRequest,
   GetEventDataStoreResponse,
   GetEventSelectorsRequest,
   GetEventSelectorsResponse,
+  GetImportRequest,
+  GetImportResponse,
   GetInsightSelectorsRequest,
   GetInsightSelectorsResponse,
   GetQueryResultsRequest,
   GetQueryResultsResponse,
+  GetResourcePolicyRequest,
+  GetResourcePolicyResponse,
   GetTrailRequest,
   GetTrailResponse,
   GetTrailStatusRequest,
   GetTrailStatusResponse,
+  ImportFailureListItem,
+  ImportNotFoundException,
+  ImportsListItem,
+  ImportSource,
+  ImportStatistics,
   InactiveEventDataStoreException,
   InactiveQueryException,
+  IngestionStatus,
   InsightNotEnabledException,
   InsightSelector,
   InsufficientDependencyServiceAccessPermissionException,
@@ -126,9 +184,11 @@ import {
   InvalidCloudWatchLogsRoleArnException,
   InvalidDateRangeException,
   InvalidEventCategoryException,
+  InvalidEventDataStoreCategoryException,
   InvalidEventDataStoreStatusException,
   InvalidEventSelectorsException,
   InvalidHomeRegionException,
+  InvalidImportSourceException,
   InvalidInsightSelectorsException,
   InvalidKmsKeyIdException,
   InvalidLookupAttributesException,
@@ -141,6 +201,7 @@ import {
   InvalidS3BucketNameException,
   InvalidS3PrefixException,
   InvalidSnsTopicNameException,
+  InvalidSourceException,
   InvalidTagParameterException,
   InvalidTimeRangeException,
   InvalidTokenException,
@@ -148,8 +209,14 @@ import {
   KmsException,
   KmsKeyDisabledException,
   KmsKeyNotFoundException,
+  ListChannelsRequest,
+  ListChannelsResponse,
   ListEventDataStoresRequest,
   ListEventDataStoresResponse,
+  ListImportFailuresRequest,
+  ListImportFailuresResponse,
+  ListImportsRequest,
+  ListImportsResponse,
   ListPublicKeysRequest,
   ListPublicKeysResponse,
   ListQueriesRequest,
@@ -163,6 +230,8 @@ import {
   LookupEventsResponse,
   MaxConcurrentQueriesException,
   MaximumNumberOfTrailsExceededException,
+  NoManagementAccountSLRExistsException,
+  NotOrganizationManagementAccountException,
   NotOrganizationMasterAccountException,
   OperationNotPermittedException,
   OrganizationNotInAllFeaturesModeException,
@@ -172,23 +241,36 @@ import {
   PutEventSelectorsResponse,
   PutInsightSelectorsRequest,
   PutInsightSelectorsResponse,
+  PutResourcePolicyRequest,
+  PutResourcePolicyResponse,
   Query,
   QueryIdNotFoundException,
   QueryStatistics,
   QueryStatisticsForDescribeQuery,
+  RegisterOrganizationDelegatedAdminRequest,
+  RegisterOrganizationDelegatedAdminResponse,
   RemoveTagsRequest,
   RemoveTagsResponse,
   Resource,
+  ResourceARNNotValidException,
   ResourceNotFoundException,
+  ResourcePolicyNotFoundException,
+  ResourcePolicyNotValidException,
   ResourceTag,
   ResourceTypeNotSupportedException,
   RestoreEventDataStoreRequest,
   RestoreEventDataStoreResponse,
   S3BucketDoesNotExistException,
+  S3ImportSource,
+  SourceConfig,
+  StartImportRequest,
+  StartImportResponse,
   StartLoggingRequest,
   StartLoggingResponse,
   StartQueryRequest,
   StartQueryResponse,
+  StopImportRequest,
+  StopImportResponse,
   StopLoggingRequest,
   StopLoggingResponse,
   Tag,
@@ -199,6 +281,8 @@ import {
   TrailNotFoundException,
   TrailNotProvidedException,
   UnsupportedOperationException,
+  UpdateChannelRequest,
+  UpdateChannelResponse,
   UpdateEventDataStoreRequest,
   UpdateEventDataStoreResponse,
   UpdateTrailRequest,
@@ -231,6 +315,19 @@ export const serializeAws_json1_1CancelQueryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateChannelCommand = async (
+  input: CreateChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.CreateChannel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateChannelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateEventDataStoreCommand = async (
   input: CreateEventDataStoreCommandInput,
   context: __SerdeContext
@@ -257,6 +354,19 @@ export const serializeAws_json1_1CreateTrailCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteChannelCommand = async (
+  input: DeleteChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.DeleteChannel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteChannelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteEventDataStoreCommand = async (
   input: DeleteEventDataStoreCommandInput,
   context: __SerdeContext
@@ -270,6 +380,19 @@ export const serializeAws_json1_1DeleteEventDataStoreCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.DeleteResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteTrailCommand = async (
   input: DeleteTrailCommandInput,
   context: __SerdeContext
@@ -280,6 +403,19 @@ export const serializeAws_json1_1DeleteTrailCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTrailRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand = async (
+  input: DeregisterOrganizationDelegatedAdminCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.DeregisterOrganizationDelegatedAdmin",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeregisterOrganizationDelegatedAdminRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -309,6 +445,19 @@ export const serializeAws_json1_1DescribeTrailsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetChannelCommand = async (
+  input: GetChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.GetChannel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetChannelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetEventDataStoreCommand = async (
   input: GetEventDataStoreCommandInput,
   context: __SerdeContext
@@ -332,6 +481,19 @@ export const serializeAws_json1_1GetEventSelectorsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetEventSelectorsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetImportCommand = async (
+  input: GetImportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.GetImport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetImportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -361,6 +523,19 @@ export const serializeAws_json1_1GetQueryResultsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.GetResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetResourcePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetTrailCommand = async (
   input: GetTrailCommandInput,
   context: __SerdeContext
@@ -387,6 +562,19 @@ export const serializeAws_json1_1GetTrailStatusCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListChannelsCommand = async (
+  input: ListChannelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.ListChannels",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListChannelsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListEventDataStoresCommand = async (
   input: ListEventDataStoresCommandInput,
   context: __SerdeContext
@@ -397,6 +585,32 @@ export const serializeAws_json1_1ListEventDataStoresCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEventDataStoresRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListImportFailuresCommand = async (
+  input: ListImportFailuresCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.ListImportFailures",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListImportFailuresRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListImportsCommand = async (
+  input: ListImportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.ListImports",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListImportsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -491,6 +705,32 @@ export const serializeAws_json1_1PutInsightSelectorsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.PutResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RegisterOrganizationDelegatedAdminCommand = async (
+  input: RegisterOrganizationDelegatedAdminCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.RegisterOrganizationDelegatedAdmin",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RegisterOrganizationDelegatedAdminRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
@@ -514,6 +754,19 @@ export const serializeAws_json1_1RestoreEventDataStoreCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RestoreEventDataStoreRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StartImportCommand = async (
+  input: StartImportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.StartImport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartImportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -543,6 +796,19 @@ export const serializeAws_json1_1StartQueryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StopImportCommand = async (
+  input: StopImportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.StopImport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopImportRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StopLoggingCommand = async (
   input: StopLoggingCommandInput,
   context: __SerdeContext
@@ -553,6 +819,19 @@ export const serializeAws_json1_1StopLoggingCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopLoggingRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateChannelCommand = async (
+  input: UpdateChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.UpdateChannel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -605,10 +884,13 @@ const deserializeAws_json1_1AddTagsCommandError = async (
 ): Promise<AddTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ChannelNotFoundException":
+    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
+      throw await deserializeAws_json1_1ChannelNotFoundExceptionResponse(parsedOutput, context);
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
@@ -627,6 +909,9 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -679,7 +964,7 @@ const deserializeAws_json1_1CancelQueryCommandError = async (
 ): Promise<CancelQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -701,12 +986,89 @@ const deserializeAws_json1_1CancelQueryCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "QueryIdNotFoundException":
     case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
       throw await deserializeAws_json1_1QueryIdNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateChannelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateChannelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateChannelResponse(data, context);
+  const response: CreateChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ChannelAlreadyExistsException":
+    case "com.amazonaws.cloudtrail#ChannelAlreadyExistsException":
+      throw await deserializeAws_json1_1ChannelAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ChannelMaxLimitExceededException":
+    case "com.amazonaws.cloudtrail#ChannelMaxLimitExceededException":
+      throw await deserializeAws_json1_1ChannelMaxLimitExceededExceptionResponse(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "EventDataStoreNotFoundException":
+    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InvalidEventDataStoreCategoryException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
+      throw await deserializeAws_json1_1InvalidEventDataStoreCategoryExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidSourceException":
+    case "com.amazonaws.cloudtrail#InvalidSourceException":
+      throw await deserializeAws_json1_1InvalidSourceExceptionResponse(parsedOutput, context);
+    case "InvalidTagParameterException":
+    case "com.amazonaws.cloudtrail#InvalidTagParameterException":
+      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "TagsLimitExceededException":
+    case "com.amazonaws.cloudtrail#TagsLimitExceededException":
+      throw await deserializeAws_json1_1TagsLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -744,7 +1106,7 @@ const deserializeAws_json1_1CreateEventDataStoreCommandError = async (
 ): Promise<CreateEventDataStoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -766,12 +1128,30 @@ const deserializeAws_json1_1CreateEventDataStoreCommandError = async (
         parsedOutput,
         context
       );
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
+    case "InvalidEventSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
+      throw await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(parsedOutput, context);
+    case "InvalidKmsKeyIdException":
+    case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
+      throw await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.cloudtrail#InvalidTagParameterException":
       throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
+    case "KmsException":
+    case "com.amazonaws.cloudtrail#KmsException":
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+    case "KmsKeyNotFoundException":
+    case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
+      throw await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -821,7 +1201,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
 ): Promise<CreateTrailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -891,6 +1271,9 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
     case "MaximumNumberOfTrailsExceededException":
     case "com.amazonaws.cloudtrail#MaximumNumberOfTrailsExceededException":
       throw await deserializeAws_json1_1MaximumNumberOfTrailsExceededExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -906,12 +1289,65 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
     case "S3BucketDoesNotExistException":
     case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
       throw await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context);
+    case "TagsLimitExceededException":
+    case "com.amazonaws.cloudtrail#TagsLimitExceededException":
+      throw await deserializeAws_json1_1TagsLimitExceededExceptionResponse(parsedOutput, context);
     case "TrailAlreadyExistsException":
     case "com.amazonaws.cloudtrail#TrailAlreadyExistsException":
       throw await deserializeAws_json1_1TrailAlreadyExistsExceptionResponse(parsedOutput, context);
     case "TrailNotProvidedException":
     case "com.amazonaws.cloudtrail#TrailNotProvidedException":
       throw await deserializeAws_json1_1TrailNotProvidedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteChannelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteChannelResponse(data, context);
+  const response: DeleteChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ChannelARNInvalidException":
+    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
+      throw await deserializeAws_json1_1ChannelARNInvalidExceptionResponse(parsedOutput, context);
+    case "ChannelNotFoundException":
+    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
+      throw await deserializeAws_json1_1ChannelNotFoundExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -949,19 +1385,28 @@ const deserializeAws_json1_1DeleteEventDataStoreCommandError = async (
 ): Promise<DeleteEventDataStoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ChannelExistsForEDSException":
+    case "com.amazonaws.cloudtrail#ChannelExistsForEDSException":
+      throw await deserializeAws_json1_1ChannelExistsForEDSExceptionResponse(parsedOutput, context);
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
       throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "EventDataStoreHasOngoingImportException":
+    case "com.amazonaws.cloudtrail#EventDataStoreHasOngoingImportException":
+      throw await deserializeAws_json1_1EventDataStoreHasOngoingImportExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
       throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "EventDataStoreTerminationProtectedException":
     case "com.amazonaws.cloudtrail#EventDataStoreTerminationProtectedException":
       throw await deserializeAws_json1_1EventDataStoreTerminationProtectedExceptionResponse(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -971,12 +1416,71 @@ const deserializeAws_json1_1DeleteEventDataStoreCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteResourcePolicyResponse(data, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "ResourceARNNotValidException":
+    case "com.amazonaws.cloudtrail#ResourceARNNotValidException":
+      throw await deserializeAws_json1_1ResourceARNNotValidExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourcePolicyNotFoundException":
+      throw await deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceTypeNotSupportedException":
+    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
+      throw await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -1014,10 +1518,13 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
 ): Promise<DeleteTrailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloudtrail#ConflictException":
       throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
@@ -1033,6 +1540,9 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -1042,6 +1552,80 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeregisterOrganizationDelegatedAdminResponse(data, context);
+  const response: DeregisterOrganizationDelegatedAdminCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccountNotFoundException":
+    case "com.amazonaws.cloudtrail#AccountNotFoundException":
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+    case "AccountNotRegisteredException":
+    case "com.amazonaws.cloudtrail#AccountNotRegisteredException":
+      throw await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context);
+    case "CloudTrailAccessNotEnabledException":
+    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
+      throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NotOrganizationManagementAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationManagementAccountException":
+      throw await deserializeAws_json1_1NotOrganizationManagementAccountExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "OrganizationNotInAllFeaturesModeException":
+    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
+      throw await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context);
+    case "OrganizationsNotInUseException":
+    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
+      throw await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -1079,7 +1663,7 @@ const deserializeAws_json1_1DescribeQueryCommandError = async (
 ): Promise<DescribeQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1095,6 +1679,9 @@ const deserializeAws_json1_1DescribeQueryCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1138,13 +1725,66 @@ const deserializeAws_json1_1DescribeTrailsCommandError = async (
 ): Promise<DescribeTrailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChannelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetChannelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetChannelResponse(data, context);
+  const response: GetChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ChannelARNInvalidException":
+    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
+      throw await deserializeAws_json1_1ChannelARNInvalidExceptionResponse(parsedOutput, context);
+    case "ChannelNotFoundException":
+    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
+      throw await deserializeAws_json1_1ChannelNotFoundExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1185,7 +1825,7 @@ const deserializeAws_json1_1GetEventDataStoreCommandError = async (
 ): Promise<GetEventDataStoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1198,6 +1838,9 @@ const deserializeAws_json1_1GetEventDataStoreCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1238,19 +1881,75 @@ const deserializeAws_json1_1GetEventSelectorsCommandError = async (
 ): Promise<GetEventSelectorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetImportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetImportResponse(data, context);
+  const response: GetImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetImportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ImportNotFoundException":
+    case "com.amazonaws.cloudtrail#ImportNotFoundException":
+      throw await deserializeAws_json1_1ImportNotFoundExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -1288,16 +1987,22 @@ const deserializeAws_json1_1GetInsightSelectorsCommandError = async (
 ): Promise<GetInsightSelectorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsightNotEnabledException":
     case "com.amazonaws.cloudtrail#InsightNotEnabledException":
       throw await deserializeAws_json1_1InsightNotEnabledExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1341,7 +2046,7 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
 ): Promise<GetQueryResultsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1354,6 +2059,9 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
       throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
       throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
@@ -1363,12 +2071,71 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "QueryIdNotFoundException":
     case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
       throw await deserializeAws_json1_1QueryIdNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetResourcePolicyResponse(data, context);
+  const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "ResourceARNNotValidException":
+    case "com.amazonaws.cloudtrail#ResourceARNNotValidException":
+      throw await deserializeAws_json1_1ResourceARNNotValidExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourcePolicyNotFoundException":
+      throw await deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceTypeNotSupportedException":
+    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
+      throw await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -1406,10 +2173,13 @@ const deserializeAws_json1_1GetTrailCommandError = async (
 ): Promise<GetTrailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
@@ -1456,10 +2226,13 @@ const deserializeAws_json1_1GetTrailStatusCommandError = async (
 ): Promise<GetTrailStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
@@ -1469,6 +2242,53 @@ const deserializeAws_json1_1GetTrailStatusCommandError = async (
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListChannelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListChannelsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListChannelsResponse(data, context);
+  const response: ListChannelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListChannelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -1506,7 +2326,7 @@ const deserializeAws_json1_1ListEventDataStoresCommandError = async (
 ): Promise<ListEventDataStoresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1516,6 +2336,109 @@ const deserializeAws_json1_1ListEventDataStoresCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.cloudtrail#InvalidNextTokenException":
       throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListImportFailuresCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportFailuresCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListImportFailuresCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListImportFailuresResponse(data, context);
+  const response: ListImportFailuresCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListImportFailuresCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportFailuresCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListImportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListImportsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListImportsResponse(data, context);
+  const response: ListImportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListImportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1556,7 +2479,7 @@ const deserializeAws_json1_1ListPublicKeysCommandError = async (
 ): Promise<ListPublicKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1606,7 +2529,7 @@ const deserializeAws_json1_1ListQueriesCommandError = async (
 ): Promise<ListQueriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1634,6 +2557,9 @@ const deserializeAws_json1_1ListQueriesCommandError = async (
     case "InvalidQueryStatusException":
     case "com.amazonaws.cloudtrail#InvalidQueryStatusException":
       throw await deserializeAws_json1_1InvalidQueryStatusExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1674,7 +2600,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
 ): Promise<ListTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1693,6 +2619,9 @@ const deserializeAws_json1_1ListTagsCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -1739,7 +2668,7 @@ const deserializeAws_json1_1ListTrailsCommandError = async (
 ): Promise<ListTrailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1783,7 +2712,7 @@ const deserializeAws_json1_1LookupEventsCommandError = async (
 ): Promise<LookupEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1842,10 +2771,13 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
 ): Promise<PutEventSelectorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -1861,6 +2793,9 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -1907,10 +2842,13 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
 ): Promise<PutInsightSelectorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsufficientEncryptionPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
       throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
@@ -1929,6 +2867,9 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
     case "KmsException":
     case "com.amazonaws.cloudtrail#KmsException":
       throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -1941,6 +2882,142 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "ResourceARNNotValidException":
+    case "com.amazonaws.cloudtrail#ResourceARNNotValidException":
+      throw await deserializeAws_json1_1ResourceARNNotValidExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyNotValidException":
+    case "com.amazonaws.cloudtrail#ResourcePolicyNotValidException":
+      throw await deserializeAws_json1_1ResourcePolicyNotValidExceptionResponse(parsedOutput, context);
+    case "ResourceTypeNotSupportedException":
+    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
+      throw await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterOrganizationDelegatedAdminCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RegisterOrganizationDelegatedAdminResponse(data, context);
+  const response: RegisterOrganizationDelegatedAdminCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterOrganizationDelegatedAdminCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccountNotFoundException":
+    case "com.amazonaws.cloudtrail#AccountNotFoundException":
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+    case "AccountRegisteredException":
+    case "com.amazonaws.cloudtrail#AccountRegisteredException":
+      throw await deserializeAws_json1_1AccountRegisteredExceptionResponse(parsedOutput, context);
+    case "CannotDelegateManagementAccountException":
+    case "com.amazonaws.cloudtrail#CannotDelegateManagementAccountException":
+      throw await deserializeAws_json1_1CannotDelegateManagementAccountExceptionResponse(parsedOutput, context);
+    case "CloudTrailAccessNotEnabledException":
+    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
+      throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "DelegatedAdminAccountLimitExceededException":
+    case "com.amazonaws.cloudtrail#DelegatedAdminAccountLimitExceededException":
+      throw await deserializeAws_json1_1DelegatedAdminAccountLimitExceededExceptionResponse(parsedOutput, context);
+    case "InsufficientDependencyServiceAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NotOrganizationManagementAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationManagementAccountException":
+      throw await deserializeAws_json1_1NotOrganizationManagementAccountExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "OrganizationNotInAllFeaturesModeException":
+    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
+      throw await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context);
+    case "OrganizationsNotInUseException":
+    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
+      throw await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -1978,10 +3055,13 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
 ): Promise<RemoveTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ChannelNotFoundException":
+    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
+      throw await deserializeAws_json1_1ChannelNotFoundExceptionResponse(parsedOutput, context);
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
@@ -1997,6 +3077,9 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2046,7 +3129,7 @@ const deserializeAws_json1_1RestoreEventDataStoreCommandError = async (
 ): Promise<RestoreEventDataStoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2074,6 +3157,9 @@ const deserializeAws_json1_1RestoreEventDataStoreCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2086,6 +3172,80 @@ const deserializeAws_json1_1RestoreEventDataStoreCommandError = async (
     case "OrganizationsNotInUseException":
     case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
       throw await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1StartImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartImportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartImportResponse(data, context);
+  const response: StartImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartImportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartImportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccountHasOngoingImportException":
+    case "com.amazonaws.cloudtrail#AccountHasOngoingImportException":
+      throw await deserializeAws_json1_1AccountHasOngoingImportExceptionResponse(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "EventDataStoreNotFoundException":
+    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
+    case "ImportNotFoundException":
+    case "com.amazonaws.cloudtrail#ImportNotFoundException":
+      throw await deserializeAws_json1_1ImportNotFoundExceptionResponse(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
+    case "InvalidEventDataStoreCategoryException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
+      throw await deserializeAws_json1_1InvalidEventDataStoreCategoryExceptionResponse(parsedOutput, context);
+    case "InvalidEventDataStoreStatusException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
+      throw await deserializeAws_json1_1InvalidEventDataStoreStatusExceptionResponse(parsedOutput, context);
+    case "InvalidImportSourceException":
+    case "com.amazonaws.cloudtrail#InvalidImportSourceException":
+      throw await deserializeAws_json1_1InvalidImportSourceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -2123,10 +3283,16 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
 ): Promise<StartLoggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -2139,6 +3305,9 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2185,7 +3354,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
 ): Promise<StartQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2198,15 +3367,83 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
       throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
+    case "InsufficientS3BucketPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
+      throw await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidQueryStatementException":
     case "com.amazonaws.cloudtrail#InvalidQueryStatementException":
       throw await deserializeAws_json1_1InvalidQueryStatementExceptionResponse(parsedOutput, context);
+    case "InvalidS3BucketNameException":
+    case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
+      throw await deserializeAws_json1_1InvalidS3BucketNameExceptionResponse(parsedOutput, context);
+    case "InvalidS3PrefixException":
+    case "com.amazonaws.cloudtrail#InvalidS3PrefixException":
+      throw await deserializeAws_json1_1InvalidS3PrefixExceptionResponse(parsedOutput, context);
     case "MaxConcurrentQueriesException":
     case "com.amazonaws.cloudtrail#MaxConcurrentQueriesException":
       throw await deserializeAws_json1_1MaxConcurrentQueriesExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "S3BucketDoesNotExistException":
+    case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
+      throw await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1StopImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopImportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopImportResponse(data, context);
+  const response: StopImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopImportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopImportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ImportNotFoundException":
+    case "com.amazonaws.cloudtrail#ImportNotFoundException":
+      throw await deserializeAws_json1_1ImportNotFoundExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -2247,10 +3484,16 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
 ): Promise<StopLoggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -2263,6 +3506,9 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2272,6 +3518,74 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateChannelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateChannelResponse(data, context);
+  const response: UpdateChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ChannelARNInvalidException":
+    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
+      throw await deserializeAws_json1_1ChannelARNInvalidExceptionResponse(parsedOutput, context);
+    case "ChannelAlreadyExistsException":
+    case "com.amazonaws.cloudtrail#ChannelAlreadyExistsException":
+      throw await deserializeAws_json1_1ChannelAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ChannelNotFoundException":
+    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
+      throw await deserializeAws_json1_1ChannelNotFoundExceptionResponse(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "EventDataStoreNotFoundException":
+    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InvalidEventDataStoreCategoryException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
+      throw await deserializeAws_json1_1InvalidEventDataStoreCategoryExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -2309,7 +3623,7 @@ const deserializeAws_json1_1UpdateEventDataStoreCommandError = async (
 ): Promise<UpdateEventDataStoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2319,6 +3633,9 @@ const deserializeAws_json1_1UpdateEventDataStoreCommandError = async (
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
       throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "EventDataStoreHasOngoingImportException":
+    case "com.amazonaws.cloudtrail#EventDataStoreHasOngoingImportException":
+      throw await deserializeAws_json1_1EventDataStoreHasOngoingImportExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
       throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
@@ -2331,9 +3648,27 @@ const deserializeAws_json1_1UpdateEventDataStoreCommandError = async (
         parsedOutput,
         context
       );
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
+    case "InvalidEventSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
+      throw await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(parsedOutput, context);
+    case "InvalidKmsKeyIdException":
+    case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
+      throw await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "KmsException":
+    case "com.amazonaws.cloudtrail#KmsException":
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+    case "KmsKeyNotFoundException":
+    case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
+      throw await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2383,10 +3718,13 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
 ): Promise<UpdateTrailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
       throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
@@ -2396,6 +3734,9 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
     case "CloudWatchLogsDeliveryUnavailableException":
     case "com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException":
       throw await deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -2429,6 +3770,9 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
     case "InvalidParameterCombinationException":
     case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
       throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidS3BucketNameException":
     case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
       throw await deserializeAws_json1_1InvalidS3BucketNameExceptionResponse(parsedOutput, context);
@@ -2450,6 +3794,9 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
     case "KmsKeyNotFoundException":
     case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
       throw await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(parsedOutput, context);
+    case "NoManagementAccountSLRExistsException":
+    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
+      throw await deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
@@ -2483,6 +3830,136 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
         errorCode,
       });
   }
+};
+
+const deserializeAws_json1_1AccountHasOngoingImportExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountHasOngoingImportException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountHasOngoingImportException(body, context);
+  const exception = new AccountHasOngoingImportException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1AccountNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountNotFoundException(body, context);
+  const exception = new AccountNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1AccountNotRegisteredExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountNotRegisteredException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountNotRegisteredException(body, context);
+  const exception = new AccountNotRegisteredException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1AccountRegisteredExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountRegisteredException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountRegisteredException(body, context);
+  const exception = new AccountRegisteredException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1CannotDelegateManagementAccountExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CannotDelegateManagementAccountException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1CannotDelegateManagementAccountException(body, context);
+  const exception = new CannotDelegateManagementAccountException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ChannelAlreadyExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ChannelAlreadyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ChannelAlreadyExistsException(body, context);
+  const exception = new ChannelAlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ChannelARNInvalidExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ChannelARNInvalidException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ChannelARNInvalidException(body, context);
+  const exception = new ChannelARNInvalidException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ChannelExistsForEDSExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ChannelExistsForEDSException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ChannelExistsForEDSException(body, context);
+  const exception = new ChannelExistsForEDSException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ChannelMaxLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ChannelMaxLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ChannelMaxLimitExceededException(body, context);
+  const exception = new ChannelMaxLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ChannelNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ChannelNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ChannelNotFoundException(body, context);
+  const exception = new ChannelNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse = async (
@@ -2550,6 +4027,19 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1DelegatedAdminAccountLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DelegatedAdminAccountLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DelegatedAdminAccountLimitExceededException(body, context);
+  const exception = new DelegatedAdminAccountLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1EventDataStoreAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2570,6 +4060,19 @@ const deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EventDataStoreARNInvalidException(body, context);
   const exception = new EventDataStoreARNInvalidException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1EventDataStoreHasOngoingImportExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EventDataStoreHasOngoingImportException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1EventDataStoreHasOngoingImportException(body, context);
+  const exception = new EventDataStoreHasOngoingImportException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2609,6 +4112,19 @@ const deserializeAws_json1_1EventDataStoreTerminationProtectedExceptionResponse 
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EventDataStoreTerminationProtectedException(body, context);
   const exception = new EventDataStoreTerminationProtectedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ImportNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ImportNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ImportNotFoundException(body, context);
+  const exception = new ImportNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2758,6 +4274,19 @@ const deserializeAws_json1_1InvalidEventCategoryExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1InvalidEventDataStoreCategoryExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidEventDataStoreCategoryException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidEventDataStoreCategoryException(body, context);
+  const exception = new InvalidEventDataStoreCategoryException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1InvalidEventDataStoreStatusExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2791,6 +4320,19 @@ const deserializeAws_json1_1InvalidHomeRegionExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidHomeRegionException(body, context);
   const exception = new InvalidHomeRegionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1InvalidImportSourceExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidImportSourceException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidImportSourceException(body, context);
+  const exception = new InvalidImportSourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2953,6 +4495,19 @@ const deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1InvalidSourceExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidSourceException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidSourceException(body, context);
+  const exception = new InvalidSourceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3070,6 +4625,32 @@ const deserializeAws_json1_1MaximumNumberOfTrailsExceededExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1NoManagementAccountSLRExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NoManagementAccountSLRExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1NoManagementAccountSLRExistsException(body, context);
+  const exception = new NoManagementAccountSLRExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1NotOrganizationManagementAccountExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NotOrganizationManagementAccountException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1NotOrganizationManagementAccountException(body, context);
+  const exception = new NotOrganizationManagementAccountException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3135,6 +4716,19 @@ const deserializeAws_json1_1QueryIdNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1ResourceARNNotValidExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceARNNotValidException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourceARNNotValidException(body, context);
+  const exception = new ResourceARNNotValidException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3142,6 +4736,32 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourcePolicyNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourcePolicyNotFoundException(body, context);
+  const exception = new ResourcePolicyNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ResourcePolicyNotValidExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourcePolicyNotValidException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourcePolicyNotValidException(body, context);
+  const exception = new ResourcePolicyNotValidException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3290,6 +4910,15 @@ const serializeAws_json1_1CancelQueryRequest = (input: CancelQueryRequest, conte
   };
 };
 
+const serializeAws_json1_1CreateChannelRequest = (input: CreateChannelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Destinations != null && { Destinations: serializeAws_json1_1Destinations(input.Destinations, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Source != null && { Source: input.Source }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateEventDataStoreRequest = (
   input: CreateEventDataStoreRequest,
   context: __SerdeContext
@@ -3298,6 +4927,7 @@ const serializeAws_json1_1CreateEventDataStoreRequest = (
     ...(input.AdvancedEventSelectors != null && {
       AdvancedEventSelectors: serializeAws_json1_1AdvancedEventSelectors(input.AdvancedEventSelectors, context),
     }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.MultiRegionEnabled != null && { MultiRegionEnabled: input.MultiRegionEnabled }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationEnabled != null && { OrganizationEnabled: input.OrganizationEnabled }),
@@ -3349,6 +4979,12 @@ const serializeAws_json1_1DataResourceValues = (input: string[], context: __Serd
     });
 };
 
+const serializeAws_json1_1DeleteChannelRequest = (input: DeleteChannelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Channel != null && { Channel: input.Channel }),
+  };
+};
+
 const serializeAws_json1_1DeleteEventDataStoreRequest = (
   input: DeleteEventDataStoreRequest,
   context: __SerdeContext
@@ -3358,9 +4994,27 @@ const serializeAws_json1_1DeleteEventDataStoreRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteResourcePolicyRequest = (
+  input: DeleteResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
 const serializeAws_json1_1DeleteTrailRequest = (input: DeleteTrailRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1DeregisterOrganizationDelegatedAdminRequest = (
+  input: DeregisterOrganizationDelegatedAdminRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DelegatedAdminAccountId != null && { DelegatedAdminAccountId: input.DelegatedAdminAccountId }),
   };
 };
 
@@ -3378,6 +5032,21 @@ const serializeAws_json1_1DescribeTrailsRequest = (input: DescribeTrailsRequest,
       trailNameList: serializeAws_json1_1TrailNameList(input.trailNameList, context),
     }),
   };
+};
+
+const serializeAws_json1_1Destination = (input: Destination, context: __SerdeContext): any => {
+  return {
+    ...(input.Location != null && { Location: input.Location }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1Destinations = (input: Destination[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1Destination(entry, context);
+    });
 };
 
 const serializeAws_json1_1EventSelector = (input: EventSelector, context: __SerdeContext): any => {
@@ -3412,6 +5081,12 @@ const serializeAws_json1_1ExcludeManagementEventSources = (input: string[], cont
     });
 };
 
+const serializeAws_json1_1GetChannelRequest = (input: GetChannelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Channel != null && { Channel: input.Channel }),
+  };
+};
+
 const serializeAws_json1_1GetEventDataStoreRequest = (
   input: GetEventDataStoreRequest,
   context: __SerdeContext
@@ -3427,6 +5102,12 @@ const serializeAws_json1_1GetEventSelectorsRequest = (
 ): any => {
   return {
     ...(input.TrailName != null && { TrailName: input.TrailName }),
+  };
+};
+
+const serializeAws_json1_1GetImportRequest = (input: GetImportRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ImportId != null && { ImportId: input.ImportId }),
   };
 };
 
@@ -3448,6 +5129,15 @@ const serializeAws_json1_1GetQueryResultsRequest = (input: GetQueryResultsReques
   };
 };
 
+const serializeAws_json1_1GetResourcePolicyRequest = (
+  input: GetResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
 const serializeAws_json1_1GetTrailRequest = (input: GetTrailRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
@@ -3457,6 +5147,20 @@ const serializeAws_json1_1GetTrailRequest = (input: GetTrailRequest, context: __
 const serializeAws_json1_1GetTrailStatusRequest = (input: GetTrailStatusRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1ImportDestinations = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ImportSource = (input: ImportSource, context: __SerdeContext): any => {
+  return {
+    ...(input.S3 != null && { S3: serializeAws_json1_1S3ImportSource(input.S3, context) }),
   };
 };
 
@@ -3474,11 +5178,38 @@ const serializeAws_json1_1InsightSelectors = (input: InsightSelector[], context:
     });
 };
 
+const serializeAws_json1_1ListChannelsRequest = (input: ListChannelsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListEventDataStoresRequest = (
   input: ListEventDataStoresRequest,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListImportFailuresRequest = (
+  input: ListImportFailuresRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ImportId != null && { ImportId: input.ImportId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListImportsRequest = (input: ListImportsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Destination != null && { Destination: input.Destination }),
+    ...(input.ImportStatus != null && { ImportStatus: input.ImportStatus }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
@@ -3581,6 +5312,25 @@ const serializeAws_json1_1PutInsightSelectorsRequest = (
   };
 };
 
+const serializeAws_json1_1PutResourcePolicyRequest = (
+  input: PutResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourcePolicy != null && { ResourcePolicy: input.ResourcePolicy }),
+  };
+};
+
+const serializeAws_json1_1RegisterOrganizationDelegatedAdminRequest = (
+  input: RegisterOrganizationDelegatedAdminRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MemberAccountId != null && { MemberAccountId: input.MemberAccountId }),
+  };
+};
+
 const serializeAws_json1_1RemoveTagsRequest = (input: RemoveTagsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
@@ -3605,6 +5355,26 @@ const serializeAws_json1_1RestoreEventDataStoreRequest = (
   };
 };
 
+const serializeAws_json1_1S3ImportSource = (input: S3ImportSource, context: __SerdeContext): any => {
+  return {
+    ...(input.S3BucketAccessRoleArn != null && { S3BucketAccessRoleArn: input.S3BucketAccessRoleArn }),
+    ...(input.S3BucketRegion != null && { S3BucketRegion: input.S3BucketRegion }),
+    ...(input.S3LocationUri != null && { S3LocationUri: input.S3LocationUri }),
+  };
+};
+
+const serializeAws_json1_1StartImportRequest = (input: StartImportRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Destinations != null && {
+      Destinations: serializeAws_json1_1ImportDestinations(input.Destinations, context),
+    }),
+    ...(input.EndEventTime != null && { EndEventTime: Math.round(input.EndEventTime.getTime() / 1000) }),
+    ...(input.ImportId != null && { ImportId: input.ImportId }),
+    ...(input.ImportSource != null && { ImportSource: serializeAws_json1_1ImportSource(input.ImportSource, context) }),
+    ...(input.StartEventTime != null && { StartEventTime: Math.round(input.StartEventTime.getTime() / 1000) }),
+  };
+};
+
 const serializeAws_json1_1StartLoggingRequest = (input: StartLoggingRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
@@ -3613,7 +5383,14 @@ const serializeAws_json1_1StartLoggingRequest = (input: StartLoggingRequest, con
 
 const serializeAws_json1_1StartQueryRequest = (input: StartQueryRequest, context: __SerdeContext): any => {
   return {
+    ...(input.DeliveryS3Uri != null && { DeliveryS3Uri: input.DeliveryS3Uri }),
     ...(input.QueryStatement != null && { QueryStatement: input.QueryStatement }),
+  };
+};
+
+const serializeAws_json1_1StopImportRequest = (input: StopImportRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ImportId != null && { ImportId: input.ImportId }),
   };
 };
 
@@ -3646,6 +5423,14 @@ const serializeAws_json1_1TrailNameList = (input: string[], context: __SerdeCont
     });
 };
 
+const serializeAws_json1_1UpdateChannelRequest = (input: UpdateChannelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Channel != null && { Channel: input.Channel }),
+    ...(input.Destinations != null && { Destinations: serializeAws_json1_1Destinations(input.Destinations, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1UpdateEventDataStoreRequest = (
   input: UpdateEventDataStoreRequest,
   context: __SerdeContext
@@ -3655,6 +5440,7 @@ const serializeAws_json1_1UpdateEventDataStoreRequest = (
       AdvancedEventSelectors: serializeAws_json1_1AdvancedEventSelectors(input.AdvancedEventSelectors, context),
     }),
     ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.MultiRegionEnabled != null && { MultiRegionEnabled: input.MultiRegionEnabled }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationEnabled != null && { OrganizationEnabled: input.OrganizationEnabled }),
@@ -3679,6 +5465,42 @@ const serializeAws_json1_1UpdateTrailRequest = (input: UpdateTrailRequest, conte
     ...(input.S3KeyPrefix != null && { S3KeyPrefix: input.S3KeyPrefix }),
     ...(input.SnsTopicName != null && { SnsTopicName: input.SnsTopicName }),
   };
+};
+
+const deserializeAws_json1_1AccountHasOngoingImportException = (
+  output: any,
+  context: __SerdeContext
+): AccountHasOngoingImportException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1AccountNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): AccountNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1AccountNotRegisteredException = (
+  output: any,
+  context: __SerdeContext
+): AccountNotRegisteredException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1AccountRegisteredException = (
+  output: any,
+  context: __SerdeContext
+): AccountRegisteredException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
 };
 
 const deserializeAws_json1_1AddTagsResponse = (output: any, context: __SerdeContext): AddTagsResponse => {
@@ -3745,6 +5567,79 @@ const deserializeAws_json1_1CancelQueryResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1CannotDelegateManagementAccountException = (
+  output: any,
+  context: __SerdeContext
+): CannotDelegateManagementAccountException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1Channel = (output: any, context: __SerdeContext): Channel => {
+  return {
+    ChannelArn: __expectString(output.ChannelArn),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1ChannelAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): ChannelAlreadyExistsException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ChannelARNInvalidException = (
+  output: any,
+  context: __SerdeContext
+): ChannelARNInvalidException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ChannelExistsForEDSException = (
+  output: any,
+  context: __SerdeContext
+): ChannelExistsForEDSException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ChannelMaxLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): ChannelMaxLimitExceededException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ChannelNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ChannelNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1Channels = (output: any, context: __SerdeContext): Channel[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Channel(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1CloudTrailAccessNotEnabledException = (
   output: any,
   context: __SerdeContext
@@ -3787,6 +5682,17 @@ const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1CreateChannelResponse = (output: any, context: __SerdeContext): CreateChannelResponse => {
+  return {
+    ChannelArn: __expectString(output.ChannelArn),
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1Destinations(output.Destinations, context) : undefined,
+    Name: __expectString(output.Name),
+    Source: __expectString(output.Source),
+    Tags: output.Tags != null ? deserializeAws_json1_1TagsList(output.Tags, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateEventDataStoreResponse = (
   output: any,
   context: __SerdeContext
@@ -3801,6 +5707,7 @@ const deserializeAws_json1_1CreateEventDataStoreResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
+    KmsKeyId: __expectString(output.KmsKeyId),
     MultiRegionEnabled: __expectBoolean(output.MultiRegionEnabled),
     Name: __expectString(output.Name),
     OrganizationEnabled: __expectBoolean(output.OrganizationEnabled),
@@ -3864,6 +5771,19 @@ const deserializeAws_json1_1DataResourceValues = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_json1_1DelegatedAdminAccountLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): DelegatedAdminAccountLimitExceededException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteChannelResponse = (output: any, context: __SerdeContext): DeleteChannelResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteEventDataStoreResponse = (
   output: any,
   context: __SerdeContext
@@ -3871,12 +5791,28 @@ const deserializeAws_json1_1DeleteEventDataStoreResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteResourcePolicyResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteTrailResponse = (output: any, context: __SerdeContext): DeleteTrailResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeregisterOrganizationDelegatedAdminResponse = (
+  output: any,
+  context: __SerdeContext
+): DeregisterOrganizationDelegatedAdminResponse => {
   return {} as any;
 };
 
 const deserializeAws_json1_1DescribeQueryResponse = (output: any, context: __SerdeContext): DescribeQueryResponse => {
   return {
+    DeliveryS3Uri: __expectString(output.DeliveryS3Uri),
+    DeliveryStatus: __expectString(output.DeliveryStatus),
     ErrorMessage: __expectString(output.ErrorMessage),
     QueryId: __expectString(output.QueryId),
     QueryStatistics:
@@ -3892,6 +5828,25 @@ const deserializeAws_json1_1DescribeTrailsResponse = (output: any, context: __Se
   return {
     trailList: output.trailList != null ? deserializeAws_json1_1TrailList(output.trailList, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1Destination = (output: any, context: __SerdeContext): Destination => {
+  return {
+    Location: __expectString(output.Location),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1Destinations = (output: any, context: __SerdeContext): Destination[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Destination(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
@@ -3946,6 +5901,15 @@ const deserializeAws_json1_1EventDataStoreARNInvalidException = (
   output: any,
   context: __SerdeContext
 ): EventDataStoreARNInvalidException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1EventDataStoreHasOngoingImportException = (
+  output: any,
+  context: __SerdeContext
+): EventDataStoreHasOngoingImportException => {
   return {
     Message: __expectString(output.Message),
   } as any;
@@ -4039,6 +6003,22 @@ const deserializeAws_json1_1ExcludeManagementEventSources = (output: any, contex
   return retVal;
 };
 
+const deserializeAws_json1_1GetChannelResponse = (output: any, context: __SerdeContext): GetChannelResponse => {
+  return {
+    ChannelArn: __expectString(output.ChannelArn),
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1Destinations(output.Destinations, context) : undefined,
+    IngestionStatus:
+      output.IngestionStatus != null
+        ? deserializeAws_json1_1IngestionStatus(output.IngestionStatus, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Source: __expectString(output.Source),
+    SourceConfig:
+      output.SourceConfig != null ? deserializeAws_json1_1SourceConfig(output.SourceConfig, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetEventDataStoreResponse = (
   output: any,
   context: __SerdeContext
@@ -4053,6 +6033,7 @@ const deserializeAws_json1_1GetEventDataStoreResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
+    KmsKeyId: __expectString(output.KmsKeyId),
     MultiRegionEnabled: __expectBoolean(output.MultiRegionEnabled),
     Name: __expectString(output.Name),
     OrganizationEnabled: __expectBoolean(output.OrganizationEnabled),
@@ -4078,6 +6059,37 @@ const deserializeAws_json1_1GetEventSelectorsResponse = (
     EventSelectors:
       output.EventSelectors != null ? deserializeAws_json1_1EventSelectors(output.EventSelectors, context) : undefined,
     TrailARN: __expectString(output.TrailARN),
+  } as any;
+};
+
+const deserializeAws_json1_1GetImportResponse = (output: any, context: __SerdeContext): GetImportResponse => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1ImportDestinations(output.Destinations, context) : undefined,
+    EndEventTime:
+      output.EndEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndEventTime)))
+        : undefined,
+    ImportId: __expectString(output.ImportId),
+    ImportSource:
+      output.ImportSource != null ? deserializeAws_json1_1ImportSource(output.ImportSource, context) : undefined,
+    ImportStatistics:
+      output.ImportStatistics != null
+        ? deserializeAws_json1_1ImportStatistics(output.ImportStatistics, context)
+        : undefined,
+    ImportStatus: __expectString(output.ImportStatus),
+    StartEventTime:
+      output.StartEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartEventTime)))
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
+        : undefined,
   } as any;
 };
 
@@ -4110,6 +6122,16 @@ const deserializeAws_json1_1GetQueryResultsResponse = (
         ? deserializeAws_json1_1QueryStatistics(output.QueryStatistics, context)
         : undefined,
     QueryStatus: __expectString(output.QueryStatus),
+  } as any;
+};
+
+const deserializeAws_json1_1GetResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): GetResourcePolicyResponse => {
+  return {
+    ResourceArn: __expectString(output.ResourceArn),
+    ResourcePolicy: __expectString(output.ResourcePolicy),
   } as any;
 };
 
@@ -4159,6 +6181,97 @@ const deserializeAws_json1_1GetTrailStatusResponse = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1ImportDestinations = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ImportFailureList = (output: any, context: __SerdeContext): ImportFailureListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ImportFailureListItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ImportFailureListItem = (output: any, context: __SerdeContext): ImportFailureListItem => {
+  return {
+    ErrorMessage: __expectString(output.ErrorMessage),
+    ErrorType: __expectString(output.ErrorType),
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    Location: __expectString(output.Location),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1ImportNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ImportNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ImportsList = (output: any, context: __SerdeContext): ImportsListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ImportsListItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ImportsListItem = (output: any, context: __SerdeContext): ImportsListItem => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1ImportDestinations(output.Destinations, context) : undefined,
+    ImportId: __expectString(output.ImportId),
+    ImportStatus: __expectString(output.ImportStatus),
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ImportSource = (output: any, context: __SerdeContext): ImportSource => {
+  return {
+    S3: output.S3 != null ? deserializeAws_json1_1S3ImportSource(output.S3, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ImportStatistics = (output: any, context: __SerdeContext): ImportStatistics => {
+  return {
+    EventsCompleted: __expectLong(output.EventsCompleted),
+    FailedEntries: __expectLong(output.FailedEntries),
+    FilesCompleted: __expectLong(output.FilesCompleted),
+    PrefixesCompleted: __expectLong(output.PrefixesCompleted),
+    PrefixesFound: __expectLong(output.PrefixesFound),
+  } as any;
+};
+
 const deserializeAws_json1_1InactiveEventDataStoreException = (
   output: any,
   context: __SerdeContext
@@ -4171,6 +6284,22 @@ const deserializeAws_json1_1InactiveEventDataStoreException = (
 const deserializeAws_json1_1InactiveQueryException = (output: any, context: __SerdeContext): InactiveQueryException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1IngestionStatus = (output: any, context: __SerdeContext): IngestionStatus => {
+  return {
+    LatestIngestionAttemptEventID: __expectString(output.LatestIngestionAttemptEventID),
+    LatestIngestionAttemptTime:
+      output.LatestIngestionAttemptTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestIngestionAttemptTime)))
+        : undefined,
+    LatestIngestionErrorCode: __expectString(output.LatestIngestionErrorCode),
+    LatestIngestionSuccessEventID: __expectString(output.LatestIngestionSuccessEventID),
+    LatestIngestionSuccessTime:
+      output.LatestIngestionSuccessTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestIngestionSuccessTime)))
+        : undefined,
   } as any;
 };
 
@@ -4273,6 +6402,15 @@ const deserializeAws_json1_1InvalidEventCategoryException = (
   } as any;
 };
 
+const deserializeAws_json1_1InvalidEventDataStoreCategoryException = (
+  output: any,
+  context: __SerdeContext
+): InvalidEventDataStoreCategoryException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidEventDataStoreStatusException = (
   output: any,
   context: __SerdeContext
@@ -4295,6 +6433,15 @@ const deserializeAws_json1_1InvalidHomeRegionException = (
   output: any,
   context: __SerdeContext
 ): InvalidHomeRegionException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidImportSourceException = (
+  output: any,
+  context: __SerdeContext
+): InvalidImportSourceException => {
   return {
     Message: __expectString(output.Message),
   } as any;
@@ -4408,6 +6555,12 @@ const deserializeAws_json1_1InvalidSnsTopicNameException = (
   } as any;
 };
 
+const deserializeAws_json1_1InvalidSourceException = (output: any, context: __SerdeContext): InvalidSourceException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidTagParameterException = (
   output: any,
   context: __SerdeContext
@@ -4465,6 +6618,13 @@ const deserializeAws_json1_1KmsKeyNotFoundException = (
   } as any;
 };
 
+const deserializeAws_json1_1ListChannelsResponse = (output: any, context: __SerdeContext): ListChannelsResponse => {
+  return {
+    Channels: output.Channels != null ? deserializeAws_json1_1Channels(output.Channels, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListEventDataStoresResponse = (
   output: any,
   context: __SerdeContext
@@ -4474,6 +6634,23 @@ const deserializeAws_json1_1ListEventDataStoresResponse = (
       output.EventDataStores != null
         ? deserializeAws_json1_1EventDataStores(output.EventDataStores, context)
         : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListImportFailuresResponse = (
+  output: any,
+  context: __SerdeContext
+): ListImportFailuresResponse => {
+  return {
+    Failures: output.Failures != null ? deserializeAws_json1_1ImportFailureList(output.Failures, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListImportsResponse = (output: any, context: __SerdeContext): ListImportsResponse => {
+  return {
+    Imports: output.Imports != null ? deserializeAws_json1_1ImportsList(output.Imports, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -4530,6 +6707,24 @@ const deserializeAws_json1_1MaximumNumberOfTrailsExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumNumberOfTrailsExceededException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1NoManagementAccountSLRExistsException = (
+  output: any,
+  context: __SerdeContext
+): NoManagementAccountSLRExistsException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1NotOrganizationManagementAccountException = (
+  output: any,
+  context: __SerdeContext
+): NotOrganizationManagementAccountException => {
   return {
     Message: __expectString(output.Message),
   } as any;
@@ -4638,6 +6833,16 @@ const deserializeAws_json1_1PutInsightSelectorsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1PutResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): PutResourcePolicyResponse => {
+  return {
+    ResourceArn: __expectString(output.ResourceArn),
+    ResourcePolicy: __expectString(output.ResourcePolicy),
+  } as any;
+};
+
 const deserializeAws_json1_1Queries = (output: any, context: __SerdeContext): Query[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -4675,10 +6880,8 @@ const deserializeAws_json1_1QueryResultColumn = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4730,6 +6933,13 @@ const deserializeAws_json1_1QueryStatisticsForDescribeQuery = (
   } as any;
 };
 
+const deserializeAws_json1_1RegisterOrganizationDelegatedAdminResponse = (
+  output: any,
+  context: __SerdeContext
+): RegisterOrganizationDelegatedAdminResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1RemoveTagsResponse = (output: any, context: __SerdeContext): RemoveTagsResponse => {
   return {} as any;
 };
@@ -4738,6 +6948,15 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
   return {
     ResourceName: __expectString(output.ResourceName),
     ResourceType: __expectString(output.ResourceType),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceARNNotValidException = (
+  output: any,
+  context: __SerdeContext
+): ResourceARNNotValidException => {
+  return {
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4757,6 +6976,24 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicyNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourcePolicyNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicyNotValidException = (
+  output: any,
+  context: __SerdeContext
+): ResourcePolicyNotValidException => {
   return {
     Message: __expectString(output.Message),
   } as any;
@@ -4804,6 +7041,7 @@ const deserializeAws_json1_1RestoreEventDataStoreResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
+    KmsKeyId: __expectString(output.KmsKeyId),
     MultiRegionEnabled: __expectBoolean(output.MultiRegionEnabled),
     Name: __expectString(output.Name),
     OrganizationEnabled: __expectBoolean(output.OrganizationEnabled),
@@ -4826,6 +7064,51 @@ const deserializeAws_json1_1S3BucketDoesNotExistException = (
   } as any;
 };
 
+const deserializeAws_json1_1S3ImportSource = (output: any, context: __SerdeContext): S3ImportSource => {
+  return {
+    S3BucketAccessRoleArn: __expectString(output.S3BucketAccessRoleArn),
+    S3BucketRegion: __expectString(output.S3BucketRegion),
+    S3LocationUri: __expectString(output.S3LocationUri),
+  } as any;
+};
+
+const deserializeAws_json1_1SourceConfig = (output: any, context: __SerdeContext): SourceConfig => {
+  return {
+    AdvancedEventSelectors:
+      output.AdvancedEventSelectors != null
+        ? deserializeAws_json1_1AdvancedEventSelectors(output.AdvancedEventSelectors, context)
+        : undefined,
+    ApplyToAllRegions: __expectBoolean(output.ApplyToAllRegions),
+  } as any;
+};
+
+const deserializeAws_json1_1StartImportResponse = (output: any, context: __SerdeContext): StartImportResponse => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1ImportDestinations(output.Destinations, context) : undefined,
+    EndEventTime:
+      output.EndEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndEventTime)))
+        : undefined,
+    ImportId: __expectString(output.ImportId),
+    ImportSource:
+      output.ImportSource != null ? deserializeAws_json1_1ImportSource(output.ImportSource, context) : undefined,
+    ImportStatus: __expectString(output.ImportStatus),
+    StartEventTime:
+      output.StartEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartEventTime)))
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1StartLoggingResponse = (output: any, context: __SerdeContext): StartLoggingResponse => {
   return {} as any;
 };
@@ -4833,6 +7116,37 @@ const deserializeAws_json1_1StartLoggingResponse = (output: any, context: __Serd
 const deserializeAws_json1_1StartQueryResponse = (output: any, context: __SerdeContext): StartQueryResponse => {
   return {
     QueryId: __expectString(output.QueryId),
+  } as any;
+};
+
+const deserializeAws_json1_1StopImportResponse = (output: any, context: __SerdeContext): StopImportResponse => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1ImportDestinations(output.Destinations, context) : undefined,
+    EndEventTime:
+      output.EndEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndEventTime)))
+        : undefined,
+    ImportId: __expectString(output.ImportId),
+    ImportSource:
+      output.ImportSource != null ? deserializeAws_json1_1ImportSource(output.ImportSource, context) : undefined,
+    ImportStatistics:
+      output.ImportStatistics != null
+        ? deserializeAws_json1_1ImportStatistics(output.ImportStatistics, context)
+        : undefined,
+    ImportStatus: __expectString(output.ImportStatus),
+    StartEventTime:
+      output.StartEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartEventTime)))
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
+        : undefined,
   } as any;
 };
 
@@ -4954,6 +7268,16 @@ const deserializeAws_json1_1UnsupportedOperationException = (
   } as any;
 };
 
+const deserializeAws_json1_1UpdateChannelResponse = (output: any, context: __SerdeContext): UpdateChannelResponse => {
+  return {
+    ChannelArn: __expectString(output.ChannelArn),
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1Destinations(output.Destinations, context) : undefined,
+    Name: __expectString(output.Name),
+    Source: __expectString(output.Source),
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateEventDataStoreResponse = (
   output: any,
   context: __SerdeContext
@@ -4968,6 +7292,7 @@ const deserializeAws_json1_1UpdateEventDataStoreResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
+    KmsKeyId: __expectString(output.KmsKeyId),
     MultiRegionEnabled: __expectBoolean(output.MultiRegionEnabled),
     Name: __expectString(output.Name),
     OrganizationEnabled: __expectBoolean(output.OrganizationEnabled),
@@ -5001,7 +7326,8 @@ const deserializeAws_json1_1UpdateTrailResponse = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -5051,6 +7377,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -5061,6 +7393,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

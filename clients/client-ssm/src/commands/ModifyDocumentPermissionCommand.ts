@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,9 +30,9 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
 
 /**
  * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
- *    privately, you must specify the Amazon Web Services user account IDs for those people who can use the
- *    document. If you share a document publicly, you must specify <i>All</i> as the
- *    account ID.</p>
+ *    privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
+ *    you share a document publicly, you must specify <i>All</i> as the account
+ *    ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class ModifyDocumentPermissionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyDocumentPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class ModifyDocumentPermissionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyDocumentPermissionCommandInput, ModifyDocumentPermissionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyDocumentPermissionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

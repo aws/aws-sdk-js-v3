@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,12 +28,12 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
 
 /**
  * <p>Deletes an origin request policy.</p>
- * 		       <p>You cannot delete an origin request policy if it’s attached to any cache behaviors. First
- * 			update your distributions to remove the origin request policy from all cache behaviors,
- * 			then delete the origin request policy.</p>
- * 		       <p>To delete an origin request policy, you must provide the policy’s identifier and version. To
- * 			get the identifier, you can use <code>ListOriginRequestPolicies</code> or
- * 			<code>GetOriginRequestPolicy</code>.</p>
+ *          <p>You cannot delete an origin request policy if it's attached to any cache behaviors.
+ * 			First update your distributions to remove the origin request policy from all cache
+ * 			behaviors, then delete the origin request policy.</p>
+ *          <p>To delete an origin request policy, you must provide the policy's identifier and
+ * 			version. To get the identifier, you can use <code>ListOriginRequestPolicies</code> or
+ * 				<code>GetOriginRequestPolicy</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteOriginRequestPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteOriginRequestPolicyCommandInput, DeleteOriginRequestPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteOriginRequestPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

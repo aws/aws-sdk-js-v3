@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   CreateSpotDatafeedSubscriptionRequestFilterSensitiveLog,
   CreateSpotDatafeedSubscriptionResult,
   CreateSpotDatafeedSubscriptionResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
   serializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
@@ -31,9 +32,9 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
 
 /**
  * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
- * 				You can create one data feed per Amazon Web Services account. For more information, see
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
- *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *             You can create one data feed per Amazon Web Services account. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
+ *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateSpotDatafeedSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateSpotDatafeedSubscriptionCommandInput, CreateSpotDatafeedSubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateSpotDatafeedSubscriptionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

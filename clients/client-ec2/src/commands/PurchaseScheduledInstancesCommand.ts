@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   PurchaseScheduledInstancesRequestFilterSensitiveLog,
   PurchaseScheduledInstancesResult,
   PurchaseScheduledInstancesResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2PurchaseScheduledInstancesCommand,
   serializeAws_ec2PurchaseScheduledInstancesCommand,
@@ -28,7 +29,10 @@ export interface PurchaseScheduledInstancesCommandInput extends PurchaseSchedule
 export interface PurchaseScheduledInstancesCommandOutput extends PurchaseScheduledInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Purchases the Scheduled Instances with the specified schedule.</p>
+ * <note>
+ *             <p>You can no longer purchase Scheduled Instances.</p>
+ *          </note>
+ *          <p>Purchases the Scheduled Instances with the specified schedule.</p>
  *          <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term.
  *          Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a>
  *          to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance,
@@ -57,6 +61,15 @@ export class PurchaseScheduledInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PurchaseScheduledInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +85,9 @@ export class PurchaseScheduledInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PurchaseScheduledInstancesCommandInput, PurchaseScheduledInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PurchaseScheduledInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

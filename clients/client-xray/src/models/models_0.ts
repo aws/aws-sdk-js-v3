@@ -194,8 +194,8 @@ export interface Trace {
   Duration?: number;
 
   /**
-   * <p>LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For
-   *       more information about quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/xray.html">Amazon Web Services X-Ray endpoints and quotas</a>.</p>
+   * <p>LimitExceeded is set to true when the trace has exceeded the <code>Trace document size</code> limit. For
+   *       more information about this limit and other X-Ray limits and quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/xray.html">Amazon Web Services X-Ray endpoints and quotas</a>.</p>
    */
   LimitExceeded?: boolean;
 
@@ -337,7 +337,7 @@ export interface CreateGroupRequest {
    *                     new group or false to disable insights for the new group.</p>
    *                 </li>
    *             <li>
-   *                     <p>The NotifcationsEnabled boolean can be set to true to enable insights
+   *                     <p>The NotificationsEnabled boolean can be set to true to enable insights
    *                     notifications for the new group. Notifications may only be enabled on a group
    *                     with InsightsEnabled set to true.</p>
    *                 </li>
@@ -592,6 +592,44 @@ export interface DeleteGroupRequest {
 }
 
 export interface DeleteGroupResult {}
+
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The name of the resource policy to delete.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>Specifies a specific policy revision to delete. Provide a <code>PolicyRevisionId</code> to ensure an atomic delete operation. If the provided revision id does
+   *             not match the latest policy revision id, an <code>InvalidPolicyRevisionIdException</code> exception is returned.
+   *         </p>
+   */
+  PolicyRevisionId?: string;
+}
+
+export interface DeleteResourcePolicyResult {}
+
+/**
+ * <p>A policy revision id was provided which does not match the latest policy revision. This exception is also
+ *     if a policy revision id of 0 is provided via <code>PutResourcePolicy</code> and a policy with the same name already exists.</p>
+ */
+export class InvalidPolicyRevisionIdException extends __BaseException {
+  readonly name: "InvalidPolicyRevisionIdException" = "InvalidPolicyRevisionIdException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPolicyRevisionIdException, __BaseException>) {
+    super({
+      name: "InvalidPolicyRevisionIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyRevisionIdException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 export interface DeleteSamplingRuleRequest {
   /**
@@ -1448,7 +1486,9 @@ export interface EdgeStatistics {
 }
 
 /**
- * <p>Information about a connection between two services.</p>
+ * <p>Information about a connection between two services. An edge can be a synchronous connection, such as typical
+ *     call between client and service, or an asynchronous link, such as a Lambda function which retrieves an event from an
+ *     SNS queue.</p>
  */
 export interface Edge {
   /**
@@ -1472,7 +1512,8 @@ export interface Edge {
   SummaryStatistics?: EdgeStatistics;
 
   /**
-   * <p>A histogram that maps the spread of client response times on an edge.</p>
+   * <p>A histogram that maps the spread of client response times on an edge. Only populated
+   *              for synchronous edges.</p>
    */
   ResponseTimeHistogram?: HistogramEntry[];
 
@@ -1480,6 +1521,18 @@ export interface Edge {
    * <p>Aliases for the edge.</p>
    */
   Aliases?: Alias[];
+
+  /**
+   * <p>Describes an asynchronous connection, with a value of <code>link</code>.</p>
+   */
+  EdgeType?: string;
+
+  /**
+   * <p>A histogram that maps the spread of event age when received by consumers.
+   *       Age is calculated each time an event is received. Only populated when <i>EdgeType</i> is
+   *       <code>link</code>.</p>
+   */
+  ReceivedEventAgeHistogram?: HistogramEntry[];
 }
 
 /**
@@ -2266,6 +2319,52 @@ export interface GetTraceSummariesResult {
   NextToken?: string;
 }
 
+export interface ListResourcePoliciesRequest {
+  /**
+   * <p>Not currently supported.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A resource policy grants one or more Amazon Web Services services and accounts permissions
+ *             to access X-Ray. Each resource policy is associated with a
+ *             specific Amazon Web Services account.</p>
+ */
+export interface ResourcePolicy {
+  /**
+   * <p>The name of the resource policy. Must be unique within a specific Amazon Web Services account.</p>
+   */
+  PolicyName?: string;
+
+  /**
+   * <p>The resource policy document, which can be up to 5kb in size.</p>
+   */
+  PolicyDocument?: string;
+
+  /**
+   * <p>Returns the current policy revision id for this policy name.</p>
+   */
+  PolicyRevisionId?: string;
+
+  /**
+   * <p>When the policy was last updated, in Unix time seconds.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+export interface ListResourcePoliciesResult {
+  /**
+   * <p>The list of resource policies in the target Amazon Web Services account.</p>
+   */
+  ResourcePolicies?: ResourcePolicy[];
+
+  /**
+   * <p>Pagination token. Not currently supported.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
@@ -2354,6 +2453,128 @@ export interface PutEncryptionConfigResult {
    * <p>The new encryption configuration.</p>
    */
   EncryptionConfig?: EncryptionConfig;
+}
+
+/**
+ * <p>The provided resource policy would prevent the caller of this request from calling PutResourcePolicy in the future.</p>
+ */
+export class LockoutPreventionException extends __BaseException {
+  readonly name: "LockoutPreventionException" = "LockoutPreventionException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LockoutPreventionException, __BaseException>) {
+    super({
+      name: "LockoutPreventionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LockoutPreventionException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Invalid policy document provided in request.</p>
+ */
+export class MalformedPolicyDocumentException extends __BaseException {
+  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
+    super({
+      name: "MalformedPolicyDocumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Exceeded the maximum number of resource policies for a target Amazon Web Services account.</p>
+ */
+export class PolicyCountLimitExceededException extends __BaseException {
+  readonly name: "PolicyCountLimitExceededException" = "PolicyCountLimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyCountLimitExceededException, __BaseException>) {
+    super({
+      name: "PolicyCountLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyCountLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Exceeded the maximum size for a resource policy.</p>
+ */
+export class PolicySizeLimitExceededException extends __BaseException {
+  readonly name: "PolicySizeLimitExceededException" = "PolicySizeLimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicySizeLimitExceededException, __BaseException>) {
+    super({
+      name: "PolicySizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicySizeLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The name of the resource policy. Must be unique within a specific Amazon Web Services account.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The resource policy document, which can be up to 5kb in size.</p>
+   */
+  PolicyDocument: string | undefined;
+
+  /**
+   * <p>Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id.
+   *             The revision id is unique to each policy in the account.</p>
+   *         <p>If the policy revision id does not match the latest revision id, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception. You can also provide a
+   *             <code>PolicyRevisionId</code> of 0. In this case, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception if a resource policy with the same name already exists.
+   *         </p>
+   */
+  PolicyRevisionId?: string;
+
+  /**
+   * <p>A flag to indicate whether to bypass the resource policy lockout safety check.</p>
+   *         <important>
+   *             <p>Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately.</p>
+   *         </important>
+   *         <p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent <code>PutResourcePolicy</code> request.</p>
+   *         <p>The default value is false.</p>
+   */
+  BypassPolicyLockoutCheck?: boolean;
+}
+
+export interface PutResourcePolicyResult {
+  /**
+   * <p>The resource policy document, as provided in the <code>PutResourcePolicyRequest</code>.</p>
+   */
+  ResourcePolicy?: ResourcePolicy;
 }
 
 /**
@@ -2585,7 +2806,7 @@ export interface UpdateGroupRequest {
    *                     group or false to disable insights for the group.</p>
    *             </li>
    *             <li>
-   *                 <p>The NotifcationsEnabled boolean can be set to true to enable insights notifications for the group.
+   *                 <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group.
    *                     Notifications can only be enabled on a group with InsightsEnabled set to true.</p>
    *             </li>
    *          </ul>
@@ -2831,6 +3052,20 @@ export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): a
  * @internal
  */
 export const DeleteGroupResultFilterSensitiveLog = (obj: DeleteGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyResultFilterSensitiveLog = (obj: DeleteResourcePolicyResult): any => ({
   ...obj,
 });
 
@@ -3304,10 +3539,9 @@ export const TraceSummaryFilterSensitiveLog = (obj: TraceSummary): any => ({
   ...obj,
   ...(obj.Annotations && {
     Annotations: Object.entries(obj.Annotations).reduce(
-      (acc: any, [key, value]: [string, ValueWithServiceIds[]]) => ({
-        ...acc,
-        [key]: value.map((item) => ValueWithServiceIdsFilterSensitiveLog(item)),
-      }),
+      (acc: any, [key, value]: [string, ValueWithServiceIds[]]) => (
+        (acc[key] = value.map((item) => ValueWithServiceIdsFilterSensitiveLog(item))), acc
+      ),
       {}
     ),
   }),
@@ -3317,6 +3551,27 @@ export const TraceSummaryFilterSensitiveLog = (obj: TraceSummary): any => ({
  * @internal
  */
 export const GetTraceSummariesResultFilterSensitiveLog = (obj: GetTraceSummariesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcePoliciesRequestFilterSensitiveLog = (obj: ListResourcePoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourcePolicyFilterSensitiveLog = (obj: ResourcePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcePoliciesResultFilterSensitiveLog = (obj: ListResourcePoliciesResult): any => ({
   ...obj,
 });
 
@@ -3345,6 +3600,20 @@ export const PutEncryptionConfigRequestFilterSensitiveLog = (obj: PutEncryptionC
  * @internal
  */
 export const PutEncryptionConfigResultFilterSensitiveLog = (obj: PutEncryptionConfigResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyResultFilterSensitiveLog = (obj: PutResourcePolicyResult): any => ({
   ...obj,
 });
 

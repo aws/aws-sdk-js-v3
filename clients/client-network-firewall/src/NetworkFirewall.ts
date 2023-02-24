@@ -181,9 +181,9 @@ import { NetworkFirewallClient } from "./NetworkFirewallClient";
  *          prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the
  *          perimeter of your VPC. This includes filtering traffic going to and coming from an internet
  *          gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
- *       with Suricata, a free, open source intrusion detection system (IDS) engine.
+ *       with Suricata, a free, open source network analysis and threat detection engine.
  *       Network Firewall supports Suricata version 5.0.2. For information about Suricata,
- *           see the <a href="https://suricata-ids.org/">Suricata website</a>.</p>
+ *           see the <a href="https://suricata.io/">Suricata website</a>.</p>
  *          <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
  *          The following are just a few examples: </p>
  *          <ul>
@@ -934,11 +934,11 @@ export class NetworkFirewall extends NetworkFirewallClient {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_GetResourceShareInvitations.html">GetResourceShareInvitations</a> - Returns the Amazon Resource Names (ARNs) of the resource share invitations.  </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_AcceptResourceShareInvitation.html">AcceptResourceShareInvitation</a> - Accepts the share invitation for a specified resource share. </p>
-   *            </li>
+   *             </li>
    *          </ul>
    *          <p>For additional information about resource sharing using RAM, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/what-is.html">Resource Access Manager User Guide</a>.</p>
    */

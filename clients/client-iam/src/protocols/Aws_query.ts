@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -18,8 +18,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import {
   AddClientIDToOpenIDConnectProviderCommandInput,
@@ -3264,20 +3263,20 @@ const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async
 ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3311,23 +3310,23 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
 ): Promise<AddRoleToInstanceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -3361,17 +3360,17 @@ const deserializeAws_queryAddUserToGroupCommandError = async (
 ): Promise<AddUserToGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3405,23 +3404,23 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
 ): Promise<AttachGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "PolicyNotAttachableException":
+    case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
       throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3455,26 +3454,26 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
 ): Promise<AttachRolePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "PolicyNotAttachableException":
+    case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
       throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -3508,23 +3507,23 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
 ): Promise<AttachUserPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "PolicyNotAttachableException":
+    case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
       throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3558,26 +3557,26 @@ const deserializeAws_queryChangePasswordCommandError = async (
 ): Promise<ChangePasswordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
-    case "InvalidUserTypeException":
+    case "InvalidUserType":
     case "com.amazonaws.iam#InvalidUserTypeException":
       throw await deserializeAws_queryInvalidUserTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "PasswordPolicyViolationException":
+    case "PasswordPolicyViolation":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
       throw await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3614,17 +3613,17 @@ const deserializeAws_queryCreateAccessKeyCommandError = async (
 ): Promise<CreateAccessKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3658,17 +3657,17 @@ const deserializeAws_queryCreateAccountAliasCommandError = async (
 ): Promise<CreateAccountAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3705,20 +3704,20 @@ const deserializeAws_queryCreateGroupCommandError = async (
 ): Promise<CreateGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3755,23 +3754,23 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
 ): Promise<CreateInstanceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3808,23 +3807,23 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
 ): Promise<CreateLoginProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "PasswordPolicyViolationException":
+    case "PasswordPolicyViolation":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
       throw await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3861,23 +3860,23 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
 ): Promise<CreateOpenIDConnectProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3914,26 +3913,26 @@ const deserializeAws_queryCreatePolicyCommandError = async (
 ): Promise<CreatePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -3970,23 +3969,23 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
 ): Promise<CreatePolicyVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4023,26 +4022,26 @@ const deserializeAws_queryCreateRoleCommandError = async (
 ): Promise<CreateRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4079,23 +4078,23 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
 ): Promise<CreateSAMLProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4132,20 +4131,20 @@ const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
 ): Promise<CreateServiceLinkedRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4185,17 +4184,17 @@ const deserializeAws_queryCreateServiceSpecificCredentialCommandError = async (
 ): Promise<CreateServiceSpecificCredentialCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceNotSupportedException":
+    case "NotSupportedService":
     case "com.amazonaws.iam#ServiceNotSupportedException":
       throw await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context);
     default:
@@ -4232,26 +4231,26 @@ const deserializeAws_queryCreateUserCommandError = async (
 ): Promise<CreateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4288,23 +4287,23 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
 ): Promise<CreateVirtualMFADeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4338,20 +4337,20 @@ const deserializeAws_queryDeactivateMFADeviceCommandError = async (
 ): Promise<DeactivateMFADeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4385,17 +4384,17 @@ const deserializeAws_queryDeleteAccessKeyCommandError = async (
 ): Promise<DeleteAccessKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4429,17 +4428,17 @@ const deserializeAws_queryDeleteAccountAliasCommandError = async (
 ): Promise<DeleteAccountAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4473,17 +4472,17 @@ const deserializeAws_queryDeleteAccountPasswordPolicyCommandError = async (
 ): Promise<DeleteAccountPasswordPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4517,20 +4516,20 @@ const deserializeAws_queryDeleteGroupCommandError = async (
 ): Promise<DeleteGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4564,17 +4563,17 @@ const deserializeAws_queryDeleteGroupPolicyCommandError = async (
 ): Promise<DeleteGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4608,20 +4607,20 @@ const deserializeAws_queryDeleteInstanceProfileCommandError = async (
 ): Promise<DeleteInstanceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4655,20 +4654,20 @@ const deserializeAws_queryDeleteLoginProfileCommandError = async (
 ): Promise<DeleteLoginProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4702,17 +4701,17 @@ const deserializeAws_queryDeleteOpenIDConnectProviderCommandError = async (
 ): Promise<DeleteOpenIDConnectProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4746,23 +4745,23 @@ const deserializeAws_queryDeletePolicyCommandError = async (
 ): Promise<DeletePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4796,23 +4795,23 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
 ): Promise<DeletePolicyVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -4846,26 +4845,26 @@ const deserializeAws_queryDeleteRoleCommandError = async (
 ): Promise<DeleteRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -4899,17 +4898,17 @@ const deserializeAws_queryDeleteRolePermissionsBoundaryCommandError = async (
 ): Promise<DeleteRolePermissionsBoundaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -4943,20 +4942,20 @@ const deserializeAws_queryDeleteRolePolicyCommandError = async (
 ): Promise<DeleteRolePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -4990,20 +4989,20 @@ const deserializeAws_queryDeleteSAMLProviderCommandError = async (
 ): Promise<DeleteSAMLProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5037,20 +5036,20 @@ const deserializeAws_queryDeleteServerCertificateCommandError = async (
 ): Promise<DeleteServerCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5087,17 +5086,17 @@ const deserializeAws_queryDeleteServiceLinkedRoleCommandError = async (
 ): Promise<DeleteServiceLinkedRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5131,11 +5130,11 @@ const deserializeAws_queryDeleteServiceSpecificCredentialCommandError = async (
 ): Promise<DeleteServiceSpecificCredentialCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -5169,17 +5168,17 @@ const deserializeAws_queryDeleteSigningCertificateCommandError = async (
 ): Promise<DeleteSigningCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5213,11 +5212,11 @@ const deserializeAws_queryDeleteSSHPublicKeyCommandError = async (
 ): Promise<DeleteSSHPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -5251,23 +5250,23 @@ const deserializeAws_queryDeleteUserCommandError = async (
 ): Promise<DeleteUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5301,14 +5300,14 @@ const deserializeAws_queryDeleteUserPermissionsBoundaryCommandError = async (
 ): Promise<DeleteUserPermissionsBoundaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5342,17 +5341,17 @@ const deserializeAws_queryDeleteUserPolicyCommandError = async (
 ): Promise<DeleteUserPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5386,20 +5385,20 @@ const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
 ): Promise<DeleteVirtualMFADeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5433,20 +5432,20 @@ const deserializeAws_queryDetachGroupPolicyCommandError = async (
 ): Promise<DetachGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5480,23 +5479,23 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
 ): Promise<DetachRolePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -5530,20 +5529,20 @@ const deserializeAws_queryDetachUserPolicyCommandError = async (
 ): Promise<DetachUserPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5577,26 +5576,26 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
 ): Promise<EnableMFADeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
-    case "InvalidAuthenticationCodeException":
+    case "InvalidAuthenticationCode":
     case "com.amazonaws.iam#InvalidAuthenticationCodeException":
       throw await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5633,14 +5632,14 @@ const deserializeAws_queryGenerateCredentialReportCommandError = async (
 ): Promise<GenerateCredentialReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5680,11 +5679,11 @@ const deserializeAws_queryGenerateOrganizationsAccessReportCommandError = async 
 ): Promise<GenerateOrganizationsAccessReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ReportGenerationLimitExceededException":
+    case "ReportGenerationLimitExceeded":
     case "com.amazonaws.iam#ReportGenerationLimitExceededException":
       throw await deserializeAws_queryReportGenerationLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -5724,14 +5723,14 @@ const deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError = async
 ): Promise<GenerateServiceLastAccessedDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -5768,11 +5767,11 @@ const deserializeAws_queryGetAccessKeyLastUsedCommandError = async (
 ): Promise<GetAccessKeyLastUsedCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -5812,11 +5811,11 @@ const deserializeAws_queryGetAccountAuthorizationDetailsCommandError = async (
 ): Promise<GetAccountAuthorizationDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5853,14 +5852,14 @@ const deserializeAws_queryGetAccountPasswordPolicyCommandError = async (
 ): Promise<GetAccountPasswordPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5897,11 +5896,11 @@ const deserializeAws_queryGetAccountSummaryCommandError = async (
 ): Promise<GetAccountSummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -5938,11 +5937,11 @@ const deserializeAws_queryGetContextKeysForCustomPolicyCommandError = async (
 ): Promise<GetContextKeysForCustomPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     default:
@@ -5979,14 +5978,14 @@ const deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError = async (
 ): Promise<GetContextKeysForPrincipalPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -6023,20 +6022,20 @@ const deserializeAws_queryGetCredentialReportCommandError = async (
 ): Promise<GetCredentialReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CredentialReportExpiredException":
+    case "ReportExpired":
     case "com.amazonaws.iam#CredentialReportExpiredException":
       throw await deserializeAws_queryCredentialReportExpiredExceptionResponse(parsedOutput, context);
-    case "CredentialReportNotPresentException":
-    case "com.amazonaws.iam#CredentialReportNotPresentException":
-      throw await deserializeAws_queryCredentialReportNotPresentExceptionResponse(parsedOutput, context);
-    case "CredentialReportNotReadyException":
+    case "ReportInProgress":
     case "com.amazonaws.iam#CredentialReportNotReadyException":
       throw await deserializeAws_queryCredentialReportNotReadyExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ReportNotPresent":
+    case "com.amazonaws.iam#CredentialReportNotPresentException":
+      throw await deserializeAws_queryCredentialReportNotPresentExceptionResponse(parsedOutput, context);
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6073,14 +6072,14 @@ const deserializeAws_queryGetGroupCommandError = async (
 ): Promise<GetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6117,14 +6116,14 @@ const deserializeAws_queryGetGroupPolicyCommandError = async (
 ): Promise<GetGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6161,14 +6160,14 @@ const deserializeAws_queryGetInstanceProfileCommandError = async (
 ): Promise<GetInstanceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6205,14 +6204,14 @@ const deserializeAws_queryGetLoginProfileCommandError = async (
 ): Promise<GetLoginProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6249,17 +6248,17 @@ const deserializeAws_queryGetOpenIDConnectProviderCommandError = async (
 ): Promise<GetOpenIDConnectProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6296,11 +6295,11 @@ const deserializeAws_queryGetOrganizationsAccessReportCommandError = async (
 ): Promise<GetOrganizationsAccessReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -6337,17 +6336,17 @@ const deserializeAws_queryGetPolicyCommandError = async (
 ): Promise<GetPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6384,17 +6383,17 @@ const deserializeAws_queryGetPolicyVersionCommandError = async (
 ): Promise<GetPolicyVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6431,14 +6430,14 @@ const deserializeAws_queryGetRoleCommandError = async (
 ): Promise<GetRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6475,14 +6474,14 @@ const deserializeAws_queryGetRolePolicyCommandError = async (
 ): Promise<GetRolePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6519,17 +6518,17 @@ const deserializeAws_queryGetSAMLProviderCommandError = async (
 ): Promise<GetSAMLProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6566,14 +6565,14 @@ const deserializeAws_queryGetServerCertificateCommandError = async (
 ): Promise<GetServerCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6613,14 +6612,14 @@ const deserializeAws_queryGetServiceLastAccessedDetailsCommandError = async (
 ): Promise<GetServiceLastAccessedDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -6660,14 +6659,14 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError 
 ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -6707,17 +6706,17 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError = async
 ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6754,14 +6753,14 @@ const deserializeAws_queryGetSSHPublicKeyCommandError = async (
 ): Promise<GetSSHPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "UnrecognizedPublicKeyEncodingException":
+    case "UnrecognizedPublicKeyEncoding":
     case "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException":
       throw await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context);
     default:
@@ -6798,14 +6797,14 @@ const deserializeAws_queryGetUserCommandError = async (
 ): Promise<GetUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6842,14 +6841,14 @@ const deserializeAws_queryGetUserPolicyCommandError = async (
 ): Promise<GetUserPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6886,14 +6885,14 @@ const deserializeAws_queryListAccessKeysCommandError = async (
 ): Promise<ListAccessKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6930,11 +6929,11 @@ const deserializeAws_queryListAccountAliasesCommandError = async (
 ): Promise<ListAccountAliasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -6971,17 +6970,17 @@ const deserializeAws_queryListAttachedGroupPoliciesCommandError = async (
 ): Promise<ListAttachedGroupPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7018,17 +7017,17 @@ const deserializeAws_queryListAttachedRolePoliciesCommandError = async (
 ): Promise<ListAttachedRolePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7065,17 +7064,17 @@ const deserializeAws_queryListAttachedUserPoliciesCommandError = async (
 ): Promise<ListAttachedUserPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7112,17 +7111,17 @@ const deserializeAws_queryListEntitiesForPolicyCommandError = async (
 ): Promise<ListEntitiesForPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7159,14 +7158,14 @@ const deserializeAws_queryListGroupPoliciesCommandError = async (
 ): Promise<ListGroupPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7203,11 +7202,11 @@ const deserializeAws_queryListGroupsCommandError = async (
 ): Promise<ListGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7244,14 +7243,14 @@ const deserializeAws_queryListGroupsForUserCommandError = async (
 ): Promise<ListGroupsForUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7288,11 +7287,11 @@ const deserializeAws_queryListInstanceProfilesCommandError = async (
 ): Promise<ListInstanceProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7329,14 +7328,14 @@ const deserializeAws_queryListInstanceProfilesForRoleCommandError = async (
 ): Promise<ListInstanceProfilesForRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7373,14 +7372,14 @@ const deserializeAws_queryListInstanceProfileTagsCommandError = async (
 ): Promise<ListInstanceProfileTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7417,14 +7416,14 @@ const deserializeAws_queryListMFADevicesCommandError = async (
 ): Promise<ListMFADevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7461,17 +7460,17 @@ const deserializeAws_queryListMFADeviceTagsCommandError = async (
 ): Promise<ListMFADeviceTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7508,11 +7507,11 @@ const deserializeAws_queryListOpenIDConnectProvidersCommandError = async (
 ): Promise<ListOpenIDConnectProvidersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7552,17 +7551,17 @@ const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
 ): Promise<ListOpenIDConnectProviderTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7599,11 +7598,11 @@ const deserializeAws_queryListPoliciesCommandError = async (
 ): Promise<ListPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7643,14 +7642,14 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessCommandError = async 
 ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -7687,17 +7686,17 @@ const deserializeAws_queryListPolicyTagsCommandError = async (
 ): Promise<ListPolicyTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7734,17 +7733,17 @@ const deserializeAws_queryListPolicyVersionsCommandError = async (
 ): Promise<ListPolicyVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7781,14 +7780,14 @@ const deserializeAws_queryListRolePoliciesCommandError = async (
 ): Promise<ListRolePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7825,11 +7824,11 @@ const deserializeAws_queryListRolesCommandError = async (
 ): Promise<ListRolesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7866,14 +7865,14 @@ const deserializeAws_queryListRoleTagsCommandError = async (
 ): Promise<ListRoleTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7910,11 +7909,11 @@ const deserializeAws_queryListSAMLProvidersCommandError = async (
 ): Promise<ListSAMLProvidersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7951,17 +7950,17 @@ const deserializeAws_queryListSAMLProviderTagsCommandError = async (
 ): Promise<ListSAMLProviderTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -7998,11 +7997,11 @@ const deserializeAws_queryListServerCertificatesCommandError = async (
 ): Promise<ListServerCertificatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8039,14 +8038,14 @@ const deserializeAws_queryListServerCertificateTagsCommandError = async (
 ): Promise<ListServerCertificateTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8086,14 +8085,14 @@ const deserializeAws_queryListServiceSpecificCredentialsCommandError = async (
 ): Promise<ListServiceSpecificCredentialsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceNotSupportedException":
+    case "NotSupportedService":
     case "com.amazonaws.iam#ServiceNotSupportedException":
       throw await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context);
     default:
@@ -8130,14 +8129,14 @@ const deserializeAws_queryListSigningCertificatesCommandError = async (
 ): Promise<ListSigningCertificatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8174,11 +8173,11 @@ const deserializeAws_queryListSSHPublicKeysCommandError = async (
 ): Promise<ListSSHPublicKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -8215,14 +8214,14 @@ const deserializeAws_queryListUserPoliciesCommandError = async (
 ): Promise<ListUserPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8259,11 +8258,11 @@ const deserializeAws_queryListUsersCommandError = async (
 ): Promise<ListUsersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8300,14 +8299,14 @@ const deserializeAws_queryListUserTagsCommandError = async (
 ): Promise<ListUserTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8344,7 +8343,7 @@ const deserializeAws_queryListVirtualMFADevicesCommandError = async (
 ): Promise<ListVirtualMFADevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -8376,20 +8375,20 @@ const deserializeAws_queryPutGroupPolicyCommandError = async (
 ): Promise<PutGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8423,23 +8422,23 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
 ): Promise<PutRolePermissionsBoundaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "PolicyNotAttachableException":
+    case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
       throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -8473,23 +8472,23 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
 ): Promise<PutRolePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -8523,20 +8522,20 @@ const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
 ): Promise<PutUserPermissionsBoundaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "PolicyNotAttachableException":
+    case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
       throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8570,20 +8569,20 @@ const deserializeAws_queryPutUserPolicyCommandError = async (
 ): Promise<PutUserPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8617,17 +8616,17 @@ const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError = 
 ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8661,20 +8660,20 @@ const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
 ): Promise<RemoveRoleFromInstanceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -8708,17 +8707,17 @@ const deserializeAws_queryRemoveUserFromGroupCommandError = async (
 ): Promise<RemoveUserFromGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8758,11 +8757,11 @@ const deserializeAws_queryResetServiceSpecificCredentialCommandError = async (
 ): Promise<ResetServiceSpecificCredentialCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -8796,20 +8795,20 @@ const deserializeAws_queryResyncMFADeviceCommandError = async (
 ): Promise<ResyncMFADeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidAuthenticationCodeException":
+    case "InvalidAuthenticationCode":
     case "com.amazonaws.iam#InvalidAuthenticationCodeException":
       throw await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8843,20 +8842,20 @@ const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
 ): Promise<SetDefaultPolicyVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8890,11 +8889,11 @@ const deserializeAws_querySetSecurityTokenServicePreferencesCommandError = async
 ): Promise<SetSecurityTokenServicePreferencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -8931,14 +8930,14 @@ const deserializeAws_querySimulateCustomPolicyCommandError = async (
 ): Promise<SimulateCustomPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "PolicyEvaluationException":
+    case "PolicyEvaluation":
     case "com.amazonaws.iam#PolicyEvaluationException":
       throw await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context);
     default:
@@ -8975,17 +8974,17 @@ const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
 ): Promise<SimulatePrincipalPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "PolicyEvaluationException":
+    case "PolicyEvaluation":
     case "com.amazonaws.iam#PolicyEvaluationException":
       throw await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context);
     default:
@@ -9019,23 +9018,23 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
 ): Promise<TagInstanceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9069,23 +9068,23 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
 ): Promise<TagMFADeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9119,23 +9118,23 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
 ): Promise<TagOpenIDConnectProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9169,23 +9168,23 @@ const deserializeAws_queryTagPolicyCommandError = async (
 ): Promise<TagPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9219,23 +9218,23 @@ const deserializeAws_queryTagRoleCommandError = async (
 ): Promise<TagRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9269,23 +9268,23 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
 ): Promise<TagSAMLProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9319,23 +9318,23 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
 ): Promise<TagServerCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9369,23 +9368,23 @@ const deserializeAws_queryTagUserCommandError = async (
 ): Promise<TagUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9419,20 +9418,20 @@ const deserializeAws_queryUntagInstanceProfileCommandError = async (
 ): Promise<UntagInstanceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9466,20 +9465,20 @@ const deserializeAws_queryUntagMFADeviceCommandError = async (
 ): Promise<UntagMFADeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9513,20 +9512,20 @@ const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
 ): Promise<UntagOpenIDConnectProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9560,20 +9559,20 @@ const deserializeAws_queryUntagPolicyCommandError = async (
 ): Promise<UntagPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9607,17 +9606,17 @@ const deserializeAws_queryUntagRoleCommandError = async (
 ): Promise<UntagRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9651,20 +9650,20 @@ const deserializeAws_queryUntagSAMLProviderCommandError = async (
 ): Promise<UntagSAMLProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9698,20 +9697,20 @@ const deserializeAws_queryUntagServerCertificateCommandError = async (
 ): Promise<UntagServerCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9745,17 +9744,17 @@ const deserializeAws_queryUntagUserCommandError = async (
 ): Promise<UntagUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9789,17 +9788,17 @@ const deserializeAws_queryUpdateAccessKeyCommandError = async (
 ): Promise<UpdateAccessKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9833,20 +9832,20 @@ const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
 ): Promise<UpdateAccountPasswordPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9880,23 +9879,23 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
 ): Promise<UpdateAssumeRolePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -9930,20 +9929,20 @@ const deserializeAws_queryUpdateGroupCommandError = async (
 ): Promise<UpdateGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -9977,23 +9976,23 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
 ): Promise<UpdateLoginProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "PasswordPolicyViolationException":
+    case "PasswordPolicyViolation":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
       throw await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -10027,17 +10026,17 @@ const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError = as
 ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -10074,17 +10073,17 @@ const deserializeAws_queryUpdateRoleCommandError = async (
 ): Promise<UpdateRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -10121,17 +10120,17 @@ const deserializeAws_queryUpdateRoleDescriptionCommandError = async (
 ): Promise<UpdateRoleDescriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
@@ -10168,20 +10167,20 @@ const deserializeAws_queryUpdateSAMLProviderCommandError = async (
 ): Promise<UpdateSAMLProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -10215,20 +10214,20 @@ const deserializeAws_queryUpdateServerCertificateCommandError = async (
 ): Promise<UpdateServerCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -10262,11 +10261,11 @@ const deserializeAws_queryUpdateServiceSpecificCredentialCommandError = async (
 ): Promise<UpdateServiceSpecificCredentialCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -10300,17 +10299,17 @@ const deserializeAws_queryUpdateSigningCertificateCommandError = async (
 ): Promise<UpdateSigningCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -10344,11 +10343,11 @@ const deserializeAws_queryUpdateSSHPublicKeyCommandError = async (
 ): Promise<UpdateSSHPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
@@ -10382,26 +10381,26 @@ const deserializeAws_queryUpdateUserCommandError = async (
 ): Promise<UpdateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -10438,29 +10437,29 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
 ): Promise<UploadServerCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
-    case "KeyPairMismatchException":
+    case "KeyPairMismatch":
     case "com.amazonaws.iam#KeyPairMismatchException":
       throw await deserializeAws_queryKeyPairMismatchExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "MalformedCertificateException":
+    case "MalformedCertificate":
     case "com.amazonaws.iam#MalformedCertificateException":
       throw await deserializeAws_queryMalformedCertificateExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -10497,29 +10496,29 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
 ): Promise<UploadSigningCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DuplicateCertificateException":
+    case "DuplicateCertificate":
     case "com.amazonaws.iam#DuplicateCertificateException":
       throw await deserializeAws_queryDuplicateCertificateExceptionResponse(parsedOutput, context);
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidCertificateException":
+    case "InvalidCertificate":
     case "com.amazonaws.iam#InvalidCertificateException":
       throw await deserializeAws_queryInvalidCertificateExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "MalformedCertificateException":
+    case "MalformedCertificate":
     case "com.amazonaws.iam#MalformedCertificateException":
       throw await deserializeAws_queryMalformedCertificateExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
@@ -10556,23 +10555,23 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
 ): Promise<UploadSSHPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DuplicateSSHPublicKeyException":
+    case "DuplicateSSHPublicKey":
     case "com.amazonaws.iam#DuplicateSSHPublicKeyException":
       throw await deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse(parsedOutput, context);
-    case "InvalidPublicKeyException":
+    case "InvalidPublicKey":
     case "com.amazonaws.iam#InvalidPublicKeyException":
       throw await deserializeAws_queryInvalidPublicKeyExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
-    case "UnrecognizedPublicKeyEncodingException":
+    case "UnrecognizedPublicKeyEncoding":
     case "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException":
       throw await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context);
     default:
@@ -11053,6 +11052,9 @@ const serializeAws_queryContextEntry = (input: ContextEntry, context: __SerdeCon
   }
   if (input.ContextKeyValues != null) {
     const memberEntries = serializeAws_queryContextKeyValueListType(input.ContextKeyValues, context);
+    if (input.ContextKeyValues?.length === 0) {
+      entries.ContextKeyValues = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextKeyValues.${key}`;
       entries[loc] = value;
@@ -11136,6 +11138,9 @@ const serializeAws_queryCreateInstanceProfileRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11171,6 +11176,9 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
   }
   if (input.ClientIDList != null) {
     const memberEntries = serializeAws_queryclientIDListType(input.ClientIDList, context);
+    if (input.ClientIDList?.length === 0) {
+      entries.ClientIDList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientIDList.${key}`;
       entries[loc] = value;
@@ -11178,6 +11186,9 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
   }
   if (input.ThumbprintList != null) {
     const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
+    if (input.ThumbprintList?.length === 0) {
+      entries.ThumbprintList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
       entries[loc] = value;
@@ -11185,6 +11196,9 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11209,6 +11223,9 @@ const serializeAws_queryCreatePolicyRequest = (input: CreatePolicyRequest, conte
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11256,6 +11273,9 @@ const serializeAws_queryCreateRoleRequest = (input: CreateRoleRequest, context: 
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11277,6 +11297,9 @@ const serializeAws_queryCreateSAMLProviderRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11329,6 +11352,9 @@ const serializeAws_queryCreateUserRequest = (input: CreateUserRequest, context: 
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11350,6 +11376,9 @@ const serializeAws_queryCreateVirtualMFADeviceRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11723,6 +11752,9 @@ const serializeAws_queryGetAccountAuthorizationDetailsRequest = (
   const entries: any = {};
   if (input.Filter != null) {
     const memberEntries = serializeAws_queryentityListType(input.Filter, context);
+    if (input.Filter?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key}`;
       entries[loc] = value;
@@ -11744,6 +11776,9 @@ const serializeAws_queryGetContextKeysForCustomPolicyRequest = (
   const entries: any = {};
   if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    if (input.PolicyInputList?.length === 0) {
+      entries.PolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
@@ -11762,6 +11797,9 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
   }
   if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    if (input.PolicyInputList?.length === 0) {
+      entries.PolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
@@ -12256,6 +12294,9 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
   }
   if (input.ServiceNamespaces != null) {
     const memberEntries = serializeAws_queryserviceNamespaceListType(input.ServiceNamespaces, context);
+    if (input.ServiceNamespaces?.length === 0) {
+      entries.ServiceNamespaces = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceNamespaces.${key}`;
       entries[loc] = value;
@@ -12721,6 +12762,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   const entries: any = {};
   if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    if (input.PolicyInputList?.length === 0) {
+      entries.PolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
@@ -12728,6 +12772,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   }
   if (input.PermissionsBoundaryPolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
+    if (input.PermissionsBoundaryPolicyInputList?.length === 0) {
+      entries.PermissionsBoundaryPolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PermissionsBoundaryPolicyInputList.${key}`;
       entries[loc] = value;
@@ -12735,6 +12782,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   }
   if (input.ActionNames != null) {
     const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
+    if (input.ActionNames?.length === 0) {
+      entries.ActionNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionNames.${key}`;
       entries[loc] = value;
@@ -12742,6 +12792,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   }
   if (input.ResourceArns != null) {
     const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
+    if (input.ResourceArns?.length === 0) {
+      entries.ResourceArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
@@ -12758,6 +12811,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   }
   if (input.ContextEntries != null) {
     const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
+    if (input.ContextEntries?.length === 0) {
+      entries.ContextEntries = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextEntries.${key}`;
       entries[loc] = value;
@@ -12785,6 +12841,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    if (input.PolicyInputList?.length === 0) {
+      entries.PolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
@@ -12792,6 +12851,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.PermissionsBoundaryPolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
+    if (input.PermissionsBoundaryPolicyInputList?.length === 0) {
+      entries.PermissionsBoundaryPolicyInputList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PermissionsBoundaryPolicyInputList.${key}`;
       entries[loc] = value;
@@ -12799,6 +12861,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.ActionNames != null) {
     const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
+    if (input.ActionNames?.length === 0) {
+      entries.ActionNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionNames.${key}`;
       entries[loc] = value;
@@ -12806,6 +12871,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.ResourceArns != null) {
     const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
+    if (input.ResourceArns?.length === 0) {
+      entries.ResourceArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
@@ -12822,6 +12890,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.ContextEntries != null) {
     const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
+    if (input.ContextEntries?.length === 0) {
+      entries.ContextEntries = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextEntries.${key}`;
       entries[loc] = value;
@@ -12873,6 +12944,9 @@ const serializeAws_queryTagInstanceProfileRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12917,6 +12991,9 @@ const serializeAws_queryTagMFADeviceRequest = (input: TagMFADeviceRequest, conte
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12935,6 +13012,9 @@ const serializeAws_queryTagOpenIDConnectProviderRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12950,6 +13030,9 @@ const serializeAws_queryTagPolicyRequest = (input: TagPolicyRequest, context: __
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12965,6 +13048,9 @@ const serializeAws_queryTagRoleRequest = (input: TagRoleRequest, context: __Serd
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12980,6 +13066,9 @@ const serializeAws_queryTagSAMLProviderRequest = (input: TagSAMLProviderRequest,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12998,6 +13087,9 @@ const serializeAws_queryTagServerCertificateRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -13013,6 +13105,9 @@ const serializeAws_queryTagUserRequest = (input: TagUserRequest, context: __Serd
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -13044,6 +13139,9 @@ const serializeAws_queryUntagInstanceProfileRequest = (
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13059,6 +13157,9 @@ const serializeAws_queryUntagMFADeviceRequest = (input: UntagMFADeviceRequest, c
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13077,6 +13178,9 @@ const serializeAws_queryUntagOpenIDConnectProviderRequest = (
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13092,6 +13196,9 @@ const serializeAws_queryUntagPolicyRequest = (input: UntagPolicyRequest, context
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13107,6 +13214,9 @@ const serializeAws_queryUntagRoleRequest = (input: UntagRoleRequest, context: __
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13122,6 +13232,9 @@ const serializeAws_queryUntagSAMLProviderRequest = (input: UntagSAMLProviderRequ
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13140,6 +13253,9 @@ const serializeAws_queryUntagServerCertificateRequest = (
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13155,6 +13271,9 @@ const serializeAws_queryUntagUserRequest = (input: UntagUserRequest, context: __
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -13267,6 +13386,9 @@ const serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest = (
   }
   if (input.ThumbprintList != null) {
     const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
+    if (input.ThumbprintList?.length === 0) {
+      entries.ThumbprintList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
       entries[loc] = value;
@@ -13421,6 +13543,9 @@ const serializeAws_queryUploadServerCertificateRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -13479,7 +13604,7 @@ const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext):
     contents.EntityPath = __expectString(output["EntityPath"]);
   }
   if (output["LastAuthenticatedTime"] !== undefined) {
-    contents.LastAuthenticatedTime = __expectNonNull(__parseRfc3339DateTime(output["LastAuthenticatedTime"]));
+    contents.LastAuthenticatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticatedTime"]));
   }
   if (output["TotalAuthenticatedEntities"] !== undefined) {
     contents.TotalAuthenticatedEntities = __strictParseInt32(output["TotalAuthenticatedEntities"]) as number;
@@ -13516,7 +13641,7 @@ const deserializeAws_queryAccessKey = (output: any, context: __SerdeContext): Ac
     contents.SecretAccessKey = __expectString(output["SecretAccessKey"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
@@ -13528,7 +13653,7 @@ const deserializeAws_queryAccessKeyLastUsed = (output: any, context: __SerdeCont
     Region: undefined,
   };
   if (output["LastUsedDate"] !== undefined) {
-    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTime(output["LastUsedDate"]));
+    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUsedDate"]));
   }
   if (output["ServiceName"] !== undefined) {
     contents.ServiceName = __expectString(output["ServiceName"]);
@@ -13556,7 +13681,7 @@ const deserializeAws_queryAccessKeyMetadata = (output: any, context: __SerdeCont
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
@@ -13962,7 +14087,7 @@ const deserializeAws_queryEntityDetails = (output: any, context: __SerdeContext)
     contents.EntityInfo = deserializeAws_queryEntityInfo(output["EntityInfo"], context);
   }
   if (output["LastAuthenticated"] !== undefined) {
-    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTime(output["LastAuthenticated"]));
+    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticated"]));
   }
   return contents;
 };
@@ -14036,10 +14161,8 @@ const deserializeAws_queryEvalDecisionDetailsType = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -14300,7 +14423,7 @@ const deserializeAws_queryGetCredentialReportResponse = (
     contents.ReportFormat = __expectString(output["ReportFormat"]);
   }
   if (output["GeneratedTime"] !== undefined) {
-    contents.GeneratedTime = __expectNonNull(__parseRfc3339DateTime(output["GeneratedTime"]));
+    contents.GeneratedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["GeneratedTime"]));
   }
   return contents;
 };
@@ -14401,7 +14524,7 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
     );
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -14430,10 +14553,10 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
     contents.JobStatus = __expectString(output["JobStatus"]);
   }
   if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTime(output["JobCreationDate"]));
+    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
   }
   if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTime(output["JobCompletionDate"]));
+    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
   }
   if (output["NumberOfServicesAccessible"] !== undefined) {
     contents.NumberOfServicesAccessible = __strictParseInt32(output["NumberOfServicesAccessible"]) as number;
@@ -14523,10 +14646,10 @@ const deserializeAws_queryGetSAMLProviderResponse = (output: any, context: __Ser
     contents.SAMLMetadataDocument = __expectString(output["SAMLMetadataDocument"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["ValidUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["ValidUntil"]));
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidUntil"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -14570,7 +14693,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
     contents.JobType = __expectString(output["JobType"]);
   }
   if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTime(output["JobCreationDate"]));
+    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
   }
   if (output.ServicesLastAccessed === "") {
     contents.ServicesLastAccessed = [];
@@ -14581,7 +14704,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
     );
   }
   if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTime(output["JobCompletionDate"]));
+    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -14612,10 +14735,10 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
     contents.JobStatus = __expectString(output["JobStatus"]);
   }
   if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTime(output["JobCreationDate"]));
+    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
   }
   if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTime(output["JobCompletionDate"]));
+    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
   }
   if (output.EntityDetailsList === "") {
     contents.EntityDetailsList = [];
@@ -14713,7 +14836,7 @@ const deserializeAws_queryGroup = (output: any, context: __SerdeContext): Group 
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
@@ -14741,7 +14864,7 @@ const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): 
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.GroupPolicyList === "") {
     contents.GroupPolicyList = [];
@@ -14812,7 +14935,7 @@ const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContex
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.Roles === "") {
     contents.Roles = [];
@@ -15790,7 +15913,7 @@ const deserializeAws_queryLoginProfile = (output: any, context: __SerdeContext):
     contents.UserName = __expectString(output["UserName"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["PasswordResetRequired"] !== undefined) {
     contents.PasswordResetRequired = __parseBoolean(output["PasswordResetRequired"]);
@@ -15867,10 +15990,10 @@ const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeCo
     contents.Description = __expectString(output["Description"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["UpdateDate"]));
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
   }
   if (output.PolicyVersionList === "") {
     contents.PolicyVersionList = [];
@@ -15907,7 +16030,7 @@ const deserializeAws_queryMFADevice = (output: any, context: __SerdeContext): MF
     contents.SerialNumber = __expectString(output["SerialNumber"]);
   }
   if (output["EnableDate"] !== undefined) {
-    contents.EnableDate = __expectNonNull(__parseRfc3339DateTime(output["EnableDate"]));
+    contents.EnableDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EnableDate"]));
   }
   return contents;
 };
@@ -16082,10 +16205,10 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
     contents.Description = __expectString(output["Description"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["UpdateDate"]));
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -16290,7 +16413,7 @@ const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext)
     contents.IsDefaultVersion = __parseBoolean(output["IsDefaultVersion"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
@@ -16424,7 +16547,7 @@ const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role =>
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["AssumeRolePolicyDocument"] !== undefined) {
     contents.AssumeRolePolicyDocument = __expectString(output["AssumeRolePolicyDocument"]);
@@ -16480,7 +16603,7 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["AssumeRolePolicyDocument"] !== undefined) {
     contents.AssumeRolePolicyDocument = __expectString(output["AssumeRolePolicyDocument"]);
@@ -16543,7 +16666,7 @@ const deserializeAws_queryRoleLastUsed = (output: any, context: __SerdeContext):
     Region: undefined,
   };
   if (output["LastUsedDate"] !== undefined) {
-    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTime(output["LastUsedDate"]));
+    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUsedDate"]));
   }
   if (output["Region"] !== undefined) {
     contents.Region = __expectString(output["Region"]);
@@ -16596,10 +16719,10 @@ const deserializeAws_querySAMLProviderListEntry = (output: any, context: __Serde
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["ValidUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["ValidUntil"]));
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidUntil"]));
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
@@ -16664,10 +16787,10 @@ const deserializeAws_queryServerCertificateMetadata = (
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   if (output["Expiration"] !== undefined) {
-    contents.Expiration = __expectNonNull(__parseRfc3339DateTime(output["Expiration"]));
+    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
   }
   return contents;
 };
@@ -16707,7 +16830,7 @@ const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeCo
     contents.ServiceName = __expectString(output["ServiceName"]);
   }
   if (output["LastAuthenticated"] !== undefined) {
-    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTime(output["LastAuthenticated"]));
+    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticated"]));
   }
   if (output["ServiceNamespace"] !== undefined) {
     contents.ServiceNamespace = __expectString(output["ServiceNamespace"]);
@@ -16770,7 +16893,7 @@ const deserializeAws_queryServiceSpecificCredential = (
     Status: undefined,
   };
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["ServiceName"] !== undefined) {
     contents.ServiceName = __expectString(output["ServiceName"]);
@@ -16815,7 +16938,7 @@ const deserializeAws_queryServiceSpecificCredentialMetadata = (
     contents.ServiceUserName = __expectString(output["ServiceUserName"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["ServiceSpecificCredentialId"] !== undefined) {
     contents.ServiceSpecificCredentialId = __expectString(output["ServiceSpecificCredentialId"]);
@@ -16858,7 +16981,7 @@ const deserializeAws_querySigningCertificate = (output: any, context: __SerdeCon
     contents.Status = __expectString(output["Status"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   return contents;
 };
@@ -16911,7 +17034,7 @@ const deserializeAws_querySSHPublicKey = (output: any, context: __SerdeContext):
     contents.Status = __expectString(output["Status"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   return contents;
 };
@@ -16941,7 +17064,7 @@ const deserializeAws_querySSHPublicKeyMetadata = (output: any, context: __SerdeC
     contents.Status = __expectString(output["Status"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   return contents;
 };
@@ -16981,10 +17104,8 @@ const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __strictParseInt32(pair["value"]) as number,
-    };
+    acc[pair["key"]] = __strictParseInt32(pair["value"]) as number;
+    return acc;
   }, {});
 };
 
@@ -17035,7 +17156,7 @@ const deserializeAws_queryTrackedActionLastAccessed = (
     contents.LastAccessedEntity = __expectString(output["LastAccessedEntity"]);
   }
   if (output["LastAccessedTime"] !== undefined) {
-    contents.LastAccessedTime = __expectNonNull(__parseRfc3339DateTime(output["LastAccessedTime"]));
+    contents.LastAccessedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAccessedTime"]));
   }
   if (output["LastAccessedRegion"] !== undefined) {
     contents.LastAccessedRegion = __expectString(output["LastAccessedRegion"]);
@@ -17183,10 +17304,10 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["PasswordLastUsed"] !== undefined) {
-    contents.PasswordLastUsed = __expectNonNull(__parseRfc3339DateTime(output["PasswordLastUsed"]));
+    contents.PasswordLastUsed = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["PasswordLastUsed"]));
   }
   if (output["PermissionsBoundary"] !== undefined) {
     contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
@@ -17228,7 +17349,7 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.UserPolicyList === "") {
     contents.UserPolicyList = [];
@@ -17309,7 +17430,7 @@ const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeConte
     contents.User = deserializeAws_queryUser(output["User"], context);
   }
   if (output["EnableDate"] !== undefined) {
-    contents.EnableDate = __expectNonNull(__parseRfc3339DateTime(output["EnableDate"]));
+    contents.EnableDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EnableDate"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -17329,7 +17450,8 @@ const deserializeAws_queryvirtualMFADeviceListType = (output: any, context: __Se
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -17374,13 +17496,18 @@ const buildHttpRpcRequest = async (
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -17393,13 +17520,21 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

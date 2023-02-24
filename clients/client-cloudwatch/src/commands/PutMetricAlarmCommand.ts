@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,50 +25,38 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or updates an alarm and associates it with the specified metric, metric math expression,
- * 			or anomaly detection model.</p>
- *
- *
- * 		       <p>Alarms based on anomaly detection models cannot have Auto Scaling actions.</p>
- * 		       <p>When this operation creates an alarm, the alarm state is immediately set to
+ * 			anomaly detection model, or Metrics Insights query. For more information about using
+ * 			a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create alarms on Metrics Insights queries</a>.</p>
+ *          <p>Alarms based on anomaly detection models cannot have Auto Scaling actions.</p>
+ *          <p>When this operation creates an alarm, the alarm state is immediately set to
  * 			<code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set
  * 			appropriately. Any actions associated with the new state are then executed.</p>
- * 		       <p>When you update an existing alarm, its state is left unchanged, but the
+ *          <p>When you update an existing alarm, its state is left unchanged, but the
  * 			update completely overwrites the previous configuration of the alarm.</p>
- *
- * 		       <p>If you are an IAM user, you must have
+ *          <p>If you are an IAM user, you must have
  * 			Amazon EC2 permissions for some alarm operations:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>The <code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions</p>
- *
- * 			         </li>
+ *                <p>The <code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions</p>
+ *             </li>
  *             <li>
- *
- * 				           <p>The <code>iam:CreateServiceLinkedRole</code> to create an alarm
+ *                <p>The <code>iam:CreateServiceLinkedRole</code> to create an alarm
  * 					with Systems Manager OpsItem actions.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
- *
- *
- *
- *
- *
- *
- * 		       <p>The first time you create an alarm in the
+ *          <p>The first time you create an alarm in the
  * 			Amazon Web Services Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch
  * 			creates the necessary service-linked role for you. The service-linked roles
  * 			are called <code>AWSServiceRoleForCloudWatchEvents</code> and
  * 			<code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>.
  * 			For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon Web Services service-linked role</a>.</p>
- *
- * 		       <p>
+ *          <p>
  *             <b>Cross-account alarms</b>
  *          </p>
- *
- * 		       <p>You can set an alarm on metrics in the current account, or in another
+ *          <p>You can set an alarm on metrics in the current account, or in another
  * 			account. To create a cross-account alarm that watches a metric in a different account, you must have completed the following
  * 			pre-requisites:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>The account where the metrics are located (the <i>sharing account</i>) must
  * 				already have a sharing role named <b>CloudWatch-CrossAccountSharingRole</b>. If it does not already
@@ -110,6 +99,15 @@ export class PutMetricAlarmCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutMetricAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +123,9 @@ export class PutMetricAlarmCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutMetricAlarmCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

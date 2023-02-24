@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,10 @@ export interface DissociatePackageCommandInput extends DissociatePackageRequest 
 export interface DissociatePackageCommandOutput extends DissociatePackageResponse, __MetadataBearer {}
 
 /**
- * <p>Dissociates a package from the Amazon OpenSearch Service domain.</p>
+ * <p>Removes a package from the specified Amazon OpenSearch Service domain. The package can't be
+ *    in use with any OpenSearch index for the dissociation to succeed. The package is still available
+ *    in OpenSearch Service for association later. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+ *     packages for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +56,15 @@ export class DissociatePackageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DissociatePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +80,9 @@ export class DissociatePackageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DissociatePackageCommandInput, DissociatePackageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DissociatePackageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,22 +32,22 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
 
 /**
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
- *         <p>To share a manual DB cluster snapshot with other Amazon Web Services accounts, specify
+ *          <p>To share a manual DB cluster snapshot with other Amazon Web Services accounts, specify
  *                 <code>restore</code> as the <code>AttributeName</code> and use the
  *                 <code>ValuesToAdd</code> parameter to add a list of IDs of the Amazon Web Services accounts that are
  *             authorized to restore the manual DB cluster snapshot. Use the value <code>all</code> to
  *             make the manual DB cluster snapshot public, which means that it can be copied or
  *             restored by all Amazon Web Services accounts.</p>
- *         <note>
+ *          <note>
  *             <p>Don't add the <code>all</code> value for any manual DB cluster snapshots
  *                 that contain private information that you don't want available to all Amazon Web Services
  *                 accounts.</p>
- *         </note>
- *         <p>If a manual DB cluster snapshot is encrypted, it can be shared, but only by
+ *          </note>
+ *          <p>If a manual DB cluster snapshot is encrypted, it can be shared, but only by
  *             specifying a list of authorized Amazon Web Services account IDs for the <code>ValuesToAdd</code>
  *             parameter. You can't use <code>all</code> as a value for that parameter in this
  *             case.</p>
- *         <p>To view which Amazon Web Services accounts have access to copy or restore a manual DB cluster
+ *          <p>To view which Amazon Web Services accounts have access to copy or restore a manual DB cluster
  *             snapshot, or whether a manual DB cluster snapshot is public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API operation. The accounts are
  *             returned as values for the <code>restore</code> attribute.</p>
  * @example
@@ -72,6 +73,15 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyDBClusterSnapshotAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +97,9 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBClusterSnapshotAttributeCommandInput, ModifyDBClusterSnapshotAttributeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyDBClusterSnapshotAttributeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

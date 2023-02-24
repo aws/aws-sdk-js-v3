@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,11 +31,11 @@ export interface GetHostReservationPurchasePreviewCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Preview a reservation purchase with configurations that match those of your
- *             Dedicated Host. You must have active Dedicated Hosts in your account before you purchase
- *             a reservation.</p>
- *         <p>This is a preview of the <a>PurchaseHostReservation</a> action and does
- *             not result in the offering being purchased.</p>
+ * <p>Preview a reservation purchase with configurations that match those of your Dedicated
+ *             Host. You must have active Dedicated Hosts in your account before you purchase a
+ *             reservation.</p>
+ *          <p>This is a preview of the <a>PurchaseHostReservation</a> action and does not
+ *             result in the offering being purchased.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetHostReservationPurchasePreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetHostReservationPurchasePreviewCommandInput, GetHostReservationPurchasePreviewCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetHostReservationPurchasePreviewCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

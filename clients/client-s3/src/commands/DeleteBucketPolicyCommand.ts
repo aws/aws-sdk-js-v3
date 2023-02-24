@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,18 +29,15 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  *          Amazon Web Services account that owns the bucket, the calling identity must have the
  *             <code>DeleteBucketPolicy</code> permissions on the specified bucket and belong to the
  *          bucket owner's account to use this operation. </p>
- *
  *          <p>If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a <code>403
  *             Access Denied</code> error. If you have the correct permissions, but you're not using an
  *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
  *             Allowed</code> error. </p>
- *
  *          <important>
  *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
  *             always use this operation, even if the policy explicitly denies the root user the
  *             ability to perform this action.</p>
  *          </important>
- *
  *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and
  *             UserPolicies</a>. </p>
  *          <p>The following operations are related to <code>DeleteBucketPolicy</code>
@@ -80,6 +77,21 @@ export class DeleteBucketPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +107,9 @@ export class DeleteBucketPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteBucketPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

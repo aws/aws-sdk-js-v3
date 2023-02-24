@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,13 +29,13 @@ export interface StopLoggingCommandInput extends StopLoggingRequest {}
 export interface StopLoggingCommandOutput extends StopLoggingResponse, __MetadataBearer {}
 
 /**
- * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the specified trail.
- *          Under most circumstances, there is no need to use this action. You can update a trail
- *          without stopping it first. This action is the only way to stop recording. For a trail
- *          enabled in all regions, this operation must be called from the region in which the trail
- *          was created, or an <code>InvalidHomeRegionException</code> will occur. This operation
- *          cannot be called on the shadow trails (replicated trails in other regions) of a trail
- *          enabled in all regions.</p>
+ * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the
+ *          specified trail. Under most circumstances, there is no need to use this action. You can
+ *          update a trail without stopping it first. This action is the only way to stop recording.
+ *          For a trail enabled in all regions, this operation must be called from the region in which
+ *          the trail was created, or an <code>InvalidHomeRegionException</code> will occur. This
+ *          operation cannot be called on the shadow trails (replicated trails in other regions) of a
+ *          trail enabled in all regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class StopLoggingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,7 @@ export class StopLoggingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopLoggingCommandInput, StopLoggingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StopLoggingCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

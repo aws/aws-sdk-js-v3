@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
 
 /**
  * <p>Creates a new cluster with the specified parameters.</p>
- *         <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
+ *          <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
  *             subnet group name. The cluster subnet group identifies the subnets of your VPC that
  *             Amazon Redshift uses when creating the cluster.
  * For more information about managing clusters, go to
@@ -58,6 +59,15 @@ export class CreateClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,7 @@ export class CreateClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateClusterCommandInput, CreateClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateClusterCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

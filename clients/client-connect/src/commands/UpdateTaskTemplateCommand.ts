@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,8 @@ export interface UpdateTaskTemplateCommandInput extends UpdateTaskTemplateReques
 export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Updates details about a specific task template in the specified Amazon Connect instance. This
- *    operation does not support partial updates. Instead it does a full update of template
+ * <p>Updates details about a specific task template in the specified Amazon Connect instance.
+ *    This operation does not support partial updates. Instead it does a full update of template
  *    content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +55,15 @@ export class UpdateTaskTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateTaskTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class UpdateTaskTemplateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateTaskTemplateCommandInput, UpdateTaskTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateTaskTemplateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

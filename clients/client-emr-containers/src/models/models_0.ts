@@ -66,7 +66,170 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A configuration for CloudWatch monitoring. You can configure your jobs to send log information to CloudWatch Logs.</p>
+ * <p> A configuration for CloudWatch monitoring. You can configure your jobs to send log
+ *          information to CloudWatch Logs. This data type allows job template parameters to be
+ *          specified within.</p>
+ */
+export interface ParametricCloudWatchMonitoringConfiguration {
+  /**
+   * <p> The name of the log group for log publishing.</p>
+   */
+  logGroupName?: string;
+
+  /**
+   * <p> The specified name prefix for log streams.</p>
+   */
+  logStreamNamePrefix?: string;
+}
+
+/**
+ * <p> Amazon S3 configuration for monitoring log publishing. You can configure your jobs to
+ *          send log information to Amazon S3. This data type allows job template parameters to be
+ *          specified within.</p>
+ */
+export interface ParametricS3MonitoringConfiguration {
+  /**
+   * <p>Amazon S3 destination URI for log publishing.</p>
+   */
+  logUri?: string;
+}
+
+/**
+ * <p> Configuration setting for monitoring. This data type allows job template parameters to
+ *          be specified within.</p>
+ */
+export interface ParametricMonitoringConfiguration {
+  /**
+   * <p> Monitoring configurations for the persistent application UI.</p>
+   */
+  persistentAppUI?: string;
+
+  /**
+   * <p> Monitoring configurations for CloudWatch.</p>
+   */
+  cloudWatchMonitoringConfiguration?: ParametricCloudWatchMonitoringConfiguration;
+
+  /**
+   * <p> Amazon S3 configuration for monitoring log publishing.</p>
+   */
+  s3MonitoringConfiguration?: ParametricS3MonitoringConfiguration;
+}
+
+/**
+ * <p>The job driver for job type.</p>
+ */
+export interface SparkSqlJobDriver {
+  /**
+   * <p>The SQL file to be executed.</p>
+   */
+  entryPoint?: string;
+
+  /**
+   * <p>The Spark parameters to be included in the Spark SQL command.</p>
+   */
+  sparkSqlParameters?: string;
+}
+
+/**
+ * <p>The information about job driver for Spark submit.</p>
+ */
+export interface SparkSubmitJobDriver {
+  /**
+   * <p>The entry point of job application.</p>
+   */
+  entryPoint: string | undefined;
+
+  /**
+   * <p>The arguments for job application.</p>
+   */
+  entryPointArguments?: string[];
+
+  /**
+   * <p>The Spark submit parameters that are used for job runs.</p>
+   */
+  sparkSubmitParameters?: string;
+}
+
+/**
+ * <p>Specify the driver that the job runs on. Exactly one of the two available job drivers is
+ *          required, either sparkSqlJobDriver or sparkSubmitJobDriver.</p>
+ */
+export interface JobDriver {
+  /**
+   * <p>The job driver parameters specified for spark submit.</p>
+   */
+  sparkSubmitJobDriver?: SparkSubmitJobDriver;
+
+  /**
+   * <p>The job driver for job type.</p>
+   */
+  sparkSqlJobDriver?: SparkSqlJobDriver;
+}
+
+export enum TemplateParameterDataType {
+  NUMBER = "NUMBER",
+  STRING = "STRING",
+}
+
+/**
+ * <p>The configuration of a job template parameter.</p>
+ */
+export interface TemplateParameterConfiguration {
+  /**
+   * <p>The type of the job template parameter. Allowed values are: ‘STRING’, ‘NUMBER’.</p>
+   */
+  type?: TemplateParameterDataType | string;
+
+  /**
+   * <p>The default value for the job template parameter.</p>
+   */
+  defaultValue?: string;
+}
+
+export interface CreateJobTemplateResponse {
+  /**
+   * <p>This output display the created job template ID.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>This output displays the name of the created job template.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>This output display the ARN of the created job template.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>This output displays the date and time when the job template was created.</p>
+   */
+  createdAt?: Date;
+}
+
+/**
+ * <p>The specified resource was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>A configuration for CloudWatch monitoring. You can configure your jobs to send log
+ *          information to CloudWatch Logs.</p>
  */
 export interface CloudWatchMonitoringConfiguration {
   /**
@@ -86,7 +249,8 @@ export enum PersistentAppUI {
 }
 
 /**
- * <p> Amazon S3 configuration for monitoring log publishing. You can configure your jobs to send log information to Amazon S3.</p>
+ * <p> Amazon S3 configuration for monitoring log publishing. You can configure your jobs to
+ *          send log information to Amazon S3.</p>
  */
 export interface S3MonitoringConfiguration {
   /**
@@ -138,30 +302,11 @@ export interface CreateManagedEndpointResponse {
 }
 
 /**
- * <p>The specified resource was not found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The information about the EKS cluster.</p>
+ * <p>The information about the Amazon EKS cluster.</p>
  */
 export interface EksInfo {
   /**
-   * <p>The namespaces of the EKS cluster.</p>
+   * <p>The namespaces of the Amazon EKS cluster.</p>
    */
   namespace?: string;
 }
@@ -173,7 +318,7 @@ export type ContainerInfo = ContainerInfo.EksInfoMember | ContainerInfo.$Unknown
 
 export namespace ContainerInfo {
   /**
-   * <p>The information about the EKS cluster.</p>
+   * <p>The information about the Amazon EKS cluster.</p>
    */
   export interface EksInfoMember {
     eksInfo: EksInfo;
@@ -205,7 +350,7 @@ export enum ContainerProviderType {
  */
 export interface ContainerProvider {
   /**
-   * <p>The type of the container provider. EKS is the only supported type as of now.</p>
+   * <p>The type of the container provider. Amazon EKS is the only supported type as of now.</p>
    */
   type: ContainerProviderType | string | undefined;
 
@@ -257,6 +402,20 @@ export interface CreateVirtualClusterResponse {
    * <p>This output contains the ARN of virtual cluster.</p>
    */
   arn?: string;
+}
+
+export interface DeleteJobTemplateRequest {
+  /**
+   * <p>The ID of the job template that will be deleted.</p>
+   */
+  id: string | undefined;
+}
+
+export interface DeleteJobTemplateResponse {
+  /**
+   * <p>This output contains the ID of the job template that was deleted.</p>
+   */
+  id?: string;
 }
 
 export interface DeleteManagedEndpointRequest {
@@ -317,33 +476,23 @@ export enum FailureReason {
 }
 
 /**
- * <p>The information about job driver for Spark submit.</p>
+ * <p>The configuration of the retry policy that the job runs on.</p>
  */
-export interface SparkSubmitJobDriver {
+export interface RetryPolicyConfiguration {
   /**
-   * <p>The entry point of job application.</p>
+   * <p>The maximum number of attempts on the job's driver.</p>
    */
-  entryPoint: string | undefined;
-
-  /**
-   * <p>The arguments for job application.</p>
-   */
-  entryPointArguments?: string[];
-
-  /**
-   * <p>The Spark submit parameters that are used for job runs.</p>
-   */
-  sparkSubmitParameters?: string;
+  maxAttempts: number | undefined;
 }
 
 /**
- * <p>Specify the driver that the job runs on.</p>
+ * <p>The current status of the retry policy executed on the job.</p>
  */
-export interface JobDriver {
+export interface RetryPolicyExecution {
   /**
-   * <p>The job driver parameters specified for spark submit.</p>
+   * <p>The current number of attempts made on the driver of the job.</p>
    */
-  sparkSubmitJobDriver?: SparkSubmitJobDriver;
+  currentAttemptCount: number | undefined;
 }
 
 export enum JobRunState {
@@ -354,6 +503,13 @@ export enum JobRunState {
   PENDING = "PENDING",
   RUNNING = "RUNNING",
   SUBMITTED = "SUBMITTED",
+}
+
+export interface DescribeJobTemplateRequest {
+  /**
+   * <p>The ID of the job template that will be described.</p>
+   */
+  id: string | undefined;
 }
 
 export interface DescribeManagedEndpointRequest {
@@ -406,7 +562,12 @@ export enum VirtualClusterState {
 }
 
 /**
- * <p>This entity describes a virtual cluster. A virtual cluster is a Kubernetes namespace that Amazon EMR is registered with. Amazon EMR uses virtual clusters to run jobs and host endpoints. Multiple virtual clusters can be backed by the same physical cluster. However, each virtual cluster maps to one namespace on an EKS cluster. Virtual clusters do not create any active resources that contribute to your bill or that require lifecycle management outside the service.</p>
+ * <p>This entity describes a virtual cluster. A virtual cluster is a Kubernetes namespace
+ *          that Amazon EMR is registered with. Amazon EMR uses virtual clusters to run jobs and host
+ *          endpoints. Multiple virtual clusters can be backed by the same physical cluster. However,
+ *          each virtual cluster maps to one namespace on an Amazon EKS cluster. Virtual clusters do not
+ *          create any active resources that contribute to your bill or that require lifecycle
+ *          management outside the service.</p>
  */
 export interface VirtualCluster {
   /**
@@ -489,6 +650,28 @@ export interface ListJobRunsRequest {
   nextToken?: string;
 }
 
+export interface ListJobTemplatesRequest {
+  /**
+   * <p>The date and time after which the job templates were created.</p>
+   */
+  createdAfter?: Date;
+
+  /**
+   * <p> The date and time before which the job templates were created.</p>
+   */
+  createdBefore?: Date;
+
+  /**
+   * <p> The maximum number of job templates that can be listed.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p> The token for the next set of job templates to return.</p>
+   */
+  nextToken?: string;
+}
+
 export interface ListManagedEndpointsRequest {
   /**
    * <p>The ID of the virtual cluster.</p>
@@ -547,7 +730,8 @@ export interface ListVirtualClustersRequest {
   containerProviderId?: string;
 
   /**
-   * <p>The container provider type of the virtual cluster. EKS is the only supported type as of now.</p>
+   * <p>The container provider type of the virtual cluster. Amazon EKS is the only supported type as of
+   *          now.</p>
    */
   containerProviderType?: ContainerProviderType | string;
 
@@ -640,7 +824,11 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.</p>
+ * <p>A configuration specification to be used when provisioning virtual clusters, which can
+ *          include configurations for applications and software bundled with Amazon EMR on EKS. A
+ *          configuration consists of a classification, properties, and optional nested configurations.
+ *          A classification refers to an application-specific configuration file. Properties are the
+ *          settings you want to change in that file.</p>
  */
 export interface Configuration {
   /**
@@ -674,6 +862,22 @@ export interface ConfigurationOverrides {
   monitoringConfiguration?: MonitoringConfiguration;
 }
 
+/**
+ * <p> A configuration specification to be used to override existing configurations. This data
+ *          type allows job template parameters to be specified within.</p>
+ */
+export interface ParametricConfigurationOverrides {
+  /**
+   * <p> The configurations for the application running by the job run.</p>
+   */
+  applicationConfiguration?: Configuration[];
+
+  /**
+   * <p> The configurations for monitoring. </p>
+   */
+  monitoringConfiguration?: ParametricMonitoringConfiguration;
+}
+
 export interface CreateManagedEndpointRequest {
   /**
    * <p>The name of the managed endpoint.</p>
@@ -703,7 +907,8 @@ export interface CreateManagedEndpointRequest {
   /**
    * @deprecated
    *
-   * <p>The certificate ARN provided by users for the managed endpoint. This fiedd is under deprecation and will be removed in future releases.</p>
+   * <p>The certificate ARN provided by users for the managed endpoint. This field is under
+   *          deprecation and will be removed in future releases.</p>
    */
   certificateArn?: string;
 
@@ -718,8 +923,7 @@ export interface CreateManagedEndpointRequest {
   clientToken?: string;
 
   /**
-   * <p>The tags of the managed endpoint.
-   *       </p>
+   * <p>The tags of the managed endpoint. </p>
    */
   tags?: Record<string, string>;
 }
@@ -771,17 +975,20 @@ export interface Endpoint {
   /**
    * @deprecated
    *
-   * <p>The certificate ARN of the endpoint. This field is under deprecation and will be removed in future.</p>
+   * <p>The certificate ARN of the endpoint. This field is under deprecation and will be removed
+   *          in future.</p>
    */
   certificateArn?: string;
 
   /**
-   * <p>The certificate generated by emr control plane on customer behalf to secure the managed endpoint.</p>
+   * <p>The certificate generated by emr control plane on customer behalf to secure the managed
+   *          endpoint.</p>
    */
   certificateAuthority?: Certificate;
 
   /**
-   * <p>The configuration settings that are used to override existing configurations for endpoints.</p>
+   * <p>The configuration settings that are used to override existing configurations for
+   *          endpoints.</p>
    */
   configurationOverrides?: ConfigurationOverrides;
 
@@ -796,40 +1003,34 @@ export interface Endpoint {
   createdAt?: Date;
 
   /**
-   * <p>The security group configuration of the endpoint.
-   *       </p>
+   * <p>The security group configuration of the endpoint. </p>
    */
   securityGroup?: string;
 
   /**
-   * <p>The subnet IDs of the endpoint.
-   *       </p>
+   * <p>The subnet IDs of the endpoint. </p>
    */
   subnetIds?: string[];
 
   /**
-   * <p>
-   *          Additional details of the endpoint state.
-   *       </p>
+   * <p> Additional details of the endpoint state. </p>
    */
   stateDetails?: string;
 
   /**
-   * <p>
-   *          The reasons why the endpoint has failed.
-   *       </p>
+   * <p> The reasons why the endpoint has failed. </p>
    */
   failureReason?: FailureReason | string;
 
   /**
-   * <p>The tags of the endpoint.
-   *       </p>
+   * <p>The tags of the endpoint. </p>
    */
   tags?: Record<string, string>;
 }
 
 /**
- * <p>This entity describes a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS. </p>
+ * <p>This entity describes a job run. A job run is a unit of work, such as a Spark jar,
+ *          PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS. </p>
  */
 export interface JobRun {
   /**
@@ -911,6 +1112,53 @@ export interface JobRun {
    * <p>The assigned tags of the job run.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The configuration of the retry policy that the job runs on.</p>
+   */
+  retryPolicyConfiguration?: RetryPolicyConfiguration;
+
+  /**
+   * <p>The current status of the retry policy executed on the job.</p>
+   */
+  retryPolicyExecution?: RetryPolicyExecution;
+}
+
+/**
+ * <p>The values of StartJobRun API requests used in job runs started using the job
+ *          template.</p>
+ */
+export interface JobTemplateData {
+  /**
+   * <p>The execution role ARN of the job run.</p>
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p> The release version of Amazon EMR.</p>
+   */
+  releaseLabel: string | undefined;
+
+  /**
+   * <p> The configuration settings that are used to override defaults configuration.</p>
+   */
+  configurationOverrides?: ParametricConfigurationOverrides;
+
+  /**
+   * <p>Specify the driver that the job runs on. Exactly one of the two available job drivers is
+   *          required, either sparkSqlJobDriver or sparkSubmitJobDriver.</p>
+   */
+  jobDriver: JobDriver | undefined;
+
+  /**
+   * <p>The configuration of parameters existing in the job template.</p>
+   */
+  parameterConfiguration?: Record<string, TemplateParameterConfiguration>;
+
+  /**
+   * <p>The tags assigned to jobs started using the job template.</p>
+   */
+  jobTags?: Record<string, string>;
 }
 
 export interface StartJobRunRequest {
@@ -932,17 +1180,17 @@ export interface StartJobRunRequest {
   /**
    * <p>The execution role ARN for the job run.</p>
    */
-  executionRoleArn: string | undefined;
+  executionRoleArn?: string;
 
   /**
    * <p>The Amazon EMR release version to use for the job run.</p>
    */
-  releaseLabel: string | undefined;
+  releaseLabel?: string;
 
   /**
    * <p>The job driver for the job run.</p>
    */
-  jobDriver: JobDriver | undefined;
+  jobDriver?: JobDriver;
 
   /**
    * <p>The configuration overrides for the job run.</p>
@@ -953,6 +1201,48 @@ export interface StartJobRunRequest {
    * <p>The tags assigned to job runs.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The job template ID to be used to start the job run.</p>
+   */
+  jobTemplateId?: string;
+
+  /**
+   * <p>The values of job template parameters to start a job run.</p>
+   */
+  jobTemplateParameters?: Record<string, string>;
+
+  /**
+   * <p>The retry policy configuration for the job run.</p>
+   */
+  retryPolicyConfiguration?: RetryPolicyConfiguration;
+}
+
+export interface CreateJobTemplateRequest {
+  /**
+   * <p>The specified name of the job template.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The client token of the job template.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The job template data which holds values of StartJobRun API request.</p>
+   */
+  jobTemplateData: JobTemplateData | undefined;
+
+  /**
+   * <p>The tags that are associated with the job template.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>The KMS key ARN used to encrypt the job template.</p>
+   */
+  kmsKeyArn?: string;
 }
 
 export interface DescribeJobRunResponse {
@@ -967,6 +1257,66 @@ export interface DescribeManagedEndpointResponse {
    * <p>This output displays information about a managed endpoint.</p>
    */
   endpoint?: Endpoint;
+}
+
+/**
+ * <p>This entity describes a job template. Job template stores values of StartJobRun API
+ *          request in a template and can be used to start a job run. Job template allows two use
+ *          cases: avoid repeating recurring StartJobRun API request values, enforcing certain values
+ *          in StartJobRun API request.</p>
+ */
+export interface JobTemplate {
+  /**
+   * <p>The name of the job template.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The ID of the job template.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The ARN of the job template.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p> The date and time when the job template was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p> The user who created the job template.</p>
+   */
+  createdBy?: string;
+
+  /**
+   * <p>The tags assigned to the job template.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>The job template data which holds values of StartJobRun API request.</p>
+   */
+  jobTemplateData: JobTemplateData | undefined;
+
+  /**
+   * <p> The KMS key ARN used to encrypt the job template.</p>
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * <p>The error message in case the decryption of job template fails.</p>
+   */
+  decryptionError?: string;
+}
+
+export interface DescribeJobTemplateResponse {
+  /**
+   * <p>This output displays information about the specified job template.</p>
+   */
+  jobTemplate?: JobTemplate;
 }
 
 export interface ListJobRunsResponse {
@@ -993,6 +1343,18 @@ export interface ListManagedEndpointsResponse {
   nextToken?: string;
 }
 
+export interface ListJobTemplatesResponse {
+  /**
+   * <p>This output lists information about the specified job templates.</p>
+   */
+  templates?: JobTemplate[];
+
+  /**
+   * <p> This output displays the token for the next set of job templates.</p>
+   */
+  nextToken?: string;
+}
+
 /**
  * @internal
  */
@@ -1004,6 +1366,75 @@ export const CancelJobRunRequestFilterSensitiveLog = (obj: CancelJobRunRequest):
  * @internal
  */
 export const CancelJobRunResponseFilterSensitiveLog = (obj: CancelJobRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParametricCloudWatchMonitoringConfigurationFilterSensitiveLog = (
+  obj: ParametricCloudWatchMonitoringConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParametricS3MonitoringConfigurationFilterSensitiveLog = (
+  obj: ParametricS3MonitoringConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParametricMonitoringConfigurationFilterSensitiveLog = (obj: ParametricMonitoringConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SparkSqlJobDriverFilterSensitiveLog = (obj: SparkSqlJobDriver): any => ({
+  ...obj,
+  ...(obj.entryPoint && { entryPoint: SENSITIVE_STRING }),
+  ...(obj.sparkSqlParameters && { sparkSqlParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SparkSubmitJobDriverFilterSensitiveLog = (obj: SparkSubmitJobDriver): any => ({
+  ...obj,
+  ...(obj.entryPoint && { entryPoint: SENSITIVE_STRING }),
+  ...(obj.entryPointArguments && { entryPointArguments: SENSITIVE_STRING }),
+  ...(obj.sparkSubmitParameters && { sparkSubmitParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const JobDriverFilterSensitiveLog = (obj: JobDriver): any => ({
+  ...obj,
+  ...(obj.sparkSubmitJobDriver && {
+    sparkSubmitJobDriver: SparkSubmitJobDriverFilterSensitiveLog(obj.sparkSubmitJobDriver),
+  }),
+  ...(obj.sparkSqlJobDriver && { sparkSqlJobDriver: SparkSqlJobDriverFilterSensitiveLog(obj.sparkSqlJobDriver) }),
+});
+
+/**
+ * @internal
+ */
+export const TemplateParameterConfigurationFilterSensitiveLog = (obj: TemplateParameterConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobTemplateResponseFilterSensitiveLog = (obj: CreateJobTemplateResponse): any => ({
   ...obj,
 });
 
@@ -1076,6 +1507,20 @@ export const CreateVirtualClusterResponseFilterSensitiveLog = (obj: CreateVirtua
 /**
  * @internal
  */
+export const DeleteJobTemplateRequestFilterSensitiveLog = (obj: DeleteJobTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobTemplateResponseFilterSensitiveLog = (obj: DeleteJobTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteManagedEndpointRequestFilterSensitiveLog = (obj: DeleteManagedEndpointRequest): any => ({
   ...obj,
 });
@@ -1111,21 +1556,22 @@ export const DescribeJobRunRequestFilterSensitiveLog = (obj: DescribeJobRunReque
 /**
  * @internal
  */
-export const SparkSubmitJobDriverFilterSensitiveLog = (obj: SparkSubmitJobDriver): any => ({
+export const RetryPolicyConfigurationFilterSensitiveLog = (obj: RetryPolicyConfiguration): any => ({
   ...obj,
-  ...(obj.entryPoint && { entryPoint: SENSITIVE_STRING }),
-  ...(obj.entryPointArguments && { entryPointArguments: SENSITIVE_STRING }),
-  ...(obj.sparkSubmitParameters && { sparkSubmitParameters: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const JobDriverFilterSensitiveLog = (obj: JobDriver): any => ({
+export const RetryPolicyExecutionFilterSensitiveLog = (obj: RetryPolicyExecution): any => ({
   ...obj,
-  ...(obj.sparkSubmitJobDriver && {
-    sparkSubmitJobDriver: SparkSubmitJobDriverFilterSensitiveLog(obj.sparkSubmitJobDriver),
-  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobTemplateRequestFilterSensitiveLog = (obj: DescribeJobTemplateRequest): any => ({
+  ...obj,
 });
 
 /**
@@ -1169,6 +1615,13 @@ export const DescribeVirtualClusterResponseFilterSensitiveLog = (obj: DescribeVi
  * @internal
  */
 export const ListJobRunsRequestFilterSensitiveLog = (obj: ListJobRunsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobTemplatesRequestFilterSensitiveLog = (obj: ListJobTemplatesRequest): any => ({
   ...obj,
 });
 
@@ -1269,6 +1722,16 @@ export const ConfigurationOverridesFilterSensitiveLog = (obj: ConfigurationOverr
 /**
  * @internal
  */
+export const ParametricConfigurationOverridesFilterSensitiveLog = (obj: ParametricConfigurationOverrides): any => ({
+  ...obj,
+  ...(obj.applicationConfiguration && {
+    applicationConfiguration: obj.applicationConfiguration.map((item) => ConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const CreateManagedEndpointRequestFilterSensitiveLog = (obj: CreateManagedEndpointRequest): any => ({
   ...obj,
   ...(obj.configurationOverrides && {
@@ -1300,12 +1763,31 @@ export const JobRunFilterSensitiveLog = (obj: JobRun): any => ({
 /**
  * @internal
  */
+export const JobTemplateDataFilterSensitiveLog = (obj: JobTemplateData): any => ({
+  ...obj,
+  ...(obj.configurationOverrides && {
+    configurationOverrides: ParametricConfigurationOverridesFilterSensitiveLog(obj.configurationOverrides),
+  }),
+  ...(obj.jobDriver && { jobDriver: JobDriverFilterSensitiveLog(obj.jobDriver) }),
+});
+
+/**
+ * @internal
+ */
 export const StartJobRunRequestFilterSensitiveLog = (obj: StartJobRunRequest): any => ({
   ...obj,
   ...(obj.jobDriver && { jobDriver: JobDriverFilterSensitiveLog(obj.jobDriver) }),
   ...(obj.configurationOverrides && {
     configurationOverrides: ConfigurationOverridesFilterSensitiveLog(obj.configurationOverrides),
   }),
+});
+
+/**
+ * @internal
+ */
+export const CreateJobTemplateRequestFilterSensitiveLog = (obj: CreateJobTemplateRequest): any => ({
+  ...obj,
+  ...(obj.jobTemplateData && { jobTemplateData: JobTemplateDataFilterSensitiveLog(obj.jobTemplateData) }),
 });
 
 /**
@@ -1327,6 +1809,22 @@ export const DescribeManagedEndpointResponseFilterSensitiveLog = (obj: DescribeM
 /**
  * @internal
  */
+export const JobTemplateFilterSensitiveLog = (obj: JobTemplate): any => ({
+  ...obj,
+  ...(obj.jobTemplateData && { jobTemplateData: JobTemplateDataFilterSensitiveLog(obj.jobTemplateData) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobTemplateResponseFilterSensitiveLog = (obj: DescribeJobTemplateResponse): any => ({
+  ...obj,
+  ...(obj.jobTemplate && { jobTemplate: JobTemplateFilterSensitiveLog(obj.jobTemplate) }),
+});
+
+/**
+ * @internal
+ */
 export const ListJobRunsResponseFilterSensitiveLog = (obj: ListJobRunsResponse): any => ({
   ...obj,
   ...(obj.jobRuns && { jobRuns: obj.jobRuns.map((item) => JobRunFilterSensitiveLog(item)) }),
@@ -1337,4 +1835,12 @@ export const ListJobRunsResponseFilterSensitiveLog = (obj: ListJobRunsResponse):
  */
 export const ListManagedEndpointsResponseFilterSensitiveLog = (obj: ListManagedEndpointsResponse): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobTemplatesResponseFilterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
+  ...obj,
+  ...(obj.templates && { templates: obj.templates.map((item) => JobTemplateFilterSensitiveLog(item)) }),
 });

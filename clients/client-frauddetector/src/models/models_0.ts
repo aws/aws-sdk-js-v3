@@ -24,8 +24,7 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * <p>The log odds metric details.</p>
- *
- *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+ *          <p>Account Takeover Insights (ATI) model uses event variables from the login data you
  *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
  *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
  */
@@ -48,8 +47,7 @@ export interface AggregatedLogOddsMetric {
 /**
  * <p>
  *             The details of the impact of aggregated variables on the prediction score. </p>
- *
- *         <p>Account Takeover Insights (ATI) model  uses the login data you
+ *          <p>Account Takeover Insights (ATI) model  uses the login data you
  *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, the model might calculate the number of times an user has logged in using the same IP address.
  *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
  */
@@ -71,7 +69,7 @@ export interface AggregatedVariablesImpactExplanation {
   /**
    * <p>
    *             The raw, uninterpreted value represented as log-odds of the fraud.  These values are usually between -10 to +10, but range from -infinity to +infinity.</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>A positive value indicates that the variables drove the risk score up.</p>
    *             </li>
@@ -85,8 +83,7 @@ export interface AggregatedVariablesImpactExplanation {
 
 /**
  * <p>The details of the relative importance of the aggregated variables.</p>
- *
- *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+ *          <p>Account Takeover Insights (ATI) model uses event variables from the login data you
  *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
  *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
  */
@@ -97,6 +94,55 @@ export interface AggregatedVariablesImportanceMetrics {
    *         </p>
    */
   logOddsMetrics?: AggregatedLogOddsMetric[];
+}
+
+/**
+ * <p>
+ *             The metadata of a list.
+ *         </p>
+ */
+export interface AllowDenyList {
+  /**
+   * <p>
+   *             The name of the list.
+   *         </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *             The description of the list.
+   *         </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *             The variable type of the list.
+   *         </p>
+   */
+  variableType?: string;
+
+  /**
+   * <p>
+   *             The time the list was created.
+   *         </p>
+   */
+  createdTime?: string;
+
+  /**
+   * <p>
+   *             The time the list was last updated.
+   *         </p>
+   */
+  updatedTime?: string;
+
+  /**
+   * <p>
+   *             The ARN of the list.
+   *         </p>
+   */
+  arn?: string;
 }
 
 export enum AsyncJobStatus {
@@ -497,8 +543,10 @@ export interface CreateBatchImportJobRequest {
   eventTypeName: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role created for Amazon S3 bucket that holds your data file.
-   *          The IAM role must have read and write permissions to both input and output S3 buckets.</p>
+   * <p>The ARN of the IAM role created for Amazon S3 bucket that holds your data file.</p>
+   *          <p>The IAM role must have read permissions to your input S3 bucket and write permissions to your output S3 bucket.
+   *          For more information about bucket permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html">User policy examples</a> in the
+   *          <i>Amazon S3 User Guide</i>.</p>
    */
   iamRoleArn: string | undefined;
 
@@ -543,6 +591,9 @@ export interface CreateBatchPredictionJobRequest {
 
   /**
    * <p>The ARN of the IAM role to use for this job request.</p>
+   *          <p>The IAM Role must have read permissions to your input S3 bucket and write permissions to your output S3 bucket.
+   *          For more information about bucket permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html">User policy examples</a> in the
+   *          <i>Amazon S3 User Guide</i>.</p>
    */
   iamRoleArn: string | undefined;
 
@@ -638,9 +689,9 @@ export interface CreateDetectorVersionRequest {
 
   /**
    * <p>The rule execution mode for the rules included in the detector version.</p>
-   * 	        <p>You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
-   * 	        <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
-   * 	        <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>
+   *          <p>You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
+   *          <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
+   *          <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    */
   ruleExecutionMode?: RuleExecutionMode | string;
@@ -673,6 +724,46 @@ export interface CreateDetectorVersionResult {
    */
   status?: DetectorVersionStatus | string;
 }
+
+export interface CreateListRequest {
+  /**
+   * <p>
+   *             The name of the list.
+   *         </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *             The names of the elements, if providing.  You can also create an empty list and add elements later using the <a href="https://docs.aws.amazon.com/frauddetector/latest/api/API_Updatelist.html">UpdateList</a> API.
+   *         </p>
+   */
+  elements?: string[];
+
+  /**
+   * <p>
+   *             The variable type of the list. You can only assign the variable type with String data type.  For more information, see
+   *             <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.
+   *         </p>
+   */
+  variableType?: string;
+
+  /**
+   * <p>
+   *             The description of the list.
+   *         </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *             A collection of the key and value pairs.
+   *         </p>
+   */
+  tags?: Tag[];
+}
+
+export interface CreateListResult {}
 
 export interface CreateModelRequest {
   /**
@@ -744,6 +835,7 @@ export interface IngestedEventsDetail {
 }
 
 export enum UnlabeledEventsTreatment {
+  AUTO = "AUTO",
   FRAUD = "FRAUD",
   IGNORE = "IGNORE",
   LEGIT = "LEGIT",
@@ -761,6 +853,21 @@ export interface LabelSchema {
 
   /**
    * <p>The action to take for unlabeled events.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>IGNORE</code> if you want the unlabeled events to be ignored. This is recommended when the majority of the events in the dataset are labeled.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>FRAUD</code>  if you want to categorize all unlabeled events as “Fraud”.  This is recommended when most of the events in your dataset are fraudulent.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>LEGIT</code> f you want to categorize all unlabeled events as “Legit”. This is recommended when most of the events in your dataset are legitimate.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>AUTO</code> if you want Amazon Fraud Detector to decide how to use the unlabeled data.  This is recommended when there is significant unlabeled events in the dataset.</p>
+   *             </li>
+   *          </ul>
+   *          <p>By default, Amazon Fraud Detector ignores the unlabeled data.</p>
    */
   unlabeledEventsTreatment?: UnlabeledEventsTreatment | string;
 }
@@ -1067,6 +1174,17 @@ export interface DeleteLabelRequest {
 }
 
 export interface DeleteLabelResult {}
+
+export interface DeleteListRequest {
+  /**
+   * <p>
+   *             The name of the list to delete.
+   *         </p>
+   */
+  name: string | undefined;
+}
+
+export interface DeleteListResult {}
 
 export interface DeleteModelRequest {
   /**
@@ -1411,6 +1529,26 @@ export interface OFIMetricDataPoint {
 
 /**
  * <p>
+ *             Range of area under curve (auc) expected from the model. A range greater than 0.1 indicates higher model uncertainity. A range is the difference between upper and lower bound of auc.
+ *         </p>
+ */
+export interface UncertaintyRange {
+  /**
+   * <p>
+   *             The lower bound value of the area under curve (auc).
+   *         </p>
+   */
+  lowerBoundValue: number | undefined;
+
+  /**
+   * <p>
+   *             The lower bound value of the area under curve (auc).        </p>
+   */
+  upperBoundValue: number | undefined;
+}
+
+/**
+ * <p>
  *             The Online Fraud Insights (OFI) model performance score.
  *         </p>
  */
@@ -1421,6 +1559,13 @@ export interface OFIModelPerformance {
    *         </p>
    */
   auc?: number;
+
+  /**
+   * <p>
+   *             Indicates the range of area under curve (auc) expected from the OFI model. A range greater than 0.1 indicates higher model uncertainity.
+   *         </p>
+   */
+  uncertaintyRange?: UncertaintyRange;
 }
 
 /**
@@ -1492,6 +1637,13 @@ export interface TFIModelPerformance {
    *         </p>
    */
   auc?: number;
+
+  /**
+   * <p>
+   *             Indicates the range of area under curve (auc) expected from the TFI model. A range greater than 0.1 indicates higher model uncertainity.
+   *         </p>
+   */
+  uncertaintyRange?: UncertaintyRange;
 }
 
 /**
@@ -1570,7 +1722,7 @@ export interface TrainingResultV2 {
    * <p>
    *             The variable importance metrics of the aggregated variables.
    *         </p>
-   *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+   *          <p>Account Takeover Insights (ATI) model uses event variables from the login data you
    *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
    *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
    */
@@ -2013,9 +2165,9 @@ export interface GetDetectorVersionResult {
 
   /**
    * <p>The execution mode of the rule in the dectector</p>
-   * 	        <p>
+   *          <p>
    *             <code>FIRST_MATCHED</code> indicates that Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
-   * 	        <p>
+   *          <p>
    *             <code>ALL_MATCHED</code> indicates that Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
    */
   ruleExecutionMode?: RuleExecutionMode | string;
@@ -2211,15 +2363,12 @@ export interface GetEventPredictionRequest {
    *          <important>
    *             <p>You must provide at least one eventVariable</p>
    *          </important>
-   *
    *          <p>To ensure most accurate fraud prediction and to simplify your data preparation, Amazon Fraud Detector will replace all missing variables or values as follows:</p>
-   *
    *          <p>
    *             <b>For Amazon Fraud Detector trained models:</b>
    *          </p>
    *          <p>If a null value is provided explicitly for a variable or if a variable is missing, model will replace the null value or the missing variable (no variable name in the eventVariables map)
    *          with calculated default mean/medians for numeric variables and with special values for categorical variables.</p>
-   *
    *          <p>
    *             <b>For imported SageMaker models:</b>
    *          </p>
@@ -2460,8 +2609,7 @@ export interface PredictionExplanations {
    * <p>
    *             The details of the aggregated variables impact on the prediction score.
    *         </p>
-   *
-   *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+   *          <p>Account Takeover Insights (ATI) model uses event variables from the login data you
    *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
    *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
    */
@@ -3065,6 +3213,84 @@ export interface GetLabelsResult {
   nextToken?: string;
 }
 
+export interface GetListElementsRequest {
+  /**
+   * <p>
+   *             The name of the list.
+   *         </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *             The next token for the subsequent request.
+   *         </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *             The maximum number of objects to return for the request.
+   *         </p>
+   */
+  maxResults?: number;
+}
+
+export interface GetListElementsResult {
+  /**
+   * <p>
+   *             The list elements.
+   *         </p>
+   */
+  elements?: string[];
+
+  /**
+   * <p>
+   *             The next page token.
+   *         </p>
+   */
+  nextToken?: string;
+}
+
+export interface GetListsMetadataRequest {
+  /**
+   * <p>
+   *             The name of the list.
+   *         </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *             The next token for the subsequent request.
+   *         </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *             The maximum number of objects to return for the request.
+   *         </p>
+   */
+  maxResults?: number;
+}
+
+export interface GetListsMetadataResult {
+  /**
+   * <p>
+   *             The metadata of the specified list or all lists under the account.
+   *         </p>
+   */
+  lists?: AllowDenyList[];
+
+  /**
+   * <p>
+   *             The next page token.
+   *         </p>
+   */
+  nextToken?: string;
+}
+
 export interface GetModelsRequest {
   /**
    * <p>The model ID.</p>
@@ -3197,8 +3423,8 @@ export interface GetModelVersionResult {
 
   /**
    * <p>The model version status.</p>
-   * 	        <p>Possible values are:</p>
-   * 	        <ul>
+   *          <p>Possible values are:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>TRAINING_IN_PROGRESS</code>
@@ -3740,6 +3966,7 @@ export interface PutExternalModelResult {}
 export interface PutKMSEncryptionKeyRequest {
   /**
    * <p>The KMS encryption key ARN.</p>
+   *          <p>The KMS key must be single-Region key. Amazon Fraud Detector does not support multi-Region KMS key.</p>
    */
   kmsEncryptionKeyArn: string | undefined;
 }
@@ -3884,8 +4111,8 @@ export interface UpdateDetectorVersionRequest {
 
   /**
    * <p>The rule execution mode to add to the detector.</p>
-   * 	        <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
-   * 	        <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
+   *          <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
+   *          <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    */
   ruleExecutionMode?: RuleExecutionMode | string;
@@ -3925,6 +4152,8 @@ export interface UpdateDetectorVersionStatusRequest {
 
   /**
    * <p>The new status.</p>
+   *          <p>The only supported values are <code>ACTIVE</code> and <code>INACTIVE</code>
+   *          </p>
    */
   status: DetectorVersionStatus | string | undefined;
 }
@@ -3954,6 +4183,66 @@ export interface UpdateEventLabelRequest {
 }
 
 export interface UpdateEventLabelResult {}
+
+export enum ListUpdateMode {
+  APPEND = "APPEND",
+  REMOVE = "REMOVE",
+  REPLACE = "REPLACE",
+}
+
+export interface UpdateListRequest {
+  /**
+   * <p>
+   *             The name of the list to update.
+   *         </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *             One or more list elements to add or replace. If you are providing the elements, make sure to specify the <code>updateMode</code> to use.
+   *         </p>
+   *          <p>If you are deleting all elements from the list, use <code>REPLACE</code> for the <code>updateMode</code> and provide an empty list (0 elements).</p>
+   */
+  elements?: string[];
+
+  /**
+   * <p>
+   *             The new description.
+   *         </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *             The update mode (type).
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>APPEND</code> if you are adding elements to the list.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>REPLACE</code> if you replacing existing elements in the list.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>REMOVE</code> if you are removing elements from the list.</p>
+   *             </li>
+   *          </ul>
+   */
+  updateMode?: ListUpdateMode | string;
+
+  /**
+   * <p>
+   *             The variable type you want to assign to the list.
+   *         </p>
+   *          <note>
+   *             <p>You cannot update a variable type of a list that already has a variable type assigned to it. You can assign a variable type to a list only if the list does not already have a variable type.</p>
+   *          </note>
+   */
+  variableType?: string;
+}
+
+export interface UpdateListResult {}
 
 export interface UpdateModelRequest {
   /**
@@ -4163,6 +4452,13 @@ export const AggregatedVariablesImportanceMetricsFilterSensitiveLog = (
 /**
  * @internal
  */
+export const AllowDenyListFilterSensitiveLog = (obj: AllowDenyList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ATIMetricDataPointFilterSensitiveLog = (obj: ATIMetricDataPoint): any => ({
   ...obj,
 });
@@ -4325,6 +4621,21 @@ export const CreateDetectorVersionRequestFilterSensitiveLog = (obj: CreateDetect
  * @internal
  */
 export const CreateDetectorVersionResultFilterSensitiveLog = (obj: CreateDetectorVersionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateListRequestFilterSensitiveLog = (obj: CreateListRequest): any => ({
+  ...obj,
+  ...(obj.elements && { elements: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateListResultFilterSensitiveLog = (obj: CreateListResult): any => ({
   ...obj,
 });
 
@@ -4563,6 +4874,20 @@ export const DeleteLabelResultFilterSensitiveLog = (obj: DeleteLabelResult): any
 /**
  * @internal
  */
+export const DeleteListRequestFilterSensitiveLog = (obj: DeleteListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteListResultFilterSensitiveLog = (obj: DeleteListResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteModelRequestFilterSensitiveLog = (obj: DeleteModelRequest): any => ({
   ...obj,
 });
@@ -4718,6 +5043,13 @@ export const TrainingResultFilterSensitiveLog = (obj: TrainingResult): any => ({
  * @internal
  */
 export const OFIMetricDataPointFilterSensitiveLog = (obj: OFIMetricDataPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UncertaintyRangeFilterSensitiveLog = (obj: UncertaintyRange): any => ({
   ...obj,
 });
 
@@ -5162,6 +5494,35 @@ export const GetLabelsResultFilterSensitiveLog = (obj: GetLabelsResult): any => 
 /**
  * @internal
  */
+export const GetListElementsRequestFilterSensitiveLog = (obj: GetListElementsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetListElementsResultFilterSensitiveLog = (obj: GetListElementsResult): any => ({
+  ...obj,
+  ...(obj.elements && { elements: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetListsMetadataRequestFilterSensitiveLog = (obj: GetListsMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetListsMetadataResultFilterSensitiveLog = (obj: GetListsMetadataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetModelsRequestFilterSensitiveLog = (obj: GetModelsRequest): any => ({
   ...obj,
 });
@@ -5500,6 +5861,21 @@ export const UpdateEventLabelRequestFilterSensitiveLog = (obj: UpdateEventLabelR
  * @internal
  */
 export const UpdateEventLabelResultFilterSensitiveLog = (obj: UpdateEventLabelResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateListRequestFilterSensitiveLog = (obj: UpdateListRequest): any => ({
+  ...obj,
+  ...(obj.elements && { elements: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateListResultFilterSensitiveLog = (obj: UpdateListResult): any => ({
   ...obj,
 });
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,17 +32,17 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  *          <p>When determining how to route traffic, we use the route with the most specific match.
  *             For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and the
  *             route table includes the following two IPv4 routes:</p>
- * 			      <ul>
+ *          <ul>
  *             <li>
- * 					          <p>
+ *                <p>
  *                   <code>192.0.2.0/24</code> (goes to some target A)</p>
- * 				        </li>
+ *             </li>
  *             <li>
- * 					          <p>
+ *                <p>
  *                   <code>192.0.2.0/28</code> (goes to some target B)</p>
- * 				        </li>
+ *             </li>
  *          </ul>
- * 		       <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route
+ *          <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route
  * 				in the list covers a smaller number of IP addresses and is therefore more specific,
  * 				so we use that route to determine where to target the traffic.</p>
  *          <p>For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
@@ -69,6 +70,15 @@ export class CreateRouteCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +94,7 @@ export class CreateRouteCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateRouteCommandInput, CreateRouteCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateRouteCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

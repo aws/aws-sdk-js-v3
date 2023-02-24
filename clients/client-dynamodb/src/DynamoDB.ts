@@ -70,6 +70,11 @@ import {
   DescribeGlobalTableSettingsCommandOutput,
 } from "./commands/DescribeGlobalTableSettingsCommand";
 import {
+  DescribeImportCommand,
+  DescribeImportCommandInput,
+  DescribeImportCommandOutput,
+} from "./commands/DescribeImportCommand";
+import {
   DescribeKinesisStreamingDestinationCommand,
   DescribeKinesisStreamingDestinationCommandInput,
   DescribeKinesisStreamingDestinationCommandOutput,
@@ -120,6 +125,7 @@ import {
   ExportTableToPointInTimeCommandOutput,
 } from "./commands/ExportTableToPointInTimeCommand";
 import { GetItemCommand, GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
+import { ImportTableCommand, ImportTableCommandInput, ImportTableCommandOutput } from "./commands/ImportTableCommand";
 import { ListBackupsCommand, ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
   ListContributorInsightsCommand,
@@ -132,6 +138,7 @@ import {
   ListGlobalTablesCommandInput,
   ListGlobalTablesCommandOutput,
 } from "./commands/ListGlobalTablesCommand";
+import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
   ListTagsOfResourceCommand,
@@ -226,9 +233,9 @@ import { DynamoDBClient } from "./DynamoDBClient";
 export class DynamoDB extends DynamoDBClient {
   /**
    * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
-   *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify an equality
-   *             condition on all key attributes. This enforces that each <code>SELECT</code> statement in a
-   *             batch returns at most a single item.</p>
+   *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
+   *             an equality condition on all key attributes. This enforces that each <code>SELECT</code>
+   *             statement in a batch returns at most a single item.</p>
    *         <note>
    *             <p>The entire batch must consist of either read statements or write statements, you
    *                 cannot mix both in one batch.</p>
@@ -352,8 +359,10 @@ export class DynamoDB extends DynamoDBClient {
    *             for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming Rules and Data Types</a>.</p>
    *         <note>
    *             <p>
-   *                 <code>BatchWriteItem</code> cannot update items. To update items, use the
-   *                     <code>UpdateItem</code> action.</p>
+   *                 <code>BatchWriteItem</code> cannot update items. If you perform a <code>BatchWriteItem</code>
+   *                 operation on an existing item, that item's values will be overwritten by the
+   *                 operation and it will appear like it was updated. To update items, we recommend you
+   *                 use the <code>UpdateItem</code> action.</p>
    *         </note>
    *         <p>The individual <code>PutItem</code> and <code>DeleteItem</code> operations specified
    *             in <code>BatchWriteItem</code> are atomic; however <code>BatchWriteItem</code> as a
@@ -998,6 +1007,38 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * <p> Represents the properties of the import. </p>
+   */
+  public describeImport(
+    args: DescribeImportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImportCommandOutput>;
+  public describeImport(
+    args: DescribeImportCommandInput,
+    cb: (err: any, data?: DescribeImportCommandOutput) => void
+  ): void;
+  public describeImport(
+    args: DescribeImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImportCommandOutput) => void
+  ): void;
+  public describeImport(
+    args: DescribeImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeImportCommandOutput) => void
+  ): Promise<DescribeImportCommandOutput> | void {
+    const command = new DescribeImportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about the status of Kinesis streaming.</p>
    */
   public describeKinesisStreamingDestination(
@@ -1461,6 +1502,32 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * <p> Imports table data from an S3 bucket. </p>
+   */
+  public importTable(args: ImportTableCommandInput, options?: __HttpHandlerOptions): Promise<ImportTableCommandOutput>;
+  public importTable(args: ImportTableCommandInput, cb: (err: any, data?: ImportTableCommandOutput) => void): void;
+  public importTable(
+    args: ImportTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportTableCommandOutput) => void
+  ): void;
+  public importTable(
+    args: ImportTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportTableCommandOutput) => void),
+    cb?: (err: any, data?: ImportTableCommandOutput) => void
+  ): Promise<ImportTableCommandOutput> | void {
+    const command = new ImportTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List backups associated with an Amazon Web Services account. To list backups for a
    *             given table, specify <code>TableName</code>. <code>ListBackups</code> returns a
    *             paginated list of results with at most 1 MB worth of items in a page. You can also
@@ -1588,6 +1655,32 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * <p> Lists completed imports within the past 90 days. </p>
+   */
+  public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
+  public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportsCommandOutput) => void),
+    cb?: (err: any, data?: ListImportsCommandOutput) => void
+  ): Promise<ListImportsCommandOutput> | void {
+    const command = new ListImportsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns an array of table names associated with the current account and endpoint. The
    *             output from <code>ListTables</code> is paginated, with each page returning a maximum of
    *             100 table names.</p>
@@ -1659,7 +1752,7 @@ export class DynamoDB extends DynamoDBClient {
    *             the same operation, using the <code>ReturnValues</code> parameter.</p>
    *
    *         <p>When you add an item, the primary key attributes are the only required attributes.
-   *             Attribute values cannot be null.</p>
+   *             </p>
    *         <p>Empty String and Binary attribute values are allowed. Attribute values of type String
    *             and Binary must have a length greater than zero if the attribute is used as a key
    *             attribute for a table or index. Set type attributes cannot be empty. </p>
@@ -1999,7 +2092,7 @@ export class DynamoDB extends DynamoDBClient {
    * <p>
    *             <code>TransactGetItems</code> is a synchronous operation that atomically retrieves
    *             multiple items from one or more tables (but not from indexes) in a single account and
-   *             Region. A <code>TransactGetItems</code> call can contain up to 25
+   *             Region. A <code>TransactGetItems</code> call can contain up to 100
    *                 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code>
    *             structure that specifies an item to retrieve from a table in the account and Region. A
    *             call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one
@@ -2055,7 +2148,7 @@ export class DynamoDB extends DynamoDBClient {
 
   /**
    * <p>
-   *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 25
+   *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 100
    *             action requests. These actions can target items in different tables, but not in
    *             different Amazon Web Services accounts or Regions, and no two actions can target the same
    *             item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code>

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface ListInvitationsCommandInput extends ListInvitationsInput {}
 export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all invitations for the current AWS account.</p>
+ * <p>Returns a list of all invitations for the current Amazon Web Services account.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +58,15 @@ export class ListInvitationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class ListInvitationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListInvitationsCommandInput, ListInvitationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListInvitationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

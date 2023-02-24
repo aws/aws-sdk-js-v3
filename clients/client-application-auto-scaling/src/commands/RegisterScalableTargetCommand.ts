@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,14 +33,17 @@ export interface RegisterScalableTargetCommandInput extends RegisterScalableTarg
 export interface RegisterScalableTargetCommandOutput extends RegisterScalableTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Registers or updates a scalable target. </p>
- *          <p>A scalable target is a resource that Application Auto Scaling can scale out and scale in. Scalable
- *          targets are uniquely identified by the combination of resource ID, scalable dimension, and
- *          namespace. </p>
- *          <p>When you register a new scalable target, you must specify values for minimum and maximum
- *          capacity. Current capacity will be adjusted within the specified range when scaling starts.
- *          Application Auto Scaling scaling policies will not scale capacity to values that are outside of this
- *          range.</p>
+ * <p>Registers or updates a scalable target, the resource that you want to scale.</p>
+ *          <p>Scalable targets are uniquely identified by the combination of resource ID, scalable
+ *          dimension, and namespace, which represents some capacity dimension of the underlying
+ *          service.</p>
+ *          <p>When you register a new scalable target, you must specify values for the minimum and
+ *          maximum capacity. If the specified resource is not active in the target service, this
+ *          operation does not change the resource's current capacity. Otherwise, it changes the
+ *          resource's current capacity to a value that is inside of this range.</p>
+ *          <p>If you choose to add a scaling policy, current capacity is adjustable within the
+ *          specified range when scaling starts. Application Auto Scaling scaling policies will not scale capacity to
+ *          values that are outside of the minimum and maximum range.</p>
  *          <p>After you register a scalable target, you do not need to register it again to use other
  *          Application Auto Scaling operations. To see which resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. You can also view the scaling policies for a service
  *          namespace by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. If you no longer need a scalable target, you can
@@ -77,6 +81,15 @@ export class RegisterScalableTargetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterScalableTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +105,9 @@ export class RegisterScalableTargetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterScalableTargetCommandInput, RegisterScalableTargetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterScalableTargetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

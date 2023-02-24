@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,12 +31,12 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
 /**
  * <p>Uses your private certificate authority (CA), or one that has been shared with you, to
  * 			issue a client certificate. This action returns the Amazon Resource Name (ARN) of the
- * 			certificate. You can retrieve the certificate by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and
+ * 			certificate. You can retrieve the certificate by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and
  * 			specifying the ARN. </p>
- * 		       <note>
- * 			         <p>You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs of the
- * 				certificates that you issue by using ACM Private CA.</p>
- * 		       </note>
+ *          <note>
+ *             <p>You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs of the
+ * 				certificates that you issue by using Amazon Web Services Private CA.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,15 @@ export class IssueCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: IssueCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class IssueCertificateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<IssueCertificateCommandInput, IssueCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, IssueCertificateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

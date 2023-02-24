@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,33 +25,33 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  *             programmatically, you must delete the items attached to the user manually, or the
  *             deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting an IAM
  *                 user</a>. Before attempting to delete a user, remove the following items:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Password (<a>DeleteLoginProfile</a>)</p>
+ *                <p>Password (<a>DeleteLoginProfile</a>)</p>
  *             </li>
  *             <li>
- *                 <p>Access keys (<a>DeleteAccessKey</a>)</p>
+ *                <p>Access keys (<a>DeleteAccessKey</a>)</p>
  *             </li>
  *             <li>
- *                 <p>Signing certificate (<a>DeleteSigningCertificate</a>)</p>
+ *                <p>Signing certificate (<a>DeleteSigningCertificate</a>)</p>
  *             </li>
  *             <li>
- *                 <p>SSH public key (<a>DeleteSSHPublicKey</a>)</p>
+ *                <p>SSH public key (<a>DeleteSSHPublicKey</a>)</p>
  *             </li>
  *             <li>
- *                 <p>Git credentials (<a>DeleteServiceSpecificCredential</a>)</p>
+ *                <p>Git credentials (<a>DeleteServiceSpecificCredential</a>)</p>
  *             </li>
  *             <li>
- *                 <p>Multi-factor authentication (MFA) device (<a>DeactivateMFADevice</a>, <a>DeleteVirtualMFADevice</a>)</p>
+ *                <p>Multi-factor authentication (MFA) device (<a>DeactivateMFADevice</a>, <a>DeleteVirtualMFADevice</a>)</p>
  *             </li>
  *             <li>
- *                 <p>Inline policies (<a>DeleteUserPolicy</a>)</p>
+ *                <p>Inline policies (<a>DeleteUserPolicy</a>)</p>
  *             </li>
  *             <li>
- *                 <p>Attached managed policies (<a>DetachUserPolicy</a>)</p>
+ *                <p>Attached managed policies (<a>DetachUserPolicy</a>)</p>
  *             </li>
  *             <li>
- *                 <p>Group memberships (<a>RemoveUserFromGroup</a>)</p>
+ *                <p>Group memberships (<a>RemoveUserFromGroup</a>)</p>
  *             </li>
  *          </ul>
  * @example
@@ -76,6 +77,15 @@ export class DeleteUserCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +101,7 @@ export class DeleteUserCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteUserCommandInput, DeleteUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteUserCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

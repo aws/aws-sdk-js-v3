@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,10 +33,10 @@ export interface GetRecommendationPreferencesCommandOutput
 /**
  * <p>Returns existing recommendation preferences, such as enhanced infrastructure
  *             metrics.</p>
- *         <p>Use the <code>scope</code> parameter to specify which preferences to return. You can
+ *          <p>Use the <code>scope</code> parameter to specify which preferences to return. You can
  *             specify to return preferences for an organization, a specific account ID, or a specific
  *             EC2 instance or Auto Scaling group Amazon Resource Name (ARN).</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
  *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
  *                 Guide</i>.</p>
  * @example
@@ -61,6 +62,15 @@ export class GetRecommendationPreferencesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class GetRecommendationPreferencesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRecommendationPreferencesCommandInput, GetRecommendationPreferencesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetRecommendationPreferencesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

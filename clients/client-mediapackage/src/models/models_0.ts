@@ -200,6 +200,13 @@ export enum AdMarkers {
   SCTE35_ENHANCED = "SCTE35_ENHANCED",
 }
 
+export enum AdsOnDeliveryRestrictions {
+  BOTH = "BOTH",
+  NONE = "NONE",
+  RESTRICTED = "RESTRICTED",
+  UNRESTRICTED = "UNRESTRICTED",
+}
+
 export enum PlaylistType {
   EVENT = "EVENT",
   NONE = "NONE",
@@ -267,13 +274,25 @@ export interface HlsManifest {
    * The URL of the packaged OriginEndpoint for consumption.
    */
   Url?: string;
-}
 
-export enum AdsOnDeliveryRestrictions {
-  BOTH = "BOTH",
-  NONE = "NONE",
-  RESTRICTED = "RESTRICTED",
-  UNRESTRICTED = "UNRESTRICTED",
+  /**
+   * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
+   * ad markers are output.  Specify multiple items to create ad markers for all of the included
+   * message types.
+   */
+  AdTriggers?: (__AdTriggersElement | string)[];
+
+  /**
+   * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
+   * determine whether a message signals an ad.  Choosing "NONE" means no SCTE-35 messages become
+   * ads.  Choosing "RESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that
+   * contain delivery restrictions will be treated as ads.  Choosing "UNRESTRICTED" means SCTE-35
+   * messages of the types specified in AdTriggers that do not contain delivery restrictions will
+   * be treated as ads.  Choosing "BOTH" means all SCTE-35 messages of the types specified in
+   * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
+   * and are always treated as ads if specified in AdTriggers.
+   */
+  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
 }
 
 /**
@@ -368,6 +387,11 @@ export interface Authorization {
   SecretsRoleArn: string | undefined;
 }
 
+export enum CmafEncryptionMethod {
+  AES_CTR = "AES_CTR",
+  SAMPLE_AES = "SAMPLE_AES",
+}
+
 export enum PresetSpeke20Audio {
   PRESET_AUDIO_1 = "PRESET-AUDIO-1",
   PRESET_AUDIO_2 = "PRESET-AUDIO-2",
@@ -460,6 +484,11 @@ export interface CmafEncryption {
    * An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
    */
   ConstantInitializationVector?: string;
+
+  /**
+   * The encryption method to use.
+   */
+  EncryptionMethod?: CmafEncryptionMethod | string;
 
   /**
    * Time (in seconds) between each encryption key rotation.

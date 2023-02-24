@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,15 +27,15 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
 
 /**
  * <p>Retrieves the encrypted administrator password for a running Windows instance.</p>
- *         <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
+ *          <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
  *                 <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
  *             happens the first time an instance is launched. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html">EC2Config</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html">EC2Launch</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
- *         <p>For the <code>EC2Config</code> service, the password is not generated for rebundled
+ *          <p>For the <code>EC2Config</code> service, the password is not generated for rebundled
  *             AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p>
- *         <p>The password is encrypted using the key pair that you specified when you launched the
+ *          <p>The password is encrypted using the key pair that you specified when you launched the
  *             instance. You must provide the corresponding key pair file.</p>
- *         <p>When you launch an instance, password generation and encryption may take a few
+ *          <p>When you launch an instance, password generation and encryption may take a few
  *             minutes. If you try to retrieve the password before it's available, the output returns
  *             an empty string. We recommend that you wait up to 15 minutes after launching an instance
  *             before trying to retrieve the generated password.</p>
@@ -61,6 +62,15 @@ export class GetPasswordDataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetPasswordDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class GetPasswordDataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPasswordDataCommandInput, GetPasswordDataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetPasswordDataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

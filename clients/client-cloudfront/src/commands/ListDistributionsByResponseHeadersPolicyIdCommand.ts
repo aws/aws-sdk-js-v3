@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,9 +32,9 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
+ * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
  * 			associated with the specified response headers policy.</p>
- * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+ *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
  * 			default maximum, the response is paginated. To get the next page of items, send a
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
@@ -61,6 +62,15 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListDistributionsByResponseHeadersPolicyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +89,12 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
     ListDistributionsByResponseHeadersPolicyIdCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        ListDistributionsByResponseHeadersPolicyIdCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

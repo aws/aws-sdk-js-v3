@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface DeleteRecommendationPreferencesCommandOutput
 
 /**
  * <p>Deletes a recommendation preference, such as enhanced infrastructure metrics.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
  *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
  *                 Guide</i>.</p>
  * @example
@@ -57,6 +58,15 @@ export class DeleteRecommendationPreferencesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class DeleteRecommendationPreferencesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteRecommendationPreferencesCommandInput, DeleteRecommendationPreferencesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteRecommendationPreferencesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

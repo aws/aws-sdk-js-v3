@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,17 +30,16 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
 
 /**
  * <p>Connects a Kubernetes cluster to the Amazon EKS control plane. </p>
- *         <p>Any Kubernetes cluster can be connected to the Amazon EKS control plane to
+ *          <p>Any Kubernetes cluster can be connected to the Amazon EKS control plane to
  *             view current information about the cluster and its nodes. </p>
- *         <p>Cluster connection requires two steps. First, send a <code>
+ *          <p>Cluster connection requires two steps. First, send a <code>
  *                <a>RegisterClusterRequest</a>
  *             </code> to add it to the Amazon EKS
  *             control plane.</p>
- *         <p>Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a> containing the <code>activationID</code> and
+ *          <p>Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a> containing the <code>activationID</code> and
  *                 <code>activationCode</code> must be applied to the Kubernetes cluster through it's
  *             native provider to provide visibility.</p>
- *
- *         <p>After the Manifest is updated and applied, then the connected cluster is visible to
+ *          <p>After the Manifest is updated and applied, then the connected cluster is visible to
  *             the Amazon EKS control plane. If the Manifest is not applied within three days,
  *             then the connected cluster will no longer be visible and must be deregistered. See <a>DeregisterCluster</a>.</p>
  * @example
@@ -65,6 +65,15 @@ export class RegisterClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +89,9 @@ export class RegisterClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterClusterCommandInput, RegisterClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterClusterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

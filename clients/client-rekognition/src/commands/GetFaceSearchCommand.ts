@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -38,7 +39,6 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  *       To get the search results, first check that the status value published to the Amazon SNS
  *       topic is <code>SUCCEEDED</code>. If so, call  <code>GetFaceSearch</code> and pass the job identifier
  *       (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>.</p>
- *
  *          <p>For more information, see Searching Faces in a Collection in the
  *       Amazon Rekognition Developer Guide.</p>
  *          <p>The search results are retured in an array, <code>Persons</code>, of
@@ -54,7 +54,6 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  *         in the <code>Face</code> object of the following response syntax are not returned. For more information,
  *         see FaceDetail in the Amazon Rekognition Developer Guide. </p>
  *          </note>
- *
  *          <p>By default, the <code>Persons</code> array is sorted by the time, in milliseconds from the
  *     start of the video, persons are matched.
  *     You can also sort by persons by specifying <code>INDEX</code> for the <code>SORTBY</code> input
@@ -82,6 +81,15 @@ export class GetFaceSearchCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetFaceSearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,6 +105,7 @@ export class GetFaceSearchCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetFaceSearchCommandInput, GetFaceSearchCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetFaceSearchCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

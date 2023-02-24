@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * 			those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are
  * 			listed.
  * 	    </p>
- * 		       <p>
+ *          <p>
  *             <code>ListDashboards</code> returns up to 1000 results on one page. If there
  * 			are more than 1000 dashboards, you can call <code>ListDashboards</code> again and
  * 		include the value you received for <code>NextToken</code> in the first call, to receive
@@ -60,6 +61,15 @@ export class ListDashboardsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListDashboardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class ListDashboardsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDashboardsCommandInput, ListDashboardsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDashboardsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

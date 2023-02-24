@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
 
 /**
  * <p>Returns information about a training job. </p>
- *         <p>Some of the attributes below only appear if the training job successfully starts.
+ *          <p>Some of the attributes below only appear if the training job successfully starts.
  *             If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
  *             depending on the <code>FailureReason</code>, attributes like
  *                 <code>TrainingStartTime</code>, <code>TrainingTimeInSeconds</code>,
@@ -58,6 +59,15 @@ export class DescribeTrainingJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeTrainingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class DescribeTrainingJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeTrainingJobCommandInput, DescribeTrainingJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeTrainingJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

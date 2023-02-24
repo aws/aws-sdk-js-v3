@@ -1,4 +1,4 @@
-import { fromBase64 } from "@aws-sdk/util-base64-browser";
+import { fromBase64 } from "@aws-sdk/util-base64";
 export function blobReader(
   blob: Blob,
   onChunk: (chunk: Uint8Array) => void,

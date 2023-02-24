@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,9 +32,9 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
 
 /**
  * <p>Gets information on the settings of query suggestions for an index.</p>
- *         <p>This is used to check the current settings applied
+ *          <p>This is used to check the current settings applied
  *             to query suggestions.</p>
- *         <p>
+ *          <p>
  *             <code>DescribeQuerySuggestionsConfig</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
@@ -59,6 +60,15 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeQuerySuggestionsConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeQuerySuggestionsConfigCommandInput, DescribeQuerySuggestionsConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeQuerySuggestionsConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

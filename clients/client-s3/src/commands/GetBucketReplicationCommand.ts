@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -37,20 +37,15 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  *          </note>
  *          <p> For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
- *
  *          <p>This action requires permissions for the <code>s3:GetReplicationConfiguration</code>
  *          action. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
  *             Policies</a>.</p>
- *
  *          <p>If you include the <code>Filter</code> element in a replication configuration, you must
  *          also include the <code>DeleteMarkerReplication</code> and <code>Priority</code> elements.
  *          The response also returns those elements.</p>
- *
  *          <p>For information about <code>GetBucketReplication</code> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List of
  *             replication-related error codes</a>
  *          </p>
- *
- *
  *          <p>The following operations are related to <code>GetBucketReplication</code>:</p>
  *          <ul>
  *             <li>
@@ -87,6 +82,21 @@ export class GetBucketReplicationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetBucketReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,7 +112,9 @@ export class GetBucketReplicationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetBucketReplicationCommandInput, GetBucketReplicationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetBucketReplicationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,29 +29,27 @@ export interface AssociateRepositoryCommandInput extends AssociateRepositoryRequ
 export interface AssociateRepositoryCommandOutput extends AssociateRepositoryResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Use to associate an Amazon Web Services CodeCommit repository or a repostory managed by
- *          Amazon Web Services CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a
- *         repository, CodeGuru Reviewer reviews source code changes in the repository's pull requests and provides
- *         automatic recommendations. You can view recommendations using the CodeGuru Reviewer console. For more information, see
- *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html">Recommendations in
+ * <p>Use to associate an Amazon Web Services CodeCommit repository or a repository managed by Amazon Web Services
+ *          CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru Reviewer reviews
+ *          source code changes in the repository's pull requests and provides automatic
+ *          recommendations. You can view recommendations using the CodeGuru Reviewer console. For more
+ *          information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html">Recommendations in
  *             Amazon CodeGuru Reviewer</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i>
- *         </p>
+ *          </p>
  *
- *          <p>If you associate a CodeCommit or S3 repository, it must be in the same
- *          Amazon Web Services Region and Amazon Web Services account where its CodeGuru Reviewer code reviews are configured.</p>
+ *          <p>If you associate a CodeCommit or S3 repository, it must be in the same Amazon Web Services Region and
+ *          Amazon Web Services account where its CodeGuru Reviewer code reviews are configured.</p>
  *
  *          <p>Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web Services CodeStar
- *          Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate a repository</a> in
- *          the <i>Amazon CodeGuru Reviewer User Guide.</i>
+ *          Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate a
+ *             repository</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i>
  *          </p>
  *
  *          <note>
- *             <p>
- *             You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate a GitHub repository with Amazon CodeGuru Reviewer. To associate
- *             a GitHub repository, use the console. For more information, see
- *             <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html">Getting
- *             started with CodeGuru Reviewer</a> in the <i>CodeGuru Reviewer User Guide.</i>
+ *             <p>You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate a GitHub repository with
+ *             Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console. For more information, see
+ *                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html">Getting started with
+ *                CodeGuru Reviewer</a> in the <i>CodeGuru Reviewer User Guide.</i>
  *             </p>
  *          </note>
  * @example
@@ -76,6 +75,15 @@ export class AssociateRepositoryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AssociateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +99,9 @@ export class AssociateRepositoryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateRepositoryCommandInput, AssociateRepositoryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateRepositoryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

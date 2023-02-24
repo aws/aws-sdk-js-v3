@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,11 @@ export interface CopyProductCommandInput extends CopyProductInput {}
 export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataBearer {}
 
 /**
- * <p>Copies the specified source product to the specified target product or a new product.</p>
- *          <p>You can copy a product to the same account or another account.
- *          You can copy a product to the same region or another region.</p>
+ * <p>Copies the specified source product to the specified target product or a new
+ *          product.</p>
+ *          <p>You can copy a product to the same account or another account. You can copy a product
+ *          to the same Region or another Region. If you copy a product to another account, you must
+ *          first share the product in a portfolio using <a>CreatePortfolioShare</a>.</p>
  *          <p>This operation is performed asynchronously. To track the progress of the
  *          operation, use <a>DescribeCopyProductStatus</a>.</p>
  * @example
@@ -56,6 +59,15 @@ export class CopyProductCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CopyProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +83,7 @@ export class CopyProductCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CopyProductCommandInput, CopyProductCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CopyProductCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

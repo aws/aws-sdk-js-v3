@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteRoleAliasRequest, DeleteRoleAliasRequestFilterSensitiveLog } from "../models/models_0";
-import { DeleteRoleAliasResponse, DeleteRoleAliasResponseFilterSensitiveLog } from "../models/models_1";
+import {
+  DeleteRoleAliasRequest,
+  DeleteRoleAliasRequestFilterSensitiveLog,
+  DeleteRoleAliasResponse,
+  DeleteRoleAliasResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteRoleAliasCommand,
   serializeAws_restJson1DeleteRoleAliasCommand,
@@ -49,6 +54,15 @@ export class DeleteRoleAliasCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteRoleAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +78,9 @@ export class DeleteRoleAliasCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteRoleAliasCommandInput, DeleteRoleAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteRoleAliasCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

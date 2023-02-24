@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse,
 /**
  * <p>Deletes stored utterances.</p>
  *          <p>Amazon Lex stores the utterances that users send to your bot. Utterances
- *          are stored for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a> operation, and
+ *          are stored for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a> operation, and
  *          then stored indefinitely for use in improving the ability of your bot
  *          to respond to user input..</p>
  *          <p>Use the <code>DeleteUtterances</code> operation to manually delete
@@ -63,6 +64,15 @@ export class DeleteUtterancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteUtterancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class DeleteUtterancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteUtterancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

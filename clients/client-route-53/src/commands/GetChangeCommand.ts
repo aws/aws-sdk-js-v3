@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -28,18 +29,18 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
 /**
  * <p>Returns the current status of a change batch request. The status is one of the
  * 			following values:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>PENDING</code> indicates that the changes in this request have not
  * 					propagated to all Amazon Route 53 DNS servers. This is the initial status of all
  * 					change batch requests.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>INSYNC</code> indicates that the changes have propagated to all Route 53
  * 					DNS servers. </p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +65,15 @@ export class GetChangeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetChangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +89,7 @@ export class GetChangeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetChangeCommandInput, GetChangeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetChangeCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

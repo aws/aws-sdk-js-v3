@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,8 @@ export interface UpgradeDomainCommandInput extends UpgradeDomainRequest {}
 export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to either upgrade your domain or perform an upgrade eligibility check to a compatible version of OpenSearch or Elasticsearch.
- *     </p>
+ * <p>Allows you to either upgrade your Amazon OpenSearch Service domain or perform an upgrade
+ *    eligibility check to a compatible version of OpenSearch or Elasticsearch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,15 @@ export class UpgradeDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpgradeDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,7 @@ export class UpgradeDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpgradeDomainCommandInput, UpgradeDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpgradeDomainCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

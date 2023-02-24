@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -35,14 +36,14 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  * 			associate a specified VPC with a hosted zone that was created by a different account.
  * 			You must use the account that created the hosted zone to submit a
  * 				<code>DeleteVPCAssociationAuthorization</code> request.</p>
- * 		       <important>
- * 			         <p>Sending this request only prevents the Amazon Web Services account that created the
+ *          <important>
+ *             <p>Sending this request only prevents the Amazon Web Services account that created the
  * 				VPC from associating the VPC with the Amazon Route 53 hosted zone in the future. If
  * 				the VPC is already associated with the hosted zone,
  * 					<code>DeleteVPCAssociationAuthorization</code> won't disassociate the VPC from
  * 				the hosted zone. If you want to delete an existing association, use
  * 					<code>DisassociateVPCFromHostedZone</code>.</p>
- * 		       </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +67,15 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteVPCAssociationAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +91,9 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteVPCAssociationAuthorizationCommandInput, DeleteVPCAssociationAuthorizationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteVPCAssociationAuthorizationCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

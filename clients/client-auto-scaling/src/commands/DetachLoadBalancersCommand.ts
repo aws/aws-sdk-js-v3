@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,9 +30,9 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
 
 /**
  * <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
- *         <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or
+ *          <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or
  *             Gateway Load Balancer, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p>
- *         <p>When you detach a load balancer, it enters the <code>Removing</code> state while
+ *          <p>When you detach a load balancer, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
  *             can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>
  * @example
@@ -57,6 +58,15 @@ export class DetachLoadBalancersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetachLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class DetachLoadBalancersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetachLoadBalancersCommandInput, DetachLoadBalancersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetachLoadBalancersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

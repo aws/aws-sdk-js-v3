@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,9 @@ export interface UpdateTemplateSyncConfigCommandInput extends UpdateTemplateSync
 export interface UpdateTemplateSyncConfigCommandOutput extends UpdateTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Update template sync configuration parameters, except for the <code>templateName</code> and <code>templateType</code>.</p>
+ * <p>Update template sync configuration parameters, except for the <code>templateName</code> and
+ *     <code>templateType</code>. Repository details (branch, name, and provider) should be of a linked repository. A
+ *    linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +55,15 @@ export class UpdateTemplateSyncConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateTemplateSyncConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +79,9 @@ export class UpdateTemplateSyncConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateTemplateSyncConfigCommandInput, UpdateTemplateSyncConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateTemplateSyncConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

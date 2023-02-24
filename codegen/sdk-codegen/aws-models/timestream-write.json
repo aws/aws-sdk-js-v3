@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -55,10 +55,7 @@
       }
     },
     "com.amazonaws.timestreamwrite#Boolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.timestreamwrite#ConflictException": {
       "type": "structure",
@@ -256,6 +253,7 @@
         "TableCount": {
           "target": "com.amazonaws.timestreamwrite#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of tables found within a Timestream database. </p>"
           }
         },
@@ -295,6 +293,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.timestreamwrite#DeleteDatabaseRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -339,6 +340,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.timestreamwrite#DeleteTableRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -612,6 +616,7 @@
         "CachePeriodInMinutes": {
           "target": "com.amazonaws.timestreamwrite#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The TTL for the endpoint, in minutes.</p>",
             "smithy.api#required": {}
           }
@@ -631,7 +636,10 @@
       "type": "string"
     },
     "com.amazonaws.timestreamwrite#Integer": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.timestreamwrite#InternalServerException": {
       "type": "structure",
@@ -866,7 +874,10 @@
       }
     },
     "com.amazonaws.timestreamwrite#Long": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.timestreamwrite#MagneticStoreRejectedDataLocation": {
       "type": "structure",
@@ -885,6 +896,7 @@
     "com.amazonaws.timestreamwrite#MagneticStoreRetentionPeriodInDays": {
       "type": "long",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 73000
@@ -981,6 +993,7 @@
     "com.amazonaws.timestreamwrite#MemoryStoreRetentionPeriodInHours": {
       "type": "long",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 8766
@@ -990,7 +1003,6 @@
     "com.amazonaws.timestreamwrite#PaginationLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 20
@@ -1039,7 +1051,7 @@
         "Version": {
           "target": "com.amazonaws.timestreamwrite#RecordVersion",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>64-bit attribute used for record updates. \n         Write requests for duplicate data with a higher version number will update the existing measure value and version. \n         In cases where the measure value is the same, <code>Version</code> will still be updated . Default value is <code>1</code>.</p>\n      \n         <note>\n            <p>\n               <code>Version</code> must be <code>1</code> or greater, or you will receive a <code>ValidationException</code> error.</p>\n         </note>"
           }
         },
@@ -1055,10 +1067,16 @@
       }
     },
     "com.amazonaws.timestreamwrite#RecordIndex": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.timestreamwrite#RecordVersion": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.timestreamwrite#Records": {
       "type": "list",
@@ -1078,18 +1096,21 @@
         "Total": {
           "target": "com.amazonaws.timestreamwrite#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Total count of successfully ingested records.</p>"
           }
         },
         "MemoryStore": {
           "target": "com.amazonaws.timestreamwrite#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Count of records ingested into the memory store.</p>"
           }
         },
         "MagneticStore": {
           "target": "com.amazonaws.timestreamwrite#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Count of records ingested into the magnetic store.</p>"
           }
         }
@@ -1104,6 +1125,7 @@
         "RecordIndex": {
           "target": "com.amazonaws.timestreamwrite#RecordIndex",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>\nThe index of the record in the input request for WriteRecords. Indexes begin with 0. \n</p>"
           }
         },
@@ -1116,7 +1138,7 @@
         "ExistingVersion": {
           "target": "com.amazonaws.timestreamwrite#RecordVersion",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The existing version of the record. \n         This value is populated in scenarios where an identical record exists with a higher version than the version in the write request.</p>"
           }
         }
@@ -1175,6 +1197,7 @@
         "MemoryStoreRetentionPeriodInHours": {
           "target": "com.amazonaws.timestreamwrite#MemoryStoreRetentionPeriodInHours",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The duration for which data must be stored in the memory store. </p>",
             "smithy.api#required": {}
           }
@@ -1182,6 +1205,7 @@
         "MagneticStoreRetentionPeriodInDays": {
           "target": "com.amazonaws.timestreamwrite#MagneticStoreRetentionPeriodInDays",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The duration for which data must be stored in the magnetic store. </p>",
             "smithy.api#required": {}
           }
@@ -1540,25 +1564,6 @@
     },
     "com.amazonaws.timestreamwrite#Timestream_20181101": {
       "type": "service",
-      "traits": {
-        "aws.api#clientEndpointDiscovery": {
-          "operation": "com.amazonaws.timestreamwrite#DescribeEndpoints",
-          "error": "com.amazonaws.timestreamwrite#InvalidEndpointException"
-        },
-        "aws.api#service": {
-          "sdkId": "Timestream Write",
-          "arnNamespace": "timestream",
-          "cloudFormationName": "TimestreamWrite",
-          "cloudTrailEventSource": "timestreamwrite.amazonaws.com",
-          "endpointPrefix": "ingest.timestream"
-        },
-        "aws.auth#sigv4": {
-          "name": "timestream"
-        },
-        "aws.protocols#awsJson1_0": {},
-        "smithy.api#documentation": "<fullname>Amazon Timestream Write</fullname>\n         <p>Amazon Timestream is a fast, scalable, fully managed time series database service that makes it easy to store and analyze trillions of time series data points per day. \n       With Timestream, you can easily store and analyze IoT sensor data to derive insights from your IoT applications. \n         You can analyze industrial telemetry to streamline equipment management and maintenance. \n         You can also store and analyze log data and metrics to improve the performance and availability of your applications. \n       Timestream is built from the ground up to effectively ingest, process, \n         and store time series data. It organizes data to optimize query processing. It automatically scales based on the volume of data ingested and on the query volume to ensure you receive optimal performance while inserting and querying data. As your data grows over time, Timestream’s adaptive query processing engine spans across storage tiers to provide fast analysis while reducing costs.</p>",
-        "smithy.api#title": "Amazon Timestream Write"
-      },
       "version": "2018-11-01",
       "operations": [
         {
@@ -1606,7 +1611,378 @@
         {
           "target": "com.amazonaws.timestreamwrite#WriteRecords"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#clientEndpointDiscovery": {
+          "operation": "com.amazonaws.timestreamwrite#DescribeEndpoints",
+          "error": "com.amazonaws.timestreamwrite#InvalidEndpointException"
+        },
+        "aws.api#service": {
+          "sdkId": "Timestream Write",
+          "arnNamespace": "timestream",
+          "cloudFormationName": "TimestreamWrite",
+          "cloudTrailEventSource": "timestreamwrite.amazonaws.com",
+          "endpointPrefix": "ingest.timestream"
+        },
+        "aws.auth#sigv4": {
+          "name": "timestream"
+        },
+        "aws.protocols#awsJson1_0": {},
+        "smithy.api#documentation": "<fullname>Amazon Timestream Write</fullname>\n         <p>Amazon Timestream is a fast, scalable, fully managed time series database service that makes it easy to store and analyze trillions of time series data points per day. \n       With Timestream, you can easily store and analyze IoT sensor data to derive insights from your IoT applications. \n         You can analyze industrial telemetry to streamline equipment management and maintenance. \n         You can also store and analyze log data and metrics to improve the performance and availability of your applications. \n       Timestream is built from the ground up to effectively ingest, process, \n         and store time series data. It organizes data to optimize query processing. It automatically scales based on the volume of data ingested and on the query volume to ensure you receive optimal performance while inserting and querying data. As your data grows over time, Timestream’s adaptive query processing engine spans across storage tiers to provide fast analysis while reducing costs.</p>",
+        "smithy.api#title": "Amazon Timestream Write",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://ingest.timestream-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://ingest.timestream-fips.{Region}.{PartitionResult#dnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://ingest.timestream.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://ingest.timestream.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.timestreamwrite#UntagResource": {
       "type": "operation",

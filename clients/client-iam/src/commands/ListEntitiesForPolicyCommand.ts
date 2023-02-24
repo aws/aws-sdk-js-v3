@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,11 +31,11 @@ export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolic
 /**
  * <p>Lists all IAM users, groups, and roles that the specified managed policy is attached
  *             to.</p>
- *         <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
+ *          <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
  *             particular type of entity (users, groups, or roles). For example, to list only the roles
  *             that are attached to the specified policy, set <code>EntityFilter</code> to
  *                 <code>Role</code>.</p>
- *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +60,15 @@ export class ListEntitiesForPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListEntitiesForPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class ListEntitiesForPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListEntitiesForPolicyCommandInput, ListEntitiesForPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListEntitiesForPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

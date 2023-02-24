@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -26,7 +27,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
 /**
  * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an
  *          Amazon Web Services account. For this operation, users must have the
- *             <code>s3:PutBucketPublicAccessBlock</code> permission. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">
+ *             <code>s3:PutAccountPublicAccessBlock</code> permission. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">
  *             Using Amazon S3 block public access</a>.</p>
  *          <p>Related actions include:</p>
  *          <ul>
@@ -64,6 +65,18 @@ export class PutPublicAccessBlockCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
+      AccountId: { type: "contextParams", name: "AccountId" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutPublicAccessBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +92,9 @@ export class PutPublicAccessBlockCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutPublicAccessBlockCommandInput, PutPublicAccessBlockCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutPublicAccessBlockCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

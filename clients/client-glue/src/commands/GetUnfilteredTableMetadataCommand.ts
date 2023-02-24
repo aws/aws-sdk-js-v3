@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,6 +28,25 @@ import {
 export interface GetUnfilteredTableMetadataCommandInput extends GetUnfilteredTableMetadataRequest {}
 export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTableMetadataResponse, __MetadataBearer {}
 
+/**
+ * <p>Retrieves table metadata from the Data Catalog that contains unfiltered
+ *           metadata.</p>
+ *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetTable</code>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetUnfilteredTableMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetUnfilteredTableMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetUnfilteredTableMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUnfilteredTableMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetUnfilteredTableMetadataCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ */
 export class GetUnfilteredTableMetadataCommand extends $Command<
   GetUnfilteredTableMetadataCommandInput,
   GetUnfilteredTableMetadataCommandOutput,
@@ -34,6 +54,15 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
 > {
   // Start section: command_properties
   // End section: command_properties
+
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
 
   constructor(readonly input: GetUnfilteredTableMetadataCommandInput) {
     // Start section: command_constructor
@@ -50,6 +79,9 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetUnfilteredTableMetadataCommandInput, GetUnfilteredTableMetadataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetUnfilteredTableMetadataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

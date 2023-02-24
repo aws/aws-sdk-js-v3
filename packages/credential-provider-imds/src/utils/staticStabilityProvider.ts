@@ -1,4 +1,4 @@
-import { Credentials, Logger, Provider } from "@aws-sdk/types";
+import { AwsCredentialIdentity, Logger, Provider } from "@aws-sdk/types";
 
 import { InstanceMetadataCredentials } from "../types";
 import { getExtendedInstanceMetadataCredentials } from "./getExtendedInstanceMetadataCredentials";

@@ -22,6 +22,10 @@ import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "../
 import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "../commands/CreateExportTaskCommand";
 import { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "../commands/CreateLogGroupCommand";
 import { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "../commands/CreateLogStreamCommand";
+import {
+  DeleteDataProtectionPolicyCommandInput,
+  DeleteDataProtectionPolicyCommandOutput,
+} from "../commands/DeleteDataProtectionPolicyCommand";
 import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "../commands/DeleteDestinationCommand";
 import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "../commands/DeleteLogGroupCommand";
 import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "../commands/DeleteLogStreamCommand";
@@ -71,11 +75,23 @@ import {
 } from "../commands/DescribeSubscriptionFiltersCommand";
 import { DisassociateKmsKeyCommandInput, DisassociateKmsKeyCommandOutput } from "../commands/DisassociateKmsKeyCommand";
 import { FilterLogEventsCommandInput, FilterLogEventsCommandOutput } from "../commands/FilterLogEventsCommand";
+import {
+  GetDataProtectionPolicyCommandInput,
+  GetDataProtectionPolicyCommandOutput,
+} from "../commands/GetDataProtectionPolicyCommand";
 import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "../commands/GetLogEventsCommand";
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "../commands/GetLogGroupFieldsCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "../commands/GetLogRecordCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "../commands/GetQueryResultsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { ListTagsLogGroupCommandInput, ListTagsLogGroupCommandOutput } from "../commands/ListTagsLogGroupCommand";
+import {
+  PutDataProtectionPolicyCommandInput,
+  PutDataProtectionPolicyCommandOutput,
+} from "../commands/PutDataProtectionPolicyCommand";
 import { PutDestinationCommandInput, PutDestinationCommandOutput } from "../commands/PutDestinationCommand";
 import {
   PutDestinationPolicyCommandInput,
@@ -93,8 +109,10 @@ import {
 import { StartQueryCommandInput, StartQueryCommandOutput } from "../commands/StartQueryCommand";
 import { StopQueryCommandInput, StopQueryCommandOutput } from "../commands/StopQueryCommand";
 import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "../commands/TagLogGroupCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TestMetricFilterCommandInput, TestMetricFilterCommandOutput } from "../commands/TestMetricFilterCommand";
 import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "../commands/UntagLogGroupCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { CloudWatchLogsServiceException as __BaseException } from "../models/CloudWatchLogsServiceException";
 import {
   AssociateKmsKeyRequest,
@@ -104,6 +122,7 @@ import {
   CreateLogGroupRequest,
   CreateLogStreamRequest,
   DataAlreadyAcceptedException,
+  DeleteDataProtectionPolicyRequest,
   DeleteDestinationRequest,
   DeleteLogGroupRequest,
   DeleteLogStreamRequest,
@@ -139,6 +158,8 @@ import {
   FilteredLogEvent,
   FilterLogEventsRequest,
   FilterLogEventsResponse,
+  GetDataProtectionPolicyRequest,
+  GetDataProtectionPolicyResponse,
   GetLogEventsRequest,
   GetLogEventsResponse,
   GetLogGroupFieldsRequest,
@@ -152,6 +173,8 @@ import {
   InvalidParameterException,
   InvalidSequenceTokenException,
   LimitExceededException,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   ListTagsLogGroupRequest,
   ListTagsLogGroupResponse,
   LogGroup,
@@ -163,6 +186,8 @@ import {
   MetricTransformation,
   OperationAbortedException,
   OutputLogEvent,
+  PutDataProtectionPolicyRequest,
+  PutDataProtectionPolicyResponse,
   PutDestinationPolicyRequest,
   PutDestinationRequest,
   PutDestinationResponse,
@@ -193,10 +218,13 @@ import {
   StopQueryResponse,
   SubscriptionFilter,
   TagLogGroupRequest,
+  TagResourceRequest,
   TestMetricFilterRequest,
   TestMetricFilterResponse,
+  TooManyTagsException,
   UnrecognizedClientException,
   UntagLogGroupRequest,
+  UntagResourceRequest,
 } from "../models/models_0";
 
 export const serializeAws_json1_1AssociateKmsKeyCommand = async (
@@ -261,6 +289,19 @@ export const serializeAws_json1_1CreateLogStreamCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLogStreamRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteDataProtectionPolicyCommand = async (
+  input: DeleteDataProtectionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Logs_20140328.DeleteDataProtectionPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteDataProtectionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -511,6 +552,19 @@ export const serializeAws_json1_1FilterLogEventsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetDataProtectionPolicyCommand = async (
+  input: GetDataProtectionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Logs_20140328.GetDataProtectionPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetDataProtectionPolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetLogEventsCommand = async (
   input: GetLogEventsCommandInput,
   context: __SerdeContext
@@ -563,6 +617,19 @@ export const serializeAws_json1_1GetQueryResultsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Logs_20140328.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListTagsLogGroupCommand = async (
   input: ListTagsLogGroupCommandInput,
   context: __SerdeContext
@@ -573,6 +640,19 @@ export const serializeAws_json1_1ListTagsLogGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsLogGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutDataProtectionPolicyCommand = async (
+  input: PutDataProtectionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Logs_20140328.PutDataProtectionPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutDataProtectionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -719,6 +799,19 @@ export const serializeAws_json1_1TagLogGroupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Logs_20140328.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1TestMetricFilterCommand = async (
   input: TestMetricFilterCommandInput,
   context: __SerdeContext
@@ -745,6 +838,19 @@ export const serializeAws_json1_1UntagLogGroupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Logs_20140328.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const deserializeAws_json1_1AssociateKmsKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -765,7 +871,7 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
 ): Promise<AssociateKmsKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -812,7 +918,7 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
 ): Promise<CancelExportTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -862,7 +968,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
 ): Promise<CreateExportTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -915,7 +1021,7 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
 ): Promise<CreateLogGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -965,7 +1071,7 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
 ): Promise<CreateLogStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -975,6 +1081,53 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
       throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteDataProtectionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataProtectionPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteDataProtectionPolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDataProtectionPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteDataProtectionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataProtectionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1012,7 +1165,7 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
 ): Promise<DeleteDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1059,7 +1212,7 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
 ): Promise<DeleteLogGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1106,7 +1259,7 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
 ): Promise<DeleteLogStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1153,7 +1306,7 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
 ): Promise<DeleteMetricFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1203,7 +1356,7 @@ const deserializeAws_json1_1DeleteQueryDefinitionCommandError = async (
 ): Promise<DeleteQueryDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1247,7 +1400,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1291,7 +1444,7 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
 ): Promise<DeleteRetentionPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1338,7 +1491,7 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
 ): Promise<DeleteSubscriptionFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1388,7 +1541,7 @@ const deserializeAws_json1_1DescribeDestinationsCommandError = async (
 ): Promise<DescribeDestinationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1432,7 +1585,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
 ): Promise<DescribeExportTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1476,7 +1629,7 @@ const deserializeAws_json1_1DescribeLogGroupsCommandError = async (
 ): Promise<DescribeLogGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1520,7 +1673,7 @@ const deserializeAws_json1_1DescribeLogStreamsCommandError = async (
 ): Promise<DescribeLogStreamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1567,7 +1720,7 @@ const deserializeAws_json1_1DescribeMetricFiltersCommandError = async (
 ): Promise<DescribeMetricFiltersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1614,7 +1767,7 @@ const deserializeAws_json1_1DescribeQueriesCommandError = async (
 ): Promise<DescribeQueriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1661,7 +1814,7 @@ const deserializeAws_json1_1DescribeQueryDefinitionsCommandError = async (
 ): Promise<DescribeQueryDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1705,7 +1858,7 @@ const deserializeAws_json1_1DescribeResourcePoliciesCommandError = async (
 ): Promise<DescribeResourcePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1749,7 +1902,7 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersCommandError = async (
 ): Promise<DescribeSubscriptionFiltersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1793,7 +1946,7 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
 ): Promise<DisassociateKmsKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1843,13 +1996,63 @@ const deserializeAws_json1_1FilterLogEventsCommandError = async (
 ): Promise<FilterLogEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetDataProtectionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataProtectionPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetDataProtectionPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetDataProtectionPolicyResponse(data, context);
+  const response: GetDataProtectionPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetDataProtectionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataProtectionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1890,7 +2093,7 @@ const deserializeAws_json1_1GetLogEventsCommandError = async (
 ): Promise<GetLogEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1937,7 +2140,7 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
 ): Promise<GetLogGroupFieldsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1987,7 +2190,7 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
 ): Promise<GetLogRecordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2037,7 +2240,54 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
 ): Promise<GetQueryResultsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2084,10 +2334,63 @@ const deserializeAws_json1_1ListTagsLogGroupCommandError = async (
 ): Promise<ListTagsLogGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1PutDataProtectionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDataProtectionPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutDataProtectionPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutDataProtectionPolicyResponse(data, context);
+  const response: PutDataProtectionPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutDataProtectionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDataProtectionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "OperationAbortedException":
+    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -2128,7 +2431,7 @@ const deserializeAws_json1_1PutDestinationCommandError = async (
 ): Promise<PutDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2172,7 +2475,7 @@ const deserializeAws_json1_1PutDestinationPolicyCommandError = async (
 ): Promise<PutDestinationPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2219,7 +2522,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
 ): Promise<PutLogEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2272,7 +2575,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
 ): Promise<PutMetricFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2325,7 +2628,7 @@ const deserializeAws_json1_1PutQueryDefinitionCommandError = async (
 ): Promise<PutQueryDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2375,7 +2678,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
 ): Promise<PutResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2419,7 +2722,7 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
 ): Promise<PutRetentionPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2466,7 +2769,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
 ): Promise<PutSubscriptionFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2519,7 +2822,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
 ): Promise<StartQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2572,7 +2875,7 @@ const deserializeAws_json1_1StopQueryCommandError = async (
 ): Promise<StopQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2616,7 +2919,7 @@ const deserializeAws_json1_1TagLogGroupCommandError = async (
 ): Promise<TagLogGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2626,6 +2929,53 @@ const deserializeAws_json1_1TagLogGroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.cloudwatchlogs#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2660,7 +3010,7 @@ const deserializeAws_json1_1TestMetricFilterCommandError = async (
 ): Promise<TestMetricFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2701,13 +3051,57 @@ const deserializeAws_json1_1UntagLogGroupCommandError = async (
 ): Promise<UntagLogGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2849,6 +3243,19 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const exception = new TooManyTagsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1UnrecognizedClientExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2860,6 +3267,14 @@ const deserializeAws_json1_1UnrecognizedClientExceptionResponse = async (
     ...deserialized,
   });
   return __decorateServiceException(exception, body);
+};
+
+const serializeAws_json1_1AccountIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1AssociateKmsKeyRequest = (input: AssociateKmsKeyRequest, context: __SerdeContext): any => {
@@ -2899,6 +3314,15 @@ const serializeAws_json1_1CreateLogStreamRequest = (input: CreateLogStreamReques
   return {
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
     ...(input.logStreamName != null && { logStreamName: input.logStreamName }),
+  };
+};
+
+const serializeAws_json1_1DeleteDataProtectionPolicyRequest = (
+  input: DeleteDataProtectionPolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.logGroupIdentifier != null && { logGroupIdentifier: input.logGroupIdentifier }),
   };
 };
 
@@ -2999,7 +3423,12 @@ const serializeAws_json1_1DescribeLogGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.accountIdentifiers != null && {
+      accountIdentifiers: serializeAws_json1_1AccountIds(input.accountIdentifiers, context),
+    }),
+    ...(input.includeLinkedAccounts != null && { includeLinkedAccounts: input.includeLinkedAccounts }),
     ...(input.limit != null && { limit: input.limit }),
+    ...(input.logGroupNamePattern != null && { logGroupNamePattern: input.logGroupNamePattern }),
     ...(input.logGroupNamePrefix != null && { logGroupNamePrefix: input.logGroupNamePrefix }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
@@ -3012,6 +3441,7 @@ const serializeAws_json1_1DescribeLogStreamsRequest = (
   return {
     ...(input.descending != null && { descending: input.descending }),
     ...(input.limit != null && { limit: input.limit }),
+    ...(input.logGroupIdentifier != null && { logGroupIdentifier: input.logGroupIdentifier }),
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
     ...(input.logStreamNamePrefix != null && { logStreamNamePrefix: input.logStreamNamePrefix }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
@@ -3080,10 +3510,8 @@ const serializeAws_json1_1Dimensions = (input: Record<string, string>, context: 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3102,6 +3530,7 @@ const serializeAws_json1_1FilterLogEventsRequest = (input: FilterLogEventsReques
     ...(input.filterPattern != null && { filterPattern: input.filterPattern }),
     ...(input.interleaved != null && { interleaved: input.interleaved }),
     ...(input.limit != null && { limit: input.limit }),
+    ...(input.logGroupIdentifier != null && { logGroupIdentifier: input.logGroupIdentifier }),
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
     ...(input.logStreamNamePrefix != null && { logStreamNamePrefix: input.logStreamNamePrefix }),
     ...(input.logStreamNames != null && {
@@ -3109,6 +3538,16 @@ const serializeAws_json1_1FilterLogEventsRequest = (input: FilterLogEventsReques
     }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.startTime != null && { startTime: input.startTime }),
+    ...(input.unmask != null && { unmask: input.unmask }),
+  };
+};
+
+const serializeAws_json1_1GetDataProtectionPolicyRequest = (
+  input: GetDataProtectionPolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.logGroupIdentifier != null && { logGroupIdentifier: input.logGroupIdentifier }),
   };
 };
 
@@ -3116,11 +3555,13 @@ const serializeAws_json1_1GetLogEventsRequest = (input: GetLogEventsRequest, con
   return {
     ...(input.endTime != null && { endTime: input.endTime }),
     ...(input.limit != null && { limit: input.limit }),
+    ...(input.logGroupIdentifier != null && { logGroupIdentifier: input.logGroupIdentifier }),
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
     ...(input.logStreamName != null && { logStreamName: input.logStreamName }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.startFromHead != null && { startFromHead: input.startFromHead }),
     ...(input.startTime != null && { startTime: input.startTime }),
+    ...(input.unmask != null && { unmask: input.unmask }),
   };
 };
 
@@ -3129,6 +3570,7 @@ const serializeAws_json1_1GetLogGroupFieldsRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.logGroupIdentifier != null && { logGroupIdentifier: input.logGroupIdentifier }),
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
     ...(input.time != null && { time: input.time }),
   };
@@ -3137,6 +3579,7 @@ const serializeAws_json1_1GetLogGroupFieldsRequest = (
 const serializeAws_json1_1GetLogRecordRequest = (input: GetLogRecordRequest, context: __SerdeContext): any => {
   return {
     ...(input.logRecordPointer != null && { logRecordPointer: input.logRecordPointer }),
+    ...(input.unmask != null && { unmask: input.unmask }),
   };
 };
 
@@ -3169,10 +3612,27 @@ const serializeAws_json1_1InputLogStreamNames = (input: string[], context: __Ser
     });
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+  };
+};
+
 const serializeAws_json1_1ListTagsLogGroupRequest = (input: ListTagsLogGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
   };
+};
+
+const serializeAws_json1_1LogGroupIdentifiers = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1LogGroupNames = (input: string[], context: __SerdeContext): any => {
@@ -3202,6 +3662,16 @@ const serializeAws_json1_1MetricTransformations = (input: MetricTransformation[]
     });
 };
 
+const serializeAws_json1_1PutDataProtectionPolicyRequest = (
+  input: PutDataProtectionPolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.logGroupIdentifier != null && { logGroupIdentifier: input.logGroupIdentifier }),
+    ...(input.policyDocument != null && { policyDocument: input.policyDocument }),
+  };
+};
+
 const serializeAws_json1_1PutDestinationPolicyRequest = (
   input: PutDestinationPolicyRequest,
   context: __SerdeContext
@@ -3217,6 +3687,7 @@ const serializeAws_json1_1PutDestinationRequest = (input: PutDestinationRequest,
   return {
     ...(input.destinationName != null && { destinationName: input.destinationName }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
     ...(input.targetArn != null && { targetArn: input.targetArn }),
   };
 };
@@ -3293,6 +3764,9 @@ const serializeAws_json1_1StartQueryRequest = (input: StartQueryRequest, context
   return {
     ...(input.endTime != null && { endTime: input.endTime }),
     ...(input.limit != null && { limit: input.limit }),
+    ...(input.logGroupIdentifiers != null && {
+      logGroupIdentifiers: serializeAws_json1_1LogGroupIdentifiers(input.logGroupIdentifiers, context),
+    }),
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
     ...(input.logGroupNames != null && {
       logGroupNames: serializeAws_json1_1LogGroupNames(input.logGroupNames, context),
@@ -3306,6 +3780,14 @@ const serializeAws_json1_1StopQueryRequest = (input: StopQueryRequest, context: 
   return {
     ...(input.queryId != null && { queryId: input.queryId }),
   };
+};
+
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: string[], context: __SerdeContext): any => {
@@ -3323,15 +3805,20 @@ const serializeAws_json1_1TagLogGroupRequest = (input: TagLogGroupRequest, conte
   };
 };
 
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+  };
+};
+
 const serializeAws_json1_1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3356,6 +3843,13 @@ const serializeAws_json1_1UntagLogGroupRequest = (input: UntagLogGroupRequest, c
   return {
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
     ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+  };
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -3517,10 +4011,8 @@ const deserializeAws_json1_1Dimensions = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3575,10 +4067,8 @@ const deserializeAws_json1_1ExtractedValues = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3615,6 +4105,17 @@ const deserializeAws_json1_1FilterLogEventsResponse = (
       output.searchedLogStreams != null
         ? deserializeAws_json1_1SearchedLogStreams(output.searchedLogStreams, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetDataProtectionPolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): GetDataProtectionPolicyResponse => {
+  return {
+    lastUpdatedTime: __expectLong(output.lastUpdatedTime),
+    logGroupIdentifier: __expectString(output.logGroupIdentifier),
+    policyDocument: __expectString(output.policyDocument),
   } as any;
 };
 
@@ -3690,6 +4191,15 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    tags: output.tags != null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTagsLogGroupResponse = (
   output: any,
   context: __SerdeContext
@@ -3703,6 +4213,7 @@ const deserializeAws_json1_1LogGroup = (output: any, context: __SerdeContext): L
   return {
     arn: __expectString(output.arn),
     creationTime: __expectLong(output.creationTime),
+    dataProtectionStatus: __expectString(output.dataProtectionStatus),
     kmsKeyId: __expectString(output.kmsKeyId),
     logGroupName: __expectString(output.logGroupName),
     metricFilterCount: __expectInt32(output.metricFilterCount),
@@ -3759,10 +4270,8 @@ const deserializeAws_json1_1LogRecord = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3905,6 +4414,17 @@ const deserializeAws_json1_1OutputLogEvents = (output: any, context: __SerdeCont
       return deserializeAws_json1_1OutputLogEvent(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1PutDataProtectionPolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): PutDataProtectionPolicyResponse => {
+  return {
+    lastUpdatedTime: __expectLong(output.lastUpdatedTime),
+    logGroupIdentifier: __expectString(output.logGroupIdentifier),
+    policyDocument: __expectString(output.policyDocument),
+  } as any;
 };
 
 const deserializeAws_json1_1PutDestinationResponse = (output: any, context: __SerdeContext): PutDestinationResponse => {
@@ -4160,10 +4680,8 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Recor
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4173,6 +4691,13 @@ const deserializeAws_json1_1TestMetricFilterResponse = (
 ): TestMetricFilterResponse => {
   return {
     matches: output.matches != null ? deserializeAws_json1_1MetricFilterMatches(output.matches, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
+  return {
+    message: __expectString(output.message),
+    resourceName: __expectString(output.resourceName),
   } as any;
 };
 
@@ -4187,7 +4712,8 @@ const deserializeAws_json1_1UnrecognizedClientException = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -4237,6 +4763,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -4247,6 +4779,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

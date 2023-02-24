@@ -7,6 +7,11 @@ import {
   AddLFTagsToResourceCommandOutput,
 } from "./commands/AddLFTagsToResourceCommand";
 import {
+  AssumeDecoratedRoleWithSAMLCommand,
+  AssumeDecoratedRoleWithSAMLCommandInput,
+  AssumeDecoratedRoleWithSAMLCommandOutput,
+} from "./commands/AssumeDecoratedRoleWithSAMLCommand";
+import {
   BatchGrantPermissionsCommand,
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
@@ -241,6 +246,43 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
+   * <p>Allows a caller to assume an IAM role decorated as the SAML user specified in the SAML assertion included in the request. This decoration allows Lake Formation to enforce access policies against the SAML users and groups.  This API operation requires SAML federation setup in the caller’s account as it can only be called with valid SAML assertions.
+   *       Lake Formation does not scope down the permission of the assumed role.  All permissions attached to the role via the SAML federation setup will be included in the role session.
+   *     </p>
+   *          <p>
+   *       This decorated role is expected to access data in Amazon S3 by getting temporary access from Lake Formation which is authorized via the virtual API <code>GetDataAccess</code>.  Therefore, all SAML roles that can be assumed via <code>AssumeDecoratedRoleWithSAML</code> must at a minimum include <code>lakeformation:GetDataAccess</code> in their role policies.  A typical IAM policy attached to such a role would look as follows:
+   *     </p>
+   */
+  public assumeDecoratedRoleWithSAML(
+    args: AssumeDecoratedRoleWithSAMLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssumeDecoratedRoleWithSAMLCommandOutput>;
+  public assumeDecoratedRoleWithSAML(
+    args: AssumeDecoratedRoleWithSAMLCommandInput,
+    cb: (err: any, data?: AssumeDecoratedRoleWithSAMLCommandOutput) => void
+  ): void;
+  public assumeDecoratedRoleWithSAML(
+    args: AssumeDecoratedRoleWithSAMLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssumeDecoratedRoleWithSAMLCommandOutput) => void
+  ): void;
+  public assumeDecoratedRoleWithSAML(
+    args: AssumeDecoratedRoleWithSAMLCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssumeDecoratedRoleWithSAMLCommandOutput) => void),
+    cb?: (err: any, data?: AssumeDecoratedRoleWithSAMLCommandOutput) => void
+  ): Promise<AssumeDecoratedRoleWithSAMLCommandOutput> | void {
+    const command = new AssumeDecoratedRoleWithSAMLCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Batch operation to grant permissions to the principal.</p>
    */
   public batchGrantPermissions(
@@ -459,7 +501,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Deletes the specified LF-tag key name. If the attribute key does not exist or the LF-tag does not exist, then the operation will not do anything. If the attribute key exists, then the operation checks if any resources are tagged with this attribute key, if yes, the API throws a 400 Exception with the message "Delete not allowed" as the LF-tag key is still attached with resources. You can consider untagging resources with this LF-tag key.</p>
+   * <p>Deletes the specified LF-tag given a key name. If the input parameter tag key was not found, then the operation will throw an exception. When you delete an LF-tag, the <code>LFTagPolicy</code> attached to the LF-tag becomes invalid. If the deleted LF-tag was still assigned to any resource, the tag policy attach to the deleted LF-tag will no longer be applied to the resource.</p>
    */
   public deleteLFTag(args: DeleteLFTagCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLFTagCommandOutput>;
   public deleteLFTag(args: DeleteLFTagCommandInput, cb: (err: any, data?: DeleteLFTagCommandOutput) => void): void;
@@ -525,7 +567,6 @@ export class LakeFormation extends LakeFormationClient {
 
   /**
    * <p>Deregisters the resource as managed by the Data Catalog.</p>
-   *
    *          <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>
    */
   public deregisterResource(
@@ -623,8 +664,7 @@ export class LakeFormation extends LakeFormationClient {
 
   /**
    * <p>Indicates to the service that the specified transaction is still active and should not be treated as idle and aborted.</p>
-   *
-   * 	        <p>Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.</p>
+   *          <p>Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.</p>
    */
   public extendTransaction(
     args: ExtendTransactionCommandInput,
@@ -1001,7 +1041,7 @@ export class LakeFormation extends LakeFormationClient {
 
   /**
    * <p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
-   * 	        <p>For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
+   *          <p>For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
    */
   public grantPermissions(
     args: GrantPermissionsCommandInput,
@@ -1092,8 +1132,8 @@ export class LakeFormation extends LakeFormationClient {
 
   /**
    * <p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p>
-   * 	        <p>This operation returns only those permissions that have been explicitly granted.</p>
-   * 	        <p>For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
+   *          <p>This operation returns only those permissions that have been explicitly granted.</p>
+   *          <p>For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
    */
   public listPermissions(
     args: ListPermissionsCommandInput,
@@ -1190,7 +1230,7 @@ export class LakeFormation extends LakeFormationClient {
 
   /**
    * <p>Returns metadata about transactions and their status. To prevent the response from growing indefinitely, only uncommitted transactions and those available for time-travel queries are returned.</p>
-   * 	        <p>This operation can help you identify uncommitted transactions or to get information about transactions.</p>
+   *          <p>This operation can help you identify uncommitted transactions or to get information about transactions.</p>
    */
   public listTransactions(
     args: ListTransactionsCommandInput,
@@ -1223,8 +1263,7 @@ export class LakeFormation extends LakeFormationClient {
 
   /**
    * <p>Sets the list of data lake administrators who have admin privileges on all resources managed by Lake Formation. For more information on admin privileges, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/lake-formation-permissions.html">Granting Lake Formation Permissions</a>.</p>
-   *
-   * 	        <p>This API replaces the current list of data lake admins with the new list being passed. To add an admin, fetch the current list and add the new admin to that list and pass that list in this API.</p>
+   *          <p>This API replaces the current list of data lake admins with the new list being passed. To add an admin, fetch the current list and add the new admin to that list and pass that list in this API.</p>
    */
   public putDataLakeSettings(
     args: PutDataLakeSettingsCommandInput,
@@ -1257,18 +1296,13 @@ export class LakeFormation extends LakeFormationClient {
 
   /**
    * <p>Registers the resource as managed by the Data Catalog.</p>
-   *
    *          <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
-   *
    *          <p>The following request registers a new location and gives Lake Formation permission to use the service-linked role to access that location.</p>
-   *
    *          <p>
    *             <code>ResourceArn = arn:aws:s3:::my-bucket
    * UseServiceLinkedRole = true</code>
    *          </p>
-   *
-   * 	        <p>If <code>UseServiceLinkedRole</code> is not set to true, you must provide or set the <code>RoleArn</code>:</p>
-   *
+   *          <p>If <code>UseServiceLinkedRole</code> is not set to true, you must provide or set the <code>RoleArn</code>:</p>
    *          <p>
    *             <code>arn:aws:iam::12345:role/my-data-access-role</code>
    *          </p>
@@ -1432,8 +1466,7 @@ export class LakeFormation extends LakeFormationClient {
 
   /**
    * <p>Submits a request to process a query statement.</p>
-   *
-   * 	        <p>This operation generates work units that can be retrieved with the <code>GetWorkUnits</code> operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.</p>
+   *          <p>This operation generates work units that can be retrieved with the <code>GetWorkUnits</code> operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.</p>
    */
   public startQueryPlanning(
     args: StartQueryPlanningCommandInput,

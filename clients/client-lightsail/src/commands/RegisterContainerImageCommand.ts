@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,6 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
 
 /**
  * <p>Registers a container image to your Amazon Lightsail container service.</p>
- *
  *          <note>
  *             <p>This action is not required if you install and use the Lightsail Control
  *         (lightsailctl) plugin to push container images to your Lightsail container service. For
@@ -59,6 +59,15 @@ export class RegisterContainerImageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterContainerImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +83,9 @@ export class RegisterContainerImageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterContainerImageCommandInput, RegisterContainerImageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterContainerImageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

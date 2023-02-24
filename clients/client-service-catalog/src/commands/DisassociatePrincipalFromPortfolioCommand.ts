@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,6 +33,13 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
 /**
  * <p>Disassociates a previously associated principal ARN from a specified
  *          portfolio.</p>
+ *          <p>The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the
+ *          <code>AssociatePrincipalWithPortfolio</code> call request details. For example,
+ *          to disassociate an association created with a <code>PrincipalARN</code> of <code>PrincipalType</code>
+ *          IAM you must use the <code>PrincipalType</code> IAM when calling <code>DisassociatePrincipalFromPortfolio</code>. </p>
+ *          <p>For portfolios that have been shared with principal name sharing enabled: after disassociating a principal,
+ *    share recipient accounts will no longer be able to provision products in this portfolio using a role matching the name
+ *    of the associated principal. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +63,15 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisassociatePrincipalFromPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +87,9 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociatePrincipalFromPortfolioCommandInput, DisassociatePrincipalFromPortfolioCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociatePrincipalFromPortfolioCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

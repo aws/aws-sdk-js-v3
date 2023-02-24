@@ -219,10 +219,20 @@ import {
   ListAccessPoliciesCommandOutput,
 } from "./commands/ListAccessPoliciesCommand";
 import {
+  ListAssetModelPropertiesCommand,
+  ListAssetModelPropertiesCommandInput,
+  ListAssetModelPropertiesCommandOutput,
+} from "./commands/ListAssetModelPropertiesCommand";
+import {
   ListAssetModelsCommand,
   ListAssetModelsCommandInput,
   ListAssetModelsCommandOutput,
 } from "./commands/ListAssetModelsCommand";
+import {
+  ListAssetPropertiesCommand,
+  ListAssetPropertiesCommandInput,
+  ListAssetPropertiesCommandOutput,
+} from "./commands/ListAssetPropertiesCommand";
 import {
   ListAssetRelationshipsCommand,
   ListAssetRelationshipsCommandInput,
@@ -470,9 +480,9 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset properties.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
-   *     aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset
+   *       properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying aggregates</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   public batchGetAssetPropertyAggregates(
     args: BatchGetAssetPropertyAggregatesCommandInput,
@@ -505,7 +515,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Gets the current value for one or more asset properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
-   *     current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   public batchGetAssetPropertyValue(
     args: BatchGetAssetPropertyValueCommandInput,
@@ -537,8 +547,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Gets the historical values for one or more asset properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying
-   *     historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * <p>Gets the historical values for one or more asset properties. For more information, see
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   public batchGetAssetPropertyValueHistory(
     args: BatchGetAssetPropertyValueHistoryCommandInput,
@@ -626,7 +636,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Creates an access policy that grants the specified identity (Amazon Web Services SSO user, Amazon Web Services SSO group, or
+   * <p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
    *       IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p>
    */
   public createAccessPolicy(
@@ -722,17 +732,11 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <note>
-   *             <p>This API operation is in preview release for IoT SiteWise and is subject to change.
-   *       We recommend that you use this operation only with test data, and not in production environments.</p>
-   *          </note>
-   *          <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information,
-   *   see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a bulk import job (CLI)</a>
-   *   in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a
+   *         bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <important>
-   *             <p>You must enable IoT SiteWise to export data to Amazon S3 before you create a bulk import job.
-   *       For more information about how to configure storage settings,
-   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
+   *             <p>You must enable IoT SiteWise to export data to Amazon S3 before you create a bulk import job. For
+   *         more information about how to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
    *          </important>
    */
   public createBulkImportJob(
@@ -831,7 +835,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses Amazon Web Services SSO or IAM
+   * <p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM
    *       to authenticate portal users and manage user permissions.</p>
    *          <note>
    *             <p>Before you can sign in to a new portal, you must add at least one identity to that
@@ -1318,13 +1322,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <note>
-   *             <p>This API operation is in preview release for IoT SiteWise and is subject to change.
-   *       We recommend that you use this operation only with test data, and not in production environments.</p>
-   *          </note>
-   *          <p>Retrieves information about a bulk import job request. For more information,
-   *     see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe a bulk import job (CLI)</a>
-   *     in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   * <p>Retrieves information about a bulk import job request. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe
+   *         a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    */
   public describeBulkImportJob(
     args: DescribeBulkImportJobCommandInput,
@@ -1915,7 +1914,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves a paginated list of access policies for an identity (an Amazon Web Services SSO user, an Amazon Web Services SSO
+   * <p>Retrieves a paginated list of access policies for an identity (an IAM Identity Center user, an IAM Identity Center
    *       group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).</p>
    */
   public listAccessPolicies(
@@ -1948,6 +1947,40 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * <p>Retrieves a paginated list of properties associated with an asset model.
+   *       If you update properties associated with the model before you finish listing all the properties,
+   *         you need to start all over again.</p>
+   */
+  public listAssetModelProperties(
+    args: ListAssetModelPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetModelPropertiesCommandOutput>;
+  public listAssetModelProperties(
+    args: ListAssetModelPropertiesCommandInput,
+    cb: (err: any, data?: ListAssetModelPropertiesCommandOutput) => void
+  ): void;
+  public listAssetModelProperties(
+    args: ListAssetModelPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetModelPropertiesCommandOutput) => void
+  ): void;
+  public listAssetModelProperties(
+    args: ListAssetModelPropertiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetModelPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: ListAssetModelPropertiesCommandOutput) => void
+  ): Promise<ListAssetModelPropertiesCommandOutput> | void {
+    const command = new ListAssetModelPropertiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves a paginated list of summaries of all asset models.</p>
    */
   public listAssetModels(
@@ -1969,6 +2002,40 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: ListAssetModelsCommandOutput) => void
   ): Promise<ListAssetModelsCommandOutput> | void {
     const command = new ListAssetModelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a paginated list of properties associated with an asset.
+   *       If you update properties associated with the model before you finish listing all the properties,
+   *         you need to start all over again.</p>
+   */
+  public listAssetProperties(
+    args: ListAssetPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetPropertiesCommandOutput>;
+  public listAssetProperties(
+    args: ListAssetPropertiesCommandInput,
+    cb: (err: any, data?: ListAssetPropertiesCommandOutput) => void
+  ): void;
+  public listAssetProperties(
+    args: ListAssetPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetPropertiesCommandOutput) => void
+  ): void;
+  public listAssetProperties(
+    args: ListAssetPropertiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: ListAssetPropertiesCommandOutput) => void
+  ): Promise<ListAssetPropertiesCommandOutput> | void {
+    const command = new ListAssetPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2093,13 +2160,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <note>
-   *             <p>This API operation is in preview release for IoT SiteWise and is subject to change.
-   *       We recommend that you use this operation only with test data, and not in production environments.</p>
-   *          </note>
-   *          <p>Retrieves a paginated list of bulk import job requests. For more information,
-   *     see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List bulk import jobs (CLI)</a>
-   *     in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   * <p>Retrieves a paginated list of bulk import job requests. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List bulk
+   *         import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   public listBulkImportJobs(
     args: ListBulkImportJobsCommandInput,

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,6 +25,10 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
+ *          <p>This action is not supported for the following services:
+ *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
+ *          , Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora,
+ *          and Amazon Neptune.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +52,15 @@ export class StopBackupJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopBackupJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +76,7 @@ export class StopBackupJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopBackupJobCommandInput, StopBackupJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StopBackupJobCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

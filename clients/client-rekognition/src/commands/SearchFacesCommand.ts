@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,18 +36,13 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  *             <p>You can also search faces without indexing faces by using the
  *           <code>SearchFacesByImage</code> operation.</p>
  *          </note>
- *
- *          <p>
- *      The operation response returns
- *       an array of faces that match, ordered by similarity score with the highest
- *       similarity first. More specifically, it is an
- *       array of metadata for each face match that is found. Along with the metadata, the response also
- *       includes a <code>confidence</code> value for each face match, indicating the confidence
- *       that the specific face matches the input face.
- *     </p>
- *
- *          <p>For an example, see Searching for a face using its face ID in the Amazon Rekognition Developer Guide.</p>
- *
+ *          <p> The operation response returns an array of faces that match, ordered by similarity
+ *       score with the highest similarity first. More specifically, it is an array of metadata for
+ *       each face match that is found. Along with the metadata, the response also includes a
+ *         <code>confidence</code> value for each face match, indicating the confidence that the
+ *       specific face matches the input face. </p>
+ *          <p>For an example, see Searching for a face using its face ID in the Amazon Rekognition
+ *       Developer Guide.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:SearchFaces</code>
  *       action.</p>
  * @example
@@ -72,6 +68,15 @@ export class SearchFacesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +92,7 @@ export class SearchFacesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchFacesCommandInput, SearchFacesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, SearchFacesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

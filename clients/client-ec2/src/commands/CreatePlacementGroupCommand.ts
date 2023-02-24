@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,13 +31,13 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
 /**
  * <p>Creates a placement group in which to launch instances. The strategy of the placement
  *             group determines how the instances are organized within the group. </p>
- *         <p>A <code>cluster</code> placement group is a logical grouping of instances within a
+ *          <p>A <code>cluster</code> placement group is a logical grouping of instances within a
  *             single Availability Zone that benefit from low network latency, high network throughput.
  *             A <code>spread</code> placement group places instances on distinct hardware. A
  *                 <code>partition</code> placement group places groups of instances in different
  *             partitions, where instances in one partition do not share the same hardware with
  *             instances in another partition.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +62,15 @@ export class CreatePlacementGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreatePlacementGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class CreatePlacementGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePlacementGroupCommandInput, CreatePlacementGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePlacementGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -660,6 +660,9 @@ export interface CreateConnectionRequest {
 
   /**
    * <p>The type of authorization to use for the connection.</p>
+   *          <note>
+   *             <p>OAUTH tokens are refreshed when a 401 or 407 response is returned.</p>
+   *          </note>
    */
   AuthorizationType: ConnectionAuthorizationType | string | undefined;
 
@@ -789,7 +792,8 @@ export interface CreateEndpointRequest {
   RoutingConfig: RoutingConfig | undefined;
 
   /**
-   * <p>Enable or disable event replication.</p>
+   * <p>Enable or disable event replication. The default state is <code>ENABLED</code> which means you must supply a <code>RoleArn</code>. If you don't have a
+   *       <code>RoleArn</code> or you don't want event replication enabled, set the state to <code>DISABLED</code>.</p>
    */
   ReplicationConfig?: ReplicationConfig;
 
@@ -874,11 +878,10 @@ export interface Tag {
 export interface CreateEventBusRequest {
   /**
    * <p>The name of the new event bus. </p>
-   *          <p>Event bus names cannot contain the / character. You can't use the name
-   *         <code>default</code> for a custom event bus, as this name is already used for your account's
-   *       default event bus.</p>
-   *          <p>If this is a partner event bus, the name must exactly match the name of the partner event
+   *          <p>Custom event bus names can't contain the <code>/</code> character, but you can use the <code>/</code> character in partner event bus names. In addition, for partner event buses, the name must exactly match the name of the partner event
    *       source that this event bus is matched to.</p>
+   *          <p>You can't use the name <code>default</code> for a custom event bus, as this name is already used for your account's
+   *       default event bus.</p>
    */
   Name: string | undefined;
 
@@ -1859,6 +1862,9 @@ export interface Connection {
 
   /**
    * <p>The authorization type specified for the connection.</p>
+   *          <note>
+   *             <p>OAUTH tokens are refreshed when a 401 or 407 response is returned.</p>
+   *          </note>
    */
   AuthorizationType?: ConnectionAuthorizationType | string;
 
@@ -1902,7 +1908,7 @@ export interface ListEndpointsRequest {
   HomeRegion?: string;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *        Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination
    *        token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
    */
@@ -1915,7 +1921,7 @@ export interface ListEndpointsRequest {
 }
 
 /**
- * <p>An global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>
+ * <p>A global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide.</p>
  */
 export interface Endpoint {
   /**
@@ -1939,7 +1945,8 @@ export interface Endpoint {
   RoutingConfig?: RoutingConfig;
 
   /**
-   * <p>Whether event replication was enabled or disabled for this endpoint.</p>
+   * <p>Whether event replication was enabled or disabled for this endpoint. The default state is <code>ENABLED</code> which means you must supply a <code>RoleArn</code>.
+   *        If you don't have a <code>RoleArn</code> or you don't want event replication enabled, set the state to <code>DISABLED</code>.</p>
    */
   ReplicationConfig?: ReplicationConfig;
 
@@ -1954,7 +1961,7 @@ export interface Endpoint {
   RoleArn?: string;
 
   /**
-   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
+   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
    */
   EndpointId?: string;
 
@@ -1991,7 +1998,7 @@ export interface ListEndpointsResponse {
   Endpoints?: Endpoint[];
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *        Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination
    *        token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
    */
@@ -2019,8 +2026,8 @@ export interface ListEventBusesRequest {
 }
 
 /**
- * <p>An event bus receives events from a source and routes them to rules associated with that
- *       event bus. Your account's default event bus receives events from Amazon Web Services services. A custom event
+ * <p>An event bus receives events from a source, uses rules to evaluate them, applies any configured input transformation, and routes them to the appropriate target(s).
+ *       Your account's default event bus receives events from Amazon Web Services services. A custom event
  *       bus can receive events from your custom applications and services. A partner event bus
  *       receives events from an event source created by an SaaS partner. These events come from the
  *       partners services or applications.</p>
@@ -2798,27 +2805,27 @@ export interface EcsParameters {
 }
 
 /**
- * <p>These are custom parameter to be used when the target is an API Gateway REST APIs or
+ * <p>These are custom parameter to be used when the target is an API Gateway APIs or
  *       EventBridge ApiDestinations. In the latter case, these are merged with any
  *       InvocationParameters specified on the Connection, with any values from the Connection taking
  *       precedence.</p>
  */
 export interface HttpParameters {
   /**
-   * <p>The path parameter values to be used to populate API Gateway REST API or EventBridge
+   * <p>The path parameter values to be used to populate API Gateway API or EventBridge
    *       ApiDestination path wildcards ("*").</p>
    */
   PathParameterValues?: string[];
 
   /**
-   * <p>The headers that need to be sent as part of request invoking the API Gateway REST API or
+   * <p>The headers that need to be sent as part of request invoking the API Gateway API or
    *       EventBridge ApiDestination.</p>
    */
   HeaderParameters?: Record<string, string>;
 
   /**
    * <p>The query string keys/values that need to be sent as part of request invoking the API Gateway
-   *       REST API or EventBridge ApiDestination.</p>
+   *       API or EventBridge ApiDestination.</p>
    */
   QueryStringParameters?: Record<string, string>;
 }
@@ -2843,9 +2850,8 @@ export interface InputTransformer {
   /**
    * <p>Input template where you specify placeholders that will be filled with the values of the
    *       keys from <code>InputPathsMap</code> to customize the data sent to the target. Enclose each
-   *         <code>InputPathsMaps</code> value in brackets: <<i>value</i>> The
-   *       InputTemplate must be valid JSON.</p>
-   *
+   *         <code>InputPathsMaps</code> value in brackets: <<i>value</i>>
+   *     </p>
    *          <p>If <code>InputTemplate</code> is a JSON object (surrounded by curly braces), the following
    *       restrictions apply:</p>
    *          <ul>
@@ -2928,7 +2934,7 @@ export interface KinesisParameters {
 }
 
 /**
- * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the
+ * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster or Redshift Serverless workgroup to invoke the
  *       Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>
  */
 export interface RedshiftDataParameters {
@@ -2945,6 +2951,7 @@ export interface RedshiftDataParameters {
 
   /**
    * <p>The database user name. Required when authenticating using temporary credentials.</p>
+   *          <p>Do not provide this parameter when connecting to a Redshift Serverless workgroup.</p>
    */
   DbUser?: string;
 
@@ -3059,7 +3066,6 @@ export interface SqsParameters {
 /**
  * <p>Targets are the resources to be invoked when a rule is triggered. For a complete list of
  *       services and resources that can be set as a target, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutTargets.html">PutTargets</a>.</p>
- *
  *          <p>If you are setting the event bus of another account as the target, and that account
  *       granted permission to your account through an organization instead of directly by the account
  *       ID, then you must specify a <code>RoleArn</code> with proper permissions in the
@@ -3094,7 +3100,7 @@ export interface Target {
 
   /**
    * <p>The value of the JSONPath that is used for extracting part of the matched event when
-   *       passing it to the target. You must use JSON dot notation, not bracket notation. For more
+   *       passing it to the target. You may use JSON dot notation or bracket notation. For more
    *       information about JSON paths, see <a href="http://goessner.net/articles/JsonPath/">JSONPath</a>.</p>
    */
   InputPath?: string;
@@ -3141,9 +3147,9 @@ export interface Target {
   SqsParameters?: SqsParameters;
 
   /**
-   * <p>Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or
+   * <p>Contains the HTTP parameters to use when the target is a API Gateway endpoint or
    *       EventBridge ApiDestination.</p>
-   *          <p>If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can
+   *          <p>If you specify an API Gateway API or EventBridge ApiDestination as a target, you can
    *       use this parameter to specify headers, path parameters, and query string keys/values as part
    *       of your target invoking request. If you're using ApiDestinations, the corresponding Connection
    *       can also have these values configured. In case of any conflicting keys, values from the
@@ -3214,7 +3220,7 @@ export interface PutEventsRequestEntry {
   Resources?: string[];
 
   /**
-   * <p>Free-form string used to decide what fields to expect in the event detail.</p>
+   * <p>Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
    */
   DetailType?: string;
 
@@ -3253,7 +3259,7 @@ export interface PutEventsRequest {
   Entries: PutEventsRequestEntry[] | undefined;
 
   /**
-   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
+   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
    *          <important>
    *             <p>When using Java, you must include <code>auth-crt</code> on the class path.</p>
    *          </important>
@@ -3292,6 +3298,7 @@ export interface PutEventsResponse {
    * <p>The successfully and unsuccessfully ingested events results. If the ingestion was
    *       successful, the entry has the event ID in it. Otherwise, you can use the error code and error
    *       message to identify the problem with the entry.</p>
+   *          <p>For each record, the index of the response element is the same as the index in the request array.</p>
    */
   Entries?: PutEventsResultEntry[];
 }
@@ -3317,7 +3324,7 @@ export interface PutPartnerEventsRequestEntry {
   Resources?: string[];
 
   /**
-   * <p>A free-form string used to decide what fields to expect in the event detail.</p>
+   * <p>A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
    */
   DetailType?: string;
 
@@ -3434,7 +3441,6 @@ export interface PutPermissionRequest {
   /**
    * <p>The 12-digit Amazon Web Services account ID that you are permitting to put events to your default event
    *       bus. Specify "*" to permit any account to put events to your default event bus.</p>
-   *
    *          <p>If you specify "*" without specifying <code>Condition</code>, avoid creating rules that
    *       may match undesirable events. To create more secure rules, make sure that the event pattern
    *       for each rule contains an <code>account</code> field with a specific account ID from which to
@@ -3461,7 +3467,6 @@ export interface PutPermissionRequest {
    *          <p>If you specify <code>Condition</code> with an Amazon Web Services organization ID, and specify "*" as the
    *       value for <code>Principal</code>, you grant permission to all the accounts in the named
    *       organization.</p>
-   *
    *          <p>The <code>Condition</code> is a JSON string which must contain <code>Type</code>,
    *         <code>Key</code>, and <code>Value</code> fields.</p>
    */
@@ -3487,7 +3492,7 @@ export interface PutRuleRequest {
   ScheduleExpression?: string;
 
   /**
-   * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html">EventBridge event
+   * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event
    *         patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern?: string;
@@ -4067,7 +4072,7 @@ export interface UpdateEndpointRequest {
   Description?: string;
 
   /**
-   * <p>Configure the routing policy, including the health check and secondary Region..</p>
+   * <p>Configure the routing policy, including the health check and secondary Region.</p>
    */
   RoutingConfig?: RoutingConfig;
 

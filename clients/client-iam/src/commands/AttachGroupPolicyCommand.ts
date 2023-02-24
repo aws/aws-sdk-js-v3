@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,12 +25,12 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches the specified managed policy to the specified IAM group.</p>
- *         <p>You use this operation to attach a managed policy to a group. To embed an inline
+ *          <p>You use this operation to attach a managed policy to a group. To embed an inline
  *             policy in a group, use <a>PutGroupPolicy</a>.</p>
- *         <p>As a best practice, you can validate your IAM policies.
+ *          <p>As a best practice, you can validate your IAM policies.
  *      To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html">Validating IAM policies</a>
  *             in the <i>IAM User Guide</i>.</p>
- *         <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +55,15 @@ export class AttachGroupPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AttachGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class AttachGroupPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AttachGroupPolicyCommandInput, AttachGroupPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AttachGroupPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -18,7 +18,7 @@ import {
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -32,6 +32,7 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import { EmptyOperationCommandInput, EmptyOperationCommandOutput } from "../commands/EmptyOperationCommand";
 import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "../commands/EndpointOperationCommand";
 import {
@@ -66,6 +67,7 @@ import { JsonProtocolServiceException as __BaseException } from "../models/JsonP
 import {
   ComplexError,
   ComplexNestedErrorData,
+  DatetimeOffsetsOutput,
   EmptyStruct,
   ErrorWithMembers,
   ErrorWithoutMembers,
@@ -87,6 +89,18 @@ import {
   StructWithJsonName,
   UnionInputOutput,
 } from "../models/models_0";
+
+export const serializeAws_json1_1DatetimeOffsetsCommand = async (
+  input: DatetimeOffsetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "JsonProtocol.DatetimeOffsets",
+  };
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1EmptyOperationCommand = async (
   input: EmptyOperationCommandInput,
@@ -258,6 +272,41 @@ export const serializeAws_json1_1SimpleScalarPropertiesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const deserializeAws_json1_1DatetimeOffsetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DatetimeOffsetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DatetimeOffsetsOutput(data, context);
+  const response: DatetimeOffsetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DatetimeOffsetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DatetimeOffsetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_json1_1EmptyOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -278,7 +327,7 @@ const deserializeAws_json1_1EmptyOperationCommandError = async (
 ): Promise<EmptyOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -310,7 +359,7 @@ const deserializeAws_json1_1EndpointOperationCommandError = async (
 ): Promise<EndpointOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -342,7 +391,7 @@ const deserializeAws_json1_1EndpointWithHostLabelOperationCommandError = async (
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -377,7 +426,7 @@ const deserializeAws_json1_1GreetingWithErrorsCommandError = async (
 ): Promise<GreetingWithErrorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -421,7 +470,7 @@ const deserializeAws_json1_1HostWithPathOperationCommandError = async (
 ): Promise<HostWithPathOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -456,7 +505,7 @@ const deserializeAws_json1_1JsonEnumsCommandError = async (
 ): Promise<JsonEnumsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -491,7 +540,7 @@ const deserializeAws_json1_1JsonUnionsCommandError = async (
 ): Promise<JsonUnionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -526,7 +575,7 @@ const deserializeAws_json1_1KitchenSinkOperationCommandError = async (
 ): Promise<KitchenSinkOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -570,7 +619,7 @@ const deserializeAws_json1_1NullOperationCommandError = async (
 ): Promise<NullOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -605,7 +654,7 @@ const deserializeAws_json1_1OperationWithOptionalInputOutputCommandError = async
 ): Promise<OperationWithOptionalInputOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -640,7 +689,7 @@ const deserializeAws_json1_1PutAndGetInlineDocumentsCommandError = async (
 ): Promise<PutAndGetInlineDocumentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -675,7 +724,7 @@ const deserializeAws_json1_1SimpleScalarPropertiesCommandError = async (
 ): Promise<SimpleScalarPropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -873,10 +922,8 @@ const serializeAws_json1_1MapOfKitchenSinks = (input: Record<string, KitchenSink
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1KitchenSink(value, context),
-    };
+    acc[key] = serializeAws_json1_1KitchenSink(value, context);
+    return acc;
   }, {});
 };
 
@@ -885,10 +932,8 @@ const serializeAws_json1_1MapOfListsOfStrings = (input: Record<string, string[]>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ListOfStrings(value, context),
-    };
+    acc[key] = serializeAws_json1_1ListOfStrings(value, context);
+    return acc;
   }, {});
 };
 
@@ -900,10 +945,8 @@ const serializeAws_json1_1MapOfMapOfStrings = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1MapOfStrings(value, context),
-    };
+    acc[key] = serializeAws_json1_1MapOfStrings(value, context);
+    return acc;
   }, {});
 };
 
@@ -912,10 +955,8 @@ const serializeAws_json1_1MapOfStrings = (input: Record<string, string>, context
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -924,10 +965,8 @@ const serializeAws_json1_1MapOfStructs = (input: Record<string, SimpleStruct>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1SimpleStruct(value, context),
-    };
+    acc[key] = serializeAws_json1_1SimpleStruct(value, context);
+    return acc;
   }, {});
 };
 
@@ -1022,10 +1061,8 @@ const serializeAws_json1_1FooEnumMap = (input: Record<string, FooEnum | string>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1055,12 +1092,11 @@ const serializeAws_json1_1SparseStringList = (input: string[], context: __SerdeC
 const serializeAws_json1_1SparseStringMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
-      return { ...acc, [key]: null as any };
+      acc[key] = null as any;
+      return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1077,10 +1113,8 @@ const serializeAws_json1_1StringMap = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1094,6 +1128,12 @@ const deserializeAws_json1_1ComplexError = (output: any, context: __SerdeContext
 const deserializeAws_json1_1ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   return {
     Foo: __expectString(output.Foo),
+  } as any;
+};
+
+const deserializeAws_json1_1DatetimeOffsetsOutput = (output: any, context: __SerdeContext): DatetimeOffsetsOutput => {
+  return {
+    datetime: output.datetime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.datetime)) : undefined,
   } as any;
 };
 
@@ -1165,7 +1205,9 @@ const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext)
       output.HttpdateTimestamp != null ? __expectNonNull(__parseRfc7231DateTime(output.HttpdateTimestamp)) : undefined,
     Integer: __expectInt32(output.Integer),
     Iso8601Timestamp:
-      output.Iso8601Timestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.Iso8601Timestamp)) : undefined,
+      output.Iso8601Timestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Iso8601Timestamp))
+        : undefined,
     JsonValue: output.JsonValue != null ? new __LazyJsonString(output.JsonValue) : undefined,
     ListOfLists:
       output.ListOfLists != null ? deserializeAws_json1_1ListOfListOfStrings(output.ListOfLists, context) : undefined,
@@ -1277,10 +1319,8 @@ const deserializeAws_json1_1MapOfKitchenSinks = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1KitchenSink(value, context),
-    };
+    acc[key] = deserializeAws_json1_1KitchenSink(value, context);
+    return acc;
   }, {});
 };
 
@@ -1289,10 +1329,8 @@ const deserializeAws_json1_1MapOfListsOfStrings = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1ListOfStrings(value, context),
-    };
+    acc[key] = deserializeAws_json1_1ListOfStrings(value, context);
+    return acc;
   }, {});
 };
 
@@ -1304,10 +1342,8 @@ const deserializeAws_json1_1MapOfMapOfStrings = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1MapOfStrings(value, context),
-    };
+    acc[key] = deserializeAws_json1_1MapOfStrings(value, context);
+    return acc;
   }, {});
 };
 
@@ -1316,10 +1352,8 @@ const deserializeAws_json1_1MapOfStrings = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1328,10 +1362,8 @@ const deserializeAws_json1_1MapOfStructs = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1SimpleStruct(value, context),
-    };
+    acc[key] = deserializeAws_json1_1SimpleStruct(value, context);
+    return acc;
   }, {});
 };
 
@@ -1458,10 +1490,8 @@ const deserializeAws_json1_1FooEnumMap = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1496,12 +1526,11 @@ const deserializeAws_json1_1SparseStringList = (output: any, context: __SerdeCon
 const deserializeAws_json1_1SparseStringMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
-      return { ...acc, [key]: null as any };
+      acc[key] = null as any;
+      return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1522,16 +1551,15 @@ const deserializeAws_json1_1StringMap = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1581,6 +1609,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1591,6 +1625,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

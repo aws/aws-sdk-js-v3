@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   DeleteVpcEndpointConnectionNotificationsRequestFilterSensitiveLog,
   DeleteVpcEndpointConnectionNotificationsResult,
   DeleteVpcEndpointConnectionNotificationsResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand,
   serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand,
@@ -31,7 +32,7 @@ export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes one or more VPC endpoint connection notifications.</p>
+ * <p>Deletes the specified VPC endpoint connection notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteVpcEndpointConnectionNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,12 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     DeleteVpcEndpointConnectionNotificationsCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DeleteVpcEndpointConnectionNotificationsCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

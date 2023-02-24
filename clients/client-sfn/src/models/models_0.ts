@@ -104,8 +104,8 @@ export interface ActivityListItem {
  */
 export interface HistoryEventExecutionDataDetails {
   /**
-   * <p>Indicates whether input or output was truncated in the response. Always
-   *       <code>false</code> for API calls.</p>
+   * <p>Indicates whether input or output was truncated in the response. Always <code>false</code>
+   *       for API calls.</p>
    */
   truncated?: boolean;
 }
@@ -222,7 +222,7 @@ export class ActivityWorkerLimitExceeded extends __BaseException {
  * <p>Tags are key-value pairs that can be associated with Step Functions state machines and
  *       activities.</p>
  *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
- *       Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
+ *       Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
  *         Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM
  *           Tags</a>.</p>
  *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
@@ -241,9 +241,9 @@ export interface Tag {
 
 export interface CreateActivityInput {
   /**
-   * <p>The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information,
+   * <p>The name of the activity to create. This name must be unique for your Amazon Web Services account and region for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
-   *     Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer Guide</i>.</p>
+   *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
    *             <li>
@@ -272,7 +272,7 @@ export interface CreateActivityInput {
   /**
    * <p>The list of tags to add to a resource.</p>
    *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
-   *       Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
+   *       Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
    *         Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM
    *           Tags</a>.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
@@ -293,7 +293,7 @@ export interface CreateActivityOutput {
 }
 
 /**
- * <p>The provided name is invalid.</p>
+ * <p>The provided name is not valid.</p>
  */
 export class InvalidName extends __BaseException {
   readonly name: "InvalidName" = "InvalidName";
@@ -313,7 +313,7 @@ export class InvalidName extends __BaseException {
 
 /**
  * <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
- *       AWS Step Functions Developer Guide.</p>
+ *       Step Functions Developer Guide.</p>
  */
 export class TooManyTags extends __BaseException {
   readonly name: "TooManyTags" = "TooManyTags";
@@ -350,12 +350,17 @@ export interface CloudWatchLogsLogGroup {
  */
 export interface LogDestination {
   /**
-   * <p>An object describing a CloudWatch log group. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">AWS::Logs::LogGroup</a> in the AWS CloudFormation User Guide.</p>
+   * <p>An object describing a CloudWatch log group. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">AWS::Logs::LogGroup</a> in the CloudFormation User Guide.</p>
    */
   cloudWatchLogsLogGroup?: CloudWatchLogsLogGroup;
 }
 
-export type LogLevel = "ALL" | "ERROR" | "FATAL" | "OFF";
+export enum LogLevel {
+  ALL = "ALL",
+  ERROR = "ERROR",
+  FATAL = "FATAL",
+  OFF = "OFF",
+}
 
 /**
  * <p>The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs
@@ -381,17 +386,21 @@ export interface LoggingConfiguration {
 }
 
 /**
- * <p>Selects whether or not the state machine's AWS X-Ray tracing is enabled. Default is <code>false</code>
+ * <p>Selects whether or not the state machine's X-Ray tracing is enabled. Default is
+ *         <code>false</code>
  *          </p>
  */
 export interface TracingConfiguration {
   /**
-   * <p>When set to <code>true</code>, AWS X-Ray tracing is enabled.</p>
+   * <p>When set to <code>true</code>, X-Ray tracing is enabled.</p>
    */
   enabled?: boolean;
 }
 
-export type StateMachineType = "EXPRESS" | "STANDARD";
+export enum StateMachineType {
+  EXPRESS = "EXPRESS",
+  STANDARD = "STANDARD",
+}
 
 export interface CreateStateMachineInput {
   /**
@@ -443,7 +452,7 @@ export interface CreateStateMachineInput {
    *          <note>
    *             <p>By default, the <code>level</code> is set to <code>OFF</code>. For more information see
    *           <a href="https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html">Log
-   *           Levels</a> in the AWS Step Functions User Guide.</p>
+   *           Levels</a> in the Step Functions User Guide.</p>
    *          </note>
    */
   loggingConfiguration?: LoggingConfiguration;
@@ -451,7 +460,7 @@ export interface CreateStateMachineInput {
   /**
    * <p>Tags to be added when creating a state machine.</p>
    *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
-   *       Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
+   *       Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
    *         Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM
    *           Tags</a>.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
@@ -459,7 +468,7 @@ export interface CreateStateMachineInput {
   tags?: Tag[];
 
   /**
-   * <p>Selects whether AWS X-Ray tracing is enabled.</p>
+   * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
 }
@@ -477,7 +486,7 @@ export interface CreateStateMachineOutput {
 }
 
 /**
- * <p>The provided Amazon Resource Name (ARN) is invalid.</p>
+ * <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  */
 export class InvalidArn extends __BaseException {
   readonly name: "InvalidArn" = "InvalidArn";
@@ -496,7 +505,7 @@ export class InvalidArn extends __BaseException {
 }
 
 /**
- * <p>The provided Amazon States Language definition is invalid.</p>
+ * <p>The provided Amazon States Language definition is not valid.</p>
  */
 export class InvalidDefinition extends __BaseException {
   readonly name: "InvalidDefinition" = "InvalidDefinition";
@@ -534,7 +543,8 @@ export class InvalidLoggingConfiguration extends __BaseException {
 }
 
 /**
- * <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not been set to <code>true</code> or <code>false</code>.</p>
+ * <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
+ *       been set to <code>true</code> or <code>false</code>.</p>
  */
 export class InvalidTracingConfiguration extends __BaseException {
   readonly name: "InvalidTracingConfiguration" = "InvalidTracingConfiguration";
@@ -648,6 +658,37 @@ export interface DeleteStateMachineInput {
 
 export interface DeleteStateMachineOutput {}
 
+export enum ValidationExceptionReason {
+  API_DOES_NOT_SUPPORT_LABELED_ARNS = "API_DOES_NOT_SUPPORT_LABELED_ARNS",
+  CANNOT_UPDATE_COMPLETED_MAP_RUN = "CANNOT_UPDATE_COMPLETED_MAP_RUN",
+  MISSING_REQUIRED_PARAMETER = "MISSING_REQUIRED_PARAMETER",
+}
+
+/**
+ * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+   */
+  reason?: ValidationExceptionReason | string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+  }
+}
+
 export interface DescribeActivityInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the activity to describe.</p>
@@ -712,7 +753,13 @@ export interface CloudWatchEventsExecutionDataDetails {
   included?: boolean;
 }
 
-export type ExecutionStatus = "ABORTED" | "FAILED" | "RUNNING" | "SUCCEEDED" | "TIMED_OUT";
+export enum ExecutionStatus {
+  ABORTED = "ABORTED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED",
+  TIMED_OUT = "TIMED_OUT",
+}
 
 export interface DescribeExecutionOutput {
   /**
@@ -792,9 +839,24 @@ export interface DescribeExecutionOutput {
   outputDetails?: CloudWatchEventsExecutionDataDetails;
 
   /**
-   * <p>The AWS X-Ray trace header that was passed to the execution.</p>
+   * <p>The X-Ray trace header that was passed to the execution.</p>
    */
   traceHeader?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies a Map Run, which dispatched this execution.</p>
+   */
+  mapRunArn?: string;
+
+  /**
+   * <p>The error string if the state machine execution failed.</p>
+   */
+  error?: string;
+
+  /**
+   * <p>The cause string if the state machine execution failed.</p>
+   */
+  cause?: string;
 }
 
 /**
@@ -816,6 +878,184 @@ export class ExecutionDoesNotExist extends __BaseException {
   }
 }
 
+export interface DescribeMapRunInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>
+   */
+  mapRunArn: string | undefined;
+}
+
+/**
+ * <p>Contains details about all of the child workflow executions started by a Map Run.</p>
+ */
+export interface MapRunExecutionCounts {
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run, but haven't started executing yet. </p>
+   */
+  pending: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run and are currently in-progress.</p>
+   */
+  running: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run and have completed successfully.</p>
+   */
+  succeeded: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run, but have failed.</p>
+   */
+  failed: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run and have timed out.</p>
+   */
+  timedOut: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run and were running, but were either stopped by the user or by Step Functions because the Map Run failed. </p>
+   */
+  aborted: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run.</p>
+   */
+  total: number | undefined;
+
+  /**
+   * <p>Returns the count of child workflow executions whose results were written by <code>ResultWriter</code>. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>
+   */
+  resultsWritten: number | undefined;
+}
+
+/**
+ * <p>Contains details about items that were processed in all of the child workflow executions that were started by a Map Run.</p>
+ */
+export interface MapRunItemCounts {
+  /**
+   * <p>The total number of items to process in child workflow executions that haven't started running yet.</p>
+   */
+  pending: number | undefined;
+
+  /**
+   * <p>The total number of items being processed in child workflow executions that are currently in-progress.</p>
+   */
+  running: number | undefined;
+
+  /**
+   * <p>The total number of items processed in child workflow executions that have completed successfully.</p>
+   */
+  succeeded: number | undefined;
+
+  /**
+   * <p>The total number of items processed in child workflow executions that have failed.</p>
+   */
+  failed: number | undefined;
+
+  /**
+   * <p>The total number of items processed in child workflow executions that have timed out.</p>
+   */
+  timedOut: number | undefined;
+
+  /**
+   * <p>The total number of items processed in child workflow executions that were either stopped by the user or by Step Functions, because the Map Run failed.</p>
+   */
+  aborted: number | undefined;
+
+  /**
+   * <p>The total number of items processed in all the child workflow executions started by a Map Run.</p>
+   */
+  total: number | undefined;
+
+  /**
+   * <p>Returns the count of items whose results were written by <code>ResultWriter</code>. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>
+   */
+  resultsWritten: number | undefined;
+}
+
+export enum MapRunStatus {
+  ABORTED = "ABORTED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+export interface DescribeMapRunOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>
+   */
+  mapRunArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the execution in which the Map Run was started.</p>
+   */
+  executionArn: string | undefined;
+
+  /**
+   * <p>The current status of the Map Run.</p>
+   */
+  status: MapRunStatus | string | undefined;
+
+  /**
+   * <p>The date when the Map Run was started.</p>
+   */
+  startDate: Date | undefined;
+
+  /**
+   * <p>The date when the Map Run was stopped.</p>
+   */
+  stopDate?: Date;
+
+  /**
+   * <p>The maximum number of child workflow executions configured to run in parallel for the Map Run at the same time.</p>
+   */
+  maxConcurrency: number | undefined;
+
+  /**
+   * <p>The maximum percentage of failed child workflow executions before the Map Run fails.</p>
+   */
+  toleratedFailurePercentage: number | undefined;
+
+  /**
+   * <p>The maximum number of failed child workflow executions before the Map Run fails.</p>
+   */
+  toleratedFailureCount: number | undefined;
+
+  /**
+   * <p>A JSON object that contains information about the total number of items, and the item count for each processing status, such as <code>pending</code> and <code>failed</code>.</p>
+   */
+  itemCounts: MapRunItemCounts | undefined;
+
+  /**
+   * <p>A JSON object that contains information about the total number of child workflow executions for the Map Run, and the count of child workflow executions for each status, such as <code>failed</code> and <code>succeeded</code>.</p>
+   */
+  executionCounts: MapRunExecutionCounts | undefined;
+}
+
+/**
+ * <p>Could not find the referenced resource. Only state machine and activity ARNs are
+ *       supported.</p>
+ */
+export class ResourceNotFound extends __BaseException {
+  readonly name: "ResourceNotFound" = "ResourceNotFound";
+  readonly $fault: "client" = "client";
+  resourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
+    super({
+      name: "ResourceNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFound.prototype);
+    this.resourceName = opts.resourceName;
+  }
+}
+
 export interface DescribeStateMachineInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine to describe.</p>
@@ -823,7 +1063,10 @@ export interface DescribeStateMachineInput {
   stateMachineArn: string | undefined;
 }
 
-export type StateMachineStatus = "ACTIVE" | "DELETING";
+export enum StateMachineStatus {
+  ACTIVE = "ACTIVE",
+  DELETING = "DELETING",
+}
 
 export interface DescribeStateMachineOutput {
   /**
@@ -870,7 +1113,7 @@ export interface DescribeStateMachineOutput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role
-   *       maintains security by granting Step Functions access to AWS resources.)</p>
+   *       maintains security by granting Step Functions access to Amazon Web Services resources.)</p>
    */
   roleArn: string | undefined;
 
@@ -892,9 +1135,14 @@ export interface DescribeStateMachineOutput {
   loggingConfiguration?: LoggingConfiguration;
 
   /**
-   * <p>Selects whether AWS X-Ray tracing is enabled.</p>
+   * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
+
+  /**
+   * <p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if the <code>stateMachineArn</code> specified in input is a qualified state machine ARN.</p>
+   */
+  label?: string;
 }
 
 /**
@@ -957,9 +1205,19 @@ export interface DescribeStateMachineForExecutionOutput {
   loggingConfiguration?: LoggingConfiguration;
 
   /**
-   * <p>Selects whether AWS X-Ray tracing is enabled.</p>
+   * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow execution. This field is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>
+   */
+  mapRunArn?: string;
+
+  /**
+   * <p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This ﬁeld is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>
+   */
+  label?: string;
 }
 
 export interface GetActivityTaskInput {
@@ -1067,7 +1325,7 @@ export interface ExecutionStartedEventDetails {
   inputDetails?: HistoryEventExecutionDataDetails;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used for executing Lambda tasks.</p>
    */
   roleArn?: string;
 }
@@ -1103,7 +1361,7 @@ export interface ExecutionTimedOutEventDetails {
 }
 
 /**
- * <p>Contains details about a lambda function that failed during an execution.</p>
+ * <p>Contains details about a Lambda function that failed during an execution.</p>
  */
 export interface LambdaFunctionFailedEventDetails {
   /**
@@ -1118,16 +1376,26 @@ export interface LambdaFunctionFailedEventDetails {
 }
 
 /**
- * <p>Contains details about a lambda function scheduled during an execution.</p>
+ * <p>Contains details about the credentials that Step Functions uses for a task.</p>
+ */
+export interface TaskCredentials {
+  /**
+   * <p>The ARN of an IAM role that Step Functions assumes for the task. The role can allow cross-account access to resources.</p>
+   */
+  roleArn?: string;
+}
+
+/**
+ * <p>Contains details about a Lambda function scheduled during an execution.</p>
  */
 export interface LambdaFunctionScheduledEventDetails {
   /**
-   * <p>The Amazon Resource Name (ARN) of the scheduled lambda function.</p>
+   * <p>The Amazon Resource Name (ARN) of the scheduled Lambda function.</p>
    */
   resource: string | undefined;
 
   /**
-   * <p>The JSON data input to the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
+   * <p>The JSON data input to the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   input?: string;
 
@@ -1137,13 +1405,18 @@ export interface LambdaFunctionScheduledEventDetails {
   inputDetails?: HistoryEventExecutionDataDetails;
 
   /**
-   * <p>The maximum allowed duration of the lambda function.</p>
+   * <p>The maximum allowed duration of the Lambda function.</p>
    */
   timeoutInSeconds?: number;
+
+  /**
+   * <p>The credentials that Step Functions uses for the task.</p>
+   */
+  taskCredentials?: TaskCredentials;
 }
 
 /**
- * <p>Contains details about a failed lambda function schedule event that occurred during an
+ * <p>Contains details about a failed Lambda function schedule event that occurred during an
  *       execution.</p>
  */
 export interface LambdaFunctionScheduleFailedEventDetails {
@@ -1174,12 +1447,12 @@ export interface LambdaFunctionStartFailedEventDetails {
 }
 
 /**
- * <p>Contains details about a lambda function that successfully terminated during an
+ * <p>Contains details about a Lambda function that successfully terminated during an
  *       execution.</p>
  */
 export interface LambdaFunctionSucceededEventDetails {
   /**
-   * <p>The JSON data output by the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
+   * <p>The JSON data output by the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   output?: string;
 
@@ -1190,7 +1463,7 @@ export interface LambdaFunctionSucceededEventDetails {
 }
 
 /**
- * <p>Contains details about a lambda function timeout that occurred during an execution.</p>
+ * <p>Contains details about a Lambda function timeout that occurred during an execution.</p>
  */
 export interface LambdaFunctionTimedOutEventDetails {
   /**
@@ -1217,6 +1490,31 @@ export interface MapIterationEventDetails {
    * <p>The index of the array belonging to the Map state iteration.</p>
    */
   index?: number;
+}
+
+/**
+ * <p>Contains details about a Map Run failure event that occurred during a state machine execution.</p>
+ */
+export interface MapRunFailedEventDetails {
+  /**
+   * <p>The error code of the Map Run failure.</p>
+   */
+  error?: string;
+
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+}
+
+/**
+ * <p>Contains details about a Map Run that was started during a state machine execution.</p>
+ */
+export interface MapRunStartedEventDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Map Run that was started.</p>
+   */
+  mapRunArn?: string;
 }
 
 /**
@@ -1296,12 +1594,12 @@ export interface StateExitedEventDetails {
  */
 export interface TaskFailedEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1321,12 +1619,12 @@ export interface TaskFailedEventDetails {
  */
 export interface TaskScheduledEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1350,6 +1648,11 @@ export interface TaskScheduledEventDetails {
    * <p>The maximum allowed duration between two heartbeats for the task.</p>
    */
   heartbeatInSeconds?: number;
+
+  /**
+   * <p>The credentials that Step Functions uses for the task.</p>
+   */
+  taskCredentials?: TaskCredentials;
 }
 
 /**
@@ -1357,12 +1660,12 @@ export interface TaskScheduledEventDetails {
  */
 export interface TaskStartedEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 }
@@ -1372,12 +1675,12 @@ export interface TaskStartedEventDetails {
  */
 export interface TaskStartFailedEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1397,12 +1700,12 @@ export interface TaskStartFailedEventDetails {
  */
 export interface TaskSubmitFailedEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1422,12 +1725,12 @@ export interface TaskSubmitFailedEventDetails {
  */
 export interface TaskSubmittedEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1447,12 +1750,12 @@ export interface TaskSubmittedEventDetails {
  */
 export interface TaskSucceededEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1473,12 +1776,12 @@ export interface TaskSucceededEventDetails {
  */
 export interface TaskTimedOutEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1493,62 +1796,67 @@ export interface TaskTimedOutEventDetails {
   cause?: string;
 }
 
-export type HistoryEventType =
-  | "ActivityFailed"
-  | "ActivityScheduleFailed"
-  | "ActivityScheduled"
-  | "ActivityStarted"
-  | "ActivitySucceeded"
-  | "ActivityTimedOut"
-  | "ChoiceStateEntered"
-  | "ChoiceStateExited"
-  | "ExecutionAborted"
-  | "ExecutionFailed"
-  | "ExecutionStarted"
-  | "ExecutionSucceeded"
-  | "ExecutionTimedOut"
-  | "FailStateEntered"
-  | "LambdaFunctionFailed"
-  | "LambdaFunctionScheduleFailed"
-  | "LambdaFunctionScheduled"
-  | "LambdaFunctionStartFailed"
-  | "LambdaFunctionStarted"
-  | "LambdaFunctionSucceeded"
-  | "LambdaFunctionTimedOut"
-  | "MapIterationAborted"
-  | "MapIterationFailed"
-  | "MapIterationStarted"
-  | "MapIterationSucceeded"
-  | "MapStateAborted"
-  | "MapStateEntered"
-  | "MapStateExited"
-  | "MapStateFailed"
-  | "MapStateStarted"
-  | "MapStateSucceeded"
-  | "ParallelStateAborted"
-  | "ParallelStateEntered"
-  | "ParallelStateExited"
-  | "ParallelStateFailed"
-  | "ParallelStateStarted"
-  | "ParallelStateSucceeded"
-  | "PassStateEntered"
-  | "PassStateExited"
-  | "SucceedStateEntered"
-  | "SucceedStateExited"
-  | "TaskFailed"
-  | "TaskScheduled"
-  | "TaskStartFailed"
-  | "TaskStarted"
-  | "TaskStateAborted"
-  | "TaskStateEntered"
-  | "TaskStateExited"
-  | "TaskSubmitFailed"
-  | "TaskSubmitted"
-  | "TaskSucceeded"
-  | "TaskTimedOut"
-  | "WaitStateAborted"
-  | "WaitStateEntered"
-  | "WaitStateExited";
+export enum HistoryEventType {
+  ActivityFailed = "ActivityFailed",
+  ActivityScheduleFailed = "ActivityScheduleFailed",
+  ActivityScheduled = "ActivityScheduled",
+  ActivityStarted = "ActivityStarted",
+  ActivitySucceeded = "ActivitySucceeded",
+  ActivityTimedOut = "ActivityTimedOut",
+  ChoiceStateEntered = "ChoiceStateEntered",
+  ChoiceStateExited = "ChoiceStateExited",
+  ExecutionAborted = "ExecutionAborted",
+  ExecutionFailed = "ExecutionFailed",
+  ExecutionStarted = "ExecutionStarted",
+  ExecutionSucceeded = "ExecutionSucceeded",
+  ExecutionTimedOut = "ExecutionTimedOut",
+  FailStateEntered = "FailStateEntered",
+  LambdaFunctionFailed = "LambdaFunctionFailed",
+  LambdaFunctionScheduleFailed = "LambdaFunctionScheduleFailed",
+  LambdaFunctionScheduled = "LambdaFunctionScheduled",
+  LambdaFunctionStartFailed = "LambdaFunctionStartFailed",
+  LambdaFunctionStarted = "LambdaFunctionStarted",
+  LambdaFunctionSucceeded = "LambdaFunctionSucceeded",
+  LambdaFunctionTimedOut = "LambdaFunctionTimedOut",
+  MapIterationAborted = "MapIterationAborted",
+  MapIterationFailed = "MapIterationFailed",
+  MapIterationStarted = "MapIterationStarted",
+  MapIterationSucceeded = "MapIterationSucceeded",
+  MapRunAborted = "MapRunAborted",
+  MapRunFailed = "MapRunFailed",
+  MapRunStarted = "MapRunStarted",
+  MapRunSucceeded = "MapRunSucceeded",
+  MapStateAborted = "MapStateAborted",
+  MapStateEntered = "MapStateEntered",
+  MapStateExited = "MapStateExited",
+  MapStateFailed = "MapStateFailed",
+  MapStateStarted = "MapStateStarted",
+  MapStateSucceeded = "MapStateSucceeded",
+  ParallelStateAborted = "ParallelStateAborted",
+  ParallelStateEntered = "ParallelStateEntered",
+  ParallelStateExited = "ParallelStateExited",
+  ParallelStateFailed = "ParallelStateFailed",
+  ParallelStateStarted = "ParallelStateStarted",
+  ParallelStateSucceeded = "ParallelStateSucceeded",
+  PassStateEntered = "PassStateEntered",
+  PassStateExited = "PassStateExited",
+  SucceedStateEntered = "SucceedStateEntered",
+  SucceedStateExited = "SucceedStateExited",
+  TaskFailed = "TaskFailed",
+  TaskScheduled = "TaskScheduled",
+  TaskStartFailed = "TaskStartFailed",
+  TaskStarted = "TaskStarted",
+  TaskStateAborted = "TaskStateAborted",
+  TaskStateEntered = "TaskStateEntered",
+  TaskStateExited = "TaskStateExited",
+  TaskSubmitFailed = "TaskSubmitFailed",
+  TaskSubmitted = "TaskSubmitted",
+  TaskSucceeded = "TaskSucceeded",
+  TaskTimedOut = "TaskTimedOut",
+  WaitStateAborted = "WaitStateAborted",
+  WaitStateEntered = "WaitStateEntered",
+  WaitStateExited = "WaitStateExited",
+}
 
 /**
  * <p>Contains details about the events of an execution.</p>
@@ -1696,18 +2004,18 @@ export interface HistoryEvent {
   mapIterationAbortedEventDetails?: MapIterationEventDetails;
 
   /**
-   * <p>Contains details about a lambda function that failed during an execution.</p>
+   * <p>Contains details about a Lambda function that failed during an execution.</p>
    */
   lambdaFunctionFailedEventDetails?: LambdaFunctionFailedEventDetails;
 
   /**
-   * <p>Contains details about a failed lambda function schedule event that occurred during an
+   * <p>Contains details about a failed Lambda function schedule event that occurred during an
    *       execution.</p>
    */
   lambdaFunctionScheduleFailedEventDetails?: LambdaFunctionScheduleFailedEventDetails;
 
   /**
-   * <p>Contains details about a lambda function scheduled during an execution.</p>
+   * <p>Contains details about a Lambda function scheduled during an execution.</p>
    */
   lambdaFunctionScheduledEventDetails?: LambdaFunctionScheduledEventDetails;
 
@@ -1717,13 +2025,13 @@ export interface HistoryEvent {
   lambdaFunctionStartFailedEventDetails?: LambdaFunctionStartFailedEventDetails;
 
   /**
-   * <p>Contains details about a lambda function that terminated successfully during an
+   * <p>Contains details about a Lambda function that terminated successfully during an
    *       execution.</p>
    */
   lambdaFunctionSucceededEventDetails?: LambdaFunctionSucceededEventDetails;
 
   /**
-   * <p>Contains details about a lambda function timeout that occurred during an execution.</p>
+   * <p>Contains details about a Lambda function timeout that occurred during an execution.</p>
    */
   lambdaFunctionTimedOutEventDetails?: LambdaFunctionTimedOutEventDetails;
 
@@ -1736,6 +2044,16 @@ export interface HistoryEvent {
    * <p>Contains details about an exit from a state during an execution.</p>
    */
   stateExitedEventDetails?: StateExitedEventDetails;
+
+  /**
+   * <p>Contains details, such as <code>mapRunArn</code>, and the start date and time of a Map Run. <code>mapRunArn</code> is the Amazon Resource Name (ARN) of the Map Run that was started.</p>
+   */
+  mapRunStartedEventDetails?: MapRunStartedEventDetails;
+
+  /**
+   * <p>Contains error and cause details about a Map Run that failed.</p>
+   */
+  mapRunFailedEventDetails?: MapRunFailedEventDetails;
 }
 
 export interface GetExecutionHistoryOutput {
@@ -1752,7 +2070,7 @@ export interface GetExecutionHistoryOutput {
 }
 
 /**
- * <p>The provided token is invalid.</p>
+ * <p>The provided token is not valid.</p>
  */
 export class InvalidToken extends __BaseException {
   readonly name: "InvalidToken" = "InvalidToken";
@@ -1801,8 +2119,9 @@ export interface ListActivitiesOutput {
 export interface ListExecutionsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</p>
+   *          <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
    */
-  stateMachineArn: string | undefined;
+  stateMachineArn?: string;
 
   /**
    * <p>If specified, only list the executions whose current execution status matches the given
@@ -1822,6 +2141,12 @@ export interface ListExecutionsInput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow executions. If the <code>mapRunArn</code> field is specified, a list of all of the child workflow executions started by a Map Run is returned. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>
+   *          <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
+   */
+  mapRunArn?: string;
 }
 
 /**
@@ -1879,6 +2204,16 @@ export interface ExecutionListItem {
    * <p>If the execution already ended, the date the execution stopped.</p>
    */
   stopDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Map Run. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>mapRunArn</code> isn't returned.</p>
+   */
+  mapRunArn?: string;
+
+  /**
+   * <p>The total number of items processed in a child workflow execution. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>itemCount</code> field isn't returned.</p>
+   */
+  itemCount?: number;
 }
 
 export interface ListExecutionsOutput {
@@ -1886,6 +2221,69 @@ export interface ListExecutionsOutput {
    * <p>The list of matching executions.</p>
    */
   executions: ExecutionListItem[] | undefined;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
+   *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListMapRunsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the execution for which the Map Runs must be listed.</p>
+   */
+  executionArn: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
+   *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
+   *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
+   *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Contains details about a specific Map Run.</p>
+ */
+export interface MapRunListItem {
+  /**
+   * <p>The <code>executionArn</code> of the execution from which the Map Run was started.</p>
+   */
+  executionArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Map Run.</p>
+   */
+  mapRunArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the executed state machine.</p>
+   */
+  stateMachineArn: string | undefined;
+
+  /**
+   * <p>The date on which the Map Run started.</p>
+   */
+  startDate: Date | undefined;
+
+  /**
+   * <p>The date on which the Map Run stopped.</p>
+   */
+  stopDate?: Date;
+}
+
+export interface ListMapRunsOutput {
+  /**
+   * <p>An array that lists information related to a Map Run, such as the Amazon Resource Name (ARN) of the Map Run and the ARN of the state machine that started the Map Run.</p>
+   */
+  mapRuns: MapRunListItem[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
@@ -1979,28 +2377,6 @@ export interface ListTagsForResourceOutput {
   tags?: Tag[];
 }
 
-/**
- * <p>Could not find the referenced resource. Only state machine and activity ARNs are
- *       supported.</p>
- */
-export class ResourceNotFound extends __BaseException {
-  readonly name: "ResourceNotFound" = "ResourceNotFound";
-  readonly $fault: "client" = "client";
-  resourceName?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
-    super({
-      name: "ResourceNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFound.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
 export interface SendTaskFailureInput {
   /**
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
@@ -2066,7 +2442,7 @@ export interface SendTaskHeartbeatInput {
 export interface SendTaskHeartbeatOutput {}
 
 /**
- * <p>The provided JSON output data is invalid.</p>
+ * <p>The provided JSON output data is not valid.</p>
  */
 export class InvalidOutput extends __BaseException {
   readonly name: "InvalidOutput" = "InvalidOutput";
@@ -2145,7 +2521,7 @@ export class ExecutionLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The provided JSON input data is invalid.</p>
+ * <p>The provided JSON input data is not valid.</p>
  */
 export class InvalidExecutionInput extends __BaseException {
   readonly name: "InvalidExecutionInput" = "InvalidExecutionInput";
@@ -2170,9 +2546,9 @@ export interface StartExecutionInput {
   stateMachineArn: string | undefined;
 
   /**
-   * <p>The name of the execution. This name must be unique for your AWS account, region, and state machine for 90 days. For more information,
+   * <p>The name of the execution. This name must be unique for your Amazon Web Services account, region, and state machine for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
-   *     Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer Guide</i>.</p>
+   *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
    *             <li>
@@ -2213,7 +2589,8 @@ export interface StartExecutionInput {
   input?: string;
 
   /**
-   * <p>Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.</p>
+   * <p>Passes the X-Ray trace header. The trace header can also be passed in the request
+   *       payload.</p>
    */
   traceHeader?: string;
 }
@@ -2248,7 +2625,7 @@ export interface StartSyncExecutionInput {
    *          </p>
    *          <note>
    *             <p>If you don't include any JSON input data, you still must include the two braces, for
-   *          example: <code>"input": "{}"</code>
+   *         example: <code>"input": "{}"</code>
    *             </p>
    *          </note>
    *          <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
@@ -2256,7 +2633,8 @@ export interface StartSyncExecutionInput {
   input?: string;
 
   /**
-   * <p>Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.</p>
+   * <p>Passes the X-Ray trace header. The trace header can also be passed in the request
+   *       payload.</p>
    */
   traceHeader?: string;
 }
@@ -2276,7 +2654,11 @@ export interface BillingDetails {
   billedDurationInMilliseconds?: number;
 }
 
-export type SyncExecutionStatus = "FAILED" | "SUCCEEDED" | "TIMED_OUT";
+export enum SyncExecutionStatus {
+  FAILED = "FAILED",
+  SUCCEEDED = "SUCCEEDED",
+  TIMED_OUT = "TIMED_OUT",
+}
 
 export interface StartSyncExecutionOutput {
   /**
@@ -2333,7 +2715,7 @@ export interface StartSyncExecutionOutput {
    * <p>The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    *          <note>
    *             <p>This field is set only if the execution succeeds. If the execution fails, this field is
-   *          null.</p>
+   *         null.</p>
    *          </note>
    */
   output?: string;
@@ -2344,13 +2726,13 @@ export interface StartSyncExecutionOutput {
   outputDetails?: CloudWatchEventsExecutionDataDetails;
 
   /**
-   * <p>The AWS X-Ray trace header that was passed to the execution.</p>
+   * <p>The X-Ray trace header that was passed to the execution.</p>
    */
   traceHeader?: string;
 
   /**
-   * <p>An object that describes workflow billing details, including billed duration
-   *       and memory use.</p>
+   * <p>An object that describes workflow billing details, including billed duration and memory
+   *       use.</p>
    */
   billingDetails?: BillingDetails;
 }
@@ -2408,6 +2790,30 @@ export interface UntagResourceInput {
 
 export interface UntagResourceOutput {}
 
+export interface UpdateMapRunInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Map Run.</p>
+   */
+  mapRunArn: string | undefined;
+
+  /**
+   * <p>The maximum number of child workflow executions that can be specified to run in parallel for the Map Run at the same time.</p>
+   */
+  maxConcurrency?: number;
+
+  /**
+   * <p>The maximum percentage of failed items before the Map Run fails.</p>
+   */
+  toleratedFailurePercentage?: number;
+
+  /**
+   * <p>The maximum number of failed items before the Map Run fails.</p>
+   */
+  toleratedFailureCount?: number;
+}
+
+export interface UpdateMapRunOutput {}
+
 /**
  * <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
  *       and <code>roleArn</code> are not specified.</p>
@@ -2451,7 +2857,7 @@ export interface UpdateStateMachineInput {
   loggingConfiguration?: LoggingConfiguration;
 
   /**
-   * <p>Selects whether AWS X-Ray tracing is enabled.</p>
+   * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
 }
@@ -2656,6 +3062,36 @@ export const DescribeExecutionOutputFilterSensitiveLog = (obj: DescribeExecution
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
   ...(obj.output && { output: SENSITIVE_STRING }),
+  ...(obj.error && { error: SENSITIVE_STRING }),
+  ...(obj.cause && { cause: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeMapRunInputFilterSensitiveLog = (obj: DescribeMapRunInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapRunExecutionCountsFilterSensitiveLog = (obj: MapRunExecutionCounts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapRunItemCountsFilterSensitiveLog = (obj: MapRunItemCounts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMapRunOutputFilterSensitiveLog = (obj: DescribeMapRunOutput): any => ({
+  ...obj,
 });
 
 /**
@@ -2769,6 +3205,13 @@ export const LambdaFunctionFailedEventDetailsFilterSensitiveLog = (obj: LambdaFu
 /**
  * @internal
  */
+export const TaskCredentialsFilterSensitiveLog = (obj: TaskCredentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const LambdaFunctionScheduledEventDetailsFilterSensitiveLog = (
   obj: LambdaFunctionScheduledEventDetails
 ): any => ({
@@ -2821,6 +3264,22 @@ export const LambdaFunctionTimedOutEventDetailsFilterSensitiveLog = (obj: Lambda
  * @internal
  */
 export const MapIterationEventDetailsFilterSensitiveLog = (obj: MapIterationEventDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapRunFailedEventDetailsFilterSensitiveLog = (obj: MapRunFailedEventDetails): any => ({
+  ...obj,
+  ...(obj.error && { error: SENSITIVE_STRING }),
+  ...(obj.cause && { cause: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MapRunStartedEventDetailsFilterSensitiveLog = (obj: MapRunStartedEventDetails): any => ({
   ...obj,
 });
 
@@ -3010,6 +3469,9 @@ export const HistoryEventFilterSensitiveLog = (obj: HistoryEvent): any => ({
   ...(obj.stateExitedEventDetails && {
     stateExitedEventDetails: StateExitedEventDetailsFilterSensitiveLog(obj.stateExitedEventDetails),
   }),
+  ...(obj.mapRunFailedEventDetails && {
+    mapRunFailedEventDetails: MapRunFailedEventDetailsFilterSensitiveLog(obj.mapRunFailedEventDetails),
+  }),
 });
 
 /**
@@ -3052,6 +3514,27 @@ export const ExecutionListItemFilterSensitiveLog = (obj: ExecutionListItem): any
  * @internal
  */
 export const ListExecutionsOutputFilterSensitiveLog = (obj: ListExecutionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMapRunsInputFilterSensitiveLog = (obj: ListMapRunsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapRunListItemFilterSensitiveLog = (obj: MapRunListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMapRunsOutputFilterSensitiveLog = (obj: ListMapRunsOutput): any => ({
   ...obj,
 });
 
@@ -3217,6 +3700,20 @@ export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): a
  * @internal
  */
 export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMapRunInputFilterSensitiveLog = (obj: UpdateMapRunInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMapRunOutputFilterSensitiveLog = (obj: UpdateMapRunOutput): any => ({
   ...obj,
 });
 

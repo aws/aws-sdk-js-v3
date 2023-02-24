@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,8 +32,8 @@ export interface GetEvidenceFoldersByAssessmentControlCommandOutput
     __MetadataBearer {}
 
 /**
- * <p> Returns a list of evidence folders that are associated with a specified control of an
- *          assessment in Audit Manager. </p>
+ * <p> Returns a list of evidence folders that are associated with a specified control in an
+ *             Audit Manager assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +57,15 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetEvidenceFoldersByAssessmentControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetEvidenceFoldersByAssessmentControlCommandInput, GetEvidenceFoldersByAssessmentControlCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetEvidenceFoldersByAssessmentControlCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

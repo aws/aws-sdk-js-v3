@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -37,23 +38,22 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  *         <ul>
  *             <li>
  *                 <p>
- *                     <b>EC2/On-premises</b>: Information about EC2 instance
- *                     targets. </p>
+ *                     <b>EC2/On-premises</b>: Information about Amazon EC2 instance targets. </p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>AWS Lambda</b>: Information about Lambda functions
- *                     targets. </p>
+ *                     <b>Lambda</b>: Information about
+ *                         Lambda functions targets. </p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>Amazon ECS</b>: Information about Amazon ECS
- *                     service targets. </p>
+ *                     <b>Amazon ECS</b>: Information about Amazon ECS service targets. </p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>CloudFormation</b>: Information about targets of
- *                     blue/green deployments initiated by a CloudFormation stack update.</p>
+ *                   <b>CloudFormation</b>: Information about
+ *                     targets of blue/green deployments initiated by a CloudFormation stack
+ *                     update.</p>
  *             </li>
  *          </ul>
  * @example
@@ -79,6 +79,15 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchGetDeploymentTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,6 +103,9 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchGetDeploymentTargetsCommandInput, BatchGetDeploymentTargetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchGetDeploymentTargetsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,25 +32,25 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
 
 /**
  * <p>Attaches one or more target groups to the specified Auto Scaling group.</p>
- *         <p>This operation is used with the following load balancer types: </p>
- *         <ul>
+ *          <p>This operation is used with the following load balancer types: </p>
+ *          <ul>
  *             <li>
- *                 <p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and
+ *                <p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and
  *                     HTTPS. </p>
  *             </li>
  *             <li>
- *                 <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and
+ *                <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and
  *                     UDP. </p>
  *             </li>
  *             <li>
- *                 <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p>
+ *                <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p>
  *             </li>
  *          </ul>
- *         <p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from
+ *          <p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from
  *             the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p>
- *         <p>This operation is additive and does not detach existing target groups or Classic Load
+ *          <p>This operation is additive and does not detach existing target groups or Classic Load
  *             Balancers from the Auto Scaling group.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to
  *                 distribute traffic across the instances in your Auto Scaling group</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  * @example
@@ -75,6 +76,15 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AttachLoadBalancerTargetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,6 +100,9 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AttachLoadBalancerTargetGroupsCommandInput, AttachLoadBalancerTargetGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AttachLoadBalancerTargetGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

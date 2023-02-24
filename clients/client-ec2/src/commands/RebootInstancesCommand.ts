@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RebootInstancesRequest, RebootInstancesRequestFilterSensitiveLog } from "../models/models_5";
+import { RebootInstancesRequest, RebootInstancesRequestFilterSensitiveLog } from "../models/models_6";
 import { deserializeAws_ec2RebootInstancesCommand, serializeAws_ec2RebootInstancesCommand } from "../protocols/Aws_ec2";
 
 export interface RebootInstancesCommandInput extends RebootInstancesRequest {}
@@ -24,9 +25,9 @@ export interface RebootInstancesCommandOutput extends __MetadataBearer {}
  *             queues a request to reboot the specified instances. The operation succeeds if the
  *             instances are valid and belong to you. Requests to reboot terminated instances are
  *             ignored.</p>
- *         <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
+ *          <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
  *             hard reboot.</p>
- *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot an unreachable
+ *          <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot an unreachable
  *                 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +52,15 @@ export class RebootInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RebootInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +76,9 @@ export class RebootInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RebootInstancesCommandInput, RebootInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RebootInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

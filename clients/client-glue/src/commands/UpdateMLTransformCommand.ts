@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,6 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
 
 /**
  * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
- *
  *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
  *       operation to assess how well your new parameters achieved your goals (such as improving the
  *       quality of your machine learning transform, or making it more cost-effective).</p>
@@ -56,6 +56,15 @@ export class UpdateMLTransformCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateMLTransformCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +80,9 @@ export class UpdateMLTransformCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateMLTransformCommandInput, UpdateMLTransformCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateMLTransformCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

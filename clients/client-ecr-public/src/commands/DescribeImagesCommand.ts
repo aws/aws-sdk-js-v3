@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,13 @@ export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
 export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata about the images in a repository in a public registry.</p>
+ * <p>Returns metadata that's related to the images in a repository in a public
+ *          registry.</p>
  *          <note>
  *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers before
  *             pushing them to a V2 Docker registry. The output of the <code>docker images</code>
- *             command shows the uncompressed image size, so it may return a larger image size than the
- *             image sizes returned by <a>DescribeImages</a>.</p>
+ *             command shows the uncompressed image size. Therefore, it might return a larger image
+ *             size than the image sizes that are returned by <a>DescribeImages</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +60,15 @@ export class DescribeImagesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +84,9 @@ export class DescribeImagesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeImagesCommandInput, DescribeImagesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeImagesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

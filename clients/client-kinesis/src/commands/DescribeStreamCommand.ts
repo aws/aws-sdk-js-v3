@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,26 +30,29 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
 
 /**
  * <p>Describes the specified Kinesis data stream.</p>
- *         <note>
+ *          <note>
  *             <p>This API has been revised. It's highly recommended that you use the <a>DescribeStreamSummary</a> API to get a summarized description of the
  *                 specified Kinesis data stream and the <a>ListShards</a> API to list the
  *                 shards in a specified data stream and obtain information about each shard. </p>
- *         </note>
- *         <p>The information returned includes the stream name, Amazon Resource Name (ARN),
+ *          </note>
+ *          <note>
+ *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+ *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *          </note>
+ *          <p>The information returned includes the stream name, Amazon Resource Name (ARN),
  *             creation time, enhanced metric configuration, and shard map. The shard map is an array
  *             of shard objects. For each shard object, there is the hash key and sequence number
  *             ranges that the shard spans, and the IDs of any earlier shards that played in a role in
  *             creating the shard. Every record ingested in the stream is identified by a sequence
  *             number, which is assigned when the record is put into the stream.</p>
- *
- *         <p>You can limit the number of shards returned by each call. For more information, see
+ *          <p>You can limit the number of shards returned by each call. For more information, see
  *                 <a href="https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-retrieve-shards.html">Retrieving
  *                 Shards from a Stream</a> in the <i>Amazon Kinesis Data Streams Developer
  *                 Guide</i>.</p>
- *         <p>There are no guarantees about the chronological order shards returned. To process
+ *          <p>There are no guarantees about the chronological order shards returned. To process
  *             shards in chronological order, use the ID of the parent shard to track the lineage to
  *             the oldest shard.</p>
- *         <p>This operation has a limit of 10 transactions per second per account.</p>
+ *          <p>This operation has a limit of 10 transactions per second per account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +76,17 @@ export class DescribeStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +102,9 @@ export class DescribeStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeStreamCommandInput, DescribeStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,19 +34,19 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
  * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs
  *             with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data.
  *             Based on the information that you provide, we configure resources in the template to do the following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Create a table in Athena that maps fields to a custom log format</p>
+ *                <p>Create a table in Athena that maps fields to a custom log format</p>
  *             </li>
  *             <li>
- *                 <p>Create a Lambda function that updates the table with new partitions on a daily, weekly, or
+ *                <p>Create a Lambda function that updates the table with new partitions on a daily, weekly, or
  *                     monthly basis</p>
  *             </li>
  *             <li>
- *                 <p>Create a table partitioned between two timestamps in the past</p>
+ *                <p>Create a table partitioned between two timestamps in the past</p>
  *             </li>
  *             <li>
- *                 <p>Create a set of named queries in Athena that you can use to get started quickly</p>
+ *                <p>Create a set of named queries in Athena that you can use to get started quickly</p>
  *             </li>
  *          </ul>
  * @example
@@ -71,6 +72,15 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetFlowLogsIntegrationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +96,9 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetFlowLogsIntegrationTemplateCommandInput, GetFlowLogsIntegrationTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetFlowLogsIntegrationTemplateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

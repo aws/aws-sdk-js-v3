@@ -22,10 +22,25 @@ import {
   DeleteStreamCommandOutput,
 } from "./commands/DeleteStreamCommand";
 import {
+  DescribeEdgeConfigurationCommand,
+  DescribeEdgeConfigurationCommandInput,
+  DescribeEdgeConfigurationCommandOutput,
+} from "./commands/DescribeEdgeConfigurationCommand";
+import {
   DescribeImageGenerationConfigurationCommand,
   DescribeImageGenerationConfigurationCommandInput,
   DescribeImageGenerationConfigurationCommandOutput,
 } from "./commands/DescribeImageGenerationConfigurationCommand";
+import {
+  DescribeMappedResourceConfigurationCommand,
+  DescribeMappedResourceConfigurationCommandInput,
+  DescribeMappedResourceConfigurationCommandOutput,
+} from "./commands/DescribeMappedResourceConfigurationCommand";
+import {
+  DescribeMediaStorageConfigurationCommand,
+  DescribeMediaStorageConfigurationCommandInput,
+  DescribeMediaStorageConfigurationCommandOutput,
+} from "./commands/DescribeMediaStorageConfigurationCommand";
 import {
   DescribeNotificationConfigurationCommand,
   DescribeNotificationConfigurationCommandInput,
@@ -67,6 +82,11 @@ import {
   ListTagsForStreamCommandInput,
   ListTagsForStreamCommandOutput,
 } from "./commands/ListTagsForStreamCommand";
+import {
+  StartEdgeConfigurationUpdateCommand,
+  StartEdgeConfigurationUpdateCommandInput,
+  StartEdgeConfigurationUpdateCommandOutput,
+} from "./commands/StartEdgeConfigurationUpdateCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TagStreamCommand, TagStreamCommandInput, TagStreamCommandOutput } from "./commands/TagStreamCommand";
 import {
@@ -85,6 +105,11 @@ import {
   UpdateImageGenerationConfigurationCommandInput,
   UpdateImageGenerationConfigurationCommandOutput,
 } from "./commands/UpdateImageGenerationConfigurationCommand";
+import {
+  UpdateMediaStorageConfigurationCommand,
+  UpdateMediaStorageConfigurationCommandInput,
+  UpdateMediaStorageConfigurationCommandOutput,
+} from "./commands/UpdateMediaStorageConfigurationCommand";
 import {
   UpdateNotificationConfigurationCommand,
   UpdateNotificationConfigurationCommandInput,
@@ -108,7 +133,7 @@ import { KinesisVideoClient } from "./KinesisVideoClient";
 export class KinesisVideo extends KinesisVideoClient {
   /**
    * <p>Creates a signaling channel. </p>
-   *         <p>
+   *          <p>
    *             <code>CreateSignalingChannel</code> is an asynchronous operation.</p>
    */
   public createSignalingChannel(
@@ -142,13 +167,12 @@ export class KinesisVideo extends KinesisVideoClient {
 
   /**
    * <p>Creates a new Kinesis video stream. </p>
-   *
-   *         <p>When you create a new stream, Kinesis Video Streams assigns it a version number.
+   *          <p>When you create a new stream, Kinesis Video Streams assigns it a version number.
    *             When you change the stream's metadata, Kinesis Video Streams updates the version. </p>
-   *         <p>
+   *          <p>
    *             <code>CreateStream</code> is an asynchronous operation.</p>
-   *         <p>For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p>
-   *         <p>You must have permissions for the <code>KinesisVideo:CreateStream</code>
+   *          <p>For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p>
+   *          <p>You must have permissions for the <code>KinesisVideo:CreateStream</code>
    *             action.</p>
    */
   public createStream(
@@ -213,14 +237,14 @@ export class KinesisVideo extends KinesisVideoClient {
 
   /**
    * <p>Deletes a Kinesis video stream and the data contained in the stream. </p>
-   *         <p>This method marks the stream for deletion, and makes the data in the stream
+   *          <p>This method marks the stream for deletion, and makes the data in the stream
    *             inaccessible immediately.</p>
-   *         <p> </p>
-   *         <p> To ensure that you have the latest version of the stream before deleting it, you
+   *          <p> </p>
+   *          <p> To ensure that you have the latest version of the stream before deleting it, you
    *             can specify the stream version. Kinesis Video Streams assigns a version to each stream.
    *             When you update a stream, Kinesis Video Streams assigns a new version number. To get the
    *             latest stream version, use the <code>DescribeStream</code> API. </p>
-   *         <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code>
+   *          <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code>
    *             action.</p>
    */
   public deleteStream(
@@ -239,6 +263,40 @@ export class KinesisVideo extends KinesisVideoClient {
     cb?: (err: any, data?: DeleteStreamCommandOutput) => void
   ): Promise<DeleteStreamCommandOutput> | void {
     const command = new DeleteStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API.
+   *              Use this API to get the status of the configuration if the configuration is in sync with the
+   *             Edge Agent.</p>
+   */
+  public describeEdgeConfiguration(
+    args: DescribeEdgeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEdgeConfigurationCommandOutput>;
+  public describeEdgeConfiguration(
+    args: DescribeEdgeConfigurationCommandInput,
+    cb: (err: any, data?: DescribeEdgeConfigurationCommandOutput) => void
+  ): void;
+  public describeEdgeConfiguration(
+    args: DescribeEdgeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEdgeConfigurationCommandOutput) => void
+  ): void;
+  public describeEdgeConfiguration(
+    args: DescribeEdgeConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEdgeConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEdgeConfigurationCommandOutput) => void
+  ): Promise<DescribeEdgeConfigurationCommandOutput> | void {
+    const command = new DescribeEdgeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -271,6 +329,73 @@ export class KinesisVideo extends KinesisVideoClient {
     cb?: (err: any, data?: DescribeImageGenerationConfigurationCommandOutput) => void
   ): Promise<DescribeImageGenerationConfigurationCommandOutput> | void {
     const command = new DescribeImageGenerationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p>
+   *          <p>Returns the most current information about the stream. The <code>streamName</code>
+   *             or <code>streamARN</code> should be provided in the input.</p>
+   */
+  public describeMappedResourceConfiguration(
+    args: DescribeMappedResourceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMappedResourceConfigurationCommandOutput>;
+  public describeMappedResourceConfiguration(
+    args: DescribeMappedResourceConfigurationCommandInput,
+    cb: (err: any, data?: DescribeMappedResourceConfigurationCommandOutput) => void
+  ): void;
+  public describeMappedResourceConfiguration(
+    args: DescribeMappedResourceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMappedResourceConfigurationCommandOutput) => void
+  ): void;
+  public describeMappedResourceConfiguration(
+    args: DescribeMappedResourceConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMappedResourceConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMappedResourceConfigurationCommandOutput) => void
+  ): Promise<DescribeMappedResourceConfigurationCommandOutput> | void {
+    const command = new DescribeMappedResourceConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the most current information about the channel. Specify the <code>ChannelName</code>
+   *             or <code>ChannelARN</code> in the input.</p>
+   */
+  public describeMediaStorageConfiguration(
+    args: DescribeMediaStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMediaStorageConfigurationCommandOutput>;
+  public describeMediaStorageConfiguration(
+    args: DescribeMediaStorageConfigurationCommandInput,
+    cb: (err: any, data?: DescribeMediaStorageConfigurationCommandOutput) => void
+  ): void;
+  public describeMediaStorageConfiguration(
+    args: DescribeMediaStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMediaStorageConfigurationCommandOutput) => void
+  ): void;
+  public describeMediaStorageConfiguration(
+    args: DescribeMediaStorageConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMediaStorageConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMediaStorageConfigurationCommandOutput) => void
+  ): Promise<DescribeMediaStorageConfigurationCommandOutput> | void {
+    const command = new DescribeMediaStorageConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -386,12 +511,11 @@ export class KinesisVideo extends KinesisVideoClient {
    *                 <code>GetMedia</code> or <code>GetMediaForFragmentList</code> operations) or write
    *             to it (using the <code>PutMedia</code> operation).
    *             </p>
-   *         <note>
+   *          <note>
    *             <p>The returned endpoint does not have the API name appended. The client needs to
    *                 add the API name to the returned endpoint.</p>
-   *         </note>
-   *
-   *         <p>In the request, specify the stream either by <code>StreamName</code> or
+   *          </note>
+   *          <p>In the request, specify the stream either by <code>StreamName</code> or
    *                 <code>StreamARN</code>.</p>
    */
   public getDataEndpoint(
@@ -427,12 +551,12 @@ export class KinesisVideo extends KinesisVideoClient {
    * <p>Provides an endpoint for the specified signaling channel to send and receive messages.
    *             This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter,
    *             which consists of the <code>Protocols</code> and <code>Role</code> properties.</p>
-   *         <p>
+   *          <p>
    *             <code>Protocols</code> is used to determine the communication mechanism. For example,
    *             if you specify <code>WSS</code> as the protocol, this API produces a secure websocket
    *             endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an HTTPS
    *             endpoint. </p>
-   *         <p>
+   *          <p>
    *             <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role
    *             results in this API generating an endpoint that a client can use to communicate with any
    *             of the viewers on the channel. A <code>VIEWER</code> role results in this API generating
@@ -564,7 +688,7 @@ export class KinesisVideo extends KinesisVideoClient {
 
   /**
    * <p>Returns a list of tags associated with the specified stream.</p>
-   *         <p>In the request, you must specify either the <code>StreamName</code> or the
+   *          <p>In the request, you must specify either the <code>StreamName</code> or the
    *                 <code>StreamARN</code>. </p>
    */
   public listTagsForStream(
@@ -586,6 +710,49 @@ export class KinesisVideo extends KinesisVideoClient {
     cb?: (err: any, data?: ListTagsForStreamCommandOutput) => void
   ): Promise<ListTagsForStreamCommandOutput> | void {
     const command = new ListTagsForStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>An asynchronous API that updates a stream’s existing edge configuration.
+   *             The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass
+   *             component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary
+   *             and depends on the connectivity of the Hub Device.
+   *             The <code>SyncStatus</code> will be updated as the edge configuration is acknowledged,
+   *             and synced with the Edge Agent. </p>
+   *          <p>If this API is invoked for the first time, a new edge configuration will be created for the stream,
+   *             and the sync status will be set to <code>SYNCING</code>. You will have to wait for the sync status
+   *             to reach a terminal state such as: <code>IN_SYNC</code>, or <code>SYNC_FAILED</code>, before using this API again.
+   *             If you invoke this API during the syncing process, a <code>ResourceInUseException</code> will be thrown.
+   *             The connectivity of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes,
+   *             the status will transition into the <code>SYNC_FAILED</code> state.</p>
+   */
+  public startEdgeConfigurationUpdate(
+    args: StartEdgeConfigurationUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartEdgeConfigurationUpdateCommandOutput>;
+  public startEdgeConfigurationUpdate(
+    args: StartEdgeConfigurationUpdateCommandInput,
+    cb: (err: any, data?: StartEdgeConfigurationUpdateCommandOutput) => void
+  ): void;
+  public startEdgeConfigurationUpdate(
+    args: StartEdgeConfigurationUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartEdgeConfigurationUpdateCommandOutput) => void
+  ): void;
+  public startEdgeConfigurationUpdate(
+    args: StartEdgeConfigurationUpdateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartEdgeConfigurationUpdateCommandOutput) => void),
+    cb?: (err: any, data?: StartEdgeConfigurationUpdateCommandOutput) => void
+  ): Promise<StartEdgeConfigurationUpdateCommandOutput> | void {
+    const command = new StartEdgeConfigurationUpdateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -633,11 +800,11 @@ export class KinesisVideo extends KinesisVideoClient {
    *             a tag that already exists, the tag value is replaced with the value that you specify in
    *             the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
    *                 Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>. </p>
-   *         <p>You must provide either the <code>StreamName</code> or the
+   *          <p>You must provide either the <code>StreamName</code> or the
    *             <code>StreamARN</code>.</p>
-   *         <p>This operation requires permission for the <code>KinesisVideo:TagStream</code>
+   *          <p>This operation requires permission for the <code>KinesisVideo:TagStream</code>
    *             action.</p>
-   *         <p>A Kinesis video stream can support up to 50 tags.</p>
+   *          <p>A Kinesis video stream can support up to 50 tags.</p>
    */
   public tagStream(args: TagStreamCommandInput, options?: __HttpHandlerOptions): Promise<TagStreamCommandOutput>;
   public tagStream(args: TagStreamCommandInput, cb: (err: any, data?: TagStreamCommandOutput) => void): void;
@@ -700,7 +867,7 @@ export class KinesisVideo extends KinesisVideoClient {
    * <p>Removes one or more tags from a stream. In the request, specify only a tag key or
    *             keys; don't specify the value. If you specify a tag key that does not exist, it's
    *             ignored.</p>
-   *         <p>In the request, you must provide the <code>StreamName</code> or
+   *          <p>In the request, you must provide the <code>StreamName</code> or
    *                 <code>StreamARN</code>.</p>
    */
   public untagStream(args: UntagStreamCommandInput, options?: __HttpHandlerOptions): Promise<UntagStreamCommandOutput>;
@@ -731,24 +898,22 @@ export class KinesisVideo extends KinesisVideoClient {
    *             specify. To indicate whether you want to increase or decrease the data retention period,
    *             specify the <code>Operation</code> parameter in the request body. In the request, you
    *             must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
-   *         <note>
+   *          <note>
    *             <p>The retention period that you specify replaces the current value.</p>
-   *         </note>
-   *
-   *         <p>This operation requires permission for the
+   *          </note>
+   *          <p>This operation requires permission for the
    *                 <code>KinesisVideo:UpdateDataRetention</code> action.</p>
-   *
-   *         <p>Changing the data retention period affects the data in the stream as
+   *          <p>Changing the data retention period affects the data in the stream as
    *             follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If the data retention period is increased, existing data is retained for
+   *                <p>If the data retention period is increased, existing data is retained for
    *                     the new retention period. For example, if the data retention period is increased
    *                     from one hour to seven hours, all existing data is retained for seven
    *                     hours.</p>
    *             </li>
    *             <li>
-   *                 <p>If the data retention period is decreased, existing data is retained for
+   *                <p>If the data retention period is decreased, existing data is retained for
    *                     the new retention period. For example, if the data retention period is decreased
    *                     from seven hours to one hour, all existing data is retained for one hour, and
    *                     any data older than one hour is deleted immediately.</p>
@@ -817,6 +982,49 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that
+   *             can specified :</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the <code>StorageStatus</code> is disabled, no data will be stored,
+   *                 and the <code>StreamARN</code> parameter will not be needed. </p>
+   *             </li>
+   *             <li>
+   *                <p>If the <code>StorageStatus</code> is enabled, the data will be stored in the
+   *                 <code>StreamARN</code> provided. </p>
+   *             </li>
+   *          </ul>
+   */
+  public updateMediaStorageConfiguration(
+    args: UpdateMediaStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMediaStorageConfigurationCommandOutput>;
+  public updateMediaStorageConfiguration(
+    args: UpdateMediaStorageConfigurationCommandInput,
+    cb: (err: any, data?: UpdateMediaStorageConfigurationCommandOutput) => void
+  ): void;
+  public updateMediaStorageConfiguration(
+    args: UpdateMediaStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMediaStorageConfigurationCommandOutput) => void
+  ): void;
+  public updateMediaStorageConfiguration(
+    args: UpdateMediaStorageConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMediaStorageConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMediaStorageConfigurationCommandOutput) => void
+  ): Promise<UpdateMediaStorageConfigurationCommandOutput> | void {
+    const command = new UpdateMediaStorageConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the notification information for a stream.</p>
    */
   public updateNotificationConfiguration(
@@ -851,7 +1059,7 @@ export class KinesisVideo extends KinesisVideoClient {
   /**
    * <p>Updates the existing signaling channel. This is an asynchronous operation and takes
    *             time to complete. </p>
-   *         <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
+   *          <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
    *             it only applies to new messages sent via this channel after it's been updated. Existing
    *             messages are still expired as per the previous <code>MessageTtlSeconds</code>
    *             value.</p>
@@ -887,13 +1095,13 @@ export class KinesisVideo extends KinesisVideoClient {
 
   /**
    * <p>Updates stream metadata, such as the device name and media type.</p>
-   *         <p>You must provide the stream name or the Amazon Resource Name (ARN) of the
+   *          <p>You must provide the stream name or the Amazon Resource Name (ARN) of the
    *             stream.</p>
-   *         <p>To make sure that you have the latest version of the stream before updating it, you
+   *          <p>To make sure that you have the latest version of the stream before updating it, you
    *             can specify the stream version. Kinesis Video Streams assigns a version to each stream.
    *             When you update a stream, Kinesis Video Streams assigns a new version number. To get the
    *             latest stream version, use the <code>DescribeStream</code> API. </p>
-   *         <p>
+   *          <p>
    *             <code>UpdateStream</code> is an asynchronous operation, and takes time to
    *             complete.</p>
    */

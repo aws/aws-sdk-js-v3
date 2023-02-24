@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
 /**
  * <p>Retrieves the path information (the hierarchy from the root folder) for the
  *             specified folder.</p>
- *         <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
+ *          <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
  *             requested folder and only includes the IDs of the parent folders in the path. You can
  *             limit the maximum number of levels. You can also request the parent folder
  *             names.</p>
@@ -57,6 +58,15 @@ export class GetFolderPathCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetFolderPathCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,7 @@ export class GetFolderPathCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetFolderPathCommandInput, GetFolderPathCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetFolderPathCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

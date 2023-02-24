@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,7 +28,8 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  *          <p>You must use the following guidelines when naming a log group:</p>
  *          <ul>
  *             <li>
- *                <p>Log group names must be unique within a region for an Amazon Web Services account.</p>
+ *                <p>Log group names must be unique within a Region for an Amazon Web Services
+ *           account.</p>
  *             </li>
  *             <li>
  *                <p>Log group names can be between 1 and 512 characters long.</p>
@@ -37,18 +39,19 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  *           '/' (forward slash), '.' (period), and '#' (number sign)</p>
  *             </li>
  *          </ul>
- *          <p>When you create a log group, by default the log events in the log group never expire. To set
- *     a retention policy so that events expire and are deleted after a specified time, use
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.</p>
- *          <p>If you associate a Key Management Service customer master key (CMK) with the log group, ingested data is encrypted using the CMK.
- *       This association is stored as long as the data encrypted with the CMK is still within CloudWatch Logs.
- *       This enables CloudWatch Logs to decrypt this data whenever it is requested.</p>
- *          <p>If you attempt to associate a CMK with the log group but the CMK does not exist or the
- *       CMK is disabled, you receive an <code>InvalidParameterException</code> error. </p>
+ *          <p>When you create a log group, by default the log events in the log group do not expire.
+ *       To set a retention policy so that events expire and are deleted after a specified time, use
+ *         <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.</p>
+ *          <p>If you associate an KMS key with the log group, ingested data is
+ *       encrypted using the KMS key. This association is stored as long as the data
+ *       encrypted with the KMS key is still within CloudWatch Logs. This enables
+ *         CloudWatch Logs to decrypt this data whenever it is requested.</p>
+ *          <p>If you attempt to associate a KMS key with the log group but the KMS keydoes not exist or the KMS key is disabled, you receive an
+ *         <code>InvalidParameterException</code> error. </p>
  *          <important>
- *             <p>CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK with
- *         your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric
- *           Keys</a>.</p>
+ *             <p>CloudWatch Logs supports only symmetric KMS keys. Do not associate an
+ *         asymmetric KMS key with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+ *           Symmetric and Asymmetric Keys</a>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +76,15 @@ export class CreateLogGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,6 +100,9 @@ export class CreateLogGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLogGroupCommandInput, CreateLogGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLogGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

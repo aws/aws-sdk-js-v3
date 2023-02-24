@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,9 +24,15 @@ export interface UntagLogGroupCommandInput extends UntagLogGroupRequest {}
 export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from the specified log group.</p>
- *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
- *       To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">TagLogGroup</a>.</p>
+ * @deprecated
+ *
+ * <important>
+ *             <p>The UntagLogGroup operation is on the path to deprecation. We recommend that you use
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a> instead.</p>
+ *          </important>
+ *          <p>Removes the specified tags from the specified log group.</p>
+ *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
+ *       To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
  *          <p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to
  *       log groups using the <code>aws:Resource/<i>key-name</i>
  *             </code> or <code>aws:TagKeys</code> condition keys.
@@ -53,6 +60,15 @@ export class UntagLogGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UntagLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +84,7 @@ export class UntagLogGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UntagLogGroupCommandInput, UntagLogGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UntagLogGroupCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

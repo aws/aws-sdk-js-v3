@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,11 +32,12 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
- *         <p>Creates a GameLift FleetIQ game server group for managing game hosting on a collection of
- *             Amazon Elastic Compute Cloud instances for game hosting. This operation creates the game server group,
- *             creates an Auto Scaling group in your Amazon Web Services account, and establishes a link between the
- *             two groups. You can view the status of your game server groups in the GameLift console.
- *             Game server group metrics and events are emitted to Amazon CloudWatch.</p>
+ *          <p>Creates a GameLift FleetIQ game server
+ *             group for managing game hosting on a collection of Amazon Elastic Compute Cloud instances for game hosting.
+ *             This operation creates the game server group, creates an Auto Scaling group in your
+ *             Amazon Web Services account, and establishes a link between the two groups. You can view the status of
+ *             your game server groups in the GameLift console. Game server group metrics and events are
+ *             emitted to Amazon CloudWatch.</p>
  *         <p>Before creating a new game server group, you must have the following: </p>
  *         <ul>
  *             <li>
@@ -44,8 +46,10 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
  *                         <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
  *             </li>
  *             <li>
- *                <p>An IAM role that extends limited access to your Amazon Web Services account to allow GameLift FleetIQ to create and
- *                     interact with the Auto Scaling group. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html">Create IAM roles for cross-service interaction</a> in the <i>GameLift FleetIQ Developer
+ *                 <p>An IAM role that extends limited access to your Amazon Web Services account to allow GameLift FleetIQ
+ *                     to create and interact with the Auto Scaling group. For more information, see
+ *                         <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html">Create IAM
+ *                         roles for cross-service interaction</a> in the <i>GameLift FleetIQ Developer
  *                         Guide</i>.</p>
  *             </li>
  *          </ul>
@@ -59,29 +63,14 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
  *             properties that are set when creating a game server group, including maximum/minimum
  *             size and auto-scaling policy settings, must be updated directly in the Auto Scaling
  *             group. Keep in mind that some Auto Scaling group properties are periodically updated by
- *             GameLift FleetIQ as part of its balancing activities to optimize for availability and
- *             cost.</p>
+ *             GameLift FleetIQ as part of its balancing activities to optimize for availability and cost.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *                 Guide</a>
  *         </p>
- *
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameServerGroup</a> |
- *                     <a>ListGameServerGroups</a> |
- *                     <a>DescribeGameServerGroup</a> |
- *                     <a>UpdateGameServerGroup</a> |
- *                     <a>DeleteGameServerGroup</a> |
- *                     <a>ResumeGameServerGroup</a> |
- *                     <a>SuspendGameServerGroup</a> |
- *                     <a>DescribeGameServerInstances</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,6 +94,15 @@ export class CreateGameServerGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateGameServerGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +118,9 @@ export class CreateGameServerGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateGameServerGroupCommandInput, CreateGameServerGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateGameServerGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

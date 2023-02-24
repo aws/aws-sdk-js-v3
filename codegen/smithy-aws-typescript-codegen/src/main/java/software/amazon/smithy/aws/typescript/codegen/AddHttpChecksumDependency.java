@@ -67,15 +67,18 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         writer.addImport("Hash", "__Hash", "@aws-sdk/types");
         writer.addImport("HashConstructor", "__HashConstructor", "@aws-sdk/types");
 
-        writer.writeDocs("A constructor for a class implementing the {@link __Hash} interface \n"
+        writer.addImport("Checksum", "__Checksum", "@aws-sdk/types");
+        writer.addImport("ChecksumConstructor", "__ChecksumConstructor", "@aws-sdk/types");
+
+        writer.writeDocs("A constructor for a class implementing the {@link __Checksum} interface \n"
                 + "that computes MD5 hashes.\n"
                 + "@internal");
-        writer.write("md5?: __HashConstructor;\n");
+        writer.write("md5?: __ChecksumConstructor | __HashConstructor;\n");
 
-        writer.writeDocs("A constructor for a class implementing the {@link __Hash} interface \n"
+        writer.writeDocs("A constructor for a class implementing the {@link __Checksum} interface \n"
                 + "that computes SHA1 hashes.\n"
                 + "@internal");
-        writer.write("sha1?: __HashConstructor;\n");
+        writer.write("sha1?: __ChecksumConstructor | __HashConstructor;\n");
 
         writer.addImport("GetAwsChunkedEncodingStream", "GetAwsChunkedEncodingStream", "@aws-sdk/types");
         writer.writeDocs("A function that returns Readable Stream which follows aws-chunked encoding stream.\n"
@@ -107,18 +110,22 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                             writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
                             writer.addImport("HashConstructor", "__HashConstructor",
                                     TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                            writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
+                                    TypeScriptDependency.AWS_SDK_TYPES.packageName);
                             writer.write("Hash.bind(null, \"md5\")");
                     },
                     "sha1", writer -> {
                         writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
                         writer.addImport("HashConstructor", "__HashConstructor",
                                 TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                        writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
+                                TypeScriptDependency.AWS_SDK_TYPES.packageName);
                         writer.write("Hash.bind(null, \"sha1\")");
                     },
                     "getAwsChunkedEncodingStream", writer -> {
-                        writer.addDependency(AwsDependency.UTIL_STREAM_NODE);
+                        writer.addDependency(TypeScriptDependency.UTIL_STREAM_NODE);
                         writer.addImport("getAwsChunkedEncodingStream", "getAwsChunkedEncodingStream",
-                                AwsDependency.UTIL_STREAM_NODE.packageName);
+                                TypeScriptDependency.UTIL_STREAM_NODE.packageName);
                         writer.write("getAwsChunkedEncodingStream");
                     }
                 );
@@ -142,9 +149,9 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                         writer.write("Sha1");
                     },
                     "getAwsChunkedEncodingStream", writer -> {
-                        writer.addDependency(AwsDependency.UTIL_STREAM_BROWSER);
+                        writer.addDependency(TypeScriptDependency.UTIL_STREAM_BROWSER);
                         writer.addImport("getAwsChunkedEncodingStream", "getAwsChunkedEncodingStream",
-                                AwsDependency.UTIL_STREAM_BROWSER.packageName);
+                                TypeScriptDependency.UTIL_STREAM_BROWSER.packageName);
                         writer.write("getAwsChunkedEncodingStream");
                     }
                 );

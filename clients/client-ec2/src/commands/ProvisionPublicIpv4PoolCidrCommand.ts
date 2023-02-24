@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ProvisionPublicIpv4PoolCidrRequestFilterSensitiveLog,
   ProvisionPublicIpv4PoolCidrResult,
   ProvisionPublicIpv4PoolCidrResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ProvisionPublicIpv4PoolCidrCommand,
   serializeAws_ec2ProvisionPublicIpv4PoolCidrCommand,
@@ -53,6 +54,15 @@ export class ProvisionPublicIpv4PoolCidrCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ProvisionPublicIpv4PoolCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class ProvisionPublicIpv4PoolCidrCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ProvisionPublicIpv4PoolCidrCommandInput, ProvisionPublicIpv4PoolCidrCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ProvisionPublicIpv4PoolCidrCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

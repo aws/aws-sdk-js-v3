@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   UpdateProjectInputFilterSensitiveLog,
   UpdateProjectOutput,
   UpdateProjectOutputFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateProjectCommand,
   serializeAws_json1_1UpdateProjectCommand,
@@ -30,12 +31,12 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
 /**
  * <p>Updates a machine learning (ML) project that is created from a template that
  *             sets up an ML pipeline from training to deploying an approved model.</p>
- *         <note>
+ *          <note>
  *             <p>You must not update a project that is in use. If you update the
  *                     <code>ServiceCatalogProvisioningUpdateDetails</code> of a project that is active
  *                 or being created, or updated, you may lose resources already created by the
  *                 project.</p>
- *             </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,15 @@ export class UpdateProjectCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,7 @@ export class UpdateProjectCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateProjectCommandInput, UpdateProjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateProjectCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

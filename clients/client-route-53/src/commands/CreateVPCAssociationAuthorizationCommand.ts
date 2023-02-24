@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -37,11 +38,11 @@ export interface CreateVPCAssociationAuthorizationCommandOutput
  * 				<code>CreateVPCAssociationAuthorization</code> request, you must use the account
  * 			that created the hosted zone. After you authorize the association, use the account that
  * 			created the VPC to submit an <code>AssociateVPCWithHostedZone</code> request.</p>
- * 		       <note>
- * 			         <p>If you want to associate multiple VPCs that you created by using one account with
+ *          <note>
+ *             <p>If you want to associate multiple VPCs that you created by using one account with
  * 				a hosted zone that you created by using a different account, you must submit one
  * 				authorization request for each VPC.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +66,15 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateVPCAssociationAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +90,9 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateVPCAssociationAuthorizationCommandInput, CreateVPCAssociationAuthorizationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateVPCAssociationAuthorizationCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

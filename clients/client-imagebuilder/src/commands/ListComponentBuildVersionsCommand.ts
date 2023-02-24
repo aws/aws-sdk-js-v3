@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,15 +30,15 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
 
 /**
  * <p> Returns the list of component build versions for the specified semantic version.</p>
- * 		       <note>
- * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+ *          <note>
+ *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
  * 	You can assign values for the first three, and can filter on all of them.</p>
- * 			         <p>
+ *             <p>
  *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
  * 	to specify the most recent versions or nodes when selecting the base image or components for your
  * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
  * 	wildcards.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,15 @@ export class ListComponentBuildVersionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListComponentBuildVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class ListComponentBuildVersionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListComponentBuildVersionsCommandInput, ListComponentBuildVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListComponentBuildVersionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

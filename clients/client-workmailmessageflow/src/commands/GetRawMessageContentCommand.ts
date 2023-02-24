@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -9,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -29,7 +33,9 @@ import {
 } from "../WorkMailMessageFlowClient";
 
 export interface GetRawMessageContentCommandInput extends GetRawMessageContentRequest {}
-export interface GetRawMessageContentCommandOutput extends GetRawMessageContentResponse, __MetadataBearer {}
+export interface GetRawMessageContentCommandOutput
+  extends __WithSdkStreamMixin<GetRawMessageContentResponse, "messageContent">,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>
@@ -56,6 +62,15 @@ export class GetRawMessageContentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetRawMessageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +86,9 @@ export class GetRawMessageContentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRawMessageContentCommandInput, GetRawMessageContentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetRawMessageContentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -96,7 +114,10 @@ export class GetRawMessageContentCommand extends $Command<
     return serializeAws_restJson1GetRawMessageContentCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRawMessageContentCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetRawMessageContentCommandOutput> {
     return deserializeAws_restJson1GetRawMessageContentCommand(output, context);
   }
 

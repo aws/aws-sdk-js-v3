@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,24 +33,22 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  *             specify. To indicate whether you want to increase or decrease the data retention period,
  *             specify the <code>Operation</code> parameter in the request body. In the request, you
  *             must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
- *         <note>
+ *          <note>
  *             <p>The retention period that you specify replaces the current value.</p>
- *         </note>
- *
- *         <p>This operation requires permission for the
+ *          </note>
+ *          <p>This operation requires permission for the
  *                 <code>KinesisVideo:UpdateDataRetention</code> action.</p>
- *
- *         <p>Changing the data retention period affects the data in the stream as
+ *          <p>Changing the data retention period affects the data in the stream as
  *             follows:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>If the data retention period is increased, existing data is retained for
+ *                <p>If the data retention period is increased, existing data is retained for
  *                     the new retention period. For example, if the data retention period is increased
  *                     from one hour to seven hours, all existing data is retained for seven
  *                     hours.</p>
  *             </li>
  *             <li>
- *                 <p>If the data retention period is decreased, existing data is retained for
+ *                <p>If the data retention period is decreased, existing data is retained for
  *                     the new retention period. For example, if the data retention period is decreased
  *                     from seven hours to one hour, all existing data is retained for one hour, and
  *                     any data older than one hour is deleted immediately.</p>
@@ -78,6 +77,15 @@ export class UpdateDataRetentionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateDataRetentionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,6 +101,9 @@ export class UpdateDataRetentionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDataRetentionCommandInput, UpdateDataRetentionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateDataRetentionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   UpdateAssociationRequestFilterSensitiveLog,
   UpdateAssociationResult,
   UpdateAssociationResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateAssociationCommand,
   serializeAws_json1_1UpdateAssociationCommand,
@@ -36,13 +37,12 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you
  *    call the <a>DescribeAssociation</a> API operation and make a note of all optional
  *    parameters required for your <code>UpdateAssociation</code> call.</p>
- *
- *          <p>In order to call this API operation, your Identity and Access Management (IAM) user
- *    account, group, or role must be configured with permission to call the <a>DescribeAssociation</a> API operation. If you don't have permission to call
- *     <code>DescribeAssociation</code>, then you receive the following error: <code>An error occurred
- *     (AccessDeniedException) when calling the UpdateAssociation operation: User: <user_arn>
- *     isn't authorized to perform: ssm:DescribeAssociation on resource:
- *    <resource_arn></code>
+ *          <p>In order to call this API operation, a user, group, or role must be granted permission to
+ *    call the <a>DescribeAssociation</a> API operation. If you don't have permission to
+ *    call <code>DescribeAssociation</code>, then you receive the following error: <code>An error
+ *     occurred (AccessDeniedException) when calling the UpdateAssociation operation: User:
+ *     <user_arn> isn't authorized to perform: ssm:DescribeAssociation on resource:
+ *     <resource_arn></code>
  *          </p>
  *          <important>
  *             <p>When you update an association, the association immediately runs against the specified
@@ -72,6 +72,15 @@ export class UpdateAssociationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +96,9 @@ export class UpdateAssociationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateAssociationCommandInput, UpdateAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateAssociationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

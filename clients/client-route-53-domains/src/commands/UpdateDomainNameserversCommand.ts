@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,10 +29,12 @@ export interface UpdateDomainNameserversCommandInput extends UpdateDomainNameser
 export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNameserversResponse, __MetadataBearer {}
 
 /**
- * <p>This operation replaces the current set of name servers for the domain with the specified set of name servers.
- * 			If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.</p>
- * 		       <p>If successful, this operation returns an operation ID that you can use to track the progress and completion of the action.
- * 			If the request is not completed successfully, the domain registrant will be notified by email.</p>
+ * <p>This operation replaces the current set of name servers for the domain with the
+ * 			specified set of name servers. If you use Amazon Route 53 as your DNS service, specify
+ * 			the four name servers in the delegation set for the hosted zone for the domain.</p>
+ *          <p>If successful, this operation returns an operation ID that you can use to track the
+ * 			progress and completion of the action. If the request is not completed successfully, the
+ * 			domain registrant will be notified by email.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +58,15 @@ export class UpdateDomainNameserversCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateDomainNameserversCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +82,9 @@ export class UpdateDomainNameserversCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDomainNameserversCommandInput, UpdateDomainNameserversCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateDomainNameserversCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

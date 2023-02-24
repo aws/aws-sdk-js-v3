@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -40,13 +40,10 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *          <p>If the upload was created using a checksum algorithm, you will need to have permission
  *            to the <code>kms:Decrypt</code> action for the request to succeed.
  *        </p>
- *
  *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
  *             Upload</a>.</p>
- *
  *          <p>For information on permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *          Permissions</a>.</p>
- *
  *          <p>The following operations are related to <code>ListParts</code>:</p>
  *          <ul>
  *             <li>
@@ -99,6 +96,21 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListPartsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +126,8 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
     options?: __HttpHandlerOptions
   ): Handler<ListPartsCommandInput, ListPartsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListPartsCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

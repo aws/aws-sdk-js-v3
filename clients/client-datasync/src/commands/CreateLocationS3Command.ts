@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,13 +29,8 @@ export interface CreateLocationS3CommandInput extends CreateLocationS3Request {}
 export interface CreateLocationS3CommandOutput extends CreateLocationS3Response, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for an Amazon S3 bucket.</p>
- *
- *
- *          <p>For
- *       more information, see
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>
- *       in the <i>DataSync User Guide</i>.</p>
+ * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can
+ *       access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +54,15 @@ export class CreateLocationS3Command extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateLocationS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +78,9 @@ export class CreateLocationS3Command extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLocationS3CommandInput, CreateLocationS3CommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLocationS3Command.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

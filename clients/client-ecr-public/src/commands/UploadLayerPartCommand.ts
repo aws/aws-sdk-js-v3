@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,8 +31,8 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
 /**
  * <p>Uploads an image layer part to Amazon ECR.</p>
  *          <p>When an image is pushed, each new image layer is uploaded in parts. The maximum size of
- *          each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart API is
- *          called once per each new image layer part.</p>
+ *          each image layer part can be 20971520 bytes (about 20MB). The UploadLayerPart API is called
+ *          once for each new image layer part.</p>
  *          <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>
@@ -58,6 +59,15 @@ export class UploadLayerPartCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UploadLayerPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class UploadLayerPartCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UploadLayerPartCommandInput, UploadLayerPartCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UploadLayerPartCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

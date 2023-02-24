@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,7 +27,7 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
 
 /**
  * <p>Describes the specified Dedicated Hosts or all your Dedicated Hosts.</p>
- *         <p>The results describe only the Dedicated Hosts in the Region you're currently using.
+ *          <p>The results describe only the Dedicated Hosts in the Region you're currently using.
  *             All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have
  *             recently been released are listed with the state <code>released</code>.</p>
  * @example
@@ -52,6 +53,15 @@ export class DescribeHostsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,7 @@ export class DescribeHostsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeHostsCommandInput, DescribeHostsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeHostsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -15,8 +15,6 @@ import {
   CmfcSettings,
   ContainerType,
   DvbNitSettings,
-  DvbSdtSettings,
-  DvbTdtSettings,
   Endpoint,
   EsamSettings,
   ExtendedDataServices,
@@ -34,10 +32,6 @@ import {
   M2tsAudioDuration,
   M2tsBufferModel,
   M2tsDataPtsControl,
-  M2tsEbpAudioInterval,
-  M2tsEbpPlacement,
-  M2tsEsRateInPes,
-  M2tsForceTsVideoEbpOrder,
   MotionImageInserter,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
@@ -46,6 +40,68 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+export enum OutputSdt {
+  SDT_FOLLOW = "SDT_FOLLOW",
+  SDT_FOLLOW_IF_PRESENT = "SDT_FOLLOW_IF_PRESENT",
+  SDT_MANUAL = "SDT_MANUAL",
+  SDT_NONE = "SDT_NONE",
+}
+
+/**
+ * Use these settings to insert a DVB Service Description Table (SDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
+ */
+export interface DvbSdtSettings {
+  /**
+   * Selects method of inserting SDT information into output stream. "Follow input SDT" copies SDT information from input stream to output stream. "Follow input SDT if present" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT Manually" means user will enter the SDT information. "No SDT" means output stream will not contain SDT information.
+   */
+  OutputSdt?: OutputSdt | string;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   */
+  SdtInterval?: number;
+
+  /**
+   * The service name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters.
+   */
+  ServiceName?: string;
+
+  /**
+   * The service provider name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters.
+   */
+  ServiceProviderName?: string;
+}
+
+/**
+ * Use these settings to insert a DVB Time and Date Table (TDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
+ */
+export interface DvbTdtSettings {
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   */
+  TdtInterval?: number;
+}
+
+export enum M2tsEbpAudioInterval {
+  VIDEO_AND_FIXED_INTERVALS = "VIDEO_AND_FIXED_INTERVALS",
+  VIDEO_INTERVAL = "VIDEO_INTERVAL",
+}
+
+export enum M2tsEbpPlacement {
+  VIDEO_AND_AUDIO_PIDS = "VIDEO_AND_AUDIO_PIDS",
+  VIDEO_PID = "VIDEO_PID",
+}
+
+export enum M2tsEsRateInPes {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
+
+export enum M2tsForceTsVideoEbpOrder {
+  DEFAULT = "DEFAULT",
+  FORCE = "FORCE",
+}
 
 export enum M2tsKlvMetadata {
   NONE = "NONE",
@@ -126,7 +182,7 @@ export interface M2tsSettings {
   Bitrate?: number;
 
   /**
-   * Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
+   * Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
    */
   BufferModel?: M2tsBufferModel | string;
 
@@ -551,6 +607,11 @@ export enum MpdKlvMetadata {
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+export enum MpdManifestMetadataSignaling {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 export enum MpdScte35Esam {
   INSERT = "INSERT",
   NONE = "NONE",
@@ -564,6 +625,11 @@ export enum MpdScte35Source {
 export enum MpdTimedMetadata {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
+}
+
+export enum MpdTimedMetadataBoxVersion {
+  VERSION_0 = "VERSION_0",
+  VERSION_1 = "VERSION_1",
 }
 
 /**
@@ -581,7 +647,7 @@ export interface MpdSettings {
   AudioDuration?: MpdAudioDuration | string;
 
   /**
-   * Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
+   * Use this setting only in DASH output groups that include sidecar TTML or IMSC captions. You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
    */
   CaptionContainerType?: MpdCaptionContainerType | string;
 
@@ -589,6 +655,11 @@ export interface MpdSettings {
    * To include key-length-value metadata in this output: Set KLV metadata insertion to Passthrough. MediaConvert reads KLV metadata present in your input and writes each instance to a separate event message box in the output, according to MISB ST1910.1. To exclude this KLV metadata: Set KLV metadata insertion to None or leave blank.
    */
   KlvMetadata?: MpdKlvMetadata | string;
+
+  /**
+   * To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be "urn:scte:scte35:2013:bin". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled. To enable Manifest metadata signaling, you must also set SCTE-35 source to Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to Passthrough.
+   */
+  ManifestMetadataSignaling?: MpdManifestMetadataSignaling | string;
 
   /**
    * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
@@ -604,6 +675,24 @@ export interface MpdSettings {
    * To include ID3 metadata in this output: Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3 metadata inserter (timedMetadataInsertion). MediaConvert writes each instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave blank.
    */
   TimedMetadata?: MpdTimedMetadata | string;
+
+  /**
+   * Specify the event message box (eMSG) version for ID3 timed metadata in your output.
+   * For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.3 Syntax.
+   * Leave blank to use the default value Version 0.
+   * When you specify Version 1, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   */
+  TimedMetadataBoxVersion?: MpdTimedMetadataBoxVersion | string;
+
+  /**
+   * Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   */
+  TimedMetadataSchemeIdUri?: string;
+
+  /**
+   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   */
+  TimedMetadataValue?: string;
 }
 
 export enum MxfAfdSignaling {
@@ -865,12 +954,12 @@ export interface Av1Settings {
   FramerateConversionAlgorithm?: Av1FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -991,12 +1080,12 @@ export interface AvcIntraSettings {
   FramerateConversionAlgorithm?: AvcIntraFramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -1289,12 +1378,12 @@ export interface H264Settings {
   FramerateConversionAlgorithm?: H264FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -1317,6 +1406,11 @@ export interface H264Settings {
    * Specify how the transcoder determines GOP size for this output. We recommend that you have the transcoder automatically choose this value for you based on characteristics of your input video. To enable this automatic behavior, choose Auto (AUTO) and and leave GOP size (GopSize) blank. By default, if you don't specify GOP mode control (GopSizeUnits), MediaConvert will use automatic behavior. If your output group specifies HLS, DASH, or CMAF, set GOP mode control to Auto and leave GOP size blank in each output in your output group. To explicitly specify the GOP length, choose Specified, frames (FRAMES) or Specified, seconds (SECONDS) and then provide the GOP length in the related setting GOP size (GopSize).
    */
   GopSizeUnits?: H264GopSizeUnits | string;
+
+  /**
+   * If your downstream systems have strict buffer requirements: Specify the minimum percentage of the HRD buffer that's available at the end of each encoded video segment. For the best video quality: Set to 0 or leave blank to automatically determine the final buffer fill percentage.
+   */
+  HrdBufferFinalFillPercentage?: number;
 
   /**
    * Percentage of the buffer that should initially be filled (HRD buffer model).
@@ -1667,12 +1761,12 @@ export interface H265Settings {
   FramerateConversionAlgorithm?: H265FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -1695,6 +1789,11 @@ export interface H265Settings {
    * Specify how the transcoder determines GOP size for this output. We recommend that you have the transcoder automatically choose this value for you based on characteristics of your input video. To enable this automatic behavior, choose Auto (AUTO) and and leave GOP size (GopSize) blank. By default, if you don't specify GOP mode control (GopSizeUnits), MediaConvert will use automatic behavior. If your output group specifies HLS, DASH, or CMAF, set GOP mode control to Auto and leave GOP size blank in each output in your output group. To explicitly specify the GOP length, choose Specified, frames (FRAMES) or Specified, seconds (SECONDS) and then provide the GOP length in the related setting GOP size (GopSize).
    */
   GopSizeUnits?: H265GopSizeUnits | string;
+
+  /**
+   * If your downstream systems have strict buffer requirements: Specify the minimum percentage of the HRD buffer that's available at the end of each encoded video segment. For the best video quality: Set to 0 or leave blank to automatically determine the final buffer fill percentage.
+   */
+  HrdBufferFinalFillPercentage?: number;
 
   /**
    * Percentage of the buffer that should initially be filled (HRD buffer model).
@@ -1762,7 +1861,7 @@ export interface H265Settings {
   RateControlMode?: H265RateControlMode | string;
 
   /**
-   * Specify Sample Adaptive Offset (SAO) filter strength.  Adaptive mode dynamically selects best strength based on content
+   * Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength based on content
    */
   SampleAdaptiveOffsetFilterMode?: H265SampleAdaptiveOffsetFilterMode | string;
 
@@ -1792,7 +1891,7 @@ export interface H265Settings {
   SpatialAdaptiveQuantization?: H265SpatialAdaptiveQuantization | string;
 
   /**
-   * This field applies only if the Streams > Advanced > Framerate (framerate) field  is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer  field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode)  to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i.
+   * This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i.
    */
   Telecine?: H265Telecine | string;
 
@@ -1970,12 +2069,12 @@ export interface Mpeg2Settings {
   FramerateConversionAlgorithm?: Mpeg2FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -1993,6 +2092,11 @@ export interface Mpeg2Settings {
    * Specify the units for GOP size (GopSize). If you don't specify a value here, by default the encoder measures GOP size in frames.
    */
   GopSizeUnits?: Mpeg2GopSizeUnits | string;
+
+  /**
+   * If your downstream systems have strict buffer requirements: Specify the minimum percentage of the HRD buffer that's available at the end of each encoded video segment. For the best video quality: Set to 0 or leave blank to automatically determine the final buffer fill percentage.
+   */
+  HrdBufferFinalFillPercentage?: number;
 
   /**
    * Percentage of the buffer that should initially be filled (HRD buffer model).
@@ -2080,7 +2184,7 @@ export interface Mpeg2Settings {
   SpatialAdaptiveQuantization?: Mpeg2SpatialAdaptiveQuantization | string;
 
   /**
-   * Specify whether this output's video uses the D10 syntax. Keep the default value to  not use the syntax. Related settings: When you choose D10 (D_10) for your MXF  profile (profile), you must also set this value to to D10 (D_10).
+   * Specify whether this output's video uses the D10 syntax. Keep the default value to not use the syntax. Related settings: When you choose D10 (D_10) for your MXF profile (profile), you must also set this value to D10 (D_10).
    */
   Syntax?: Mpeg2Syntax | string;
 
@@ -2173,12 +2277,12 @@ export interface ProresSettings {
   FramerateConversionAlgorithm?: ProresFramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -2270,12 +2374,12 @@ export interface Vc3Settings {
   FramerateConversionAlgorithm?: Vc3FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -2350,12 +2454,12 @@ export interface Vp8Settings {
   FramerateConversionAlgorithm?: Vp8FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -2445,12 +2549,12 @@ export interface Vp9Settings {
   FramerateConversionAlgorithm?: Vp9FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -2840,7 +2944,7 @@ export interface VideoCodecSettings {
   AvcIntraSettings?: AvcIntraSettings;
 
   /**
-   * Specifies the video codec. This must be equal to one of the enum values defined by the object  VideoCodec.
+   * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
    */
   Codec?: VideoCodec | string;
 
@@ -2916,15 +3020,43 @@ export enum VideoTimecodeInsertion {
   PIC_TIMING_SEI = "PIC_TIMING_SEI",
 }
 
+/**
+ * Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.
+ */
+export interface ClipLimits {
+  /**
+   * Specify the Maximum RGB color sample range tolerance for your output. MediaConvert corrects any YUV values that, when converted to RGB, would be outside the upper tolerance that you specify. Enter an integer from 90 to 105 as an offset percentage to the maximum possible value. Leave blank to use the default value 100. When you specify a value for Maximum RGB tolerance, you must set Sample range conversion to Limited range clip.
+   */
+  MaximumRGBTolerance?: number;
+
+  /**
+   * Specify the Maximum YUV color sample limit. MediaConvert conforms any pixels in your input above the value that you specify to typical limited range bounds. Enter an integer from 920 to 1023. Leave blank to use the default value 940. The value that you enter applies to 10-bit ranges. For 8-bit ranges, MediaConvert automatically scales this value down. When you specify a value for Maximum YUV, you must set Sample range conversion to Limited range clip.
+   */
+  MaximumYUV?: number;
+
+  /**
+   * Specify the Minimum RGB color sample range tolerance for your output. MediaConvert corrects any YUV values that, when converted to RGB, would be outside the lower tolerance that you specify. Enter an integer from -5 to 10 as an offset percentage to the minimum possible value. Leave blank to use the default value 0. When you specify a value for Minimum RGB tolerance, you must set Sample range conversion to Limited range clip.
+   */
+  MinimumRGBTolerance?: number;
+
+  /**
+   * Specify the Minimum YUV color sample limit. MediaConvert conforms any pixels in your input below the value that you specify to typical limited range bounds. Enter an integer from 0 to 128. Leave blank to use the default value 64. The value that you enter applies to 10-bit ranges. For 8-bit ranges, MediaConvert automatically scales this value down. When you specify a value for Minumum YUV, you must set Sample range conversion to Limited range clip.
+   */
+  MinimumYUV?: number;
+}
+
 export enum ColorSpaceConversion {
   FORCE_601 = "FORCE_601",
   FORCE_709 = "FORCE_709",
   FORCE_HDR10 = "FORCE_HDR10",
   FORCE_HLG_2020 = "FORCE_HLG_2020",
+  FORCE_P3D65_SDR = "FORCE_P3D65_SDR",
+  FORCE_P3DCI = "FORCE_P3DCI",
   NONE = "NONE",
 }
 
 export enum SampleRangeConversion {
+  LIMITED_RANGE_CLIP = "LIMITED_RANGE_CLIP",
   LIMITED_RANGE_SQUEEZE = "LIMITED_RANGE_SQUEEZE",
   NONE = "NONE",
 }
@@ -2939,7 +3071,12 @@ export interface ColorCorrector {
   Brightness?: number;
 
   /**
-   * Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR.
+   * Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.
+   */
+  ClipLimits?: ClipLimits;
+
+  /**
+   * Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR. Select Force P3D65 (SDR) to set the output color space metadata to the following: * Color primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix coefficients: BT.709
    */
   ColorSpaceConversion?: ColorSpaceConversion | string;
 
@@ -2959,7 +3096,7 @@ export interface ColorCorrector {
   Hue?: number;
 
   /**
-   * Specify the video color sample range for this output. To create a full range output, you must start with a full range YUV input and keep the default value, None (NONE). To create a limited range output from a full range input, choose Limited range (LIMITED_RANGE_SQUEEZE). With RGB inputs, your output is always limited range, regardless of your choice here. When you create a limited range output from a full range input, MediaConvert limits the active pixel values in a way that depends on the output's bit depth: 8-bit outputs contain only values from 16 through 235 and 10-bit outputs contain only values from 64 through 940. With this conversion, MediaConvert also changes the output metadata to note the limited range.
+   * Specify how MediaConvert limits the color sample range for this output. To create a limited range output from a full range input: Choose Limited range squeeze. For full range inputs, MediaConvert performs a linear offset to color samples equally across all pixels and frames. Color samples in 10-bit outputs are limited to 64 through 940, and 8-bit outputs are limited to 16 through 235. Note: For limited range inputs, values for color samples are passed through to your output unchanged. MediaConvert does not limit the sample range. To correct pixels in your input that are out of range or out of gamut: Choose Limited range clip. Use for broadcast applications. MediaConvert conforms any pixels outside of the values that you specify under Minimum YUV and Maximum YUV to limited range bounds. MediaConvert also corrects any YUV values that, when converted to RGB, would be outside the bounds you specify under Minimum RGB tolerance and Maximum RGB tolerance. With either limited range conversion, MediaConvert writes the sample range metadata in the output.
    */
   SampleRangeConversion?: SampleRangeConversion | string;
 
@@ -2967,6 +3104,11 @@ export interface ColorCorrector {
    * Saturation level.
    */
   Saturation?: number;
+
+  /**
+   * Specify the reference white level, in nits, for all of your SDR inputs. Use to correct brightness levels within HDR10 outputs. The following color metadata must be present in your SDR input: color primaries, transfer characteristics, and matrix coefficients. If your SDR input has missing color metadata, or if you want to correct input color metadata, manually specify a color space in the input video selector. For 1,000 nit peak brightness displays, we recommend that you set SDR reference white level to 203 (according to ITU-R BT.2408). Leave blank to use the default value of 100, or specify an integer from 100 to 1000.
+   */
+  SdrReferenceWhiteLevel?: number;
 }
 
 export enum DeinterlaceAlgorithm {
@@ -2997,7 +3139,7 @@ export interface Deinterlacer {
   Algorithm?: DeinterlaceAlgorithm | string;
 
   /**
-   * - When set to NORMAL (default), the deinterlacer does not convert frames that are tagged  in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is  a good chance that the metadata has tagged frames as progressive when they are not  progressive. Do not turn on otherwise; processing frames that are already progressive  into progressive will probably result in lower quality video.
+   * - When set to NORMAL (default), the deinterlacer does not convert frames that are tagged in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is a good chance that the metadata has tagged frames as progressive when they are not progressive. Do not turn on otherwise; processing frames that are already progressive into progressive will probably result in lower quality video.
    */
   Control?: DeinterlacerControl | string;
 
@@ -3039,7 +3181,7 @@ export enum DolbyVisionProfile {
 }
 
 /**
- * Create Dolby Vision Profile 5 or Profile 8.1  compatible video output.
+ * Create Dolby Vision Profile 5 or Profile 8.1 compatible video output.
  */
 export interface DolbyVision {
   /**
@@ -3341,7 +3483,7 @@ export interface VideoDescription {
   DropFrameTimecode?: DropFrameTimecode | string;
 
   /**
-   * Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use Fixed (FixedAfd) to specify a four-bit AFD value which the service will write on all  frames of this video output.
+   * Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use Fixed (FixedAfd) to specify a four-bit AFD value which the service will write on all frames of this video output.
    */
   FixedAfd?: number;
 
@@ -3472,7 +3614,7 @@ export enum TimecodeSource {
  */
 export interface TimecodeConfig {
   /**
-   * If you use an editing platform that relies on an anchor timecode, use Anchor Timecode (Anchor) to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate conversion. System behavior for Anchor Timecode varies depending on your setting for Source (TimecodeSource). * If Source (TimecodeSource) is set to Specified Start (SPECIFIEDSTART), the first input frame is the specified value in Start Timecode (Start). Anchor Timecode (Anchor) and Start Timecode (Start) are used calculate output timecode. * If Source (TimecodeSource) is set to Start at 0 (ZEROBASED)  the  first frame is 00:00:00:00. * If Source (TimecodeSource) is set to Embedded (EMBEDDED), the  first frame is the timecode value on the first input frame of the input.
+   * If you use an editing platform that relies on an anchor timecode, use Anchor Timecode (Anchor) to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate conversion. System behavior for Anchor Timecode varies depending on your setting for Source (TimecodeSource). * If Source (TimecodeSource) is set to Specified Start (SPECIFIEDSTART), the first input frame is the specified value in Start Timecode (Start). Anchor Timecode (Anchor) and Start Timecode (Start) are used calculate output timecode. * If Source (TimecodeSource) is set to Start at 0 (ZEROBASED) the first frame is 00:00:00:00. * If Source (TimecodeSource) is set to Embedded (EMBEDDED), the first frame is the timecode value on the first input frame of the input.
    */
   Anchor?: string;
 
@@ -3487,7 +3629,7 @@ export interface TimecodeConfig {
   Start?: string;
 
   /**
-   * Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format "yyyy-mm-dd".  To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.
+   * Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format "yyyy-mm-dd". To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.
    */
   TimestampOffset?: string;
 }
@@ -3512,7 +3654,7 @@ export interface JobSettings {
   AdAvailOffset?: number;
 
   /**
-   * Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
+   * Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
    */
   AvailBlanking?: AvailBlanking;
 
@@ -3547,7 +3689,7 @@ export interface JobSettings {
   NielsenConfiguration?: NielsenConfiguration;
 
   /**
-   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
    */
   NielsenNonLinearWatermark?: NielsenNonLinearWatermarkSettings;
 
@@ -3758,7 +3900,7 @@ export interface JobTemplateSettings {
   AdAvailOffset?: number;
 
   /**
-   * Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
+   * Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
    */
   AvailBlanking?: AvailBlanking;
 
@@ -3773,7 +3915,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices;
 
   /**
-   * Use Inputs (inputs) to define the source file used in the transcode job. There can only be one input in a job template.  Using the API, you can include multiple inputs when referencing a job template.
+   * Use Inputs (inputs) to define the source file used in the transcode job. There can only be one input in a job template. Using the API, you can include multiple inputs when referencing a job template.
    */
   Inputs?: InputTemplate[];
 
@@ -3793,7 +3935,7 @@ export interface JobTemplateSettings {
   NielsenConfiguration?: NielsenConfiguration;
 
   /**
-   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
    */
   NielsenNonLinearWatermark?: NielsenNonLinearWatermarkSettings;
 
@@ -4233,7 +4375,7 @@ export interface CreateJobRequest {
   BillingTagsSource?: BillingTagsSource | string;
 
   /**
-   * Optional. Idempotency token for CreateJob operation.
+   * Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
    */
   ClientRequestToken?: string;
 
@@ -4554,103 +4696,19 @@ export interface GetJobTemplateResponse {
 
 export interface GetPolicyRequest {}
 
-export enum InputPolicy {
-  ALLOWED = "ALLOWED",
-  DISALLOWED = "DISALLOWED",
-}
+/**
+ * @internal
+ */
+export const DvbSdtSettingsFilterSensitiveLog = (obj: DvbSdtSettings): any => ({
+  ...obj,
+});
 
 /**
- * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+ * @internal
  */
-export interface Policy {
-  /**
-   * Allow or disallow jobs that specify HTTP inputs.
-   */
-  HttpInputs?: InputPolicy | string;
-
-  /**
-   * Allow or disallow jobs that specify HTTPS inputs.
-   */
-  HttpsInputs?: InputPolicy | string;
-
-  /**
-   * Allow or disallow jobs that specify Amazon S3 inputs.
-   */
-  S3Inputs?: InputPolicy | string;
-}
-
-export interface GetPolicyResponse {
-  /**
-   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-   */
-  Policy?: Policy;
-}
-
-export interface GetPresetRequest {
-  /**
-   * The name of the preset.
-   */
-  Name: string | undefined;
-}
-
-export interface GetPresetResponse {
-  /**
-   * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
-   */
-  Preset?: Preset;
-}
-
-export interface GetQueueRequest {
-  /**
-   * The name of the queue that you want information about.
-   */
-  Name: string | undefined;
-}
-
-export interface GetQueueResponse {
-  /**
-   * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
-   */
-  Queue?: Queue;
-}
-
-export enum JobTemplateListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-  SYSTEM = "SYSTEM",
-}
-
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
-
-export interface ListJobsRequest {
-  /**
-   * Optional. Number of jobs, up to twenty, that will be returned at one time.
-   */
-  MaxResults?: number;
-
-  /**
-   * Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
-   */
-  NextToken?: string;
-
-  /**
-   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
-   */
-  Order?: Order | string;
-
-  /**
-   * Optional. Provide a queue name to get back only jobs from that queue.
-   */
-  Queue?: string;
-
-  /**
-   * Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
-   */
-  Status?: JobStatus | string;
-}
+export const DvbTdtSettingsFilterSensitiveLog = (obj: DvbTdtSettings): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -4873,6 +4931,13 @@ export const XavcSettingsFilterSensitiveLog = (obj: XavcSettings): any => ({
  * @internal
  */
 export const VideoCodecSettingsFilterSensitiveLog = (obj: VideoCodecSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClipLimitsFilterSensitiveLog = (obj: ClipLimits): any => ({
   ...obj,
 });
 
@@ -5272,54 +5337,5 @@ export const GetJobTemplateResponseFilterSensitiveLog = (obj: GetJobTemplateResp
  * @internal
  */
 export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyFilterSensitiveLog = (obj: Policy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPresetRequestFilterSensitiveLog = (obj: GetPresetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPresetResponseFilterSensitiveLog = (obj: GetPresetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueueRequestFilterSensitiveLog = (obj: GetQueueRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueueResponseFilterSensitiveLog = (obj: GetQueueResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
   ...obj,
 });

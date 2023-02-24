@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,18 +33,21 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * 			Amazon ECS container agent doesn't interrupt running tasks or services on the container
  * 			instance. The process for updating the agent differs depending on whether your container
  * 			instance was launched with the Amazon ECS-optimized AMI or another operating system.</p>
- * 		       <note>
- * 			         <p>The <code>UpdateContainerAgent</code> API isn't supported for container instances
+ *          <note>
+ *             <p>The <code>UpdateContainerAgent</code> API isn't supported for container instances
  * 				using the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the container agent,
  * 				you can update the <code>ecs-init</code> package. This updates the agent. For more
  * 				information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html">Updating the
- * 					Amazon ECS container agent</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
- * 		       </note>
- * 		       <p>The <code>UpdateContainerAgent</code> API requires an Amazon ECS-optimized AMI or Amazon
+ * 					Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          </note>
+ *          <note>
+ *             <p>Agent updates with the <code>UpdateContainerAgent</code> API operation do not
+ * 				apply to Windows container instances. We recommend that you launch new container
+ * 				instances to update the agent version in your Windows clusters.</p>
+ *          </note>
+ *          <p>The <code>UpdateContainerAgent</code> API requires an Amazon ECS-optimized AMI or Amazon
  * 			Linux AMI with the <code>ecs-init</code> service installed and running. For help
- * 			updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually updating the Amazon ECS container agent</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually updating the Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +71,15 @@ export class UpdateContainerAgentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateContainerAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +95,9 @@ export class UpdateContainerAgentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateContainerAgentCommandInput, UpdateContainerAgentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateContainerAgentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

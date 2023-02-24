@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,9 @@ export interface VerifySMSSandboxPhoneNumberCommandInput extends VerifySMSSandbo
 export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
- * <p>Verifies a destination phone number with a one-time password (OTP) for the calling Amazon Web Services account.</p>
- *         <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
+ * <p>Verifies a destination phone number with a one-time password (OTP) for the calling
+ *             Amazon Web Services account.</p>
+ *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
  *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
  *                 Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
@@ -60,6 +62,15 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: VerifySMSSandboxPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +86,9 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<VerifySMSSandboxPhoneNumberCommandInput, VerifySMSSandboxPhoneNumberCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, VerifySMSSandboxPhoneNumberCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

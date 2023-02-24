@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,8 @@ export interface ListImagesCommandInput extends ListImagesRequest {}
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
- * <p> Returns the list of images that you have access to.</p>
+ * <p>Returns the list of images that you have access to. Newly created images
+ * 			can take up to two minutes to appear in the ListImages API Results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +54,15 @@ export class ListImagesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +78,7 @@ export class ListImagesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListImagesCommandInput, ListImagesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListImagesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

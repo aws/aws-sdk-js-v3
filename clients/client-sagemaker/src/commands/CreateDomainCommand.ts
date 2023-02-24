@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,9 +31,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
 /**
  * <p>Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of an associated
  *     Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application,
- *     policy, and Amazon Virtual Private Cloud (VPC) configurations. An Amazon Web Services account is limited to one domain per region.
+ *     policy, and Amazon Virtual Private Cloud (VPC) configurations.
  *     Users within a domain can share notebook files and other artifacts with each other.</p>
- *
  *          <p>
  *             <b>EFS storage</b>
  *          </p>
@@ -44,7 +44,6 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *      customer managed key. For more information, see
  *     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html">Protect Data at
  *       Rest Using Encryption</a>.</p>
- *
  *          <p>
  *             <b>VPC configuration</b>
  *          </p>
@@ -98,6 +97,15 @@ export class CreateDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +121,7 @@ export class CreateDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDomainCommandInput, CreateDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateDomainCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

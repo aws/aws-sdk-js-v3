@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * <p>Returns a list of tasks. You can filter the results by cluster, task definition
  * 			family, container instance, launch type, what IAM principal started the task, or by the
  * 			desired status of the task.</p>
- * 		       <p>Recently stopped tasks might appear in the returned results. Currently, stopped tasks
+ *          <p>Recently stopped tasks might appear in the returned results. Currently, stopped tasks
  * 			appear in the returned results for at least one hour.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +50,15 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +74,7 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
     options?: __HttpHandlerOptions
   ): Handler<ListTasksCommandInput, ListTasksCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListTasksCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

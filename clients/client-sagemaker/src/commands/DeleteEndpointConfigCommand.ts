@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,7 +27,7 @@ export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
  * <p>Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API
  *             deletes only the specified configuration. It does not delete endpoints created using the
  *             configuration. </p>
- *         <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is
+ *          <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is
  *             live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code> operations
  *             are being performed on the endpoint. If you delete the <code>EndpointConfig</code> of an
  *             endpoint that is active or being created or updated you may lose visibility into the
@@ -55,6 +56,15 @@ export class DeleteEndpointConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteEndpointConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class DeleteEndpointConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteEndpointConfigCommandInput, DeleteEndpointConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteEndpointConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -10,7 +10,9 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { LockRuleCommand, LockRuleCommandInput, LockRuleCommandOutput } from "./commands/LockRuleCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnlockRuleCommand, UnlockRuleCommandInput, UnlockRuleCommandOutput } from "./commands/UnlockRuleCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -175,6 +177,32 @@ export class Rbin extends RbinClient {
   }
 
   /**
+   * <p>Locks a retention rule. A locked retention rule can't be modified or deleted.</p>
+   */
+  public lockRule(args: LockRuleCommandInput, options?: __HttpHandlerOptions): Promise<LockRuleCommandOutput>;
+  public lockRule(args: LockRuleCommandInput, cb: (err: any, data?: LockRuleCommandOutput) => void): void;
+  public lockRule(
+    args: LockRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: LockRuleCommandOutput) => void
+  ): void;
+  public lockRule(
+    args: LockRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LockRuleCommandOutput) => void),
+    cb?: (err: any, data?: LockRuleCommandOutput) => void
+  ): Promise<LockRuleCommandOutput> | void {
+    const command = new LockRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Assigns tags to the specified retention rule.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -190,6 +218,33 @@ export class Rbin extends RbinClient {
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Unlocks a retention rule. After a retention rule is unlocked, it can be modified or deleted
+   *       only after the unlock delay period expires.</p>
+   */
+  public unlockRule(args: UnlockRuleCommandInput, options?: __HttpHandlerOptions): Promise<UnlockRuleCommandOutput>;
+  public unlockRule(args: UnlockRuleCommandInput, cb: (err: any, data?: UnlockRuleCommandOutput) => void): void;
+  public unlockRule(
+    args: UnlockRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnlockRuleCommandOutput) => void
+  ): void;
+  public unlockRule(
+    args: UnlockRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnlockRuleCommandOutput) => void),
+    cb?: (err: any, data?: UnlockRuleCommandOutput) => void
+  ): Promise<UnlockRuleCommandOutput> | void {
+    const command = new UnlockRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -233,7 +288,9 @@ export class Rbin extends RbinClient {
   }
 
   /**
-   * <p>Updates an existing Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule">
+   * <p>Updates an existing Recycle Bin retention rule. You can update a retention rule's description,
+   *       resource tags, and retention period at any time after creation. You can't update a retention rule's
+   *       resource type after creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule">
    *       Update Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;

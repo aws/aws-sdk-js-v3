@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,27 @@ export interface ListAssociatedResourcesCommandInput extends ListAssociatedResou
 export interface ListAssociatedResourcesCommandOutput extends ListAssociatedResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all resources that are associated with specified application. Results are paginated.</p>
+ * <p>
+ *        Lists all
+ *        of the resources
+ *        that are associated
+ *        with the specified application.
+ *        Results are paginated.
+ *      </p>
+ *          <note>
+ *             <p>
+ *          If you share an application,
+ *          and a consumer account associates a tag query
+ *          to the application,
+ *          all of the users
+ *          who can access the application
+ *          can also view the tag values
+ *          in all accounts
+ *          that are associated
+ *          with it
+ *          using this API.
+ *        </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +77,15 @@ export class ListAssociatedResourcesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListAssociatedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +101,9 @@ export class ListAssociatedResourcesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAssociatedResourcesCommandInput, ListAssociatedResourcesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListAssociatedResourcesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

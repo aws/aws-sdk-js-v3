@@ -9,7 +9,7 @@
 
 AWS SDK for JavaScript Location Client for Node.js, Browser and React Native.
 
-Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing
+<p>"Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"</p>
 
 ## Installing
 

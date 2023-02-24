@@ -82,12 +82,12 @@ handler.on(XhrHttpHandler.EVENTS.PROGRESS, (progress, request) => {
   if (progress.lengthComputable) {
     console.log(
       progress.loaded, // bytes
-      progress.total, // bytes
+      progress.total // bytes
     );
     console.log(
       request // contains the request information to differentiate
-              // requests from the same handler.
-    )
+      // requests from the same handler.
+    );
   }
 });
 
@@ -127,5 +127,5 @@ await client.send(new GetObjectCommand(/*...*/));
 ```
 
 You can check the source `.ts` file or published `.d.ts` file
-for the full list of events, or inspect the `XhrHttpHandler.EVENTS` 
+for the full list of events, or inspect the `XhrHttpHandler.EVENTS`
 object at runtime.

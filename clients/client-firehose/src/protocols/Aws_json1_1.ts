@@ -58,6 +58,11 @@ import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from ".
 import { FirehoseServiceException as __BaseException } from "../models/FirehoseServiceException";
 import {
   _Record,
+  AmazonOpenSearchServerlessBufferingHints,
+  AmazonOpenSearchServerlessDestinationConfiguration,
+  AmazonOpenSearchServerlessDestinationDescription,
+  AmazonOpenSearchServerlessDestinationUpdate,
+  AmazonOpenSearchServerlessRetryOptions,
   AmazonopensearchserviceBufferingHints,
   AmazonopensearchserviceDestinationConfiguration,
   AmazonopensearchserviceDestinationDescription,
@@ -335,7 +340,7 @@ const deserializeAws_json1_1CreateDeliveryStreamCommandError = async (
 ): Promise<CreateDeliveryStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -385,7 +390,7 @@ const deserializeAws_json1_1DeleteDeliveryStreamCommandError = async (
 ): Promise<DeleteDeliveryStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -429,7 +434,7 @@ const deserializeAws_json1_1DescribeDeliveryStreamCommandError = async (
 ): Promise<DescribeDeliveryStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -470,7 +475,7 @@ const deserializeAws_json1_1ListDeliveryStreamsCommandError = async (
 ): Promise<ListDeliveryStreamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -505,7 +510,7 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamCommandError = async (
 ): Promise<ListTagsForDeliveryStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -552,7 +557,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
 ): Promise<PutRecordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -602,7 +607,7 @@ const deserializeAws_json1_1PutRecordBatchCommandError = async (
 ): Promise<PutRecordBatchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -652,7 +657,7 @@ const deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError = async (
 ): Promise<StartDeliveryStreamEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -705,7 +710,7 @@ const deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError = async (
 ): Promise<StopDeliveryStreamEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -755,7 +760,7 @@ const deserializeAws_json1_1TagDeliveryStreamCommandError = async (
 ): Promise<TagDeliveryStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -805,7 +810,7 @@ const deserializeAws_json1_1UntagDeliveryStreamCommandError = async (
 ): Promise<UntagDeliveryStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -855,7 +860,7 @@ const deserializeAws_json1_1UpdateDestinationCommandError = async (
 ): Promise<UpdateDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -973,6 +978,79 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints = (
+  input: AmazonOpenSearchServerlessBufferingHints,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IntervalInSeconds != null && { IntervalInSeconds: input.IntervalInSeconds }),
+    ...(input.SizeInMBs != null && { SizeInMBs: input.SizeInMBs }),
+  };
+};
+
+const serializeAws_json1_1AmazonOpenSearchServerlessDestinationConfiguration = (
+  input: AmazonOpenSearchServerlessDestinationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BufferingHints != null && {
+      BufferingHints: serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints(input.BufferingHints, context),
+    }),
+    ...(input.CloudWatchLoggingOptions != null && {
+      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+    }),
+    ...(input.CollectionEndpoint != null && { CollectionEndpoint: input.CollectionEndpoint }),
+    ...(input.IndexName != null && { IndexName: input.IndexName }),
+    ...(input.ProcessingConfiguration != null && {
+      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+    }),
+    ...(input.RetryOptions != null && {
+      RetryOptions: serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions(input.RetryOptions, context),
+    }),
+    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
+    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
+    ...(input.S3Configuration != null && {
+      S3Configuration: serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context),
+    }),
+    ...(input.VpcConfiguration != null && {
+      VpcConfiguration: serializeAws_json1_1VpcConfiguration(input.VpcConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1AmazonOpenSearchServerlessDestinationUpdate = (
+  input: AmazonOpenSearchServerlessDestinationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BufferingHints != null && {
+      BufferingHints: serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints(input.BufferingHints, context),
+    }),
+    ...(input.CloudWatchLoggingOptions != null && {
+      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+    }),
+    ...(input.CollectionEndpoint != null && { CollectionEndpoint: input.CollectionEndpoint }),
+    ...(input.IndexName != null && { IndexName: input.IndexName }),
+    ...(input.ProcessingConfiguration != null && {
+      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+    }),
+    ...(input.RetryOptions != null && {
+      RetryOptions: serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions(input.RetryOptions, context),
+    }),
+    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
+    ...(input.S3Update != null && { S3Update: serializeAws_json1_1S3DestinationUpdate(input.S3Update, context) }),
+  };
+};
+
+const serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions = (
+  input: AmazonOpenSearchServerlessRetryOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
+  };
+};
+
 const serializeAws_json1_1AmazonopensearchserviceBufferingHints = (
   input: AmazonopensearchserviceBufferingHints,
   context: __SerdeContext
@@ -1075,10 +1153,8 @@ const serializeAws_json1_1ColumnToJsonKeyMappings = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1095,6 +1171,13 @@ const serializeAws_json1_1CreateDeliveryStreamInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AmazonOpenSearchServerlessDestinationConfiguration != null && {
+      AmazonOpenSearchServerlessDestinationConfiguration:
+        serializeAws_json1_1AmazonOpenSearchServerlessDestinationConfiguration(
+          input.AmazonOpenSearchServerlessDestinationConfiguration,
+          context
+        ),
+    }),
     ...(input.AmazonopensearchserviceDestinationConfiguration != null && {
       AmazonopensearchserviceDestinationConfiguration:
         serializeAws_json1_1AmazonopensearchserviceDestinationConfiguration(
@@ -1985,6 +2068,12 @@ const serializeAws_json1_1UntagDeliveryStreamInput = (
 
 const serializeAws_json1_1UpdateDestinationInput = (input: UpdateDestinationInput, context: __SerdeContext): any => {
   return {
+    ...(input.AmazonOpenSearchServerlessDestinationUpdate != null && {
+      AmazonOpenSearchServerlessDestinationUpdate: serializeAws_json1_1AmazonOpenSearchServerlessDestinationUpdate(
+        input.AmazonOpenSearchServerlessDestinationUpdate,
+        context
+      ),
+    }),
     ...(input.AmazonopensearchserviceDestinationUpdate != null && {
       AmazonopensearchserviceDestinationUpdate: serializeAws_json1_1AmazonopensearchserviceDestinationUpdate(
         input.AmazonopensearchserviceDestinationUpdate,
@@ -2037,6 +2126,61 @@ const serializeAws_json1_1VpcConfiguration = (input: VpcConfiguration, context: 
     }),
     ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
   };
+};
+
+const deserializeAws_json1_1AmazonOpenSearchServerlessBufferingHints = (
+  output: any,
+  context: __SerdeContext
+): AmazonOpenSearchServerlessBufferingHints => {
+  return {
+    IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
+    SizeInMBs: __expectInt32(output.SizeInMBs),
+  } as any;
+};
+
+const deserializeAws_json1_1AmazonOpenSearchServerlessDestinationDescription = (
+  output: any,
+  context: __SerdeContext
+): AmazonOpenSearchServerlessDestinationDescription => {
+  return {
+    BufferingHints:
+      output.BufferingHints != null
+        ? deserializeAws_json1_1AmazonOpenSearchServerlessBufferingHints(output.BufferingHints, context)
+        : undefined,
+    CloudWatchLoggingOptions:
+      output.CloudWatchLoggingOptions != null
+        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        : undefined,
+    CollectionEndpoint: __expectString(output.CollectionEndpoint),
+    IndexName: __expectString(output.IndexName),
+    ProcessingConfiguration:
+      output.ProcessingConfiguration != null
+        ? deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context)
+        : undefined,
+    RetryOptions:
+      output.RetryOptions != null
+        ? deserializeAws_json1_1AmazonOpenSearchServerlessRetryOptions(output.RetryOptions, context)
+        : undefined,
+    RoleARN: __expectString(output.RoleARN),
+    S3BackupMode: __expectString(output.S3BackupMode),
+    S3DestinationDescription:
+      output.S3DestinationDescription != null
+        ? deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context)
+        : undefined,
+    VpcConfigurationDescription:
+      output.VpcConfigurationDescription != null
+        ? deserializeAws_json1_1VpcConfigurationDescription(output.VpcConfigurationDescription, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AmazonOpenSearchServerlessRetryOptions = (
+  output: any,
+  context: __SerdeContext
+): AmazonOpenSearchServerlessRetryOptions => {
+  return {
+    DurationInSeconds: __expectInt32(output.DurationInSeconds),
+  } as any;
 };
 
 const deserializeAws_json1_1AmazonopensearchserviceBufferingHints = (
@@ -2123,10 +2267,8 @@ const deserializeAws_json1_1ColumnToJsonKeyMappings = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2272,6 +2414,13 @@ const deserializeAws_json1_1Deserializer = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DestinationDescription = (output: any, context: __SerdeContext): DestinationDescription => {
   return {
+    AmazonOpenSearchServerlessDestinationDescription:
+      output.AmazonOpenSearchServerlessDestinationDescription != null
+        ? deserializeAws_json1_1AmazonOpenSearchServerlessDestinationDescription(
+            output.AmazonOpenSearchServerlessDestinationDescription,
+            context
+          )
+        : undefined,
     AmazonopensearchserviceDestinationDescription:
       output.AmazonopensearchserviceDestinationDescription != null
         ? deserializeAws_json1_1AmazonopensearchserviceDestinationDescription(
@@ -3064,7 +3213,8 @@ const deserializeAws_json1_1VpcConfigurationDescription = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3114,6 +3264,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3124,6 +3280,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

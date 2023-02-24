@@ -9,17 +9,13 @@
 
 AWS SDK for JavaScript Rekognition Client for Node.js, Browser and React Native.
 
-<p>This is the API Reference for <a href="https://docs.aws.amazon.com/rekognition/latest/dg/images.html">Amazon Rekognition Image</a>,
-<a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html">Amazon Rekognition Custom Labels</a>,
-<a href="https://docs.aws.amazon.com/rekognition/latest/dg/video.html">Amazon Rekognition Stored Video</a>,
-<a href="https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html">Amazon Rekognition Streaming Video</a>.
-It provides descriptions of actions, data types, common parameters,
-and common errors.</p>
-
+<p>This is the API Reference for <a href="https://docs.aws.amazon.com/rekognition/latest/dg/images.html">Amazon Rekognition Image</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html">Amazon Rekognition Custom Labels</a>,
+<a href="https://docs.aws.amazon.com/rekognition/latest/dg/video.html">Amazon Rekognition Stored
+Video</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html">Amazon Rekognition Streaming Video</a>. It provides descriptions of actions, data types, common
+parameters, and common errors.</p>
 <p>
 <b>Amazon Rekognition Image</b>
 </p>
-
 <ul>
 <li>
 <p>
@@ -107,11 +103,15 @@ and common errors.</p>
 </p>
 </li>
 </ul>
-
 <p>
 <b>Amazon Rekognition Custom Labels</b>
 </p>
 <ul>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion.html">CopyProjectVersion</a>
+</p>
+</li>
 <li>
 <p>
 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html">CreateDataset</a>
@@ -135,6 +135,11 @@ and common errors.</p>
 <li>
 <p>
 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html">DeleteProject</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectPolicy.html">DeleteProjectPolicy</a>
 </p>
 </li>
 <li>
@@ -179,6 +184,16 @@ and common errors.</p>
 </li>
 <li>
 <p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListProjectPolicies.html">ListProjectPolicies</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy.html">PutProjectPolicy</a>
+</p>
+</li>
+<li>
+<p>
 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartProjectVersion.html">StartProjectVersion</a>
 </p>
 </li>
@@ -193,11 +208,9 @@ and common errors.</p>
 </p>
 </li>
 </ul>
-
 <p>
 <b>Amazon Rekognition Video Stored Video</b>
 </p>
-
 <ul>
 <li>
 <p>
@@ -280,11 +293,9 @@ and common errors.</p>
 </p>
 </li>
 </ul>
-
 <p>
 <b>Amazon Rekognition Video Streaming Video</b>
 </p>
-
 <ul>
 <li>
 <p>
@@ -314,6 +325,11 @@ and common errors.</p>
 <li>
 <p>
 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html">StopStreamProcessor</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateStreamProcessor.html">UpdateStreamProcessor</a>
 </p>
 </li>
 </ul>

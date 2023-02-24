@@ -268,7 +268,12 @@ export interface ActivityTaskStatus {
   cancelRequested: boolean | undefined;
 }
 
-export type ActivityTaskTimeoutType = "HEARTBEAT" | "SCHEDULE_TO_CLOSE" | "SCHEDULE_TO_START" | "START_TO_CLOSE";
+export enum ActivityTaskTimeoutType {
+  HEARTBEAT = "HEARTBEAT",
+  SCHEDULE_TO_CLOSE = "SCHEDULE_TO_CLOSE",
+  SCHEDULE_TO_START = "SCHEDULE_TO_START",
+  START_TO_CLOSE = "START_TO_CLOSE",
+}
 
 /**
  * <p>Provides the details of the <code>ActivityTaskTimedOut</code> event.</p>
@@ -366,7 +371,10 @@ export interface ActivityTypeConfiguration {
   defaultTaskScheduleToCloseTimeout?: string;
 }
 
-export type RegistrationStatus = "DEPRECATED" | "REGISTERED";
+export enum RegistrationStatus {
+  DEPRECATED = "DEPRECATED",
+  REGISTERED = "REGISTERED",
+}
 
 /**
  * <p>Detailed information about an activity type.</p>
@@ -478,7 +486,10 @@ export interface CancelTimerDecisionAttributes {
   timerId: string | undefined;
 }
 
-export type CancelTimerFailedCause = "OPERATION_NOT_PERMITTED" | "TIMER_ID_UNKNOWN";
+export enum CancelTimerFailedCause {
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+  TIMER_ID_UNKNOWN = "TIMER_ID_UNKNOWN",
+}
 
 /**
  * <p>Provides the details of the <code>CancelTimerFailed</code> event.</p>
@@ -536,7 +547,10 @@ export interface CancelWorkflowExecutionDecisionAttributes {
   details?: string;
 }
 
-export type CancelWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
+export enum CancelWorkflowExecutionFailedCause {
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+  UNHANDLED_DECISION = "UNHANDLED_DECISION",
+}
 
 /**
  * <p>Provides the details of the <code>CancelWorkflowExecutionFailed</code> event.</p>
@@ -558,7 +572,11 @@ export interface CancelWorkflowExecutionFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export type ChildPolicy = "ABANDON" | "REQUEST_CANCEL" | "TERMINATE";
+export enum ChildPolicy {
+  ABANDON = "ABANDON",
+  REQUEST_CANCEL = "REQUEST_CANCEL",
+  TERMINATE = "TERMINATE",
+}
 
 /**
  * <p>Represents a workflow type.</p>
@@ -748,7 +766,9 @@ export interface ChildWorkflowExecutionTerminatedEventAttributes {
   startedEventId: number | undefined;
 }
 
-export type WorkflowExecutionTimeoutType = "START_TO_CLOSE";
+export enum WorkflowExecutionTimeoutType {
+  START_TO_CLOSE = "START_TO_CLOSE",
+}
 
 /**
  * <p>Provides the details of the <code>ChildWorkflowExecutionTimedOut</code> event.</p>
@@ -785,7 +805,14 @@ export interface ChildWorkflowExecutionTimedOutEventAttributes {
   startedEventId: number | undefined;
 }
 
-export type CloseStatus = "CANCELED" | "COMPLETED" | "CONTINUED_AS_NEW" | "FAILED" | "TERMINATED" | "TIMED_OUT";
+export enum CloseStatus {
+  CANCELED = "CANCELED",
+  COMPLETED = "COMPLETED",
+  CONTINUED_AS_NEW = "CONTINUED_AS_NEW",
+  FAILED = "FAILED",
+  TERMINATED = "TERMINATED",
+  TIMED_OUT = "TIMED_OUT",
+}
 
 /**
  * <p>Used to filter the closed workflow executions in visibility APIs by their close status.</p>
@@ -829,7 +856,10 @@ export interface CompleteWorkflowExecutionDecisionAttributes {
   result?: string;
 }
 
-export type CompleteWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
+export enum CompleteWorkflowExecutionFailedCause {
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+  UNHANDLED_DECISION = "UNHANDLED_DECISION",
+}
 
 /**
  * <p>Provides the details of the <code>CompleteWorkflowExecutionFailed</code> event.</p>
@@ -980,16 +1010,17 @@ export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
   lambdaRole?: string;
 }
 
-export type ContinueAsNewWorkflowExecutionFailedCause =
-  | "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-  | "DEFAULT_CHILD_POLICY_UNDEFINED"
-  | "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-  | "DEFAULT_TASK_LIST_UNDEFINED"
-  | "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-  | "OPERATION_NOT_PERMITTED"
-  | "UNHANDLED_DECISION"
-  | "WORKFLOW_TYPE_DEPRECATED"
-  | "WORKFLOW_TYPE_DOES_NOT_EXIST";
+export enum ContinueAsNewWorkflowExecutionFailedCause {
+  CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED = "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED",
+  DEFAULT_CHILD_POLICY_UNDEFINED = "DEFAULT_CHILD_POLICY_UNDEFINED",
+  DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED",
+  DEFAULT_TASK_LIST_UNDEFINED = "DEFAULT_TASK_LIST_UNDEFINED",
+  DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED",
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+  UNHANDLED_DECISION = "UNHANDLED_DECISION",
+  WORKFLOW_TYPE_DEPRECATED = "WORKFLOW_TYPE_DEPRECATED",
+  WORKFLOW_TYPE_DOES_NOT_EXIST = "WORKFLOW_TYPE_DOES_NOT_EXIST",
+}
 
 /**
  * <p>Provides the details of the <code>ContinueAsNewWorkflowExecutionFailed</code> event.</p>
@@ -1286,20 +1317,21 @@ export interface CountPendingDecisionTasksInput {
   taskList: TaskList | undefined;
 }
 
-export type DecisionType =
-  | "CancelTimer"
-  | "CancelWorkflowExecution"
-  | "CompleteWorkflowExecution"
-  | "ContinueAsNewWorkflowExecution"
-  | "FailWorkflowExecution"
-  | "RecordMarker"
-  | "RequestCancelActivityTask"
-  | "RequestCancelExternalWorkflowExecution"
-  | "ScheduleActivityTask"
-  | "ScheduleLambdaFunction"
-  | "SignalExternalWorkflowExecution"
-  | "StartChildWorkflowExecution"
-  | "StartTimer";
+export enum DecisionType {
+  CancelTimer = "CancelTimer",
+  CancelWorkflowExecution = "CancelWorkflowExecution",
+  CompleteWorkflowExecution = "CompleteWorkflowExecution",
+  ContinueAsNewWorkflowExecution = "ContinueAsNewWorkflowExecution",
+  FailWorkflowExecution = "FailWorkflowExecution",
+  RecordMarker = "RecordMarker",
+  RequestCancelActivityTask = "RequestCancelActivityTask",
+  RequestCancelExternalWorkflowExecution = "RequestCancelExternalWorkflowExecution",
+  ScheduleActivityTask = "ScheduleActivityTask",
+  ScheduleLambdaFunction = "ScheduleLambdaFunction",
+  SignalExternalWorkflowExecution = "SignalExternalWorkflowExecution",
+  StartChildWorkflowExecution = "StartChildWorkflowExecution",
+  StartTimer = "StartTimer",
+}
 
 /**
  * <p>Provides the details of the <code>FailWorkflowExecution</code> decision.</p>
@@ -2272,7 +2304,9 @@ export interface DecisionTaskStartedEventAttributes {
   scheduledEventId: number | undefined;
 }
 
-export type DecisionTaskTimeoutType = "START_TO_CLOSE";
+export enum DecisionTaskTimeoutType {
+  START_TO_CLOSE = "START_TO_CLOSE",
+}
 
 /**
  * <p>Provides the details of the <code>DecisionTaskTimedOut</code> event.</p>
@@ -2298,61 +2332,62 @@ export interface DecisionTaskTimedOutEventAttributes {
   startedEventId: number | undefined;
 }
 
-export type EventType =
-  | "ActivityTaskCancelRequested"
-  | "ActivityTaskCanceled"
-  | "ActivityTaskCompleted"
-  | "ActivityTaskFailed"
-  | "ActivityTaskScheduled"
-  | "ActivityTaskStarted"
-  | "ActivityTaskTimedOut"
-  | "CancelTimerFailed"
-  | "CancelWorkflowExecutionFailed"
-  | "ChildWorkflowExecutionCanceled"
-  | "ChildWorkflowExecutionCompleted"
-  | "ChildWorkflowExecutionFailed"
-  | "ChildWorkflowExecutionStarted"
-  | "ChildWorkflowExecutionTerminated"
-  | "ChildWorkflowExecutionTimedOut"
-  | "CompleteWorkflowExecutionFailed"
-  | "ContinueAsNewWorkflowExecutionFailed"
-  | "DecisionTaskCompleted"
-  | "DecisionTaskScheduled"
-  | "DecisionTaskStarted"
-  | "DecisionTaskTimedOut"
-  | "ExternalWorkflowExecutionCancelRequested"
-  | "ExternalWorkflowExecutionSignaled"
-  | "FailWorkflowExecutionFailed"
-  | "LambdaFunctionCompleted"
-  | "LambdaFunctionFailed"
-  | "LambdaFunctionScheduled"
-  | "LambdaFunctionStarted"
-  | "LambdaFunctionTimedOut"
-  | "MarkerRecorded"
-  | "RecordMarkerFailed"
-  | "RequestCancelActivityTaskFailed"
-  | "RequestCancelExternalWorkflowExecutionFailed"
-  | "RequestCancelExternalWorkflowExecutionInitiated"
-  | "ScheduleActivityTaskFailed"
-  | "ScheduleLambdaFunctionFailed"
-  | "SignalExternalWorkflowExecutionFailed"
-  | "SignalExternalWorkflowExecutionInitiated"
-  | "StartChildWorkflowExecutionFailed"
-  | "StartChildWorkflowExecutionInitiated"
-  | "StartLambdaFunctionFailed"
-  | "StartTimerFailed"
-  | "TimerCanceled"
-  | "TimerFired"
-  | "TimerStarted"
-  | "WorkflowExecutionCancelRequested"
-  | "WorkflowExecutionCanceled"
-  | "WorkflowExecutionCompleted"
-  | "WorkflowExecutionContinuedAsNew"
-  | "WorkflowExecutionFailed"
-  | "WorkflowExecutionSignaled"
-  | "WorkflowExecutionStarted"
-  | "WorkflowExecutionTerminated"
-  | "WorkflowExecutionTimedOut";
+export enum EventType {
+  ActivityTaskCancelRequested = "ActivityTaskCancelRequested",
+  ActivityTaskCanceled = "ActivityTaskCanceled",
+  ActivityTaskCompleted = "ActivityTaskCompleted",
+  ActivityTaskFailed = "ActivityTaskFailed",
+  ActivityTaskScheduled = "ActivityTaskScheduled",
+  ActivityTaskStarted = "ActivityTaskStarted",
+  ActivityTaskTimedOut = "ActivityTaskTimedOut",
+  CancelTimerFailed = "CancelTimerFailed",
+  CancelWorkflowExecutionFailed = "CancelWorkflowExecutionFailed",
+  ChildWorkflowExecutionCanceled = "ChildWorkflowExecutionCanceled",
+  ChildWorkflowExecutionCompleted = "ChildWorkflowExecutionCompleted",
+  ChildWorkflowExecutionFailed = "ChildWorkflowExecutionFailed",
+  ChildWorkflowExecutionStarted = "ChildWorkflowExecutionStarted",
+  ChildWorkflowExecutionTerminated = "ChildWorkflowExecutionTerminated",
+  ChildWorkflowExecutionTimedOut = "ChildWorkflowExecutionTimedOut",
+  CompleteWorkflowExecutionFailed = "CompleteWorkflowExecutionFailed",
+  ContinueAsNewWorkflowExecutionFailed = "ContinueAsNewWorkflowExecutionFailed",
+  DecisionTaskCompleted = "DecisionTaskCompleted",
+  DecisionTaskScheduled = "DecisionTaskScheduled",
+  DecisionTaskStarted = "DecisionTaskStarted",
+  DecisionTaskTimedOut = "DecisionTaskTimedOut",
+  ExternalWorkflowExecutionCancelRequested = "ExternalWorkflowExecutionCancelRequested",
+  ExternalWorkflowExecutionSignaled = "ExternalWorkflowExecutionSignaled",
+  FailWorkflowExecutionFailed = "FailWorkflowExecutionFailed",
+  LambdaFunctionCompleted = "LambdaFunctionCompleted",
+  LambdaFunctionFailed = "LambdaFunctionFailed",
+  LambdaFunctionScheduled = "LambdaFunctionScheduled",
+  LambdaFunctionStarted = "LambdaFunctionStarted",
+  LambdaFunctionTimedOut = "LambdaFunctionTimedOut",
+  MarkerRecorded = "MarkerRecorded",
+  RecordMarkerFailed = "RecordMarkerFailed",
+  RequestCancelActivityTaskFailed = "RequestCancelActivityTaskFailed",
+  RequestCancelExternalWorkflowExecutionFailed = "RequestCancelExternalWorkflowExecutionFailed",
+  RequestCancelExternalWorkflowExecutionInitiated = "RequestCancelExternalWorkflowExecutionInitiated",
+  ScheduleActivityTaskFailed = "ScheduleActivityTaskFailed",
+  ScheduleLambdaFunctionFailed = "ScheduleLambdaFunctionFailed",
+  SignalExternalWorkflowExecutionFailed = "SignalExternalWorkflowExecutionFailed",
+  SignalExternalWorkflowExecutionInitiated = "SignalExternalWorkflowExecutionInitiated",
+  StartChildWorkflowExecutionFailed = "StartChildWorkflowExecutionFailed",
+  StartChildWorkflowExecutionInitiated = "StartChildWorkflowExecutionInitiated",
+  StartLambdaFunctionFailed = "StartLambdaFunctionFailed",
+  StartTimerFailed = "StartTimerFailed",
+  TimerCanceled = "TimerCanceled",
+  TimerFired = "TimerFired",
+  TimerStarted = "TimerStarted",
+  WorkflowExecutionCancelRequested = "WorkflowExecutionCancelRequested",
+  WorkflowExecutionCanceled = "WorkflowExecutionCanceled",
+  WorkflowExecutionCompleted = "WorkflowExecutionCompleted",
+  WorkflowExecutionContinuedAsNew = "WorkflowExecutionContinuedAsNew",
+  WorkflowExecutionFailed = "WorkflowExecutionFailed",
+  WorkflowExecutionSignaled = "WorkflowExecutionSignaled",
+  WorkflowExecutionStarted = "WorkflowExecutionStarted",
+  WorkflowExecutionTerminated = "WorkflowExecutionTerminated",
+  WorkflowExecutionTimedOut = "WorkflowExecutionTimedOut",
+}
 
 /**
  * <p>Provides the details of the <code>ExternalWorkflowExecutionCancelRequested</code> event.</p>
@@ -2389,7 +2424,10 @@ export interface ExternalWorkflowExecutionSignaledEventAttributes {
   initiatedEventId: number | undefined;
 }
 
-export type FailWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
+export enum FailWorkflowExecutionFailedCause {
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+  UNHANDLED_DECISION = "UNHANDLED_DECISION",
+}
 
 /**
  * <p>Provides the details of the <code>FailWorkflowExecutionFailed</code> event.</p>
@@ -2514,7 +2552,9 @@ export interface LambdaFunctionStartedEventAttributes {
   scheduledEventId: number | undefined;
 }
 
-export type LambdaFunctionTimeoutType = "START_TO_CLOSE";
+export enum LambdaFunctionTimeoutType {
+  START_TO_CLOSE = "START_TO_CLOSE",
+}
 
 /**
  * <p>Provides details of the <code>LambdaFunctionTimedOut</code> event.</p>
@@ -2560,7 +2600,9 @@ export interface MarkerRecordedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export type RecordMarkerFailedCause = "OPERATION_NOT_PERMITTED";
+export enum RecordMarkerFailedCause {
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+}
 
 /**
  * <p>Provides the details of the <code>RecordMarkerFailed</code> event.</p>
@@ -2589,7 +2631,10 @@ export interface RecordMarkerFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export type RequestCancelActivityTaskFailedCause = "ACTIVITY_ID_UNKNOWN" | "OPERATION_NOT_PERMITTED";
+export enum RequestCancelActivityTaskFailedCause {
+  ACTIVITY_ID_UNKNOWN = "ACTIVITY_ID_UNKNOWN",
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+}
 
 /**
  * <p>Provides the details of the <code>RequestCancelActivityTaskFailed</code> event.</p>
@@ -2618,10 +2663,11 @@ export interface RequestCancelActivityTaskFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export type RequestCancelExternalWorkflowExecutionFailedCause =
-  | "OPERATION_NOT_PERMITTED"
-  | "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-  | "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION";
+export enum RequestCancelExternalWorkflowExecutionFailedCause {
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+  REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED = "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED",
+  UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION = "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION",
+}
 
 /**
  * <p>Provides the details of the <code>RequestCancelExternalWorkflowExecutionFailed</code> event.</p>
@@ -2697,18 +2743,19 @@ export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
   control?: string;
 }
 
-export type ScheduleActivityTaskFailedCause =
-  | "ACTIVITY_CREATION_RATE_EXCEEDED"
-  | "ACTIVITY_ID_ALREADY_IN_USE"
-  | "ACTIVITY_TYPE_DEPRECATED"
-  | "ACTIVITY_TYPE_DOES_NOT_EXIST"
-  | "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
-  | "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED"
-  | "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED"
-  | "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-  | "DEFAULT_TASK_LIST_UNDEFINED"
-  | "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
-  | "OPERATION_NOT_PERMITTED";
+export enum ScheduleActivityTaskFailedCause {
+  ACTIVITY_CREATION_RATE_EXCEEDED = "ACTIVITY_CREATION_RATE_EXCEEDED",
+  ACTIVITY_ID_ALREADY_IN_USE = "ACTIVITY_ID_ALREADY_IN_USE",
+  ACTIVITY_TYPE_DEPRECATED = "ACTIVITY_TYPE_DEPRECATED",
+  ACTIVITY_TYPE_DOES_NOT_EXIST = "ACTIVITY_TYPE_DOES_NOT_EXIST",
+  DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED = "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED",
+  DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED",
+  DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED = "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED",
+  DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED",
+  DEFAULT_TASK_LIST_UNDEFINED = "DEFAULT_TASK_LIST_UNDEFINED",
+  OPEN_ACTIVITIES_LIMIT_EXCEEDED = "OPEN_ACTIVITIES_LIMIT_EXCEEDED",
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+}
 
 /**
  * <p>Provides the details of the <code>ScheduleActivityTaskFailed</code> event.</p>
@@ -2742,11 +2789,12 @@ export interface ScheduleActivityTaskFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export type ScheduleLambdaFunctionFailedCause =
-  | "ID_ALREADY_IN_USE"
-  | "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED"
-  | "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION"
-  | "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED";
+export enum ScheduleLambdaFunctionFailedCause {
+  ID_ALREADY_IN_USE = "ID_ALREADY_IN_USE",
+  LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED = "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED",
+  LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION = "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION",
+  OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED = "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED",
+}
 
 /**
  * <p>Provides the details of the <code>ScheduleLambdaFunctionFailed</code> event. It isn't
@@ -2783,10 +2831,11 @@ export interface ScheduleLambdaFunctionFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export type SignalExternalWorkflowExecutionFailedCause =
-  | "OPERATION_NOT_PERMITTED"
-  | "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-  | "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION";
+export enum SignalExternalWorkflowExecutionFailedCause {
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+  SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED = "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED",
+  UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION = "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION",
+}
 
 /**
  * <p>Provides the details of the <code>SignalExternalWorkflowExecutionFailed</code> event.</p>
@@ -2870,18 +2919,19 @@ export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
   control?: string;
 }
 
-export type StartChildWorkflowExecutionFailedCause =
-  | "CHILD_CREATION_RATE_EXCEEDED"
-  | "DEFAULT_CHILD_POLICY_UNDEFINED"
-  | "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-  | "DEFAULT_TASK_LIST_UNDEFINED"
-  | "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-  | "OPEN_CHILDREN_LIMIT_EXCEEDED"
-  | "OPEN_WORKFLOWS_LIMIT_EXCEEDED"
-  | "OPERATION_NOT_PERMITTED"
-  | "WORKFLOW_ALREADY_RUNNING"
-  | "WORKFLOW_TYPE_DEPRECATED"
-  | "WORKFLOW_TYPE_DOES_NOT_EXIST";
+export enum StartChildWorkflowExecutionFailedCause {
+  CHILD_CREATION_RATE_EXCEEDED = "CHILD_CREATION_RATE_EXCEEDED",
+  DEFAULT_CHILD_POLICY_UNDEFINED = "DEFAULT_CHILD_POLICY_UNDEFINED",
+  DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED",
+  DEFAULT_TASK_LIST_UNDEFINED = "DEFAULT_TASK_LIST_UNDEFINED",
+  DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED",
+  OPEN_CHILDREN_LIMIT_EXCEEDED = "OPEN_CHILDREN_LIMIT_EXCEEDED",
+  OPEN_WORKFLOWS_LIMIT_EXCEEDED = "OPEN_WORKFLOWS_LIMIT_EXCEEDED",
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+  WORKFLOW_ALREADY_RUNNING = "WORKFLOW_ALREADY_RUNNING",
+  WORKFLOW_TYPE_DEPRECATED = "WORKFLOW_TYPE_DEPRECATED",
+  WORKFLOW_TYPE_DOES_NOT_EXIST = "WORKFLOW_TYPE_DOES_NOT_EXIST",
+}
 
 /**
  * <p>Provides the details of the <code>StartChildWorkflowExecutionFailed</code> event.</p>
@@ -3023,7 +3073,9 @@ export interface StartChildWorkflowExecutionInitiatedEventAttributes {
   lambdaRole?: string;
 }
 
-export type StartLambdaFunctionFailedCause = "ASSUME_ROLE_FAILED";
+export enum StartLambdaFunctionFailedCause {
+  ASSUME_ROLE_FAILED = "ASSUME_ROLE_FAILED",
+}
 
 /**
  * <p>Provides the details of the <code>StartLambdaFunctionFailed</code> event. It isn't set
@@ -3053,11 +3105,12 @@ export interface StartLambdaFunctionFailedEventAttributes {
   message?: string;
 }
 
-export type StartTimerFailedCause =
-  | "OPEN_TIMERS_LIMIT_EXCEEDED"
-  | "OPERATION_NOT_PERMITTED"
-  | "TIMER_CREATION_RATE_EXCEEDED"
-  | "TIMER_ID_ALREADY_IN_USE";
+export enum StartTimerFailedCause {
+  OPEN_TIMERS_LIMIT_EXCEEDED = "OPEN_TIMERS_LIMIT_EXCEEDED",
+  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
+  TIMER_CREATION_RATE_EXCEEDED = "TIMER_CREATION_RATE_EXCEEDED",
+  TIMER_ID_ALREADY_IN_USE = "TIMER_ID_ALREADY_IN_USE",
+}
 
 /**
  * <p>Provides the details of the <code>StartTimerFailed</code> event.</p>
@@ -3174,7 +3227,9 @@ export interface WorkflowExecutionCanceledEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export type WorkflowExecutionCancelRequestedCause = "CHILD_POLICY_APPLIED";
+export enum WorkflowExecutionCancelRequestedCause {
+  CHILD_POLICY_APPLIED = "CHILD_POLICY_APPLIED",
+}
 
 /**
  * <p>Provides the details of the <code>WorkflowExecutionCancelRequested</code> event.</p>
@@ -3442,7 +3497,11 @@ export interface WorkflowExecutionStartedEventAttributes {
   lambdaRole?: string;
 }
 
-export type WorkflowExecutionTerminatedCause = "CHILD_POLICY_APPLIED" | "EVENT_LIMIT_EXCEEDED" | "OPERATOR_INITIATED";
+export enum WorkflowExecutionTerminatedCause {
+  CHILD_POLICY_APPLIED = "CHILD_POLICY_APPLIED",
+  EVENT_LIMIT_EXCEEDED = "EVENT_LIMIT_EXCEEDED",
+  OPERATOR_INITIATED = "OPERATOR_INITIATED",
+}
 
 /**
  * <p>Provides the details of the <code>WorkflowExecutionTerminated</code> event.</p>
@@ -4376,7 +4435,10 @@ export interface WorkflowExecutionConfiguration {
   lambdaRole?: string;
 }
 
-export type ExecutionStatus = "CLOSED" | "OPEN";
+export enum ExecutionStatus {
+  CLOSED = "CLOSED",
+  OPEN = "OPEN",
+}
 
 /**
  * <p>Contains information about a workflow execution.</p>

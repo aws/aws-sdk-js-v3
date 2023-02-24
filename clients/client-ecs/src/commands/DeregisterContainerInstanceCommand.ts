@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,18 +33,18 @@ export interface DeregisterContainerInstanceCommandOutput
 /**
  * <p>Deregisters an Amazon ECS container instance from the specified cluster. This instance is
  * 			no longer available to run tasks.</p>
- * 		       <p>If you intend to use the container instance for some other purpose after
+ *          <p>If you intend to use the container instance for some other purpose after
  * 			deregistration, we recommend that you stop all of the tasks running on the container
  * 			instance before deregistration. That prevents any orphaned tasks from consuming
  * 			resources.</p>
- * 		       <p>Deregistering a container instance removes the instance from a cluster, but it doesn't
+ *          <p>Deregistering a container instance removes the instance from a cluster, but it doesn't
  * 			terminate the EC2 instance. If you are finished using the instance, be sure to terminate
  * 			it in the Amazon EC2 console to stop billing.</p>
- * 		       <note>
- * 			         <p>If you terminate a running container instance, Amazon ECS automatically deregisters the
+ *          <note>
+ *             <p>If you terminate a running container instance, Amazon ECS automatically deregisters the
  * 				instance from your cluster (stopped container instances or instances with
  * 				disconnected agents aren't automatically deregistered when terminated).</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +68,15 @@ export class DeregisterContainerInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeregisterContainerInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,9 @@ export class DeregisterContainerInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeregisterContainerInstanceCommandInput, DeregisterContainerInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeregisterContainerInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

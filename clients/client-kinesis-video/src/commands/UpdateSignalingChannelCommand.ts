@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
 /**
  * <p>Updates the existing signaling channel. This is an asynchronous operation and takes
  *             time to complete. </p>
- *         <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
+ *          <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
  *             it only applies to new messages sent via this channel after it's been updated. Existing
  *             messages are still expired as per the previous <code>MessageTtlSeconds</code>
  *             value.</p>
@@ -57,6 +58,15 @@ export class UpdateSignalingChannelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateSignalingChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class UpdateSignalingChannelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateSignalingChannelCommandInput, UpdateSignalingChannelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateSignalingChannelCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

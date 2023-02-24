@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteKeyGroupRequest, DeleteKeyGroupRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteKeyGroupRequest, DeleteKeyGroupRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteKeyGroupCommand,
   serializeAws_restXmlDeleteKeyGroupCommand,
@@ -24,12 +25,12 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a key group.</p>
- * 		       <p>You cannot delete a key group that is referenced in a cache behavior. First update
+ *          <p>You cannot delete a key group that is referenced in a cache behavior. First update
  * 			your distributions to remove the key group from all cache behaviors, then delete the key
  * 			group.</p>
- * 		       <p>To delete a key group, you must provide the key group’s identifier and version. To get
+ *          <p>To delete a key group, you must provide the key group's identifier and version. To get
  * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
- * 			<code>GetKeyGroupConfig</code>.</p>
+ * 				<code>GetKeyGroupConfig</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,15 @@ export class DeleteKeyGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class DeleteKeyGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteKeyGroupCommandInput, DeleteKeyGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteKeyGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,16 +32,16 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * <p>Creates a new Amazon ElastiCache cache parameter group. An ElastiCache
  *             cache parameter group is a collection of parameters and their values that are applied to all of the nodes
  *             in any cluster or replication group using the CacheParameterGroup.</p>
- *         <p>A newly created CacheParameterGroup is an exact duplicate of the default parameter group
+ *          <p>A newly created CacheParameterGroup is an exact duplicate of the default parameter group
  *             for the CacheParameterGroupFamily. To customize the newly created CacheParameterGroup you can
  *             change the values of specific parameters. For more information, see:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html">ModifyCacheParameterGroup</a> in the ElastiCache API Reference.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.html">Parameters and Parameter Groups</a> in the ElastiCache User Guide.</p>
  *             </li>
  *          </ul>
@@ -67,6 +68,15 @@ export class CreateCacheParameterGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateCacheParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,9 @@ export class CreateCacheParameterGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateCacheParameterGroupCommandInput, CreateCacheParameterGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateCacheParameterGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

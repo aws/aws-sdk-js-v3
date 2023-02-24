@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,15 +30,15 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
 
 /**
  * <p>Creates a new DB parameter group.</p>
- *         <p>A DB parameter group is initially created with the default parameters for the
+ *          <p>A DB parameter group is initially created with the default parameters for the
  *             database engine used by the DB instance. To provide custom values for any of the
  *             parameters, you must modify the group after creating it using
  *             <code>ModifyDBParameterGroup</code>. Once you've created a DB parameter group, you need to
  *             associate it with your DB instance using <code>ModifyDBInstance</code>. When you associate
  *             a new DB parameter group with a running DB instance, you need to reboot the DB
  *             instance without failover for the new DB parameter group and associated settings to take effect.</p>
- *         <p>This command doesn't apply to RDS Custom.</p>
- *         <important>
+ *          <p>This command doesn't apply to RDS Custom.</p>
+ *          <important>
  *             <p>After you create a DB parameter group, you should wait at least 5 minutes
  *                 before creating your first DB instance that uses that DB parameter group as the default parameter
  *                 group. This allows Amazon RDS to fully complete the create action before the parameter
@@ -47,7 +48,7 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *                 <i>Parameter Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
  *                 <i>DescribeDBParameters</i> command to verify
  *                 that your DB parameter group has been created or modified.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +72,15 @@ export class CreateDBParameterGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +96,9 @@ export class CreateDBParameterGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDBParameterGroupCommandInput, CreateDBParameterGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDBParameterGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

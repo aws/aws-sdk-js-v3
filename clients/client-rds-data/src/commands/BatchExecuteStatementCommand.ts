@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,17 +33,16 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *         <p>You can run bulk update and insert operations for multiple records using a DML
  *             statement with different parameter sets. Bulk operations can provide a significant
  *             performance improvement over individual insert and update operations.</p>
- *         <important>
- *             <p>If a call isn't part of a transaction because it doesn't include the
- *                     <code>transactionID</code> parameter, changes that result from the call are
- *                 committed automatically.</p>
+ *         <note>
+ *             <p>If a call isn't part of a transaction because it doesn't include the <code>transactionID</code> parameter,
+ *                 changes that result from the call are committed automatically.</p>
  *             <p>There isn't a fixed upper limit on the number of parameter sets. However, the maximum size of the HTTP request
  *                 submitted through the Data API is 4 MiB. If the request exceeds this limit, the Data API returns an error and doesn't
  *                 process the request. This 4-MiB limit includes the size of the HTTP headers and the JSON notation in the request. Thus, the
  *                 number of parameter sets that you can include depends on a combination of factors, such as the size of the SQL statement and
  *                 the size of each parameter set.</p>
  *             <p>The response size limit is 1 MiB. If the call returns more than 1 MiB of response data, the call is terminated.</p>
- *         </important>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +66,15 @@ export class BatchExecuteStatementCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +90,9 @@ export class BatchExecuteStatementCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchExecuteStatementCommandInput, BatchExecuteStatementCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchExecuteStatementCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,13 +30,13 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  *       KMS key, and MAC algorithm. To verify the HMAC, <code>VerifyMac</code> computes an HMAC using
  *       the message, HMAC KMS key, and MAC algorithm that you specify, and compares the computed HMAC
  *       to the HMAC that you specify. If the HMACs are identical, the verification succeeds;
- *       otherwise, it fails.</p>
- *
- *          <p>Verification indicates that the message hasn't changed since the HMAC was calculated, and
- *       the specified key was used to generate and verify the HMAC.</p>
+ *       otherwise, it fails. Verification indicates that the message hasn't changed since the HMAC was
+ *       calculated, and the specified key was used to generate and verify the HMAC.</p>
+ *          <p>HMAC KMS keys and the HMAC algorithms that KMS uses conform to industry standards
+ *       defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
  *          <p>This operation is part of KMS support for HMAC KMS keys. For details, see
- *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC keys in KMS</a> in the
+ *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
@@ -66,6 +67,15 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: VerifyMacCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +91,7 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
     options?: __HttpHandlerOptions
   ): Handler<VerifyMacCommandInput, VerifyMacCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, VerifyMacCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

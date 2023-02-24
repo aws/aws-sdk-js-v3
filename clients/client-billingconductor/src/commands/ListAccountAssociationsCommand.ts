@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,14 +29,9 @@ export interface ListAccountAssociationsCommandInput extends ListAccountAssociat
 export interface ListAccountAssociationsCommandOutput extends ListAccountAssociationsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <i>
- *                <b>Amazon Web Services Billing Conductor is in beta release and is subject to change. Your use of Amazon Web Services Billing Conductor is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
- *             </i>
- *          </p>
- *          <p> This is a paginated call to list linked accounts that are linked to the payer account for
+ * <p> This is a paginated call to list linked accounts that are linked to the payer account for
  *       the specified time period. If no information is provided, the current billing period is used.
- *       The response will optionally include the billing group associated with the linked
+ *       The response will optionally include the billing group that's associated with the linked
  *       account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +56,15 @@ export class ListAccountAssociationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListAccountAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +80,9 @@ export class ListAccountAssociationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAccountAssociationsCommandInput, ListAccountAssociationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListAccountAssociationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

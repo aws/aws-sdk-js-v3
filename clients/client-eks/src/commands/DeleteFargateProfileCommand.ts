@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,11 +30,11 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
 
 /**
  * <p>Deletes an Fargate profile.</p>
- *         <p>When you delete a Fargate profile, any pods running on Fargate that were created with the profile are deleted. If those pods match
+ *          <p>When you delete a Fargate profile, any pods running on Fargate that were created with the profile are deleted. If those pods match
  *             another Fargate profile, then they are scheduled on Fargate with that profile. If they no longer match any Fargate profiles, then
  *             they are not scheduled on Fargate and they may remain in a pending
  *             state.</p>
- *         <p>Only one Fargate profile in a cluster can be in the
+ *          <p>Only one Fargate profile in a cluster can be in the
  *                 <code>DELETING</code> status at a time. You must wait for a Fargate
  *             profile to finish deleting before you can delete any other profiles in that
  *             cluster.</p>
@@ -60,6 +61,15 @@ export class DeleteFargateProfileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteFargateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class DeleteFargateProfileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteFargateProfileCommandInput, DeleteFargateProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteFargateProfileCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

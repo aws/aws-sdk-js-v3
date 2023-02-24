@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
 
 /**
  * <p>Delete an Amazon EKS add-on.</p>
- *         <p>When you remove the add-on, it will also be deleted from the cluster. You can always
+ *          <p>When you remove the add-on, it will also be deleted from the cluster. You can always
  *             manually start an add-on on the cluster using the Kubernetes API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +55,15 @@ export class DeleteAddonCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteAddonCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,7 @@ export class DeleteAddonCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteAddonCommandInput, DeleteAddonCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteAddonCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

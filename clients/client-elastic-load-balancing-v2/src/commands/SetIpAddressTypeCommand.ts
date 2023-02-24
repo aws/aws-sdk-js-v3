@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,8 +33,7 @@ export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeInput {}
 export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Sets the type of IP addresses used by the subnets of the specified Application Load
- *       Balancer or Network Load Balancer.</p>
+ * <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +57,15 @@ export class SetIpAddressTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SetIpAddressTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +81,9 @@ export class SetIpAddressTypeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SetIpAddressTypeCommandInput, SetIpAddressTypeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SetIpAddressTypeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

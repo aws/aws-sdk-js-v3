@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,16 +33,13 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  *       requesting speech synthesis. Each voice speaks a specified language, is
  *       either male or female, and is identified by an ID, which is the ASCII
  *       version of the voice name. </p>
- *
  *          <p>When synthesizing speech ( <code>SynthesizeSpeech</code> ), you
  *       provide the voice ID for the voice you want from the list of voices
  *       returned by <code>DescribeVoices</code>.</p>
- *
  *          <p>For example, you want your news reader application to read news in
  *       a specific language, but giving a user the option to choose the voice.
  *       Using the <code>DescribeVoices</code> operation you can provide the user
  *       with a list of available voices to select from.</p>
- *
  *          <p> You can optionally specify a language code to filter the available
  *       voices. For example, if you specify <code>en-US</code>, the operation
  *       returns a list of all available US English voices. </p>
@@ -70,6 +68,15 @@ export class DescribeVoicesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeVoicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +92,9 @@ export class DescribeVoicesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeVoicesCommandInput, DescribeVoicesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeVoicesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

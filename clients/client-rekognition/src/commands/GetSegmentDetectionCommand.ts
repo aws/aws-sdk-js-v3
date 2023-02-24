@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -49,7 +50,6 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  *       a pagination token for getting the next set of results. To get the next page of results, call <code>GetSegmentDetection</code>
  *       and populate the <code>NextToken</code> request parameter with the token value returned from the previous
  *       call to <code>GetSegmentDetection</code>.</p>
- *
  *          <p>For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +74,15 @@ export class GetSegmentDetectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetSegmentDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,6 +98,9 @@ export class GetSegmentDetectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetSegmentDetectionCommandInput, GetSegmentDetectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetSegmentDetectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

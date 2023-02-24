@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  * <p>Gets a list of all of the context keys referenced in the input policies. The policies
  *             are supplied as a list of one or more strings. To get the context keys from policies
  *             associated with an IAM user, group, or role, use <a>GetContextKeysForPrincipalPolicy</a>.</p>
- *         <p>Context keys are variables maintained by Amazon Web Services and its services that provide details
+ *          <p>Context keys are variables maintained by Amazon Web Services and its services that provide details
  *             about the context of an API query request. Context keys can be evaluated by testing
  *             against a value specified in an IAM policy. Use
  *                 <code>GetContextKeysForCustomPolicy</code> to understand what key names and values
@@ -61,6 +62,15 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetContextKeysForCustomPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetContextKeysForCustomPolicyCommandInput, GetContextKeysForCustomPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetContextKeysForCustomPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

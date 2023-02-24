@@ -1,7 +1,9 @@
 import { memoize } from "@aws-sdk/property-provider";
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
 import {
-  Credentials,
+  AuthScheme,
+  AwsCredentialIdentity,
+  ChecksumConstructor,
   HashConstructor,
   Logger,
   MemoizedProvider,
@@ -10,6 +12,7 @@ import {
   RegionInfoProvider,
   RequestSigner,
 } from "@aws-sdk/types";
+import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 // 5 minutes buffer time the refresh the credential before it really expires
 const CREDENTIAL_EXPIRE_WINDOW = 300000;
@@ -22,12 +25,12 @@ export interface AwsAuthInputConfig {
   /**
    * The credentials used to sign requests.
    */
-  credentials?: Credentials | Provider<Credentials>;
+  credentials?: AwsCredentialIdentity | Provider<AwsCredentialIdentity>;
 
   /**
    * The signer to use when signing requests.
    */
-  signer?: RequestSigner | Provider<RequestSigner>;
+  signer?: RequestSigner | ((authScheme?: AuthScheme) => Promise<RequestSigner>);
 
   /**
    * Whether to escape request path when signing the request.
@@ -57,12 +60,12 @@ export interface SigV4AuthInputConfig {
   /**
    * The credentials used to sign requests.
    */
-  credentials?: Credentials | Provider<Credentials>;
+  credentials?: AwsCredentialIdentity | Provider<AwsCredentialIdentity>;
 
   /**
    * The signer to use when signing requests.
    */
-  signer?: RequestSigner | Provider<RequestSigner>;
+  signer?: RequestSigner | ((authScheme?: AuthScheme) => Promise<RequestSigner>);
 
   /**
    * Whether to escape request path when signing the request.
@@ -76,21 +79,22 @@ export interface SigV4AuthInputConfig {
 }
 
 interface PreviouslyResolved {
-  credentialDefaultProvider: (input: any) => MemoizedProvider<Credentials>;
+  credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
-  regionInfoProvider: RegionInfoProvider;
+  regionInfoProvider?: RegionInfoProvider;
   signingName?: string;
+  defaultSigningName?: string;
   serviceId: string;
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
   useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 }
 
 interface SigV4PreviouslyResolved {
-  credentialDefaultProvider: (input: any) => MemoizedProvider<Credentials>;
+  credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
   signingName: string;
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
   logger?: Logger;
 }
 
@@ -100,11 +104,11 @@ export interface AwsAuthResolvedConfig {
    * This provider MAY memoize the loaded credentials for certain period.
    * See {@link MemoizedProvider} for more information.
    */
-  credentials: MemoizedProvider<Credentials>;
+  credentials: MemoizedProvider<AwsCredentialIdentity>;
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.signer}
    */
-  signer: Provider<RequestSigner>;
+  signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.signingEscapePath}
    */
@@ -124,18 +128,19 @@ export const resolveAwsAuthConfig = <T>(
     ? normalizeCredentialProvider(input.credentials)
     : input.credentialDefaultProvider(input as any);
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
-  let signer: Provider<RequestSigner>;
+  let signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
   if (input.signer) {
-    //if signer is supplied by user, normalize it to a function returning a promise for signer.
+    // if signer is supplied by user, normalize it to a function returning a promise for signer.
     signer = normalizeProvider(input.signer);
-  } else {
-    //construct a provider inferring signing from region.
+  } else if (input.regionInfoProvider) {
+    // This branch is for endpoints V1.
+    // construct a provider inferring signing from region.
     signer = () =>
       normalizeProvider(input.region)()
         .then(
           async (region) =>
             [
-              (await input.regionInfoProvider(region, {
+              (await input.regionInfoProvider!(region, {
                 useFipsEndpoint: await input.useFipsEndpoint(),
                 useDualstackEndpoint: await input.useDualstackEndpoint(),
               })) || {},
@@ -144,11 +149,11 @@ export const resolveAwsAuthConfig = <T>(
         )
         .then(([regionInfo, region]) => {
           const { signingRegion, signingService } = regionInfo;
-          //update client's singing region and signing service config if they are resolved.
-          //signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
+          // update client's singing region and signing service config if they are resolved.
+          // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
           input.signingRegion = input.signingRegion || signingRegion || region;
-          //signing name resolving order:
-          //user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
+          // signing name resolving order:
+          // user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
           input.signingName = input.signingName || signingService || input.serviceId;
 
           const params: SignatureV4Init & SignatureV4CryptoInit = {
@@ -159,9 +164,46 @@ export const resolveAwsAuthConfig = <T>(
             sha256,
             uriEscapePath: signingEscapePath,
           };
-          const signerConstructor = input.signerConstructor || SignatureV4;
-          return new signerConstructor(params);
+          const SignerCtor = input.signerConstructor || SignatureV4;
+          return new SignerCtor(params);
         });
+  } else {
+    // This branch is for endpoints V2.
+    // Handle endpoints v2 that resolved per-command
+    // TODO: need total refactor for reference auth architecture.
+    signer = async (authScheme?: AuthScheme) => {
+      authScheme = Object.assign(
+        {},
+        {
+          name: "sigv4",
+          signingName: input.signingName || input.defaultSigningName!,
+          signingRegion: await normalizeProvider(input.region)(),
+          properties: {},
+        },
+        authScheme
+      );
+
+      const signingRegion = authScheme.signingRegion;
+      const signingService = authScheme.signingName;
+      // update client's singing region and signing service config if they are resolved.
+      // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
+      input.signingRegion = input.signingRegion || signingRegion;
+      // signing name resolving order:
+      // user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
+      input.signingName = input.signingName || signingService || input.serviceId;
+
+      const params: SignatureV4Init & SignatureV4CryptoInit = {
+        ...input,
+        credentials: normalizedCreds,
+        region: input.signingRegion,
+        service: input.signingName,
+        sha256,
+        uriEscapePath: signingEscapePath,
+      };
+
+      const SignerCtor = input.signerConstructor || SignatureV4;
+      return new SignerCtor(params);
+    };
   }
 
   return {
@@ -183,7 +225,7 @@ export const resolveSigV4AuthConfig = <T>(
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: Provider<RequestSigner>;
   if (input.signer) {
-    //if signer is supplied by user, normalize it to a function returning a promise for signer.
+    // if signer is supplied by user, normalize it to a function returning a promise for signer.
     signer = normalizeProvider(input.signer);
   } else {
     signer = normalizeProvider(
@@ -196,7 +238,6 @@ export const resolveSigV4AuthConfig = <T>(
       })
     );
   }
-
   return {
     ...input,
     systemClockOffset,
@@ -206,17 +247,9 @@ export const resolveSigV4AuthConfig = <T>(
   };
 };
 
-const normalizeProvider = <T>(input: T | Provider<T>): Provider<T> => {
-  if (typeof input === "object") {
-    const promisified = Promise.resolve(input);
-    return () => promisified;
-  }
-  return input as Provider<T>;
-};
-
 const normalizeCredentialProvider = (
-  credentials: Credentials | Provider<Credentials>
-): MemoizedProvider<Credentials> => {
+  credentials: AwsCredentialIdentity | Provider<AwsCredentialIdentity>
+): MemoizedProvider<AwsCredentialIdentity> => {
   if (typeof credentials === "function") {
     return memoize(
       credentials,

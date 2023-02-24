@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,6 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified mount target.</p>
- *
  *          <p>This operation forcibly breaks any mounts of the file system by using the mount target
  *       that is being deleted, which might disrupt instances or applications using those mounts. To
  *       avoid applications getting cut off abruptly, you might consider unmounting any mounts of the
@@ -41,13 +41,11 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>The <code>DeleteMountTarget</code> call returns while the mount target state is still
  *           <code>deleting</code>. You can check the mount target deletion by calling the <a>DescribeMountTargets</a> operation, which returns a list of mount target
  *         descriptions for the given file system. </p>
  *          </note>
- *
  *          <p>The operation also requires permissions for the following Amazon EC2 action on the
  *       mount target's network interface:</p>
  *          <ul>
@@ -80,6 +78,15 @@ export class DeleteMountTargetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteMountTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,6 +102,9 @@ export class DeleteMountTargetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteMountTargetCommandInput, DeleteMountTargetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteMountTargetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

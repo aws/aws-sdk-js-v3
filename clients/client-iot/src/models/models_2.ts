@@ -52,12 +52,152 @@ import {
   GroupNameAndArn,
   LogTargetType,
   RegistrationConfig,
+  SecurityProfileTarget,
   Status,
+  StreamSummary,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+export interface ListStreamsResponse {
+  /**
+   * <p>A list of streams.</p>
+   */
+  streams?: StreamSummary[];
+
+  /**
+   * <p>A token used to get the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The list of tags assigned to the resource.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListTargetsForPolicyRequest {
+  /**
+   * <p>The policy name.</p>
+   */
+  policyName: string | undefined;
+
+  /**
+   * <p>A marker used to get the next set of results.</p>
+   */
+  marker?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  pageSize?: number;
+}
+
+export interface ListTargetsForPolicyResponse {
+  /**
+   * <p>The policy targets.</p>
+   */
+  targets?: string[];
+
+  /**
+   * <p>A marker used to get the next set of results.</p>
+   */
+  nextMarker?: string;
+}
+
+export interface ListTargetsForSecurityProfileRequest {
+  /**
+   * <p>The security profile.</p>
+   */
+  securityProfileName: string | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+export interface ListTargetsForSecurityProfileResponse {
+  /**
+   * <p>The thing groups to which the security profile is attached.</p>
+   */
+  securityProfileTargets?: SecurityProfileTarget[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListThingGroupsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A filter that limits the results to those with the specified parent group.</p>
+   */
+  parentGroup?: string;
+
+  /**
+   * <p>A filter that limits the results to those with the specified name prefix.</p>
+   */
+  namePrefixFilter?: string;
+
+  /**
+   * <p>If true, return child groups as well.</p>
+   */
+  recursive?: boolean;
+}
+
+export interface ListThingGroupsResponse {
+  /**
+   * <p>The thing groups.</p>
+   */
+  thingGroups?: GroupNameAndArn[];
+
+  /**
+   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
+   */
+  nextToken?: string;
+}
 
 export interface ListThingGroupsForThingRequest {
   /**
@@ -238,7 +378,7 @@ export interface ListThingsRequest {
   /**
    * <p>When <code>true</code>, the action returns the thing resources with attribute values
    *                      that start with the <code>attributeValue</code> provided.</p>
-   *             <p>When <code>false</code>, or not present, the action returns only the thing
+   *          <p>When <code>false</code>, or not present, the action returns only the thing
    * 			resources with attribute values that match the entire <code>attributeValue</code>
    * 			provided. </p>
    */
@@ -1817,15 +1957,15 @@ export interface UpdateAccountAuditConfigurationRequest {
    * <p>Specifies which audit checks are enabled and disabled for this account. Use
    *             <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those
    *             that are currently enabled.</p>
-   *           <p>Some data collection might start immediately when certain checks are enabled.
+   *          <p>Some data collection might start immediately when certain checks are enabled.
    *             When a check is disabled, any data collected so far in relation to the check is deleted.</p>
-   *           <p>You
+   *          <p>You
    *       cannot
    *       disable a check if
    *       it's
    *       used by any scheduled audit. You must first delete the check from the scheduled audit or
    *       delete the scheduled audit itself.</p>
-   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *          <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
    *             this parameter is required and must specify at least one enabled check.</p>
    */
   auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
@@ -2164,9 +2304,9 @@ export interface UpdateDynamicThingGroupRequest {
 
   /**
    * <p>The dynamic thing group index to update.</p>
-   * 		       <note>
-   * 			         <p>Currently one index is supported: <code>AWS_Things</code>.</p>
-   * 		       </note>
+   *          <note>
+   *             <p>Currently one index is supported: <code>AWS_Things</code>.</p>
+   *          </note>
    */
   indexName?: string;
 
@@ -2177,10 +2317,10 @@ export interface UpdateDynamicThingGroupRequest {
 
   /**
    * <p>The dynamic thing group query version to update.</p>
-   * 		       <note>
-   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
+   *          <note>
+   *             <p>Currently one query version is supported: "2017-09-30". If not specified, the
    * 				query version defaults to this value.</p>
-   * 		       </note>
+   *          </note>
    */
   queryVersion?: string;
 }
@@ -2302,12 +2442,12 @@ export interface UpdateJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -2379,7 +2519,9 @@ export interface UpdateProvisioningTemplateRequest {
   provisioningRoleArn?: string;
 
   /**
-   * <p>Updates the pre-provisioning hook template.</p>
+   * <p>Updates the pre-provisioning hook template. Only supports template of type
+   *             <code>FLEET_PROVISIONING</code>. For more information about provisioning template types,
+   *          see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type">type</a>.</p>
    */
   preProvisioningHook?: ProvisioningHook;
 
@@ -2654,7 +2796,7 @@ export interface UpdateStreamResponse {
 export interface UpdateThingRequest {
   /**
    * <p>The name of the thing to update.</p>
-   * 		       <p>You can't change a thing's name. To change a thing's name, you must create a
+   *          <p>You can't change a thing's name. To change a thing's name, you must create a
    * 			new thing, give it the new name, and then delete the old thing.</p>
    */
   thingName: string | undefined;
@@ -2667,10 +2809,10 @@ export interface UpdateThingRequest {
   /**
    * <p>A list of thing attributes, a JSON string containing name-value pairs. For
    * 			example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"name1\":\"value2\"}}</code>
-   * 		       </p>
-   * 		       <p>This data is used to add new attributes or update existing attributes.</p>
+   *          <p>
+   *             <code>{\"attributes\":{\"name1\":\"value2\"}}</code>
+   *          </p>
+   *          <p>This data is used to add new attributes or update existing attributes.</p>
    */
   attributePayload?: AttributePayload;
 
@@ -2819,6 +2961,73 @@ export interface ValidateSecurityProfileBehaviorsResponse {
    */
   validationErrors?: ValidationError[];
 }
+
+/**
+ * @internal
+ */
+export const ListStreamsResponseFilterSensitiveLog = (obj: ListStreamsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForPolicyRequestFilterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForPolicyResponseFilterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForSecurityProfileRequestFilterSensitiveLog = (
+  obj: ListTargetsForSecurityProfileRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForSecurityProfileResponseFilterSensitiveLog = (
+  obj: ListTargetsForSecurityProfileResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThingGroupsRequestFilterSensitiveLog = (obj: ListThingGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThingGroupsResponseFilterSensitiveLog = (obj: ListThingGroupsResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

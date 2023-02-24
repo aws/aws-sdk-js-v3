@@ -87,6 +87,7 @@ import { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "../
 import { KinesisServiceException as __BaseException } from "../models/KinesisServiceException";
 import {
   _Record,
+  AccessDeniedException,
   AddTagsToStreamInput,
   ChildShard,
   Consumer,
@@ -156,6 +157,7 @@ import {
   StreamDescription,
   StreamDescriptionSummary,
   StreamModeDetails,
+  StreamSummary,
   SubscribeToShardEvent,
   SubscribeToShardEventStream,
   SubscribeToShardInput,
@@ -563,10 +565,13 @@ const deserializeAws_json1_1AddTagsToStreamCommandError = async (
 ): Promise<AddTagsToStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -610,7 +615,7 @@ const deserializeAws_json1_1CreateStreamCommandError = async (
 ): Promise<CreateStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -654,10 +659,13 @@ const deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError = async (
 ): Promise<DecreaseStreamRetentionPeriodCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -701,10 +709,16 @@ const deserializeAws_json1_1DeleteStreamCommandError = async (
 ): Promise<DeleteStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
+      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kinesis#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
@@ -745,7 +759,7 @@ const deserializeAws_json1_1DeregisterStreamConsumerCommandError = async (
 ): Promise<DeregisterStreamConsumerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -792,7 +806,7 @@ const deserializeAws_json1_1DescribeLimitsCommandError = async (
 ): Promise<DescribeLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -833,10 +847,16 @@ const deserializeAws_json1_1DescribeStreamCommandError = async (
 ): Promise<DescribeStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
+      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kinesis#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
@@ -877,7 +897,7 @@ const deserializeAws_json1_1DescribeStreamConsumerCommandError = async (
 ): Promise<DescribeStreamConsumerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -924,10 +944,16 @@ const deserializeAws_json1_1DescribeStreamSummaryCommandError = async (
 ): Promise<DescribeStreamSummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
+      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kinesis#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
@@ -968,10 +994,13 @@ const deserializeAws_json1_1DisableEnhancedMonitoringCommandError = async (
 ): Promise<DisableEnhancedMonitoringCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1018,10 +1047,13 @@ const deserializeAws_json1_1EnableEnhancedMonitoringCommandError = async (
 ): Promise<EnableEnhancedMonitoringCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1068,10 +1100,13 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
 ): Promise<GetRecordsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ExpiredIteratorException":
     case "com.amazonaws.kinesis#ExpiredIteratorException":
       throw await deserializeAws_json1_1ExpiredIteratorExceptionResponse(parsedOutput, context);
@@ -1136,10 +1171,13 @@ const deserializeAws_json1_1GetShardIteratorCommandError = async (
 ): Promise<GetShardIteratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1180,10 +1218,13 @@ const deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError = async (
 ): Promise<IncreaseStreamRetentionPeriodCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1230,10 +1271,13 @@ const deserializeAws_json1_1ListShardsCommandError = async (
 ): Promise<ListShardsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ExpiredNextTokenException":
     case "com.amazonaws.kinesis#ExpiredNextTokenException":
       throw await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(parsedOutput, context);
@@ -1283,7 +1327,7 @@ const deserializeAws_json1_1ListStreamConsumersCommandError = async (
 ): Promise<ListStreamConsumersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1336,10 +1380,16 @@ const deserializeAws_json1_1ListStreamsCommandError = async (
 ): Promise<ListStreamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ExpiredNextTokenException":
+    case "com.amazonaws.kinesis#ExpiredNextTokenException":
+      throw await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
+      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kinesis#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
@@ -1377,10 +1427,13 @@ const deserializeAws_json1_1ListTagsForStreamCommandError = async (
 ): Promise<ListTagsForStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1421,10 +1474,13 @@ const deserializeAws_json1_1MergeShardsCommandError = async (
 ): Promise<MergeShardsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1474,10 +1530,13 @@ const deserializeAws_json1_1PutRecordCommandError = async (
 ): Promise<PutRecordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1539,10 +1598,13 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
 ): Promise<PutRecordsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1604,7 +1666,7 @@ const deserializeAws_json1_1RegisterStreamConsumerCommandError = async (
 ): Promise<RegisterStreamConsumerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1651,10 +1713,13 @@ const deserializeAws_json1_1RemoveTagsFromStreamCommandError = async (
 ): Promise<RemoveTagsFromStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1698,10 +1763,13 @@ const deserializeAws_json1_1SplitShardCommandError = async (
 ): Promise<SplitShardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1748,10 +1816,13 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
 ): Promise<StartStreamEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1813,10 +1884,13 @@ const deserializeAws_json1_1StopStreamEncryptionCommandError = async (
 ): Promise<StopStreamEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1861,10 +1935,13 @@ const deserializeAws_json1_1SubscribeToShardCommandError = async (
 ): Promise<SubscribeToShardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1911,10 +1988,13 @@ const deserializeAws_json1_1UpdateShardCountCommandError = async (
 ): Promise<UpdateShardCountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesis#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
@@ -1961,7 +2041,7 @@ const deserializeAws_json1_1UpdateStreamModeCommandError = async (
 ): Promise<UpdateStreamModeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1986,6 +2066,19 @@ const deserializeAws_json1_1UpdateStreamModeCommandError = async (
         errorCode,
       });
   }
+};
+
+const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ExpiredIteratorExceptionResponse = async (
@@ -2369,6 +2462,7 @@ const deserializeAws_json1_1InternalFailureExceptionResponse = async (
 
 const serializeAws_json1_1AddTagsToStreamInput = (input: AddTagsToStreamInput, context: __SerdeContext): any => {
   return {
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
   };
@@ -2390,6 +2484,7 @@ const serializeAws_json1_1DecreaseStreamRetentionPeriodInput = (
 ): any => {
   return {
     ...(input.RetentionPeriodHours != null && { RetentionPeriodHours: input.RetentionPeriodHours }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2397,6 +2492,7 @@ const serializeAws_json1_1DecreaseStreamRetentionPeriodInput = (
 const serializeAws_json1_1DeleteStreamInput = (input: DeleteStreamInput, context: __SerdeContext): any => {
   return {
     ...(input.EnforceConsumerDeletion != null && { EnforceConsumerDeletion: input.EnforceConsumerDeletion }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2431,6 +2527,7 @@ const serializeAws_json1_1DescribeStreamInput = (input: DescribeStreamInput, con
   return {
     ...(input.ExclusiveStartShardId != null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
     ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2440,6 +2537,7 @@ const serializeAws_json1_1DescribeStreamSummaryInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2452,6 +2550,7 @@ const serializeAws_json1_1DisableEnhancedMonitoringInput = (
     ...(input.ShardLevelMetrics != null && {
       ShardLevelMetrics: serializeAws_json1_1MetricsNameList(input.ShardLevelMetrics, context),
     }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2464,6 +2563,7 @@ const serializeAws_json1_1EnableEnhancedMonitoringInput = (
     ...(input.ShardLevelMetrics != null && {
       ShardLevelMetrics: serializeAws_json1_1MetricsNameList(input.ShardLevelMetrics, context),
     }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2472,6 +2572,7 @@ const serializeAws_json1_1GetRecordsInput = (input: GetRecordsInput, context: __
   return {
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.ShardIterator != null && { ShardIterator: input.ShardIterator }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
   };
 };
 
@@ -2480,6 +2581,7 @@ const serializeAws_json1_1GetShardIteratorInput = (input: GetShardIteratorInput,
     ...(input.ShardId != null && { ShardId: input.ShardId }),
     ...(input.ShardIteratorType != null && { ShardIteratorType: input.ShardIteratorType }),
     ...(input.StartingSequenceNumber != null && { StartingSequenceNumber: input.StartingSequenceNumber }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
     ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
   };
@@ -2491,6 +2593,7 @@ const serializeAws_json1_1IncreaseStreamRetentionPeriodInput = (
 ): any => {
   return {
     ...(input.RetentionPeriodHours != null && { RetentionPeriodHours: input.RetentionPeriodHours }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2501,6 +2604,7 @@ const serializeAws_json1_1ListShardsInput = (input: ListShardsInput, context: __
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ShardFilter != null && { ShardFilter: serializeAws_json1_1ShardFilter(input.ShardFilter, context) }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamCreationTimestamp != null && {
       StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
     }),
@@ -2526,6 +2630,7 @@ const serializeAws_json1_1ListStreamsInput = (input: ListStreamsInput, context: 
   return {
     ...(input.ExclusiveStartStreamName != null && { ExclusiveStartStreamName: input.ExclusiveStartStreamName }),
     ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2533,6 +2638,7 @@ const serializeAws_json1_1ListTagsForStreamInput = (input: ListTagsForStreamInpu
   return {
     ...(input.ExclusiveStartTagKey != null && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
     ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2541,6 +2647,7 @@ const serializeAws_json1_1MergeShardsInput = (input: MergeShardsInput, context: 
   return {
     ...(input.AdjacentShardToMerge != null && { AdjacentShardToMerge: input.AdjacentShardToMerge }),
     ...(input.ShardToMerge != null && { ShardToMerge: input.ShardToMerge }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2559,6 +2666,7 @@ const serializeAws_json1_1PutRecordInput = (input: PutRecordInput, context: __Se
     ...(input.ExplicitHashKey != null && { ExplicitHashKey: input.ExplicitHashKey }),
     ...(input.PartitionKey != null && { PartitionKey: input.PartitionKey }),
     ...(input.SequenceNumberForOrdering != null && { SequenceNumberForOrdering: input.SequenceNumberForOrdering }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2566,6 +2674,7 @@ const serializeAws_json1_1PutRecordInput = (input: PutRecordInput, context: __Se
 const serializeAws_json1_1PutRecordsInput = (input: PutRecordsInput, context: __SerdeContext): any => {
   return {
     ...(input.Records != null && { Records: serializeAws_json1_1PutRecordsRequestEntryList(input.Records, context) }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2604,6 +2713,7 @@ const serializeAws_json1_1RemoveTagsFromStreamInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
     ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
@@ -2621,6 +2731,7 @@ const serializeAws_json1_1SplitShardInput = (input: SplitShardInput, context: __
   return {
     ...(input.NewStartingHashKey != null && { NewStartingHashKey: input.NewStartingHashKey }),
     ...(input.ShardToSplit != null && { ShardToSplit: input.ShardToSplit }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2640,6 +2751,7 @@ const serializeAws_json1_1StartStreamEncryptionInput = (
   return {
     ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
     ...(input.KeyId != null && { KeyId: input.KeyId }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2651,6 +2763,7 @@ const serializeAws_json1_1StopStreamEncryptionInput = (
   return {
     ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
     ...(input.KeyId != null && { KeyId: input.KeyId }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
@@ -2684,16 +2797,15 @@ const serializeAws_json1_1TagMap = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
 const serializeAws_json1_1UpdateShardCountInput = (input: UpdateShardCountInput, context: __SerdeContext): any => {
   return {
     ...(input.ScalingType != null && { ScalingType: input.ScalingType }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
     ...(input.TargetShardCount != null && { TargetShardCount: input.TargetShardCount }),
   };
@@ -2706,6 +2818,12 @@ const serializeAws_json1_1UpdateStreamModeInput = (input: UpdateStreamModeInput,
       StreamModeDetails: serializeAws_json1_1StreamModeDetails(input.StreamModeDetails, context),
     }),
   };
+};
+
+const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
 };
 
 const deserializeAws_json1_1ChildShard = (output: any, context: __SerdeContext): ChildShard => {
@@ -2843,6 +2961,7 @@ const deserializeAws_json1_1EnhancedMonitoringOutput = (
       output.DesiredShardLevelMetrics != null
         ? deserializeAws_json1_1MetricsNameList(output.DesiredShardLevelMetrics, context)
         : undefined,
+    StreamARN: __expectString(output.StreamARN),
     StreamName: __expectString(output.StreamName),
   } as any;
 };
@@ -2974,8 +3093,13 @@ const deserializeAws_json1_1ListStreamConsumersOutput = (
 const deserializeAws_json1_1ListStreamsOutput = (output: any, context: __SerdeContext): ListStreamsOutput => {
   return {
     HasMoreStreams: __expectBoolean(output.HasMoreStreams),
+    NextToken: __expectString(output.NextToken),
     StreamNames:
       output.StreamNames != null ? deserializeAws_json1_1StreamNameList(output.StreamNames, context) : undefined,
+    StreamSummaries:
+      output.StreamSummaries != null
+        ? deserializeAws_json1_1StreamSummaryList(output.StreamSummaries, context)
+        : undefined,
   } as any;
 };
 
@@ -3216,6 +3340,34 @@ const deserializeAws_json1_1StreamNameList = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_json1_1StreamSummary = (output: any, context: __SerdeContext): StreamSummary => {
+  return {
+    StreamARN: __expectString(output.StreamARN),
+    StreamCreationTimestamp:
+      output.StreamCreationTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StreamCreationTimestamp)))
+        : undefined,
+    StreamModeDetails:
+      output.StreamModeDetails != null
+        ? deserializeAws_json1_1StreamModeDetails(output.StreamModeDetails, context)
+        : undefined,
+    StreamName: __expectString(output.StreamName),
+    StreamStatus: __expectString(output.StreamStatus),
+  } as any;
+};
+
+const deserializeAws_json1_1StreamSummaryList = (output: any, context: __SerdeContext): StreamSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1StreamSummary(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1SubscribeToShardEvent = (output: any, context: __SerdeContext): SubscribeToShardEvent => {
   return {
     ChildShards:
@@ -3248,6 +3400,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 const deserializeAws_json1_1UpdateShardCountOutput = (output: any, context: __SerdeContext): UpdateShardCountOutput => {
   return {
     CurrentShardCount: __expectInt32(output.CurrentShardCount),
+    StreamARN: __expectString(output.StreamARN),
     StreamName: __expectString(output.StreamName),
     TargetShardCount: __expectInt32(output.TargetShardCount),
   } as any;
@@ -3261,7 +3414,8 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3311,6 +3465,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3321,6 +3481,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

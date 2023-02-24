@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   DeleteVpcEndpointsRequestFilterSensitiveLog,
   DeleteVpcEndpointsResult,
   DeleteVpcEndpointsResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteVpcEndpointsCommand,
   serializeAws_ec2DeleteVpcEndpointsCommand,
@@ -28,31 +29,11 @@ export interface DeleteVpcEndpointsCommandInput extends DeleteVpcEndpointsReques
 export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints.  </p>
- *         <ul>
- *             <li>
- *                <p>Gateway endpoint,</p>
- *             </li>
- *             <li>
- *                <p>Gateway Load Balancer endpoint,</p>
- *             </li>
- *             <li>
- *                <p>Interface endpoint</p>
- *             </li>
- *          </ul>
- *         <p>The following rules apply when you delete a VPC endpoint:</p>
- *         <ul>
- *             <li>
- *                 <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p>
- *             </li>
- *             <li>
- *                 <p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p>
- *                 <p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
- *             </li>
- *             <li>
- *                 <p>When you delete an interface endpoint, we delete the  endpoint network interfaces.</p>
- *             </li>
- *          </ul>
+ * <p>Deletes the specified VPC endpoints.</p>
+ *          <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p>
+ *          <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
+ *           You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
+ *          <p>When you delete an interface endpoint, we delete its endpoint network interfaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +57,15 @@ export class DeleteVpcEndpointsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +81,9 @@ export class DeleteVpcEndpointsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteVpcEndpointsCommandInput, DeleteVpcEndpointsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteVpcEndpointsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

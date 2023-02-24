@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -209,18 +209,20 @@
       }
     },
     "com.amazonaws.memorydb#AZStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "singleaz",
-            "name": "SingleAZ"
-          },
-          {
-            "value": "multiaz",
-            "name": "MultiAZ"
+      "type": "enum",
+      "members": {
+        "SingleAZ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "singleaz"
           }
-        ]
+        },
+        "MultiAZ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "multiaz"
+          }
+        }
       }
     },
     "com.amazonaws.memorydb#AccessString": {
@@ -294,6 +296,12 @@
           "target": "com.amazonaws.memorydb#DescribeParameters"
         },
         {
+          "target": "com.amazonaws.memorydb#DescribeReservedNodes"
+        },
+        {
+          "target": "com.amazonaws.memorydb#DescribeReservedNodesOfferings"
+        },
+        {
           "target": "com.amazonaws.memorydb#DescribeServiceUpdates"
         },
         {
@@ -313,6 +321,9 @@
         },
         {
           "target": "com.amazonaws.memorydb#ListTags"
+        },
+        {
+          "target": "com.amazonaws.memorydb#PurchaseReservedNodesOffering"
         },
         {
           "target": "com.amazonaws.memorydb#ResetParameterGroup"
@@ -355,6 +366,1420 @@
         "smithy.api#title": "Amazon MemoryDB",
         "smithy.api#xmlNamespace": {
           "uri": "http://memorydb.amazonaws.com/doc/2021-01-01/"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": true,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://memory-db-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://memory-db-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://memory-db.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "fips"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://memory-db-fips.us-west-1.amazonaws.com",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://memory-db.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ca-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ca-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ca-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ca-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-north-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-north-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-north-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-north-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "sa-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "sa-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "sa-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "sa-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "cn-north-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "cn-north-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "cn-north-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "cn-north-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "cn-northwest-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db-fips.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "cn-northwest-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "cn-northwest-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://memory-db.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "cn-northwest-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
         }
       }
     },
@@ -399,18 +1824,20 @@
       }
     },
     "com.amazonaws.memorydb#AuthenticationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "password",
-            "name": "PASSWORD"
-          },
-          {
-            "value": "no-password",
-            "name": "NO_PASSWORD"
+      "type": "enum",
+      "members": {
+        "PASSWORD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "password"
           }
-        ]
+        },
+        "NO_PASSWORD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "no-password"
+          }
+        }
       }
     },
     "com.amazonaws.memorydb#AvailabilityZone": {
@@ -486,13 +1913,13 @@
       }
     },
     "com.amazonaws.memorydb#Boolean": {
-      "type": "boolean"
-    },
-    "com.amazonaws.memorydb#BooleanOptional": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": false
       }
+    },
+    "com.amazonaws.memorydb#BooleanOptional": {
+      "type": "boolean"
     },
     "com.amazonaws.memorydb#Cluster": {
       "type": "structure",
@@ -645,6 +2072,12 @@
           "target": "com.amazonaws.memorydb#BooleanOptional",
           "traits": {
             "smithy.api#documentation": "<p>When set to true, the cluster will automatically receive minor engine version upgrades after launch.</p>"
+          }
+        },
+        "DataTiering": {
+          "target": "com.amazonaws.memorydb#DataTieringStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. \n            This parameter must be set when using r6gd nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html\">Data tiering</a>.</p>"
           }
         }
       },
@@ -1116,7 +2549,7 @@
         "MaintenanceWindow": {
           "target": "com.amazonaws.memorydb#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format <code>ddd:hh24:mi-ddd:hh24:mi</code> (24H Clock UTC). The minimum maintenance window is a 60 minute period.</p>"
+            "smithy.api#documentation": "<p>Specifies the weekly time range during which maintenance\n         on the cluster is performed. It is specified as a range in\n         the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum\n         maintenance window is a 60 minute period.</p>\n         <p>Valid values for <code>ddd</code> are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>sun</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>mon</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>tue</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>wed</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>thu</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>fri</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>sat</code>\n               </p>\n            </li>\n         </ul>\n         <p>Example: <code>sun:23:00-mon:01:30</code>\n         </p>"
           }
         },
         "Port": {
@@ -1170,7 +2603,7 @@
         "SnapshotWindow": {
           "target": "com.amazonaws.memorydb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard.</p>\n         \n         <p>    Example: 05:00-09:00</p>\n         \n         <p>    If you do not specify this parameter, MemoryDB automatically chooses an appropriate time range.</p>"
+            "smithy.api#documentation": "<p>The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard.</p>\n         <p>    Example: 05:00-09:00</p>\n         <p>    If you do not specify this parameter, MemoryDB automatically chooses an appropriate time range.</p>"
           }
         },
         "ACLName": {
@@ -1190,6 +2623,12 @@
           "target": "com.amazonaws.memorydb#BooleanOptional",
           "traits": {
             "smithy.api#documentation": "<p>When set to true, the cluster will automatically receive minor engine version upgrades after launch.</p>"
+          }
+        },
+        "DataTiering": {
+          "target": "com.amazonaws.memorydb#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. \n            This parameter must be set when using r6gd nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html\">Data tiering</a>.</p>"
           }
         }
       }
@@ -1510,6 +2949,23 @@
           "target": "com.amazonaws.memorydb#User",
           "traits": {
             "smithy.api#documentation": "<p>The newly-created user.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.memorydb#DataTieringStatus": {
+      "type": "enum",
+      "members": {
+        "TRUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "true"
+          }
+        },
+        "FALSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "false"
           }
         }
       }
@@ -1851,7 +3307,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of ACLs</p>"
+        "smithy.api#documentation": "<p>Returns a list of ACLs</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "ACLs",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.memorydb#DescribeACLsRequest": {
@@ -1917,7 +3379,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about all provisioned clusters if no cluster identifier is specified, or about a specific cluster if a cluster name is supplied.</p>"
+        "smithy.api#documentation": "<p>Returns information about all provisioned clusters if no cluster identifier is specified, or about a specific cluster if a cluster name is supplied.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Clusters",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.memorydb#DescribeClustersRequest": {
@@ -1986,7 +3454,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of the available Redis engine versions.</p>"
+        "smithy.api#documentation": "<p>Returns a list of the available Redis engine versions.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "EngineVersions",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.memorydb#DescribeEngineVersionsRequest": {
@@ -2019,6 +3493,7 @@
         "DefaultOnly": {
           "target": "com.amazonaws.memorydb#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true, specifies that only the default version of the specified engine or engine and major version combination is to be returned.</p>"
           }
         }
@@ -2061,7 +3536,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns events related to clusters, security groups, and parameter groups. You can obtain events specific to a particular cluster, security group, or parameter group by providing the name as a parameter.\n         \n         By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.</p>"
+        "smithy.api#documentation": "<p>Returns events related to clusters, security groups, and parameter groups. You can obtain events specific to a particular cluster, security group, or parameter group by providing the name as a parameter.\n         \n         By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Events",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.memorydb#DescribeEventsRequest": {
@@ -2151,7 +3632,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of parameter group descriptions. If a parameter group name is specified, the list contains only the descriptions for that group.</p>"
+        "smithy.api#documentation": "<p>Returns a list of parameter group descriptions. If a parameter group name is specified, the list contains only the descriptions for that group.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "ParameterGroups",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.memorydb#DescribeParameterGroupsRequest": {
@@ -2217,7 +3704,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the detailed parameter list for a particular parameter group.</p>"
+        "smithy.api#documentation": "<p>Returns the detailed parameter list for a particular parameter group.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Parameters",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.memorydb#DescribeParametersRequest": {
@@ -2261,6 +3754,192 @@
         }
       }
     },
+    "com.amazonaws.memorydb#DescribeReservedNodes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.memorydb#DescribeReservedNodesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.memorydb#DescribeReservedNodesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.memorydb#InvalidParameterCombinationException"
+        },
+        {
+          "target": "com.amazonaws.memorydb#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.memorydb#ReservedNodeNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "ReservedNodes",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.memorydb#DescribeReservedNodesOfferings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.memorydb#DescribeReservedNodesOfferingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.memorydb#DescribeReservedNodesOfferingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.memorydb#InvalidParameterCombinationException"
+        },
+        {
+          "target": "com.amazonaws.memorydb#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.memorydb#ReservedNodesOfferingNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists available reserved node offerings.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "ReservedNodesOfferings",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.memorydb#DescribeReservedNodesOfferingsRequest": {
+      "type": "structure",
+      "members": {
+        "ReservedNodesOfferingId": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>"
+          }
+        },
+        "NodeType": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The node type for the reserved nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported\">Supported node types</a>.</p>"
+          }
+        },
+        "Duration": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Duration filter value, specified in years or seconds. Use this parameter to show only reservations for a given duration.</p>"
+          }
+        },
+        "OfferingType": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type. \n         Valid values: \"All Upfront\"|\"Partial Upfront\"| \"No Upfront\"</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.memorydb#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.memorydb#DescribeReservedNodesOfferingsResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>"
+          }
+        },
+        "ReservedNodesOfferings": {
+          "target": "com.amazonaws.memorydb#ReservedNodesOfferingList",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists available reserved node offerings.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.memorydb#DescribeReservedNodesRequest": {
+      "type": "structure",
+      "members": {
+        "ReservationId": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The reserved node identifier filter value. Use this parameter to show only the reservation that matches the specified reservation ID.</p>"
+          }
+        },
+        "ReservedNodesOfferingId": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The offering identifier filter value. Use this parameter to show only purchased reservations matching the specified offering identifier.</p>"
+          }
+        },
+        "NodeType": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The node type filter value. Use this parameter to show only those reservations matching the specified  node type. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported\">Supported node types</a>.</p>"
+          }
+        },
+        "Duration": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration filter value, specified in years or seconds. Use this parameter to show only reservations for this duration.</p>"
+          }
+        },
+        "OfferingType": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type. \n         Valid values: \"All Upfront\"|\"Partial Upfront\"| \"No Upfront\"</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.memorydb#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.memorydb#DescribeReservedNodesResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>"
+          }
+        },
+        "ReservedNodes": {
+          "target": "com.amazonaws.memorydb#ReservedNodeList",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.memorydb#DescribeServiceUpdates": {
       "type": "operation",
       "input": {
@@ -2278,7 +3957,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns details of the service updates</p>"
+        "smithy.api#documentation": "<p>Returns details of the service updates</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "ServiceUpdates",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.memorydb#DescribeServiceUpdatesRequest": {
@@ -2356,7 +4041,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about cluster snapshots. By default, DescribeSnapshots lists all of your snapshots; it can optionally describe a single snapshot, \n         or just the snapshots associated with a particular cluster.</p>"
+        "smithy.api#documentation": "<p>Returns information about cluster snapshots. By default, DescribeSnapshots lists all of your snapshots; it can optionally describe a single snapshot, \n         or just the snapshots associated with a particular cluster.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Snapshots",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.memorydb#DescribeSnapshotsRequest": {
@@ -2434,7 +4125,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group.</p>"
+        "smithy.api#documentation": "<p>Returns a list of subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "SubnetGroups",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.memorydb#DescribeSubnetGroupsRequest": {
@@ -2494,7 +4191,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of users.</p>"
+        "smithy.api#documentation": "<p>Returns a list of users.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Users",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.memorydb#DescribeUsersRequest": {
@@ -2544,7 +4247,10 @@
       }
     },
     "com.amazonaws.memorydb#Double": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.memorydb#DuplicateUserNameFault": {
       "type": "structure",
@@ -2575,6 +4281,7 @@
         "Port": {
           "target": "com.amazonaws.memorydb#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The port number that the engine is listening on.</p>"
           }
         }
@@ -2694,7 +4401,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Used to failover a shard</p>"
+        "smithy.api#documentation": "<p>Used to failover a shard. This API is designed for testing the behavior of your application in case of MemoryDB failover. It is not designed to be used as a production-level tool for initiating\n         a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large scale operational events, Amazon may block this API. </p>"
       }
     },
     "com.amazonaws.memorydb#FailoverShardRequest": {
@@ -2779,14 +4486,14 @@
       }
     },
     "com.amazonaws.memorydb#InputAuthenticationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "password",
-            "name": "PASSWORD"
+      "type": "enum",
+      "members": {
+        "PASSWORD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "password"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.memorydb#InsufficientClusterCapacityFault": {
@@ -2807,13 +4514,13 @@
       }
     },
     "com.amazonaws.memorydb#Integer": {
-      "type": "integer"
-    },
-    "com.amazonaws.memorydb#IntegerOptional": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": 0
       }
+    },
+    "com.amazonaws.memorydb#IntegerOptional": {
+      "type": "integer"
     },
     "com.amazonaws.memorydb#InvalidACLStateFault": {
       "type": "structure",
@@ -3494,18 +5201,334 @@
         }
       }
     },
+    "com.amazonaws.memorydb#PurchaseReservedNodesOffering": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.memorydb#PurchaseReservedNodesOfferingRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.memorydb#PurchaseReservedNodesOfferingResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.memorydb#InvalidParameterCombinationException"
+        },
+        {
+          "target": "com.amazonaws.memorydb#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.memorydb#ReservedNodeAlreadyExistsFault"
+        },
+        {
+          "target": "com.amazonaws.memorydb#ReservedNodeQuotaExceededFault"
+        },
+        {
+          "target": "com.amazonaws.memorydb#ReservedNodesOfferingNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.memorydb#TagQuotaPerResourceExceeded"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Allows you to purchase a reserved  node offering. Reserved nodes are not eligible for cancellation and are non-refundable.</p>"
+      }
+    },
+    "com.amazonaws.memorydb#PurchaseReservedNodesOfferingRequest": {
+      "type": "structure",
+      "members": {
+        "ReservedNodesOfferingId": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the reserved node offering to purchase.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ReservationId": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A customer-specified identifier to track this reservation.</p>"
+          }
+        },
+        "NodeCount": {
+          "target": "com.amazonaws.memorydb#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of node instances to reserve.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.memorydb#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.memorydb#PurchaseReservedNodesOfferingResponse": {
+      "type": "structure",
+      "members": {
+        "ReservedNode": {
+          "target": "com.amazonaws.memorydb#ReservedNode",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents the output of a <code>PurchaseReservedNodesOffering</code> operation.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.memorydb#RecurringCharge": {
+      "type": "structure",
+      "members": {
+        "RecurringChargeAmount": {
+          "target": "com.amazonaws.memorydb#Double",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The amount of the recurring charge to run this reserved node.</p>"
+          }
+        },
+        "RecurringChargeFrequency": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The frequency of the recurring price charged to run this reserved node.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The recurring charge to run this reserved node.</p>"
+      }
+    },
+    "com.amazonaws.memorydb#RecurringChargeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.memorydb#RecurringCharge",
+        "traits": {
+          "smithy.api#xmlName": "RecurringCharge"
+        }
+      }
+    },
     "com.amazonaws.memorydb#ReplicaConfigurationRequest": {
       "type": "structure",
       "members": {
         "ReplicaCount": {
           "target": "com.amazonaws.memorydb#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of replicas to scale up or down to</p>"
           }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>A request to configure the number of replicas in a shard</p>"
+      }
+    },
+    "com.amazonaws.memorydb#ReservedNode": {
+      "type": "structure",
+      "members": {
+        "ReservationId": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A customer-specified identifier to track this reservation.</p>"
+          }
+        },
+        "ReservedNodesOfferingId": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the reserved node offering to purchase.</p>"
+          }
+        },
+        "NodeType": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The node type for the reserved nodes.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.memorydb#TStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time the reservation started.</p>"
+          }
+        },
+        "Duration": {
+          "target": "com.amazonaws.memorydb#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The duration of the reservation in seconds.</p>"
+          }
+        },
+        "FixedPrice": {
+          "target": "com.amazonaws.memorydb#Double",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The fixed price charged for this reserved node.</p>"
+          }
+        },
+        "NodeCount": {
+          "target": "com.amazonaws.memorydb#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The number of nodes that have been reserved.</p>"
+          }
+        },
+        "OfferingType": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The offering type of this reserved node.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the reserved node.</p>"
+          }
+        },
+        "RecurringCharges": {
+          "target": "com.amazonaws.memorydb#RecurringChargeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The recurring price charged to run this reserved node.</p>"
+          }
+        },
+        "ARN": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the reserved node.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the output of a <code>PurchaseReservedNodesOffering</code> operation.</p>"
+      }
+    },
+    "com.amazonaws.memorydb#ReservedNodeAlreadyExistsFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.memorydb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ReservedNodeAlreadyExists",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>You already have a reservation with the given identifier.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.memorydb#ReservedNodeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.memorydb#ReservedNode",
+        "traits": {
+          "smithy.api#xmlName": "ReservedNode"
+        }
+      }
+    },
+    "com.amazonaws.memorydb#ReservedNodeNotFoundFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.memorydb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ReservedNodeNotFound",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>The requested node does not exist.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.memorydb#ReservedNodeQuotaExceededFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.memorydb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ReservedNodeQuotaExceeded",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The request cannot be processed because it would exceed the user's node quota.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.memorydb#ReservedNodesOffering": {
+      "type": "structure",
+      "members": {
+        "ReservedNodesOfferingId": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The offering identifier.</p>"
+          }
+        },
+        "NodeType": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The node type for the reserved nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported\">Supported node types</a>.</p>"
+          }
+        },
+        "Duration": {
+          "target": "com.amazonaws.memorydb#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The duration of the reservation in seconds.</p>"
+          }
+        },
+        "FixedPrice": {
+          "target": "com.amazonaws.memorydb#Double",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The fixed price charged for this reserved node.</p>"
+          }
+        },
+        "OfferingType": {
+          "target": "com.amazonaws.memorydb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The offering type of this reserved node.</p>"
+          }
+        },
+        "RecurringCharges": {
+          "target": "com.amazonaws.memorydb#RecurringChargeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The recurring price charged to run this reserved node.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The offering type of this node.</p>"
+      }
+    },
+    "com.amazonaws.memorydb#ReservedNodesOfferingList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.memorydb#ReservedNodesOffering",
+        "traits": {
+          "smithy.api#xmlName": "ReservedNodesOffering"
+        }
+      }
+    },
+    "com.amazonaws.memorydb#ReservedNodesOfferingNotFoundFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.memorydb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ReservedNodesOfferingNotFound",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>The requested node offering does not exist.\n         \n      </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.memorydb#ResetParameterGroup": {
@@ -3550,6 +5573,7 @@
         "AllParameters": {
           "target": "com.amazonaws.memorydb#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true, all parameters in the parameter group are reset to their default values. If false, only the parameters listed by ParameterNames are reset to their default values.</p>"
           }
         },
@@ -3735,26 +5759,32 @@
       }
     },
     "com.amazonaws.memorydb#ServiceUpdateStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "available",
-            "name": "NOT_APPLIED"
-          },
-          {
-            "value": "in-progress",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "complete",
-            "name": "COMPLETE"
-          },
-          {
-            "value": "scheduled",
-            "name": "SCHEDULED"
+      "type": "enum",
+      "members": {
+        "NOT_APPLIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "available"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "in-progress"
+          }
+        },
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "complete"
+          }
+        },
+        "SCHEDULED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "scheduled"
+          }
+        }
       }
     },
     "com.amazonaws.memorydb#ServiceUpdateStatusList": {
@@ -3770,14 +5800,14 @@
       }
     },
     "com.amazonaws.memorydb#ServiceUpdateType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "security-update",
-            "name": "SECURITY_UPDATE"
+      "type": "enum",
+      "members": {
+        "SECURITY_UPDATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "security-update"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.memorydb#Shard": {
@@ -3844,6 +5874,7 @@
         "ShardCount": {
           "target": "com.amazonaws.memorydb#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of shards in the cluster</p>"
           }
         }
@@ -3939,6 +5970,7 @@
         "ProgressPercentage": {
           "target": "com.amazonaws.memorydb#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The percentage of the slot migration that is complete.</p>"
           }
         }
@@ -3984,6 +6016,12 @@
           "target": "com.amazonaws.memorydb#ClusterConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration of the cluster from which the snapshot was taken</p>"
+          }
+        },
+        "DataTiering": {
+          "target": "com.amazonaws.memorydb#DataTieringStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. \n            This parameter must be set when using r6gd nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html\">Data tiering</a>.</p>"
           }
         }
       },
@@ -4058,34 +6096,44 @@
       }
     },
     "com.amazonaws.memorydb#SourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "node",
-            "name": "node"
-          },
-          {
-            "value": "parameter-group",
-            "name": "parameter_group"
-          },
-          {
-            "value": "subnet-group",
-            "name": "subnet_group"
-          },
-          {
-            "value": "cluster",
-            "name": "cluster"
-          },
-          {
-            "value": "user",
-            "name": "user"
-          },
-          {
-            "value": "acl",
-            "name": "acl"
+      "type": "enum",
+      "members": {
+        "node": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "node"
           }
-        ]
+        },
+        "parameter_group": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "parameter-group"
+          }
+        },
+        "subnet_group": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "subnet-group"
+          }
+        },
+        "cluster": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cluster"
+          }
+        },
+        "user": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "user"
+          }
+        },
+        "acl": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "acl"
+          }
+        }
       }
     },
     "com.amazonaws.memorydb#String": {
@@ -4146,7 +6194,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Represents the output of one of the following operations:</p>\n         <ul>\n            <li>\n               <p>CreateSubnetGroup</p>\n            </li>\n            <li>\n               <p>UpdateSubnetGroup</p>\n            </li>\n         </ul>  \n         <p>A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment.</p>"
+        "smithy.api#documentation": "<p>Represents the output of one of the following operations:</p>\n         <ul>\n            <li>\n               <p>CreateSubnetGroup</p>\n            </li>\n            <li>\n               <p>UpdateSubnetGroup</p>\n            </li>\n         </ul>\n         <p>A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment.</p>"
       }
     },
     "com.amazonaws.memorydb#SubnetGroupAlreadyExistsFault": {
@@ -4405,7 +6453,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. \n\n         When you add or remove tags on clusters, those actions will be replicated to all nodes in the cluster. For more information, see \n\n         <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/iam.resourcelevelpermissions.html\">Resource-level permissions</a>.</p>\n         \n         <p>For example, you can use cost-allocation tags to your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value \n          (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories \n          (such as cost centers, application names, or owners) to organize your costs across multiple services.\n         \n         For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html\">Using Cost Allocation Tags</a>.</p>"
+        "smithy.api#documentation": "<p>A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. \n\n         When you add or remove tags on clusters, those actions will be replicated to all nodes in the cluster. For more information, see \n\n         <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/iam.resourcelevelpermissions.html\">Resource-level permissions</a>.</p>\n         <p>For example, you can use cost-allocation tags to your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value \n          (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories \n          (such as cost centers, application names, or owners) to organize your costs across multiple services.\n         \n         For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html\">Using Cost Allocation Tags</a>.</p>"
       }
     },
     "com.amazonaws.memorydb#TagResourceRequest": {
@@ -4731,7 +6779,7 @@
         "MaintenanceWindow": {
           "target": "com.amazonaws.memorydb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The maintenance window to update</p>"
+            "smithy.api#documentation": "<p>Specifies the weekly time range during which maintenance\n         on the cluster is performed. It is specified as a range in\n         the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum\n         maintenance window is a 60 minute period.</p>\n         <p>Valid values for <code>ddd</code> are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>sun</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>mon</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>tue</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>wed</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>thu</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>fri</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>sat</code>\n               </p>\n            </li>\n         </ul>\n         <p>Example: <code>sun:23:00-mon:01:30</code>\n         </p>"
           }
         },
         "SnsTopicArn": {

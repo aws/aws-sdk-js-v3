@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,21 +33,21 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
 
 /**
  * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
- *             IAM users, and IAM roles) can connect.</p>
- *         <p>Before you create an endpoint service, you must create one of the following for your service:</p>
- *         <ul>
+ *             users, and IAM roles) can connect.</p>
+ *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
+ *          <ul>
  *             <li>
- *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>.
+ *                <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>.
  *                     Service consumers connect to your service using an interface endpoint.</p>
  *             </li>
  *             <li>
- *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>.
+ *                <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>.
  *                     Service consumers connect to your service using a Gateway Load Balancer endpoint.</p>
  *             </li>
  *          </ul>
- *         <p>If you set the private DNS name, you must prove that you own the private DNS domain
+ *          <p>If you set the private DNS name, you must prove that you own the private DNS domain
  *             name.</p>
- * 	        <p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
+ *          <p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
  * 	        Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +72,15 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateVpcEndpointServiceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +96,9 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateVpcEndpointServiceConfigurationCommandInput, CreateVpcEndpointServiceConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateVpcEndpointServiceConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

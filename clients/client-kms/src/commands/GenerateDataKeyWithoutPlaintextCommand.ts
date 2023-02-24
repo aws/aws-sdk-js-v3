@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -53,6 +54,14 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *       encrypt the data key. You cannot use an asymmetric KMS key or a key in a custom key store to generate a data key. To get the
  *       type of your KMS key, use the <a>DescribeKey</a> operation.</p>
  *
+ *          <p>You must also specify the length of the data key. Use either the <code>KeySpec</code> or
+ *       <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data keys, use
+ *       the <code>KeySpec</code> parameter.</p>
+ *
+ *          <p>To generate an SM4 data key (China Regions only), specify a <code>KeySpec</code> value of
+ *       <code>AES_128</code> or <code>NumberOfBytes</code> value of <code>128</code>. The symmetric
+ *       encryption key used in China Regions to encrypt your data key is an SM4 encryption key.</p>
+ *
  *          <p>If the operation succeeds, you will find the encrypted copy of the data key in the
  *         <code>CiphertextBlob</code> field.</p>
  *
@@ -64,8 +73,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account
- *         use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
+ *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
  *
  *          <p>
@@ -124,6 +132,15 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GenerateDataKeyWithoutPlaintextCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +156,9 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GenerateDataKeyWithoutPlaintextCommandInput, GenerateDataKeyWithoutPlaintextCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GenerateDataKeyWithoutPlaintextCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

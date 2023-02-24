@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,14 @@ export interface EnableDomainAutoRenewCommandInput extends EnableDomainAutoRenew
 export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**
- * <p>This operation configures Amazon Route 53 to automatically renew the specified domain before the domain registration expires.
- * 			The cost of renewing your domain registration is billed to your Amazon Web Services account.</p>
- * 		       <p>The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains That You Can Register with Amazon Route 53</a>
- * 			in the <i>Amazon Route 53 Developer Guide</i>. Route 53 requires that you renew before the end of the renewal period
- * 			so we can complete processing before the deadline.</p>
+ * <p>This operation configures Amazon Route 53 to automatically renew the specified domain
+ * 			before the domain registration expires. The cost of renewing your domain registration is
+ * 			billed to your Amazon Web Services account.</p>
+ *          <p>The period during which you can renew a domain name varies by TLD. For a list of TLDs
+ * 			and their renewal policies, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains That You Can
+ * 				Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+ * 				Guide</i>. Route 53 requires that you renew before the end of the renewal
+ * 			period so we can complete processing before the deadline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +60,15 @@ export class EnableDomainAutoRenewCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EnableDomainAutoRenewCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +84,9 @@ export class EnableDomainAutoRenewCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableDomainAutoRenewCommandInput, EnableDomainAutoRenewCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableDomainAutoRenewCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

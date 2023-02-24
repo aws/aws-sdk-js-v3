@@ -15,7 +15,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   map as __map,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -28,8 +28,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "../commands/CreateAccessPointCommand";
@@ -120,6 +119,10 @@ import {
 } from "../commands/GetBucketLifecycleConfigurationCommand";
 import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "../commands/GetBucketPolicyCommand";
 import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "../commands/GetBucketTaggingCommand";
+import {
+  GetBucketVersioningCommandInput,
+  GetBucketVersioningCommandOutput,
+} from "../commands/GetBucketVersioningCommand";
 import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "../commands/GetJobTaggingCommand";
 import {
   GetMultiRegionAccessPointCommandInput,
@@ -133,6 +136,10 @@ import {
   GetMultiRegionAccessPointPolicyStatusCommandInput,
   GetMultiRegionAccessPointPolicyStatusCommandOutput,
 } from "../commands/GetMultiRegionAccessPointPolicyStatusCommand";
+import {
+  GetMultiRegionAccessPointRoutesCommandInput,
+  GetMultiRegionAccessPointRoutesCommandOutput,
+} from "../commands/GetMultiRegionAccessPointRoutesCommand";
 import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
@@ -181,6 +188,10 @@ import {
 } from "../commands/PutBucketLifecycleConfigurationCommand";
 import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "../commands/PutBucketPolicyCommand";
 import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "../commands/PutBucketTaggingCommand";
+import {
+  PutBucketVersioningCommandInput,
+  PutBucketVersioningCommandOutput,
+} from "../commands/PutBucketVersioningCommand";
 import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "../commands/PutJobTaggingCommand";
 import {
   PutMultiRegionAccessPointPolicyCommandInput,
@@ -198,6 +209,10 @@ import {
   PutStorageLensConfigurationTaggingCommandInput,
   PutStorageLensConfigurationTaggingCommandOutput,
 } from "../commands/PutStorageLensConfigurationTaggingCommand";
+import {
+  SubmitMultiRegionAccessPointRoutesCommandInput,
+  SubmitMultiRegionAccessPointRoutesCommandOutput,
+} from "../commands/SubmitMultiRegionAccessPointRoutesCommand";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "../commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "../commands/UpdateJobStatusCommand";
 import {
@@ -206,6 +221,8 @@ import {
   AccessPoint,
   AccountLevel,
   ActivityMetrics,
+  AdvancedCostOptimizationMetrics,
+  AdvancedDataProtectionMetrics,
   AsyncErrorDetails,
   AsyncOperation,
   AsyncRequestParameters,
@@ -219,6 +236,7 @@ import {
   CreateBucketConfiguration,
   CreateMultiRegionAccessPointInput,
   DeleteMultiRegionAccessPointInput,
+  DetailedStatusCodesMetrics,
   EstablishedMultiRegionAccessPointPolicy,
   GeneratedManifestEncryption,
   IdempotencyException,
@@ -250,6 +268,7 @@ import {
   MultiRegionAccessPointPolicyDocument,
   MultiRegionAccessPointRegionalResponse,
   MultiRegionAccessPointReport,
+  MultiRegionAccessPointRoute,
   MultiRegionAccessPointsAsyncResponse,
   NoncurrentVersionExpiration,
   NoncurrentVersionTransition,
@@ -306,6 +325,7 @@ import {
   TooManyRequestsException,
   TooManyTagsException,
   Transition,
+  VersioningConfiguration,
   VpcConfiguration,
 } from "../models/models_0";
 import { S3ControlServiceException as __BaseException } from "../models/S3ControlServiceException";
@@ -328,6 +348,10 @@ export const serializeAws_restXmlCreateAccessPointCommand = async (
   bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
   if (input.Bucket !== undefined) {
     const node = __XmlNode.of("BucketName", input.Bucket).withName("Bucket");
+    bodyNode.addChildNode(node);
+  }
+  if (input.BucketAccountId !== undefined) {
+    const node = __XmlNode.of("AccountId", input.BucketAccountId).withName("BucketAccountId");
     bodyNode.addChildNode(node);
   }
   if (input.PublicAccessBlockConfiguration !== undefined) {
@@ -1504,6 +1528,40 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
   });
 };
 
+export const serializeAws_restXmlGetBucketVersioningCommand = async (
+  input: GetBucketVersioningCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/versioning";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlGetJobTaggingCommand = async (
   input: GetJobTaggingCommandInput,
   context: __SerdeContext
@@ -1547,8 +1605,8 @@ export const serializeAws_restXmlGetMultiRegionAccessPointCommand = async (
     "x-amz-account-id": input.AccountId!,
   });
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Name+}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1581,8 +1639,8 @@ export const serializeAws_restXmlGetMultiRegionAccessPointPolicyCommand = async 
     "x-amz-account-id": input.AccountId!,
   });
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Name}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Name+}/policy";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1616,8 +1674,42 @@ export const serializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand = 
   });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/mrap/instances/{Name}/policystatus";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+    "/v20180820/mrap/instances/{Name+}/policystatus";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name+}", true);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlGetMultiRegionAccessPointRoutesCommand = async (
+  input: GetMultiRegionAccessPointRoutesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Mrap+}/routes";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Mrap", () => input.Mrap!, "{Mrap+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2238,6 +2330,52 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
   });
 };
 
+export const serializeAws_restXmlPutBucketVersioningCommand = async (
+  input: PutBucketVersioningCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+    "x-amz-mfa": input.MFA!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/versioning";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  let body: any;
+  if (input.VersioningConfiguration !== undefined) {
+    body = serializeAws_restXmlVersioningConfiguration(input.VersioningConfiguration, context);
+  }
+  let contents: any;
+  if (input.VersioningConfiguration !== undefined) {
+    contents = serializeAws_restXmlVersioningConfiguration(input.VersioningConfiguration, context);
+    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    contents.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+    body += contents.toString();
+  }
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlPutJobTaggingCommand = async (
   input: PutJobTaggingCommandInput,
   context: __SerdeContext
@@ -2479,6 +2617,53 @@ export const serializeAws_restXmlPutStorageLensConfigurationTaggingCommand = asy
   });
 };
 
+export const serializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand = async (
+  input: SubmitMultiRegionAccessPointRoutesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Mrap+}/routes";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Mrap", () => input.Mrap!, "{Mrap+}", true);
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("SubmitMultiRegionAccessPointRoutesRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.RouteUpdates !== undefined) {
+    const nodes = serializeAws_restXmlRouteList(input.RouteUpdates, context);
+    const containerNode = new __XmlNode("RouteUpdates");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlUpdateJobPriorityCommand = async (
   input: UpdateJobPriorityCommandInput,
   context: __SerdeContext
@@ -2491,7 +2676,7 @@ export const serializeAws_restXmlUpdateJobPriorityCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/priority";
   resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
   const query: any = map({
-    priority: [() => input.Priority !== void 0, () => input.Priority!.toString()],
+    priority: [__expectNonNull(input.Priority, `Priority`) != null, () => input.Priority!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2529,7 +2714,7 @@ export const serializeAws_restXmlUpdateJobStatusCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/status";
   resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
   const query: any = map({
-    requestedJobStatus: [, input.RequestedJobStatus!],
+    requestedJobStatus: [, __expectNonNull(input.RequestedJobStatus!, `RequestedJobStatus`)],
     statusUpdateReason: [, input.StatusUpdateReason!],
   });
   let body: any;
@@ -2582,7 +2767,7 @@ const deserializeAws_restXmlCreateAccessPointCommandError = async (
 ): Promise<CreateAccessPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2617,7 +2802,7 @@ const deserializeAws_restXmlCreateAccessPointForObjectLambdaCommandError = async
 ): Promise<CreateAccessPointForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2653,7 +2838,7 @@ const deserializeAws_restXmlCreateBucketCommandError = async (
 ): Promise<CreateBucketCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2697,7 +2882,7 @@ const deserializeAws_restXmlCreateJobCommandError = async (
 ): Promise<CreateJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2747,7 +2932,7 @@ const deserializeAws_restXmlCreateMultiRegionAccessPointCommandError = async (
 ): Promise<CreateMultiRegionAccessPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2779,7 +2964,7 @@ const deserializeAws_restXmlDeleteAccessPointCommandError = async (
 ): Promise<DeleteAccessPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2811,7 +2996,7 @@ const deserializeAws_restXmlDeleteAccessPointForObjectLambdaCommandError = async
 ): Promise<DeleteAccessPointForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2843,7 +3028,7 @@ const deserializeAws_restXmlDeleteAccessPointPolicyCommandError = async (
 ): Promise<DeleteAccessPointPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2875,7 +3060,7 @@ const deserializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommandError =
 ): Promise<DeleteAccessPointPolicyForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2907,7 +3092,7 @@ const deserializeAws_restXmlDeleteBucketCommandError = async (
 ): Promise<DeleteBucketCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2939,7 +3124,7 @@ const deserializeAws_restXmlDeleteBucketLifecycleConfigurationCommandError = asy
 ): Promise<DeleteBucketLifecycleConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2971,7 +3156,7 @@ const deserializeAws_restXmlDeleteBucketPolicyCommandError = async (
 ): Promise<DeleteBucketPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3003,7 +3188,7 @@ const deserializeAws_restXmlDeleteBucketTaggingCommandError = async (
 ): Promise<DeleteBucketTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3035,7 +3220,7 @@ const deserializeAws_restXmlDeleteJobTaggingCommandError = async (
 ): Promise<DeleteJobTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3082,7 +3267,7 @@ const deserializeAws_restXmlDeleteMultiRegionAccessPointCommandError = async (
 ): Promise<DeleteMultiRegionAccessPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3114,7 +3299,7 @@ const deserializeAws_restXmlDeletePublicAccessBlockCommandError = async (
 ): Promise<DeletePublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3146,7 +3331,7 @@ const deserializeAws_restXmlDeleteStorageLensConfigurationCommandError = async (
 ): Promise<DeleteStorageLensConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3178,7 +3363,7 @@ const deserializeAws_restXmlDeleteStorageLensConfigurationTaggingCommandError = 
 ): Promise<DeleteStorageLensConfigurationTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3213,7 +3398,7 @@ const deserializeAws_restXmlDescribeJobCommandError = async (
 ): Promise<DescribeJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3263,7 +3448,7 @@ const deserializeAws_restXmlDescribeMultiRegionAccessPointOperationCommandError 
 ): Promise<DescribeMultiRegionAccessPointOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3295,8 +3480,11 @@ export const deserializeAws_restXmlGetAccessPointCommand = async (
   if (data["Bucket"] !== undefined) {
     contents.Bucket = __expectString(data["Bucket"]);
   }
+  if (data["BucketAccountId"] !== undefined) {
+    contents.BucketAccountId = __expectString(data["BucketAccountId"]);
+  }
   if (data["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreationDate"]));
   }
   if (data.Endpoints === "") {
     contents.Endpoints = {};
@@ -3327,7 +3515,7 @@ const deserializeAws_restXmlGetAccessPointCommandError = async (
 ): Promise<GetAccessPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3362,7 +3550,7 @@ const deserializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommandErr
 ): Promise<GetAccessPointConfigurationForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3386,7 +3574,7 @@ export const deserializeAws_restXmlGetAccessPointForObjectLambdaCommand = async 
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreationDate"]));
   }
   if (data["Name"] !== undefined) {
     contents.Name = __expectString(data["Name"]);
@@ -3406,7 +3594,7 @@ const deserializeAws_restXmlGetAccessPointForObjectLambdaCommandError = async (
 ): Promise<GetAccessPointForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3441,7 +3629,7 @@ const deserializeAws_restXmlGetAccessPointPolicyCommandError = async (
 ): Promise<GetAccessPointPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3476,7 +3664,7 @@ const deserializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommandError = as
 ): Promise<GetAccessPointPolicyForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3511,7 +3699,7 @@ const deserializeAws_restXmlGetAccessPointPolicyStatusCommandError = async (
 ): Promise<GetAccessPointPolicyStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3546,7 +3734,7 @@ const deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommandErro
 ): Promise<GetAccessPointPolicyStatusForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3573,7 +3761,7 @@ export const deserializeAws_restXmlGetBucketCommand = async (
     contents.Bucket = __expectString(data["Bucket"]);
   }
   if (data["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreationDate"]));
   }
   if (data["PublicAccessBlockEnabled"] !== undefined) {
     contents.PublicAccessBlockEnabled = __parseBoolean(data["PublicAccessBlockEnabled"]);
@@ -3587,7 +3775,7 @@ const deserializeAws_restXmlGetBucketCommandError = async (
 ): Promise<GetBucketCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3624,7 +3812,7 @@ const deserializeAws_restXmlGetBucketLifecycleConfigurationCommandError = async 
 ): Promise<GetBucketLifecycleConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3659,7 +3847,7 @@ const deserializeAws_restXmlGetBucketPolicyCommandError = async (
 ): Promise<GetBucketPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3696,7 +3884,45 @@ const deserializeAws_restXmlGetBucketTaggingCommandError = async (
 ): Promise<GetBucketTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restXmlGetBucketVersioningCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBucketVersioningCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetBucketVersioningCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["MfaDelete"] !== undefined) {
+    contents.MFADelete = __expectString(data["MfaDelete"]);
+  }
+  if (data["Status"] !== undefined) {
+    contents.Status = __expectString(data["Status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlGetBucketVersioningCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBucketVersioningCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3733,7 +3959,7 @@ const deserializeAws_restXmlGetJobTaggingCommandError = async (
 ): Promise<GetJobTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3780,7 +4006,7 @@ const deserializeAws_restXmlGetMultiRegionAccessPointCommandError = async (
 ): Promise<GetMultiRegionAccessPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3815,7 +4041,7 @@ const deserializeAws_restXmlGetMultiRegionAccessPointPolicyCommandError = async 
 ): Promise<GetMultiRegionAccessPointPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3850,7 +4076,47 @@ const deserializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommandError = 
 ): Promise<GetMultiRegionAccessPointPolicyStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restXmlGetMultiRegionAccessPointRoutesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMultiRegionAccessPointRoutesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetMultiRegionAccessPointRoutesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["Mrap"] !== undefined) {
+    contents.Mrap = __expectString(data["Mrap"]);
+  }
+  if (data.Routes === "") {
+    contents.Routes = [];
+  } else if (data["Routes"] !== undefined && data["Routes"]["Route"] !== undefined) {
+    contents.Routes = deserializeAws_restXmlRouteList(__getArrayIfSingleItem(data["Routes"]["Route"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlGetMultiRegionAccessPointRoutesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMultiRegionAccessPointRoutesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3883,7 +4149,7 @@ const deserializeAws_restXmlGetPublicAccessBlockCommandError = async (
 ): Promise<GetPublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3922,7 +4188,7 @@ const deserializeAws_restXmlGetStorageLensConfigurationCommandError = async (
 ): Promise<GetStorageLensConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3959,7 +4225,7 @@ const deserializeAws_restXmlGetStorageLensConfigurationTaggingCommandError = asy
 ): Promise<GetStorageLensConfigurationTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4002,7 +4268,7 @@ const deserializeAws_restXmlListAccessPointsCommandError = async (
 ): Promise<ListAccessPointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4048,7 +4314,7 @@ const deserializeAws_restXmlListAccessPointsForObjectLambdaCommandError = async 
 ): Promise<ListAccessPointsForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4091,7 +4357,7 @@ const deserializeAws_restXmlListJobsCommandError = async (
 ): Promise<ListJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4146,7 +4412,7 @@ const deserializeAws_restXmlListMultiRegionAccessPointsCommandError = async (
 ): Promise<ListMultiRegionAccessPointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4189,7 +4455,7 @@ const deserializeAws_restXmlListRegionalBucketsCommandError = async (
 ): Promise<ListRegionalBucketsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4232,7 +4498,7 @@ const deserializeAws_restXmlListStorageLensConfigurationsCommandError = async (
 ): Promise<ListStorageLensConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4264,7 +4530,7 @@ const deserializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommandErr
 ): Promise<PutAccessPointConfigurationForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4296,7 +4562,7 @@ const deserializeAws_restXmlPutAccessPointPolicyCommandError = async (
 ): Promise<PutAccessPointPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4328,7 +4594,7 @@ const deserializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommandError = as
 ): Promise<PutAccessPointPolicyForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4360,7 +4626,7 @@ const deserializeAws_restXmlPutBucketLifecycleConfigurationCommandError = async 
 ): Promise<PutBucketLifecycleConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4392,7 +4658,7 @@ const deserializeAws_restXmlPutBucketPolicyCommandError = async (
 ): Promise<PutBucketPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4424,7 +4690,39 @@ const deserializeAws_restXmlPutBucketTaggingCommandError = async (
 ): Promise<PutBucketTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restXmlPutBucketVersioningCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutBucketVersioningCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlPutBucketVersioningCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restXmlPutBucketVersioningCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutBucketVersioningCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4456,7 +4754,7 @@ const deserializeAws_restXmlPutJobTaggingCommandError = async (
 ): Promise<PutJobTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4506,7 +4804,7 @@ const deserializeAws_restXmlPutMultiRegionAccessPointPolicyCommandError = async 
 ): Promise<PutMultiRegionAccessPointPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4538,7 +4836,7 @@ const deserializeAws_restXmlPutPublicAccessBlockCommandError = async (
 ): Promise<PutPublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4570,7 +4868,7 @@ const deserializeAws_restXmlPutStorageLensConfigurationCommandError = async (
 ): Promise<PutStorageLensConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4602,7 +4900,39 @@ const deserializeAws_restXmlPutStorageLensConfigurationTaggingCommandError = asy
 ): Promise<PutStorageLensConfigurationTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitMultiRegionAccessPointRoutesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitMultiRegionAccessPointRoutesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4640,7 +4970,7 @@ const deserializeAws_restXmlUpdateJobPriorityCommandError = async (
 ): Promise<UpdateJobPriorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4696,7 +5026,7 @@ const deserializeAws_restXmlUpdateJobStatusCommandError = async (
 ): Promise<UpdateJobStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4935,11 +5265,55 @@ const serializeAws_restXmlAccountLevel = (input: AccountLevel, context: __SerdeC
     const node = serializeAws_restXmlBucketLevel(input.BucketLevel, context).withName("BucketLevel");
     bodyNode.addChildNode(node);
   }
+  if (input.AdvancedCostOptimizationMetrics != null) {
+    const node = serializeAws_restXmlAdvancedCostOptimizationMetrics(
+      input.AdvancedCostOptimizationMetrics,
+      context
+    ).withName("AdvancedCostOptimizationMetrics");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AdvancedDataProtectionMetrics != null) {
+    const node = serializeAws_restXmlAdvancedDataProtectionMetrics(
+      input.AdvancedDataProtectionMetrics,
+      context
+    ).withName("AdvancedDataProtectionMetrics");
+    bodyNode.addChildNode(node);
+  }
+  if (input.DetailedStatusCodesMetrics != null) {
+    const node = serializeAws_restXmlDetailedStatusCodesMetrics(input.DetailedStatusCodesMetrics, context).withName(
+      "DetailedStatusCodesMetrics"
+    );
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
 const serializeAws_restXmlActivityMetrics = (input: ActivityMetrics, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ActivityMetrics");
+  if (input.IsEnabled != null) {
+    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlAdvancedCostOptimizationMetrics = (
+  input: AdvancedCostOptimizationMetrics,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("AdvancedCostOptimizationMetrics");
+  if (input.IsEnabled != null) {
+    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlAdvancedDataProtectionMetrics = (
+  input: AdvancedDataProtectionMetrics,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("AdvancedDataProtectionMetrics");
   if (input.IsEnabled != null) {
     const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
     bodyNode.addChildNode(node);
@@ -4968,6 +5342,26 @@ const serializeAws_restXmlBucketLevel = (input: BucketLevel, context: __SerdeCon
   }
   if (input.PrefixLevel != null) {
     const node = serializeAws_restXmlPrefixLevel(input.PrefixLevel, context).withName("PrefixLevel");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AdvancedCostOptimizationMetrics != null) {
+    const node = serializeAws_restXmlAdvancedCostOptimizationMetrics(
+      input.AdvancedCostOptimizationMetrics,
+      context
+    ).withName("AdvancedCostOptimizationMetrics");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AdvancedDataProtectionMetrics != null) {
+    const node = serializeAws_restXmlAdvancedDataProtectionMetrics(
+      input.AdvancedDataProtectionMetrics,
+      context
+    ).withName("AdvancedDataProtectionMetrics");
+    bodyNode.addChildNode(node);
+  }
+  if (input.DetailedStatusCodesMetrics != null) {
+    const node = serializeAws_restXmlDetailedStatusCodesMetrics(input.DetailedStatusCodesMetrics, context).withName(
+      "DetailedStatusCodesMetrics"
+    );
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -5036,6 +5430,18 @@ const serializeAws_restXmlDeleteMultiRegionAccessPointInput = (
   const bodyNode = new __XmlNode("DeleteMultiRegionAccessPointInput");
   if (input.Name != null) {
     const node = __XmlNode.of("MultiRegionAccessPointName", input.Name).withName("Name");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlDetailedStatusCodesMetrics = (
+  input: DetailedStatusCodesMetrics,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("DetailedStatusCodesMetrics");
+  if (input.IsEnabled != null) {
+    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -5393,6 +5799,18 @@ const serializeAws_restXmlLifecycleRuleAndOperator = (
     });
     bodyNode.addChildNode(containerNode);
   }
+  if (input.ObjectSizeGreaterThan != null) {
+    const node = __XmlNode
+      .of("ObjectSizeGreaterThanBytes", String(input.ObjectSizeGreaterThan))
+      .withName("ObjectSizeGreaterThan");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectSizeLessThan != null) {
+    const node = __XmlNode
+      .of("ObjectSizeLessThanBytes", String(input.ObjectSizeLessThan))
+      .withName("ObjectSizeLessThan");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -5410,6 +5828,18 @@ const serializeAws_restXmlLifecycleRuleFilter = (input: LifecycleRuleFilter, con
     const node = serializeAws_restXmlLifecycleRuleAndOperator(input.And, context).withName("And");
     bodyNode.addChildNode(node);
   }
+  if (input.ObjectSizeGreaterThan != null) {
+    const node = __XmlNode
+      .of("ObjectSizeGreaterThanBytes", String(input.ObjectSizeGreaterThan))
+      .withName("ObjectSizeGreaterThan");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectSizeLessThan != null) {
+    const node = __XmlNode
+      .of("ObjectSizeLessThanBytes", String(input.ObjectSizeLessThan))
+      .withName("ObjectSizeLessThan");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -5422,6 +5852,28 @@ const serializeAws_restXmlLifecycleRules = (input: LifecycleRule[], context: __S
     });
 };
 
+const serializeAws_restXmlMultiRegionAccessPointRoute = (
+  input: MultiRegionAccessPointRoute,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("MultiRegionAccessPointRoute");
+  if (input.Bucket != null) {
+    const node = __XmlNode.of("BucketName", input.Bucket).withName("Bucket");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Region != null) {
+    const node = __XmlNode.of("RegionName", input.Region).withName("Region");
+    bodyNode.addChildNode(node);
+  }
+  if (input.TrafficDialPercentage != null) {
+    const node = __XmlNode
+      .of("TrafficDialPercentage", String(input.TrafficDialPercentage))
+      .withName("TrafficDialPercentage");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlNoncurrentVersionExpiration = (
   input: NoncurrentVersionExpiration,
   context: __SerdeContext
@@ -5429,6 +5881,12 @@ const serializeAws_restXmlNoncurrentVersionExpiration = (
   const bodyNode = new __XmlNode("NoncurrentVersionExpiration");
   if (input.NoncurrentDays != null) {
     const node = __XmlNode.of("Days", String(input.NoncurrentDays)).withName("NoncurrentDays");
+    bodyNode.addChildNode(node);
+  }
+  if (input.NewerNoncurrentVersions != null) {
+    const node = __XmlNode
+      .of("NoncurrentVersionCount", String(input.NewerNoncurrentVersions))
+      .withName("NewerNoncurrentVersions");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -5680,6 +6138,15 @@ const serializeAws_restXmlReplicationStatusFilterList = (
     .map((entry) => {
       const node = __XmlNode.of("ReplicationStatus", entry);
       return node.withName("member");
+    });
+};
+
+const serializeAws_restXmlRouteList = (input: MultiRegionAccessPointRoute[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = serializeAws_restXmlMultiRegionAccessPointRoute(entry, context);
+      return node.withName("Route");
     });
 };
 
@@ -6340,6 +6807,19 @@ const serializeAws_restXmlTransitionList = (input: Transition[], context: __Serd
     });
 };
 
+const serializeAws_restXmlVersioningConfiguration = (input: VersioningConfiguration, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("VersioningConfiguration");
+  if (input.MFADelete != null) {
+    const node = __XmlNode.of("MFADelete", input.MFADelete).withName("MfaDelete");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Status != null) {
+    const node = __XmlNode.of("BucketVersioningStatus", input.Status).withName("Status");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlVpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("VpcConfiguration");
   if (input.VpcId != null) {
@@ -6370,6 +6850,7 @@ const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext)
     Bucket: undefined,
     AccessPointArn: undefined,
     Alias: undefined,
+    BucketAccountId: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -6389,6 +6870,9 @@ const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext)
   if (output["Alias"] !== undefined) {
     contents.Alias = __expectString(output["Alias"]);
   }
+  if (output["BucketAccountId"] !== undefined) {
+    contents.BucketAccountId = __expectString(output["BucketAccountId"]);
+  }
   return contents;
 };
 
@@ -6404,6 +6888,9 @@ const deserializeAws_restXmlAccountLevel = (output: any, context: __SerdeContext
   const contents: any = {
     ActivityMetrics: undefined,
     BucketLevel: undefined,
+    AdvancedCostOptimizationMetrics: undefined,
+    AdvancedDataProtectionMetrics: undefined,
+    DetailedStatusCodesMetrics: undefined,
   };
   if (output["ActivityMetrics"] !== undefined) {
     contents.ActivityMetrics = deserializeAws_restXmlActivityMetrics(output["ActivityMetrics"], context);
@@ -6411,10 +6898,54 @@ const deserializeAws_restXmlAccountLevel = (output: any, context: __SerdeContext
   if (output["BucketLevel"] !== undefined) {
     contents.BucketLevel = deserializeAws_restXmlBucketLevel(output["BucketLevel"], context);
   }
+  if (output["AdvancedCostOptimizationMetrics"] !== undefined) {
+    contents.AdvancedCostOptimizationMetrics = deserializeAws_restXmlAdvancedCostOptimizationMetrics(
+      output["AdvancedCostOptimizationMetrics"],
+      context
+    );
+  }
+  if (output["AdvancedDataProtectionMetrics"] !== undefined) {
+    contents.AdvancedDataProtectionMetrics = deserializeAws_restXmlAdvancedDataProtectionMetrics(
+      output["AdvancedDataProtectionMetrics"],
+      context
+    );
+  }
+  if (output["DetailedStatusCodesMetrics"] !== undefined) {
+    contents.DetailedStatusCodesMetrics = deserializeAws_restXmlDetailedStatusCodesMetrics(
+      output["DetailedStatusCodesMetrics"],
+      context
+    );
+  }
   return contents;
 };
 
 const deserializeAws_restXmlActivityMetrics = (output: any, context: __SerdeContext): ActivityMetrics => {
+  const contents: any = {
+    IsEnabled: undefined,
+  };
+  if (output["IsEnabled"] !== undefined) {
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlAdvancedCostOptimizationMetrics = (
+  output: any,
+  context: __SerdeContext
+): AdvancedCostOptimizationMetrics => {
+  const contents: any = {
+    IsEnabled: undefined,
+  };
+  if (output["IsEnabled"] !== undefined) {
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlAdvancedDataProtectionMetrics = (
+  output: any,
+  context: __SerdeContext
+): AdvancedDataProtectionMetrics => {
   const contents: any = {
     IsEnabled: undefined,
   };
@@ -6456,7 +6987,7 @@ const deserializeAws_restXmlAsyncOperation = (output: any, context: __SerdeConte
     ResponseDetails: undefined,
   };
   if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["CreationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
   }
   if (output["Operation"] !== undefined) {
     contents.Operation = __expectString(output["Operation"]);
@@ -6541,12 +7072,33 @@ const deserializeAws_restXmlBucketLevel = (output: any, context: __SerdeContext)
   const contents: any = {
     ActivityMetrics: undefined,
     PrefixLevel: undefined,
+    AdvancedCostOptimizationMetrics: undefined,
+    AdvancedDataProtectionMetrics: undefined,
+    DetailedStatusCodesMetrics: undefined,
   };
   if (output["ActivityMetrics"] !== undefined) {
     contents.ActivityMetrics = deserializeAws_restXmlActivityMetrics(output["ActivityMetrics"], context);
   }
   if (output["PrefixLevel"] !== undefined) {
     contents.PrefixLevel = deserializeAws_restXmlPrefixLevel(output["PrefixLevel"], context);
+  }
+  if (output["AdvancedCostOptimizationMetrics"] !== undefined) {
+    contents.AdvancedCostOptimizationMetrics = deserializeAws_restXmlAdvancedCostOptimizationMetrics(
+      output["AdvancedCostOptimizationMetrics"],
+      context
+    );
+  }
+  if (output["AdvancedDataProtectionMetrics"] !== undefined) {
+    contents.AdvancedDataProtectionMetrics = deserializeAws_restXmlAdvancedDataProtectionMetrics(
+      output["AdvancedDataProtectionMetrics"],
+      context
+    );
+  }
+  if (output["DetailedStatusCodesMetrics"] !== undefined) {
+    contents.DetailedStatusCodesMetrics = deserializeAws_restXmlDetailedStatusCodesMetrics(
+      output["DetailedStatusCodesMetrics"],
+      context
+    );
   }
   return contents;
 };
@@ -6611,15 +7163,26 @@ const deserializeAws_restXmlDeleteMultiRegionAccessPointInput = (
   return contents;
 };
 
+const deserializeAws_restXmlDetailedStatusCodesMetrics = (
+  output: any,
+  context: __SerdeContext
+): DetailedStatusCodesMetrics => {
+  const contents: any = {
+    IsEnabled: undefined,
+  };
+  if (output["IsEnabled"] !== undefined) {
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlEndpoints = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -6753,16 +7316,16 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
     contents.Report = deserializeAws_restXmlJobReport(output["Report"], context);
   }
   if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["CreationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
   }
   if (output["TerminationDate"] !== undefined) {
-    contents.TerminationDate = __expectNonNull(__parseRfc3339DateTime(output["TerminationDate"]));
+    contents.TerminationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TerminationDate"]));
   }
   if (output["RoleArn"] !== undefined) {
     contents.RoleArn = __expectString(output["RoleArn"]);
   }
   if (output["SuspendedDate"] !== undefined) {
-    contents.SuspendedDate = __expectNonNull(__parseRfc3339DateTime(output["SuspendedDate"]));
+    contents.SuspendedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SuspendedDate"]));
   }
   if (output["SuspendedCause"] !== undefined) {
     contents.SuspendedCause = __expectString(output["SuspendedCause"]);
@@ -6833,10 +7396,10 @@ const deserializeAws_restXmlJobListDescriptor = (output: any, context: __SerdeCo
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["CreationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
   }
   if (output["TerminationDate"] !== undefined) {
-    contents.TerminationDate = __expectNonNull(__parseRfc3339DateTime(output["TerminationDate"]));
+    contents.TerminationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TerminationDate"]));
   }
   if (output["ProgressSummary"] !== undefined) {
     contents.ProgressSummary = deserializeAws_restXmlJobProgressSummary(output["ProgressSummary"], context);
@@ -6900,10 +7463,10 @@ const deserializeAws_restXmlJobManifestGeneratorFilter = (
     contents.EligibleForReplication = __parseBoolean(output["EligibleForReplication"]);
   }
   if (output["CreatedAfter"] !== undefined) {
-    contents.CreatedAfter = __expectNonNull(__parseRfc3339DateTime(output["CreatedAfter"]));
+    contents.CreatedAfter = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAfter"]));
   }
   if (output["CreatedBefore"] !== undefined) {
-    contents.CreatedBefore = __expectNonNull(__parseRfc3339DateTime(output["CreatedBefore"]));
+    contents.CreatedBefore = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedBefore"]));
   }
   if (output.ObjectReplicationStatuses === "") {
     contents.ObjectReplicationStatuses = [];
@@ -7088,7 +7651,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
     ExpiredObjectDeleteMarker: undefined,
   };
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   if (output["Days"] !== undefined) {
     contents.Days = __strictParseInt32(output["Days"]) as number;
@@ -7163,6 +7726,8 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
   const contents: any = {
     Prefix: undefined,
     Tags: undefined,
+    ObjectSizeGreaterThan: undefined,
+    ObjectSizeLessThan: undefined,
   };
   if (output["Prefix"] !== undefined) {
     contents.Prefix = __expectString(output["Prefix"]);
@@ -7172,6 +7737,12 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_restXmlS3TagSet(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
+  if (output["ObjectSizeGreaterThan"] !== undefined) {
+    contents.ObjectSizeGreaterThan = __strictParseLong(output["ObjectSizeGreaterThan"]) as number;
+  }
+  if (output["ObjectSizeLessThan"] !== undefined) {
+    contents.ObjectSizeLessThan = __strictParseLong(output["ObjectSizeLessThan"]) as number;
+  }
   return contents;
 };
 
@@ -7180,6 +7751,8 @@ const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __Serde
     Prefix: undefined,
     Tag: undefined,
     And: undefined,
+    ObjectSizeGreaterThan: undefined,
+    ObjectSizeLessThan: undefined,
   };
   if (output["Prefix"] !== undefined) {
     contents.Prefix = __expectString(output["Prefix"]);
@@ -7189,6 +7762,12 @@ const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __Serde
   }
   if (output["And"] !== undefined) {
     contents.And = deserializeAws_restXmlLifecycleRuleAndOperator(output["And"], context);
+  }
+  if (output["ObjectSizeGreaterThan"] !== undefined) {
+    contents.ObjectSizeGreaterThan = __strictParseLong(output["ObjectSizeGreaterThan"]) as number;
+  }
+  if (output["ObjectSizeLessThan"] !== undefined) {
+    contents.ObjectSizeLessThan = __strictParseLong(output["ObjectSizeLessThan"]) as number;
   }
   return contents;
 };
@@ -7293,7 +7872,7 @@ const deserializeAws_restXmlMultiRegionAccessPointReport = (
     contents.Alias = __expectString(output["Alias"]);
   }
   if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(output["CreatedAt"]));
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
   }
   if (output["PublicAccessBlock"] !== undefined) {
     contents.PublicAccessBlock = deserializeAws_restXmlPublicAccessBlockConfiguration(
@@ -7326,6 +7905,27 @@ const deserializeAws_restXmlMultiRegionAccessPointReportList = (
     });
 };
 
+const deserializeAws_restXmlMultiRegionAccessPointRoute = (
+  output: any,
+  context: __SerdeContext
+): MultiRegionAccessPointRoute => {
+  const contents: any = {
+    Bucket: undefined,
+    Region: undefined,
+    TrafficDialPercentage: undefined,
+  };
+  if (output["Bucket"] !== undefined) {
+    contents.Bucket = __expectString(output["Bucket"]);
+  }
+  if (output["Region"] !== undefined) {
+    contents.Region = __expectString(output["Region"]);
+  }
+  if (output["TrafficDialPercentage"] !== undefined) {
+    contents.TrafficDialPercentage = __strictParseInt32(output["TrafficDialPercentage"]) as number;
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlMultiRegionAccessPointsAsyncResponse = (
   output: any,
   context: __SerdeContext
@@ -7350,9 +7950,13 @@ const deserializeAws_restXmlNoncurrentVersionExpiration = (
 ): NoncurrentVersionExpiration => {
   const contents: any = {
     NoncurrentDays: undefined,
+    NewerNoncurrentVersions: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
     contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
+  }
+  if (output["NewerNoncurrentVersions"] !== undefined) {
+    contents.NewerNoncurrentVersions = __strictParseInt32(output["NewerNoncurrentVersions"]) as number;
   }
   return contents;
 };
@@ -7643,7 +8247,7 @@ const deserializeAws_restXmlRegionalBucket = (output: any, context: __SerdeConte
     contents.PublicAccessBlockEnabled = __parseBoolean(output["PublicAccessBlockEnabled"]);
   }
   if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(output["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
   }
   if (output["OutpostId"] !== undefined) {
     contents.OutpostId = __expectString(output["OutpostId"]);
@@ -7705,6 +8309,14 @@ const deserializeAws_restXmlReplicationStatusFilterList = (
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restXmlRouteList = (output: any, context: __SerdeContext): MultiRegionAccessPointRoute[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_restXmlMultiRegionAccessPointRoute(entry, context);
     });
 };
 
@@ -7807,7 +8419,9 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     contents.MetadataDirective = __expectString(output["MetadataDirective"]);
   }
   if (output["ModifiedSinceConstraint"] !== undefined) {
-    contents.ModifiedSinceConstraint = __expectNonNull(__parseRfc3339DateTime(output["ModifiedSinceConstraint"]));
+    contents.ModifiedSinceConstraint = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["ModifiedSinceConstraint"])
+    );
   }
   if (output["NewObjectMetadata"] !== undefined) {
     contents.NewObjectMetadata = deserializeAws_restXmlS3ObjectMetadata(output["NewObjectMetadata"], context);
@@ -7830,7 +8444,9 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     contents.StorageClass = __expectString(output["StorageClass"]);
   }
   if (output["UnModifiedSinceConstraint"] !== undefined) {
-    contents.UnModifiedSinceConstraint = __expectNonNull(__parseRfc3339DateTime(output["UnModifiedSinceConstraint"]));
+    contents.UnModifiedSinceConstraint = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["UnModifiedSinceConstraint"])
+    );
   }
   if (output["SSEAwsKmsKeyId"] !== undefined) {
     contents.SSEAwsKmsKeyId = __expectString(output["SSEAwsKmsKeyId"]);
@@ -7845,7 +8461,9 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     contents.ObjectLockMode = __expectString(output["ObjectLockMode"]);
   }
   if (output["ObjectLockRetainUntilDate"] !== undefined) {
-    contents.ObjectLockRetainUntilDate = __expectNonNull(__parseRfc3339DateTime(output["ObjectLockRetainUntilDate"]));
+    contents.ObjectLockRetainUntilDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["ObjectLockRetainUntilDate"])
+    );
   }
   if (output["BucketKeyEnabled"] !== undefined) {
     contents.BucketKeyEnabled = __parseBoolean(output["BucketKeyEnabled"]);
@@ -8053,7 +8671,7 @@ const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeCon
     contents.ContentType = __expectString(output["ContentType"]);
   }
   if (output["HttpExpiresDate"] !== undefined) {
-    contents.HttpExpiresDate = __expectNonNull(__parseRfc3339DateTime(output["HttpExpiresDate"]));
+    contents.HttpExpiresDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["HttpExpiresDate"]));
   }
   if (output["RequesterCharged"] !== undefined) {
     contents.RequesterCharged = __parseBoolean(output["RequesterCharged"]);
@@ -8092,7 +8710,7 @@ const deserializeAws_restXmlS3Retention = (output: any, context: __SerdeContext)
     Mode: undefined,
   };
   if (output["RetainUntilDate"] !== undefined) {
-    contents.RetainUntilDate = __expectNonNull(__parseRfc3339DateTime(output["RetainUntilDate"]));
+    contents.RetainUntilDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RetainUntilDate"]));
   }
   if (output["Mode"] !== undefined) {
     contents.Mode = __expectString(output["Mode"]);
@@ -8185,10 +8803,8 @@ const deserializeAws_restXmlS3UserMetadata = (output: any, context: __SerdeConte
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -8362,7 +8978,7 @@ const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext):
     StorageClass: undefined,
   };
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   if (output["Days"] !== undefined) {
     contents.Days = __strictParseInt32(output["Days"]) as number;
@@ -8393,7 +9009,8 @@ const deserializeAws_restXmlVpcConfiguration = (output: any, context: __SerdeCon
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -8420,13 +9037,18 @@ const isSerializableHeaderValue = (value: any): boolean =>
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -8439,8 +9061,16 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

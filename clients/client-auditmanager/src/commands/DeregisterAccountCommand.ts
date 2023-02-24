@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,43 +31,13 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
 /**
  * <p> Deregisters an account in Audit Manager. </p>
  *          <note>
- *             <p>When you deregister your account from Audit Manager, your data isn’t deleted. If
- *             you want to delete your resource data, you must perform that task separately before you
- *             deregister your account. Either, you can do this in the Audit Manager console. Or,
- *             you can use one of the delete API operations that are provided by Audit Manager. </p>
- *             <p>To delete your Audit Manager resource data, see the following instructions: </p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html">DeleteAssessment</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html">Deleting an
- *                      assessment</a> in the <i>Audit Manager User
- *                   Guide</i>)</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html">DeleteAssessmentFramework</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html">Deleting a
- *                      custom framework</a> in the <i>Audit Manager User
- *                      Guide</i>)</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html">DeleteAssessmentFrameworkShare</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html">Deleting a share request</a> in the <i>Audit Manager User
- *                      Guide</i>)</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html">DeleteAssessmentReport</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps">Deleting an assessment report</a> in the <i>Audit Manager
- *                      User Guide</i>)</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html">DeleteControl</a> (see also: <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html">Deleting a custom
- *                      control</a> in the <i>Audit Manager User
- *                   Guide</i>)</p>
- *                </li>
- *             </ul>
- *             <p>At this time, Audit Manager doesn't provide an option to delete evidence. All
- *             available delete operations are listed above.</p>
+ *             <p>Before you deregister, you can use the <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html">UpdateSettings</a> API operation to set your preferred data retention policy. By
+ *             default, Audit Manager retains your data. If you want to delete your data, you can
+ *             use the <code>DeregistrationPolicy</code> attribute to request the deletion of your
+ *             data. </p>
+ *             <p>For more information about data retention, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html">Data
+ *                Protection</a> in the <i>Audit Manager User Guide</i>.
+ *          </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +62,15 @@ export class DeregisterAccountCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeregisterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,6 +86,9 @@ export class DeregisterAccountCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeregisterAccountCommandInput, DeregisterAccountCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeregisterAccountCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

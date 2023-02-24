@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,28 +30,12 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
 
 /**
  * <p>Retrieves all scaling policies applied to a fleet.</p>
- *         <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this
- *             request by policy status, such as to retrieve only active scaling policies. Use the
- *             pagination parameters to retrieve results as a set of sequential pages. If successful,
- *             set of <a>ScalingPolicy</a> objects is returned for the fleet.</p>
- *         <p>A fleet may have all of its scaling policies suspended (<a>StopFleetActions</a>). This operation does not affect the status of the scaling
- *             policies, which remains ACTIVE. To see whether a fleet's scaling policies are in force
- *             or suspended, call <a>DescribeFleetAttributes</a> and check the stopped
- *             actions.</p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>DescribeFleetCapacity</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DescribeScalingPolicies</a> |
- *                     <a>DeleteScalingPolicy</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>StartFleetActions</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ *         <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this request
+ *             by policy status, such as to retrieve only active scaling policies. Use the pagination
+ *             parameters to retrieve results as a set of sequential pages. If successful, set of
+ *                 <code>ScalingPolicy</code> objects is returned for the fleet.</p>
+ *         <p>A fleet may have all of its scaling policies suspended. This operation does not affect
+ *             the status of the scaling policies, which remains ACTIVE.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +59,15 @@ export class DescribeScalingPoliciesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeScalingPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,6 +83,9 @@ export class DescribeScalingPoliciesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeScalingPoliciesCommandInput, DescribeScalingPoliciesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeScalingPoliciesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

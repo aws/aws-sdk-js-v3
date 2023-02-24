@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,14 +29,8 @@ export interface DescribeInstanceTypeLimitsCommandInput extends DescribeInstance
 export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanceTypeLimitsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Describe the limits for a given instance type and OpenSearch or Elasticsearch version.
- *       When modifying an existing domain, specify the
- *       <code>
- *         <a>DomainName</a>
- *       </code>
- *       to see which limits you can modify.
- *     </p>
+ * <p>Describes the instance count, storage, and master node limits for a given OpenSearch or
+ *    Elasticsearch version and instance type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +54,15 @@ export class DescribeInstanceTypeLimitsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeInstanceTypeLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +78,9 @@ export class DescribeInstanceTypeLimitsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeInstanceTypeLimitsCommandInput, DescribeInstanceTypeLimitsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeInstanceTypeLimitsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

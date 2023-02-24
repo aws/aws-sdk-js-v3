@@ -5,7 +5,7 @@ import { WorkDocsServiceException as __BaseException } from "./WorkDocsServiceEx
 
 export interface AbortDocumentVersionUploadRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -21,12 +21,36 @@ export interface AbortDocumentVersionUploadRequest {
 }
 
 /**
+ * <p>The resource hierarchy is changing.</p>
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The resource does not exist.</p>
  */
 export class EntityNotExistsException extends __BaseException {
   readonly name: "EntityNotExistsException" = "EntityNotExistsException";
   readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * <p>The IDs of the non-existent resources.</p>
+   */
   EntityIds?: string[];
   /**
    * @internal
@@ -44,7 +68,7 @@ export class EntityNotExistsException extends __BaseException {
 }
 
 /**
- * <p>The AWS Directory Service cannot reach an on-premises instance. Or a dependency
+ * <p>The Directory Service cannot reach an on-premises instance. Or a dependency
  *             under the control of the organization is failing, such as a connected Active
  *             Directory.</p>
  */
@@ -159,7 +183,7 @@ export interface ActivateUserRequest {
   UserId: string | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 }
@@ -555,7 +579,7 @@ export interface Activity {
 export interface NotificationOptions {
   /**
    * <p>Boolean value to indicate an email notification should be sent to the
-   *             receipients.</p>
+   *             recipients.</p>
    */
   SendEmail?: boolean;
 
@@ -602,7 +626,7 @@ export interface SharePrincipal {
 
 export interface AddResourcePermissionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -676,7 +700,7 @@ export enum CommentVisibilityType {
 
 export interface CreateCommentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -824,7 +848,7 @@ export class InvalidCommentOperationException extends __BaseException {
 
 export interface CreateCustomMetadataRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -892,7 +916,7 @@ export class ConflictingOperationException extends __BaseException {
 
 export interface CreateFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1004,7 +1028,7 @@ export class EntityAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The maximum of 100,000 folders under the parent folder has been exceeded.</p>
+ * <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -1036,7 +1060,7 @@ export interface CreateLabelsRequest {
   Labels: string[] | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 }
@@ -1067,6 +1091,7 @@ export class TooManyLabelsException extends __BaseException {
 
 export enum SubscriptionProtocolType {
   HTTPS = "HTTPS",
+  SQS = "SQS",
 }
 
 export enum SubscriptionType {
@@ -1122,6 +1147,27 @@ export interface CreateNotificationSubscriptionResponse {
    * <p>The subscription.</p>
    */
   Subscription?: Subscription;
+}
+
+/**
+ * <p>The pagination marker or limit fields are not valid.</p>
+ */
+export class InvalidArgumentException extends __BaseException {
+  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
+    super({
+      name: "InvalidArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1188,7 +1234,7 @@ export interface CreateUserRequest {
   StorageRule?: StorageRuleType;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 }
@@ -1207,14 +1253,14 @@ export interface DeactivateUserRequest {
   UserId: string | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 }
 
 export interface DeleteCommentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1236,7 +1282,7 @@ export interface DeleteCommentRequest {
 
 export interface DeleteCustomMetadataRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1265,30 +1311,9 @@ export interface DeleteCustomMetadataRequest {
 
 export interface DeleteCustomMetadataResponse {}
 
-/**
- * <p>The resource hierarchy is changing.</p>
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
 export interface DeleteDocumentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1298,9 +1323,52 @@ export interface DeleteDocumentRequest {
   DocumentId: string | undefined;
 }
 
+export interface DeleteDocumentVersionRequest {
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
+
+  /**
+   * <p>The ID of the document associated with the version being deleted.</p>
+   */
+  DocumentId: string | undefined;
+
+  /**
+   * <p>The ID of the version being deleted.</p>
+   */
+  VersionId: string | undefined;
+
+  /**
+   * <p>Deletes all versions of a document prior to the current version.</p>
+   */
+  DeletePriorVersions: boolean | undefined;
+}
+
+/**
+ * <p>The operation is invalid.</p>
+ */
+export class InvalidOperationException extends __BaseException {
+  readonly name: "InvalidOperationException" = "InvalidOperationException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
+    super({
+      name: "InvalidOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export interface DeleteFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1312,7 +1380,7 @@ export interface DeleteFolderRequest {
 
 export interface DeleteFolderContentsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1329,7 +1397,7 @@ export interface DeleteLabelsRequest {
   ResourceId: string | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1361,7 +1429,7 @@ export interface DeleteNotificationSubscriptionRequest {
 export interface DeleteUserRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using AWS credentials.</p>
+   *             administrative API actions, as in accessing the API using Amazon Web Services credentials.</p>
    */
   AuthenticationToken?: string;
 
@@ -1373,7 +1441,7 @@ export interface DeleteUserRequest {
 
 export interface DescribeActivitiesRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1444,30 +1512,9 @@ export interface DescribeActivitiesResponse {
   Marker?: string;
 }
 
-/**
- * <p>The pagination marker or limit fields are not valid.</p>
- */
-export class InvalidArgumentException extends __BaseException {
-  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
-    super({
-      name: "InvalidArgumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
 export interface DescribeCommentsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1508,7 +1555,7 @@ export interface DescribeCommentsResponse {
 
 export interface DescribeDocumentVersionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1640,6 +1687,27 @@ export interface DescribeDocumentVersionsResponse {
   Marker?: string;
 }
 
+/**
+ * <p>The password is invalid.</p>
+ */
+export class InvalidPasswordException extends __BaseException {
+  readonly name: "InvalidPasswordException" = "InvalidPasswordException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPasswordException, __BaseException>) {
+    super({
+      name: "InvalidPasswordException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPasswordException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export enum OrderType {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
@@ -1658,7 +1726,7 @@ export enum FolderContentType {
 
 export interface DescribeFolderContentsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1765,7 +1833,7 @@ export interface DescribeFolderContentsResponse {
 
 export interface DescribeGroupsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1837,7 +1905,7 @@ export interface DescribeNotificationSubscriptionsResponse {
 
 export interface DescribeResourcePermissionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1961,7 +2029,7 @@ export enum UserSortType {
 
 export interface DescribeUsersRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -1976,7 +2044,24 @@ export interface DescribeUsersRequest {
   UserIds?: string;
 
   /**
-   * <p>A query to filter users by user name.</p>
+   * <p>A query to filter users by user name. Remember the following about the <code>Userids</code> and <code>Query</code> parameters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you don't use either parameter, the API returns a paginated list of all users on the site.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use both parameters, the API ignores the <code>Query</code> parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Userid</code> parameter only returns user names that match a corresponding user ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Query</code> parameter runs a "prefix" search for users by the <code>GivenName</code>, <code>SurName</code>, or <code>UserName</code> fields included in a
+   *                 <a href="https://docs.aws.amazon.com/workdocs/latest/APIReference/API_CreateUser.html">CreateUser</a> API call. For example, querying on
+   *                 <code>Ma</code> returns Márcia Oliveira, María García, and Mateo Jackson. If you use multiple characters, the API only returns data that matches all characters. For example, querying on <code>Ma J</code> only
+   *                 returns Mateo Jackson.</p>
+   *             </li>
+   *          </ul>
    */
   Query?: string;
 
@@ -2070,7 +2155,7 @@ export interface GetCurrentUserResponse {
 
 export interface GetDocumentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2097,30 +2182,9 @@ export interface GetDocumentResponse {
   CustomMetadata?: Record<string, string>;
 }
 
-/**
- * <p>The password is invalid.</p>
- */
-export class InvalidPasswordException extends __BaseException {
-  readonly name: "InvalidPasswordException" = "InvalidPasswordException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPasswordException, __BaseException>) {
-    super({
-      name: "InvalidPasswordException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPasswordException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
 export interface GetDocumentPathRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2180,7 +2244,7 @@ export interface GetDocumentPathResponse {
 
 export interface GetDocumentVersionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2220,7 +2284,7 @@ export interface GetDocumentVersionResponse {
 
 export interface GetFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2249,7 +2313,7 @@ export interface GetFolderResponse {
 
 export interface GetFolderPathRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2288,7 +2352,7 @@ export enum ResourceCollectionType {
 
 export interface GetResourcesRequest {
   /**
-   * <p>The Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>The Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2355,7 +2419,7 @@ export class DraftUploadOutOfSyncException extends __BaseException {
 
 export interface InitiateDocumentVersionUploadRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2392,7 +2456,7 @@ export interface InitiateDocumentVersionUploadRequest {
   /**
    * <p>The ID of the parent folder.</p>
    */
-  ParentFolderId: string | undefined;
+  ParentFolderId?: string;
 }
 
 /**
@@ -2487,7 +2551,7 @@ export class StorageLimitWillExceedException extends __BaseException {
 
 export interface RemoveAllResourcePermissionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2499,7 +2563,7 @@ export interface RemoveAllResourcePermissionsRequest {
 
 export interface RemoveResourcePermissionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2519,9 +2583,21 @@ export interface RemoveResourcePermissionRequest {
   PrincipalType?: PrincipalType | string;
 }
 
+export interface RestoreDocumentVersionsRequest {
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
+
+  /**
+   * <p>The ID of the document.</p>
+   */
+  DocumentId: string | undefined;
+}
+
 export interface UpdateDocumentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2547,34 +2623,13 @@ export interface UpdateDocumentRequest {
   ResourceState?: ResourceStateType | string;
 }
 
-/**
- * <p>The operation is invalid.</p>
- */
-export class InvalidOperationException extends __BaseException {
-  readonly name: "InvalidOperationException" = "InvalidOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
-    super({
-      name: "InvalidOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOperationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
 export enum DocumentVersionStatus {
   ACTIVE = "ACTIVE",
 }
 
 export interface UpdateDocumentVersionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2596,7 +2651,7 @@ export interface UpdateDocumentVersionRequest {
 
 export interface UpdateFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2673,7 +2728,7 @@ export enum BooleanEnumType {
 
 export interface UpdateUserRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
 
@@ -2713,7 +2768,7 @@ export interface UpdateUserRequest {
   Locale?: LocaleType | string;
 
   /**
-   * <p>Boolean value to determine whether the user is granted Poweruser privileges.</p>
+   * <p>Boolean value to determine whether the user is granted Power user privileges.</p>
    */
   GrantPoweruserPrivileges?: BooleanEnumType | string;
 }
@@ -2760,6 +2815,7 @@ export const UserStorageMetadataFilterSensitiveLog = (obj: UserStorageMetadata):
  */
 export const UserFilterSensitiveLog = (obj: User): any => ({
   ...obj,
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
 });
 
 /**
@@ -2767,6 +2823,7 @@ export const UserFilterSensitiveLog = (obj: User): any => ({
  */
 export const ActivateUserResponseFilterSensitiveLog = (obj: ActivateUserResponse): any => ({
   ...obj,
+  ...(obj.User && { User: UserFilterSensitiveLog(obj.User) }),
 });
 
 /**
@@ -2774,6 +2831,7 @@ export const ActivateUserResponseFilterSensitiveLog = (obj: ActivateUserResponse
  */
 export const CommentMetadataFilterSensitiveLog = (obj: CommentMetadata): any => ({
   ...obj,
+  ...(obj.Contributor && { Contributor: UserFilterSensitiveLog(obj.Contributor) }),
 });
 
 /**
@@ -2781,6 +2839,7 @@ export const CommentMetadataFilterSensitiveLog = (obj: CommentMetadata): any => 
  */
 export const UserMetadataFilterSensitiveLog = (obj: UserMetadata): any => ({
   ...obj,
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
 });
 
 /**
@@ -2788,6 +2847,7 @@ export const UserMetadataFilterSensitiveLog = (obj: UserMetadata): any => ({
  */
 export const ResourceMetadataFilterSensitiveLog = (obj: ResourceMetadata): any => ({
   ...obj,
+  ...(obj.Owner && { Owner: UserMetadataFilterSensitiveLog(obj.Owner) }),
 });
 
 /**
@@ -2802,6 +2862,7 @@ export const GroupMetadataFilterSensitiveLog = (obj: GroupMetadata): any => ({
  */
 export const ParticipantsFilterSensitiveLog = (obj: Participants): any => ({
   ...obj,
+  ...(obj.Users && { Users: obj.Users.map((item) => UserMetadataFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -2809,6 +2870,11 @@ export const ParticipantsFilterSensitiveLog = (obj: Participants): any => ({
  */
 export const ActivityFilterSensitiveLog = (obj: Activity): any => ({
   ...obj,
+  ...(obj.Initiator && { Initiator: UserMetadataFilterSensitiveLog(obj.Initiator) }),
+  ...(obj.Participants && { Participants: ParticipantsFilterSensitiveLog(obj.Participants) }),
+  ...(obj.ResourceMetadata && { ResourceMetadata: ResourceMetadataFilterSensitiveLog(obj.ResourceMetadata) }),
+  ...(obj.OriginalParent && { OriginalParent: ResourceMetadataFilterSensitiveLog(obj.OriginalParent) }),
+  ...(obj.CommentMetadata && { CommentMetadata: CommentMetadataFilterSensitiveLog(obj.CommentMetadata) }),
 });
 
 /**
@@ -2868,6 +2934,7 @@ export const CreateCommentRequestFilterSensitiveLog = (obj: CreateCommentRequest
 export const CommentFilterSensitiveLog = (obj: Comment): any => ({
   ...obj,
   ...(obj.Text && { Text: SENSITIVE_STRING }),
+  ...(obj.Contributor && { Contributor: UserFilterSensitiveLog(obj.Contributor) }),
 });
 
 /**
@@ -2960,6 +3027,7 @@ export const CreateNotificationSubscriptionResponseFilterSensitiveLog = (
  */
 export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
   ...obj,
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
 });
@@ -2969,6 +3037,7 @@ export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any
  */
 export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
   ...obj,
+  ...(obj.User && { User: UserFilterSensitiveLog(obj.User) }),
 });
 
 /**
@@ -3006,6 +3075,14 @@ export const DeleteCustomMetadataResponseFilterSensitiveLog = (obj: DeleteCustom
  * @internal
  */
 export const DeleteDocumentRequestFilterSensitiveLog = (obj: DeleteDocumentRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteDocumentVersionRequestFilterSensitiveLog = (obj: DeleteDocumentVersionRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
 });
@@ -3071,6 +3148,7 @@ export const DescribeActivitiesRequestFilterSensitiveLog = (obj: DescribeActivit
  */
 export const DescribeActivitiesResponseFilterSensitiveLog = (obj: DescribeActivitiesResponse): any => ({
   ...obj,
+  ...(obj.UserActivities && { UserActivities: obj.UserActivities.map((item) => ActivityFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -3236,6 +3314,7 @@ export const DescribeUsersRequestFilterSensitiveLog = (obj: DescribeUsersRequest
  */
 export const DescribeUsersResponseFilterSensitiveLog = (obj: DescribeUsersResponse): any => ({
   ...obj,
+  ...(obj.Users && { Users: obj.Users.map((item) => UserFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -3251,6 +3330,7 @@ export const GetCurrentUserRequestFilterSensitiveLog = (obj: GetCurrentUserReque
  */
 export const GetCurrentUserResponseFilterSensitiveLog = (obj: GetCurrentUserResponse): any => ({
   ...obj,
+  ...(obj.User && { User: UserFilterSensitiveLog(obj.User) }),
 });
 
 /**
@@ -3410,6 +3490,14 @@ export const RemoveResourcePermissionRequestFilterSensitiveLog = (obj: RemoveRes
 /**
  * @internal
  */
+export const RestoreDocumentVersionsRequestFilterSensitiveLog = (obj: RestoreDocumentVersionsRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const UpdateDocumentRequestFilterSensitiveLog = (obj: UpdateDocumentRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
@@ -3444,4 +3532,5 @@ export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any
  */
 export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
   ...obj,
+  ...(obj.User && { User: UserFilterSensitiveLog(obj.User) }),
 });

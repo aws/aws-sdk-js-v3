@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,15 +29,16 @@ export interface PublishFunctionCommandInput extends PublishFunctionRequest {}
 export interface PublishFunctionCommandOutput extends PublishFunctionResult, __MetadataBearer {}
 
 /**
- * <p>Publishes a CloudFront function by copying the function code from the <code>DEVELOPMENT</code>
- * 			stage to <code>LIVE</code>. This automatically updates all cache behaviors that are
- * 			using this function to use the newly published copy in the <code>LIVE</code>
- * 			stage.</p>
- * 		       <p>When a function is published to the <code>LIVE</code> stage, you can attach the function to
- * 			a distribution’s cache behavior, using the function’s Amazon Resource Name (ARN).</p>
- * 		       <p>To publish a function, you must provide the function’s name and version (<code>ETag</code>
- * 			value). To get these values, you can use <code>ListFunctions</code> and
- * 			<code>DescribeFunction</code>.</p>
+ * <p>Publishes a CloudFront function by copying the function code from the
+ * 				<code>DEVELOPMENT</code> stage to <code>LIVE</code>. This automatically updates all
+ * 			cache behaviors that are using this function to use the newly published copy in the
+ * 				<code>LIVE</code> stage.</p>
+ *          <p>When a function is published to the <code>LIVE</code> stage, you can attach the
+ * 			function to a distribution's cache behavior, using the function's Amazon Resource Name
+ * 			(ARN).</p>
+ *          <p>To publish a function, you must provide the function's name and version
+ * 				(<code>ETag</code> value). To get these values, you can use
+ * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +62,15 @@ export class PublishFunctionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PublishFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +86,9 @@ export class PublishFunctionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PublishFunctionCommandInput, PublishFunctionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PublishFunctionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

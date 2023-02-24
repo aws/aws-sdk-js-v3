@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,7 +28,7 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  *             can be performed using the CLI, the Amazon Web Services API, or the <b>My
  *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user
  *             password is not affected by this operation.</p>
- *         <p>Use <a>UpdateLoginProfile</a> to use the CLI, the Amazon Web Services API, or the
+ *          <p>Use <a>UpdateLoginProfile</a> to use the CLI, the Amazon Web Services API, or the
  *                 <b>Users</b> page in the IAM console to change the
  *             password for any IAM user. For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
  *                 passwords</a> in the <i>IAM User Guide</i>.</p>
@@ -54,6 +55,15 @@ export class ChangePasswordCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ChangePasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class ChangePasswordCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ChangePasswordCommandInput, ChangePasswordCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ChangePasswordCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -189,23 +189,23 @@ import { DataSyncClient } from "./DataSyncClient";
 
 /**
  * <fullname>DataSync</fullname>
- *
- *          <p>DataSync is a managed data transfer service that makes it simpler for you to
- *       automate moving data between on-premises storage and Amazon Simple Storage Service (Amazon S3)
- *       or Amazon Elastic File System (Amazon EFS). </p>
- *          <p>This API interface reference for DataSync contains documentation for a
- *       programming interface that you can use to manage DataSync.</p>
+ *          <p>DataSync is a managed data transfer service that makes it simpler for you
+ *       to automate moving data between on-premises storage and Amazon Web Services storage services. You also can use DataSync to transfer data between other cloud providers and Amazon Web Services storage services.</p>
+ *          <p>This API interface reference includes documentation for using DataSync
+ *       programmatically. For complete information, see the <i>
+ *                <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User
+ *         Guide</a>
+ *             </i>.</p>
  */
 export class DataSync extends DataSyncClient {
   /**
-   * <p>Cancels execution of a task. </p>
-   *          <p>When you cancel a task execution, the transfer of some files is abruptly interrupted.
-   *       The contents of files that are transferred to the destination might be incomplete or
-   *       inconsistent with the source files. However, if you start a new task execution on the same
-   *       task and you allow the task execution to complete, file content on the destination is complete
-   *       and consistent. This applies to other unexpected failures that interrupt a task execution. In
-   *       all of these cases, DataSync successfully complete the transfer when you start the next
-   *       task execution.</p>
+   * <p>Stops an DataSync task execution that's in progress. The transfer of some
+   *       files are abruptly interrupted. File contents that're transferred to the destination might be
+   *       incomplete or inconsistent with the source files.</p>
+   *          <p>However, if you start a new task execution using the same task and allow it to finish,
+   *       file content on the destination will be complete and consistent. This applies to other
+   *       unexpected failures that interrupt a task execution. In all of these cases, DataSync successfully completes the transfer when you start the next task
+   *       execution.</p>
    */
   public cancelTaskExecution(
     args: CancelTaskExecutionCommandInput,
@@ -237,21 +237,18 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Activates an DataSync agent that you have deployed on your host. The activation
-   *       process associates your agent with your account. In the activation process, you specify
-   *       information such as the Amazon Web Services Region that you want to activate the agent in. You activate the
-   *       agent in the Amazon Web Services Region where your target locations (in Amazon S3 or Amazon EFS) reside. Your
-   *       tasks are created in this Amazon Web Services Region.</p>
+   * <p>Activates an DataSync agent that you have deployed in your storage
+   *       environment. The activation process associates your agent with your account. In the activation
+   *       process, you specify information such as the Amazon Web Services Region that you want to
+   *       activate the agent in. You activate the agent in the Amazon Web Services Region where your
+   *       target locations (in Amazon S3 or Amazon EFS) reside. Your tasks are created in this Amazon Web Services Region.</p>
    *          <p>You can activate the agent in a VPC (virtual private cloud) or provide the agent access to
    *       a VPC endpoint so you can run tasks without going over the public internet.</p>
    *          <p>You can use an agent for more than one location. If a task uses multiple agents, all of
    *       them need to have status AVAILABLE for the task to run. If you use multiple agents for a
    *       source location, the status of all the agents must be AVAILABLE for the task to run. </p>
-   *
-   *
    *          <p>Agents are automatically updated by Amazon Web Services on a regular basis, using a mechanism that
    *       ensures minimal interruption to your tasks.</p>
-   *          <p></p>
    */
   public createAgent(args: CreateAgentCommandInput, options?: __HttpHandlerOptions): Promise<CreateAgentCommandOutput>;
   public createAgent(args: CreateAgentCommandInput, cb: (err: any, data?: CreateAgentCommandOutput) => void): void;
@@ -375,7 +372,12 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system.</p>
+   * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync
+   *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating a location for FSx for OpenZFS</a>.</p>
+   *          <note>
+   *             <p>Request parameters related to <code>SMB</code> aren't supported with the
+   *         <code>CreateLocationFsxOpenZfs</code> operation.</p>
+   *          </note>
    */
   public createLocationFsxOpenZfs(
     args: CreateLocationFsxOpenZfsCommandInput,
@@ -536,13 +538,8 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Creates an endpoint for an Amazon S3 bucket.</p>
-   *
-   *
-   *          <p>For
-   *       more information, see
-   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>
-   *       in the <i>DataSync User Guide</i>.</p>
+   * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can
+   *       access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>.</p>
    */
   public createLocationS3(
     args: CreateLocationS3CommandInput,
@@ -574,8 +571,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Defines a file system on a Server Message Block (SMB) server that can be read from or
-   *       written to.</p>
+   * <p>Creates an endpoint for a Server Message Block (SMB) file server that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating an SMB location</a>.</p>
    */
   public createLocationSmb(
     args: CreateLocationSmbCommandInput,
@@ -612,22 +608,6 @@ export class DataSync extends DataSyncClient {
    *          <p>A task includes a source location, a destination location, and the preferences for how and
    *       when you want to transfer your data (such as bandwidth limits, scheduling, among other
    *       options).</p>
-   *          <p>When you create a task that transfers data between Amazon Web Services services in
-   *       different Amazon Web Services Regions, one of your locations must reside in the Region where
-   *       you're using DataSync.</p>
-   *          <p>For more information, see the following topics:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html">Working with DataSync locations</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html">Configure DataSync task settings</a>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   public createTask(args: CreateTaskCommandInput, options?: __HttpHandlerOptions): Promise<CreateTaskCommandOutput>;
   public createTask(args: CreateTaskCommandInput, cb: (err: any, data?: CreateTaskCommandOutput) => void): void;
@@ -714,7 +694,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Deletes a task.</p>
+   * <p>Deletes an DataSync task.</p>
    */
   public deleteTask(args: DeleteTaskCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTaskCommandOutput>;
   public deleteTask(args: DeleteTaskCommandInput, cb: (err: any, data?: DeleteTaskCommandOutput) => void): void;
@@ -740,9 +720,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata such as the name, the network interfaces, and the status (that is,
-   *       whether the agent is running or not) for an agent. To specify which agent to describe, use the
-   *       Amazon Resource Name (ARN) of the agent in your request. </p>
+   * <p>Returns metadata about an DataSync agent, such as its name, endpoint type, and status.</p>
    */
   public describeAgent(
     args: DescribeAgentCommandInput,
@@ -806,8 +784,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata about an Amazon FSx for Lustre
-   *       location, such as information about its path.</p>
+   * <p>Provides details about how an DataSync location for an Amazon FSx for Lustre file system is configured.</p>
    */
   public describeLocationFsxLustre(
     args: DescribeLocationFsxLustreCommandInput,
@@ -840,6 +817,10 @@ export class DataSync extends DataSyncClient {
 
   /**
    * <p>Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
+   *          <note>
+   *             <p>If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
+   *         actually return a <code>Password</code>.</p>
+   *          </note>
    */
   public describeLocationFsxOntap(
     args: DescribeLocationFsxOntapCommandInput,
@@ -871,8 +852,11 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata about an Amazon FSx for OpenZFS
-   *       location, such as information about its path.</p>
+   * <p>Provides details about how an DataSync location for an Amazon FSx for OpenZFS file system is configured.</p>
+   *          <note>
+   *             <p>Response elements related to <code>SMB</code> aren't supported with the
+   *         <code>DescribeLocationFsxOpenZfs</code> operation.</p>
+   *          </note>
    */
   public describeLocationFsxOpenZfs(
     args: DescribeLocationFsxOpenZfsCommandInput,
@@ -1159,14 +1143,17 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns a list of agents owned by an Amazon Web Services account in the Amazon Web Services Region specified in the
-   *       request. The returned list is ordered by agent Amazon Resource Name (ARN).</p>
-   *          <p>By default, this operation returns a maximum of 100 agents. This operation supports
-   *       pagination that enables you to optionally reduce the number of agents returned in a
-   *       response.</p>
-   *          <p>If you have more agents than are returned in a response (that is, the response returns
-   *       only a truncated list of your agents), the response contains a marker that you can specify in
-   *       your next request to fetch the next page of agents.</p>
+   * <p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p>
+   *          <p>With pagination, you can reduce the number of agents returned in a response. If you get
+   *       a truncated list of agents in a response, the response contains a marker that you can specify
+   *       in your next request to fetch the next page of agents.</p>
+   *          <p>
+   *             <code>ListAgents</code> is eventually consistent. This means the result of running the
+   *       operation might not reflect that you just created or deleted an agent. For example, if you
+   *       create an agent with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html">CreateAgent</a> and then
+   *       immediately run <code>ListAgents</code>, that agent might not show up in the list right away.
+   *       In situations like this, you can always confirm whether an agent has been created (or deleted)
+   *       by using <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html">DescribeAgent</a>.</p>
    */
   public listAgents(args: ListAgentsCommandInput, options?: __HttpHandlerOptions): Promise<ListAgentsCommandOutput>;
   public listAgents(args: ListAgentsCommandInput, cb: (err: any, data?: ListAgentsCommandOutput) => void): void;
@@ -1227,7 +1214,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns all the tags associated with a specified resource. </p>
+   * <p>Returns all the tags associated with an Amazon Web Services resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1317,15 +1304,8 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Starts a specific invocation of a task. A <code>TaskExecution</code> value represents
-   *       an individual run of a task. Each task can have at most one <code>TaskExecution</code> at a
-   *       time.</p>
-   *          <p>
-   *             <code>TaskExecution</code> has the following transition phases: INITIALIZING |
-   *       PREPARING | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. </p>
-   *
-   *          <p>For detailed information, see the Task Execution section in the Components and
-   *       Terminology topic in the <i>DataSync User Guide</i>.</p>
+   * <p>Starts an DataSync task. For each task, you can only run one task execution at a time.</p>
+   *          <p>There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
    */
   public startTaskExecution(
     args: StartTaskExecutionCommandInput,
@@ -1357,7 +1337,9 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Applies a key-value pair to an Amazon Web Services resource.</p>
+   * <p>Applies a <i>tag</i> to an Amazon Web Services
+   *       resource. Tags are key-value pairs that can help you manage, filter, and search for your resources.</p>
+   *          <p>These include DataSync resources, such as locations, tasks, and task executions.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1383,7 +1365,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Removes a tag from an Amazon Web Services resource.</p>
+   * <p>Removes tags from an Amazon Web Services resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1507,9 +1489,10 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Updates some of the parameters of a previously created location for self-managed object
-   *       storage server access. For information about creating a self-managed object storage location,
-   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
+   * <p>Updates some parameters of an existing object storage location that DataSync
+   *       accesses for a transfer. For information about creating a self-managed object storage
+   *       location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object
+   *         storage</a>.</p>
    */
   public updateLocationObjectStorage(
     args: UpdateLocationObjectStorageCommandInput,
@@ -1604,7 +1587,6 @@ export class DataSync extends DataSyncClient {
    * <p>Updates execution of a task.</p>
    *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
    *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
-   *
    *          <note>
    *             <p>The only <code>Option</code> that can be modified by <code>UpdateTaskExecution</code>
    *         is <code>

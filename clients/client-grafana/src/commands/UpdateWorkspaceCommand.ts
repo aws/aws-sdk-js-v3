@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,12 @@ export interface UpdateWorkspaceCommandInput extends UpdateWorkspaceRequest {}
 export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit any
- *       optional parameters, the existing values of those parameters are not changed.</p>
- *          <p>To modify the user authentication methods that the workspace uses, such as SAML or Amazon Web Services SSO,
- *          use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.</p>
- *          <p>To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code> Grafana roles,
- *          use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.</p>
+ * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit
+ *             any optional parameters, the existing values of those parameters are not changed.</p>
+ *          <p>To modify the user authentication methods that the workspace uses, such as SAML or
+ *                 IAM Identity Center, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.</p>
+ *          <p>To modify which users in the workspace have the <code>Admin</code> and
+ *                 <code>Editor</code> Grafana roles, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class UpdateWorkspaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class UpdateWorkspaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateWorkspaceCommandInput, UpdateWorkspaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateWorkspaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

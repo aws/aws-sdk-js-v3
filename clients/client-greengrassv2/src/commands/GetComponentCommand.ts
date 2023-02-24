@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,7 @@ export interface GetComponentCommandInput extends GetComponentRequest {}
 export interface GetComponentCommandOutput extends GetComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the recipe for a version of a component. Core devices can call this operation to
- *       identify the artifacts and requirements to install a component.</p>
+ * <p>Gets the recipe for a version of a component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +53,15 @@ export class GetComponentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +77,7 @@ export class GetComponentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetComponentCommandInput, GetComponentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetComponentCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,14 +30,12 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
 
 /**
  * <p>Provides information about the specified custom language model.</p>
- *         <p>This operation also shows if the base language model you used to create your custom
- *             language model has been updated. If Amazon Transcribe has updated the base model, you
- *             can create a new custom language model using the updated base model.</p>
- *         <p>If you tried to create a new custom language model and the request wasn't successful,
+ *          <p>This operation also shows if the base language model that you used to create your
+ *             custom language model has been updated. If Amazon Transcribe has updated the base
+ *             model, you can create a new custom language model using the updated base model.</p>
+ *          <p>If you tried to create a new custom language model and the request wasn't successful,
  *             you can use <code>DescribeLanguageModel</code> to help identify the reason for this
  *             failure.</p>
- *         <p>To get a list of your custom language models, use the
- *              operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +59,15 @@ export class DescribeLanguageModelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeLanguageModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +83,9 @@ export class DescribeLanguageModelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeLanguageModelCommandInput, DescribeLanguageModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeLanguageModelCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

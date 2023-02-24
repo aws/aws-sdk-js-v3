@@ -252,6 +252,10 @@ import {
   GetResourceConfigHistoryCommandInput,
   GetResourceConfigHistoryCommandOutput,
 } from "../commands/GetResourceConfigHistoryCommand";
+import {
+  GetResourceEvaluationSummaryCommandInput,
+  GetResourceEvaluationSummaryCommandOutput,
+} from "../commands/GetResourceEvaluationSummaryCommand";
 import { GetStoredQueryCommandInput, GetStoredQueryCommandOutput } from "../commands/GetStoredQueryCommand";
 import {
   ListAggregateDiscoveredResourcesCommandInput,
@@ -265,6 +269,10 @@ import {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "../commands/ListDiscoveredResourcesCommand";
+import {
+  ListResourceEvaluationsCommandInput,
+  ListResourceEvaluationsCommandOutput,
+} from "../commands/ListResourceEvaluationsCommand";
 import { ListStoredQueriesCommandInput, ListStoredQueriesCommandOutput } from "../commands/ListStoredQueriesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -332,6 +340,10 @@ import {
   StartRemediationExecutionCommandInput,
   StartRemediationExecutionCommandOutput,
 } from "../commands/StartRemediationExecutionCommand";
+import {
+  StartResourceEvaluationCommandInput,
+  StartResourceEvaluationCommandOutput,
+} from "../commands/StartResourceEvaluationCommand";
 import {
   StopConfigurationRecorderCommandInput,
   StopConfigurationRecorderCommandOutput,
@@ -424,6 +436,7 @@ import {
   DescribeComplianceByResourceResponse,
   DescribeConfigRuleEvaluationStatusRequest,
   DescribeConfigRuleEvaluationStatusResponse,
+  DescribeConfigRulesFilters,
   DescribeConfigRulesRequest,
   DescribeConfigRulesResponse,
   DescribeConfigurationAggregatorSourcesStatusRequest,
@@ -463,9 +476,12 @@ import {
   DescribeRetentionConfigurationsRequest,
   DescribeRetentionConfigurationsResponse,
   Evaluation,
+  EvaluationContext,
+  EvaluationModeConfiguration,
   EvaluationResult,
   EvaluationResultIdentifier,
   EvaluationResultQualifier,
+  EvaluationStatus,
   ExecutionControls,
   ExternalEvaluation,
   FailedDeleteRemediationExceptionsBatch,
@@ -505,9 +521,12 @@ import {
   GetOrganizationCustomRulePolicyResponse,
   GetResourceConfigHistoryRequest,
   GetResourceConfigHistoryResponse,
+  GetResourceEvaluationSummaryRequest,
+  GetResourceEvaluationSummaryResponse,
   GetStoredQueryRequest,
   GetStoredQueryResponse,
   GroupedResourceCount,
+  IdempotentParameterMismatch,
   InsufficientDeliveryPolicyException,
   InsufficientPermissionsException,
   InvalidConfigurationRecorderNameException,
@@ -531,6 +550,8 @@ import {
   ListConformancePackComplianceScoresResponse,
   ListDiscoveredResourcesRequest,
   ListDiscoveredResourcesResponse,
+  ListResourceEvaluationsRequest,
+  ListResourceEvaluationsResponse,
   ListStoredQueriesRequest,
   ListStoredQueriesResponse,
   ListTagsForResourceRequest,
@@ -539,16 +560,9 @@ import {
   MaxNumberOfConfigRulesExceededException,
   MaxNumberOfConfigurationRecordersExceededException,
   MaxNumberOfConformancePacksExceededException,
-  MaxNumberOfDeliveryChannelsExceededException,
-  MaxNumberOfOrganizationConfigRulesExceededException,
-  MaxNumberOfOrganizationConformancePacksExceededException,
-  MaxNumberOfRetentionConfigurationsExceededException,
   MemberAccountStatus,
   NoAvailableConfigurationRecorderException,
-  NoAvailableDeliveryChannelException,
-  NoAvailableOrganizationException,
   NoRunningConfigurationRecorderException,
-  NoSuchBucketException,
   NoSuchConfigRuleException,
   NoSuchConfigRuleInConformancePackException,
   NoSuchConfigurationAggregatorException,
@@ -562,7 +576,6 @@ import {
   NoSuchRetentionConfigurationException,
   OrganizationAccessDeniedException,
   OrganizationAggregationSource,
-  OrganizationAllFeaturesNotEnabledException,
   OrganizationConfigRule,
   OrganizationConfigRuleStatus,
   OrganizationConfigRuleTriggerType,
@@ -570,21 +583,12 @@ import {
   OrganizationConformancePack,
   OrganizationConformancePackDetailedStatus,
   OrganizationConformancePackStatus,
-  OrganizationConformancePackTemplateValidationException,
-  OrganizationCustomPolicyRuleMetadata,
   OrganizationCustomPolicyRuleMetadataNoPolicy,
   OrganizationCustomRuleMetadata,
   OrganizationManagedRuleMetadata,
   OrganizationResourceDetailedStatusFilters,
   OversizedConfigurationItemException,
   PendingAggregationRequest,
-  PutAggregationAuthorizationRequest,
-  PutAggregationAuthorizationResponse,
-  PutConfigRuleRequest,
-  PutConfigurationAggregatorRequest,
-  PutConfigurationAggregatorResponse,
-  PutConfigurationRecorderRequest,
-  PutConformancePackRequest,
   RecordingGroup,
   Relationship,
   RemediationConfiguration,
@@ -596,6 +600,9 @@ import {
   RemediationParameterValue,
   ResourceCount,
   ResourceCountFilters,
+  ResourceDetails,
+  ResourceEvaluation,
+  ResourceEvaluationFilters,
   ResourceFilters,
   ResourceIdentifier,
   ResourceInUseException,
@@ -614,9 +621,28 @@ import {
   StoredQuery,
   StoredQueryMetadata,
   Tag,
+  TemplateSSMDocumentDetails,
+  TimeWindow,
   ValidationException,
 } from "../models/models_0";
 import {
+  MaxNumberOfDeliveryChannelsExceededException,
+  MaxNumberOfOrganizationConfigRulesExceededException,
+  MaxNumberOfOrganizationConformancePacksExceededException,
+  MaxNumberOfRetentionConfigurationsExceededException,
+  NoAvailableDeliveryChannelException,
+  NoAvailableOrganizationException,
+  NoSuchBucketException,
+  OrganizationAllFeaturesNotEnabledException,
+  OrganizationConformancePackTemplateValidationException,
+  OrganizationCustomPolicyRuleMetadata,
+  PutAggregationAuthorizationRequest,
+  PutAggregationAuthorizationResponse,
+  PutConfigRuleRequest,
+  PutConfigurationAggregatorRequest,
+  PutConfigurationAggregatorResponse,
+  PutConfigurationRecorderRequest,
+  PutConformancePackRequest,
   PutConformancePackResponse,
   PutDeliveryChannelRequest,
   PutEvaluationsRequest,
@@ -647,6 +673,8 @@ import {
   StartConfigurationRecorderRequest,
   StartRemediationExecutionRequest,
   StartRemediationExecutionResponse,
+  StartResourceEvaluationRequest,
+  StartResourceEvaluationResponse,
   StopConfigurationRecorderRequest,
   TagResourceRequest,
   TooManyTagsException,
@@ -1432,6 +1460,19 @@ export const serializeAws_json1_1GetResourceConfigHistoryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetResourceEvaluationSummaryCommand = async (
+  input: GetResourceEvaluationSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StarlingDoveService.GetResourceEvaluationSummary",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetResourceEvaluationSummaryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetStoredQueryCommand = async (
   input: GetStoredQueryCommandInput,
   context: __SerdeContext
@@ -1481,6 +1522,19 @@ export const serializeAws_json1_1ListDiscoveredResourcesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDiscoveredResourcesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListResourceEvaluationsCommand = async (
+  input: ListResourceEvaluationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StarlingDoveService.ListResourceEvaluations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListResourceEvaluationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1770,6 +1824,19 @@ export const serializeAws_json1_1StartRemediationExecutionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartResourceEvaluationCommand = async (
+  input: StartResourceEvaluationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StarlingDoveService.StartResourceEvaluation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartResourceEvaluationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StopConfigurationRecorderCommand = async (
   input: StopConfigurationRecorderCommandInput,
   context: __SerdeContext
@@ -1832,7 +1899,7 @@ const deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError = async 
 ): Promise<BatchGetAggregateResourceConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1876,7 +1943,7 @@ const deserializeAws_json1_1BatchGetResourceConfigCommandError = async (
 ): Promise<BatchGetResourceConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1917,7 +1984,7 @@ const deserializeAws_json1_1DeleteAggregationAuthorizationCommandError = async (
 ): Promise<DeleteAggregationAuthorizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1955,7 +2022,7 @@ const deserializeAws_json1_1DeleteConfigRuleCommandError = async (
 ): Promise<DeleteConfigRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1996,7 +2063,7 @@ const deserializeAws_json1_1DeleteConfigurationAggregatorCommandError = async (
 ): Promise<DeleteConfigurationAggregatorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2034,7 +2101,7 @@ const deserializeAws_json1_1DeleteConfigurationRecorderCommandError = async (
 ): Promise<DeleteConfigurationRecorderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2072,7 +2139,7 @@ const deserializeAws_json1_1DeleteConformancePackCommandError = async (
 ): Promise<DeleteConformancePackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2113,7 +2180,7 @@ const deserializeAws_json1_1DeleteDeliveryChannelCommandError = async (
 ): Promise<DeleteDeliveryChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2157,7 +2224,7 @@ const deserializeAws_json1_1DeleteEvaluationResultsCommandError = async (
 ): Promise<DeleteEvaluationResultsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2198,7 +2265,7 @@ const deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError = async (
 ): Promise<DeleteOrganizationConfigRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2242,7 +2309,7 @@ const deserializeAws_json1_1DeleteOrganizationConformancePackCommandError = asyn
 ): Promise<DeleteOrganizationConformancePackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2286,7 +2353,7 @@ const deserializeAws_json1_1DeletePendingAggregationRequestCommandError = async 
 ): Promise<DeletePendingAggregationRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2327,7 +2394,7 @@ const deserializeAws_json1_1DeleteRemediationConfigurationCommandError = async (
 ): Promise<DeleteRemediationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2377,7 +2444,7 @@ const deserializeAws_json1_1DeleteRemediationExceptionsCommandError = async (
 ): Promise<DeleteRemediationExceptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2415,7 +2482,7 @@ const deserializeAws_json1_1DeleteResourceConfigCommandError = async (
 ): Promise<DeleteResourceConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2456,7 +2523,7 @@ const deserializeAws_json1_1DeleteRetentionConfigurationCommandError = async (
 ): Promise<DeleteRetentionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2500,7 +2567,7 @@ const deserializeAws_json1_1DeleteStoredQueryCommandError = async (
 ): Promise<DeleteStoredQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2544,7 +2611,7 @@ const deserializeAws_json1_1DeliverConfigSnapshotCommandError = async (
 ): Promise<DeliverConfigSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2591,7 +2658,7 @@ const deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommandError
 ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2641,7 +2708,7 @@ const deserializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand
 ): Promise<DescribeAggregateComplianceByConformancePacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2691,7 +2758,7 @@ const deserializeAws_json1_1DescribeAggregationAuthorizationsCommandError = asyn
 ): Promise<DescribeAggregationAuthorizationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2738,7 +2805,7 @@ const deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError = async (
 ): Promise<DescribeComplianceByConfigRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2785,7 +2852,7 @@ const deserializeAws_json1_1DescribeComplianceByResourceCommandError = async (
 ): Promise<DescribeComplianceByResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2829,7 +2896,7 @@ const deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandError = asy
 ): Promise<DescribeConfigRuleEvaluationStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2876,13 +2943,16 @@ const deserializeAws_json1_1DescribeConfigRulesCommandError = async (
 ): Promise<DescribeConfigRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.configservice#InvalidNextTokenException":
       throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "NoSuchConfigRuleException":
     case "com.amazonaws.configservice#NoSuchConfigRuleException":
       throw await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(parsedOutput, context);
@@ -2920,7 +2990,7 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorsCommandError = async
 ): Promise<DescribeConfigurationAggregatorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2970,7 +3040,7 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommandE
 ): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3020,7 +3090,7 @@ const deserializeAws_json1_1DescribeConfigurationRecordersCommandError = async (
 ): Promise<DescribeConfigurationRecordersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3061,7 +3131,7 @@ const deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandError = as
 ): Promise<DescribeConfigurationRecorderStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3102,7 +3172,7 @@ const deserializeAws_json1_1DescribeConformancePackComplianceCommandError = asyn
 ): Promise<DescribeConformancePackComplianceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3155,7 +3225,7 @@ const deserializeAws_json1_1DescribeConformancePacksCommandError = async (
 ): Promise<DescribeConformancePacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3205,7 +3275,7 @@ const deserializeAws_json1_1DescribeConformancePackStatusCommandError = async (
 ): Promise<DescribeConformancePackStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3252,7 +3322,7 @@ const deserializeAws_json1_1DescribeDeliveryChannelsCommandError = async (
 ): Promise<DescribeDeliveryChannelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3293,7 +3363,7 @@ const deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError = async (
 ): Promise<DescribeDeliveryChannelStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3334,7 +3404,7 @@ const deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError = async 
 ): Promise<DescribeOrganizationConfigRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3384,7 +3454,7 @@ const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommandError =
 ): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3434,7 +3504,7 @@ const deserializeAws_json1_1DescribeOrganizationConformancePacksCommandError = a
 ): Promise<DescribeOrganizationConformancePacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3484,7 +3554,7 @@ const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandEr
 ): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3534,7 +3604,7 @@ const deserializeAws_json1_1DescribePendingAggregationRequestsCommandError = asy
 ): Promise<DescribePendingAggregationRequestsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3581,7 +3651,7 @@ const deserializeAws_json1_1DescribeRemediationConfigurationsCommandError = asyn
 ): Promise<DescribeRemediationConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3616,7 +3686,7 @@ const deserializeAws_json1_1DescribeRemediationExceptionsCommandError = async (
 ): Promise<DescribeRemediationExceptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3660,7 +3730,7 @@ const deserializeAws_json1_1DescribeRemediationExecutionStatusCommandError = asy
 ): Promise<DescribeRemediationExecutionStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3707,7 +3777,7 @@ const deserializeAws_json1_1DescribeRetentionConfigurationsCommandError = async 
 ): Promise<DescribeRetentionConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3754,7 +3824,7 @@ const deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommandErro
 ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3804,7 +3874,7 @@ const deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommandError 
 ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3854,7 +3924,7 @@ const deserializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommandE
 ): Promise<GetAggregateConformancePackComplianceSummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3904,7 +3974,7 @@ const deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommandError = a
 ): Promise<GetAggregateDiscoveredResourceCountsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3954,7 +4024,7 @@ const deserializeAws_json1_1GetAggregateResourceConfigCommandError = async (
 ): Promise<GetAggregateResourceConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4004,7 +4074,7 @@ const deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandError = async
 ): Promise<GetComplianceDetailsByConfigRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4051,7 +4121,7 @@ const deserializeAws_json1_1GetComplianceDetailsByResourceCommandError = async (
 ): Promise<GetComplianceDetailsByResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4092,7 +4162,7 @@ const deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommandError = async
 ): Promise<GetComplianceSummaryByConfigRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4127,7 +4197,7 @@ const deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommandError = asy
 ): Promise<GetComplianceSummaryByResourceTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4168,7 +4238,7 @@ const deserializeAws_json1_1GetConformancePackComplianceDetailsCommandError = as
 ): Promise<GetConformancePackComplianceDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4221,7 +4291,7 @@ const deserializeAws_json1_1GetConformancePackComplianceSummaryCommandError = as
 ): Promise<GetConformancePackComplianceSummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4268,7 +4338,7 @@ const deserializeAws_json1_1GetCustomRulePolicyCommandError = async (
 ): Promise<GetCustomRulePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4309,7 +4379,7 @@ const deserializeAws_json1_1GetDiscoveredResourceCountsCommandError = async (
 ): Promise<GetDiscoveredResourceCountsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4356,7 +4426,7 @@ const deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommandError 
 ): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4406,7 +4476,7 @@ const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommandE
 ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4456,7 +4526,7 @@ const deserializeAws_json1_1GetOrganizationCustomRulePolicyCommandError = async 
 ): Promise<GetOrganizationCustomRulePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4500,7 +4570,7 @@ const deserializeAws_json1_1GetResourceConfigHistoryCommandError = async (
 ): Promise<GetResourceConfigHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4522,6 +4592,47 @@ const deserializeAws_json1_1GetResourceConfigHistoryCommandError = async (
     case "ValidationException":
     case "com.amazonaws.configservice#ValidationException":
       throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetResourceEvaluationSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceEvaluationSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetResourceEvaluationSummaryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetResourceEvaluationSummaryResponse(data, context);
+  const response: GetResourceEvaluationSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetResourceEvaluationSummaryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceEvaluationSummaryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.configservice#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4556,7 +4667,7 @@ const deserializeAws_json1_1GetStoredQueryCommandError = async (
 ): Promise<GetStoredQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4600,7 +4711,7 @@ const deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandError = async
 ): Promise<ListAggregateDiscoveredResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4650,7 +4761,7 @@ const deserializeAws_json1_1ListConformancePackComplianceScoresCommandError = as
 ): Promise<ListConformancePackComplianceScoresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4697,7 +4808,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
 ): Promise<ListDiscoveredResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4713,6 +4824,53 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.configservice#ValidationException":
       throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListResourceEvaluationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceEvaluationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListResourceEvaluationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListResourceEvaluationsResponse(data, context);
+  const response: ListResourceEvaluationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListResourceEvaluationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceEvaluationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "InvalidTimeRangeException":
+    case "com.amazonaws.configservice#InvalidTimeRangeException":
+      throw await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4747,7 +4905,7 @@ const deserializeAws_json1_1ListStoredQueriesCommandError = async (
 ): Promise<ListStoredQueriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4791,7 +4949,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4841,7 +4999,7 @@ const deserializeAws_json1_1PutAggregationAuthorizationCommandError = async (
 ): Promise<PutAggregationAuthorizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4879,7 +5037,7 @@ const deserializeAws_json1_1PutConfigRuleCommandError = async (
 ): Promise<PutConfigRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4932,7 +5090,7 @@ const deserializeAws_json1_1PutConfigurationAggregatorCommandError = async (
 ): Promise<PutConfigurationAggregatorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4985,7 +5143,7 @@ const deserializeAws_json1_1PutConfigurationRecorderCommandError = async (
 ): Promise<PutConfigurationRecorderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5038,7 +5196,7 @@ const deserializeAws_json1_1PutConformancePackCommandError = async (
 ): Promise<PutConformancePackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5088,7 +5246,7 @@ const deserializeAws_json1_1PutDeliveryChannelCommandError = async (
 ): Promise<PutDeliveryChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5150,7 +5308,7 @@ const deserializeAws_json1_1PutEvaluationsCommandError = async (
 ): Promise<PutEvaluationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5197,7 +5355,7 @@ const deserializeAws_json1_1PutExternalEvaluationCommandError = async (
 ): Promise<PutExternalEvaluationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5241,7 +5399,7 @@ const deserializeAws_json1_1PutOrganizationConfigRuleCommandError = async (
 ): Promise<PutOrganizationConfigRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5306,7 +5464,7 @@ const deserializeAws_json1_1PutOrganizationConformancePackCommandError = async (
 ): Promise<PutOrganizationConformancePackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5374,7 +5532,7 @@ const deserializeAws_json1_1PutRemediationConfigurationsCommandError = async (
 ): Promise<PutRemediationConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5418,7 +5576,7 @@ const deserializeAws_json1_1PutRemediationExceptionsCommandError = async (
 ): Promise<PutRemediationExceptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5459,7 +5617,7 @@ const deserializeAws_json1_1PutResourceConfigCommandError = async (
 ): Promise<PutResourceConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5509,7 +5667,7 @@ const deserializeAws_json1_1PutRetentionConfigurationCommandError = async (
 ): Promise<PutRetentionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5556,7 +5714,7 @@ const deserializeAws_json1_1PutStoredQueryCommandError = async (
 ): Promise<PutStoredQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5603,7 +5761,7 @@ const deserializeAws_json1_1SelectAggregateResourceConfigCommandError = async (
 ): Promise<SelectAggregateResourceConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5653,7 +5811,7 @@ const deserializeAws_json1_1SelectResourceConfigCommandError = async (
 ): Promise<SelectResourceConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5700,7 +5858,7 @@ const deserializeAws_json1_1StartConfigRulesEvaluationCommandError = async (
 ): Promise<StartConfigRulesEvaluationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5747,7 +5905,7 @@ const deserializeAws_json1_1StartConfigurationRecorderCommandError = async (
 ): Promise<StartConfigurationRecorderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5791,7 +5949,7 @@ const deserializeAws_json1_1StartRemediationExecutionCommandError = async (
 ): Promise<StartRemediationExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5804,6 +5962,50 @@ const deserializeAws_json1_1StartRemediationExecutionCommandError = async (
     case "NoSuchRemediationConfigurationException":
     case "com.amazonaws.configservice#NoSuchRemediationConfigurationException":
       throw await deserializeAws_json1_1NoSuchRemediationConfigurationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1StartResourceEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceEvaluationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartResourceEvaluationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartResourceEvaluationResponse(data, context);
+  const response: StartResourceEvaluationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartResourceEvaluationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceEvaluationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatch":
+    case "com.amazonaws.configservice#IdempotentParameterMismatch":
+      throw await deserializeAws_json1_1IdempotentParameterMismatchResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5835,7 +6037,7 @@ const deserializeAws_json1_1StopConfigurationRecorderCommandError = async (
 ): Promise<StopConfigurationRecorderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5873,7 +6075,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5917,7 +6119,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5945,6 +6147,19 @@ const deserializeAws_json1_1ConformancePackTemplateValidationExceptionResponse =
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConformancePackTemplateValidationException(body, context);
   const exception = new ConformancePackTemplateValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1IdempotentParameterMismatchResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IdempotentParameterMismatch> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatch(body, context);
+  const exception = new IdempotentParameterMismatch({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -6765,6 +6980,9 @@ const serializeAws_json1_1ConfigRule = (input: ConfigRule, context: __SerdeConte
     ...(input.ConfigRuleState != null && { ConfigRuleState: input.ConfigRuleState }),
     ...(input.CreatedBy != null && { CreatedBy: input.CreatedBy }),
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.EvaluationModes != null && {
+      EvaluationModes: serializeAws_json1_1EvaluationModes(input.EvaluationModes, context),
+    }),
     ...(input.InputParameters != null && { InputParameters: input.InputParameters }),
     ...(input.MaximumExecutionFrequency != null && { MaximumExecutionFrequency: input.MaximumExecutionFrequency }),
     ...(input.Scope != null && { Scope: serializeAws_json1_1Scope(input.Scope, context) }),
@@ -7212,6 +7430,15 @@ const serializeAws_json1_1DescribeConfigRuleEvaluationStatusRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeConfigRulesFilters = (
+  input: DescribeConfigRulesFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EvaluationMode != null && { EvaluationMode: input.EvaluationMode }),
+  };
+};
+
 const serializeAws_json1_1DescribeConfigRulesRequest = (
   input: DescribeConfigRulesRequest,
   context: __SerdeContext
@@ -7220,6 +7447,7 @@ const serializeAws_json1_1DescribeConfigRulesRequest = (
     ...(input.ConfigRuleNames != null && {
       ConfigRuleNames: serializeAws_json1_1ConfigRuleNames(input.ConfigRuleNames, context),
     }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1DescribeConfigRulesFilters(input.Filters, context) }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
@@ -7482,6 +7710,31 @@ const serializeAws_json1_1Evaluation = (input: Evaluation, context: __SerdeConte
   };
 };
 
+const serializeAws_json1_1EvaluationContext = (input: EvaluationContext, context: __SerdeContext): any => {
+  return {
+    ...(input.EvaluationContextIdentifier != null && {
+      EvaluationContextIdentifier: input.EvaluationContextIdentifier,
+    }),
+  };
+};
+
+const serializeAws_json1_1EvaluationModeConfiguration = (
+  input: EvaluationModeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Mode != null && { Mode: input.Mode }),
+  };
+};
+
+const serializeAws_json1_1EvaluationModes = (input: EvaluationModeConfiguration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1EvaluationModeConfiguration(entry, context);
+    });
+};
+
 const serializeAws_json1_1Evaluations = (input: Evaluation[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7617,6 +7870,7 @@ const serializeAws_json1_1GetComplianceDetailsByResourceRequest = (
       ComplianceTypes: serializeAws_json1_1ComplianceTypes(input.ComplianceTypes, context),
     }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceEvaluationId != null && { ResourceEvaluationId: input.ResourceEvaluationId }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   };
@@ -7737,6 +7991,15 @@ const serializeAws_json1_1GetResourceConfigHistoryRequest = (
   };
 };
 
+const serializeAws_json1_1GetResourceEvaluationSummaryRequest = (
+  input: GetResourceEvaluationSummaryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceEvaluationId != null && { ResourceEvaluationId: input.ResourceEvaluationId }),
+  };
+};
+
 const serializeAws_json1_1GetStoredQueryRequest = (input: GetStoredQueryRequest, context: __SerdeContext): any => {
   return {
     ...(input.QueryName != null && { QueryName: input.QueryName }),
@@ -7784,6 +8047,17 @@ const serializeAws_json1_1ListDiscoveredResourcesRequest = (
     ...(input.resourceIds != null && { resourceIds: serializeAws_json1_1ResourceIdList(input.resourceIds, context) }),
     ...(input.resourceName != null && { resourceName: input.resourceName }),
     ...(input.resourceType != null && { resourceType: input.resourceType }),
+  };
+};
+
+const serializeAws_json1_1ListResourceEvaluationsRequest = (
+  input: ListResourceEvaluationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1ResourceEvaluationFilters(input.Filters, context) }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -8008,6 +8282,12 @@ const serializeAws_json1_1PutConformancePackRequest = (
     ...(input.DeliveryS3KeyPrefix != null && { DeliveryS3KeyPrefix: input.DeliveryS3KeyPrefix }),
     ...(input.TemplateBody != null && { TemplateBody: input.TemplateBody }),
     ...(input.TemplateS3Uri != null && { TemplateS3Uri: input.TemplateS3Uri }),
+    ...(input.TemplateSSMDocumentDetails != null && {
+      TemplateSSMDocumentDetails: serializeAws_json1_1TemplateSSMDocumentDetails(
+        input.TemplateSSMDocumentDetails,
+        context
+      ),
+    }),
   };
 };
 
@@ -8236,10 +8516,8 @@ const serializeAws_json1_1RemediationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1RemediationParameterValue(value, context),
-    };
+    acc[key] = serializeAws_json1_1RemediationParameterValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -8260,6 +8538,30 @@ const serializeAws_json1_1ResourceCountFilters = (input: ResourceCountFilters, c
     ...(input.AccountId != null && { AccountId: input.AccountId }),
     ...(input.Region != null && { Region: input.Region }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+  };
+};
+
+const serializeAws_json1_1ResourceDetails = (input: ResourceDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceConfiguration != null && { ResourceConfiguration: input.ResourceConfiguration }),
+    ...(input.ResourceConfigurationSchemaType != null && {
+      ResourceConfigurationSchemaType: input.ResourceConfigurationSchemaType,
+    }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+  };
+};
+
+const serializeAws_json1_1ResourceEvaluationFilters = (
+  input: ResourceEvaluationFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EvaluationContextIdentifier != null && {
+      EvaluationContextIdentifier: input.EvaluationContextIdentifier,
+    }),
+    ...(input.EvaluationMode != null && { EvaluationMode: input.EvaluationMode }),
+    ...(input.TimeWindow != null && { TimeWindow: serializeAws_json1_1TimeWindow(input.TimeWindow, context) }),
   };
 };
 
@@ -8449,6 +8751,23 @@ const serializeAws_json1_1StartRemediationExecutionRequest = (
   };
 };
 
+const serializeAws_json1_1StartResourceEvaluationRequest = (
+  input: StartResourceEvaluationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.EvaluationContext != null && {
+      EvaluationContext: serializeAws_json1_1EvaluationContext(input.EvaluationContext, context),
+    }),
+    ...(input.EvaluationMode != null && { EvaluationMode: input.EvaluationMode }),
+    ...(input.EvaluationTimeout != null && { EvaluationTimeout: input.EvaluationTimeout }),
+    ...(input.ResourceDetails != null && {
+      ResourceDetails: serializeAws_json1_1ResourceDetails(input.ResourceDetails, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1StaticParameterValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -8524,10 +8843,8 @@ const serializeAws_json1_1Tags = (input: Record<string, string>, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -8537,6 +8854,23 @@ const serializeAws_json1_1TagsList = (input: Tag[], context: __SerdeContext): an
     .map((entry) => {
       return serializeAws_json1_1Tag(entry, context);
     });
+};
+
+const serializeAws_json1_1TemplateSSMDocumentDetails = (
+  input: TemplateSSMDocumentDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DocumentName != null && { DocumentName: input.DocumentName }),
+    ...(input.DocumentVersion != null && { DocumentVersion: input.DocumentVersion }),
+  };
+};
+
+const serializeAws_json1_1TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
+  return {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
@@ -9072,6 +9406,10 @@ const deserializeAws_json1_1ConfigRule = (output: any, context: __SerdeContext):
     ConfigRuleState: __expectString(output.ConfigRuleState),
     CreatedBy: __expectString(output.CreatedBy),
     Description: __expectString(output.Description),
+    EvaluationModes:
+      output.EvaluationModes != null
+        ? deserializeAws_json1_1EvaluationModes(output.EvaluationModes, context)
+        : undefined,
     InputParameters: __expectString(output.InputParameters),
     MaximumExecutionFrequency: __expectString(output.MaximumExecutionFrequency),
     Scope: output.Scope != null ? deserializeAws_json1_1Scope(output.Scope, context) : undefined,
@@ -9395,6 +9733,10 @@ const deserializeAws_json1_1ConformancePackDetail = (output: any, context: __Ser
     LastUpdateRequestedTime:
       output.LastUpdateRequestedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateRequestedTime)))
+        : undefined,
+    TemplateSSMDocumentDetails:
+      output.TemplateSSMDocumentDetails != null
+        ? deserializeAws_json1_1TemplateSSMDocumentDetails(output.TemplateSSMDocumentDetails, context)
         : undefined,
   } as any;
 };
@@ -10031,6 +10373,33 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1EvaluationContext = (output: any, context: __SerdeContext): EvaluationContext => {
+  return {
+    EvaluationContextIdentifier: __expectString(output.EvaluationContextIdentifier),
+  } as any;
+};
+
+const deserializeAws_json1_1EvaluationModeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EvaluationModeConfiguration => {
+  return {
+    Mode: __expectString(output.Mode),
+  } as any;
+};
+
+const deserializeAws_json1_1EvaluationModes = (output: any, context: __SerdeContext): EvaluationModeConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EvaluationModeConfiguration(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return {
     Annotation: __expectString(output.Annotation),
@@ -10064,6 +10433,7 @@ const deserializeAws_json1_1EvaluationResultIdentifier = (
       output.OrderingTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderingTimestamp)))
         : undefined,
+    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
   } as any;
 };
 
@@ -10073,6 +10443,7 @@ const deserializeAws_json1_1EvaluationResultQualifier = (
 ): EvaluationResultQualifier => {
   return {
     ConfigRuleName: __expectString(output.ConfigRuleName),
+    EvaluationMode: __expectString(output.EvaluationMode),
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
   } as any;
@@ -10100,6 +10471,13 @@ const deserializeAws_json1_1Evaluations = (output: any, context: __SerdeContext)
       return deserializeAws_json1_1Evaluation(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1EvaluationStatus = (output: any, context: __SerdeContext): EvaluationStatus => {
+  return {
+    FailureReason: __expectString(output.FailureReason),
+    Status: __expectString(output.Status),
+  } as any;
 };
 
 const deserializeAws_json1_1ExcludedAccounts = (output: any, context: __SerdeContext): string[] => {
@@ -10447,6 +10825,33 @@ const deserializeAws_json1_1GetResourceConfigHistoryResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GetResourceEvaluationSummaryResponse = (
+  output: any,
+  context: __SerdeContext
+): GetResourceEvaluationSummaryResponse => {
+  return {
+    Compliance: __expectString(output.Compliance),
+    EvaluationContext:
+      output.EvaluationContext != null
+        ? deserializeAws_json1_1EvaluationContext(output.EvaluationContext, context)
+        : undefined,
+    EvaluationMode: __expectString(output.EvaluationMode),
+    EvaluationStartTimestamp:
+      output.EvaluationStartTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EvaluationStartTimestamp)))
+        : undefined,
+    EvaluationStatus:
+      output.EvaluationStatus != null
+        ? deserializeAws_json1_1EvaluationStatus(output.EvaluationStatus, context)
+        : undefined,
+    ResourceDetails:
+      output.ResourceDetails != null
+        ? deserializeAws_json1_1ResourceDetails(output.ResourceDetails, context)
+        : undefined,
+    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
+  } as any;
+};
+
 const deserializeAws_json1_1GetStoredQueryResponse = (output: any, context: __SerdeContext): GetStoredQueryResponse => {
   return {
     StoredQuery:
@@ -10474,6 +10879,15 @@ const deserializeAws_json1_1GroupedResourceCountList = (
       return deserializeAws_json1_1GroupedResourceCount(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1IdempotentParameterMismatch = (
+  output: any,
+  context: __SerdeContext
+): IdempotentParameterMismatch => {
+  return {
+    message: __expectString(output.message),
+  } as any;
 };
 
 const deserializeAws_json1_1InsufficientDeliveryPolicyException = (
@@ -10655,6 +11069,19 @@ const deserializeAws_json1_1ListDiscoveredResourcesResponse = (
     resourceIdentifiers:
       output.resourceIdentifiers != null
         ? deserializeAws_json1_1ResourceIdentifierList(output.resourceIdentifiers, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListResourceEvaluationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListResourceEvaluationsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    ResourceEvaluations:
+      output.ResourceEvaluations != null
+        ? deserializeAws_json1_1ResourceEvaluations(output.ResourceEvaluations, context)
         : undefined,
   } as any;
 };
@@ -11610,10 +12037,8 @@ const deserializeAws_json1_1RemediationParameters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1RemediationParameterValue(value, context),
-      };
+      acc[key] = deserializeAws_json1_1RemediationParameterValue(value, context);
+      return acc;
     },
     {}
   );
@@ -11655,6 +12080,38 @@ const deserializeAws_json1_1ResourceCounts = (output: any, context: __SerdeConte
         return null as any;
       }
       return deserializeAws_json1_1ResourceCount(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
+  return {
+    ResourceConfiguration: __expectString(output.ResourceConfiguration),
+    ResourceConfigurationSchemaType: __expectString(output.ResourceConfigurationSchemaType),
+    ResourceId: __expectString(output.ResourceId),
+    ResourceType: __expectString(output.ResourceType),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceEvaluation = (output: any, context: __SerdeContext): ResourceEvaluation => {
+  return {
+    EvaluationMode: __expectString(output.EvaluationMode),
+    EvaluationStartTimestamp:
+      output.EvaluationStartTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EvaluationStartTimestamp)))
+        : undefined,
+    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceEvaluations = (output: any, context: __SerdeContext): ResourceEvaluation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceEvaluation(entry, context);
     });
   return retVal;
 };
@@ -11882,6 +12339,15 @@ const deserializeAws_json1_1StartRemediationExecutionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StartResourceEvaluationResponse = (
+  output: any,
+  context: __SerdeContext
+): StartResourceEvaluationResponse => {
+  return {
+    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
+  } as any;
+};
+
 const deserializeAws_json1_1StaticParameterValues = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -11939,10 +12405,8 @@ const deserializeAws_json1_1SupplementaryConfiguration = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -11970,11 +12434,19 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Recor
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
+};
+
+const deserializeAws_json1_1TemplateSSMDocumentDetails = (
+  output: any,
+  context: __SerdeContext
+): TemplateSSMDocumentDetails => {
+  return {
+    DocumentName: __expectString(output.DocumentName),
+    DocumentVersion: __expectString(output.DocumentVersion),
+  } as any;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
@@ -12006,7 +12478,8 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -12056,6 +12529,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -12066,6 +12545,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

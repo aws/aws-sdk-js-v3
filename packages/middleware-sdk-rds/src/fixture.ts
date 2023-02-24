@@ -8,6 +8,7 @@ export class MockSha256 {
   digest() {
     return Promise.resolve(new Uint8Array(5));
   }
+  reset() {}
 }
 
 export const region = () => Promise.resolve("mock-region");

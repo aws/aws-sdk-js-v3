@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  *             workgroup. If a workgroup is not specified, returns a list of query execution IDs for
  *             the primary workgroup. Requires you to have access to the workgroup in which the queries
  *             ran.</p>
- *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
  *                 Code Samples</a> in the <i>Amazon Athena User
  *             Guide</i>.</p>
  * @example
@@ -58,6 +59,15 @@ export class ListQueryExecutionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListQueryExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class ListQueryExecutionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListQueryExecutionsCommandInput, ListQueryExecutionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListQueryExecutionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

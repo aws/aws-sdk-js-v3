@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -38,7 +39,6 @@ export interface StartFaceDetectionCommandOutput extends StartFaceDetectionRespo
  *        To get the results of the face detection operation, first check that the status value published to the Amazon SNS
  *        topic is <code>SUCCEEDED</code>. If so, call  <a>GetFaceDetection</a> and pass the job identifier
  *       (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.</p>
- *
  *          <p>For more information, see Detecting faces in a stored video in the
  *      Amazon Rekognition Developer Guide.</p>
  * @example
@@ -64,6 +64,15 @@ export class StartFaceDetectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartFaceDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +88,9 @@ export class StartFaceDetectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartFaceDetectionCommandInput, StartFaceDetectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartFaceDetectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

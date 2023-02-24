@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyInstanceEventWindowRequestFilterSensitiveLog,
   ModifyInstanceEventWindowResult,
   ModifyInstanceEventWindowResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyInstanceEventWindowCommand,
   serializeAws_ec2ModifyInstanceEventWindowCommand,
@@ -59,6 +60,15 @@ export class ModifyInstanceEventWindowCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyInstanceEventWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class ModifyInstanceEventWindowCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyInstanceEventWindowCommandInput, ModifyInstanceEventWindowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyInstanceEventWindowCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,9 +30,7 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
 
 /**
  * <p>
- *          Gets the readme file or descriptive text for a package version. For packages that do not contain a readme file, CodeArtifact
- *          extracts a description from a metadata file. For example, from the <code><description></code> element in the
- *         <code>pom.xml</code> file of a Maven package.
+ *          Gets the readme file or descriptive text for a package version.
  *       </p>
  *          <p>
  *        The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText.
@@ -59,6 +58,15 @@ export class GetPackageVersionReadmeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetPackageVersionReadmeCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +82,9 @@ export class GetPackageVersionReadmeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPackageVersionReadmeCommandInput, GetPackageVersionReadmeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetPackageVersionReadmeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

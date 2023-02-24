@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,23 +29,18 @@ export interface InvokeEndpointAsyncCommandInput extends InvokeEndpointAsyncInpu
 export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOutput, __MetadataBearer {}
 
 /**
- * <p>After you deploy a model into production using Amazon SageMaker hosting services,
- *             your client applications use this API to get inferences from the model hosted at
- *             the specified endpoint in an asynchronous manner.</p>
- *
- *         <p>Inference requests sent to this API are enqueued for asynchronous processing.
- *             The processing of the inference request may or may not complete before the
- *             you receive a response from this API. The response from this API will
- *             not contain the result of the inference request but contain information
- *             about where you can locate it.</p>
- *
- *         <p>Amazon SageMaker strips all <code>POST</code> headers except those supported by the API.
- *             Amazon SageMaker might add additional headers. You should not rely on the behavior
- *             of headers outside those enumerated in the request syntax.</p>
- *
- *         <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services Signature
- *             Version 4. For information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API
- *                 Reference</i>.</p>
+ * <p>After you deploy a model into production using Amazon SageMaker hosting services, your client
+ *             applications use this API to get inferences from the model hosted at the specified
+ *             endpoint in an asynchronous manner.</p>
+ *          <p>Inference requests sent to this API are enqueued for asynchronous processing. The
+ *             processing of the inference request may or may not complete before you receive a
+ *             response from this API. The response from this API will not contain the result of the
+ *             inference request but contain information about where you can locate it.</p>
+ *          <p>Amazon SageMaker strips all <code>POST</code> headers except those supported by the API. Amazon SageMaker
+ *             might add additional headers. You should not rely on the behavior of headers outside
+ *             those enumerated in the request syntax.</p>
+ *          <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the
+ *                 <i>Amazon S3 API Reference</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +64,15 @@ export class InvokeEndpointAsyncCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: InvokeEndpointAsyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +88,9 @@ export class InvokeEndpointAsyncCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<InvokeEndpointAsyncCommandInput, InvokeEndpointAsyncCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, InvokeEndpointAsyncCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

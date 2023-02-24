@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
@@ -20,8 +20,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import {
   AbortEnvironmentUpdateCommandInput,
@@ -1104,7 +1103,7 @@ const deserializeAws_queryAbortEnvironmentUpdateCommandError = async (
 ): Promise<AbortEnvironmentUpdateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1145,7 +1144,7 @@ const deserializeAws_queryApplyEnvironmentManagedActionCommandError = async (
 ): Promise<ApplyEnvironmentManagedActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1186,7 +1185,7 @@ const deserializeAws_queryAssociateEnvironmentOperationsRoleCommandError = async
 ): Promise<AssociateEnvironmentOperationsRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1227,7 +1226,7 @@ const deserializeAws_queryCheckDNSAvailabilityCommandError = async (
 ): Promise<CheckDNSAvailabilityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1262,7 +1261,7 @@ const deserializeAws_queryComposeEnvironmentsCommandError = async (
 ): Promise<ComposeEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1306,7 +1305,7 @@ const deserializeAws_queryCreateApplicationCommandError = async (
 ): Promise<CreateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1347,7 +1346,7 @@ const deserializeAws_queryCreateApplicationVersionCommandError = async (
 ): Promise<CreateApplicationVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1360,12 +1359,12 @@ const deserializeAws_queryCreateApplicationVersionCommandError = async (
     case "S3LocationNotInServiceRegionException":
     case "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException":
       throw await deserializeAws_queryS3LocationNotInServiceRegionExceptionResponse(parsedOutput, context);
-    case "TooManyApplicationsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
-      throw await deserializeAws_queryTooManyApplicationsExceptionResponse(parsedOutput, context);
     case "TooManyApplicationVersionsException":
     case "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException":
       throw await deserializeAws_queryTooManyApplicationVersionsExceptionResponse(parsedOutput, context);
+    case "TooManyApplicationsException":
+    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
+      throw await deserializeAws_queryTooManyApplicationsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1400,7 +1399,7 @@ const deserializeAws_queryCreateConfigurationTemplateCommandError = async (
 ): Promise<CreateConfigurationTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1447,7 +1446,7 @@ const deserializeAws_queryCreateEnvironmentCommandError = async (
 ): Promise<CreateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1491,7 +1490,7 @@ const deserializeAws_queryCreatePlatformVersionCommandError = async (
 ): Promise<CreatePlatformVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1538,7 +1537,7 @@ const deserializeAws_queryCreateStorageLocationCommandError = async (
 ): Promise<CreateStorageLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1582,11 +1581,11 @@ const deserializeAws_queryDeleteApplicationCommandError = async (
 ): Promise<DeleteApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
     default:
@@ -1620,20 +1619,20 @@ const deserializeAws_queryDeleteApplicationVersionCommandError = async (
 ): Promise<DeleteApplicationVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
       throw await deserializeAws_queryInsufficientPrivilegesExceptionResponse(parsedOutput, context);
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
     case "S3LocationNotInServiceRegionException":
     case "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException":
       throw await deserializeAws_queryS3LocationNotInServiceRegionExceptionResponse(parsedOutput, context);
-    case "SourceBundleDeletionException":
+    case "SourceBundleDeletionFailure":
     case "com.amazonaws.elasticbeanstalk#SourceBundleDeletionException":
       throw await deserializeAws_querySourceBundleDeletionExceptionResponse(parsedOutput, context);
     default:
@@ -1667,11 +1666,11 @@ const deserializeAws_queryDeleteConfigurationTemplateCommandError = async (
 ): Promise<DeleteConfigurationTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
     default:
@@ -1705,7 +1704,7 @@ const deserializeAws_queryDeleteEnvironmentConfigurationCommandError = async (
 ): Promise<DeleteEnvironmentConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1740,7 +1739,7 @@ const deserializeAws_queryDeletePlatformVersionCommandError = async (
 ): Promise<DeletePlatformVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1750,7 +1749,7 @@ const deserializeAws_queryDeletePlatformVersionCommandError = async (
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
       throw await deserializeAws_queryInsufficientPrivilegesExceptionResponse(parsedOutput, context);
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
     case "PlatformVersionStillReferencedException":
@@ -1790,7 +1789,7 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
 ): Promise<DescribeAccountAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1831,7 +1830,7 @@ const deserializeAws_queryDescribeApplicationsCommandError = async (
 ): Promise<DescribeApplicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1866,7 +1865,7 @@ const deserializeAws_queryDescribeApplicationVersionsCommandError = async (
 ): Promise<DescribeApplicationVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1901,7 +1900,7 @@ const deserializeAws_queryDescribeConfigurationOptionsCommandError = async (
 ): Promise<DescribeConfigurationOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1942,7 +1941,7 @@ const deserializeAws_queryDescribeConfigurationSettingsCommandError = async (
 ): Promise<DescribeConfigurationSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1983,7 +1982,7 @@ const deserializeAws_queryDescribeEnvironmentHealthCommandError = async (
 ): Promise<DescribeEnvironmentHealthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2030,7 +2029,7 @@ const deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommandError = 
 ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2074,7 +2073,7 @@ const deserializeAws_queryDescribeEnvironmentManagedActionsCommandError = async 
 ): Promise<DescribeEnvironmentManagedActionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2118,7 +2117,7 @@ const deserializeAws_queryDescribeEnvironmentResourcesCommandError = async (
 ): Promise<DescribeEnvironmentResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2159,7 +2158,7 @@ const deserializeAws_queryDescribeEnvironmentsCommandError = async (
 ): Promise<DescribeEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2194,7 +2193,7 @@ const deserializeAws_queryDescribeEventsCommandError = async (
 ): Promise<DescribeEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2229,7 +2228,7 @@ const deserializeAws_queryDescribeInstancesHealthCommandError = async (
 ): Promise<DescribeInstancesHealthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2273,7 +2272,7 @@ const deserializeAws_queryDescribePlatformVersionCommandError = async (
 ): Promise<DescribePlatformVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2314,7 +2313,7 @@ const deserializeAws_queryDisassociateEnvironmentOperationsRoleCommandError = as
 ): Promise<DisassociateEnvironmentOperationsRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2358,7 +2357,7 @@ const deserializeAws_queryListAvailableSolutionStacksCommandError = async (
 ): Promise<ListAvailableSolutionStacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2393,7 +2392,7 @@ const deserializeAws_queryListPlatformBranchesCommandError = async (
 ): Promise<ListPlatformBranchesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2428,7 +2427,7 @@ const deserializeAws_queryListPlatformVersionsCommandError = async (
 ): Promise<ListPlatformVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2472,7 +2471,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2516,7 +2515,7 @@ const deserializeAws_queryRebuildEnvironmentCommandError = async (
 ): Promise<RebuildEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2554,7 +2553,7 @@ const deserializeAws_queryRequestEnvironmentInfoCommandError = async (
 ): Promise<RequestEnvironmentInfoCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2586,7 +2585,7 @@ const deserializeAws_queryRestartAppServerCommandError = async (
 ): Promise<RestartAppServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2621,7 +2620,7 @@ const deserializeAws_queryRetrieveEnvironmentInfoCommandError = async (
 ): Promise<RetrieveEnvironmentInfoCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2653,7 +2652,7 @@ const deserializeAws_querySwapEnvironmentCNAMEsCommandError = async (
 ): Promise<SwapEnvironmentCNAMEsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2688,7 +2687,7 @@ const deserializeAws_queryTerminateEnvironmentCommandError = async (
 ): Promise<TerminateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2729,7 +2728,7 @@ const deserializeAws_queryUpdateApplicationCommandError = async (
 ): Promise<UpdateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2767,7 +2766,7 @@ const deserializeAws_queryUpdateApplicationResourceLifecycleCommandError = async
 ): Promise<UpdateApplicationResourceLifecycleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2808,7 +2807,7 @@ const deserializeAws_queryUpdateApplicationVersionCommandError = async (
 ): Promise<UpdateApplicationVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2843,7 +2842,7 @@ const deserializeAws_queryUpdateConfigurationTemplateCommandError = async (
 ): Promise<UpdateConfigurationTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2887,7 +2886,7 @@ const deserializeAws_queryUpdateEnvironmentCommandError = async (
 ): Promise<UpdateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2928,14 +2927,14 @@ const deserializeAws_queryUpdateTagsForResourceCommandError = async (
 ): Promise<UpdateTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
       throw await deserializeAws_queryInsufficientPrivilegesExceptionResponse(parsedOutput, context);
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
@@ -2984,7 +2983,7 @@ const deserializeAws_queryValidateConfigurationSettingsCommandError = async (
 ): Promise<ValidateConfigurationSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3394,6 +3393,9 @@ const serializeAws_queryComposeEnvironmentsMessage = (
   }
   if (input.VersionLabels != null) {
     const memberEntries = serializeAws_queryVersionLabels(input.VersionLabels, context);
+    if (input.VersionLabels?.length === 0) {
+      entries.VersionLabels = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLabels.${key}`;
       entries[loc] = value;
@@ -3458,6 +3460,9 @@ const serializeAws_queryCreateApplicationMessage = (input: CreateApplicationMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3509,6 +3514,9 @@ const serializeAws_queryCreateApplicationVersionMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3549,6 +3557,9 @@ const serializeAws_queryCreateConfigurationTemplateMessage = (
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -3556,6 +3567,9 @@ const serializeAws_queryCreateConfigurationTemplateMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3590,6 +3604,9 @@ const serializeAws_queryCreateEnvironmentMessage = (input: CreateEnvironmentMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3609,6 +3626,9 @@ const serializeAws_queryCreateEnvironmentMessage = (input: CreateEnvironmentMess
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -3616,6 +3636,9 @@ const serializeAws_queryCreateEnvironmentMessage = (input: CreateEnvironmentMess
   }
   if (input.OptionsToRemove != null) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.OptionsToRemove, context);
+    if (input.OptionsToRemove?.length === 0) {
+      entries.OptionsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
       entries[loc] = value;
@@ -3650,6 +3673,9 @@ const serializeAws_queryCreatePlatformVersionRequest = (
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -3657,6 +3683,9 @@ const serializeAws_queryCreatePlatformVersionRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3739,6 +3768,9 @@ const serializeAws_queryDescribeApplicationsMessage = (
   const entries: any = {};
   if (input.ApplicationNames != null) {
     const memberEntries = serializeAws_queryApplicationNamesList(input.ApplicationNames, context);
+    if (input.ApplicationNames?.length === 0) {
+      entries.ApplicationNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ApplicationNames.${key}`;
       entries[loc] = value;
@@ -3757,6 +3789,9 @@ const serializeAws_queryDescribeApplicationVersionsMessage = (
   }
   if (input.VersionLabels != null) {
     const memberEntries = serializeAws_queryVersionLabelsList(input.VersionLabels, context);
+    if (input.VersionLabels?.length === 0) {
+      entries.VersionLabels = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLabels.${key}`;
       entries[loc] = value;
@@ -3793,6 +3828,9 @@ const serializeAws_queryDescribeConfigurationOptionsMessage = (
   }
   if (input.Options != null) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.Options, context);
+    if (input.Options?.length === 0) {
+      entries.Options = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
       entries[loc] = value;
@@ -3831,6 +3869,9 @@ const serializeAws_queryDescribeEnvironmentHealthRequest = (
   }
   if (input.AttributeNames != null) {
     const memberEntries = serializeAws_queryEnvironmentHealthAttributes(input.AttributeNames, context);
+    if (input.AttributeNames?.length === 0) {
+      entries.AttributeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeNames.${key}`;
       entries[loc] = value;
@@ -3903,6 +3944,9 @@ const serializeAws_queryDescribeEnvironmentsMessage = (
   }
   if (input.EnvironmentIds != null) {
     const memberEntries = serializeAws_queryEnvironmentIdList(input.EnvironmentIds, context);
+    if (input.EnvironmentIds?.length === 0) {
+      entries.EnvironmentIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnvironmentIds.${key}`;
       entries[loc] = value;
@@ -3910,6 +3954,9 @@ const serializeAws_queryDescribeEnvironmentsMessage = (
   }
   if (input.EnvironmentNames != null) {
     const memberEntries = serializeAws_queryEnvironmentNamesList(input.EnvironmentNames, context);
+    if (input.EnvironmentNames?.length === 0) {
+      entries.EnvironmentNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnvironmentNames.${key}`;
       entries[loc] = value;
@@ -3984,6 +4031,9 @@ const serializeAws_queryDescribeInstancesHealthRequest = (
   }
   if (input.AttributeNames != null) {
     const memberEntries = serializeAws_queryInstancesHealthAttributes(input.AttributeNames, context);
+    if (input.AttributeNames?.length === 0) {
+      entries.AttributeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeNames.${key}`;
       entries[loc] = value;
@@ -4096,6 +4146,9 @@ const serializeAws_queryListPlatformBranchesRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_querySearchFilters(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -4117,6 +4170,9 @@ const serializeAws_queryListPlatformVersionsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryPlatformFilters(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -4210,6 +4266,9 @@ const serializeAws_queryPlatformFilter = (input: PlatformFilter, context: __Serd
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_queryPlatformFilterValueList(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -4327,6 +4386,9 @@ const serializeAws_querySearchFilter = (input: SearchFilter, context: __SerdeCon
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_querySearchFilterValues(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -4547,6 +4609,9 @@ const serializeAws_queryUpdateConfigurationTemplateMessage = (
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -4554,6 +4619,9 @@ const serializeAws_queryUpdateConfigurationTemplateMessage = (
   }
   if (input.OptionsToRemove != null) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.OptionsToRemove, context);
+    if (input.OptionsToRemove?.length === 0) {
+      entries.OptionsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
       entries[loc] = value;
@@ -4600,6 +4668,9 @@ const serializeAws_queryUpdateEnvironmentMessage = (input: UpdateEnvironmentMess
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -4607,6 +4678,9 @@ const serializeAws_queryUpdateEnvironmentMessage = (input: UpdateEnvironmentMess
   }
   if (input.OptionsToRemove != null) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.OptionsToRemove, context);
+    if (input.OptionsToRemove?.length === 0) {
+      entries.OptionsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
       entries[loc] = value;
@@ -4625,6 +4699,9 @@ const serializeAws_queryUpdateTagsForResourceMessage = (
   }
   if (input.TagsToAdd != null) {
     const memberEntries = serializeAws_queryTagList(input.TagsToAdd, context);
+    if (input.TagsToAdd?.length === 0) {
+      entries.TagsToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagsToAdd.${key}`;
       entries[loc] = value;
@@ -4632,6 +4709,9 @@ const serializeAws_queryUpdateTagsForResourceMessage = (
   }
   if (input.TagsToRemove != null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagsToRemove, context);
+    if (input.TagsToRemove?.length === 0) {
+      entries.TagsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagsToRemove.${key}`;
       entries[loc] = value;
@@ -4656,6 +4736,9 @@ const serializeAws_queryValidateConfigurationSettingsMessage = (
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -4711,10 +4794,10 @@ const deserializeAws_queryApplicationDescription = (output: any, context: __Serd
     contents.Description = __expectString(output["Description"]);
   }
   if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTime(output["DateCreated"]));
+    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
   }
   if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTime(output["DateUpdated"]));
+    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
   }
   if (output.Versions === "") {
     contents.Versions = [];
@@ -4889,10 +4972,10 @@ const deserializeAws_queryApplicationVersionDescription = (
     contents.SourceBundle = deserializeAws_queryS3Location(output["SourceBundle"], context);
   }
   if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTime(output["DateCreated"]));
+    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
   }
   if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTime(output["DateUpdated"]));
+    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -5253,10 +5336,10 @@ const deserializeAws_queryConfigurationSettingsDescription = (
     contents.DeploymentStatus = __expectString(output["DeploymentStatus"]);
   }
   if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTime(output["DateCreated"]));
+    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
   }
   if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTime(output["DateUpdated"]));
+    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
   }
   if (output.OptionSettings === "") {
     contents.OptionSettings = [];
@@ -5444,7 +5527,7 @@ const deserializeAws_queryDeployment = (output: any, context: __SerdeContext): D
     contents.Status = __expectString(output["Status"]);
   }
   if (output["DeploymentTime"] !== undefined) {
-    contents.DeploymentTime = __expectNonNull(__parseRfc3339DateTime(output["DeploymentTime"]));
+    contents.DeploymentTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DeploymentTime"]));
   }
   return contents;
 };
@@ -5500,7 +5583,7 @@ const deserializeAws_queryDescribeEnvironmentHealthResult = (
     contents.InstancesHealth = deserializeAws_queryInstanceHealthSummary(output["InstancesHealth"], context);
   }
   if (output["RefreshedAt"] !== undefined) {
-    contents.RefreshedAt = __expectNonNull(__parseRfc3339DateTime(output["RefreshedAt"]));
+    contents.RefreshedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RefreshedAt"]));
   }
   return contents;
 };
@@ -5566,7 +5649,7 @@ const deserializeAws_queryDescribeInstancesHealthResult = (
     );
   }
   if (output["RefreshedAt"] !== undefined) {
-    contents.RefreshedAt = __expectNonNull(__parseRfc3339DateTime(output["RefreshedAt"]));
+    contents.RefreshedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RefreshedAt"]));
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
@@ -5655,10 +5738,10 @@ const deserializeAws_queryEnvironmentDescription = (output: any, context: __Serd
     contents.CNAME = __expectString(output["CNAME"]);
   }
   if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTime(output["DateCreated"]));
+    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
   }
   if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTime(output["DateUpdated"]));
+    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -5745,7 +5828,7 @@ const deserializeAws_queryEnvironmentInfoDescription = (
     contents.Ec2InstanceId = __expectString(output["Ec2InstanceId"]);
   }
   if (output["SampleTimestamp"] !== undefined) {
-    contents.SampleTimestamp = __expectNonNull(__parseRfc3339DateTime(output["SampleTimestamp"]));
+    contents.SampleTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SampleTimestamp"]));
   }
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
@@ -5916,7 +5999,7 @@ const deserializeAws_queryEventDescription = (output: any, context: __SerdeConte
     Severity: undefined,
   };
   if (output["EventDate"] !== undefined) {
-    contents.EventDate = __expectNonNull(__parseRfc3339DateTime(output["EventDate"]));
+    contents.EventDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EventDate"]));
   }
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
@@ -6302,7 +6385,7 @@ const deserializeAws_queryManagedAction = (output: any, context: __SerdeContext)
     contents.Status = __expectString(output["Status"]);
   }
   if (output["WindowStartTime"] !== undefined) {
-    contents.WindowStartTime = __expectNonNull(__parseRfc3339DateTime(output["WindowStartTime"]));
+    contents.WindowStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["WindowStartTime"]));
   }
   return contents;
 };
@@ -6340,10 +6423,10 @@ const deserializeAws_queryManagedActionHistoryItem = (
     contents.FailureDescription = __expectString(output["FailureDescription"]);
   }
   if (output["ExecutedTime"] !== undefined) {
-    contents.ExecutedTime = __expectNonNull(__parseRfc3339DateTime(output["ExecutedTime"]));
+    contents.ExecutedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ExecutedTime"]));
   }
   if (output["FinishedTime"] !== undefined) {
-    contents.FinishedTime = __expectNonNull(__parseRfc3339DateTime(output["FinishedTime"]));
+    contents.FinishedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["FinishedTime"]));
   }
   return contents;
 };
@@ -6528,10 +6611,10 @@ const deserializeAws_queryPlatformDescription = (output: any, context: __SerdeCo
     contents.PlatformStatus = __expectString(output["PlatformStatus"]);
   }
   if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTime(output["DateCreated"]));
+    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
   }
   if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTime(output["DateUpdated"]));
+    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
   }
   if (output["PlatformCategory"] !== undefined) {
     contents.PlatformCategory = __expectString(output["PlatformCategory"]);
@@ -6930,7 +7013,7 @@ const deserializeAws_querySingleInstanceHealth = (output: any, context: __SerdeC
     contents.Causes = deserializeAws_queryCauses(__getArrayIfSingleItem(output["Causes"]["member"]), context);
   }
   if (output["LaunchedAt"] !== undefined) {
-    contents.LaunchedAt = __expectNonNull(__parseRfc3339DateTime(output["LaunchedAt"]));
+    contents.LaunchedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LaunchedAt"]));
   }
   if (output["ApplicationMetrics"] !== undefined) {
     contents.ApplicationMetrics = deserializeAws_queryApplicationMetrics(output["ApplicationMetrics"], context);
@@ -7233,7 +7316,8 @@ const deserializeAws_queryVersionLabelsList = (output: any, context: __SerdeCont
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -7278,13 +7362,18 @@ const buildHttpRpcRequest = async (
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -7297,13 +7386,21 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

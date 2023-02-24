@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -32,7 +32,6 @@
     "com.amazonaws.apprunner#ASConfigMaxConcurrency": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 200
@@ -42,17 +41,14 @@
     "com.amazonaws.apprunner#ASConfigMaxSize": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
-          "min": 1,
-          "max": 25
+          "min": 1
         }
       }
     },
     "com.amazonaws.apprunner#ASConfigMinSize": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 25
@@ -61,24 +57,6 @@
     },
     "com.amazonaws.apprunner#AppRunner": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "AppRunner",
-          "arnNamespace": "apprunner",
-          "cloudFormationName": "AppRunner",
-          "cloudTrailEventSource": "apprunner.amazonaws.com",
-          "endpointPrefix": "apprunner"
-        },
-        "aws.auth#sigv4": {
-          "name": "apprunner"
-        },
-        "aws.protocols#awsJson1_0": {},
-        "smithy.api#documentation": "<fullname>App Runner</fullname>\n\n    \n\n         <p>App Runner is an application service that provides a fast, simple, and cost-effective way to go directly from an existing container image or source code\n      to a running service in the Amazon Web Services Cloud in seconds. You don't need to learn new technologies, decide which compute service to use, or understand how to\n      provision and configure Amazon Web Services resources.</p>\n         <p>App Runner connects directly to your container registry or source code repository. It provides an automatic delivery pipeline with fully managed operations,\n      high performance, scalability, and security.</p>\n         <p>For more information about App Runner, see the <a href=\"https://docs.aws.amazon.com/apprunner/latest/dg/\">App Runner Developer Guide</a>.\n      For release information, see the <a href=\"https://docs.aws.amazon.com/apprunner/latest/relnotes/\">App Runner Release Notes</a>.</p>\n         <p>\n       To install the Software Development Kits (SDKs), Integrated\n      Development Environment (IDE) Toolkits, and command line tools that you can use to access the API, see <a href=\"http://aws.amazon.com/tools/\">Tools for\n        Amazon Web Services</a>.</p>\n         <p>\n            <b>Endpoints</b>\n         </p>\n         <p>For a list of Region-specific endpoints that App Runner supports, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/apprunner.html\">App Runner\n        endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>",
-        "smithy.api#title": "AWS App Runner",
-        "smithy.api#xmlNamespace": {
-          "uri": "http://apprunner.amazonaws.com/doc/2020-05-15/"
-        }
-      },
       "version": "2020-05-15",
       "operations": [
         {
@@ -100,6 +78,9 @@
           "target": "com.amazonaws.apprunner#CreateVpcConnector"
         },
         {
+          "target": "com.amazonaws.apprunner#CreateVpcIngressConnection"
+        },
+        {
           "target": "com.amazonaws.apprunner#DeleteAutoScalingConfiguration"
         },
         {
@@ -115,6 +96,9 @@
           "target": "com.amazonaws.apprunner#DeleteVpcConnector"
         },
         {
+          "target": "com.amazonaws.apprunner#DeleteVpcIngressConnection"
+        },
+        {
           "target": "com.amazonaws.apprunner#DescribeAutoScalingConfiguration"
         },
         {
@@ -128,6 +112,9 @@
         },
         {
           "target": "com.amazonaws.apprunner#DescribeVpcConnector"
+        },
+        {
+          "target": "com.amazonaws.apprunner#DescribeVpcIngressConnection"
         },
         {
           "target": "com.amazonaws.apprunner#DisassociateCustomDomain"
@@ -154,6 +141,9 @@
           "target": "com.amazonaws.apprunner#ListVpcConnectors"
         },
         {
+          "target": "com.amazonaws.apprunner#ListVpcIngressConnections"
+        },
+        {
           "target": "com.amazonaws.apprunner#PauseService"
         },
         {
@@ -170,8 +160,721 @@
         },
         {
           "target": "com.amazonaws.apprunner#UpdateService"
+        },
+        {
+          "target": "com.amazonaws.apprunner#UpdateVpcIngressConnection"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "AppRunner",
+          "arnNamespace": "apprunner",
+          "cloudFormationName": "AppRunner",
+          "cloudTrailEventSource": "apprunner.amazonaws.com",
+          "endpointPrefix": "apprunner"
+        },
+        "aws.auth#sigv4": {
+          "name": "apprunner"
+        },
+        "aws.protocols#awsJson1_0": {},
+        "smithy.api#documentation": "<fullname>App Runner</fullname>\n         <p>App Runner is an application service that provides a fast, simple, and cost-effective way to go directly from an existing container image or source code\n      to a running service in the Amazon Web Services Cloud in seconds. You don't need to learn new technologies, decide which compute service to use, or understand how to\n      provision and configure Amazon Web Services resources.</p>\n         <p>App Runner connects directly to your container registry or source code repository. It provides an automatic delivery pipeline with fully managed operations,\n      high performance, scalability, and security.</p>\n         <p>For more information about App Runner, see the <a href=\"https://docs.aws.amazon.com/apprunner/latest/dg/\">App Runner Developer Guide</a>.\n      For release information, see the <a href=\"https://docs.aws.amazon.com/apprunner/latest/relnotes/\">App Runner Release Notes</a>.</p>\n         <p>\n       To install the Software Development Kits (SDKs), Integrated\n      Development Environment (IDE) Toolkits, and command line tools that you can use to access the API, see <a href=\"http://aws.amazon.com/tools/\">Tools for\n        Amazon Web Services</a>.</p>\n         <p>\n            <b>Endpoints</b>\n         </p>\n         <p>For a list of Region-specific endpoints that App Runner supports, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/apprunner.html\">App Runner\n        endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>",
+        "smithy.api#title": "AWS App Runner",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://apprunner.amazonaws.com/doc/2020-05-15/"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://apprunner-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://apprunner-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://apprunner.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://apprunner.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://apprunner.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.apprunner#AppRunnerResourceArn": {
       "type": "string",
@@ -229,6 +932,9 @@
             "smithy.api#documentation": "<p>Set to <code>true</code> to associate the subdomain <code>www.<i>DomainName</i>\n            </code> with the App Runner service in addition to the base\n      domain.</p>\n         <p>Default: <code>true</code>\n         </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#AssociateCustomDomainResponse": {
@@ -254,7 +960,17 @@
             "smithy.api#documentation": "<p>A description of the domain name that's being associated.</p>",
             "smithy.api#required": {}
           }
+        },
+        "VpcDNSTargets": {
+          "target": "com.amazonaws.apprunner#VpcDNSTargetList",
+          "traits": {
+            "smithy.api#documentation": "<p>DNS Target records for the custom domains of this Amazon VPC.\n    </p>",
+            "smithy.api#required": {}
+          }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#AuthenticationConfiguration": {
@@ -295,12 +1011,14 @@
         "AutoScalingConfigurationRevision": {
           "target": "com.amazonaws.apprunner#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The revision of this auto scaling configuration. It's unique among all the active configurations (<code>\"Status\": \"ACTIVE\"</code>) that share the same\n        <code>AutoScalingConfigurationName</code>.</p>"
           }
         },
         "Latest": {
           "target": "com.amazonaws.apprunner#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>It's set to <code>true</code> for the configuration with the highest <code>Revision</code> among all configurations that share the same\n        <code>AutoScalingConfigurationName</code>. It's set to <code>false</code> otherwise.</p>"
           }
         },
@@ -313,18 +1031,21 @@
         "MaxConcurrency": {
           "target": "com.amazonaws.apprunner#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of concurrent requests that an instance processes. If the number of concurrent requests exceeds this limit, App Runner scales the service\n      up.</p>"
           }
         },
         "MinSize": {
           "target": "com.amazonaws.apprunner#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The minimum number of instances that App Runner provisions for a service. The service always has at least <code>MinSize</code> provisioned instances. Some\n      of them actively serve traffic. The rest of them (provisioned and inactive instances) are a cost-effective compute capacity reserve and are ready to be\n      quickly activated. You pay for memory usage of all the provisioned instances. You pay for CPU usage of only the active subset.</p>\n         <p>App Runner temporarily doubles the number of provisioned instances during deployments, to maintain the same capacity for both old and new code.</p>"
           }
         },
         "MaxSize": {
           "target": "com.amazonaws.apprunner#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of instances that a service scales up to. At most <code>MaxSize</code> instances actively serve traffic for your service.</p>"
           }
         },
@@ -356,18 +1077,20 @@
       }
     },
     "com.amazonaws.apprunner#AutoScalingConfigurationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#AutoScalingConfigurationSummary": {
@@ -388,6 +1111,7 @@
         "AutoScalingConfigurationRevision": {
           "target": "com.amazonaws.apprunner#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The revision of this auto scaling configuration. It's unique among all the active configurations (<code>\"Status\": \"ACTIVE\"</code>) with the same\n        <code>AutoScalingConfigurationName</code>.</p>"
           }
         }
@@ -403,7 +1127,10 @@
       }
     },
     "com.amazonaws.apprunner#Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.apprunner#BuildCommand": {
       "type": "string",
@@ -451,22 +1178,26 @@
       }
     },
     "com.amazonaws.apprunner#CertificateValidationRecordStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING_VALIDATION",
-            "name": "PENDING_VALIDATION"
-          },
-          {
-            "value": "SUCCESS",
-            "name": "SUCCESS"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "PENDING_VALIDATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_VALIDATION"
           }
-        ]
+        },
+        "SUCCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCESS"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#CodeConfiguration": {
@@ -521,7 +1252,13 @@
         "RuntimeEnvironmentVariables": {
           "target": "com.amazonaws.apprunner#RuntimeEnvironmentVariables",
           "traits": {
-            "smithy.api#documentation": "<p>The environment variables that are available to your running App Runner service. An array of key-value pairs. Keys with a prefix of\n        <code>AWSAPPRUNNER</code> are reserved for system use and aren't valid.</p>"
+            "smithy.api#documentation": "<p>The environment variables that are available to your running App Runner service. An array of key-value pairs.</p>"
+          }
+        },
+        "RuntimeEnvironmentSecrets": {
+          "target": "com.amazonaws.apprunner#RuntimeEnvironmentSecrets",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable.  \n      The supported values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager Parameter Store.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>\n            If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching, \n            you can use either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified.\n          </p>\n               </li>\n               <li>\n                  <p>\n            Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported.\n          </p>\n               </li>\n            </ul>\n         </note>"
           }
         }
       },
@@ -558,18 +1295,20 @@
       }
     },
     "com.amazonaws.apprunner#ConfigurationSource": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "REPOSITORY",
-            "name": "REPOSITORY"
-          },
-          {
-            "value": "API",
-            "name": "API"
+      "type": "enum",
+      "members": {
+        "REPOSITORY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REPOSITORY"
           }
-        ]
+        },
+        "API": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "API"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#Connection": {
@@ -621,26 +1360,32 @@
       }
     },
     "com.amazonaws.apprunner#ConnectionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING_HANDSHAKE",
-            "name": "PENDING_HANDSHAKE"
-          },
-          {
-            "value": "AVAILABLE",
-            "name": "AVAILABLE"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
-          },
-          {
-            "value": "DELETED",
-            "name": "DELETED"
+      "type": "enum",
+      "members": {
+        "PENDING_HANDSHAKE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_HANDSHAKE"
           }
-        ]
+        },
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETED"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#ConnectionSummary": {
@@ -754,6 +1499,9 @@
             "smithy.api#documentation": "<p>A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#CreateAutoScalingConfigurationResponse": {
@@ -766,6 +1514,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#CreateConnection": {
@@ -814,6 +1565,9 @@
             "smithy.api#documentation": "<p>A list of metadata items that you can associate with your connection resource. A tag is a key-value pair.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#CreateConnectionResponse": {
@@ -826,6 +1580,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#CreateObservabilityConfiguration": {
@@ -873,6 +1630,9 @@
             "smithy.api#documentation": "<p>A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#CreateObservabilityConfigurationResponse": {
@@ -885,6 +1645,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#CreateService": {
@@ -969,6 +1732,9 @@
             "smithy.api#documentation": "<p>The observability configuration of your service.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#CreateServiceResponse": {
@@ -988,6 +1754,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#CreateVpcConnector": {
@@ -1042,6 +1811,9 @@
             "smithy.api#documentation": "<p>A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#CreateVpcConnectorResponse": {
@@ -1054,6 +1826,85 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.apprunner#CreateVpcIngressConnection": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.apprunner#CreateVpcIngressConnectionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.apprunner#CreateVpcIngressConnectionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.apprunner#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#InvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#ServiceQuotaExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Create an App Runner VPC Ingress Connection resource. App Runner requires this resource when you want to associate your App Runner service with an Amazon VPC endpoint.</p>"
+      }
+    },
+    "com.amazonaws.apprunner#CreateVpcIngressConnectionRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceArn": {
+          "target": "com.amazonaws.apprunner#AppRunnerResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VpcIngressConnectionName": {
+          "target": "com.amazonaws.apprunner#VpcIngressConnectionName",
+          "traits": {
+            "smithy.api#documentation": "<p>A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your Amazon Web Services account in the Amazon Web Services Region.\n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IngressVpcConfiguration": {
+          "target": "com.amazonaws.apprunner#IngressVpcConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifications for the customer’s Amazon VPC and the related Amazon Web Services PrivateLink VPC endpoint that are used to create the VPC Ingress Connection\n      resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.apprunner#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.apprunner#CreateVpcIngressConnectionResponse": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnection": {
+          "target": "com.amazonaws.apprunner#VpcIngressConnection",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the App Runner VPC Ingress Connection resource that's created by this request. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#CustomDomain": {
@@ -1092,44 +1943,66 @@
       }
     },
     "com.amazonaws.apprunner#CustomDomainAssociationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATING",
-            "name": "CREATING"
-          },
-          {
-            "value": "CREATE_FAILED",
-            "name": "CREATE_FAILED"
-          },
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
-          },
-          {
-            "value": "DELETE_FAILED",
-            "name": "DELETE_FAILED"
-          },
-          {
-            "value": "PENDING_CERTIFICATE_DNS_VALIDATION",
-            "name": "PENDING_CERTIFICATE_DNS_VALIDATION"
-          },
-          {
-            "value": "BINDING_CERTIFICATE",
-            "name": "BINDING_CERTIFICATE"
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
           }
-        ]
+        },
+        "CREATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_FAILED"
+          }
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "DELETE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE_FAILED"
+          }
+        },
+        "PENDING_CERTIFICATE_DNS_VALIDATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_CERTIFICATE_DNS_VALIDATION"
+          }
+        },
+        "BINDING_CERTIFICATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BINDING_CERTIFICATE"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#CustomDomainList": {
       "type": "list",
       "member": {
         "target": "com.amazonaws.apprunner#CustomDomain"
+      }
+    },
+    "com.amazonaws.apprunner#CustomerAccountId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 12,
+          "max": 12
+        },
+        "smithy.api#pattern": "^[0-9]{12}$"
       }
     },
     "com.amazonaws.apprunner#DeleteAutoScalingConfiguration": {
@@ -1165,6 +2038,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DeleteAutoScalingConfigurationResponse": {
@@ -1177,6 +2053,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DeleteConnection": {
@@ -1212,6 +2091,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DeleteConnectionResponse": {
@@ -1223,6 +2105,9 @@
             "smithy.api#documentation": "<p>A description of the App Runner connection that this request just deleted.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DeleteObservabilityConfiguration": {
@@ -1258,6 +2143,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DeleteObservabilityConfigurationResponse": {
@@ -1270,6 +2158,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DeleteService": {
@@ -1295,7 +2186,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Delete an App Runner service.</p>\n         <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>\n      call to track the operation's progress.</p>"
+        "smithy.api#documentation": "<p>Delete an App Runner service.</p>\n         <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>\n      call to track the operation's progress.</p>\n         <note>\n            <p>Make sure that you don't have any active VPCIngressConnections associated with the service you want to delete. \n      </p>\n         </note>"
       }
     },
     "com.amazonaws.apprunner#DeleteServiceRequest": {
@@ -1308,6 +2199,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DeleteServiceResponse": {
@@ -1327,6 +2221,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DeleteVpcConnector": {
@@ -1362,6 +2259,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DeleteVpcConnectorResponse": {
@@ -1374,6 +2274,65 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.apprunner#DeleteVpcIngressConnection": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.apprunner#DeleteVpcIngressConnectionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.apprunner#DeleteVpcIngressConnectionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.apprunner#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#InvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Delete an App Runner VPC Ingress Connection resource that's associated with an App Runner service. The VPC Ingress Connection must be in one of the following states to be deleted:\n    </p>\n         <ul>\n            <li>\n               <p>\n                  <code>AVAILABLE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED_CREATION</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED_UPDATE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED_DELETION</code>\n               </p>\n            </li>\n         </ul>"
+      }
+    },
+    "com.amazonaws.apprunner#DeleteVpcIngressConnectionRequest": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnectionArn": {
+          "target": "com.amazonaws.apprunner#AppRunnerResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the App Runner VPC Ingress Connection that you want to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.apprunner#DeleteVpcIngressConnectionResponse": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnection": {
+          "target": "com.amazonaws.apprunner#VpcIngressConnection",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the App Runner VPC Ingress Connection that this request just deleted.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DescribeAutoScalingConfiguration": {
@@ -1409,6 +2368,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DescribeAutoScalingConfigurationResponse": {
@@ -1421,6 +2383,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DescribeCustomDomains": {
@@ -1454,7 +2419,6 @@
     "com.amazonaws.apprunner#DescribeCustomDomainsMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 5
@@ -1483,6 +2447,9 @@
             "smithy.api#documentation": "<p>The maximum number of results that each response (result page) can include. It's used for a paginated request.</p>\n         <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DescribeCustomDomainsResponse": {
@@ -1509,12 +2476,22 @@
             "smithy.api#required": {}
           }
         },
+        "VpcDNSTargets": {
+          "target": "com.amazonaws.apprunner#VpcDNSTargetList",
+          "traits": {
+            "smithy.api#documentation": "<p>DNS Target records for the custom domains of this Amazon VPC.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.apprunner#String",
           "traits": {
             "smithy.api#documentation": "<p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DescribeObservabilityConfiguration": {
@@ -1550,6 +2527,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DescribeObservabilityConfigurationResponse": {
@@ -1562,6 +2542,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DescribeService": {
@@ -1597,6 +2580,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DescribeServiceResponse": {
@@ -1609,6 +2595,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DescribeVpcConnector": {
@@ -1644,6 +2633,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DescribeVpcConnectorResponse": {
@@ -1656,6 +2648,62 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.apprunner#DescribeVpcIngressConnection": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.apprunner#DescribeVpcIngressConnectionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.apprunner#DescribeVpcIngressConnectionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.apprunner#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Return a full description of an App Runner VPC Ingress Connection resource.</p>"
+      }
+    },
+    "com.amazonaws.apprunner#DescribeVpcIngressConnectionRequest": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnectionArn": {
+          "target": "com.amazonaws.apprunner#AppRunnerResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the App Runner VPC Ingress Connection that you want a description for.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.apprunner#DescribeVpcIngressConnectionResponse": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnection": {
+          "target": "com.amazonaws.apprunner#VpcIngressConnection",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the App Runner VPC Ingress Connection that you specified in this request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DisassociateCustomDomain": {
@@ -1701,6 +2749,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#DisassociateCustomDomainResponse": {
@@ -1726,7 +2777,17 @@
             "smithy.api#documentation": "<p>A description of the domain name that's being disassociated.</p>",
             "smithy.api#required": {}
           }
+        },
+        "VpcDNSTargets": {
+          "target": "com.amazonaws.apprunner#VpcDNSTargetList",
+          "traits": {
+            "smithy.api#documentation": "<p>DNS Target records for the custom domains of this Amazon VPC.\n      </p>",
+            "smithy.api#required": {}
+          }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#DomainName": {
@@ -1760,18 +2821,20 @@
       }
     },
     "com.amazonaws.apprunner#EgressType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEFAULT",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "VPC",
-            "name": "VPC"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
           }
-        ]
+        },
+        "VPC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VPC"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#EncryptionConfiguration": {
@@ -1845,7 +2908,6 @@
     "com.amazonaws.apprunner#HealthCheckHealthyThreshold": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 20
@@ -1855,7 +2917,6 @@
     "com.amazonaws.apprunner#HealthCheckInterval": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 20
@@ -1871,24 +2932,25 @@
       }
     },
     "com.amazonaws.apprunner#HealthCheckProtocol": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TCP",
-            "name": "TCP"
-          },
-          {
-            "value": "HTTP",
-            "name": "HTTP"
+      "type": "enum",
+      "members": {
+        "TCP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TCP"
           }
-        ]
+        },
+        "HTTP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HTTP"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#HealthCheckTimeout": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 20
@@ -1898,7 +2960,6 @@
     "com.amazonaws.apprunner#HealthCheckUnhealthyThreshold": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 20
@@ -1911,7 +2972,7 @@
         "RuntimeEnvironmentVariables": {
           "target": "com.amazonaws.apprunner#RuntimeEnvironmentVariables",
           "traits": {
-            "smithy.api#documentation": "<p>Environment variables that are available to your running App Runner service. An array of key-value pairs. Keys with a prefix of <code>AWSAPPRUNNER</code>\n      are reserved for system use and aren't valid.</p>"
+            "smithy.api#documentation": "<p>Environment variables that are available to your running App Runner service. An array of key-value pairs.</p>"
           }
         },
         "StartCommand": {
@@ -1924,6 +2985,12 @@
           "target": "com.amazonaws.apprunner#String",
           "traits": {
             "smithy.api#documentation": "<p>The port that your application listens to in the container.</p>\n         <p>Default: <code>8080</code>\n         </p>"
+          }
+        },
+        "RuntimeEnvironmentSecrets": {
+          "target": "com.amazonaws.apprunner#RuntimeEnvironmentSecrets",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable.  \n      The supported values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager Parameter Store.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>\n            If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching, \n            you can use either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified.\n          </p>\n               </li>\n               <li>\n                  <p>\n            Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported.\n          </p>\n               </li>\n            </ul>\n         </note>"
           }
         }
       },
@@ -1970,18 +3037,55 @@
       }
     },
     "com.amazonaws.apprunner#ImageRepositoryType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ECR",
-            "name": "ECR"
-          },
-          {
-            "value": "ECR_PUBLIC",
-            "name": "ECR_PUBLIC"
+      "type": "enum",
+      "members": {
+        "ECR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ECR"
           }
-        ]
+        },
+        "ECR_PUBLIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ECR_PUBLIC"
+          }
+        }
+      }
+    },
+    "com.amazonaws.apprunner#IngressConfiguration": {
+      "type": "structure",
+      "members": {
+        "IsPubliclyAccessible": {
+          "target": "com.amazonaws.apprunner#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to <code>True</code>. To make the service\n      privately accessible, from only within an Amazon VPC set it to <code>False</code>. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Network configuration settings for inbound network traffic.</p>"
+      }
+    },
+    "com.amazonaws.apprunner#IngressVpcConfiguration": {
+      "type": "structure",
+      "members": {
+        "VpcId": {
+          "target": "com.amazonaws.apprunner#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the VPC that is used for the VPC endpoint.</p>"
+          }
+        },
+        "VpcEndpointId": {
+          "target": "com.amazonaws.apprunner#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the VPC endpoint that your App Runner service connects to.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration of your VPC and the associated VPC endpoint. The VPC endpoint is an Amazon Web Services PrivateLink resource that allows access to your App Runner\n      services from within an Amazon VPC.</p>"
       }
     },
     "com.amazonaws.apprunner#InstanceConfiguration": {
@@ -2011,7 +3115,10 @@
       }
     },
     "com.amazonaws.apprunner#Integer": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.apprunner#InternalServiceErrorException": {
       "type": "structure",
@@ -2111,6 +3218,7 @@
         "LatestOnly": {
           "target": "com.amazonaws.apprunner#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Set to <code>true</code> to list only the latest revision for each requested configuration name.</p>\n         <p>Set to <code>false</code> to list all revisions for each requested configuration name.</p>\n         <p>Default: <code>true</code>\n         </p>"
           }
         },
@@ -2126,6 +3234,9 @@
             "smithy.api#documentation": "<p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be\n      identical to the ones that are specified in the initial request.</p>\n         <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#ListAutoScalingConfigurationsResponse": {
@@ -2144,6 +3255,9 @@
             "smithy.api#documentation": "<p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#ListConnections": {
@@ -2192,6 +3306,9 @@
             "smithy.api#documentation": "<p>A token from a previous result page. Used for a paginated request. The request retrieves the next result page. All other parameter values must be\n      identical to the ones specified in the initial request.</p>\n         <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#ListConnectionsResponse": {
@@ -2210,6 +3327,9 @@
             "smithy.api#documentation": "<p>The token that you can pass in a subsequent request to get the next result page. Returned in a paginated request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#ListObservabilityConfigurations": {
@@ -2249,6 +3369,7 @@
         "LatestOnly": {
           "target": "com.amazonaws.apprunner#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Set to <code>true</code> to list only the latest revision for each requested configuration name.</p>\n         <p>Set to <code>false</code> to list all revisions for each requested configuration name.</p>\n         <p>Default: <code>true</code>\n         </p>"
           }
         },
@@ -2264,6 +3385,9 @@
             "smithy.api#documentation": "<p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be\n      identical to the ones that are specified in the initial request.</p>\n         <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#ListObservabilityConfigurationsResponse": {
@@ -2282,6 +3406,9 @@
             "smithy.api#documentation": "<p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#ListOperations": {
@@ -2315,7 +3442,6 @@
     "com.amazonaws.apprunner#ListOperationsMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 20
@@ -2344,6 +3470,9 @@
             "smithy.api#documentation": "<p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p>\n         <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#ListOperationsResponse": {
@@ -2361,6 +3490,9 @@
             "smithy.api#documentation": "<p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#ListServices": {
@@ -2403,6 +3535,9 @@
             "smithy.api#documentation": "<p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p>\n         <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#ListServicesResponse": {
@@ -2421,6 +3556,9 @@
             "smithy.api#documentation": "<p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#ListTagsForResource": {
@@ -2459,6 +3597,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#ListTagsForResourceResponse": {
@@ -2470,6 +3611,9 @@
             "smithy.api#documentation": "<p>A list of the tag key-value pairs that are associated with the resource.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#ListVpcConnectors": {
@@ -2512,6 +3656,9 @@
             "smithy.api#documentation": "<p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be\n      identical to the ones that are specified in the initial request.</p>\n         <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#ListVpcConnectorsResponse": {
@@ -2530,12 +3677,106 @@
             "smithy.api#documentation": "<p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.apprunner#ListVpcIngressConnections": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.apprunner#ListVpcIngressConnectionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.apprunner#ListVpcIngressConnectionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.apprunner#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#InvalidRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Return a list of App Runner VPC Ingress Connections in your Amazon Web Services account.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.apprunner#ListVpcIngressConnectionsFilter": {
+      "type": "structure",
+      "members": {
+        "ServiceArn": {
+          "target": "com.amazonaws.apprunner#AppRunnerResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a service to filter by.\n    </p>"
+          }
+        },
+        "VpcEndpointId": {
+          "target": "com.amazonaws.apprunner#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of a VPC Endpoint to filter by.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of VPC Ingress Connections based on the filter provided. It can return either <code>ServiceArn</code> or <code>VpcEndpointId</code>, or both.</p>"
+      }
+    },
+    "com.amazonaws.apprunner#ListVpcIngressConnectionsRequest": {
+      "type": "structure",
+      "members": {
+        "Filter": {
+          "target": "com.amazonaws.apprunner#ListVpcIngressConnectionsFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>The VPC Ingress Connections to be listed based on either the Service Arn or Vpc Endpoint Id, or both.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.apprunner#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p>\n         <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.apprunner#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be\n      identical to the ones that are specified in the initial request.</p>\n         <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.apprunner#ListVpcIngressConnectionsResponse": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnectionSummaryList": {
+          "target": "com.amazonaws.apprunner#VpcIngressConnectionSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of summary information records for VPC Ingress Connections. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.apprunner#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -2560,6 +3801,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Network configuration settings for outbound message traffic.</p>"
           }
+        },
+        "IngressConfiguration": {
+          "target": "com.amazonaws.apprunner#IngressConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Network configuration settings for inbound message traffic.</p>"
+          }
         }
       },
       "traits": {
@@ -2577,10 +3824,7 @@
       }
     },
     "com.amazonaws.apprunner#NullableBoolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.apprunner#ObservabilityConfiguration": {
       "type": "structure",
@@ -2606,12 +3850,14 @@
         "ObservabilityConfigurationRevision": {
           "target": "com.amazonaws.apprunner#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The revision of this observability configuration. It's unique among all the active configurations (<code>\"Status\": \"ACTIVE\"</code>) that share the\n      same <code>ObservabilityConfigurationName</code>.</p>"
           }
         },
         "Latest": {
           "target": "com.amazonaws.apprunner#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>It's set to <code>true</code> for the configuration with the highest <code>Revision</code> among all configurations that share the same\n        <code>ObservabilityConfigurationName</code>. It's set to <code>false</code> otherwise.</p>"
           }
         },
@@ -2649,18 +3895,20 @@
       }
     },
     "com.amazonaws.apprunner#ObservabilityConfigurationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#ObservabilityConfigurationSummary": {
@@ -2681,6 +3929,7 @@
         "ObservabilityConfigurationRevision": {
           "target": "com.amazonaws.apprunner#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The revision of this observability configuration. It's unique among all the active configurations (<code>\"Status\": \"ACTIVE\"</code>) that share the\n      same <code>ObservabilityConfigurationName</code>.</p>"
           }
         }
@@ -2696,38 +3945,50 @@
       }
     },
     "com.amazonaws.apprunner#OperationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
-          },
-          {
-            "value": "ROLLBACK_IN_PROGRESS",
-            "name": "ROLLBACK_IN_PROGRESS"
-          },
-          {
-            "value": "ROLLBACK_FAILED",
-            "name": "ROLLBACK_FAILED"
-          },
-          {
-            "value": "ROLLBACK_SUCCEEDED",
-            "name": "ROLLBACK_SUCCEEDED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "ROLLBACK_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLBACK_IN_PROGRESS"
+          }
+        },
+        "ROLLBACK_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLBACK_FAILED"
+          }
+        },
+        "ROLLBACK_SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLBACK_SUCCEEDED"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#OperationSummary": {
@@ -2787,30 +4048,44 @@
       }
     },
     "com.amazonaws.apprunner#OperationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "START_DEPLOYMENT",
-            "name": "START_DEPLOYMENT"
-          },
-          {
-            "value": "CREATE_SERVICE",
-            "name": "CREATE_SERVICE"
-          },
-          {
-            "value": "PAUSE_SERVICE",
-            "name": "PAUSE_SERVICE"
-          },
-          {
-            "value": "RESUME_SERVICE",
-            "name": "RESUME_SERVICE"
-          },
-          {
-            "value": "DELETE_SERVICE",
-            "name": "DELETE_SERVICE"
+      "type": "enum",
+      "members": {
+        "START_DEPLOYMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "START_DEPLOYMENT"
           }
-        ]
+        },
+        "CREATE_SERVICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_SERVICE"
+          }
+        },
+        "PAUSE_SERVICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PAUSE_SERVICE"
+          }
+        },
+        "RESUME_SERVICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESUME_SERVICE"
+          }
+        },
+        "DELETE_SERVICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE_SERVICE"
+          }
+        },
+        "UPDATE_SERVICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_SERVICE"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#PauseService": {
@@ -2849,6 +4124,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#PauseServiceResponse": {
@@ -2867,17 +4145,20 @@
             "smithy.api#documentation": "<p>The unique ID of the asynchronous operation that this request started. You can use it combined with the <a>ListOperations</a> call to track\n      the operation's progress.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#ProviderType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "GITHUB",
-            "name": "GITHUB"
+      "type": "enum",
+      "members": {
+        "GITHUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GITHUB"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.apprunner#ResourceNotFoundException": {
@@ -2933,6 +4214,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#ResumeServiceResponse": {
@@ -2951,6 +4235,9 @@
             "smithy.api#documentation": "<p>The unique ID of the asynchronous operation that this request started. You can use it combined with the <a>ListOperations</a> call to track\n      the operation's progress.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#RoleArn": {
@@ -2964,30 +4251,97 @@
       }
     },
     "com.amazonaws.apprunner#Runtime": {
+      "type": "enum",
+      "members": {
+        "PYTHON_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PYTHON_3"
+          }
+        },
+        "NODEJS_12": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NODEJS_12"
+          }
+        },
+        "NODEJS_14": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NODEJS_14"
+          }
+        },
+        "CORRETTO_8": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CORRETTO_8"
+          }
+        },
+        "CORRETTO_11": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CORRETTO_11"
+          }
+        },
+        "NODEJS_16": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NODEJS_16"
+          }
+        },
+        "GO_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GO_1"
+          }
+        },
+        "DOTNET_6": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOTNET_6"
+          }
+        },
+        "PHP_81": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PHP_81"
+          }
+        },
+        "RUBY_31": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUBY_31"
+          }
+        }
+      }
+    },
+    "com.amazonaws.apprunner#RuntimeEnvironmentSecrets": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.apprunner#RuntimeEnvironmentSecretsName"
+      },
+      "value": {
+        "target": "com.amazonaws.apprunner#RuntimeEnvironmentSecretsValue"
+      }
+    },
+    "com.amazonaws.apprunner#RuntimeEnvironmentSecretsName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PYTHON_3",
-            "name": "PYTHON_3"
-          },
-          {
-            "value": "NODEJS_12",
-            "name": "NODEJS_12"
-          },
-          {
-            "value": "NODEJS_14",
-            "name": "NODEJS_14"
-          },
-          {
-            "value": "CORRETTO_8",
-            "name": "CORRETTO_8"
-          },
-          {
-            "value": "CORRETTO_11",
-            "name": "CORRETTO_11"
-          }
-        ]
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.apprunner#RuntimeEnvironmentSecretsValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.apprunner#RuntimeEnvironmentVariables": {
@@ -3048,8 +4402,7 @@
         "ServiceUrl": {
           "target": "com.amazonaws.apprunner#String",
           "traits": {
-            "smithy.api#documentation": "<p>A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.</p>"
           }
         },
         "CreatedAt": {
@@ -3143,7 +4496,6 @@
     "com.amazonaws.apprunner#ServiceMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 20
@@ -3166,6 +4518,7 @@
         "ObservabilityEnabled": {
           "target": "com.amazonaws.apprunner#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When <code>true</code>, an observability configuration resource is associated with the service, and an <code>ObservabilityConfigurationArn</code> is\n      specified.</p>",
             "smithy.api#required": {}
           }
@@ -3199,34 +4552,44 @@
       }
     },
     "com.amazonaws.apprunner#ServiceStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATE_FAILED",
-            "name": "CREATE_FAILED"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "DELETED",
-            "name": "DELETED"
-          },
-          {
-            "value": "DELETE_FAILED",
-            "name": "DELETE_FAILED"
-          },
-          {
-            "value": "PAUSED",
-            "name": "PAUSED"
-          },
-          {
-            "value": "OPERATION_IN_PROGRESS",
-            "name": "OPERATION_IN_PROGRESS"
+      "type": "enum",
+      "members": {
+        "CREATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_FAILED"
           }
-        ]
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETED"
+          }
+        },
+        "DELETE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE_FAILED"
+          }
+        },
+        "PAUSED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PAUSED"
+          }
+        },
+        "OPERATION_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATION_IN_PROGRESS"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#ServiceSummary": {
@@ -3308,14 +4671,14 @@
       }
     },
     "com.amazonaws.apprunner#SourceCodeVersionType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "BRANCH",
-            "name": "BRANCH"
+      "type": "enum",
+      "members": {
+        "BRANCH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BRANCH"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.apprunner#SourceConfiguration": {
@@ -3390,6 +4753,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#StartDeploymentResponse": {
@@ -3402,6 +4768,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#String": {
@@ -3505,11 +4874,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#TagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.apprunner#TagValue": {
       "type": "string",
@@ -3540,14 +4915,14 @@
       }
     },
     "com.amazonaws.apprunner#TracingVendor": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AWSXRAY",
-            "name": "AWSXRAY"
+      "type": "enum",
+      "members": {
+        "AWSXRAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWSXRAY"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.apprunner#UUID": {
@@ -3603,11 +4978,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#UntagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.apprunner#UpdateService": {
       "type": "operation",
@@ -3681,6 +5062,9 @@
             "smithy.api#documentation": "<p>The observability configuration of your service.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.apprunner#UpdateServiceResponse": {
@@ -3700,6 +5084,72 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.apprunner#UpdateVpcIngressConnection": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.apprunner#UpdateVpcIngressConnectionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.apprunner#UpdateVpcIngressConnectionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.apprunner#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#InvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.apprunner#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Update an existing App Runner VPC Ingress Connection resource. The VPC Ingress Connection must be in one of the following states to be updated:</p>\n         <ul>\n            <li>\n               <p>\n          AVAILABLE\n        </p>\n            </li>\n            <li>\n               <p>\n          FAILED_CREATION\n        </p>\n            </li>\n            <li>\n               <p>\n          FAILED_UPDATE\n        </p>\n            </li>\n         </ul>"
+      }
+    },
+    "com.amazonaws.apprunner#UpdateVpcIngressConnectionRequest": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnectionArn": {
+          "target": "com.amazonaws.apprunner#AppRunnerResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (Arn) for the App Runner VPC Ingress Connection resource that you want to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IngressVpcConfiguration": {
+          "target": "com.amazonaws.apprunner#IngressVpcConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifications for the customer’s Amazon VPC and the related Amazon Web Services PrivateLink VPC endpoint that are used to update the VPC Ingress Connection\n      resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.apprunner#UpdateVpcIngressConnectionResponse": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnection": {
+          "target": "com.amazonaws.apprunner#VpcIngressConnection",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the App Runner VPC Ingress Connection resource that's updated by this request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apprunner#VpcConnector": {
@@ -3720,6 +5170,7 @@
         "VpcConnectorRevision": {
           "target": "com.amazonaws.apprunner#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The revision of this VPC connector. It's unique among all the active connectors (<code>\"Status\": \"ACTIVE\"</code>) that share the same\n      <code>Name</code>.</p>\n         <note>\n            <p>At this time, App Runner supports only one revision per name.</p>\n         </note>"
           }
         },
@@ -3769,24 +5220,209 @@
       }
     },
     "com.amazonaws.apprunner#VpcConnectorStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.apprunner#VpcConnectors": {
       "type": "list",
       "member": {
         "target": "com.amazonaws.apprunner#VpcConnector"
+      }
+    },
+    "com.amazonaws.apprunner#VpcDNSTarget": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnectionArn": {
+          "target": "com.amazonaws.apprunner#AppRunnerResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the VPC Ingress Connection that is associated with your service.</p>"
+          }
+        },
+        "VpcId": {
+          "target": "com.amazonaws.apprunner#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Amazon VPC that is associated with the custom domain name of the target DNS.</p>"
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.apprunner#DomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name of your target DNS that is associated with the Amazon VPC.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>DNS Target record for a custom domain of this Amazon VPC.</p>"
+      }
+    },
+    "com.amazonaws.apprunner#VpcDNSTargetList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.apprunner#VpcDNSTarget"
+      }
+    },
+    "com.amazonaws.apprunner#VpcIngressConnection": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnectionArn": {
+          "target": "com.amazonaws.apprunner#AppRunnerResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the VPC Ingress Connection.\n    </p>"
+          }
+        },
+        "VpcIngressConnectionName": {
+          "target": "com.amazonaws.apprunner#VpcIngressConnectionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The customer-provided VPC Ingress Connection name.</p>"
+          }
+        },
+        "ServiceArn": {
+          "target": "com.amazonaws.apprunner#AppRunnerResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service associated with the VPC Ingress Connection.\n    </p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.apprunner#VpcIngressConnectionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the VPC Ingress Connection. \n      The VPC Ingress Connection displays one of the following statuses: <code>AVAILABLE</code>, <code>PENDING_CREATION</code>, <code>PENDING_UPDATE</code>, <code>PENDING_DELETION</code>,<code>FAILED_CREATION</code>, <code>FAILED_UPDATE</code>, <code>FAILED_DELETION</code>, and <code>DELETED</code>..\n    </p>"
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.apprunner#CustomerAccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Account Id you use to create the VPC Ingress Connection resource.</p>"
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.apprunner#DomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name associated with the VPC Ingress Connection resource.</p>"
+          }
+        },
+        "IngressVpcConfiguration": {
+          "target": "com.amazonaws.apprunner#IngressVpcConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.</p>"
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.apprunner#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the VPC Ingress Connection was created. It's in the Unix time stamp format.</p>\n         <ul>\n            <li>\n               <p>\n            Type: Timestamp \n          </p>\n            </li>\n            <li>\n               <p>\n            Required: Yes\n          </p>\n            </li>\n         </ul>"
+          }
+        },
+        "DeletedAt": {
+          "target": "com.amazonaws.apprunner#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the App Runner service was deleted. It's in the Unix time stamp format.</p>\n         <ul>\n            <li>\n               <p>\n          Type: Timestamp \n        </p>\n            </li>\n            <li>\n               <p>\n          Required: No\n        </p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The App Runner resource that specifies an App Runner endpoint for incoming traffic. It establishes a connection between a VPC interface endpoint and a App Runner\n      service, to make your App Runner service accessible from only within an Amazon VPC.</p>"
+      }
+    },
+    "com.amazonaws.apprunner#VpcIngressConnectionName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 4,
+          "max": 40
+        },
+        "smithy.api#pattern": "^[A-Za-z0-9][A-Za-z0-9\\-_]{3,39}$"
+      }
+    },
+    "com.amazonaws.apprunner#VpcIngressConnectionStatus": {
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
+          }
+        },
+        "PENDING_CREATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_CREATION"
+          }
+        },
+        "PENDING_UPDATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_UPDATE"
+          }
+        },
+        "PENDING_DELETION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_DELETION"
+          }
+        },
+        "FAILED_CREATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED_CREATION"
+          }
+        },
+        "FAILED_UPDATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED_UPDATE"
+          }
+        },
+        "FAILED_DELETION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED_DELETION"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.apprunner#VpcIngressConnectionSummary": {
+      "type": "structure",
+      "members": {
+        "VpcIngressConnectionArn": {
+          "target": "com.amazonaws.apprunner#AppRunnerResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the VPC Ingress Connection.\n    </p>"
+          }
+        },
+        "ServiceArn": {
+          "target": "com.amazonaws.apprunner#AppRunnerResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service associated with the VPC Ingress Connection.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides summary information about an VPC Ingress Connection, which includes its VPC Ingress Connection ARN and its associated Service ARN.</p>"
+      }
+    },
+    "com.amazonaws.apprunner#VpcIngressConnectionSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.apprunner#VpcIngressConnectionSummary"
       }
     }
   }

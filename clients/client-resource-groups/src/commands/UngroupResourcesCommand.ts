@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,14 +29,17 @@ export interface UngroupResourcesCommandInput extends UngroupResourcesInput {}
 export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified resources from the specified group.</p>
- *         <p>
+ * <p>Removes the specified resources from the specified group. This operation works only
+ *             with static groups that you populated using the <a>GroupResources</a>
+ *             operation. It doesn't work with any resource groups that are automatically populated by
+ *             tag-based or CloudFormation stack-based queries.</p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:UngroupResources</code>
  *                </p>
  *             </li>
@@ -63,6 +67,15 @@ export class UngroupResourcesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UngroupResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +91,9 @@ export class UngroupResourcesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UngroupResourcesCommandInput, UngroupResourcesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UngroupResourcesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

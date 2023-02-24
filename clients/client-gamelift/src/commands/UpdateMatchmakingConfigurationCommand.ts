@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   UpdateMatchmakingConfigurationInputFilterSensitiveLog,
   UpdateMatchmakingConfigurationOutput,
   UpdateMatchmakingConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateMatchmakingConfigurationCommand,
   serializeAws_json1_1UpdateMatchmakingConfigurationCommand,
@@ -30,29 +31,15 @@ export interface UpdateMatchmakingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all matches and game sessions
- *             that are created after the update. To update settings,
- *             specify the configuration name to be updated and provide the new settings. </p>
+ * <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all
+ *             matches and game sessions that are created after the update. To update settings, specify
+ *             the configuration name to be updated and provide the new settings. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
- *             Design a FlexMatch matchmaker</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateMatchmakingConfiguration</a> |
- *                     <a>DescribeMatchmakingConfigurations</a> |
- *                     <a>UpdateMatchmakingConfiguration</a> |
- *                     <a>DeleteMatchmakingConfiguration</a> |
- *                     <a>CreateMatchmakingRuleSet</a> |
- *                     <a>DescribeMatchmakingRuleSets</a> |
- *                     <a>ValidateMatchmakingRuleSet</a> |
- *                     <a>DeleteMatchmakingRuleSet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html"> Design a FlexMatch
+ *                 matchmaker</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +64,15 @@ export class UpdateMatchmakingConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateMatchmakingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +88,9 @@ export class UpdateMatchmakingConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateMatchmakingConfigurationCommandInput, UpdateMatchmakingConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateMatchmakingConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

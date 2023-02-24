@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,32 +29,7 @@ export interface ListGameServerGroupsCommandInput extends ListGameServerGroupsIn
 export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
- *          </p>
- *         <p>Retrieves information on all game servers groups that exist in the current Amazon Web Services
- *             account for the selected Region. Use the pagination parameters to retrieve results in a
- *             set of sequential segments. </p>
- *         <p>
- *             <b>Learn more</b>
- *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
- *         </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameServerGroup</a> |
- *                     <a>ListGameServerGroups</a> |
- *                     <a>DescribeGameServerGroup</a> |
- *                     <a>UpdateGameServerGroup</a> |
- *                     <a>DeleteGameServerGroup</a> |
- *                     <a>ResumeGameServerGroup</a> |
- *                     <a>SuspendGameServerGroup</a> |
- *                     <a>DescribeGameServerInstances</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
- *          </p>
+ * <p>Lists a game server groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +53,15 @@ export class ListGameServerGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListGameServerGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +77,9 @@ export class ListGameServerGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListGameServerGroupsCommandInput, ListGameServerGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListGameServerGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,21 +1,23 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { SdkError } from "@aws-sdk/types";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
-import { v4 } from "uuid";
-
-import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./config";
 import {
+  DEFAULT_MAX_ATTEMPTS,
   DEFAULT_RETRY_DELAY_BASE,
   INITIAL_RETRY_TOKENS,
   INVOCATION_ID_HEADER,
   REQUEST_HEADER,
+  RETRY_MODES,
   THROTTLING_RETRY_DELAY_BASE,
-} from "./constants";
+} from "@aws-sdk/util-retry";
+import { v4 } from "uuid";
+
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
 import { DelayDecider, RetryDecider, RetryQuota } from "./types";
+import { asSdkError } from "./util";
 
 /**
  * Strategy options to be passed to StandardRetryStrategy
@@ -26,6 +28,9 @@ export interface StandardRetryStrategyOptions {
   retryQuota?: RetryQuota;
 }
 
+/**
+ * @deprected use StandardRetryStrategy from @aws-sdk/util-retry
+ */
 export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;
   private delayDecider: DelayDecider;
@@ -95,10 +100,14 @@ export class StandardRetryStrategy implements RetryStrategy {
         attempts++;
         if (this.shouldRetry(err as SdkError, attempts, maxAttempts)) {
           retryTokenAmount = this.retryQuota.retrieveRetryTokens(err);
-          const delay = this.delayDecider(
+          const delayFromDecider = this.delayDecider(
             isThrottlingError(err) ? THROTTLING_RETRY_DELAY_BASE : DEFAULT_RETRY_DELAY_BASE,
             attempts
           );
+
+          const delayFromResponse = getDelayFromRetryAfterHeader(err.$response);
+          const delay = Math.max(delayFromResponse || 0, delayFromDecider);
+
           totalDelay += delay;
 
           await new Promise((resolve) => setTimeout(resolve, delay));
@@ -117,9 +126,19 @@ export class StandardRetryStrategy implements RetryStrategy {
   }
 }
 
-const asSdkError = (error: unknown): SdkError => {
-  if (error instanceof Error) return error;
-  if (error instanceof Object) return Object.assign(new Error(), error);
-  if (typeof error === "string") return new Error(error);
-  return new Error(`AWS SDK error wrapper for ${error}`);
+/**
+ * Returns number of milliseconds to wait based on "Retry-After" header value.
+ */
+const getDelayFromRetryAfterHeader = (response: unknown): number | undefined => {
+  if (!HttpResponse.isInstance(response)) return;
+
+  const retryAfterHeaderName = Object.keys(response.headers).find((key) => key.toLowerCase() === "retry-after");
+  if (!retryAfterHeaderName) return;
+  const retryAfter = response.headers[retryAfterHeaderName];
+
+  const retryAfterSeconds = Number(retryAfter);
+  if (!Number.isNaN(retryAfterSeconds)) return retryAfterSeconds * 1000;
+
+  const retryAfterDate = new Date(retryAfter);
+  return retryAfterDate.getTime() - Date.now();
 };

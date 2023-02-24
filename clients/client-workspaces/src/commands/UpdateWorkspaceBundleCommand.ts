@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,6 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * <p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html">
  *             Update a Custom WorkSpaces Bundle</a>.</p>
- *
  *          <important>
  *             <p>Existing WorkSpaces aren't automatically updated when you update the bundle that they're
  *             based on. To update existing WorkSpaces that are based on a bundle that you've updated, you
@@ -60,6 +60,15 @@ export class UpdateWorkspaceBundleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateWorkspaceBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +84,9 @@ export class UpdateWorkspaceBundleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateWorkspaceBundleCommandInput, UpdateWorkspaceBundleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateWorkspaceBundleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

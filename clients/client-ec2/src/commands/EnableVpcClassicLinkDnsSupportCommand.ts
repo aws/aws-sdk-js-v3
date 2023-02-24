@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   EnableVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
   EnableVpcClassicLinkDnsSupportResult,
   EnableVpcClassicLinkDnsSupportResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommand,
   serializeAws_ec2EnableVpcClassicLinkDnsSupportCommand,
@@ -31,7 +32,7 @@ export interface EnableVpcClassicLinkDnsSupportCommandOutput
 
 /**
  * <note>
- *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
  *          <p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS
  * 			hostname of a linked EC2-Classic instance resolves to its private IP address when
@@ -63,6 +64,15 @@ export class EnableVpcClassicLinkDnsSupportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EnableVpcClassicLinkDnsSupportCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class EnableVpcClassicLinkDnsSupportCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableVpcClassicLinkDnsSupportCommandInput, EnableVpcClassicLinkDnsSupportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableVpcClassicLinkDnsSupportCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,19 +31,19 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
 /**
  * <p>Retrieves information about the specified version of the specified managed policy,
  *             including the policy document.</p>
- *         <note>
+ *          <note>
  *             <p>Policies returned by this operation are URL-encoded compliant
  *     with <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. You can use a URL
  *     decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
  *     can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
  *     the Java SDK. Other languages and SDKs provide similar functionality.</p>
  *          </note>
- *         <p>To list the available versions for a policy, use <a>ListPolicyVersions</a>.</p>
- *         <p>This operation retrieves information about managed policies. To retrieve information
+ *          <p>To list the available versions for a policy, use <a>ListPolicyVersions</a>.</p>
+ *          <p>This operation retrieves information about managed policies. To retrieve information
  *             about an inline policy that is embedded in a user, group, or role, use <a>GetUserPolicy</a>, <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a>.</p>
- *         <p>For more information about the types of policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *          <p>For more information about the types of policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
- *         <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
+ *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +68,15 @@ export class GetPolicyVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,9 @@ export class GetPolicyVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetPolicyVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

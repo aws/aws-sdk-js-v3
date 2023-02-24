@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,10 @@ export interface CreateWorkGroupCommandInput extends CreateWorkGroupInput {}
 export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a workgroup with the specified name.</p>
+ * <p>Creates a workgroup with the specified name. Only one of <code>Configurations</code>
+ *             or <code>Configuration</code> can be specified; <code>Configurations</code> for a
+ *             workgroup with multi engine support (for example, an Apache Spark enabled workgroup) or
+ *                 <code>Configuration</code> for an Athena SQL workgroup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +56,15 @@ export class CreateWorkGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateWorkGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +80,9 @@ export class CreateWorkGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateWorkGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

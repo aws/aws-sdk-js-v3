@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,7 +36,6 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  *          enables you to evaluate the accuracy of the attributes in your matching list. </p>
  *          <p>You can't view which profiles are matched and would be merged.</p>
  *          <important>
- *
  *             <p>We strongly recommend you use this API to do a dry run of the automerging process
  *             before running the Identity Resolution Job. Include <b>at least</b> two matching
  *             attributes. If your matching list includes too few attributes (such as only
@@ -65,6 +65,15 @@ export class GetAutoMergingPreviewCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetAutoMergingPreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +89,9 @@ export class GetAutoMergingPreviewCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAutoMergingPreviewCommandInput, GetAutoMergingPreviewCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAutoMergingPreviewCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

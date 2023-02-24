@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -59,9 +60,9 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  *                         grace period while the account is in SUSPENDED status. </p>
  *                 </li>
  *                <li>
- *                     <p>If the Amazon Web Services account you attempt to close is linked to an Amazon Web Services GovCloud (US)
- *                         account, the <code>CloseAccount</code> request will close both accounts. To
- *                         learn important pre-closure details, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/Closing-govcloud-account.html">
+ *                     <p>If the Amazon Web Services account you attempt to close is linked to an Amazon Web Services GovCloud
+ *                         (US) account, the <code>CloseAccount</code> request will close both
+ *                         accounts. To learn important pre-closure details, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/Closing-govcloud-account.html">
  *                             Closing an Amazon Web Services GovCloud (US) account</a> in the <i>
  *                             Amazon Web Services GovCloud User Guide</i>.</p>
  *                 </li>
@@ -93,6 +94,15 @@ export class CloseAccountCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CloseAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,6 +118,7 @@ export class CloseAccountCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CloseAccountCommandInput, CloseAccountCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CloseAccountCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

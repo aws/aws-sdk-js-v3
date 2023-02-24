@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,11 +35,14 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *             respective minor Kubernetes version of the cluster, unless you deploy a custom AMI using
  *             a launch template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
  *                 template support</a>.</p>
- *         <p>An Amazon EKS managed node group is an Amazon EC2
+ *          <p>An Amazon EKS managed node group is an Amazon EC2
  *             Auto Scaling group and associated Amazon EC2 instances that are managed by
- *                 Amazon Web Services for an Amazon EKS cluster. Each node group uses a version
- *             of the Amazon EKS optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
- *                 Node Groups</a> in the <i>Amazon EKS User Guide</i>. </p>
+ *                 Amazon Web Services for an Amazon EKS cluster. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed node groups</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *          <note>
+ *             <p>Windows AMI types are only supported for commercial Regions that support Windows
+ *                     Amazon EKS.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +66,15 @@ export class CreateNodegroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateNodegroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +90,9 @@ export class CreateNodegroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateNodegroupCommandInput, CreateNodegroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateNodegroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

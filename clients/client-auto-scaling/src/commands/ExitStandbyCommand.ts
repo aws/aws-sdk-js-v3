@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,9 +27,9 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
 
 /**
  * <p>Moves the specified instances out of the standby state.</p>
- *         <p>After you put the instances back in service, the desired capacity is
+ *          <p>After you put the instances back in service, the desired capacity is
  *             incremented.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing
  *                 instances from your Auto Scaling group</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
@@ -54,6 +55,15 @@ export class ExitStandbyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ExitStandbyCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,7 @@ export class ExitStandbyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ExitStandbyCommandInput, ExitStandbyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ExitStandbyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

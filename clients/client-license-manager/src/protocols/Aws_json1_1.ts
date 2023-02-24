@@ -112,9 +112,17 @@ import {
 } from "../commands/ListLicenseVersionsCommand";
 import { ListReceivedGrantsCommandInput, ListReceivedGrantsCommandOutput } from "../commands/ListReceivedGrantsCommand";
 import {
+  ListReceivedGrantsForOrganizationCommandInput,
+  ListReceivedGrantsForOrganizationCommandOutput,
+} from "../commands/ListReceivedGrantsForOrganizationCommand";
+import {
   ListReceivedLicensesCommandInput,
   ListReceivedLicensesCommandOutput,
 } from "../commands/ListReceivedLicensesCommand";
+import {
+  ListReceivedLicensesForOrganizationCommandInput,
+  ListReceivedLicensesForOrganizationCommandOutput,
+} from "../commands/ListReceivedLicensesForOrganizationCommand";
 import {
   ListResourceInventoryCommandInput,
   ListResourceInventoryCommandOutput,
@@ -252,8 +260,12 @@ import {
   ListLicensesResponse,
   ListLicenseVersionsRequest,
   ListLicenseVersionsResponse,
+  ListReceivedGrantsForOrganizationRequest,
+  ListReceivedGrantsForOrganizationResponse,
   ListReceivedGrantsRequest,
   ListReceivedGrantsResponse,
+  ListReceivedLicensesForOrganizationRequest,
+  ListReceivedLicensesForOrganizationResponse,
   ListReceivedLicensesRequest,
   ListReceivedLicensesResponse,
   ListResourceInventoryRequest,
@@ -771,6 +783,19 @@ export const serializeAws_json1_1ListReceivedGrantsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListReceivedGrantsForOrganizationCommand = async (
+  input: ListReceivedGrantsForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLicenseManager.ListReceivedGrantsForOrganization",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListReceivedGrantsForOrganizationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListReceivedLicensesCommand = async (
   input: ListReceivedLicensesCommandInput,
   context: __SerdeContext
@@ -781,6 +806,19 @@ export const serializeAws_json1_1ListReceivedLicensesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListReceivedLicensesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListReceivedLicensesForOrganizationCommand = async (
+  input: ListReceivedLicensesForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLicenseManager.ListReceivedLicensesForOrganization",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListReceivedLicensesForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -950,7 +988,7 @@ const deserializeAws_json1_1AcceptGrantCommandError = async (
 ): Promise<AcceptGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1009,7 +1047,7 @@ const deserializeAws_json1_1CheckInLicenseCommandError = async (
 ): Promise<CheckInLicenseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1071,7 +1109,7 @@ const deserializeAws_json1_1CheckoutBorrowLicenseCommandError = async (
 ): Promise<CheckoutBorrowLicenseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1142,7 +1180,7 @@ const deserializeAws_json1_1CheckoutLicenseCommandError = async (
 ): Promise<CheckoutLicenseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1210,7 +1248,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
 ): Promise<CreateGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1269,7 +1307,7 @@ const deserializeAws_json1_1CreateGrantVersionCommandError = async (
 ): Promise<CreateGrantVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1328,7 +1366,7 @@ const deserializeAws_json1_1CreateLicenseCommandError = async (
 ): Promise<CreateLicenseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1387,7 +1425,7 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
 ): Promise<CreateLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1443,7 +1481,7 @@ const deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommandError =
 ): Promise<CreateLicenseConversionTaskForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1499,7 +1537,7 @@ const deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommandError = as
 ): Promise<CreateLicenseManagerReportGeneratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1561,7 +1599,7 @@ const deserializeAws_json1_1CreateLicenseVersionCommandError = async (
 ): Promise<CreateLicenseVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1623,7 +1661,7 @@ const deserializeAws_json1_1CreateTokenCommandError = async (
 ): Promise<CreateTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1685,7 +1723,7 @@ const deserializeAws_json1_1DeleteGrantCommandError = async (
 ): Promise<DeleteGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1744,7 +1782,7 @@ const deserializeAws_json1_1DeleteLicenseCommandError = async (
 ): Promise<DeleteLicenseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1806,7 +1844,7 @@ const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
 ): Promise<DeleteLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1859,7 +1897,7 @@ const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommandError = as
 ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1921,7 +1959,7 @@ const deserializeAws_json1_1DeleteTokenCommandError = async (
 ): Promise<DeleteTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1980,7 +2018,7 @@ const deserializeAws_json1_1ExtendLicenseConsumptionCommandError = async (
 ): Promise<ExtendLicenseConsumptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2039,7 +2077,7 @@ const deserializeAws_json1_1GetAccessTokenCommandError = async (
 ): Promise<GetAccessTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2092,7 +2130,7 @@ const deserializeAws_json1_1GetGrantCommandError = async (
 ): Promise<GetGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2151,7 +2189,7 @@ const deserializeAws_json1_1GetLicenseCommandError = async (
 ): Promise<GetLicenseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2207,7 +2245,7 @@ const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
 ): Promise<GetLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2260,7 +2298,7 @@ const deserializeAws_json1_1GetLicenseConversionTaskCommandError = async (
 ): Promise<GetLicenseConversionTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2313,7 +2351,7 @@ const deserializeAws_json1_1GetLicenseManagerReportGeneratorCommandError = async
 ): Promise<GetLicenseManagerReportGeneratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2375,7 +2413,7 @@ const deserializeAws_json1_1GetLicenseUsageCommandError = async (
 ): Promise<GetLicenseUsageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2431,7 +2469,7 @@ const deserializeAws_json1_1GetServiceSettingsCommandError = async (
 ): Promise<GetServiceSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2481,7 +2519,7 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError 
 ): Promise<ListAssociationsForLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2537,7 +2575,7 @@ const deserializeAws_json1_1ListDistributedGrantsCommandError = async (
 ): Promise<ListDistributedGrantsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2596,7 +2634,7 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
 ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2649,7 +2687,7 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
 ): Promise<ListLicenseConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2705,7 +2743,7 @@ const deserializeAws_json1_1ListLicenseConversionTasksCommandError = async (
 ): Promise<ListLicenseConversionTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2758,7 +2796,7 @@ const deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommandError = asy
 ): Promise<ListLicenseManagerReportGeneratorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2820,7 +2858,7 @@ const deserializeAws_json1_1ListLicensesCommandError = async (
 ): Promise<ListLicensesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2876,7 +2914,7 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = a
 ): Promise<ListLicenseSpecificationsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2929,7 +2967,7 @@ const deserializeAws_json1_1ListLicenseVersionsCommandError = async (
 ): Promise<ListLicenseVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2982,7 +3020,66 @@ const deserializeAws_json1_1ListReceivedGrantsCommandError = async (
 ): Promise<ListReceivedGrantsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
+      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
+      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.licensemanager#ResourceLimitExceededException":
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
+      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.licensemanager#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReceivedGrantsForOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListReceivedGrantsForOrganizationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListReceivedGrantsForOrganizationResponse(data, context);
+  const response: ListReceivedGrantsForOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListReceivedGrantsForOrganizationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReceivedGrantsForOrganizationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3041,7 +3138,66 @@ const deserializeAws_json1_1ListReceivedLicensesCommandError = async (
 ): Promise<ListReceivedLicensesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
+      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
+      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.licensemanager#ResourceLimitExceededException":
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
+      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.licensemanager#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListReceivedLicensesForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReceivedLicensesForOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListReceivedLicensesForOrganizationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListReceivedLicensesForOrganizationResponse(data, context);
+  const response: ListReceivedLicensesForOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListReceivedLicensesForOrganizationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReceivedLicensesForOrganizationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3100,7 +3256,7 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
 ): Promise<ListResourceInventoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3159,7 +3315,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3212,7 +3368,7 @@ const deserializeAws_json1_1ListTokensCommandError = async (
 ): Promise<ListTokensCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3265,7 +3421,7 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async
 ): Promise<ListUsageForLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3321,7 +3477,7 @@ const deserializeAws_json1_1RejectGrantCommandError = async (
 ): Promise<RejectGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3380,7 +3536,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3433,7 +3589,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3486,7 +3642,7 @@ const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
 ): Promise<UpdateLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3542,7 +3698,7 @@ const deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommandError = as
 ): Promise<UpdateLicenseManagerReportGeneratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3604,7 +3760,7 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
 ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3663,7 +3819,7 @@ const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
 ): Promise<UpdateServiceSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4480,6 +4636,18 @@ const serializeAws_json1_1ListLicenseVersionsRequest = (
   };
 };
 
+const serializeAws_json1_1ListReceivedGrantsForOrganizationRequest = (
+  input: ListReceivedGrantsForOrganizationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListReceivedGrantsRequest = (
   input: ListReceivedGrantsRequest,
   context: __SerdeContext
@@ -4487,6 +4655,17 @@ const serializeAws_json1_1ListReceivedGrantsRequest = (
   return {
     ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
     ...(input.GrantArns != null && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListReceivedLicensesForOrganizationRequest = (
+  input: ListReceivedLicensesForOrganizationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
@@ -5750,12 +5929,32 @@ const deserializeAws_json1_1ListLicenseVersionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListReceivedGrantsForOrganizationResponse = (
+  output: any,
+  context: __SerdeContext
+): ListReceivedGrantsForOrganizationResponse => {
+  return {
+    Grants: output.Grants != null ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListReceivedGrantsResponse = (
   output: any,
   context: __SerdeContext
 ): ListReceivedGrantsResponse => {
   return {
     Grants: output.Grants != null ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListReceivedLicensesForOrganizationResponse = (
+  output: any,
+  context: __SerdeContext
+): ListReceivedLicensesForOrganizationResponse => {
+  return {
+    Licenses: output.Licenses != null ? deserializeAws_json1_1GrantedLicenseList(output.Licenses, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6209,7 +6408,8 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -6259,6 +6459,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -6269,6 +6475,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

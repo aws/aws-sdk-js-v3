@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Attaches an Amazon Web Services managed policy ARN to a permission set.</p>
+ * <p>Attaches an AWS managed policy ARN to a permission set.</p>
  *          <note>
  *             <p>If the permission set is already referenced by one or more account assignments, you will
  *         need to call <code>
@@ -62,6 +63,15 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AttachManagedPolicyToPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +87,9 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AttachManagedPolicyToPermissionSetCommandInput, AttachManagedPolicyToPermissionSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AttachManagedPolicyToPermissionSetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

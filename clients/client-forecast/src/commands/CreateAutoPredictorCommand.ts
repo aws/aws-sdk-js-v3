@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,55 +30,53 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
 
 /**
  * <p>Creates an Amazon Forecast predictor.</p>
- *         <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
+ *          <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
  *             optimal combination of algorithms to each time series in your datasets. You can use
  *                 <a>CreateAutoPredictor</a> to create new predictors or upgrade/retrain
  *             existing predictors.</p>
- *
- *         <p>
+ *          <p>
  *             <b>Creating new predictors</b>
  *          </p>
- *
- *         <p>The following parameters are required when creating a new predictor:</p>
- *         <ul>
+ *          <p>The following parameters are required when creating a new predictor:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>PredictorName</code> - A unique name for the predictor.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>DatasetGroupArn</code> - The ARN of the dataset group used to train the
  *                     predictor.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>ForecastFrequency</code> - The granularity of your forecasts (hourly,
  *                     daily, weekly, etc).</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>ForecastHorizon</code> - The number of time-steps that the model
  *                     predicts. The forecast horizon is also called the prediction length.</p>
  *             </li>
  *          </ul>
- *         <p>When creating a new predictor, do not specify a value for
+ *          <p>When creating a new predictor, do not specify a value for
  *                 <code>ReferencePredictorArn</code>.</p>
- *         <p>
+ *          <p>
  *             <b>Upgrading and retraining predictors</b>
- *         </p>
- *         <p>The following parameters are required when retraining or upgrading a predictor:</p>
- *         <ul>
+ *          </p>
+ *          <p>The following parameters are required when retraining or upgrading a predictor:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>PredictorName</code> - A unique name for the predictor.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>ReferencePredictorArn</code> - The ARN of the predictor to retrain or
  *                     upgrade.</p>
  *             </li>
  *          </ul>
- *         <p>When upgrading or retraining a predictor, only specify values for the
+ *          <p>When upgrading or retraining a predictor, only specify values for the
  *                 <code>ReferencePredictorArn</code> and <code>PredictorName</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,15 @@ export class CreateAutoPredictorCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAutoPredictorCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +125,9 @@ export class CreateAutoPredictorCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAutoPredictorCommandInput, CreateAutoPredictorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateAutoPredictorCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifySubnetAttributeRequest, ModifySubnetAttributeRequestFilterSensitiveLog } from "../models/models_5";
+import { ModifySubnetAttributeRequest, ModifySubnetAttributeRequestFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ModifySubnetAttributeCommand,
   serializeAws_ec2ModifySubnetAttributeCommand,
@@ -24,25 +25,22 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
- *
- * 	        <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
- *         <ul>
+ *          <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
+ *          <ul>
  *             <li>
- *                 <p>To modify a subnet on an Outpost rack, set both
+ *                <p>To modify a subnet on an Outpost rack, set both
  *                         <code>MapCustomerOwnedIpOnLaunch</code> and
  *                         <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single
  *                     attribute.</p>
  *             </li>
  *             <li>
- *                 <p>To modify a subnet on an Outpost server, set either
+ *                <p>To modify a subnet on an Outpost server, set either
  *                         <code>EnableLniAtDeviceIndex</code> or
  *                     <code>DisableLniAtDeviceIndex</code>.</p>
  *             </li>
  *          </ul>
- *
- * 	        <p>For more information about Amazon Web Services Outposts, see the following:</p>
- *
- * 	        <ul>
+ *          <p>For more information about Amazon Web Services Outposts, see the following:</p>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost servers</a>
@@ -77,6 +75,15 @@ export class ModifySubnetAttributeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifySubnetAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +99,9 @@ export class ModifySubnetAttributeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifySubnetAttributeCommandInput, ModifySubnetAttributeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifySubnetAttributeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

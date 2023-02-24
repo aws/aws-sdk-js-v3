@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -63,20 +64,21 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *             <b>Permissions</b>
  *          </p>
  *          <p>You can use the temporary credentials created by <code>GetFederationToken</code> in any
- *          Amazon Web Services service except the following:</p>
+ *          Amazon Web Services service with the following exceptions:</p>
  *          <ul>
  *             <li>
- *                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. </p>
+ *                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. This limitation does not apply to console sessions.</p>
  *             </li>
  *             <li>
  *                <p>You cannot call any STS operations except <code>GetCallerIdentity</code>.</p>
  *             </li>
  *          </ul>
+ *          <p>You can use temporary credentials for single sign-on (SSO) to the console.</p>
  *          <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
- *          policy. You can also specify up to 10 managed policies to use as managed session policies.
- *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
- *          characters.</p>
+ *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+ *          managed session policies. The plaintext that you use for both inline and managed session
+ *          policies can't exceed 2,048 characters.</p>
  *          <p>Though the session policy parameters are optional, if you do not pass a policy, then the
  *          resulting federated user session has no permissions. When you pass session policies, the
  *          session permissions are the intersection of the IAM user policies and the session
@@ -138,6 +140,16 @@ export class GetFederationTokenCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetFederationTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,6 +165,9 @@ export class GetFederationTokenCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetFederationTokenCommandInput, GetFederationTokenCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetFederationTokenCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

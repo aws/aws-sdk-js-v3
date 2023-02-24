@@ -248,6 +248,21 @@ import {
   VerifyMacResponse,
   VerifyRequest,
   VerifyResponse,
+  XksKeyAlreadyInUseException,
+  XksKeyConfigurationType,
+  XksKeyInvalidConfigurationException,
+  XksKeyNotFoundException,
+  XksProxyAuthenticationCredentialType,
+  XksProxyConfigurationType,
+  XksProxyIncorrectAuthenticationCredentialException,
+  XksProxyInvalidConfigurationException,
+  XksProxyInvalidResponseException,
+  XksProxyUriEndpointInUseException,
+  XksProxyUriInUseException,
+  XksProxyUriUnreachableException,
+  XksProxyVpcEndpointServiceInUseException,
+  XksProxyVpcEndpointServiceInvalidConfigurationException,
+  XksProxyVpcEndpointServiceNotFoundException,
 } from "../models/models_0";
 
 export const serializeAws_json1_1CancelKeyDeletionCommand = async (
@@ -923,7 +938,7 @@ const deserializeAws_json1_1CancelKeyDeletionCommandError = async (
 ): Promise<CancelKeyDeletionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -976,7 +991,7 @@ const deserializeAws_json1_1ConnectCustomKeyStoreCommandError = async (
 ): Promise<ConnectCustomKeyStoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1026,7 +1041,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
 ): Promise<CreateAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1085,7 +1100,7 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
 ): Promise<CreateCustomKeyStoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1110,6 +1125,42 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.kms#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "XksProxyIncorrectAuthenticationCredentialException":
+    case "com.amazonaws.kms#XksProxyIncorrectAuthenticationCredentialException":
+      throw await deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "XksProxyInvalidConfigurationException":
+    case "com.amazonaws.kms#XksProxyInvalidConfigurationException":
+      throw await deserializeAws_json1_1XksProxyInvalidConfigurationExceptionResponse(parsedOutput, context);
+    case "XksProxyInvalidResponseException":
+    case "com.amazonaws.kms#XksProxyInvalidResponseException":
+      throw await deserializeAws_json1_1XksProxyInvalidResponseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriEndpointInUseException":
+    case "com.amazonaws.kms#XksProxyUriEndpointInUseException":
+      throw await deserializeAws_json1_1XksProxyUriEndpointInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriInUseException":
+    case "com.amazonaws.kms#XksProxyUriInUseException":
+      throw await deserializeAws_json1_1XksProxyUriInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriUnreachableException":
+    case "com.amazonaws.kms#XksProxyUriUnreachableException":
+      throw await deserializeAws_json1_1XksProxyUriUnreachableExceptionResponse(parsedOutput, context);
+    case "XksProxyVpcEndpointServiceInUseException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceInUseException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyVpcEndpointServiceInvalidConfigurationException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceInvalidConfigurationException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "XksProxyVpcEndpointServiceNotFoundException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceNotFoundException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1144,7 +1195,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
 ): Promise<CreateGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1206,7 +1257,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
 ): Promise<CreateKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1240,6 +1291,15 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    case "XksKeyAlreadyInUseException":
+    case "com.amazonaws.kms#XksKeyAlreadyInUseException":
+      throw await deserializeAws_json1_1XksKeyAlreadyInUseExceptionResponse(parsedOutput, context);
+    case "XksKeyInvalidConfigurationException":
+    case "com.amazonaws.kms#XksKeyInvalidConfigurationException":
+      throw await deserializeAws_json1_1XksKeyInvalidConfigurationExceptionResponse(parsedOutput, context);
+    case "XksKeyNotFoundException":
+    case "com.amazonaws.kms#XksKeyNotFoundException":
+      throw await deserializeAws_json1_1XksKeyNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1274,7 +1334,7 @@ const deserializeAws_json1_1DecryptCommandError = async (
 ): Promise<DecryptCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1296,15 +1356,15 @@ const deserializeAws_json1_1DecryptCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -1339,7 +1399,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
 ): Promise<DeleteAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1389,7 +1449,7 @@ const deserializeAws_json1_1DeleteCustomKeyStoreCommandError = async (
 ): Promise<DeleteCustomKeyStoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1436,7 +1496,7 @@ const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
 ): Promise<DeleteImportedKeyMaterialCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1492,7 +1552,7 @@ const deserializeAws_json1_1DescribeCustomKeyStoresCommandError = async (
 ): Promise<DescribeCustomKeyStoresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1539,7 +1599,7 @@ const deserializeAws_json1_1DescribeKeyCommandError = async (
 ): Promise<DescribeKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1586,7 +1646,7 @@ const deserializeAws_json1_1DisableKeyCommandError = async (
 ): Promise<DisableKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1636,7 +1696,7 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
 ): Promise<DisableKeyRotationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1695,7 +1755,7 @@ const deserializeAws_json1_1DisconnectCustomKeyStoreCommandError = async (
 ): Promise<DisconnectCustomKeyStoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1739,7 +1799,7 @@ const deserializeAws_json1_1EnableKeyCommandError = async (
 ): Promise<EnableKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1792,7 +1852,7 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
 ): Promise<EnableKeyRotationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1851,7 +1911,7 @@ const deserializeAws_json1_1EncryptCommandError = async (
 ): Promise<EncryptCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1867,15 +1927,15 @@ const deserializeAws_json1_1EncryptCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -1913,7 +1973,7 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
 ): Promise<GenerateDataKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1929,15 +1989,15 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -1975,7 +2035,7 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
 ): Promise<GenerateDataKeyPairCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1991,15 +2051,15 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -2040,7 +2100,7 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
 ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2056,15 +2116,15 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -2105,7 +2165,7 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
 ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2121,15 +2181,15 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -2167,7 +2227,7 @@ const deserializeAws_json1_1GenerateMacCommandError = async (
 ): Promise<GenerateMacCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2180,15 +2240,15 @@ const deserializeAws_json1_1GenerateMacCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -2226,7 +2286,7 @@ const deserializeAws_json1_1GenerateRandomCommandError = async (
 ): Promise<GenerateRandomCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2242,6 +2302,9 @@ const deserializeAws_json1_1GenerateRandomCommandError = async (
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2276,7 +2339,7 @@ const deserializeAws_json1_1GetKeyPolicyCommandError = async (
 ): Promise<GetKeyPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2329,7 +2392,7 @@ const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
 ): Promise<GetKeyRotationStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2385,7 +2448,7 @@ const deserializeAws_json1_1GetParametersForImportCommandError = async (
 ): Promise<GetParametersForImportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2441,7 +2504,7 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
 ): Promise<GetPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2460,15 +2523,15 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -2509,7 +2572,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
 ): Promise<ImportKeyMaterialCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2577,7 +2640,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
 ): Promise<ListAliasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2630,7 +2693,7 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
 ): Promise<ListGrantsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2689,7 +2752,7 @@ const deserializeAws_json1_1ListKeyPoliciesCommandError = async (
 ): Promise<ListKeyPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2742,7 +2805,7 @@ const deserializeAws_json1_1ListKeysCommandError = async (
 ): Promise<ListKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2789,7 +2852,7 @@ const deserializeAws_json1_1ListResourceTagsCommandError = async (
 ): Promise<ListResourceTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2839,7 +2902,7 @@ const deserializeAws_json1_1ListRetirableGrantsCommandError = async (
 ): Promise<ListRetirableGrantsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2889,7 +2952,7 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
 ): Promise<PutKeyPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2951,7 +3014,7 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
 ): Promise<ReEncryptCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2973,15 +3036,15 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -3019,7 +3082,7 @@ const deserializeAws_json1_1ReplicateKeyCommandError = async (
 ): Promise<ReplicateKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3084,7 +3147,7 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
 ): Promise<RetireGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3140,7 +3203,7 @@ const deserializeAws_json1_1RevokeGrantCommandError = async (
 ): Promise<RevokeGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3196,7 +3259,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionCommandError = async (
 ): Promise<ScheduleKeyDeletionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3249,7 +3312,7 @@ const deserializeAws_json1_1SignCommandError = async (
 ): Promise<SignCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3265,15 +3328,15 @@ const deserializeAws_json1_1SignCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -3308,7 +3371,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3361,7 +3424,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3411,7 +3474,7 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
 ): Promise<UpdateAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3464,7 +3527,7 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
 ): Promise<UpdateCustomKeyStoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3492,6 +3555,39 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+    case "XksProxyIncorrectAuthenticationCredentialException":
+    case "com.amazonaws.kms#XksProxyIncorrectAuthenticationCredentialException":
+      throw await deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "XksProxyInvalidConfigurationException":
+    case "com.amazonaws.kms#XksProxyInvalidConfigurationException":
+      throw await deserializeAws_json1_1XksProxyInvalidConfigurationExceptionResponse(parsedOutput, context);
+    case "XksProxyInvalidResponseException":
+    case "com.amazonaws.kms#XksProxyInvalidResponseException":
+      throw await deserializeAws_json1_1XksProxyInvalidResponseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriEndpointInUseException":
+    case "com.amazonaws.kms#XksProxyUriEndpointInUseException":
+      throw await deserializeAws_json1_1XksProxyUriEndpointInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriInUseException":
+    case "com.amazonaws.kms#XksProxyUriInUseException":
+      throw await deserializeAws_json1_1XksProxyUriInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriUnreachableException":
+    case "com.amazonaws.kms#XksProxyUriUnreachableException":
+      throw await deserializeAws_json1_1XksProxyUriUnreachableExceptionResponse(parsedOutput, context);
+    case "XksProxyVpcEndpointServiceInUseException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceInUseException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyVpcEndpointServiceInvalidConfigurationException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceInvalidConfigurationException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "XksProxyVpcEndpointServiceNotFoundException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceNotFoundException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3523,7 +3619,7 @@ const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
 ): Promise<UpdateKeyDescriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3573,7 +3669,7 @@ const deserializeAws_json1_1UpdatePrimaryRegionCommandError = async (
 ): Promise<UpdatePrimaryRegionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3629,7 +3725,7 @@ const deserializeAws_json1_1VerifyCommandError = async (
 ): Promise<VerifyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3645,9 +3741,6 @@ const deserializeAws_json1_1VerifyCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
@@ -3657,6 +3750,9 @@ const deserializeAws_json1_1VerifyCommandError = async (
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -3694,7 +3790,7 @@ const deserializeAws_json1_1VerifyMacCommandError = async (
 ): Promise<VerifyMacCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3707,9 +3803,6 @@ const deserializeAws_json1_1VerifyMacCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
@@ -3719,6 +3812,9 @@ const deserializeAws_json1_1VerifyMacCommandError = async (
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -4175,6 +4271,165 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1XksKeyAlreadyInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksKeyAlreadyInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksKeyAlreadyInUseException(body, context);
+  const exception = new XksKeyAlreadyInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksKeyInvalidConfigurationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksKeyInvalidConfigurationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksKeyInvalidConfigurationException(body, context);
+  const exception = new XksKeyInvalidConfigurationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksKeyNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksKeyNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksKeyNotFoundException(body, context);
+  const exception = new XksKeyNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyIncorrectAuthenticationCredentialException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialException(body, context);
+  const exception = new XksProxyIncorrectAuthenticationCredentialException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyInvalidConfigurationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyInvalidConfigurationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyInvalidConfigurationException(body, context);
+  const exception = new XksProxyInvalidConfigurationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyInvalidResponseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyInvalidResponseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyInvalidResponseException(body, context);
+  const exception = new XksProxyInvalidResponseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyUriEndpointInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyUriEndpointInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyUriEndpointInUseException(body, context);
+  const exception = new XksProxyUriEndpointInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyUriInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyUriInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyUriInUseException(body, context);
+  const exception = new XksProxyUriInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyUriUnreachableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyUriUnreachableException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyUriUnreachableException(body, context);
+  const exception = new XksProxyUriUnreachableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyVpcEndpointServiceInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyVpcEndpointServiceInUseException(body, context);
+  const exception = new XksProxyVpcEndpointServiceInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyVpcEndpointServiceInvalidConfigurationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationException(
+    body,
+    context
+  );
+  const exception = new XksProxyVpcEndpointServiceInvalidConfigurationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyVpcEndpointServiceNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundException(body, context);
+  const exception = new XksProxyVpcEndpointServiceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const serializeAws_json1_1CancelKeyDeletionRequest = (
   input: CancelKeyDeletionRequest,
   context: __SerdeContext
@@ -4207,8 +4462,21 @@ const serializeAws_json1_1CreateCustomKeyStoreRequest = (
   return {
     ...(input.CloudHsmClusterId != null && { CloudHsmClusterId: input.CloudHsmClusterId }),
     ...(input.CustomKeyStoreName != null && { CustomKeyStoreName: input.CustomKeyStoreName }),
+    ...(input.CustomKeyStoreType != null && { CustomKeyStoreType: input.CustomKeyStoreType }),
     ...(input.KeyStorePassword != null && { KeyStorePassword: input.KeyStorePassword }),
     ...(input.TrustAnchorCertificate != null && { TrustAnchorCertificate: input.TrustAnchorCertificate }),
+    ...(input.XksProxyAuthenticationCredential != null && {
+      XksProxyAuthenticationCredential: serializeAws_json1_1XksProxyAuthenticationCredentialType(
+        input.XksProxyAuthenticationCredential,
+        context
+      ),
+    }),
+    ...(input.XksProxyConnectivity != null && { XksProxyConnectivity: input.XksProxyConnectivity }),
+    ...(input.XksProxyUriEndpoint != null && { XksProxyUriEndpoint: input.XksProxyUriEndpoint }),
+    ...(input.XksProxyUriPath != null && { XksProxyUriPath: input.XksProxyUriPath }),
+    ...(input.XksProxyVpcEndpointServiceName != null && {
+      XksProxyVpcEndpointServiceName: input.XksProxyVpcEndpointServiceName,
+    }),
   };
 };
 
@@ -4238,6 +4506,7 @@ const serializeAws_json1_1CreateKeyRequest = (input: CreateKeyRequest, context: 
     ...(input.Origin != null && { Origin: input.Origin }),
     ...(input.Policy != null && { Policy: input.Policy }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.XksKeyId != null && { XksKeyId: input.XksKeyId }),
   };
 };
 
@@ -4340,10 +4609,8 @@ const serializeAws_json1_1EncryptionContextType = (input: Record<string, string>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4692,6 +4959,18 @@ const serializeAws_json1_1UpdateCustomKeyStoreRequest = (
     ...(input.CustomKeyStoreId != null && { CustomKeyStoreId: input.CustomKeyStoreId }),
     ...(input.KeyStorePassword != null && { KeyStorePassword: input.KeyStorePassword }),
     ...(input.NewCustomKeyStoreName != null && { NewCustomKeyStoreName: input.NewCustomKeyStoreName }),
+    ...(input.XksProxyAuthenticationCredential != null && {
+      XksProxyAuthenticationCredential: serializeAws_json1_1XksProxyAuthenticationCredentialType(
+        input.XksProxyAuthenticationCredential,
+        context
+      ),
+    }),
+    ...(input.XksProxyConnectivity != null && { XksProxyConnectivity: input.XksProxyConnectivity }),
+    ...(input.XksProxyUriEndpoint != null && { XksProxyUriEndpoint: input.XksProxyUriEndpoint }),
+    ...(input.XksProxyUriPath != null && { XksProxyUriPath: input.XksProxyUriPath }),
+    ...(input.XksProxyVpcEndpointServiceName != null && {
+      XksProxyVpcEndpointServiceName: input.XksProxyVpcEndpointServiceName,
+    }),
   };
 };
 
@@ -4733,6 +5012,16 @@ const serializeAws_json1_1VerifyRequest = (input: VerifyRequest, context: __Serd
     ...(input.MessageType != null && { MessageType: input.MessageType }),
     ...(input.Signature != null && { Signature: context.base64Encoder(input.Signature) }),
     ...(input.SigningAlgorithm != null && { SigningAlgorithm: input.SigningAlgorithm }),
+  };
+};
+
+const serializeAws_json1_1XksProxyAuthenticationCredentialType = (
+  input: XksProxyAuthenticationCredentialType,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessKeyId != null && { AccessKeyId: input.AccessKeyId }),
+    ...(input.RawSecretAccessKey != null && { RawSecretAccessKey: input.RawSecretAccessKey }),
   };
 };
 
@@ -4919,7 +5208,12 @@ const deserializeAws_json1_1CustomKeyStoresListEntry = (
         : undefined,
     CustomKeyStoreId: __expectString(output.CustomKeyStoreId),
     CustomKeyStoreName: __expectString(output.CustomKeyStoreName),
+    CustomKeyStoreType: __expectString(output.CustomKeyStoreType),
     TrustAnchorCertificate: __expectString(output.TrustAnchorCertificate),
+    XksProxyConfiguration:
+      output.XksProxyConfiguration != null
+        ? deserializeAws_json1_1XksProxyConfigurationType(output.XksProxyConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -5001,10 +5295,8 @@ const deserializeAws_json1_1EncryptionContextType = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5355,6 +5647,10 @@ const deserializeAws_json1_1KeyMetadata = (output: any, context: __SerdeContext)
         : undefined,
     ValidTo:
       output.ValidTo != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ValidTo))) : undefined,
+    XksKeyConfiguration:
+      output.XksKeyConfiguration != null
+        ? deserializeAws_json1_1XksKeyConfigurationType(output.XksKeyConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -5640,9 +5936,140 @@ const deserializeAws_json1_1VerifyResponse = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1XksKeyAlreadyInUseException = (
+  output: any,
+  context: __SerdeContext
+): XksKeyAlreadyInUseException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksKeyConfigurationType = (
+  output: any,
+  context: __SerdeContext
+): XksKeyConfigurationType => {
+  return {
+    Id: __expectString(output.Id),
+  } as any;
+};
+
+const deserializeAws_json1_1XksKeyInvalidConfigurationException = (
+  output: any,
+  context: __SerdeContext
+): XksKeyInvalidConfigurationException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksKeyNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): XksKeyNotFoundException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyConfigurationType = (
+  output: any,
+  context: __SerdeContext
+): XksProxyConfigurationType => {
+  return {
+    AccessKeyId: __expectString(output.AccessKeyId),
+    Connectivity: __expectString(output.Connectivity),
+    UriEndpoint: __expectString(output.UriEndpoint),
+    UriPath: __expectString(output.UriPath),
+    VpcEndpointServiceName: __expectString(output.VpcEndpointServiceName),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyIncorrectAuthenticationCredentialException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyInvalidConfigurationException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyInvalidConfigurationException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyInvalidResponseException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyInvalidResponseException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyUriEndpointInUseException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyUriEndpointInUseException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyUriInUseException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyUriInUseException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyUriUnreachableException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyUriUnreachableException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceInUseException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyVpcEndpointServiceInUseException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyVpcEndpointServiceInvalidConfigurationException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyVpcEndpointServiceNotFoundException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -5692,6 +6119,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -5702,6 +6135,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

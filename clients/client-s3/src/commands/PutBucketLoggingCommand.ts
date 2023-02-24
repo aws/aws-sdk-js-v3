@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -28,7 +28,6 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * <p>Set the logging parameters for a bucket and to specify permissions for who can view and
  *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as the
  *          source bucket. To set the logging status of a bucket, you must be the bucket owner.</p>
- *
  *          <p>The bucket owner is automatically granted FULL_CONTROL to all logs. You use the <code>Grantee</code> request element to grant access to other people. The
  *             <code>Permissions</code> request element specifies the kind of access the grantee has to
  *          the logs.</p>
@@ -38,13 +37,11 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *             to grant access to others. Permissions can only be granted using policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the
  *                <i>Amazon S3 User Guide</i>.</p>
  *          </important>
- *
  *          <p>
  *             <b>Grantee Values</b>
  *          </p>
  *          <p>You can specify the person (grantee) to whom you're assigning access rights (using
  *          request elements) in the following ways:</p>
- *
  *          <ul>
  *             <li>
  *                <p>By the person's ID:</p>
@@ -72,21 +69,15 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
- *
- *
  *          <p>To enable logging, you use LoggingEnabled and its children request elements. To disable
  *          logging, you use an empty BucketLoggingStatus request element:</p>
- *
  *          <p>
  *             <code><BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01"
  *             /></code>
  *          </p>
- *
  *          <p>For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server Access Logging</a> in the <i>Amazon S3 User Guide</i>. </p>
- *
  *          <p>For more information about creating a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>. For more
  *          information about returning the logging status of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a>.</p>
- *
  *          <p>The following operations are related to <code>PutBucketLogging</code>:</p>
  *          <ul>
  *             <li>
@@ -133,6 +124,21 @@ export class PutBucketLoggingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutBucketLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,7 +154,9 @@ export class PutBucketLoggingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutBucketLoggingCommandInput, PutBucketLoggingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutBucketLoggingCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,

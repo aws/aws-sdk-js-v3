@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,8 @@ export interface ImportAsProvisionedProductCommandInput extends ImportAsProvisio
 export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisionedProductOutput, __MetadataBearer {}
 
 /**
- * <p>Requests the import of a resource as a Service Catalog provisioned product that is
- *          associated to a Service Catalog product and provisioning artifact. Once imported, all
+ * <p>Requests the import of a resource as an Service Catalog provisioned product that is
+ *          associated to an Service Catalog product and provisioning artifact. Once imported, all
  *          supported Service Catalog governance actions are supported on the provisioned
  *          product.</p>
  *          <p>Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets and
@@ -65,6 +66,15 @@ export class ImportAsProvisionedProductCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ImportAsProvisionedProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +90,9 @@ export class ImportAsProvisionedProductCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ImportAsProvisionedProductCommandInput, ImportAsProvisionedProductCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ImportAsProvisionedProductCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

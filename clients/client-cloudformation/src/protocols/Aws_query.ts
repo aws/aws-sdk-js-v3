@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -18,8 +18,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import { ActivateTypeCommandInput, ActivateTypeCommandOutput } from "../commands/ActivateTypeCommand";
@@ -297,6 +296,7 @@ import {
   OperationIdAlreadyExistsException,
   OperationInProgressException,
   OperationNotFoundException,
+  OperationResultFilter,
   OperationStatusCheckFailedException,
   Output,
   Parameter,
@@ -353,6 +353,7 @@ import {
   StackSetOperation,
   StackSetOperationPreferences,
   StackSetOperationResultSummary,
+  StackSetOperationStatusDetails,
   StackSetOperationSummary,
   StackSetSummary,
   StackStatus,
@@ -1464,7 +1465,7 @@ const deserializeAws_queryActivateTypeCommandError = async (
 ): Promise<ActivateTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1511,7 +1512,7 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsCommandError = async (
 ): Promise<BatchDescribeTypeConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1552,7 +1553,7 @@ const deserializeAws_queryCancelUpdateStackCommandError = async (
 ): Promise<CancelUpdateStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1593,7 +1594,7 @@ const deserializeAws_queryContinueUpdateRollbackCommandError = async (
 ): Promise<ContinueUpdateRollbackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1634,7 +1635,7 @@ const deserializeAws_queryCreateChangeSetCommandError = async (
 ): Promise<CreateChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1681,7 +1682,7 @@ const deserializeAws_queryCreateStackCommandError = async (
 ): Promise<CreateStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1731,7 +1732,7 @@ const deserializeAws_queryCreateStackInstancesCommandError = async (
 ): Promise<CreateStackInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1787,7 +1788,7 @@ const deserializeAws_queryCreateStackSetCommandError = async (
 ): Promise<CreateStackSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1834,7 +1835,7 @@ const deserializeAws_queryDeactivateTypeCommandError = async (
 ): Promise<DeactivateTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1878,11 +1879,11 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (
 ): Promise<DeleteChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidChangeSetStatusException":
+    case "InvalidChangeSetStatus":
     case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
       throw await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context);
     default:
@@ -1916,7 +1917,7 @@ const deserializeAws_queryDeleteStackCommandError = async (
 ): Promise<DeleteStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1957,7 +1958,7 @@ const deserializeAws_queryDeleteStackInstancesCommandError = async (
 ): Promise<DeleteStackInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2010,7 +2011,7 @@ const deserializeAws_queryDeleteStackSetCommandError = async (
 ): Promise<DeleteStackSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2054,7 +2055,7 @@ const deserializeAws_queryDeregisterTypeCommandError = async (
 ): Promise<DeregisterTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2098,7 +2099,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2133,11 +2134,11 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (
 ): Promise<DescribeChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFoundException":
+    case "ChangeSetNotFound":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2174,11 +2175,11 @@ const deserializeAws_queryDescribeChangeSetHooksCommandError = async (
 ): Promise<DescribeChangeSetHooksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFoundException":
+    case "ChangeSetNotFound":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2215,7 +2216,7 @@ const deserializeAws_queryDescribePublisherCommandError = async (
 ): Promise<DescribePublisherCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2259,7 +2260,7 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusCommandError = async 
 ): Promise<DescribeStackDriftDetectionStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2294,7 +2295,7 @@ const deserializeAws_queryDescribeStackEventsCommandError = async (
 ): Promise<DescribeStackEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2329,7 +2330,7 @@ const deserializeAws_queryDescribeStackInstanceCommandError = async (
 ): Promise<DescribeStackInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2373,7 +2374,7 @@ const deserializeAws_queryDescribeStackResourceCommandError = async (
 ): Promise<DescribeStackResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2408,7 +2409,7 @@ const deserializeAws_queryDescribeStackResourceDriftsCommandError = async (
 ): Promise<DescribeStackResourceDriftsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2443,7 +2444,7 @@ const deserializeAws_queryDescribeStackResourcesCommandError = async (
 ): Promise<DescribeStackResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2478,7 +2479,7 @@ const deserializeAws_queryDescribeStacksCommandError = async (
 ): Promise<DescribeStacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2513,7 +2514,7 @@ const deserializeAws_queryDescribeStackSetCommandError = async (
 ): Promise<DescribeStackSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2554,7 +2555,7 @@ const deserializeAws_queryDescribeStackSetOperationCommandError = async (
 ): Promise<DescribeStackSetOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2598,7 +2599,7 @@ const deserializeAws_queryDescribeTypeCommandError = async (
 ): Promise<DescribeTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2642,7 +2643,7 @@ const deserializeAws_queryDescribeTypeRegistrationCommandError = async (
 ): Promise<DescribeTypeRegistrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2683,7 +2684,7 @@ const deserializeAws_queryDetectStackDriftCommandError = async (
 ): Promise<DetectStackDriftCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2718,7 +2719,7 @@ const deserializeAws_queryDetectStackResourceDriftCommandError = async (
 ): Promise<DetectStackResourceDriftCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2753,7 +2754,7 @@ const deserializeAws_queryDetectStackSetDriftCommandError = async (
 ): Promise<DetectStackSetDriftCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2800,7 +2801,7 @@ const deserializeAws_queryEstimateTemplateCostCommandError = async (
 ): Promise<EstimateTemplateCostCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2835,17 +2836,17 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (
 ): Promise<ExecuteChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFoundException":
+    case "ChangeSetNotFound":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
     case "InsufficientCapabilitiesException":
     case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
       throw await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context);
-    case "InvalidChangeSetStatusException":
+    case "InvalidChangeSetStatus":
     case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
       throw await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context);
     case "TokenAlreadyExistsException":
@@ -2885,7 +2886,7 @@ const deserializeAws_queryGetStackPolicyCommandError = async (
 ): Promise<GetStackPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -2920,11 +2921,11 @@ const deserializeAws_queryGetTemplateCommandError = async (
 ): Promise<GetTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFoundException":
+    case "ChangeSetNotFound":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2961,7 +2962,7 @@ const deserializeAws_queryGetTemplateSummaryCommandError = async (
 ): Promise<GetTemplateSummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3002,7 +3003,7 @@ const deserializeAws_queryImportStacksToStackSetCommandError = async (
 ): Promise<ImportStacksToStackSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3061,7 +3062,7 @@ const deserializeAws_queryListChangeSetsCommandError = async (
 ): Promise<ListChangeSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3096,7 +3097,7 @@ const deserializeAws_queryListExportsCommandError = async (
 ): Promise<ListExportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3131,7 +3132,7 @@ const deserializeAws_queryListImportsCommandError = async (
 ): Promise<ListImportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3166,7 +3167,7 @@ const deserializeAws_queryListStackInstancesCommandError = async (
 ): Promise<ListStackInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3207,7 +3208,7 @@ const deserializeAws_queryListStackResourcesCommandError = async (
 ): Promise<ListStackResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3242,7 +3243,7 @@ const deserializeAws_queryListStacksCommandError = async (
 ): Promise<ListStacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3277,7 +3278,7 @@ const deserializeAws_queryListStackSetOperationResultsCommandError = async (
 ): Promise<ListStackSetOperationResultsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3321,7 +3322,7 @@ const deserializeAws_queryListStackSetOperationsCommandError = async (
 ): Promise<ListStackSetOperationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3362,7 +3363,7 @@ const deserializeAws_queryListStackSetsCommandError = async (
 ): Promise<ListStackSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3397,7 +3398,7 @@ const deserializeAws_queryListTypeRegistrationsCommandError = async (
 ): Promise<ListTypeRegistrationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3438,7 +3439,7 @@ const deserializeAws_queryListTypesCommandError = async (
 ): Promise<ListTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3479,7 +3480,7 @@ const deserializeAws_queryListTypeVersionsCommandError = async (
 ): Promise<ListTypeVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3520,7 +3521,7 @@ const deserializeAws_queryPublishTypeCommandError = async (
 ): Promise<PublishTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3564,16 +3565,16 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (
 ): Promise<RecordHandlerProgressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidStateTransitionException":
-    case "com.amazonaws.cloudformation#InvalidStateTransitionException":
-      throw await deserializeAws_queryInvalidStateTransitionExceptionResponse(parsedOutput, context);
-    case "OperationStatusCheckFailedException":
+    case "ConditionalCheckFailed":
     case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
       throw await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(parsedOutput, context);
+    case "InvalidStateTransition":
+    case "com.amazonaws.cloudformation#InvalidStateTransitionException":
+      throw await deserializeAws_queryInvalidStateTransitionExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3608,7 +3609,7 @@ const deserializeAws_queryRegisterPublisherCommandError = async (
 ): Promise<RegisterPublisherCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3649,7 +3650,7 @@ const deserializeAws_queryRegisterTypeCommandError = async (
 ): Promise<RegisterTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3690,7 +3691,7 @@ const deserializeAws_queryRollbackStackCommandError = async (
 ): Promise<RollbackStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3728,7 +3729,7 @@ const deserializeAws_querySetStackPolicyCommandError = async (
 ): Promise<SetStackPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3763,7 +3764,7 @@ const deserializeAws_querySetTypeConfigurationCommandError = async (
 ): Promise<SetTypeConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3807,7 +3808,7 @@ const deserializeAws_querySetTypeDefaultVersionCommandError = async (
 ): Promise<SetTypeDefaultVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3848,7 +3849,7 @@ const deserializeAws_querySignalResourceCommandError = async (
 ): Promise<SignalResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -3883,7 +3884,7 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (
 ): Promise<StopStackSetOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3930,7 +3931,7 @@ const deserializeAws_queryTestTypeCommandError = async (
 ): Promise<TestTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3974,7 +3975,7 @@ const deserializeAws_queryUpdateStackCommandError = async (
 ): Promise<UpdateStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4018,7 +4019,7 @@ const deserializeAws_queryUpdateStackInstancesCommandError = async (
 ): Promise<UpdateStackInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4074,7 +4075,7 @@ const deserializeAws_queryUpdateStackSetCommandError = async (
 ): Promise<UpdateStackSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4130,7 +4131,7 @@ const deserializeAws_queryUpdateTerminationProtectionCommandError = async (
 ): Promise<UpdateTerminationProtectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4165,7 +4166,7 @@ const deserializeAws_queryValidateTemplateCommandError = async (
 ): Promise<ValidateTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4533,6 +4534,9 @@ const serializeAws_queryBatchDescribeTypeConfigurationsInput = (
   const entries: any = {};
   if (input.TypeConfigurationIdentifiers != null) {
     const memberEntries = serializeAws_queryTypeConfigurationIdentifiers(input.TypeConfigurationIdentifiers, context);
+    if (input.TypeConfigurationIdentifiers?.length === 0) {
+      entries.TypeConfigurationIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TypeConfigurationIdentifiers.${key}`;
       entries[loc] = value;
@@ -4578,6 +4582,9 @@ const serializeAws_queryContinueUpdateRollbackInput = (
   }
   if (input.ResourcesToSkip != null) {
     const memberEntries = serializeAws_queryResourcesToSkip(input.ResourcesToSkip, context);
+    if (input.ResourcesToSkip?.length === 0) {
+      entries.ResourcesToSkip = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourcesToSkip.${key}`;
       entries[loc] = value;
@@ -4605,6 +4612,9 @@ const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, con
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -4612,6 +4622,9 @@ const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, con
   }
   if (input.Capabilities != null) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+    if (input.Capabilities?.length === 0) {
+      entries.Capabilities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
@@ -4619,6 +4632,9 @@ const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, con
   }
   if (input.ResourceTypes != null) {
     const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
+    if (input.ResourceTypes?.length === 0) {
+      entries.ResourceTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceTypes.${key}`;
       entries[loc] = value;
@@ -4636,6 +4652,9 @@ const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, con
   }
   if (input.NotificationARNs != null) {
     const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
+    if (input.NotificationARNs?.length === 0) {
+      entries.NotificationARNs = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationARNs.${key}`;
       entries[loc] = value;
@@ -4643,6 +4662,9 @@ const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, con
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -4662,6 +4684,9 @@ const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, con
   }
   if (input.ResourcesToImport != null) {
     const memberEntries = serializeAws_queryResourcesToImport(input.ResourcesToImport, context);
+    if (input.ResourcesToImport?.length === 0) {
+      entries.ResourcesToImport = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourcesToImport.${key}`;
       entries[loc] = value;
@@ -4686,6 +4711,9 @@ const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -4706,6 +4734,9 @@ const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __
   }
   if (input.NotificationARNs != null) {
     const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
+    if (input.NotificationARNs?.length === 0) {
+      entries.NotificationARNs = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationARNs.${key}`;
       entries[loc] = value;
@@ -4713,6 +4744,9 @@ const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __
   }
   if (input.Capabilities != null) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+    if (input.Capabilities?.length === 0) {
+      entries.Capabilities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
@@ -4720,6 +4754,9 @@ const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __
   }
   if (input.ResourceTypes != null) {
     const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
+    if (input.ResourceTypes?.length === 0) {
+      entries.ResourceTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceTypes.${key}`;
       entries[loc] = value;
@@ -4739,6 +4776,9 @@ const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -4763,6 +4803,9 @@ const serializeAws_queryCreateStackInstancesInput = (
   }
   if (input.Accounts != null) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+    if (input.Accounts?.length === 0) {
+      entries.Accounts = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
@@ -4777,6 +4820,9 @@ const serializeAws_queryCreateStackInstancesInput = (
   }
   if (input.Regions != null) {
     const memberEntries = serializeAws_queryRegionList(input.Regions, context);
+    if (input.Regions?.length === 0) {
+      entries.Regions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Regions.${key}`;
       entries[loc] = value;
@@ -4784,6 +4830,9 @@ const serializeAws_queryCreateStackInstancesInput = (
   }
   if (input.ParameterOverrides != null) {
     const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
+    if (input.ParameterOverrides?.length === 0) {
+      entries.ParameterOverrides = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterOverrides.${key}`;
       entries[loc] = value;
@@ -4827,6 +4876,9 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -4834,6 +4886,9 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
   }
   if (input.Capabilities != null) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+    if (input.Capabilities?.length === 0) {
+      entries.Capabilities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
@@ -4841,6 +4896,9 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -4913,6 +4971,9 @@ const serializeAws_queryDeleteStackInput = (input: DeleteStackInput, context: __
   }
   if (input.RetainResources != null) {
     const memberEntries = serializeAws_queryRetainResources(input.RetainResources, context);
+    if (input.RetainResources?.length === 0) {
+      entries.RetainResources = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RetainResources.${key}`;
       entries[loc] = value;
@@ -4937,6 +4998,9 @@ const serializeAws_queryDeleteStackInstancesInput = (
   }
   if (input.Accounts != null) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+    if (input.Accounts?.length === 0) {
+      entries.Accounts = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
@@ -4951,6 +5015,9 @@ const serializeAws_queryDeleteStackInstancesInput = (
   }
   if (input.Regions != null) {
     const memberEntries = serializeAws_queryRegionList(input.Regions, context);
+    if (input.Regions?.length === 0) {
+      entries.Regions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Regions.${key}`;
       entries[loc] = value;
@@ -4993,6 +5060,9 @@ const serializeAws_queryDeploymentTargets = (input: DeploymentTargets, context: 
   const entries: any = {};
   if (input.Accounts != null) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+    if (input.Accounts?.length === 0) {
+      entries.Accounts = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
@@ -5003,6 +5073,9 @@ const serializeAws_queryDeploymentTargets = (input: DeploymentTargets, context: 
   }
   if (input.OrganizationalUnitIds != null) {
     const memberEntries = serializeAws_queryOrganizationalUnitIdList(input.OrganizationalUnitIds, context);
+    if (input.OrganizationalUnitIds?.length === 0) {
+      entries.OrganizationalUnitIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OrganizationalUnitIds.${key}`;
       entries[loc] = value;
@@ -5139,6 +5212,9 @@ const serializeAws_queryDescribeStackResourceDriftsInput = (
       input.StackResourceDriftStatusFilters,
       context
     );
+    if (input.StackResourceDriftStatusFilters?.length === 0) {
+      entries.StackResourceDriftStatusFilters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StackResourceDriftStatusFilters.${key}`;
       entries[loc] = value;
@@ -5264,6 +5340,9 @@ const serializeAws_queryDetectStackDriftInput = (input: DetectStackDriftInput, c
   }
   if (input.LogicalResourceIds != null) {
     const memberEntries = serializeAws_queryLogicalResourceIds(input.LogicalResourceIds, context);
+    if (input.LogicalResourceIds?.length === 0) {
+      entries.LogicalResourceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogicalResourceIds.${key}`;
       entries[loc] = value;
@@ -5323,6 +5402,9 @@ const serializeAws_queryEstimateTemplateCostInput = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -5400,6 +5482,9 @@ const serializeAws_queryImportStacksToStackSetInput = (
   }
   if (input.StackIds != null) {
     const memberEntries = serializeAws_queryStackIdList(input.StackIds, context);
+    if (input.StackIds?.length === 0) {
+      entries.StackIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StackIds.${key}`;
       entries[loc] = value;
@@ -5410,6 +5495,9 @@ const serializeAws_queryImportStacksToStackSetInput = (
   }
   if (input.OrganizationalUnitIds != null) {
     const memberEntries = serializeAws_queryOrganizationalUnitIdList(input.OrganizationalUnitIds, context);
+    if (input.OrganizationalUnitIds?.length === 0) {
+      entries.OrganizationalUnitIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OrganizationalUnitIds.${key}`;
       entries[loc] = value;
@@ -5477,6 +5565,9 @@ const serializeAws_queryListStackInstancesInput = (input: ListStackInstancesInpu
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryStackInstanceFilters(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -5525,6 +5616,16 @@ const serializeAws_queryListStackSetOperationResultsInput = (
   if (input.CallAs != null) {
     entries["CallAs"] = input.CallAs;
   }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_queryOperationResultFilters(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -5572,6 +5673,9 @@ const serializeAws_queryListStacksInput = (input: ListStacksInput, context: __Se
   }
   if (input.StackStatusFilter != null) {
     const memberEntries = serializeAws_queryStackStatusFilter(input.StackStatusFilter, context);
+    if (input.StackStatusFilter?.length === 0) {
+      entries.StackStatusFilter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StackStatusFilter.${key}`;
       entries[loc] = value;
@@ -5702,6 +5806,33 @@ const serializeAws_queryNotificationARNs = (input: string[], context: __SerdeCon
       continue;
     }
     entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryOperationResultFilter = (input: OperationResultFilter, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Name != null) {
+    entries["Name"] = input.Name;
+  }
+  if (input.Values != null) {
+    entries["Values"] = input.Values;
+  }
+  return entries;
+};
+
+const serializeAws_queryOperationResultFilters = (input: OperationResultFilter[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryOperationResultFilter(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
     counter++;
   }
   return entries;
@@ -5943,6 +6074,9 @@ const serializeAws_queryRollbackConfiguration = (input: RollbackConfiguration, c
   const entries: any = {};
   if (input.RollbackTriggers != null) {
     const memberEntries = serializeAws_queryRollbackTriggers(input.RollbackTriggers, context);
+    if (input.RollbackTriggers?.length === 0) {
+      entries.RollbackTriggers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackTriggers.${key}`;
       entries[loc] = value;
@@ -6135,6 +6269,9 @@ const serializeAws_queryStackSetOperationPreferences = (
   }
   if (input.RegionOrder != null) {
     const memberEntries = serializeAws_queryRegionList(input.RegionOrder, context);
+    if (input.RegionOrder?.length === 0) {
+      entries.RegionOrder = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RegionOrder.${key}`;
       entries[loc] = value;
@@ -6310,6 +6447,9 @@ const serializeAws_queryUpdateStackInput = (input: UpdateStackInput, context: __
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -6317,6 +6457,9 @@ const serializeAws_queryUpdateStackInput = (input: UpdateStackInput, context: __
   }
   if (input.Capabilities != null) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+    if (input.Capabilities?.length === 0) {
+      entries.Capabilities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
@@ -6324,6 +6467,9 @@ const serializeAws_queryUpdateStackInput = (input: UpdateStackInput, context: __
   }
   if (input.ResourceTypes != null) {
     const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
+    if (input.ResourceTypes?.length === 0) {
+      entries.ResourceTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceTypes.${key}`;
       entries[loc] = value;
@@ -6347,6 +6493,9 @@ const serializeAws_queryUpdateStackInput = (input: UpdateStackInput, context: __
   }
   if (input.NotificationARNs != null) {
     const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
+    if (input.NotificationARNs?.length === 0) {
+      entries.NotificationARNs = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationARNs.${key}`;
       entries[loc] = value;
@@ -6354,6 +6503,9 @@ const serializeAws_queryUpdateStackInput = (input: UpdateStackInput, context: __
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6378,6 +6530,9 @@ const serializeAws_queryUpdateStackInstancesInput = (
   }
   if (input.Accounts != null) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+    if (input.Accounts?.length === 0) {
+      entries.Accounts = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
@@ -6392,6 +6547,9 @@ const serializeAws_queryUpdateStackInstancesInput = (
   }
   if (input.Regions != null) {
     const memberEntries = serializeAws_queryRegionList(input.Regions, context);
+    if (input.Regions?.length === 0) {
+      entries.Regions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Regions.${key}`;
       entries[loc] = value;
@@ -6399,6 +6557,9 @@ const serializeAws_queryUpdateStackInstancesInput = (
   }
   if (input.ParameterOverrides != null) {
     const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
+    if (input.ParameterOverrides?.length === 0) {
+      entries.ParameterOverrides = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterOverrides.${key}`;
       entries[loc] = value;
@@ -6442,6 +6603,9 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -6449,6 +6613,9 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
   }
   if (input.Capabilities != null) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+    if (input.Capabilities?.length === 0) {
+      entries.Capabilities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
@@ -6456,6 +6623,9 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6499,6 +6669,9 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
   }
   if (input.Accounts != null) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+    if (input.Accounts?.length === 0) {
+      entries.Accounts = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
@@ -6506,6 +6679,9 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
   }
   if (input.Regions != null) {
     const memberEntries = serializeAws_queryRegionList(input.Regions, context);
+    if (input.Regions?.length === 0) {
+      entries.Regions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Regions.${key}`;
       entries[loc] = value;
@@ -6890,7 +7066,7 @@ const deserializeAws_queryChangeSetSummary = (output: any, context: __SerdeConte
     contents.StatusReason = __expectString(output["StatusReason"]);
   }
   if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["CreationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
   }
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
@@ -7144,7 +7320,7 @@ const deserializeAws_queryDescribeChangeSetOutput = (output: any, context: __Ser
     );
   }
   if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["CreationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
   }
   if (output["ExecutionStatus"] !== undefined) {
     contents.ExecutionStatus = __expectString(output["ExecutionStatus"]);
@@ -7256,7 +7432,7 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (
     contents.DriftedStackResourceCount = __strictParseInt32(output["DriftedStackResourceCount"]) as number;
   }
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
   }
   return contents;
 };
@@ -7478,10 +7654,10 @@ const deserializeAws_queryDescribeTypeOutput = (output: any, context: __SerdeCon
     contents.DocumentationUrl = __expectString(output["DocumentationUrl"]);
   }
   if (output["LastUpdated"] !== undefined) {
-    contents.LastUpdated = __expectNonNull(__parseRfc3339DateTime(output["LastUpdated"]));
+    contents.LastUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdated"]));
   }
   if (output["TimeCreated"] !== undefined) {
-    contents.TimeCreated = __expectNonNull(__parseRfc3339DateTime(output["TimeCreated"]));
+    contents.TimeCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TimeCreated"]));
   }
   if (output["ConfigurationSchema"] !== undefined) {
     contents.ConfigurationSchema = __expectString(output["ConfigurationSchema"]);
@@ -8714,13 +8890,13 @@ const deserializeAws_queryStack = (output: any, context: __SerdeContext): Stack 
     );
   }
   if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["CreationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
   }
   if (output["DeletionTime"] !== undefined) {
-    contents.DeletionTime = __expectNonNull(__parseRfc3339DateTime(output["DeletionTime"]));
+    contents.DeletionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DeletionTime"]));
   }
   if (output["LastUpdatedTime"] !== undefined) {
-    contents.LastUpdatedTime = __expectNonNull(__parseRfc3339DateTime(output["LastUpdatedTime"]));
+    contents.LastUpdatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdatedTime"]));
   }
   if (output["RollbackConfiguration"] !== undefined) {
     contents.RollbackConfiguration = deserializeAws_queryRollbackConfiguration(
@@ -8793,7 +8969,7 @@ const deserializeAws_queryStackDriftInformation = (output: any, context: __Serde
     contents.StackDriftStatus = __expectString(output["StackDriftStatus"]);
   }
   if (output["LastCheckTimestamp"] !== undefined) {
-    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastCheckTimestamp"]));
+    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastCheckTimestamp"]));
   }
   return contents;
 };
@@ -8810,7 +8986,7 @@ const deserializeAws_queryStackDriftInformationSummary = (
     contents.StackDriftStatus = __expectString(output["StackDriftStatus"]);
   }
   if (output["LastCheckTimestamp"] !== undefined) {
-    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastCheckTimestamp"]));
+    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastCheckTimestamp"]));
   }
   return contents;
 };
@@ -8853,7 +9029,7 @@ const deserializeAws_queryStackEvent = (output: any, context: __SerdeContext): S
     contents.ResourceType = __expectString(output["ResourceType"]);
   }
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
   }
   if (output["ResourceStatus"] !== undefined) {
     contents.ResourceStatus = __expectString(output["ResourceStatus"]);
@@ -8906,6 +9082,7 @@ const deserializeAws_queryStackInstance = (output: any, context: __SerdeContext)
     OrganizationalUnitId: undefined,
     DriftStatus: undefined,
     LastDriftCheckTimestamp: undefined,
+    LastOperationId: undefined,
   };
   if (output["StackSetId"] !== undefined) {
     contents.StackSetId = __expectString(output["StackSetId"]);
@@ -8946,7 +9123,12 @@ const deserializeAws_queryStackInstance = (output: any, context: __SerdeContext)
     contents.DriftStatus = __expectString(output["DriftStatus"]);
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastDriftCheckTimestamp"]));
+    contents.LastDriftCheckTimestamp = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["LastDriftCheckTimestamp"])
+    );
+  }
+  if (output["LastOperationId"] !== undefined) {
+    contents.LastOperationId = __expectString(output["LastOperationId"]);
   }
   return contents;
 };
@@ -8997,6 +9179,7 @@ const deserializeAws_queryStackInstanceSummary = (output: any, context: __SerdeC
     OrganizationalUnitId: undefined,
     DriftStatus: undefined,
     LastDriftCheckTimestamp: undefined,
+    LastOperationId: undefined,
   };
   if (output["StackSetId"] !== undefined) {
     contents.StackSetId = __expectString(output["StackSetId"]);
@@ -9029,7 +9212,12 @@ const deserializeAws_queryStackInstanceSummary = (output: any, context: __SerdeC
     contents.DriftStatus = __expectString(output["DriftStatus"]);
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastDriftCheckTimestamp"]));
+    contents.LastDriftCheckTimestamp = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["LastDriftCheckTimestamp"])
+    );
+  }
+  if (output["LastOperationId"] !== undefined) {
+    contents.LastOperationId = __expectString(output["LastOperationId"]);
   }
   return contents;
 };
@@ -9074,7 +9262,7 @@ const deserializeAws_queryStackResource = (output: any, context: __SerdeContext)
     contents.ResourceType = __expectString(output["ResourceType"]);
   }
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
   }
   if (output["ResourceStatus"] !== undefined) {
     contents.ResourceStatus = __expectString(output["ResourceStatus"]);
@@ -9125,7 +9313,7 @@ const deserializeAws_queryStackResourceDetail = (output: any, context: __SerdeCo
     contents.ResourceType = __expectString(output["ResourceType"]);
   }
   if (output["LastUpdatedTimestamp"] !== undefined) {
-    contents.LastUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastUpdatedTimestamp"]));
+    contents.LastUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdatedTimestamp"]));
   }
   if (output["ResourceStatus"] !== undefined) {
     contents.ResourceStatus = __expectString(output["ResourceStatus"]);
@@ -9203,7 +9391,7 @@ const deserializeAws_queryStackResourceDrift = (output: any, context: __SerdeCon
     contents.StackResourceDriftStatus = __expectString(output["StackResourceDriftStatus"]);
   }
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
   }
   if (output["ModuleInfo"] !== undefined) {
     contents.ModuleInfo = deserializeAws_queryModuleInfo(output["ModuleInfo"], context);
@@ -9223,7 +9411,7 @@ const deserializeAws_queryStackResourceDriftInformation = (
     contents.StackResourceDriftStatus = __expectString(output["StackResourceDriftStatus"]);
   }
   if (output["LastCheckTimestamp"] !== undefined) {
-    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastCheckTimestamp"]));
+    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastCheckTimestamp"]));
   }
   return contents;
 };
@@ -9240,7 +9428,7 @@ const deserializeAws_queryStackResourceDriftInformationSummary = (
     contents.StackResourceDriftStatus = __expectString(output["StackResourceDriftStatus"]);
   }
   if (output["LastCheckTimestamp"] !== undefined) {
-    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastCheckTimestamp"]));
+    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastCheckTimestamp"]));
   }
   return contents;
 };
@@ -9290,7 +9478,7 @@ const deserializeAws_queryStackResourceSummary = (output: any, context: __SerdeC
     contents.ResourceType = __expectString(output["ResourceType"]);
   }
   if (output["LastUpdatedTimestamp"] !== undefined) {
-    contents.LastUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastUpdatedTimestamp"]));
+    contents.LastUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdatedTimestamp"]));
   }
   if (output["ResourceStatus"] !== undefined) {
     contents.ResourceStatus = __expectString(output["ResourceStatus"]);
@@ -9336,6 +9524,7 @@ const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): Sta
     PermissionModel: undefined,
     OrganizationalUnitIds: undefined,
     ManagedExecution: undefined,
+    Regions: undefined,
   };
   if (output["StackSetName"] !== undefined) {
     contents.StackSetName = __expectString(output["StackSetName"]);
@@ -9405,6 +9594,11 @@ const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): Sta
   if (output["ManagedExecution"] !== undefined) {
     contents.ManagedExecution = deserializeAws_queryManagedExecution(output["ManagedExecution"], context);
   }
+  if (output.Regions === "") {
+    contents.Regions = [];
+  } else if (output["Regions"] !== undefined && output["Regions"]["member"] !== undefined) {
+    contents.Regions = deserializeAws_queryRegionList(__getArrayIfSingleItem(output["Regions"]["member"]), context);
+  }
   return contents;
 };
 
@@ -9429,7 +9623,9 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (
     contents.DriftDetectionStatus = __expectString(output["DriftDetectionStatus"]);
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastDriftCheckTimestamp"]));
+    contents.LastDriftCheckTimestamp = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["LastDriftCheckTimestamp"])
+    );
   }
   if (output["TotalStackInstancesCount"] !== undefined) {
     contents.TotalStackInstancesCount = __strictParseInt32(output["TotalStackInstancesCount"]) as number;
@@ -9490,6 +9686,7 @@ const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeCont
     DeploymentTargets: undefined,
     StackSetDriftDetectionDetails: undefined,
     StatusReason: undefined,
+    StatusDetails: undefined,
   };
   if (output["OperationId"] !== undefined) {
     contents.OperationId = __expectString(output["OperationId"]);
@@ -9519,10 +9716,10 @@ const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeCont
     contents.ExecutionRoleName = __expectString(output["ExecutionRoleName"]);
   }
   if (output["CreationTimestamp"] !== undefined) {
-    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTime(output["CreationTimestamp"]));
+    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTimestamp"]));
   }
   if (output["EndTimestamp"] !== undefined) {
-    contents.EndTimestamp = __expectNonNull(__parseRfc3339DateTime(output["EndTimestamp"]));
+    contents.EndTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EndTimestamp"]));
   }
   if (output["DeploymentTargets"] !== undefined) {
     contents.DeploymentTargets = deserializeAws_queryDeploymentTargets(output["DeploymentTargets"], context);
@@ -9535,6 +9732,9 @@ const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeCont
   }
   if (output["StatusReason"] !== undefined) {
     contents.StatusReason = __expectString(output["StatusReason"]);
+  }
+  if (output["StatusDetails"] !== undefined) {
+    contents.StatusDetails = deserializeAws_queryStackSetOperationStatusDetails(output["StatusDetails"], context);
   }
   return contents;
 };
@@ -9621,6 +9821,19 @@ const deserializeAws_queryStackSetOperationResultSummary = (
   return contents;
 };
 
+const deserializeAws_queryStackSetOperationStatusDetails = (
+  output: any,
+  context: __SerdeContext
+): StackSetOperationStatusDetails => {
+  const contents: any = {
+    FailedStackInstancesCount: undefined,
+  };
+  if (output["FailedStackInstancesCount"] !== undefined) {
+    contents.FailedStackInstancesCount = __strictParseInt32(output["FailedStackInstancesCount"]) as number;
+  }
+  return contents;
+};
+
 const deserializeAws_queryStackSetOperationSummaries = (
   output: any,
   context: __SerdeContext
@@ -9643,6 +9856,8 @@ const deserializeAws_queryStackSetOperationSummary = (
     CreationTimestamp: undefined,
     EndTimestamp: undefined,
     StatusReason: undefined,
+    StatusDetails: undefined,
+    OperationPreferences: undefined,
   };
   if (output["OperationId"] !== undefined) {
     contents.OperationId = __expectString(output["OperationId"]);
@@ -9654,13 +9869,22 @@ const deserializeAws_queryStackSetOperationSummary = (
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CreationTimestamp"] !== undefined) {
-    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTime(output["CreationTimestamp"]));
+    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTimestamp"]));
   }
   if (output["EndTimestamp"] !== undefined) {
-    contents.EndTimestamp = __expectNonNull(__parseRfc3339DateTime(output["EndTimestamp"]));
+    contents.EndTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EndTimestamp"]));
   }
   if (output["StatusReason"] !== undefined) {
     contents.StatusReason = __expectString(output["StatusReason"]);
+  }
+  if (output["StatusDetails"] !== undefined) {
+    contents.StatusDetails = deserializeAws_queryStackSetOperationStatusDetails(output["StatusDetails"], context);
+  }
+  if (output["OperationPreferences"] !== undefined) {
+    contents.OperationPreferences = deserializeAws_queryStackSetOperationPreferences(
+      output["OperationPreferences"],
+      context
+    );
   }
   return contents;
 };
@@ -9707,7 +9931,9 @@ const deserializeAws_queryStackSetSummary = (output: any, context: __SerdeContex
     contents.DriftStatus = __expectString(output["DriftStatus"]);
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastDriftCheckTimestamp"]));
+    contents.LastDriftCheckTimestamp = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["LastDriftCheckTimestamp"])
+    );
   }
   if (output["ManagedExecution"] !== undefined) {
     contents.ManagedExecution = deserializeAws_queryManagedExecution(output["ManagedExecution"], context);
@@ -9747,13 +9973,13 @@ const deserializeAws_queryStackSummary = (output: any, context: __SerdeContext):
     contents.TemplateDescription = __expectString(output["TemplateDescription"]);
   }
   if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["CreationTime"]));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
   }
   if (output["LastUpdatedTime"] !== undefined) {
-    contents.LastUpdatedTime = __expectNonNull(__parseRfc3339DateTime(output["LastUpdatedTime"]));
+    contents.LastUpdatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdatedTime"]));
   }
   if (output["DeletionTime"] !== undefined) {
-    contents.DeletionTime = __expectNonNull(__parseRfc3339DateTime(output["DeletionTime"]));
+    contents.DeletionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DeletionTime"]));
   }
   if (output["StackStatus"] !== undefined) {
     contents.StackStatus = __expectString(output["StackStatus"]);
@@ -9913,7 +10139,7 @@ const deserializeAws_queryTypeConfigurationDetails = (
     contents.Configuration = __expectString(output["Configuration"]);
   }
   if (output["LastUpdated"] !== undefined) {
-    contents.LastUpdated = __expectNonNull(__parseRfc3339DateTime(output["LastUpdated"]));
+    contents.LastUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdated"]));
   }
   if (output["TypeArn"] !== undefined) {
     contents.TypeArn = __expectString(output["TypeArn"]);
@@ -10027,7 +10253,7 @@ const deserializeAws_queryTypeSummary = (output: any, context: __SerdeContext): 
     contents.TypeArn = __expectString(output["TypeArn"]);
   }
   if (output["LastUpdated"] !== undefined) {
-    contents.LastUpdated = __expectNonNull(__parseRfc3339DateTime(output["LastUpdated"]));
+    contents.LastUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdated"]));
   }
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
@@ -10091,7 +10317,7 @@ const deserializeAws_queryTypeVersionSummary = (output: any, context: __SerdeCon
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["TimeCreated"] !== undefined) {
-    contents.TimeCreated = __expectNonNull(__parseRfc3339DateTime(output["TimeCreated"]));
+    contents.TimeCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TimeCreated"]));
   }
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
@@ -10202,7 +10428,8 @@ const deserializeAws_queryValidateTemplateOutput = (output: any, context: __Serd
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -10247,13 +10474,18 @@ const buildHttpRpcRequest = async (
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -10266,13 +10498,21 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

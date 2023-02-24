@@ -3,6 +3,7 @@ export * from "./CancelJobRunCommand";
 export * from "./CreateApplicationCommand";
 export * from "./DeleteApplicationCommand";
 export * from "./GetApplicationCommand";
+export * from "./GetDashboardForJobRunCommand";
 export * from "./GetJobRunCommand";
 export * from "./ListApplicationsCommand";
 export * from "./ListJobRunsCommand";

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,12 +34,12 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * 			containers with the <code>volumes</code> parameter. For more information about task
  * 			definition parameters and defaults, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon ECS Task
  * 				Definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- * 		       <p>You can specify an IAM role for your task with the <code>taskRoleArn</code> parameter.
- * 			When you specify an IAM role for a task, its containers can then use the latest versions
+ *          <p>You can specify a role for your task with the <code>taskRoleArn</code> parameter.
+ * 			When you specify a role for a task, its containers can then use the latest versions
  * 			of the CLI or SDKs to make API requests to the Amazon Web Services services that are specified in
- * 			the IAM policy that's associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+ * 			the policy that's associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
  * 				Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- * 		       <p>You can specify a Docker networking mode for the containers in your task definition
+ *          <p>You can specify a Docker networking mode for the containers in your task definition
  * 			with the <code>networkMode</code> parameter. The available network modes correspond to
  * 			those described in <a href="https://docs.docker.com/engine/reference/run/#/network-settings">Network
  * 				settings</a> in the Docker run reference. If you specify the <code>awsvpc</code>
@@ -69,6 +70,15 @@ export class RegisterTaskDefinitionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +94,9 @@ export class RegisterTaskDefinitionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterTaskDefinitionCommandInput, RegisterTaskDefinitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterTaskDefinitionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

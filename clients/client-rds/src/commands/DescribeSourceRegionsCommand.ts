@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,13 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
 
 /**
  * <p>Returns a list of the source Amazon Web Services Regions where the current Amazon Web Services Region can create a read replica,
- *          copy a DB snapshot from, or replicate automated backups from. This API action supports pagination.</p>
+ *          copy a DB snapshot from, or replicate automated backups from.</p>
+ *          <p>Use this operation to determine whether cross-Region features are supported between other Regions
+ *             and your current Region. This operation supports pagination.</p>
+ *          <p>To return information about the Regions that are enabled for your account, or all Regions,
+ *             use the EC2 operation <code>DescribeRegions</code>. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRegions.html">
+ *                 DescribeRegions</a> in the <i>Amazon EC2 API Reference</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +60,15 @@ export class DescribeSourceRegionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeSourceRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +84,9 @@ export class DescribeSourceRegionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeSourceRegionsCommandInput, DescribeSourceRegionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeSourceRegionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getLocationConstraintPlugin } from "@aws-sdk/middleware-location-constraint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -135,7 +136,6 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *             <p>You can use either a canned ACL or specify access permissions explicitly. You cannot
  *             do both.</p>
  *          </note>
- *
  *          <p>
  *             <b>Permissions</b>
  *          </p>
@@ -199,6 +199,22 @@ export class CreateBucketCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      DisableAccessPoints: { type: "staticContextParams", value: true },
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -214,6 +230,7 @@ export class CreateBucketCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateBucketCommandInput, CreateBucketCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateBucketCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getLocationConstraintPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

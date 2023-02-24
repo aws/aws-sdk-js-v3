@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -72,7 +72,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> An Amazon Web Service such as Amazon S3 or CloudTrail.\n      </p>"
+        "smithy.api#documentation": "<p> An Amazon Web Service such as Amazon S3 or CloudTrail.\n      </p>\n         <p>For an example of how to find an Amazon Web Service name and how to define it in\n         your assessment scope, see the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_2\">Finding an Amazon Web Service name to use in your assessment scope</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_3\">Defining an Amazon Web Service name in your assessment scope</a>\n               </p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.auditmanager#AWSServiceName": {
@@ -128,61 +128,79 @@
       }
     },
     "com.amazonaws.auditmanager#AccountStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
-          },
-          {
-            "value": "PENDING_ACTIVATION",
-            "name": "PENDING_ACTIVATION"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        },
+        "PENDING_ACTIVATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_ACTIVATION"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ActionEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATE",
-            "name": "CREATE"
-          },
-          {
-            "value": "UPDATE_METADATA",
-            "name": "UPDATE_METADATA"
-          },
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
-          },
-          {
-            "value": "DELETE",
-            "name": "DELETE"
-          },
-          {
-            "value": "UNDER_REVIEW",
-            "name": "UNDER_REVIEW"
-          },
-          {
-            "value": "REVIEWED",
-            "name": "REVIEWED"
-          },
-          {
-            "value": "IMPORT_EVIDENCE",
-            "name": "IMPORT_EVIDENCE"
+      "type": "enum",
+      "members": {
+        "CREATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE"
           }
-        ]
+        },
+        "UPDATE_METADATA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_METADATA"
+          }
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        },
+        "DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE"
+          }
+        },
+        "UNDER_REVIEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDER_REVIEW"
+          }
+        },
+        "REVIEWED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVIEWED"
+          }
+        },
+        "IMPORT_EVIDENCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPORT_EVIDENCE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ActionPlanInstructions": {
@@ -240,7 +258,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> An entity that defines the scope of audit evidence collected by Audit Manager.\n         An Audit Manager assessment is an implementation of an Audit Manager\n         framework. </p>"
+        "smithy.api#documentation": "<p> An entity that defines the scope of audit evidence collected by Audit Manager.\n         An Audit Manager assessment is an implementation of an Audit Manager framework. </p>"
       }
     },
     "com.amazonaws.auditmanager#AssessmentControl": {
@@ -291,12 +309,14 @@
         "evidenceCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
-            "smithy.api#documentation": "<p> The amount of evidence that's generated for the control. </p>"
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p> The amount of evidence that's collected for the control. </p>"
           }
         },
         "assessmentReportEvidenceCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The amount of evidence in the assessment report. </p>"
           }
         }
@@ -323,7 +343,7 @@
         "status": {
           "target": "com.amazonaws.auditmanager#ControlSetStatus",
           "traits": {
-            "smithy.api#documentation": "<p> Specifies the current status of the control set. </p>"
+            "smithy.api#documentation": "<p> The current status of the control set. </p>"
           }
         },
         "roles": {
@@ -347,12 +367,14 @@
         "systemEvidenceCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The total number of evidence objects that are retrieved automatically for the control\n         set. </p>"
           }
         },
         "manualEvidenceCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The total number of evidence objects that are uploaded manually to the control set.\n      </p>"
           }
         }
@@ -437,12 +459,14 @@
         "totalEvidence": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The total amount of evidence in the evidence folder. </p>"
           }
         },
         "assessmentReportSelectionCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The total count of evidence that's included in the assessment report. </p>"
           }
         },
@@ -455,42 +479,49 @@
         "evidenceResourcesIncludedCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The amount of evidence that's included in the evidence folder. </p>"
           }
         },
         "evidenceByTypeConfigurationDataCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The number of evidence that falls under the configuration data category. This evidence\n         is collected from configuration snapshots of other Amazon Web Services such as\n            Amazon EC2, Amazon S3, or IAM. </p>"
           }
         },
         "evidenceByTypeManualCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The number of evidence that falls under the manual category. This evidence is imported\n         manually. </p>"
           }
         },
         "evidenceByTypeComplianceCheckCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The number of evidence that falls under the compliance check category. This evidence is\n         collected from Config or Security Hub. </p>"
           }
         },
         "evidenceByTypeComplianceCheckIssuesCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The total number of issues that were reported directly from Security Hub,\n            Config, or both. </p>"
           }
         },
         "evidenceByTypeUserActivityCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The number of evidence that falls under the user activity category. This evidence is\n         collected from CloudTrail logs. </p>"
           }
         },
         "evidenceAwsServiceSourceCount": {
           "target": "com.amazonaws.auditmanager#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The total number of Amazon Web Services resources that were assessed to generate the\n         evidence. </p>"
           }
         }
@@ -602,25 +633,27 @@
         "controlsCount": {
           "target": "com.amazonaws.auditmanager#ControlsCount",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The number of controls that are associated with the framework. </p>"
           }
         },
         "controlSetsCount": {
           "target": "com.amazonaws.auditmanager#ControlSetsCount",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p> The number of control sets that are associated with the framework. </p>"
           }
         },
         "createdAt": {
           "target": "com.amazonaws.auditmanager#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p> Specifies when the framework was created. </p>"
+            "smithy.api#documentation": "<p> The time when the framework was created. </p>"
           }
         },
         "lastUpdatedAt": {
           "target": "com.amazonaws.auditmanager#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p> Specifies when the framework was most recently updated. </p>"
+            "smithy.api#documentation": "<p> The time when the framework was most recently updated. </p>"
           }
         }
       },
@@ -945,14 +978,14 @@
       }
     },
     "com.amazonaws.auditmanager#AssessmentReportDestinationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "S3",
-            "name": "S3"
+      "type": "enum",
+      "members": {
+        "S3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "S3"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.auditmanager#AssessmentReportEvidenceError": {
@@ -967,18 +1000,18 @@
         "errorCode": {
           "target": "com.amazonaws.auditmanager#ErrorCode",
           "traits": {
-            "smithy.api#documentation": "<p> The error code that the <code>AssessmentReportEvidence</code> API returned. </p>"
+            "smithy.api#documentation": "<p> The error code that was returned. </p>"
           }
         },
         "errorMessage": {
           "target": "com.amazonaws.auditmanager#ErrorMessage",
           "traits": {
-            "smithy.api#documentation": "<p> The error message that the <code>AssessmentReportEvidence</code> API returned. </p>"
+            "smithy.api#documentation": "<p> The error message that was returned. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> An error entity for the <code>AssessmentReportEvidence</code> API. This is used to\n         provide more meaningful errors than a simple string message. </p>"
+        "smithy.api#documentation": "<p> An error entity for assessment report evidence errors. This is used to provide more\n         meaningful errors than a simple string message. </p>"
       }
     },
     "com.amazonaws.auditmanager#AssessmentReportEvidenceErrors": {
@@ -1054,22 +1087,26 @@
       }
     },
     "com.amazonaws.auditmanager#AssessmentReportStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "COMPLETE",
-            "name": "COMPLETE"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETE"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#AssessmentReportsDestination": {
@@ -1099,18 +1136,20 @@
       }
     },
     "com.amazonaws.auditmanager#AssessmentStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#AssociateAssessmentReportEvidenceFolder": {
@@ -1136,7 +1175,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Associates an evidence folder to an assessment report in a Audit Manager\n         assessment. </p>",
+        "smithy.api#documentation": "<p> Associates an evidence folder to an assessment report in an Audit Manager\n         assessment. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/assessments/{assessmentId}/associateToAssessmentReport",
@@ -1162,11 +1201,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#AssociateAssessmentReportEvidenceFolderResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.auditmanager#AuditManagerArn": {
       "type": "string",
@@ -1234,6 +1279,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#BatchAssociateAssessmentReportEvidenceResponse": {
@@ -1251,6 +1299,9 @@
             "smithy.api#documentation": "<p> A list of errors that the <code>BatchAssociateAssessmentReportEvidence</code> API\n         returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#BatchCreateDelegationByAssessment": {
@@ -1334,6 +1385,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#BatchCreateDelegationByAssessmentResponse": {
@@ -1351,6 +1405,9 @@
             "smithy.api#documentation": "<p> A list of errors that the <code>BatchCreateDelegationByAssessment</code> API returned.\n      </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#BatchDeleteDelegationByAssessment": {
@@ -1434,6 +1491,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#BatchDeleteDelegationByAssessmentResponse": {
@@ -1445,6 +1505,9 @@
             "smithy.api#documentation": "<p> A list of errors that the <code>BatchDeleteDelegationByAssessment</code> API returned.\n      </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#BatchDisassociateAssessmentReportEvidence": {
@@ -1503,6 +1566,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#BatchDisassociateAssessmentReportEvidenceResponse": {
@@ -1520,6 +1586,9 @@
             "smithy.api#documentation": "<p> A list of errors that the <code>BatchDisassociateAssessmentReportEvidence</code> API\n         returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#BatchImportEvidenceToAssessmentControl": {
@@ -1545,7 +1614,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Uploads one or more pieces of evidence to a control in an Audit Manager\n         assessment. </p>",
+        "smithy.api#documentation": "<p>Uploads one or more pieces of evidence to a control in an Audit Manager assessment.\n         You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3) bucket by\n         specifying the S3 URI of the evidence. </p>\n         <p>You must upload manual evidence to your S3 bucket before you can upload it to your\n         assessment. For instructions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html\">CreateBucket</a> and <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html\">PutObject</a> in\n         the <i>Amazon Simple Storage Service API Reference.</i>\n         </p>\n         <p>The following restrictions apply to this action:</p>\n         <ul>\n            <li>\n               <p>Maximum size of an individual evidence file: 100 MB</p>\n            </li>\n            <li>\n               <p>Number of daily manual evidence uploads per control: 100</p>\n            </li>\n            <li>\n               <p>Supported file formats: See <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i>\n               </p>\n            </li>\n         </ul>\n         <p>For more information about Audit Manager service restrictions, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and\n            restrictions for Audit Manager</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}/evidence",
@@ -1619,6 +1688,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#BatchImportEvidenceToAssessmentControlResponse": {
@@ -1630,25 +1702,13 @@
             "smithy.api#documentation": "<p> A list of errors that the <code>BatchImportEvidenceToAssessmentControl</code> API\n         returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#BedrockAssessmentManagerLambda": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "AuditManager",
-          "arnNamespace": "auditmanager",
-          "cloudFormationName": "AuditManager",
-          "cloudTrailEventSource": "auditmanager.amazonaws.com",
-          "endpointPrefix": "auditmanager"
-        },
-        "aws.auth#sigv4": {
-          "name": "auditmanager"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>Welcome to the Audit Manager API reference. This guide is for developers who\n         need detailed information about the Audit Manager API operations, data types, and\n         errors. </p>\n         <p>Audit Manager is a service that provides automated evidence collection so that\n         you can continually audit your Amazon Web Services usage. You can use it to assess the\n         effectiveness of your controls, manage risk, and simplify compliance.</p>\n         <p>Audit Manager provides prebuilt frameworks that structure and automate\n         assessments for a given compliance standard. Frameworks include a prebuilt collection of\n         controls with descriptions and testing procedures. These controls are grouped according to\n         the requirements of the specified compliance standard or regulation. You can also customize\n         frameworks and controls to support internal audits with specific requirements. </p>\n         <p>Use the following links to get started with the Audit Manager API:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html\">Actions</a>: An\n               alphabetical list of all Audit Manager API operations.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Types.html\">Data types</a>: An alphabetical list of all Audit Manager data\n               types.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html\">Common\n                  parameters</a>: Parameters that all Query operations can use.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonErrors.html\">Common errors</a>:\n               Client and server errors that all operations can return.</p>\n            </li>\n         </ul>\n         <p>If you're new to Audit Manager, we recommend that you review the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html\">\n            Audit Manager User Guide</a>.</p>",
-        "smithy.api#title": "AWS Audit Manager"
-      },
       "version": "2017-07-25",
       "operations": [
         {
@@ -1834,13 +1894,782 @@
         {
           "target": "com.amazonaws.auditmanager#ValidateAssessmentReportIntegrity"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "AuditManager",
+          "arnNamespace": "auditmanager",
+          "cloudFormationName": "AuditManager",
+          "cloudTrailEventSource": "auditmanager.amazonaws.com",
+          "endpointPrefix": "auditmanager"
+        },
+        "aws.auth#sigv4": {
+          "name": "auditmanager"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>Welcome to the Audit Manager API reference. This guide is for developers who\n         need detailed information about the Audit Manager API operations, data types, and\n         errors. </p>\n         <p>Audit Manager is a service that provides automated evidence collection so that you\n         can continually audit your Amazon Web Services usage. You can use it to assess the\n         effectiveness of your controls, manage risk, and simplify compliance.</p>\n         <p>Audit Manager provides prebuilt frameworks that structure and automate assessments\n         for a given compliance standard. Frameworks include a prebuilt collection of controls with\n         descriptions and testing procedures. These controls are grouped according to the\n         requirements of the specified compliance standard or regulation. You can also customize\n         frameworks and controls to support internal audits with specific requirements. </p>\n         <p>Use the following links to get started with the Audit Manager API:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html\">Actions</a>: An\n               alphabetical list of all Audit Manager API operations.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Types.html\">Data types</a>: An alphabetical list of all Audit Manager data\n               types.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html\">Common\n                  parameters</a>: Parameters that all operations can use.</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonErrors.html\">Common errors</a>:\n               Client and server errors that all operations can return.</p>\n            </li>\n         </ul>\n         <p>If you're new to Audit Manager, we recommend that you review the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html\">\n            Audit Manager User Guide</a>.</p>",
+        "smithy.api#title": "AWS Audit Manager",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://auditmanager-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://auditmanager-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://auditmanager.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://auditmanager.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://auditmanager.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.auditmanager#Boolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.auditmanager#ChangeLog": {
       "type": "structure",
@@ -1872,7 +2701,7 @@
         "createdBy": {
           "target": "com.amazonaws.auditmanager#IamArn",
           "traits": {
-            "smithy.api#documentation": "<p> The IAM user or role that performed the action. </p>"
+            "smithy.api#documentation": "<p> The user or role that performed the action. </p>"
           }
         }
       },
@@ -1884,6 +2713,16 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.auditmanager#ChangeLog"
+      }
+    },
+    "com.amazonaws.auditmanager#CloudTrailArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:.*:cloudtrail:"
       }
     },
     "com.amazonaws.auditmanager#ComplianceType": {
@@ -1950,7 +2789,7 @@
         "controlSources": {
           "target": "com.amazonaws.auditmanager#ControlSources",
           "traits": {
-            "smithy.api#documentation": "<p> The data source that determines where Audit Manager collects evidence from for\n         the control. </p>"
+            "smithy.api#documentation": "<p> The data source types that determine where Audit Manager collects evidence from for\n         the control. </p>"
           }
         },
         "controlMappingSources": {
@@ -1962,25 +2801,25 @@
         "createdAt": {
           "target": "com.amazonaws.auditmanager#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p> Specifies when the control was created. </p>"
+            "smithy.api#documentation": "<p> The time when the control was created. </p>"
           }
         },
         "lastUpdatedAt": {
           "target": "com.amazonaws.auditmanager#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p> Specifies when the control was most recently updated. </p>"
+            "smithy.api#documentation": "<p> The time when the control was most recently updated. </p>"
           }
         },
         "createdBy": {
           "target": "com.amazonaws.auditmanager#CreatedBy",
           "traits": {
-            "smithy.api#documentation": "<p> The IAM user or role that created the control. </p>"
+            "smithy.api#documentation": "<p> The user or role that created the control. </p>"
           }
         },
         "lastUpdatedBy": {
           "target": "com.amazonaws.auditmanager#LastUpdatedBy",
           "traits": {
-            "smithy.api#documentation": "<p> The IAM user or role that most recently updated the control. </p>"
+            "smithy.api#documentation": "<p> The user or role that most recently updated the control. </p>"
           }
         },
         "tags": {
@@ -2208,7 +3047,7 @@
         "sourceType": {
           "target": "com.amazonaws.auditmanager#SourceType",
           "traits": {
-            "smithy.api#documentation": "<p> Specifies one of the five types of data sources for evidence collection. </p>"
+            "smithy.api#documentation": "<p> Specifies one of the five data source types for evidence collection. </p>"
           }
         },
         "sourceKeyword": {
@@ -2266,19 +3105,19 @@
         "controlSources": {
           "target": "com.amazonaws.auditmanager#ControlSources",
           "traits": {
-            "smithy.api#documentation": "<p> The data source that determines where Audit Manager collects evidence from for\n         the control. </p>"
+            "smithy.api#documentation": "<p> The data source that determines where Audit Manager collects evidence from for the\n         control. </p>"
           }
         },
         "createdAt": {
           "target": "com.amazonaws.auditmanager#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p> Specifies when the control was created. </p>"
+            "smithy.api#documentation": "<p> The time when the control was created. </p>"
           }
         },
         "lastUpdatedAt": {
           "target": "com.amazonaws.auditmanager#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p> Specifies when the control was most recently updated. </p>"
+            "smithy.api#documentation": "<p> The time when the control was most recently updated. </p>"
           }
         }
       },
@@ -2303,26 +3142,32 @@
       }
     },
     "com.amazonaws.auditmanager#ControlResponse": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MANUAL",
-            "name": "MANUAL"
-          },
-          {
-            "value": "AUTOMATE",
-            "name": "AUTOMATE"
-          },
-          {
-            "value": "DEFER",
-            "name": "DEFER"
-          },
-          {
-            "value": "IGNORE",
-            "name": "IGNORE"
+      "type": "enum",
+      "members": {
+        "MANUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MANUAL"
           }
-        ]
+        },
+        "AUTOMATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUTOMATE"
+          }
+        },
+        "DEFER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFER"
+          }
+        },
+        "IGNORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IGNORE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ControlSet": {
@@ -2372,22 +3217,26 @@
       }
     },
     "com.amazonaws.auditmanager#ControlSetStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "UNDER_REVIEW",
-            "name": "UNDER_REVIEW"
-          },
-          {
-            "value": "REVIEWED",
-            "name": "REVIEWED"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "UNDER_REVIEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDER_REVIEW"
+          }
+        },
+        "REVIEWED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVIEWED"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ControlSets": {
@@ -2402,7 +3251,10 @@
       }
     },
     "com.amazonaws.auditmanager#ControlSetsCount": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.auditmanager#ControlSources": {
       "type": "string",
@@ -2415,37 +3267,43 @@
       }
     },
     "com.amazonaws.auditmanager#ControlStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNDER_REVIEW",
-            "name": "UNDER_REVIEW"
-          },
-          {
-            "value": "REVIEWED",
-            "name": "REVIEWED"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "UNDER_REVIEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDER_REVIEW"
           }
-        ]
+        },
+        "REVIEWED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVIEWED"
+          }
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ControlType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Standard",
-            "name": "STANDARD"
-          },
-          {
-            "value": "Custom",
-            "name": "CUSTOM"
+      "type": "enum",
+      "members": {
+        "STANDARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Standard"
           }
-        ]
+        },
+        "CUSTOM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Custom"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#Controls": {
@@ -2460,7 +3318,10 @@
       }
     },
     "com.amazonaws.auditmanager#ControlsCount": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.auditmanager#CreateAssessment": {
       "type": "operation",
@@ -2623,6 +3484,9 @@
             "smithy.api#documentation": "<p> The tags that are associated with the framework. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#CreateAssessmentFrameworkResponse": {
@@ -2634,6 +3498,9 @@
             "smithy.api#documentation": "<p> The name of the new framework that the <code>CreateAssessmentFramework</code> API\n         returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#CreateAssessmentReport": {
@@ -2690,7 +3557,16 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "queryStatement": {
+          "target": "com.amazonaws.auditmanager#QueryStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>A SQL statement that represents an evidence finder query.</p>\n         <p>Provide this parameter when you want to generate an assessment report from the results\n         of an evidence finder search query. When you use this parameter, Audit Manager\n         generates a one-time report using only the evidence from the query output. This report does\n         not include any assessment evidence that was manually <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence\">added to a report using the console</a>, or <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.html\">associated with a report using the API</a>. </p>\n         <p>To use this parameter, the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_EvidenceFinderEnablement.html#auditmanager-Type-EvidenceFinderEnablement-enablementStatus\">enablementStatus</a> of evidence finder must be <code>ENABLED</code>. </p>\n         <p> For examples and help resolving <code>queryStatement</code> validation exceptions, see\n            <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions\">Troubleshooting evidence finder issues</a> in the\n               <i>Audit Manager User Guide.</i>\n         </p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#CreateAssessmentReportResponse": {
@@ -2702,6 +3578,9 @@
             "smithy.api#documentation": "<p> The new assessment report that the <code>CreateAssessmentReport</code> API returned.\n      </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#CreateAssessmentRequest": {
@@ -2753,6 +3632,9 @@
             "smithy.api#documentation": "<p> The tags that are associated with the assessment. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#CreateAssessmentResponse": {
@@ -2761,6 +3643,9 @@
         "assessment": {
           "target": "com.amazonaws.auditmanager#Assessment"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#CreateControl": {
@@ -2902,6 +3787,9 @@
             "smithy.api#documentation": "<p> The tags that are associated with the control. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#CreateControlResponse": {
@@ -2913,6 +3801,9 @@
             "smithy.api#documentation": "<p> The new control that the <code>CreateControl</code> API returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#CreateDelegationRequest": {
@@ -3035,7 +3926,7 @@
         "createdBy": {
           "target": "com.amazonaws.auditmanager#CreatedBy",
           "traits": {
-            "smithy.api#documentation": "<p> The IAM user or role that created the delegation. </p>"
+            "smithy.api#documentation": "<p> The user or role that created the delegation. </p>"
           }
         }
       },
@@ -3122,22 +4013,26 @@
       }
     },
     "com.amazonaws.auditmanager#DelegationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "UNDER_REVIEW",
-            "name": "UNDER_REVIEW"
-          },
-          {
-            "value": "COMPLETE",
-            "name": "COMPLETE"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "UNDER_REVIEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDER_REVIEW"
+          }
+        },
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#Delegations": {
@@ -3219,11 +4114,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#DeleteAssessmentFrameworkResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.auditmanager#DeleteAssessmentFrameworkShare": {
       "type": "operation",
@@ -3275,11 +4176,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#DeleteAssessmentFrameworkShareResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.auditmanager#DeleteAssessmentReport": {
       "type": "operation",
@@ -3331,11 +4238,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#DeleteAssessmentReportResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.auditmanager#DeleteAssessmentRequest": {
       "type": "structure",
@@ -3348,11 +4261,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#DeleteAssessmentResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.auditmanager#DeleteControl": {
       "type": "operation",
@@ -3396,11 +4315,34 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#DeleteControlResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.auditmanager#DeleteResources": {
+      "type": "enum",
+      "members": {
+        "ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL"
+          }
+        },
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
+          }
+        }
+      }
     },
     "com.amazonaws.auditmanager#DeregisterAccount": {
       "type": "operation",
@@ -3425,7 +4367,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Deregisters an account in Audit Manager. </p>\n         <note>\n            <p>When you deregister your account from Audit Manager, your data isn’t deleted. If\n            you want to delete your resource data, you must perform that task separately before you\n            deregister your account. Either, you can do this in the Audit Manager console. Or,\n            you can use one of the delete API operations that are provided by Audit Manager. </p>\n            <p>To delete your Audit Manager resource data, see the following instructions: </p>\n            <ul>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html\">DeleteAssessment</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html\">Deleting an\n                     assessment</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html\">DeleteAssessmentFramework</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html\">Deleting a\n                     custom framework</a> in the <i>Audit Manager User\n                     Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html\">DeleteAssessmentFrameworkShare</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html\">Deleting a share request</a> in the <i>Audit Manager User\n                     Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html\">DeleteAssessmentReport</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps\">Deleting an assessment report</a> in the <i>Audit Manager\n                     User Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html\">DeleteControl</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html\">Deleting a custom\n                     control</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n               </li>\n            </ul>\n            <p>At this time, Audit Manager doesn't provide an option to delete evidence. All\n            available delete operations are listed above.</p>\n         </note>",
+        "smithy.api#documentation": "<p> Deregisters an account in Audit Manager. </p>\n         <note>\n            <p>Before you deregister, you can use the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html\">UpdateSettings</a> API operation to set your preferred data retention policy. By\n            default, Audit Manager retains your data. If you want to delete your data, you can\n            use the <code>DeregistrationPolicy</code> attribute to request the deletion of your\n            data. </p>\n            <p>For more information about data retention, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html\">Data\n               Protection</a> in the <i>Audit Manager User Guide</i>.\n         </p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/account/deregisterAccount",
@@ -3435,7 +4377,10 @@
     },
     "com.amazonaws.auditmanager#DeregisterAccountRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.auditmanager#DeregisterAccountResponse": {
       "type": "structure",
@@ -3446,6 +4391,9 @@
             "smithy.api#documentation": "<p> The registration status of the account. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#DeregisterOrganizationAdminAccount": {
@@ -3471,7 +4419,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes the specified Amazon Web Services account as a delegated administrator for\n            Audit Manager. </p>\n         <important>\n            <p>When you remove a delegated administrator from your Audit Manager settings, you\n            continue to have access to the evidence that you previously collected under that\n            account. This is also the case when you deregister a delegated administrator from\n               Organizations. However, Audit Manager will stop collecting and attaching\n            evidence to that delegated administrator account moving forward.</p>\n         </important>\n         <note>\n            <p>When you deregister a delegated administrator account for Audit Manager, the data\n            for that account isn’t deleted. If you want to delete resource data for a delegated\n            administrator account, you must perform that task separately before you deregister the\n            account. Either, you can do this in the Audit Manager console. Or, you can use one\n            of the delete API operations that are provided by Audit Manager. </p>\n            <p>To delete your Audit Manager resource data, see the following instructions: </p>\n            <ul>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html\">DeleteAssessment</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html\">Deleting an\n                     assessment</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html\">DeleteAssessmentFramework</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html\">Deleting a\n                     custom framework</a> in the <i>Audit Manager User\n                     Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html\">DeleteAssessmentFrameworkShare</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html\">Deleting a share request</a> in the <i>Audit Manager User\n                     Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html\">DeleteAssessmentReport</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps\">Deleting an assessment report</a> in the <i>Audit Manager\n                     User Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html\">DeleteControl</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html\">Deleting a custom\n                     control</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n               </li>\n            </ul>\n            <p>At this time, Audit Manager doesn't provide an option to delete evidence. All\n            available delete operations are listed above.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Removes the specified Amazon Web Services account as a delegated administrator for\n            Audit Manager. </p>\n         <p>When you remove a delegated administrator from your Audit Manager settings, you\n         continue to have access to the evidence that you previously collected under that account.\n         This is also the case when you deregister a delegated administrator from Organizations. However, Audit Manager stops collecting and attaching evidence to\n         that delegated administrator account moving forward.</p>\n         <important>\n            <p>Keep in mind the following cleanup task if you use evidence finder:</p>\n            <p>Before you use your management account to remove a delegated administrator, make sure\n            that the current delegated administrator account signs in to Audit Manager and\n            disables evidence finder first. Disabling evidence finder automatically deletes the\n            event data store that was created in their account when they enabled evidence finder. If\n            this task isn’t completed, the event data store remains in their account. In this case,\n            we recommend that the original delegated administrator goes to CloudTrail Lake\n            and manually <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html\">deletes the\n               event data store</a>.</p>\n            <p>This cleanup task is necessary to ensure that you don't end up with multiple event\n            data stores. Audit Manager ignores an unused event data store after you remove or\n            change a delegated administrator account. However, the unused event data store continues\n            to incur storage costs from CloudTrail Lake if you don't delete it.</p>\n         </important>\n         <p>When you deregister a delegated administrator account for Audit Manager, the data\n         for that account isn’t deleted. If you want to delete resource data for a delegated\n         administrator account, you must perform that task separately before you deregister the\n         account. Either, you can do this in the Audit Manager console. Or, you can use one of\n         the delete API operations that are provided by Audit Manager. </p>\n         <p>To delete your Audit Manager resource data, see the following instructions: </p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html\">DeleteAssessment</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html\">Deleting an\n                  assessment</a> in the <i>Audit Manager User\n               Guide</i>)</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html\">DeleteAssessmentFramework</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html\">Deleting a\n                  custom framework</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html\">DeleteAssessmentFrameworkShare</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html\">Deleting a share request</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html\">DeleteAssessmentReport</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps\">Deleting an assessment report</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html\">DeleteControl</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html\">Deleting a custom\n                  control</a> in the <i>Audit Manager User\n               Guide</i>)</p>\n            </li>\n         </ul>\n         <p>At this time, Audit Manager doesn't provide an option to delete evidence for a\n         specific delegated administrator. Instead, when your management account deregisters Audit Manager, we perform a cleanup for the current delegated administrator account at the\n         time of deregistration.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/account/deregisterOrganizationAdminAccount",
@@ -3488,11 +4436,31 @@
             "smithy.api#documentation": "<p> The identifier for the administrator account. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#DeregisterOrganizationAdminAccountResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.auditmanager#DeregistrationPolicy": {
+      "type": "structure",
+      "members": {
+        "deleteResources": {
+          "target": "com.amazonaws.auditmanager#DeleteResources",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies which Audit Manager data will be deleted when you deregister Audit Manager.</p>\n         <ul>\n            <li>\n               <p>If you set the value to <code>ALL</code>, all of your data is deleted within seven\n               days of deregistration.</p>\n            </li>\n            <li>\n               <p>If you set the value to <code>DEFAULT</code>, none of your data is deleted at the\n               time of deregistration. However, keep in mind that the Audit Manager data\n               retention policy still applies. As a result, any evidence data will be deleted two\n               years after its creation date. Your other Audit Manager resources will continue\n               to exist indefinitely.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The deregistration policy for the data that's stored in Audit Manager. You can\n         use this attribute to determine how your data is handled when you <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html\">deregister Audit Manager</a>.</p>\n         <p>By default, Audit Manager retains evidence data for two years from the time of its\n         creation. Other Audit Manager resources (including assessments, custom controls, and\n         custom frameworks) remain in Audit Manager indefinitely, and are available if you\n            <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html\">re-register Audit Manager</a> in the future. For more\n         information about data retention, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html\">Data\n            Protection</a> in the <i>Audit Manager User Guide</i>.</p>\n         <important>\n            <p>If you choose to delete all data, this action permanently deletes all evidence data\n            in your account within seven days. It also deletes all of the Audit Manager\n            resources that you created, including assessments, custom controls, and custom\n            frameworks. Your data will not be available if you re-register Audit Manager in the\n            future.</p>\n         </important>"
+      }
     },
     "com.amazonaws.auditmanager#DisassociateAssessmentReportEvidenceFolder": {
       "type": "operation",
@@ -3543,11 +4511,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#DisassociateAssessmentReportEvidenceFolderResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.auditmanager#EmailAddress": {
       "type": "string",
@@ -3643,13 +4617,13 @@
         "iamId": {
           "target": "com.amazonaws.auditmanager#IamArn",
           "traits": {
-            "smithy.api#documentation": "<p> The unique identifier for the IAM user or role that's associated with\n         the evidence. </p>"
+            "smithy.api#documentation": "<p> The unique identifier for the user or role that's associated with\n         the evidence. </p>"
           }
         },
         "complianceCheck": {
           "target": "com.amazonaws.auditmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p> The evaluation status for evidence that falls under the compliance check category. For\n         evidence collected from Security Hub, a <i>Pass</i> or\n            <i>Fail</i> result is shown. For evidence collected from Config, a <i>Compliant</i> or <i>Noncompliant</i>\n         result is shown. </p>"
+            "smithy.api#documentation": "<p>The evaluation status for automated evidence that falls under the compliance check\n         category.</p>\n         <ul>\n            <li>\n               <p>Audit Manager classes evidence as non-compliant if Security Hub reports a\n                  <i>Fail</i> result, or if Config reports a\n                  <i>Non-compliant</i> result.</p>\n            </li>\n            <li>\n               <p>Audit Manager classes evidence as compliant if Security Hub reports a\n                  <i>Pass</i> result, or if Config reports a\n                  <i>Compliant</i> result.</p>\n            </li>\n            <li>\n               <p>If a compliance check isn't available or applicable, then no compliance evaluation can be made\n               for that evidence. This is the case if the evidence uses Config or\n                  Security Hub as the underlying data source type, but those services aren't\n               enabled. This is also the case if the evidence uses an underlying data source type\n               that doesn't support compliance checks (such as manual evidence, Amazon Web Services\n               API calls, or CloudTrail). </p>\n            </li>\n         </ul>"
           }
         },
         "awsOrganization": {
@@ -3684,7 +4658,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> A record that contains the information needed to demonstrate compliance with the\n         requirements specified by a control. Examples of evidence include change activity triggered\n         by a user, or a system configuration snapshot. </p>"
+        "smithy.api#documentation": "<p> A record that contains the information needed to demonstrate compliance with the\n         requirements specified by a control. Examples of evidence include change activity invoked\n         by a user, or a system configuration snapshot. </p>"
       }
     },
     "com.amazonaws.auditmanager#EvidenceAttributeKey": {
@@ -3714,6 +4688,90 @@
       },
       "value": {
         "target": "com.amazonaws.auditmanager#EvidenceAttributeValue"
+      }
+    },
+    "com.amazonaws.auditmanager#EvidenceFinderBackfillStatus": {
+      "type": "enum",
+      "members": {
+        "NOT_STARTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_STARTED"
+          }
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.auditmanager#EvidenceFinderEnablement": {
+      "type": "structure",
+      "members": {
+        "eventDataStoreArn": {
+          "target": "com.amazonaws.auditmanager#CloudTrailArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudTrail Lake event data store that’s\n         used by evidence finder. The event data store is the lake of evidence data that evidence\n         finder runs queries against.</p>"
+          }
+        },
+        "enablementStatus": {
+          "target": "com.amazonaws.auditmanager#EvidenceFinderEnablementStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the evidence finder feature and the related event data store. </p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLE_IN_PROGRESS</code> means that you requested to enable evidence\n               finder. An event data store is currently being created to support evidence finder\n               queries.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ENABLED</code> means that an event data store was successfully created and\n               evidence finder is enabled. We recommend that you wait 7 days until the event data\n               store is backfilled with your past two years’ worth of evidence data. You can use\n               evidence finder in the meantime, but not all data might be available until the\n               backfill is complete.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLE_IN_PROGRESS</code> means that you requested to disable evidence finder, and your\n               request is pending the deletion of the event data store.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED</code> means that you have permanently disabled evidence finder and the event\n               data store has been deleted. You can't re-enable evidence finder after this\n               point.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "backfillStatus": {
+          "target": "com.amazonaws.auditmanager#EvidenceFinderBackfillStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the evidence data backfill process. </p>\n         <p>The backfill starts after you enable evidence finder. During this task, Audit Manager populates an event data store with your past two years’ worth of evidence data so that\n         your evidence can be queried.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>NOT_STARTED</code> means that the backfill hasn’t started yet. </p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code> means that the backfill is in progress. This can take up\n               to 7 days to complete, depending on the amount of evidence data. </p>\n            </li>\n            <li>\n               <p>\n                  <code>COMPLETED</code> means that the backfill is complete. All of your past\n               evidence is now queryable. </p>\n            </li>\n         </ul>"
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.auditmanager#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents any errors that occurred when enabling or disabling evidence finder. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The settings object that specifies whether evidence finder is enabled. This object also\n         describes the related event data store, and the backfill status for populating the event\n         data store with evidence data.</p>"
+      }
+    },
+    "com.amazonaws.auditmanager#EvidenceFinderEnablementStatus": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "ENABLE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLE_IN_PROGRESS"
+          }
+        },
+        "DISABLE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLE_IN_PROGRESS"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#EvidenceIds": {
@@ -3836,25 +4894,25 @@
         "createdAt": {
           "target": "com.amazonaws.auditmanager#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p> Specifies when the framework was created. </p>"
+            "smithy.api#documentation": "<p> The time when the framework was created. </p>"
           }
         },
         "lastUpdatedAt": {
           "target": "com.amazonaws.auditmanager#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p> Specifies when the framework was most recently updated. </p>"
+            "smithy.api#documentation": "<p> The time when the framework was most recently updated. </p>"
           }
         },
         "createdBy": {
           "target": "com.amazonaws.auditmanager#CreatedBy",
           "traits": {
-            "smithy.api#documentation": "<p> The IAM user or role that created the framework. </p>"
+            "smithy.api#documentation": "<p> The user or role that created the framework. </p>"
           }
         },
         "lastUpdatedBy": {
           "target": "com.amazonaws.auditmanager#LastUpdatedBy",
           "traits": {
-            "smithy.api#documentation": "<p> The IAM user or role that most recently updated the framework. </p>"
+            "smithy.api#documentation": "<p> The user or role that most recently updated the framework. </p>"
           }
         },
         "tags": {
@@ -3927,18 +4985,20 @@
       }
     },
     "com.amazonaws.auditmanager#FrameworkType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Standard",
-            "name": "STANDARD"
-          },
-          {
-            "value": "Custom",
-            "name": "CUSTOM"
+      "type": "enum",
+      "members": {
+        "STANDARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Standard"
           }
-        ]
+        },
+        "CUSTOM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Custom"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#GenericArn": {
@@ -3975,7 +5035,10 @@
     },
     "com.amazonaws.auditmanager#GetAccountStatusRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.auditmanager#GetAccountStatusResponse": {
       "type": "structure",
@@ -3986,6 +5049,9 @@
             "smithy.api#documentation": "<p> The status of the Amazon Web Services account. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetAssessment": {
@@ -4061,6 +5127,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetAssessmentFrameworkResponse": {
@@ -4072,6 +5141,9 @@
             "smithy.api#documentation": "<p> The framework that the <code>GetAssessmentFramework</code> API returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetAssessmentReportUrl": {
@@ -4124,6 +5196,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetAssessmentReportUrlResponse": {
@@ -4132,6 +5207,9 @@
         "preSignedUrl": {
           "target": "com.amazonaws.auditmanager#URL"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetAssessmentRequest": {
@@ -4145,6 +5223,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetAssessmentResponse": {
@@ -4156,6 +5237,9 @@
         "userRole": {
           "target": "com.amazonaws.auditmanager#Role"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetChangeLogs": {
@@ -4233,6 +5317,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetChangeLogsResponse": {
@@ -4250,6 +5337,9 @@
             "smithy.api#documentation": "<p>The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetControl": {
@@ -4294,6 +5384,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetControlResponse": {
@@ -4305,6 +5398,9 @@
             "smithy.api#documentation": "<p> The name of the control that the <code>GetControl</code> API returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetDelegations": {
@@ -4357,6 +5453,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetDelegationsResponse": {
@@ -4374,6 +5473,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetEvidence": {
@@ -4484,6 +5586,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetEvidenceByEvidenceFolderResponse": {
@@ -4501,6 +5606,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetEvidenceFolder": {
@@ -4561,6 +5669,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetEvidenceFolderResponse": {
@@ -4572,6 +5683,9 @@
             "smithy.api#documentation": "<p> The folder that the evidence is stored in. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetEvidenceFoldersByAssessment": {
@@ -4633,7 +5747,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Returns a list of evidence folders that are associated with a specified control of an\n         assessment in Audit Manager. </p>",
+        "smithy.api#documentation": "<p> Returns a list of evidence folders that are associated with a specified control in an\n            Audit Manager assessment. </p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/assessments/{assessmentId}/evidenceFolders-by-assessment-control/{controlSetId}/{controlId}",
@@ -4687,6 +5801,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetEvidenceFoldersByAssessmentControlResponse": {
@@ -4704,6 +5821,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetEvidenceFoldersByAssessmentRequest": {
@@ -4731,6 +5851,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetEvidenceFoldersByAssessmentResponse": {
@@ -4748,6 +5871,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetEvidenceRequest": {
@@ -4785,6 +5911,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetEvidenceResponse": {
@@ -4793,9 +5922,12 @@
         "evidence": {
           "target": "com.amazonaws.auditmanager#Evidence",
           "traits": {
-            "smithy.api#documentation": "<p> The evidence that the <code>GetEvidenceResponse</code> API returned. </p>"
+            "smithy.api#documentation": "<p> The evidence that the <code>GetEvidence</code> API returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetInsights": {
@@ -4865,6 +5997,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetInsightsByAssessmentResponse": {
@@ -4876,11 +6011,17 @@
             "smithy.api#documentation": "<p> The assessment analytics data that the <code>GetInsightsByAssessment</code> API\n         returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetInsightsRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.auditmanager#GetInsightsResponse": {
       "type": "structure",
@@ -4891,6 +6032,9 @@
             "smithy.api#documentation": "<p>The analytics data that the <code>GetInsights</code> API returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetOrganizationAdminAccount": {
@@ -4926,7 +6070,10 @@
     },
     "com.amazonaws.auditmanager#GetOrganizationAdminAccountRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.auditmanager#GetOrganizationAdminAccountResponse": {
       "type": "structure",
@@ -4943,6 +6090,9 @@
             "smithy.api#documentation": "<p> The identifier for the organization. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetServicesInScope": {
@@ -4965,7 +6115,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Returns a list of the in-scope Amazon Web Services for the specified\n         assessment. </p>",
+        "smithy.api#documentation": "<p>Returns a list of all of the Amazon Web Services that you can choose to include\n         in your assessment. When you <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html\">create an assessment</a>, specify which of these services you want to include to\n         narrow the assessment's <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html\">scope</a>.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/services",
@@ -4975,7 +6125,10 @@
     },
     "com.amazonaws.auditmanager#GetServicesInScopeRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.auditmanager#GetServicesInScopeResponse": {
       "type": "structure",
@@ -4986,6 +6139,9 @@
             "smithy.api#documentation": "<p> The metadata that's associated with the Amazon Web Service. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#GetSettings": {
@@ -5019,11 +6175,14 @@
         "attribute": {
           "target": "com.amazonaws.auditmanager#SettingAttribute",
           "traits": {
-            "smithy.api#documentation": "<p> The list of <code>SettingAttribute</code> enum values. </p>",
+            "smithy.api#documentation": "<p> The list of setting attribute enum values. </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#GetSettingsResponse": {
@@ -5035,6 +6194,9 @@
             "smithy.api#documentation": "<p> The settings object that holds all supported Audit Manager settings. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#HyperlinkName": {
@@ -5152,7 +6314,10 @@
       }
     },
     "com.amazonaws.auditmanager#Integer": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.auditmanager#InternalServerException": {
       "type": "structure",
@@ -5171,14 +6336,14 @@
       }
     },
     "com.amazonaws.auditmanager#KeywordInputType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SELECT_FROM_LIST",
-            "name": "SELECT_FROM_LIST"
+      "type": "enum",
+      "members": {
+        "SELECT_FROM_LIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SELECT_FROM_LIST"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.auditmanager#KeywordValue": {
@@ -5286,6 +6451,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListAssessmentControlInsightsByControlDomainResponse": {
@@ -5303,6 +6471,9 @@
             "smithy.api#documentation": "<p>The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListAssessmentFrameworkShareRequests": {
@@ -5363,6 +6534,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListAssessmentFrameworkShareRequestsResponse": {
@@ -5380,6 +6554,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListAssessmentFrameworks": {
@@ -5402,7 +6579,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Returns a list of the frameworks that are available in the Audit Manager\n         framework library. </p>",
+        "smithy.api#documentation": "<p> Returns a list of the frameworks that are available in the Audit Manager framework\n         library. </p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/assessmentFrameworks",
@@ -5440,6 +6617,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListAssessmentFrameworksResponse": {
@@ -5457,6 +6637,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListAssessmentMetadata": {
@@ -5515,6 +6698,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListAssessmentReportsResponse": {
@@ -5532,6 +6718,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListAssessments": {
@@ -5591,6 +6780,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListAssessmentsResponse": {
@@ -5608,6 +6800,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListControlDomainInsights": {
@@ -5707,6 +6902,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListControlDomainInsightsByAssessmentResponse": {
@@ -5724,6 +6922,9 @@
             "smithy.api#documentation": "<p>The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListControlDomainInsightsRequest": {
@@ -5743,6 +6944,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListControlDomainInsightsResponse": {
@@ -5760,6 +6964,9 @@
             "smithy.api#documentation": "<p>The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListControlInsightsByControlDomain": {
@@ -5823,6 +7030,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListControlInsightsByControlDomainResponse": {
@@ -5840,6 +7050,9 @@
             "smithy.api#documentation": "<p>The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListControls": {
@@ -5900,6 +7113,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListControlsResponse": {
@@ -5917,6 +7133,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListKeywordsForDataSource": {
@@ -5977,6 +7196,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListKeywordsForDataSourceResponse": {
@@ -5994,6 +7216,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListNotifications": {
@@ -6046,6 +7271,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListNotificationsResponse": {
@@ -6063,6 +7291,9 @@
             "smithy.api#documentation": "<p> The pagination token that's used to fetch the next set of results. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ListTagsForResource": {
@@ -6104,6 +7335,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ListTagsForResourceResponse": {
@@ -6115,6 +7349,9 @@
             "smithy.api#documentation": "<p> The list of tags that the <code>ListTagsForResource</code> API returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ManualEvidence": {
@@ -6146,7 +7383,6 @@
     "com.amazonaws.auditmanager#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "Max results in the page.",
         "smithy.api#range": {
           "min": 1,
@@ -6227,36 +7463,51 @@
       }
     },
     "com.amazonaws.auditmanager#NullableInteger": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.auditmanager#ObjectTypeEnum": {
+      "type": "enum",
+      "members": {
+        "ASSESSMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSESSMENT"
+          }
+        },
+        "CONTROL_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTROL_SET"
+          }
+        },
+        "CONTROL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTROL"
+          }
+        },
+        "DELEGATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELEGATION"
+          }
+        },
+        "ASSESSMENT_REPORT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSESSMENT_REPORT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.auditmanager#QueryStatement": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASSESSMENT",
-            "name": "ASSESSMENT"
-          },
-          {
-            "value": "CONTROL_SET",
-            "name": "CONTROL_SET"
-          },
-          {
-            "value": "CONTROL",
-            "name": "CONTROL"
-          },
-          {
-            "value": "DELEGATION",
-            "name": "DELEGATION"
-          },
-          {
-            "value": "ASSESSMENT_REPORT",
-            "name": "ASSESSMENT_REPORT"
-          }
-        ]
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10000
+        },
+        "smithy.api#pattern": "^(?s)"
       }
     },
     "com.amazonaws.auditmanager#Region": {
@@ -6314,6 +7565,9 @@
             "smithy.api#documentation": "<p> The delegated administrator account for Audit Manager. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#RegisterAccountResponse": {
@@ -6325,6 +7579,9 @@
             "smithy.api#documentation": "<p> The status of the account registration request. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#RegisterOrganizationAdminAccount": {
@@ -6368,6 +7625,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#RegisterOrganizationAdminAccountResponse": {
@@ -6385,6 +7645,9 @@
             "smithy.api#documentation": "<p> The identifier for the organization. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#Resource": {
@@ -6400,6 +7663,12 @@
           "target": "com.amazonaws.auditmanager#String",
           "traits": {
             "smithy.api#documentation": "<p> The value of the resource. </p>"
+          }
+        },
+        "complianceCheck": {
+          "target": "com.amazonaws.auditmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p> The evaluation status for a resource that was assessed when collecting compliance check\n         evidence. </p>\n         <ul>\n            <li>\n               <p>Audit Manager classes the resource as non-compliant if Security Hub reports a\n                  <i>Fail</i> result, or if Config reports a\n                  <i>Non-compliant</i> result.</p>\n            </li>\n            <li>\n               <p>Audit Manager classes the resource as compliant if Security Hub reports a\n                  <i>Pass</i> result, or if Config reports a\n                  <i>Compliant</i> result.</p>\n            </li>\n            <li>\n               <p>If a compliance check isn't available or applicable, then no compliance evaluation can be made\n               for that resource. This is the case if a resource assessment uses Config or Security Hub as the underlying data source type, but those services\n               aren't enabled. This is also the case if the resource assessment uses an underlying\n               data source type that doesn't support compliance checks (such as manual evidence,\n                  Amazon Web Services API calls, or CloudTrail). </p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -6462,22 +7731,24 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> The wrapper that contains the Audit Manager role information of the current\n         user. This includes the role type and IAM Amazon Resource Name (ARN).\n      </p>"
+        "smithy.api#documentation": "<p> The wrapper that contains the Audit Manager role information of the current user.\n         This includes the role type and IAM Amazon Resource Name (ARN). </p>"
       }
     },
     "com.amazonaws.auditmanager#RoleType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROCESS_OWNER",
-            "name": "PROCESS_OWNER"
-          },
-          {
-            "value": "RESOURCE_OWNER",
-            "name": "RESOURCE_OWNER"
+      "type": "enum",
+      "members": {
+        "PROCESS_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROCESS_OWNER"
           }
-        ]
+        },
+        "RESOURCE_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESOURCE_OWNER"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#Roles": {
@@ -6581,30 +7852,50 @@
       }
     },
     "com.amazonaws.auditmanager#SettingAttribute": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ALL",
-            "name": "ALL"
-          },
-          {
-            "value": "IS_AWS_ORG_ENABLED",
-            "name": "IS_AWS_ORG_ENABLED"
-          },
-          {
-            "value": "SNS_TOPIC",
-            "name": "SNS_TOPIC"
-          },
-          {
-            "value": "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
-            "name": "DEFAULT_ASSESSMENT_REPORTS_DESTINATION"
-          },
-          {
-            "value": "DEFAULT_PROCESS_OWNERS",
-            "name": "DEFAULT_PROCESS_OWNERS"
+      "type": "enum",
+      "members": {
+        "ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL"
           }
-        ]
+        },
+        "IS_AWS_ORG_ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IS_AWS_ORG_ENABLED"
+          }
+        },
+        "SNS_TOPIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SNS_TOPIC"
+          }
+        },
+        "DEFAULT_ASSESSMENT_REPORTS_DESTINATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_ASSESSMENT_REPORTS_DESTINATION"
+          }
+        },
+        "DEFAULT_PROCESS_OWNERS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_PROCESS_OWNERS"
+          }
+        },
+        "EVIDENCE_FINDER_ENABLEMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EVIDENCE_FINDER_ENABLEMENT"
+          }
+        },
+        "DEREGISTRATION_POLICY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEREGISTRATION_POLICY"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#Settings": {
@@ -6639,6 +7930,18 @@
           "traits": {
             "smithy.api#documentation": "<p> The KMS key details. </p>"
           }
+        },
+        "evidenceFinderEnablement": {
+          "target": "com.amazonaws.auditmanager#EvidenceFinderEnablement",
+          "traits": {
+            "smithy.api#documentation": "<p>The current evidence finder status and event data store details.</p>"
+          }
+        },
+        "deregistrationPolicy": {
+          "target": "com.amazonaws.auditmanager#DeregistrationPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>The deregistration policy for your Audit Manager data. You can\n      use this attribute to determine how your data is handled when you deregister Audit Manager.</p>"
+          }
         }
       },
       "traits": {
@@ -6646,22 +7949,26 @@
       }
     },
     "com.amazonaws.auditmanager#ShareRequestAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACCEPT",
-            "name": "ACCEPT"
-          },
-          {
-            "value": "DECLINE",
-            "name": "DECLINE"
-          },
-          {
-            "value": "REVOKE",
-            "name": "REVOKE"
+      "type": "enum",
+      "members": {
+        "ACCEPT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCEPT"
           }
-        ]
+        },
+        "DECLINE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DECLINE"
+          }
+        },
+        "REVOKE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVOKE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ShareRequestComment": {
@@ -6675,57 +7982,73 @@
       }
     },
     "com.amazonaws.auditmanager#ShareRequestStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "REPLICATING",
-            "name": "REPLICATING"
-          },
-          {
-            "value": "SHARED",
-            "name": "SHARED"
-          },
-          {
-            "value": "EXPIRING",
-            "name": "EXPIRING"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "EXPIRED",
-            "name": "EXPIRED"
-          },
-          {
-            "value": "DECLINED",
-            "name": "DECLINED"
-          },
-          {
-            "value": "REVOKED",
-            "name": "REVOKED"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "REPLICATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REPLICATING"
+          }
+        },
+        "SHARED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHARED"
+          }
+        },
+        "EXPIRING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPIRING"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "EXPIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPIRED"
+          }
+        },
+        "DECLINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DECLINED"
+          }
+        },
+        "REVOKED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVOKED"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ShareRequestType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SENT",
-            "name": "SENT"
-          },
-          {
-            "value": "RECEIVED",
-            "name": "RECEIVED"
+      "type": "enum",
+      "members": {
+        "SENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SENT"
           }
-        ]
+        },
+        "RECEIVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RECEIVED"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#SnsArn": {
@@ -6749,22 +8072,26 @@
       }
     },
     "com.amazonaws.auditmanager#SourceFrequency": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DAILY",
-            "name": "DAILY"
-          },
-          {
-            "value": "WEEKLY",
-            "name": "WEEKLY"
-          },
-          {
-            "value": "MONTHLY",
-            "name": "MONTHLY"
+      "type": "enum",
+      "members": {
+        "DAILY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAILY"
           }
-        ]
+        },
+        "WEEKLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WEEKLY"
+          }
+        },
+        "MONTHLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MONTHLY"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#SourceKeyword": {
@@ -6779,7 +8106,7 @@
         "keywordValue": {
           "target": "com.amazonaws.auditmanager#KeywordValue",
           "traits": {
-            "smithy.api#documentation": "<p> The value of the keyword that's used when mapping a control data source. For example,\n         this can be a CloudTrail event name, a rule name for Config, a\n            Security Hub control, or the name of an Amazon Web Services API call. </p>\n         <p>If you’re mapping a data source to a rule in Config, the\n            <code>keywordValue</code> that you specify depends on the type of rule:</p>\n         <ul>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html\">managed rules</a>, you can use the rule identifier as the\n                  <code>keywordValue</code>. You can find the rule identifier from the <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html\">list of Config managed rules</a>.</p>\n               <ul>\n                  <li>\n                     <p>Managed rule name: <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html\">s3-bucket-acl-prohibited</a>\n                     </p>\n                     <p>\n                        <code>keywordValue</code>: <code>S3_BUCKET_ACL_PROHIBITED</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html\">custom rules</a>, you form the <code>keywordValue</code>\n               by adding the <code>Custom_</code> prefix to the rule name. This prefix distinguishes\n               the rule from a managed rule.</p>\n               <ul>\n                  <li>\n                     <p>Custom rule name: my-custom-config-rule</p>\n                     <p>\n                        <code>keywordValue</code>: <code>Custom_my-custom-config-rule</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/service-linked-awsconfig-rules.html\">service-linked rules</a>, you form the\n                  <code>keywordValue</code> by adding the <code>Custom_</code> prefix to the rule\n               name. In addition, you remove the suffix ID that appears at the end of the rule\n               name.</p>\n               <ul>\n                  <li>\n                     <p>Service-linked rule name:\n                     CustomRuleForAccount-conformance-pack-szsm1uv0w</p>\n                     <p>\n                        <code>keywordValue</code>:\n                        <code>Custom_CustomRuleForAccount-conformance-pack</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Service-linked rule name: securityhub-api-gw-cache-encrypted-101104e1</p>\n                     <p>\n                        <code>keywordValue</code>:\n                        <code>Custom_securityhub-api-gw-cache-encrypted</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Service-linked rule name:\n                     OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba</p>\n                     <p>\n                        <code>keywordValue</code>:\n                        <code>Custom_OrgConfigRule-s3-bucket-versioning-enabled</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p> The value of the keyword that's used when mapping a control data source. For example,\n         this can be a CloudTrail event name, a rule name for Config, a\n            Security Hub control, or the name of an Amazon Web Services API call. </p>\n         <p>If you’re mapping a data source to a rule in Config, the\n            <code>keywordValue</code> that you specify depends on the type of rule:</p>\n         <ul>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html\">managed rules</a>, you can use the rule identifier as the\n                  <code>keywordValue</code>. You can find the rule identifier from the <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html\">list of Config managed rules</a>.</p>\n               <ul>\n                  <li>\n                     <p>Managed rule name: <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html\">s3-bucket-acl-prohibited</a>\n                     </p>\n                     <p>\n                        <code>keywordValue</code>: <code>S3_BUCKET_ACL_PROHIBITED</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html\">custom rules</a>, you form the <code>keywordValue</code>\n               by adding the <code>Custom_</code> prefix to the rule name. This prefix distinguishes\n               the rule from a managed rule.</p>\n               <ul>\n                  <li>\n                     <p>Custom rule name: my-custom-config-rule</p>\n                     <p>\n                        <code>keywordValue</code>: <code>Custom_my-custom-config-rule</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/service-linked-awsconfig-rules.html\">service-linked rules</a>, you form the\n                  <code>keywordValue</code> by adding the <code>Custom_</code> prefix to the rule\n               name. In addition, you remove the suffix ID that appears at the end of the rule\n               name.</p>\n               <ul>\n                  <li>\n                     <p>Service-linked rule name:\n                     CustomRuleForAccount-conformance-pack-szsm1uv0w</p>\n                     <p>\n                        <code>keywordValue</code>:\n                        <code>Custom_CustomRuleForAccount-conformance-pack</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Service-linked rule name:\n                     OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba</p>\n                     <p>\n                        <code>keywordValue</code>:\n                        <code>Custom_OrgConfigRule-s3-bucket-versioning-enabled</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n         </ul>"
           }
         }
       },
@@ -6797,45 +8124,55 @@
       }
     },
     "com.amazonaws.auditmanager#SourceSetUpOption": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "System_Controls_Mapping",
-            "name": "SYSTEM_CONTROLS_MAPPING"
-          },
-          {
-            "value": "Procedural_Controls_Mapping",
-            "name": "PROCEDURAL_CONTROLS_MAPPING"
+      "type": "enum",
+      "members": {
+        "SYSTEM_CONTROLS_MAPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "System_Controls_Mapping"
           }
-        ]
+        },
+        "PROCEDURAL_CONTROLS_MAPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Procedural_Controls_Mapping"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#SourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AWS_Cloudtrail",
-            "name": "AWS_CLOUDTRAIL"
-          },
-          {
-            "value": "AWS_Config",
-            "name": "AWS_CONFIG"
-          },
-          {
-            "value": "AWS_Security_Hub",
-            "name": "AWS_SECURITY_HUB"
-          },
-          {
-            "value": "AWS_API_Call",
-            "name": "AWS_API_CALL"
-          },
-          {
-            "value": "MANUAL",
-            "name": "MANUAL"
+      "type": "enum",
+      "members": {
+        "AWS_CLOUDTRAIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_Cloudtrail"
           }
-        ]
+        },
+        "AWS_CONFIG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_Config"
+          }
+        },
+        "AWS_SECURITY_HUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_Security_Hub"
+          }
+        },
+        "AWS_API_CALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_API_Call"
+          }
+        },
+        "MANUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MANUAL"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#StartAssessmentFrameworkShare": {
@@ -6900,6 +8237,9 @@
             "smithy.api#documentation": "<p> An optional comment from the sender about the share request. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#StartAssessmentFrameworkShareResponse": {
@@ -6911,6 +8251,9 @@
             "smithy.api#documentation": "<p> The share request that's created by the <code>StartAssessmentFrameworkShare</code> API.\n      </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#String": {
@@ -7006,11 +8349,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#TagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.auditmanager#TagValue": {
       "type": "string",
@@ -7158,11 +8507,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#UntagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.auditmanager#UpdateAssessment": {
       "type": "operation",
@@ -7265,6 +8620,9 @@
             "smithy.api#documentation": "<p> The comment body text for the control. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentControlResponse": {
@@ -7276,6 +8634,9 @@
             "smithy.api#documentation": "<p> The name of the updated control set that the <code>UpdateAssessmentControl</code> API\n         returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentControlSetStatus": {
@@ -7342,6 +8703,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentControlSetStatusResponse": {
@@ -7353,6 +8717,9 @@
             "smithy.api#documentation": "<p> The name of the updated control set that the\n            <code>UpdateAssessmentControlSetStatus</code> API returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentFramework": {
@@ -7462,6 +8829,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentFrameworkResponse": {
@@ -7473,6 +8843,9 @@
             "smithy.api#documentation": "<p> The name of the framework. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentFrameworkShare": {
@@ -7492,6 +8865,9 @@
         },
         {
           "target": "com.amazonaws.auditmanager#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.auditmanager#ServiceQuotaExceededException"
         },
         {
           "target": "com.amazonaws.auditmanager#ValidationException"
@@ -7531,6 +8907,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentFrameworkShareResponse": {
@@ -7542,6 +8921,9 @@
             "smithy.api#documentation": "<p> The updated share request that's returned by the\n            <code>UpdateAssessmentFrameworkShare</code> operation. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentRequest": {
@@ -7586,6 +8968,9 @@
             "smithy.api#documentation": "<p> The list of roles for the assessment. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentResponse": {
@@ -7594,9 +8979,12 @@
         "assessment": {
           "target": "com.amazonaws.auditmanager#Assessment",
           "traits": {
-            "smithy.api#documentation": "<p> The response object for the <code>UpdateAssessmentRequest</code> API. This is the name\n         of the updated assessment.</p>"
+            "smithy.api#documentation": "<p> The response object for the <code>UpdateAssessment</code> API. This is the name of the\n         updated assessment.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentStatus": {
@@ -7651,6 +9039,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateAssessmentStatusResponse": {
@@ -7662,6 +9053,9 @@
             "smithy.api#documentation": "<p> The name of the updated assessment that the <code>UpdateAssessmentStatus</code> API\n         returned. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateControl": {
@@ -7744,6 +9138,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateControlResponse": {
@@ -7755,6 +9152,9 @@
             "smithy.api#documentation": "<p> The name of the updated control set that the <code>UpdateControl</code> API returned.\n      </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateSettings": {
@@ -7777,7 +9177,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Updates Audit Manager settings for the current user account. </p>",
+        "smithy.api#documentation": "<p> Updates Audit Manager settings for the current account. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/settings",
@@ -7811,7 +9211,22 @@
           "traits": {
             "smithy.api#documentation": "<p> The KMS key details. </p>"
           }
+        },
+        "evidenceFinderEnabled": {
+          "target": "com.amazonaws.auditmanager#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the evidence finder feature is enabled. Change this attribute to\n         enable or disable evidence finder.</p>\n         <important>\n            <p>When you use this attribute to disable evidence finder, Audit Manager deletes the\n            event data store that’s used to query your evidence data. As a result, you can’t\n            re-enable evidence finder and use the feature again. Your only alternative is to <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html\">deregister</a> and then <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html\">re-register</a>\n            Audit Manager. </p>\n         </important>"
+          }
+        },
+        "deregistrationPolicy": {
+          "target": "com.amazonaws.auditmanager#DeregistrationPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>The deregistration policy for your Audit Manager data. You can\n         use this attribute to determine how your data is handled when you deregister Audit Manager.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#UpdateSettingsResponse": {
@@ -7823,6 +9238,9 @@
             "smithy.api#documentation": "<p> The current list of settings. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#UrlLink": {
@@ -7886,6 +9304,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.auditmanager#ValidateAssessmentReportIntegrityResponse": {
@@ -7921,6 +9342,9 @@
             "smithy.api#documentation": "<p> Represents any errors that occurred when validating the assessment report. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.auditmanager#ValidationErrors": {
@@ -7986,26 +9410,32 @@
       }
     },
     "com.amazonaws.auditmanager#ValidationExceptionReason": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "unknownOperation",
-            "name": "UNKNOWN_OPERATION"
-          },
-          {
-            "value": "cannotParse",
-            "name": "CANNOT_PARSE"
-          },
-          {
-            "value": "fieldValidationFailed",
-            "name": "FIELD_VALIDATION_FAILED"
-          },
-          {
-            "value": "other",
-            "name": "OTHER"
+      "type": "enum",
+      "members": {
+        "UNKNOWN_OPERATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknownOperation"
           }
-        ]
+        },
+        "CANNOT_PARSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cannotParse"
+          }
+        },
+        "FIELD_VALIDATION_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fieldValidationFailed"
+          }
+        },
+        "OTHER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "other"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#organizationId": {

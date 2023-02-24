@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -39,7 +40,6 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  *       analysis, first check that the status value published to the Amazon SNS topic is
  *         <code>SUCCEEDED</code>. If so, call <code>GetCelebrityDetection</code> and pass the job
  *       identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityDetection</code>. </p>
- *
  *          <p>For more information, see Working With Stored Videos in the Amazon Rekognition Developer Guide.</p>
  *          <p>
  *             <code>GetCelebrityRecognition</code> returns detected celebrities and the time(s) they
@@ -91,6 +91,15 @@ export class GetCelebrityRecognitionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetCelebrityRecognitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,6 +115,9 @@ export class GetCelebrityRecognitionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetCelebrityRecognitionCommandInput, GetCelebrityRecognitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetCelebrityRecognitionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

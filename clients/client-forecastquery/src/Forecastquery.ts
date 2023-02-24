@@ -6,6 +6,11 @@ import {
   QueryForecastCommandInput,
   QueryForecastCommandOutput,
 } from "./commands/QueryForecastCommand";
+import {
+  QueryWhatIfForecastCommand,
+  QueryWhatIfForecastCommandInput,
+  QueryWhatIfForecastCommandOutput,
+} from "./commands/QueryWhatIfForecastCommand";
 import { ForecastqueryClient } from "./ForecastqueryClient";
 
 /**
@@ -45,6 +50,38 @@ export class Forecastquery extends ForecastqueryClient {
     cb?: (err: any, data?: QueryForecastCommandOutput) => void
   ): Promise<QueryForecastCommandOutput> | void {
     const command = new QueryForecastCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a what-if forecast.</p>
+   */
+  public queryWhatIfForecast(
+    args: QueryWhatIfForecastCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryWhatIfForecastCommandOutput>;
+  public queryWhatIfForecast(
+    args: QueryWhatIfForecastCommandInput,
+    cb: (err: any, data?: QueryWhatIfForecastCommandOutput) => void
+  ): void;
+  public queryWhatIfForecast(
+    args: QueryWhatIfForecastCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: QueryWhatIfForecastCommandOutput) => void
+  ): void;
+  public queryWhatIfForecast(
+    args: QueryWhatIfForecastCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryWhatIfForecastCommandOutput) => void),
+    cb?: (err: any, data?: QueryWhatIfForecastCommandOutput) => void
+  ): Promise<QueryWhatIfForecastCommandOutput> | void {
+    const command = new QueryWhatIfForecastCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

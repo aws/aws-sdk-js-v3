@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyIdentityIdFormatRequest, ModifyIdentityIdFormatRequestFilterSensitiveLog } from "../models/models_5";
+import { ModifyIdentityIdFormatRequest, ModifyIdentityIdFormatRequestFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyIdentityIdFormatCommand,
   serializeAws_ec2ModifyIdentityIdFormatCommand,
@@ -38,7 +39,7 @@ export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
  *                 <code>security-group</code> | <code>subnet</code> |
  *                 <code>subnet-cidr-block-association</code> | <code>vpc</code> |
  *         <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
  *          <p>This setting applies to the principal specified in the request; it does not apply to the
  *       principal that makes the request. </p>
@@ -68,6 +69,15 @@ export class ModifyIdentityIdFormatCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyIdentityIdFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +93,9 @@ export class ModifyIdentityIdFormatCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyIdentityIdFormatCommandInput, ModifyIdentityIdFormatCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyIdentityIdFormatCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

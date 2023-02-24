@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,11 @@ export interface BatchGetPreparedStatementCommandInput extends BatchGetPreparedS
 export interface BatchGetPreparedStatementCommandOutput extends BatchGetPreparedStatementOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the details of a single prepared statement or a list of up to 256 prepared statements for the array of prepared statement names that you provide. Requires you to have access to the workgroup to which the prepared statements belong. If a prepared statement cannot be retrieved for the name specified, the statement is listed in <code>UnprocessedPreparedStatementNames</code>.</p>
+ * <p>Returns the details of a single prepared statement or a list of up to 256 prepared
+ *             statements for the array of prepared statement names that you provide. Requires you to
+ *             have access to the workgroup to which the prepared statements belong. If a prepared
+ *             statement cannot be retrieved for the name specified, the statement is listed in
+ *                 <code>UnprocessedPreparedStatementNames</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +57,15 @@ export class BatchGetPreparedStatementCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchGetPreparedStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +81,9 @@ export class BatchGetPreparedStatementCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchGetPreparedStatementCommandInput, BatchGetPreparedStatementCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchGetPreparedStatementCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -14,7 +14,7 @@ import {
   limitedParseFloat32 as __limitedParseFloat32,
   map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -185,6 +185,10 @@ import {
   GetPositionConfigurationCommandOutput,
 } from "../commands/GetPositionConfigurationCommand";
 import {
+  GetPositionEstimateCommandInput,
+  GetPositionEstimateCommandOutput,
+} from "../commands/GetPositionEstimateCommand";
+import {
   GetResourceEventConfigurationCommandInput,
   GetResourceEventConfigurationCommandOutput,
 } from "../commands/GetResourceEventConfigurationCommand";
@@ -192,6 +196,10 @@ import {
   GetResourceLogLevelCommandInput,
   GetResourceLogLevelCommandOutput,
 } from "../commands/GetResourceLogLevelCommand";
+import {
+  GetResourcePositionCommandInput,
+  GetResourcePositionCommandOutput,
+} from "../commands/GetResourcePositionCommand";
 import { GetServiceEndpointCommandInput, GetServiceEndpointCommandOutput } from "../commands/GetServiceEndpointCommand";
 import { GetServiceProfileCommandInput, GetServiceProfileCommandOutput } from "../commands/GetServiceProfileCommand";
 import { GetWirelessDeviceCommandInput, GetWirelessDeviceCommandOutput } from "../commands/GetWirelessDeviceCommand";
@@ -336,6 +344,10 @@ import {
   UpdateResourceEventConfigurationCommandOutput,
 } from "../commands/UpdateResourceEventConfigurationCommand";
 import {
+  UpdateResourcePositionCommandInput,
+  UpdateResourcePositionCommandOutput,
+} from "../commands/UpdateResourcePositionCommand";
+import {
   UpdateWirelessDeviceCommandInput,
   UpdateWirelessDeviceCommandOutput,
 } from "../commands/UpdateWirelessDeviceCommand";
@@ -349,6 +361,12 @@ import {
   AbpV1_1,
   AccessDeniedException,
   Accuracy,
+  ApplicationConfig,
+  Beaconing,
+  CdmaLocalId,
+  CdmaNmrObj,
+  CdmaObj,
+  CellTowers,
   CertificateList,
   ConflictException,
   ConnectionStatusEventConfiguration,
@@ -362,7 +380,14 @@ import {
   EventNotificationItemConfigurations,
   FPorts,
   FuotaTask,
+  GatewayListItem,
+  GlobalIdentity,
+  Gnss,
+  GsmLocalId,
+  GsmNmrObj,
+  GsmObj,
   InternalServerException,
+  Ip,
   JoinEventConfiguration,
   JoinResourceTypeEventConfiguration,
   LoRaWANConnectionStatusEventNotificationConfigurations,
@@ -386,9 +411,11 @@ import {
   LoRaWANMulticastSession,
   LoRaWANSendDataToDevice,
   LoRaWANServiceProfile,
-  LoRaWANStartFuotaTask,
   LoRaWANUpdateGatewayTaskCreate,
   LoRaWANUpdateGatewayTaskEntry,
+  LteLocalId,
+  LteNmrObj,
+  LteObj,
   MessageDeliveryStatusEventConfiguration,
   MessageDeliveryStatusResourceTypeEventConfiguration,
   MulticastGroup,
@@ -397,6 +424,7 @@ import {
   NetworkAnalyzerConfigurations,
   OtaaV1_0_x,
   OtaaV1_1,
+  ParticipatingGateways,
   PositionConfigurationItem,
   Positioning,
   PositionSolverConfigurations,
@@ -416,28 +444,36 @@ import {
   SidewalkEventNotificationConfigurations,
   SidewalkListDevice,
   SidewalkResourceTypeEventConfiguration,
-  SidewalkSendDataToDevice,
   Tag,
+  TdscdmaLocalId,
+  TdscdmaNmrObj,
+  TdscdmaObj,
   ThrottlingException,
-  TooManyTagsException,
   TraceContent,
   UpdateWirelessGatewayTaskCreate,
   UpdateWirelessGatewayTaskEntry,
   ValidationException,
+  WcdmaLocalId,
+  WcdmaNmrObj,
+  WcdmaObj,
+  WiFiAccessPoint,
   WirelessDeviceEventLogOption,
   WirelessDeviceLogOption,
   WirelessDeviceStatistics,
   WirelessGatewayEventLogOption,
   WirelessGatewayLogOption,
   WirelessGatewayStatistics,
-  WirelessMetadata,
 } from "../models/models_0";
 import {
+  LoRaWANStartFuotaTask,
   LoRaWANUpdateDevice,
+  SidewalkSendDataToDevice,
   SidewalkUpdateAccount,
+  TooManyTagsException,
   UpdateAbpV1_0_x,
   UpdateAbpV1_1,
   UpdateFPorts,
+  WirelessMetadata,
 } from "../models/models_1";
 
 export const serializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand = async (
@@ -715,8 +751,11 @@ export const serializeAws_restJson1CreateFuotaTaskCommand = async (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.FirmwareUpdateImage != null && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
     ...(input.FirmwareUpdateRole != null && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
+    ...(input.FragmentIntervalMS != null && { FragmentIntervalMS: input.FragmentIntervalMS }),
+    ...(input.FragmentSizeBytes != null && { FragmentSizeBytes: input.FragmentSizeBytes }),
     ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANFuotaTask(input.LoRaWAN, context) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.RedundancyPercent != null && { RedundancyPercent: input.RedundancyPercent }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -838,6 +877,7 @@ export const serializeAws_restJson1CreateWirelessDeviceCommand = async (
     ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
     ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANDevice(input.LoRaWAN, context) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.Positioning != null && { Positioning: input.Positioning }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
     ...(input.Type != null && { Type: input.Type }),
   });
@@ -1058,7 +1098,7 @@ export const serializeAws_restJson1DeleteQueuedMessagesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/data";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   const query: any = map({
-    messageId: [, input.MessageId!],
+    messageId: [, __expectNonNull(input.MessageId!, `MessageId`)],
     WirelessDeviceType: [, input.WirelessDeviceType!],
   });
   let body: any;
@@ -1193,7 +1233,7 @@ export const serializeAws_restJson1DisassociateAwsAccountFromPartnerAccountComma
     false
   );
   const query: any = map({
-    partnerType: [, input.PartnerType!],
+    partnerType: [, __expectNonNull(input.PartnerType!, `PartnerType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1553,7 +1593,7 @@ export const serializeAws_restJson1GetPartnerAccountCommand = async (
     false
   );
   const query: any = map({
-    partnerType: [, input.PartnerType!],
+    partnerType: [, __expectNonNull(input.PartnerType!, `PartnerType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1585,7 +1625,7 @@ export const serializeAws_restJson1GetPositionCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1618,7 +1658,7 @@ export const serializeAws_restJson1GetPositionConfigurationCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1633,6 +1673,36 @@ export const serializeAws_restJson1GetPositionConfigurationCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetPositionEstimateCommand = async (
+  input: GetPositionEstimateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/position-estimate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.CellTowers != null && { CellTowers: serializeAws_restJson1CellTowers(input.CellTowers, context) }),
+    ...(input.Gnss != null && { Gnss: serializeAws_restJson1Gnss(input.Gnss, context) }),
+    ...(input.Ip != null && { Ip: serializeAws_restJson1Ip(input.Ip, context) }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.WiFiAccessPoints != null && {
+      WiFiAccessPoints: serializeAws_restJson1WiFiAccessPoints(input.WiFiAccessPoints, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetResourceEventConfigurationCommand = async (
   input: GetResourceEventConfigurationCommandInput,
   context: __SerdeContext
@@ -1643,7 +1713,7 @@ export const serializeAws_restJson1GetResourceEventConfigurationCommand = async 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, input.IdentifierType!],
+    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
     partnerType: [, input.PartnerType!],
   });
   let body: any;
@@ -1676,7 +1746,39 @@ export const serializeAws_restJson1GetResourceLogLevelCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetResourcePositionCommand = async (
+  input: GetResourcePositionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-positions/{ResourceIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ResourceIdentifier",
+    () => input.ResourceIdentifier!,
+    "{ResourceIdentifier}",
+    false
+  );
+  const query: any = map({
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1744,7 +1846,7 @@ export const serializeAws_restJson1GetWirelessDeviceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, input.IdentifierType!],
+    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1798,7 +1900,7 @@ export const serializeAws_restJson1GetWirelessGatewayCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, input.IdentifierType!],
+    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1983,7 +2085,7 @@ export const serializeAws_restJson1ListEventConfigurationsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations";
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
   });
@@ -2208,7 +2310,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, input.ResourceArn!],
+    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2323,7 +2425,7 @@ export const serializeAws_restJson1PutPositionConfigurationCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -2363,7 +2465,7 @@ export const serializeAws_restJson1PutResourceLogLevelCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -2420,7 +2522,7 @@ export const serializeAws_restJson1ResetResourceLogLevelCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2609,7 +2711,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, input.ResourceArn!],
+    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -2656,8 +2758,11 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, input.ResourceArn!],
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -2761,8 +2866,11 @@ export const serializeAws_restJson1UpdateFuotaTaskCommand = async (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.FirmwareUpdateImage != null && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
     ...(input.FirmwareUpdateRole != null && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
+    ...(input.FragmentIntervalMS != null && { FragmentIntervalMS: input.FragmentIntervalMS }),
+    ...(input.FragmentSizeBytes != null && { FragmentSizeBytes: input.FragmentSizeBytes }),
     ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANFuotaTask(input.LoRaWAN, context) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.RedundancyPercent != null && { RedundancyPercent: input.RedundancyPercent }),
   });
   return new __HttpRequest({
     protocol,
@@ -2906,7 +3014,7 @@ export const serializeAws_restJson1UpdatePartnerAccountCommand = async (
     false
   );
   const query: any = map({
-    partnerType: [, input.PartnerType!],
+    partnerType: [, __expectNonNull(input.PartnerType!, `PartnerType`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -2943,7 +3051,7 @@ export const serializeAws_restJson1UpdatePositionCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -2973,7 +3081,7 @@ export const serializeAws_restJson1UpdateResourceEventConfigurationCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, input.IdentifierType!],
+    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
     partnerType: [, input.PartnerType!],
   });
   let body: any;
@@ -3010,6 +3118,43 @@ export const serializeAws_restJson1UpdateResourceEventConfigurationCommand = asy
   });
 };
 
+export const serializeAws_restJson1UpdateResourcePositionCommand = async (
+  input: UpdateResourcePositionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/octet-stream",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-positions/{ResourceIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ResourceIdentifier",
+    () => input.ResourceIdentifier!,
+    "{ResourceIdentifier}",
+    false
+  );
+  const query: any = map({
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+  });
+  let body: any;
+  if (input.GeoJsonPayload !== undefined) {
+    body = input.GeoJsonPayload;
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateWirelessDeviceCommand = async (
   input: UpdateWirelessDeviceCommandInput,
   context: __SerdeContext
@@ -3026,6 +3171,7 @@ export const serializeAws_restJson1UpdateWirelessDeviceCommand = async (
     ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
     ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANUpdateDevice(input.LoRaWAN, context) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.Positioning != null && { Positioning: input.Positioning }),
   });
   return new __HttpRequest({
     protocol,
@@ -3096,7 +3242,7 @@ const deserializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommandError 
 ): Promise<AssociateAwsAccountWithPartnerAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3149,7 +3295,7 @@ const deserializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommandError =
 ): Promise<AssociateMulticastGroupWithFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3202,7 +3348,7 @@ const deserializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommandError =
 ): Promise<AssociateWirelessDeviceWithFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3255,7 +3401,7 @@ const deserializeAws_restJson1AssociateWirelessDeviceWithMulticastGroupCommandEr
 ): Promise<AssociateWirelessDeviceWithMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3308,7 +3454,7 @@ const deserializeAws_restJson1AssociateWirelessDeviceWithThingCommandError = asy
 ): Promise<AssociateWirelessDeviceWithThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3364,7 +3510,7 @@ const deserializeAws_restJson1AssociateWirelessGatewayWithCertificateCommandErro
 ): Promise<AssociateWirelessGatewayWithCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3417,7 +3563,7 @@ const deserializeAws_restJson1AssociateWirelessGatewayWithThingCommandError = as
 ): Promise<AssociateWirelessGatewayWithThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3470,7 +3616,7 @@ const deserializeAws_restJson1CancelMulticastGroupSessionCommandError = async (
 ): Promise<CancelMulticastGroupSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3529,7 +3675,7 @@ const deserializeAws_restJson1CreateDestinationCommandError = async (
 ): Promise<CreateDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3588,7 +3734,7 @@ const deserializeAws_restJson1CreateDeviceProfileCommandError = async (
 ): Promise<CreateDeviceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3644,7 +3790,7 @@ const deserializeAws_restJson1CreateFuotaTaskCommandError = async (
 ): Promise<CreateFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3703,7 +3849,7 @@ const deserializeAws_restJson1CreateMulticastGroupCommandError = async (
 ): Promise<CreateMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3762,7 +3908,7 @@ const deserializeAws_restJson1CreateNetworkAnalyzerConfigurationCommandError = a
 ): Promise<CreateNetworkAnalyzerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3821,7 +3967,7 @@ const deserializeAws_restJson1CreateServiceProfileCommandError = async (
 ): Promise<CreateServiceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3877,7 +4023,7 @@ const deserializeAws_restJson1CreateWirelessDeviceCommandError = async (
 ): Promise<CreateWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3936,7 +4082,7 @@ const deserializeAws_restJson1CreateWirelessGatewayCommandError = async (
 ): Promise<CreateWirelessGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3992,7 +4138,7 @@ const deserializeAws_restJson1CreateWirelessGatewayTaskCommandError = async (
 ): Promise<CreateWirelessGatewayTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4051,7 +4197,7 @@ const deserializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommandError = 
 ): Promise<CreateWirelessGatewayTaskDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4104,7 +4250,7 @@ const deserializeAws_restJson1DeleteDestinationCommandError = async (
 ): Promise<DeleteDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4157,7 +4303,7 @@ const deserializeAws_restJson1DeleteDeviceProfileCommandError = async (
 ): Promise<DeleteDeviceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4210,7 +4356,7 @@ const deserializeAws_restJson1DeleteFuotaTaskCommandError = async (
 ): Promise<DeleteFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4260,7 +4406,7 @@ const deserializeAws_restJson1DeleteMulticastGroupCommandError = async (
 ): Promise<DeleteMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4313,7 +4459,7 @@ const deserializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommandError = a
 ): Promise<DeleteNetworkAnalyzerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4366,7 +4512,7 @@ const deserializeAws_restJson1DeleteQueuedMessagesCommandError = async (
 ): Promise<DeleteQueuedMessagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4416,7 +4562,7 @@ const deserializeAws_restJson1DeleteServiceProfileCommandError = async (
 ): Promise<DeleteServiceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4469,7 +4615,7 @@ const deserializeAws_restJson1DeleteWirelessDeviceCommandError = async (
 ): Promise<DeleteWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4519,7 +4665,7 @@ const deserializeAws_restJson1DeleteWirelessGatewayCommandError = async (
 ): Promise<DeleteWirelessGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4569,7 +4715,7 @@ const deserializeAws_restJson1DeleteWirelessGatewayTaskCommandError = async (
 ): Promise<DeleteWirelessGatewayTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4619,7 +4765,7 @@ const deserializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommandError = 
 ): Promise<DeleteWirelessGatewayTaskDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4669,7 +4815,7 @@ const deserializeAws_restJson1DisassociateAwsAccountFromPartnerAccountCommandErr
 ): Promise<DisassociateAwsAccountFromPartnerAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4716,7 +4862,7 @@ const deserializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommandErro
 ): Promise<DisassociateMulticastGroupFromFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4766,7 +4912,7 @@ const deserializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommandErro
 ): Promise<DisassociateWirelessDeviceFromFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4819,7 +4965,7 @@ const deserializeAws_restJson1DisassociateWirelessDeviceFromMulticastGroupComman
 ): Promise<DisassociateWirelessDeviceFromMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4869,7 +5015,7 @@ const deserializeAws_restJson1DisassociateWirelessDeviceFromThingCommandError = 
 ): Promise<DisassociateWirelessDeviceFromThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4922,7 +5068,7 @@ const deserializeAws_restJson1DisassociateWirelessGatewayFromCertificateCommandE
 ): Promise<DisassociateWirelessGatewayFromCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4972,7 +5118,7 @@ const deserializeAws_restJson1DisassociateWirelessGatewayFromThingCommandError =
 ): Promise<DisassociateWirelessGatewayFromThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5043,7 +5189,7 @@ const deserializeAws_restJson1GetDestinationCommandError = async (
 ): Promise<GetDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5105,7 +5251,7 @@ const deserializeAws_restJson1GetDeviceProfileCommandError = async (
 ): Promise<GetDeviceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5179,7 +5325,7 @@ const deserializeAws_restJson1GetEventConfigurationByResourceTypesCommandError =
 ): Promise<GetEventConfigurationByResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5229,6 +5375,12 @@ export const deserializeAws_restJson1GetFuotaTaskCommand = async (
   if (data.FirmwareUpdateRole != null) {
     contents.FirmwareUpdateRole = __expectString(data.FirmwareUpdateRole);
   }
+  if (data.FragmentIntervalMS != null) {
+    contents.FragmentIntervalMS = __expectInt32(data.FragmentIntervalMS);
+  }
+  if (data.FragmentSizeBytes != null) {
+    contents.FragmentSizeBytes = __expectInt32(data.FragmentSizeBytes);
+  }
   if (data.Id != null) {
     contents.Id = __expectString(data.Id);
   }
@@ -5237,6 +5389,9 @@ export const deserializeAws_restJson1GetFuotaTaskCommand = async (
   }
   if (data.Name != null) {
     contents.Name = __expectString(data.Name);
+  }
+  if (data.RedundancyPercent != null) {
+    contents.RedundancyPercent = __expectInt32(data.RedundancyPercent);
   }
   if (data.Status != null) {
     contents.Status = __expectString(data.Status);
@@ -5250,7 +5405,7 @@ const deserializeAws_restJson1GetFuotaTaskCommandError = async (
 ): Promise<GetFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5315,7 +5470,7 @@ const deserializeAws_restJson1GetLogLevelsByResourceTypesCommandError = async (
 ): Promise<GetLogLevelsByResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5386,7 +5541,7 @@ const deserializeAws_restJson1GetMulticastGroupCommandError = async (
 ): Promise<GetMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5439,7 +5594,7 @@ const deserializeAws_restJson1GetMulticastGroupSessionCommandError = async (
 ): Promise<GetMulticastGroupSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5507,7 +5662,7 @@ const deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommandError = asyn
 ): Promise<GetNetworkAnalyzerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5563,7 +5718,7 @@ const deserializeAws_restJson1GetPartnerAccountCommandError = async (
 ): Promise<GetPartnerAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5628,7 +5783,7 @@ const deserializeAws_restJson1GetPositionCommandError = async (
 ): Promise<GetPositionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5684,7 +5839,58 @@ const deserializeAws_restJson1GetPositionConfigurationCommandError = async (
 ): Promise<GetPositionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetPositionEstimateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPositionEstimateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetPositionEstimateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = await collectBody(output.body, context);
+  contents.GeoJsonPayload = data;
+  return contents;
+};
+
+const deserializeAws_restJson1GetPositionEstimateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPositionEstimateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5758,7 +5964,7 @@ const deserializeAws_restJson1GetResourceEventConfigurationCommandError = async 
 ): Promise<GetResourceEventConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5811,7 +6017,58 @@ const deserializeAws_restJson1GetResourceLogLevelCommandError = async (
 ): Promise<GetResourceLogLevelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetResourcePositionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePositionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetResourcePositionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = await collectBody(output.body, context);
+  contents.GeoJsonPayload = data;
+  return contents;
+};
+
+const deserializeAws_restJson1GetResourcePositionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePositionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5870,7 +6127,7 @@ const deserializeAws_restJson1GetServiceEndpointCommandError = async (
 ): Promise<GetServiceEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5929,7 +6186,7 @@ const deserializeAws_restJson1GetServiceProfileCommandError = async (
 ): Promise<GetServiceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5988,6 +6245,9 @@ export const deserializeAws_restJson1GetWirelessDeviceCommand = async (
   if (data.Name != null) {
     contents.Name = __expectString(data.Name);
   }
+  if (data.Positioning != null) {
+    contents.Positioning = __expectString(data.Positioning);
+  }
   if (data.Sidewalk != null) {
     contents.Sidewalk = deserializeAws_restJson1SidewalkDevice(data.Sidewalk, context);
   }
@@ -6009,7 +6269,7 @@ const deserializeAws_restJson1GetWirelessDeviceCommandError = async (
 ): Promise<GetWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6071,7 +6331,7 @@ const deserializeAws_restJson1GetWirelessDeviceStatisticsCommandError = async (
 ): Promise<GetWirelessDeviceStatisticsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6142,7 +6402,7 @@ const deserializeAws_restJson1GetWirelessGatewayCommandError = async (
 ): Promise<GetWirelessGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6198,7 +6458,7 @@ const deserializeAws_restJson1GetWirelessGatewayCertificateCommandError = async 
 ): Promise<GetWirelessGatewayCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6251,7 +6511,7 @@ const deserializeAws_restJson1GetWirelessGatewayFirmwareInformationCommandError 
 ): Promise<GetWirelessGatewayFirmwareInformationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6310,7 +6570,7 @@ const deserializeAws_restJson1GetWirelessGatewayStatisticsCommandError = async (
 ): Promise<GetWirelessGatewayStatisticsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6375,7 +6635,7 @@ const deserializeAws_restJson1GetWirelessGatewayTaskCommandError = async (
 ): Promise<GetWirelessGatewayTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6437,7 +6697,7 @@ const deserializeAws_restJson1GetWirelessGatewayTaskDefinitionCommandError = asy
 ): Promise<GetWirelessGatewayTaskDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6493,7 +6753,7 @@ const deserializeAws_restJson1ListDestinationsCommandError = async (
 ): Promise<ListDestinationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6546,7 +6806,7 @@ const deserializeAws_restJson1ListDeviceProfilesCommandError = async (
 ): Promise<ListDeviceProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6602,7 +6862,7 @@ const deserializeAws_restJson1ListEventConfigurationsCommandError = async (
 ): Promise<ListEventConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6655,7 +6915,7 @@ const deserializeAws_restJson1ListFuotaTasksCommandError = async (
 ): Promise<ListFuotaTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6708,7 +6968,7 @@ const deserializeAws_restJson1ListMulticastGroupsCommandError = async (
 ): Promise<ListMulticastGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6764,7 +7024,7 @@ const deserializeAws_restJson1ListMulticastGroupsByFuotaTaskCommandError = async
 ): Promise<ListMulticastGroupsByFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6823,7 +7083,7 @@ const deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommandError = as
 ): Promise<ListNetworkAnalyzerConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6876,7 +7136,7 @@ const deserializeAws_restJson1ListPartnerAccountsCommandError = async (
 ): Promise<ListPartnerAccountsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6932,7 +7192,7 @@ const deserializeAws_restJson1ListPositionConfigurationsCommandError = async (
 ): Promise<ListPositionConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6988,7 +7248,7 @@ const deserializeAws_restJson1ListQueuedMessagesCommandError = async (
 ): Promise<ListQueuedMessagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7044,7 +7304,7 @@ const deserializeAws_restJson1ListServiceProfilesCommandError = async (
 ): Promise<ListServiceProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7094,7 +7354,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7153,7 +7413,7 @@ const deserializeAws_restJson1ListWirelessDevicesCommandError = async (
 ): Promise<ListWirelessDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7209,7 +7469,7 @@ const deserializeAws_restJson1ListWirelessGatewaysCommandError = async (
 ): Promise<ListWirelessGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7262,7 +7522,7 @@ const deserializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommandError = a
 ): Promise<ListWirelessGatewayTaskDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7309,7 +7569,7 @@ const deserializeAws_restJson1PutPositionConfigurationCommandError = async (
 ): Promise<PutPositionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7359,7 +7619,7 @@ const deserializeAws_restJson1PutResourceLogLevelCommandError = async (
 ): Promise<PutResourceLogLevelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7409,7 +7669,7 @@ const deserializeAws_restJson1ResetAllResourceLogLevelsCommandError = async (
 ): Promise<ResetAllResourceLogLevelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7459,7 +7719,7 @@ const deserializeAws_restJson1ResetResourceLogLevelCommandError = async (
 ): Promise<ResetResourceLogLevelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7512,7 +7772,7 @@ const deserializeAws_restJson1SendDataToMulticastGroupCommandError = async (
 ): Promise<SendDataToMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7568,7 +7828,7 @@ const deserializeAws_restJson1SendDataToWirelessDeviceCommandError = async (
 ): Promise<SendDataToWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7615,7 +7875,7 @@ const deserializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticastGroup
 ): Promise<StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7665,7 +7925,7 @@ const deserializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGr
 ): Promise<StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7715,7 +7975,7 @@ const deserializeAws_restJson1StartFuotaTaskCommandError = async (
 ): Promise<StartFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7768,7 +8028,7 @@ const deserializeAws_restJson1StartMulticastGroupSessionCommandError = async (
 ): Promise<StartMulticastGroupSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7821,7 +8081,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7877,7 +8137,7 @@ const deserializeAws_restJson1TestWirelessDeviceCommandError = async (
 ): Promise<TestWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7924,7 +8184,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7974,7 +8234,7 @@ const deserializeAws_restJson1UpdateDestinationCommandError = async (
 ): Promise<UpdateDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8024,7 +8284,7 @@ const deserializeAws_restJson1UpdateEventConfigurationByResourceTypesCommandErro
 ): Promise<UpdateEventConfigurationByResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8071,7 +8331,7 @@ const deserializeAws_restJson1UpdateFuotaTaskCommandError = async (
 ): Promise<UpdateFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8124,7 +8384,7 @@ const deserializeAws_restJson1UpdateLogLevelsByResourceTypesCommandError = async
 ): Promise<UpdateLogLevelsByResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8177,7 +8437,7 @@ const deserializeAws_restJson1UpdateMulticastGroupCommandError = async (
 ): Promise<UpdateMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8230,7 +8490,7 @@ const deserializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommandError = a
 ): Promise<UpdateNetworkAnalyzerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8280,7 +8540,7 @@ const deserializeAws_restJson1UpdatePartnerAccountCommandError = async (
 ): Promise<UpdatePartnerAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8327,7 +8587,7 @@ const deserializeAws_restJson1UpdatePositionCommandError = async (
 ): Promise<UpdatePositionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8377,7 +8637,7 @@ const deserializeAws_restJson1UpdateResourceEventConfigurationCommandError = asy
 ): Promise<UpdateResourceEventConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8387,6 +8647,56 @@ const deserializeAws_restJson1UpdateResourceEventConfigurationCommandError = asy
     case "ConflictException":
     case "com.amazonaws.iotwireless#ConflictException":
       throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateResourcePositionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourcePositionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateResourcePositionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateResourcePositionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourcePositionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotwireless#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -8430,7 +8740,7 @@ const deserializeAws_restJson1UpdateWirelessDeviceCommandError = async (
 ): Promise<UpdateWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8480,7 +8790,7 @@ const deserializeAws_restJson1UpdateWirelessGatewayCommandError = async (
 ): Promise<UpdateWirelessGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8658,6 +8968,103 @@ const serializeAws_restJson1AbpV1_1 = (input: AbpV1_1, context: __SerdeContext):
   };
 };
 
+const serializeAws_restJson1ApplicationConfig = (input: ApplicationConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
+    ...(input.FPort != null && { FPort: input.FPort }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1Applications = (input: ApplicationConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ApplicationConfig(entry, context);
+    });
+};
+
+const serializeAws_restJson1AssistPosition = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return __serializeFloat(entry);
+    });
+};
+
+const serializeAws_restJson1Beaconing = (input: Beaconing, context: __SerdeContext): any => {
+  return {
+    ...(input.DataRate != null && { DataRate: input.DataRate }),
+    ...(input.Frequencies != null && {
+      Frequencies: serializeAws_restJson1BeaconingFrequencies(input.Frequencies, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1BeaconingFrequencies = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1CdmaList = (input: CdmaObj[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1CdmaObj(entry, context);
+    });
+};
+
+const serializeAws_restJson1CdmaLocalId = (input: CdmaLocalId, context: __SerdeContext): any => {
+  return {
+    ...(input.CdmaChannel != null && { CdmaChannel: input.CdmaChannel }),
+    ...(input.PnOffset != null && { PnOffset: input.PnOffset }),
+  };
+};
+
+const serializeAws_restJson1CdmaNmrList = (input: CdmaNmrObj[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1CdmaNmrObj(entry, context);
+    });
+};
+
+const serializeAws_restJson1CdmaNmrObj = (input: CdmaNmrObj, context: __SerdeContext): any => {
+  return {
+    ...(input.BaseStationId != null && { BaseStationId: input.BaseStationId }),
+    ...(input.CdmaChannel != null && { CdmaChannel: input.CdmaChannel }),
+    ...(input.PilotPower != null && { PilotPower: input.PilotPower }),
+    ...(input.PnOffset != null && { PnOffset: input.PnOffset }),
+  };
+};
+
+const serializeAws_restJson1CdmaObj = (input: CdmaObj, context: __SerdeContext): any => {
+  return {
+    ...(input.BaseLat != null && { BaseLat: __serializeFloat(input.BaseLat) }),
+    ...(input.BaseLng != null && { BaseLng: __serializeFloat(input.BaseLng) }),
+    ...(input.BaseStationId != null && { BaseStationId: input.BaseStationId }),
+    ...(input.CdmaLocalId != null && { CdmaLocalId: serializeAws_restJson1CdmaLocalId(input.CdmaLocalId, context) }),
+    ...(input.CdmaNmr != null && { CdmaNmr: serializeAws_restJson1CdmaNmrList(input.CdmaNmr, context) }),
+    ...(input.NetworkId != null && { NetworkId: input.NetworkId }),
+    ...(input.PilotPower != null && { PilotPower: input.PilotPower }),
+    ...(input.RegistrationZone != null && { RegistrationZone: input.RegistrationZone }),
+    ...(input.SystemId != null && { SystemId: input.SystemId }),
+  };
+};
+
+const serializeAws_restJson1CellTowers = (input: CellTowers, context: __SerdeContext): any => {
+  return {
+    ...(input.Cdma != null && { Cdma: serializeAws_restJson1CdmaList(input.Cdma, context) }),
+    ...(input.Gsm != null && { Gsm: serializeAws_restJson1GsmList(input.Gsm, context) }),
+    ...(input.Lte != null && { Lte: serializeAws_restJson1LteList(input.Lte, context) }),
+    ...(input.Tdscdma != null && { Tdscdma: serializeAws_restJson1TdscdmaList(input.Tdscdma, context) }),
+    ...(input.Wcdma != null && { Wcdma: serializeAws_restJson1WcdmaList(input.Wcdma, context) }),
+  };
+};
+
 const serializeAws_restJson1ConnectionStatusEventConfiguration = (
   input: ConnectionStatusEventConfiguration,
   context: __SerdeContext
@@ -8716,10 +9123,101 @@ const serializeAws_restJson1FactoryPresetFreqsList = (input: number[], context: 
 
 const serializeAws_restJson1FPorts = (input: FPorts, context: __SerdeContext): any => {
   return {
+    ...(input.Applications != null && {
+      Applications: serializeAws_restJson1Applications(input.Applications, context),
+    }),
     ...(input.ClockSync != null && { ClockSync: input.ClockSync }),
     ...(input.Fuota != null && { Fuota: input.Fuota }),
     ...(input.Multicast != null && { Multicast: input.Multicast }),
     ...(input.Positioning != null && { Positioning: serializeAws_restJson1Positioning(input.Positioning, context) }),
+  };
+};
+
+const serializeAws_restJson1GatewayList = (input: GatewayListItem[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1GatewayListItem(entry, context);
+    });
+};
+
+const serializeAws_restJson1GatewayListItem = (input: GatewayListItem, context: __SerdeContext): any => {
+  return {
+    ...(input.DownlinkFrequency != null && { DownlinkFrequency: input.DownlinkFrequency }),
+    ...(input.GatewayId != null && { GatewayId: input.GatewayId }),
+  };
+};
+
+const serializeAws_restJson1GlobalIdentity = (input: GlobalIdentity, context: __SerdeContext): any => {
+  return {
+    ...(input.GeranCid != null && { GeranCid: input.GeranCid }),
+    ...(input.Lac != null && { Lac: input.Lac }),
+  };
+};
+
+const serializeAws_restJson1Gnss = (input: Gnss, context: __SerdeContext): any => {
+  return {
+    ...(input.AssistAltitude != null && { AssistAltitude: __serializeFloat(input.AssistAltitude) }),
+    ...(input.AssistPosition != null && {
+      AssistPosition: serializeAws_restJson1AssistPosition(input.AssistPosition, context),
+    }),
+    ...(input.CaptureTime != null && { CaptureTime: __serializeFloat(input.CaptureTime) }),
+    ...(input.CaptureTimeAccuracy != null && { CaptureTimeAccuracy: __serializeFloat(input.CaptureTimeAccuracy) }),
+    ...(input.Payload != null && { Payload: input.Payload }),
+    ...(input.Use2DSolver != null && { Use2DSolver: input.Use2DSolver }),
+  };
+};
+
+const serializeAws_restJson1GsmList = (input: GsmObj[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1GsmObj(entry, context);
+    });
+};
+
+const serializeAws_restJson1GsmLocalId = (input: GsmLocalId, context: __SerdeContext): any => {
+  return {
+    ...(input.Bcch != null && { Bcch: input.Bcch }),
+    ...(input.Bsic != null && { Bsic: input.Bsic }),
+  };
+};
+
+const serializeAws_restJson1GsmNmrList = (input: GsmNmrObj[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1GsmNmrObj(entry, context);
+    });
+};
+
+const serializeAws_restJson1GsmNmrObj = (input: GsmNmrObj, context: __SerdeContext): any => {
+  return {
+    ...(input.Bcch != null && { Bcch: input.Bcch }),
+    ...(input.Bsic != null && { Bsic: input.Bsic }),
+    ...(input.GlobalIdentity != null && {
+      GlobalIdentity: serializeAws_restJson1GlobalIdentity(input.GlobalIdentity, context),
+    }),
+    ...(input.RxLevel != null && { RxLevel: input.RxLevel }),
+  };
+};
+
+const serializeAws_restJson1GsmObj = (input: GsmObj, context: __SerdeContext): any => {
+  return {
+    ...(input.GeranCid != null && { GeranCid: input.GeranCid }),
+    ...(input.GsmLocalId != null && { GsmLocalId: serializeAws_restJson1GsmLocalId(input.GsmLocalId, context) }),
+    ...(input.GsmNmr != null && { GsmNmr: serializeAws_restJson1GsmNmrList(input.GsmNmr, context) }),
+    ...(input.GsmTimingAdvance != null && { GsmTimingAdvance: input.GsmTimingAdvance }),
+    ...(input.Lac != null && { Lac: input.Lac }),
+    ...(input.Mcc != null && { Mcc: input.Mcc }),
+    ...(input.Mnc != null && { Mnc: input.Mnc }),
+    ...(input.RxLevel != null && { RxLevel: input.RxLevel }),
+  };
+};
+
+const serializeAws_restJson1Ip = (input: Ip, context: __SerdeContext): any => {
+  return {
+    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
   };
 };
 
@@ -8824,6 +9322,7 @@ const serializeAws_restJson1LoRaWANFuotaTask = (input: LoRaWANFuotaTask, context
 
 const serializeAws_restJson1LoRaWANGateway = (input: LoRaWANGateway, context: __SerdeContext): any => {
   return {
+    ...(input.Beaconing != null && { Beaconing: serializeAws_restJson1Beaconing(input.Beaconing, context) }),
     ...(input.GatewayEui != null && { GatewayEui: input.GatewayEui }),
     ...(input.JoinEuiFilters != null && {
       JoinEuiFilters: serializeAws_restJson1JoinEuiFilters(input.JoinEuiFilters, context),
@@ -8898,6 +9397,9 @@ const serializeAws_restJson1LoRaWANSendDataToDevice = (
 ): any => {
   return {
     ...(input.FPort != null && { FPort: input.FPort }),
+    ...(input.ParticipatingGateways != null && {
+      ParticipatingGateways: serializeAws_restJson1ParticipatingGateways(input.ParticipatingGateways, context),
+    }),
   };
 };
 
@@ -8938,6 +9440,54 @@ const serializeAws_restJson1LoRaWANUpdateGatewayTaskCreate = (
     ...(input.UpdateVersion != null && {
       UpdateVersion: serializeAws_restJson1LoRaWANGatewayVersion(input.UpdateVersion, context),
     }),
+  };
+};
+
+const serializeAws_restJson1LteList = (input: LteObj[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1LteObj(entry, context);
+    });
+};
+
+const serializeAws_restJson1LteLocalId = (input: LteLocalId, context: __SerdeContext): any => {
+  return {
+    ...(input.Earfcn != null && { Earfcn: input.Earfcn }),
+    ...(input.Pci != null && { Pci: input.Pci }),
+  };
+};
+
+const serializeAws_restJson1LteNmrList = (input: LteNmrObj[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1LteNmrObj(entry, context);
+    });
+};
+
+const serializeAws_restJson1LteNmrObj = (input: LteNmrObj, context: __SerdeContext): any => {
+  return {
+    ...(input.Earfcn != null && { Earfcn: input.Earfcn }),
+    ...(input.EutranCid != null && { EutranCid: input.EutranCid }),
+    ...(input.Pci != null && { Pci: input.Pci }),
+    ...(input.Rsrp != null && { Rsrp: input.Rsrp }),
+    ...(input.Rsrq != null && { Rsrq: __serializeFloat(input.Rsrq) }),
+  };
+};
+
+const serializeAws_restJson1LteObj = (input: LteObj, context: __SerdeContext): any => {
+  return {
+    ...(input.EutranCid != null && { EutranCid: input.EutranCid }),
+    ...(input.LteLocalId != null && { LteLocalId: serializeAws_restJson1LteLocalId(input.LteLocalId, context) }),
+    ...(input.LteNmr != null && { LteNmr: serializeAws_restJson1LteNmrList(input.LteNmr, context) }),
+    ...(input.LteTimingAdvance != null && { LteTimingAdvance: input.LteTimingAdvance }),
+    ...(input.Mcc != null && { Mcc: input.Mcc }),
+    ...(input.Mnc != null && { Mnc: input.Mnc }),
+    ...(input.NrCapable != null && { NrCapable: input.NrCapable }),
+    ...(input.Rsrp != null && { Rsrp: input.Rsrp }),
+    ...(input.Rsrq != null && { Rsrq: __serializeFloat(input.Rsrq) }),
+    ...(input.Tac != null && { Tac: input.Tac }),
   };
 };
 
@@ -8994,6 +9544,14 @@ const serializeAws_restJson1OtaaV1_1 = (input: OtaaV1_1, context: __SerdeContext
     ...(input.AppKey != null && { AppKey: input.AppKey }),
     ...(input.JoinEui != null && { JoinEui: input.JoinEui }),
     ...(input.NwkKey != null && { NwkKey: input.NwkKey }),
+  };
+};
+
+const serializeAws_restJson1ParticipatingGateways = (input: ParticipatingGateways, context: __SerdeContext): any => {
+  return {
+    ...(input.DownlinkMode != null && { DownlinkMode: input.DownlinkMode }),
+    ...(input.GatewayList != null && { GatewayList: serializeAws_restJson1GatewayList(input.GatewayList, context) }),
+    ...(input.TransmissionInterval != null && { TransmissionInterval: input.TransmissionInterval }),
   };
 };
 
@@ -9138,6 +9696,55 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
     });
 };
 
+const serializeAws_restJson1TdscdmaList = (input: TdscdmaObj[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1TdscdmaObj(entry, context);
+    });
+};
+
+const serializeAws_restJson1TdscdmaLocalId = (input: TdscdmaLocalId, context: __SerdeContext): any => {
+  return {
+    ...(input.CellParams != null && { CellParams: input.CellParams }),
+    ...(input.Uarfcn != null && { Uarfcn: input.Uarfcn }),
+  };
+};
+
+const serializeAws_restJson1TdscdmaNmrList = (input: TdscdmaNmrObj[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1TdscdmaNmrObj(entry, context);
+    });
+};
+
+const serializeAws_restJson1TdscdmaNmrObj = (input: TdscdmaNmrObj, context: __SerdeContext): any => {
+  return {
+    ...(input.CellParams != null && { CellParams: input.CellParams }),
+    ...(input.PathLoss != null && { PathLoss: input.PathLoss }),
+    ...(input.Rscp != null && { Rscp: input.Rscp }),
+    ...(input.Uarfcn != null && { Uarfcn: input.Uarfcn }),
+    ...(input.UtranCid != null && { UtranCid: input.UtranCid }),
+  };
+};
+
+const serializeAws_restJson1TdscdmaObj = (input: TdscdmaObj, context: __SerdeContext): any => {
+  return {
+    ...(input.Lac != null && { Lac: input.Lac }),
+    ...(input.Mcc != null && { Mcc: input.Mcc }),
+    ...(input.Mnc != null && { Mnc: input.Mnc }),
+    ...(input.PathLoss != null && { PathLoss: input.PathLoss }),
+    ...(input.Rscp != null && { Rscp: input.Rscp }),
+    ...(input.TdscdmaLocalId != null && {
+      TdscdmaLocalId: serializeAws_restJson1TdscdmaLocalId(input.TdscdmaLocalId, context),
+    }),
+    ...(input.TdscdmaNmr != null && { TdscdmaNmr: serializeAws_restJson1TdscdmaNmrList(input.TdscdmaNmr, context) }),
+    ...(input.TdscdmaTimingAdvance != null && { TdscdmaTimingAdvance: input.TdscdmaTimingAdvance }),
+    ...(input.UtranCid != null && { UtranCid: input.UtranCid }),
+  };
+};
+
 const serializeAws_restJson1TraceContent = (input: TraceContent, context: __SerdeContext): any => {
   return {
     ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
@@ -9159,6 +9766,9 @@ const serializeAws_restJson1UpdateAbpV1_1 = (input: UpdateAbpV1_1, context: __Se
 
 const serializeAws_restJson1UpdateFPorts = (input: UpdateFPorts, context: __SerdeContext): any => {
   return {
+    ...(input.Applications != null && {
+      Applications: serializeAws_restJson1Applications(input.Applications, context),
+    }),
     ...(input.Positioning != null && { Positioning: serializeAws_restJson1Positioning(input.Positioning, context) }),
   };
 };
@@ -9174,6 +9784,69 @@ const serializeAws_restJson1UpdateWirelessGatewayTaskCreate = (
     ...(input.UpdateDataRole != null && { UpdateDataRole: input.UpdateDataRole }),
     ...(input.UpdateDataSource != null && { UpdateDataSource: input.UpdateDataSource }),
   };
+};
+
+const serializeAws_restJson1WcdmaList = (input: WcdmaObj[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1WcdmaObj(entry, context);
+    });
+};
+
+const serializeAws_restJson1WcdmaLocalId = (input: WcdmaLocalId, context: __SerdeContext): any => {
+  return {
+    ...(input.Psc != null && { Psc: input.Psc }),
+    ...(input.Uarfcndl != null && { Uarfcndl: input.Uarfcndl }),
+  };
+};
+
+const serializeAws_restJson1WcdmaNmrList = (input: WcdmaNmrObj[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1WcdmaNmrObj(entry, context);
+    });
+};
+
+const serializeAws_restJson1WcdmaNmrObj = (input: WcdmaNmrObj, context: __SerdeContext): any => {
+  return {
+    ...(input.PathLoss != null && { PathLoss: input.PathLoss }),
+    ...(input.Psc != null && { Psc: input.Psc }),
+    ...(input.Rscp != null && { Rscp: input.Rscp }),
+    ...(input.Uarfcndl != null && { Uarfcndl: input.Uarfcndl }),
+    ...(input.UtranCid != null && { UtranCid: input.UtranCid }),
+  };
+};
+
+const serializeAws_restJson1WcdmaObj = (input: WcdmaObj, context: __SerdeContext): any => {
+  return {
+    ...(input.Lac != null && { Lac: input.Lac }),
+    ...(input.Mcc != null && { Mcc: input.Mcc }),
+    ...(input.Mnc != null && { Mnc: input.Mnc }),
+    ...(input.PathLoss != null && { PathLoss: input.PathLoss }),
+    ...(input.Rscp != null && { Rscp: input.Rscp }),
+    ...(input.UtranCid != null && { UtranCid: input.UtranCid }),
+    ...(input.WcdmaLocalId != null && {
+      WcdmaLocalId: serializeAws_restJson1WcdmaLocalId(input.WcdmaLocalId, context),
+    }),
+    ...(input.WcdmaNmr != null && { WcdmaNmr: serializeAws_restJson1WcdmaNmrList(input.WcdmaNmr, context) }),
+  };
+};
+
+const serializeAws_restJson1WiFiAccessPoint = (input: WiFiAccessPoint, context: __SerdeContext): any => {
+  return {
+    ...(input.MacAddress != null && { MacAddress: input.MacAddress }),
+    ...(input.Rss != null && { Rss: input.Rss }),
+  };
+};
+
+const serializeAws_restJson1WiFiAccessPoints = (input: WiFiAccessPoint[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1WiFiAccessPoint(entry, context);
+    });
 };
 
 const serializeAws_restJson1WirelessDeviceEventLogOption = (
@@ -9316,6 +9989,48 @@ const deserializeAws_restJson1Accuracy = (output: any, context: __SerdeContext):
     HorizontalAccuracy: __limitedParseFloat32(output.HorizontalAccuracy),
     VerticalAccuracy: __limitedParseFloat32(output.VerticalAccuracy),
   } as any;
+};
+
+const deserializeAws_restJson1ApplicationConfig = (output: any, context: __SerdeContext): ApplicationConfig => {
+  return {
+    DestinationName: __expectString(output.DestinationName),
+    FPort: __expectInt32(output.FPort),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1Applications = (output: any, context: __SerdeContext): ApplicationConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ApplicationConfig(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1Beaconing = (output: any, context: __SerdeContext): Beaconing => {
+  return {
+    DataRate: __expectInt32(output.DataRate),
+    Frequencies:
+      output.Frequencies != null
+        ? deserializeAws_restJson1BeaconingFrequencies(output.Frequencies, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BeaconingFrequencies = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1CertificateList = (output: any, context: __SerdeContext): CertificateList => {
@@ -9524,6 +10239,8 @@ const deserializeAws_restJson1FactoryPresetFreqsList = (output: any, context: __
 
 const deserializeAws_restJson1FPorts = (output: any, context: __SerdeContext): FPorts => {
   return {
+    Applications:
+      output.Applications != null ? deserializeAws_restJson1Applications(output.Applications, context) : undefined,
     ClockSync: __expectInt32(output.ClockSync),
     Fuota: __expectInt32(output.Fuota),
     Multicast: __expectInt32(output.Multicast),
@@ -9550,6 +10267,25 @@ const deserializeAws_restJson1FuotaTaskList = (output: any, context: __SerdeCont
       return deserializeAws_restJson1FuotaTask(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1GatewayList = (output: any, context: __SerdeContext): GatewayListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GatewayListItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1GatewayListItem = (output: any, context: __SerdeContext): GatewayListItem => {
+  return {
+    DownlinkFrequency: __expectInt32(output.DownlinkFrequency),
+    GatewayId: __expectString(output.GatewayId),
+  } as any;
 };
 
 const deserializeAws_restJson1JoinEuiFilters = (output: any, context: __SerdeContext): string[][] => {
@@ -9679,12 +10415,14 @@ const deserializeAws_restJson1LoRaWANFuotaTaskGetInfo = (
 ): LoRaWANFuotaTaskGetInfo => {
   return {
     RfRegion: __expectString(output.RfRegion),
-    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartTime)) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1LoRaWANGateway = (output: any, context: __SerdeContext): LoRaWANGateway => {
   return {
+    Beaconing: output.Beaconing != null ? deserializeAws_restJson1Beaconing(output.Beaconing, context) : undefined,
     GatewayEui: __expectString(output.GatewayEui),
     JoinEuiFilters:
       output.JoinEuiFilters != null
@@ -9811,7 +10549,9 @@ const deserializeAws_restJson1LoRaWANMulticastSession = (
     DlDr: __expectInt32(output.DlDr),
     DlFreq: __expectInt32(output.DlFreq),
     SessionStartTime:
-      output.SessionStartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SessionStartTime)) : undefined,
+      output.SessionStartTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.SessionStartTime))
+        : undefined,
     SessionTimeout: __expectInt32(output.SessionTimeout),
   } as any;
 };
@@ -9822,6 +10562,10 @@ const deserializeAws_restJson1LoRaWANSendDataToDevice = (
 ): LoRaWANSendDataToDevice => {
   return {
     FPort: __expectInt32(output.FPort),
+    ParticipatingGateways:
+      output.ParticipatingGateways != null
+        ? deserializeAws_restJson1ParticipatingGateways(output.ParticipatingGateways, context)
+        : undefined,
   } as any;
 };
 
@@ -9978,6 +10722,15 @@ const deserializeAws_restJson1OtaaV1_1 = (output: any, context: __SerdeContext):
     AppKey: __expectString(output.AppKey),
     JoinEui: __expectString(output.JoinEui),
     NwkKey: __expectString(output.NwkKey),
+  } as any;
+};
+
+const deserializeAws_restJson1ParticipatingGateways = (output: any, context: __SerdeContext): ParticipatingGateways => {
+  return {
+    DownlinkMode: __expectString(output.DownlinkMode),
+    GatewayList:
+      output.GatewayList != null ? deserializeAws_restJson1GatewayList(output.GatewayList, context) : undefined,
+    TransmissionInterval: __expectInt32(output.TransmissionInterval),
   } as any;
 };
 
@@ -10472,7 +11225,8 @@ const deserializeAws_restJson1WirelessGatewayTaskDefinitionList = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -10504,6 +11258,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -10514,6 +11274,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

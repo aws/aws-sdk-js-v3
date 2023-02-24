@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,13 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
 
 /**
  * <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair
- *          that you can define and assign to AWS resources. If you specify a tag that already exists,
- *          the tag value is replaced with the value that you specify in the request. Tags are
- *          metadata. For example, you can add friendly names and descriptions or other types of
- *          information that can help you distinguish the delivery stream. For more information about
- *          tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
- *             Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
+ *          that you can define and assign to Amazon Web Services resources. If you specify a tag that
+ *          already exists, the tag value is replaced with the value that you specify in the request.
+ *          Tags are metadata. For example, you can add friendly names and descriptions or other types
+ *          of information that can help you distinguish the delivery stream. For more information
+ *          about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
+ *             Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
+ *             Guide</i>. </p>
  *          <p>Each delivery stream can have up to 50 tags. </p>
  *          <p>This operation has a limit of five transactions per second per account. </p>
  * @example
@@ -60,6 +62,15 @@ export class TagDeliveryStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TagDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +86,9 @@ export class TagDeliveryStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TagDeliveryStreamCommandInput, TagDeliveryStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, TagDeliveryStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

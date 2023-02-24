@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,14 +36,14 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
  *             instance, you can authorize inbound access to either a Classless Interdomain Routing
  *             (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add as
  *             many as 20 ingress rules to an Amazon Redshift security group.</p>
- *         <p>If you authorize access to an Amazon EC2 security group, specify
+ *          <p>If you authorize access to an Amazon EC2 security group, specify
  *                 <i>EC2SecurityGroupName</i> and
  *                 <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and
  *             Amazon Redshift cluster must be in the same Amazon Web Services Region. </p>
- *         <p>If you authorize access to a CIDR/IP address range, specify
+ *          <p>If you authorize access to a CIDR/IP address range, specify
  *                 <i>CIDRIP</i>. For an overview of CIDR blocks, see the Wikipedia
  *             article on <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>. </p>
- *         <p>You must also associate the security group with a cluster so that clients running
+ *          <p>You must also associate the security group with a cluster so that clients running
  *             on these IP addresses or the EC2 instance are authorized to connect to the cluster. For
  *             information about managing security groups, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Working with Security
  *                 Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -69,6 +70,15 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AuthorizeClusterSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +94,9 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AuthorizeClusterSecurityGroupIngressCommandInput, AuthorizeClusterSecurityGroupIngressCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AuthorizeClusterSecurityGroupIngressCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

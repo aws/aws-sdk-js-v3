@@ -73,16 +73,19 @@ export interface Channel {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>STANDARD</code>: Multiple qualities are generated from the original input, to
-   *           automatically give viewers the best experience for their devices and network conditions.
-   *           Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is transcoded only
-   *           for renditions 360p and below; above that, audio is passed through.</p>
+   *                   <code>STANDARD</code>: Video is transcoded: multiple qualities are generated from the
+   *           original input, to automatically give viewers the best experience for their devices and
+   *           network conditions. Transcoding allows higher playback quality across a range of download
+   *           speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is
+   *           transcoded only for renditions 360p and below; above that, audio is passed through. This
+   *           is the default.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>BASIC</code>: Amazon IVS delivers the original input to viewers. The viewer’s
-   *           video-quality choice is limited to the original input. Resolution can be up to 480p and
-   *           bitrate can be up to 1.5 Mbps.</p>
+   *                   <code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input to
+   *           viewers. The viewer’s video-quality choice is limited to the original input. Resolution
+   *           can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to 3.5 Mbps for
+   *           resolutions between 480p and 1080p.</p>
    *             </li>
    *          </ul>
    */
@@ -112,7 +115,10 @@ export interface Channel {
   authorized?: boolean;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -151,7 +157,7 @@ export interface BatchGetChannelResponse {
 
 export interface BatchGetStreamKeyRequest {
   /**
-   * <p>Array of ARNs, one per channel.</p>
+   * <p>Array of ARNs, one per stream key.</p>
    */
   arns: string[] | undefined;
 }
@@ -176,7 +182,10 @@ export interface StreamKey {
   channelArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -214,16 +223,19 @@ export interface CreateChannelRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>STANDARD</code>: Multiple qualities are generated from the original input, to
-   *           automatically give viewers the best experience for their devices and network conditions.
-   *           Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is transcoded only
-   *           for renditions 360p and below; above that, audio is passed through.</p>
+   *                   <code>STANDARD</code>: Video is transcoded: multiple qualities are generated from the
+   *           original input, to automatically give viewers the best experience for their devices and
+   *           network conditions. Transcoding allows higher playback quality across a range of download
+   *           speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is
+   *           transcoded only for renditions 360p and below; above that, audio is passed through. This
+   *           is the default.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>BASIC</code>: Amazon IVS delivers the original input to viewers. The viewer’s
-   *           video-quality choice is limited to the original input. Resolution can be up to 480p and
-   *           bitrate can be up to 1.5 Mbps.</p>
+   *                   <code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input to
+   *           viewers. The viewer’s video-quality choice is limited to the original input. Resolution
+   *           can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to 3.5 Mbps for
+   *           resolutions between 480p and 1080p.</p>
    *             </li>
    *          </ul>
    */
@@ -241,7 +253,10 @@ export interface CreateChannelRequest {
   recordingConfigurationArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -418,11 +433,13 @@ export interface ThumbnailConfiguration {
    * <p>The targeted thumbnail-generation interval in seconds. This is configurable (and required)
    *       only if <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</p>
    *          <p>
-   *             <b>Important:</b> Setting a value for <code>targetIntervalSeconds</code> does not guarantee that thumbnails
-   *       are generated at the specified interval. For thumbnails to be generated at the
-   *       <code>targetIntervalSeconds</code> interval, the <code>IDR/Keyframe</code> value for the input video must be less than
-   *       the <code>targetIntervalSeconds</code> value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html"> Amazon IVS Streaming Configuration</a> for information on
-   *       setting <code>IDR/Keyframe</code> to the recommended value in video-encoder settings.</p>
+   *             <b>Important:</b> Setting a value for
+   *         <code>targetIntervalSeconds</code> does not guarantee that thumbnails are generated at the
+   *       specified interval. For thumbnails to be generated at the <code>targetIntervalSeconds</code>
+   *       interval, the <code>IDR/Keyframe</code> value for the input video must be less than the
+   *         <code>targetIntervalSeconds</code> value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html"> Amazon IVS Streaming Configuration</a>
+   *       for information on setting <code>IDR/Keyframe</code> to the recommended value in video-encoder
+   *       settings.</p>
    */
   targetIntervalSeconds?: number;
 }
@@ -440,7 +457,10 @@ export interface CreateRecordingConfigurationRequest {
   destinationConfiguration: DestinationConfiguration | undefined;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 
@@ -449,6 +469,12 @@ export interface CreateRecordingConfigurationRequest {
    *       session and modify the interval at which thumbnails are generated for the live session.</p>
    */
   thumbnailConfiguration?: ThumbnailConfiguration;
+
+  /**
+   * <p>If a broadcast disconnects and then reconnects within the specified interval, the multiple
+   *       streams will be considered a single broadcast and merged together. Default: 0.</p>
+   */
+  recordingReconnectWindowSeconds?: number;
 }
 
 export enum RecordingConfigurationState {
@@ -483,7 +509,10 @@ export interface RecordingConfiguration {
   state: RecordingConfigurationState | string | undefined;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 
@@ -492,6 +521,12 @@ export interface RecordingConfiguration {
    *       session and modify the interval at which thumbnails are generated for the live session.</p>
    */
   thumbnailConfiguration?: ThumbnailConfiguration;
+
+  /**
+   * <p>If a broadcast disconnects and then reconnects within the specified interval, the multiple
+   *       streams will be considered a single broadcast and merged together. Default: 0.</p>
+   */
+  recordingReconnectWindowSeconds?: number;
 }
 
 export interface CreateRecordingConfigurationResponse {
@@ -532,7 +567,10 @@ export interface CreateStreamKeyRequest {
   channelArn: string | undefined;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -615,7 +653,10 @@ export interface PlaybackKeyPair {
   fingerprint?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -703,7 +744,8 @@ export interface _Stream {
   playbackUrl?: string;
 
   /**
-   * <p>Time of the stream’s start. This is an ISO 8601 timestamp returned as a string.</p>
+   * <p>Time of the stream’s start. This is an ISO 8601 timestamp; <i>note that this is
+   *         returned as a string</i>.</p>
    */
   startTime?: Date;
 
@@ -762,7 +804,9 @@ export interface GetStreamSessionRequest {
 }
 
 /**
- * <p>Object specifying a stream’s audio configuration.</p>
+ * <p>Object specifying a stream’s audio configuration, as set up by the broadcaster (usually in
+ *       an encoder). This is part of the <a>IngestConfiguration</a> object and used for
+ *       monitoring stream health.</p>
  */
 export interface AudioConfiguration {
   /**
@@ -787,7 +831,9 @@ export interface AudioConfiguration {
 }
 
 /**
- * <p>Object specifying a stream’s video configuration.</p>
+ * <p>Object specifying a stream’s video configuration, as set up by the broadcaster (usually in
+ *       an encoder). This is part of the <a>IngestConfiguration</a> object and used for
+ *       monitoring stream health.</p>
  */
 export interface VideoConfiguration {
   /**
@@ -865,7 +911,8 @@ export interface StreamEvent {
   type?: string;
 
   /**
-   * <p>UTC ISO-8601 formatted timestamp of when the event occurred.</p>
+   * <p>Time when the event occurred. This is an ISO 8601 timestamp; <i>note that this is
+   *         returned as a string</i>.</p>
    */
   eventTime?: Date;
 }
@@ -882,13 +929,14 @@ export interface StreamSession {
   streamId?: string;
 
   /**
-   * <p>UTC ISO-8601 formatted timestamp of when the channel went live.</p>
+   * <p>Time when the channel went live. This is an ISO 8601 timestamp; <i>note that this
+   *         is returned as a string</i>.</p>
    */
   startTime?: Date;
 
   /**
-   * <p>UTC ISO-8601 formatted timestamp of when the channel went offline. For live streams, this
-   *       is <code>NULL</code>.</p>
+   * <p>Time when the channel went offline. This is an ISO 8601 timestamp; <i>note that
+   *         this is returned as a string</i>. For live streams, this is <code>NULL</code>.</p>
    */
   endTime?: Date;
 
@@ -934,7 +982,10 @@ export interface ImportPlaybackKeyPairRequest {
   name?: string;
 
   /**
-   * <p>Any tags provided with the request are added to the playback key pair tags.</p>
+   * <p>Any tags provided with the request are added to the playback key pair tags. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -964,7 +1015,7 @@ export interface ListChannelsRequest {
   nextToken?: string;
 
   /**
-   * <p>Maximum number of channels to return. Default: 50.</p>
+   * <p>Maximum number of channels to return. Default: 100.</p>
    */
   maxResults?: number;
 }
@@ -1004,7 +1055,10 @@ export interface ChannelSummary {
   recordingConfigurationArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -1024,13 +1078,14 @@ export interface ListChannelsResponse {
 
 export interface ListPlaybackKeyPairsRequest {
   /**
-   * <p>Maximum number of key pairs to return.</p>
+   * <p>The first key pair to retrieve. This is used for pagination; see the
+   *         <code>nextToken</code> response field.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The first key pair to retrieve. This is used for pagination; see the
-   *         <code>nextToken</code> response field. Default: 50.</p>
+   * <p>Maximum number of key pairs to return. Default: your service quota or 100, whichever is
+   *       smaller.</p>
    */
   maxResults?: number;
 }
@@ -1050,7 +1105,10 @@ export interface PlaybackKeyPairSummary {
   name?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -1076,7 +1134,8 @@ export interface ListRecordingConfigurationsRequest {
   nextToken?: string;
 
   /**
-   * <p>Maximum number of recording configurations to return. Default: 50. </p>
+   * <p>Maximum number of recording configurations to return. Default: your service quota or 100,
+   *       whichever is smaller. </p>
    */
   maxResults?: number;
 }
@@ -1107,7 +1166,10 @@ export interface RecordingConfigurationSummary {
   state: RecordingConfigurationState | string | undefined;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -1138,7 +1200,7 @@ export interface ListStreamKeysRequest {
   nextToken?: string;
 
   /**
-   * <p>Maximum number of streamKeys to return. Default: 50.</p>
+   * <p>Maximum number of streamKeys to return. Default: 1.</p>
    */
   maxResults?: number;
 }
@@ -1158,7 +1220,10 @@ export interface StreamKeySummary {
   channelArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -1199,7 +1264,7 @@ export interface ListStreamsRequest {
   nextToken?: string;
 
   /**
-   * <p>Maximum number of streams to return. Default: 50.</p>
+   * <p>Maximum number of streams to return. Default: 100.</p>
    */
   maxResults?: number;
 }
@@ -1237,7 +1302,8 @@ export interface StreamSummary {
   viewerCount?: number;
 
   /**
-   * <p>Time of the stream’s start. This is an ISO 8601 timestamp returned as a string.</p>
+   * <p>Time of the stream’s start. This is an ISO 8601 timestamp; <i>note that this is
+   *         returned as a string</i>. </p>
    */
   startTime?: Date;
 }
@@ -1268,7 +1334,7 @@ export interface ListStreamSessionsRequest {
   nextToken?: string;
 
   /**
-   * <p>Maximum number of streams to return. Default: 50.</p>
+   * <p>Maximum number of streams to return. Default: 100.</p>
    */
   maxResults?: number;
 }
@@ -1283,13 +1349,14 @@ export interface StreamSessionSummary {
   streamId?: string;
 
   /**
-   * <p>UTC ISO-8601 formatted timestamp of when the channel went live.</p>
+   * <p>Time when the channel went live. This is an ISO 8601 timestamp; <i>note that this
+   *         is returned as a string</i>.</p>
    */
   startTime?: Date;
 
   /**
-   * <p>UTC ISO-8601 formatted timestamp of when the channel went offline. For live streams, this
-   *       is <code>NULL</code>.</p>
+   * <p>Time when the channel went offline. This is an ISO 8601 timestamp; <i>note that
+   *         this is returned as a string</i>. For live streams, this is <code>NULL</code>.</p>
    */
   endTime?: Date;
 
@@ -1314,14 +1381,14 @@ export interface ListStreamSessionsResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource to be retrieved.</p>
+   * <p>The ARN of the resource to be retrieved. The ARN must be URL-encoded.</p>
    */
   resourceArn: string | undefined;
 }
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p/>
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -1398,12 +1465,16 @@ export class StreamUnavailable extends __BaseException {
 
 export interface TagResourceRequest {
   /**
-   * <p>ARN of the resource for which tags are to be added or updated.</p>
+   * <p>ARN of the resource for which tags are to be added or updated. The ARN must be
+   *       URL-encoded.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be added or updated.</p>
+   * <p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -1412,12 +1483,15 @@ export interface TagResourceResponse {}
 
 export interface UntagResourceRequest {
   /**
-   * <p>ARN of the resource for which tags are to be removed.</p>
+   * <p>ARN of the resource for which tags are to be removed. The ARN must be URL-encoded.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be removed.</p>
+   * <p>Array of tags to be removed. Array of maps, each of the form s<code>tring:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   *       more information, including restrictions that apply to tags and "Tag naming limits and
+   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+   *       there.</p>
    */
   tagKeys: string[] | undefined;
 }
@@ -1450,16 +1524,19 @@ export interface UpdateChannelRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>STANDARD</code>: Multiple qualities are generated from the original input, to
-   *           automatically give viewers the best experience for their devices and network conditions.
-   *           Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is transcoded only
-   *           for renditions 360p and below; above that, audio is passed through.</p>
+   *                   <code>STANDARD</code>: Video is transcoded: multiple qualities are generated from the
+   *           original input, to automatically give viewers the best experience for their devices and
+   *           network conditions. Transcoding allows higher playback quality across a range of download
+   *           speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is
+   *           transcoded only for renditions 360p and below; above that, audio is passed through. This
+   *           is the default.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>BASIC</code>: Amazon IVS delivers the original input to viewers. The viewer’s
-   *           video-quality choice is limited to the original input. Resolution can be up to 480p and
-   *           bitrate can be up to 1.5 Mbps.</p>
+   *                   <code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input to
+   *           viewers. The viewer’s video-quality choice is limited to the original input. Resolution
+   *           can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to 3.5 Mbps for
+   *           resolutions between 480p and 1080p.</p>
    *             </li>
    *          </ul>
    */

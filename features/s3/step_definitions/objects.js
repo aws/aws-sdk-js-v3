@@ -1,4 +1,4 @@
-const { Before, Given, Then, When } = require("cucumber");
+const { Before, Given, Then, When } = require("@cucumber/cucumber");
 
 function getSignedUrl(client, command, params, callback) {
   const { S3RequestPresigner } = require("../../../packages/s3-request-presigner");
@@ -25,7 +25,7 @@ function getSignedUrl(client, command, params, callback) {
 Before({ tags: "@objects" }, function (scenario, callback) {
   const { S3, GetObjectCommand, PutObjectCommand } = require("../../../clients/client-s3");
   const { streamCollector } = require("../../../packages/node-http-handler");
-  const { toUtf8 } = require("../../../packages/util-utf8-node");
+  const { toUtf8 } = require("../../../packages/util-utf8");
   const { Md5 } = require("../../../packages/md5-js");
   this.S3 = S3;
   this.GetObjectCommand = GetObjectCommand;

@@ -149,12 +149,17 @@ import {
   AndStatement,
   AssociateWebACLRequest,
   AssociateWebACLResponse,
+  AWSManagedRulesATPRuleSet,
+  AWSManagedRulesBotControlRuleSet,
   BlockAction,
   Body,
   ByteMatchStatement,
   CaptchaAction,
   CaptchaConfig,
   CaptchaResponse,
+  ChallengeAction,
+  ChallengeConfig,
+  ChallengeResponse,
   CheckCapacityRequest,
   CheckCapacityResponse,
   Condition,
@@ -292,8 +297,15 @@ import {
   RegexPatternSetReferenceStatement,
   RegexPatternSetSummary,
   ReleaseSummary,
+  RequestInspection,
+  ResponseInspection,
+  ResponseInspectionBodyContains,
+  ResponseInspectionHeader,
+  ResponseInspectionJson,
+  ResponseInspectionStatusCode,
   Rule,
   RuleAction,
+  RuleActionOverride,
   RuleGroup,
   RuleGroupReferenceStatement,
   RuleGroupSummary,
@@ -997,7 +1009,7 @@ const deserializeAws_json1_1AssociateWebACLCommandError = async (
 ): Promise<AssociateWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1050,7 +1062,7 @@ const deserializeAws_json1_1CheckCapacityCommandError = async (
 ): Promise<CheckCapacityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1115,7 +1127,7 @@ const deserializeAws_json1_1CreateIPSetCommandError = async (
 ): Promise<CreateIPSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1177,7 +1189,7 @@ const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
 ): Promise<CreateRegexPatternSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1239,7 +1251,7 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
 ): Promise<CreateRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1310,7 +1322,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
 ): Promise<CreateWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1320,6 +1332,9 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
     case "WAFDuplicateItemException":
     case "com.amazonaws.wafv2#WAFDuplicateItemException":
       throw await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(parsedOutput, context);
+    case "WAFExpiredManagedRuleGroupVersionException":
+    case "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException":
+      throw await deserializeAws_json1_1WAFExpiredManagedRuleGroupVersionExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafv2#WAFInternalErrorException":
       throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
@@ -1387,7 +1402,7 @@ const deserializeAws_json1_1DeleteFirewallManagerRuleGroupsCommandError = async 
 ): Promise<DeleteFirewallManagerRuleGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1440,7 +1455,7 @@ const deserializeAws_json1_1DeleteIPSetCommandError = async (
 ): Promise<DeleteIPSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1502,7 +1517,7 @@ const deserializeAws_json1_1DeleteLoggingConfigurationCommandError = async (
 ): Promise<DeleteLoggingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1555,7 +1570,7 @@ const deserializeAws_json1_1DeletePermissionPolicyCommandError = async (
 ): Promise<DeletePermissionPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1602,7 +1617,7 @@ const deserializeAws_json1_1DeleteRegexPatternSetCommandError = async (
 ): Promise<DeleteRegexPatternSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1664,7 +1679,7 @@ const deserializeAws_json1_1DeleteRuleGroupCommandError = async (
 ): Promise<DeleteRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1726,7 +1741,7 @@ const deserializeAws_json1_1DeleteWebACLCommandError = async (
 ): Promise<DeleteWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1788,7 +1803,7 @@ const deserializeAws_json1_1DescribeManagedRuleGroupCommandError = async (
 ): Promise<DescribeManagedRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1844,7 +1859,7 @@ const deserializeAws_json1_1DisassociateWebACLCommandError = async (
 ): Promise<DisassociateWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1894,7 +1909,7 @@ const deserializeAws_json1_1GenerateMobileSdkReleaseUrlCommandError = async (
 ): Promise<GenerateMobileSdkReleaseUrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1944,7 +1959,7 @@ const deserializeAws_json1_1GetIPSetCommandError = async (
 ): Promise<GetIPSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1994,7 +2009,7 @@ const deserializeAws_json1_1GetLoggingConfigurationCommandError = async (
 ): Promise<GetLoggingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2044,7 +2059,7 @@ const deserializeAws_json1_1GetManagedRuleSetCommandError = async (
 ): Promise<GetManagedRuleSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2094,7 +2109,7 @@ const deserializeAws_json1_1GetMobileSdkReleaseCommandError = async (
 ): Promise<GetMobileSdkReleaseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2144,7 +2159,7 @@ const deserializeAws_json1_1GetPermissionPolicyCommandError = async (
 ): Promise<GetPermissionPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2191,7 +2206,7 @@ const deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandError = async
 ): Promise<GetRateBasedStatementManagedKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2241,7 +2256,7 @@ const deserializeAws_json1_1GetRegexPatternSetCommandError = async (
 ): Promise<GetRegexPatternSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2291,7 +2306,7 @@ const deserializeAws_json1_1GetRuleGroupCommandError = async (
 ): Promise<GetRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2341,7 +2356,7 @@ const deserializeAws_json1_1GetSampledRequestsCommandError = async (
 ): Promise<GetSampledRequestsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2388,7 +2403,7 @@ const deserializeAws_json1_1GetWebACLCommandError = async (
 ): Promise<GetWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2438,7 +2453,7 @@ const deserializeAws_json1_1GetWebACLForResourceCommandError = async (
 ): Promise<GetWebACLForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2491,7 +2506,7 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError = async (
 ): Promise<ListAvailableManagedRuleGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2538,7 +2553,7 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommandError = 
 ): Promise<ListAvailableManagedRuleGroupVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2588,7 +2603,7 @@ const deserializeAws_json1_1ListIPSetsCommandError = async (
 ): Promise<ListIPSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2635,7 +2650,7 @@ const deserializeAws_json1_1ListLoggingConfigurationsCommandError = async (
 ): Promise<ListLoggingConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2682,7 +2697,7 @@ const deserializeAws_json1_1ListManagedRuleSetsCommandError = async (
 ): Promise<ListManagedRuleSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2729,7 +2744,7 @@ const deserializeAws_json1_1ListMobileSdkReleasesCommandError = async (
 ): Promise<ListMobileSdkReleasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2776,7 +2791,7 @@ const deserializeAws_json1_1ListRegexPatternSetsCommandError = async (
 ): Promise<ListRegexPatternSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2823,7 +2838,7 @@ const deserializeAws_json1_1ListResourcesForWebACLCommandError = async (
 ): Promise<ListResourcesForWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2873,7 +2888,7 @@ const deserializeAws_json1_1ListRuleGroupsCommandError = async (
 ): Promise<ListRuleGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2920,7 +2935,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2976,7 +2991,7 @@ const deserializeAws_json1_1ListWebACLsCommandError = async (
 ): Promise<ListWebACLsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3023,7 +3038,7 @@ const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
 ): Promise<PutLoggingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3085,7 +3100,7 @@ const deserializeAws_json1_1PutManagedRuleSetVersionsCommandError = async (
 ): Promise<PutManagedRuleSetVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3138,7 +3153,7 @@ const deserializeAws_json1_1PutPermissionPolicyCommandError = async (
 ): Promise<PutPermissionPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3188,7 +3203,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3247,7 +3262,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3303,7 +3318,7 @@ const deserializeAws_json1_1UpdateIPSetCommandError = async (
 ): Promise<UpdateIPSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3362,7 +3377,7 @@ const deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommandError = 
 ): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3415,7 +3430,7 @@ const deserializeAws_json1_1UpdateRegexPatternSetCommandError = async (
 ): Promise<UpdateRegexPatternSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3474,7 +3489,7 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
 ): Promise<UpdateRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3542,7 +3557,7 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
 ): Promise<UpdateWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3862,6 +3877,30 @@ const serializeAws_json1_1AssociateWebACLRequest = (input: AssociateWebACLReques
   };
 };
 
+const serializeAws_json1_1AWSManagedRulesATPRuleSet = (
+  input: AWSManagedRulesATPRuleSet,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LoginPath != null && { LoginPath: input.LoginPath }),
+    ...(input.RequestInspection != null && {
+      RequestInspection: serializeAws_json1_1RequestInspection(input.RequestInspection, context),
+    }),
+    ...(input.ResponseInspection != null && {
+      ResponseInspection: serializeAws_json1_1ResponseInspection(input.ResponseInspection, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1AWSManagedRulesBotControlRuleSet = (
+  input: AWSManagedRulesBotControlRuleSet,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InspectionLevel != null && { InspectionLevel: input.InspectionLevel }),
+  };
+};
+
 const serializeAws_json1_1BlockAction = (input: BlockAction, context: __SerdeContext): any => {
   return {
     ...(input.CustomResponse != null && {
@@ -3896,6 +3935,22 @@ const serializeAws_json1_1CaptchaAction = (input: CaptchaAction, context: __Serd
 };
 
 const serializeAws_json1_1CaptchaConfig = (input: CaptchaConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ImmunityTimeProperty != null && {
+      ImmunityTimeProperty: serializeAws_json1_1ImmunityTimeProperty(input.ImmunityTimeProperty, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ChallengeAction = (input: ChallengeAction, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomRequestHandling != null && {
+      CustomRequestHandling: serializeAws_json1_1CustomRequestHandling(input.CustomRequestHandling, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ChallengeConfig = (input: ChallengeConfig, context: __SerdeContext): any => {
   return {
     ...(input.ImmunityTimeProperty != null && {
       ImmunityTimeProperty: serializeAws_json1_1ImmunityTimeProperty(input.ImmunityTimeProperty, context),
@@ -4023,6 +4078,9 @@ const serializeAws_json1_1CreateWebACLRequest = (input: CreateWebACLRequest, con
     ...(input.CaptchaConfig != null && {
       CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
     }),
+    ...(input.ChallengeConfig != null && {
+      ChallengeConfig: serializeAws_json1_1ChallengeConfig(input.ChallengeConfig, context),
+    }),
     ...(input.CustomResponseBodies != null && {
       CustomResponseBodies: serializeAws_json1_1CustomResponseBodies(input.CustomResponseBodies, context),
     }),
@@ -4034,6 +4092,7 @@ const serializeAws_json1_1CreateWebACLRequest = (input: CreateWebACLRequest, con
     ...(input.Rules != null && { Rules: serializeAws_json1_1Rules(input.Rules, context) }),
     ...(input.Scope != null && { Scope: input.Scope }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.TokenDomains != null && { TokenDomains: serializeAws_json1_1TokenDomains(input.TokenDomains, context) }),
     ...(input.VisibilityConfig != null && {
       VisibilityConfig: serializeAws_json1_1VisibilityConfig(input.VisibilityConfig, context),
     }),
@@ -4081,10 +4140,8 @@ const serializeAws_json1_1CustomResponseBodies = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1CustomResponseBody(value, context),
-    };
+    acc[key] = serializeAws_json1_1CustomResponseBody(value, context);
+    return acc;
   }, {});
 };
 
@@ -4637,6 +4694,18 @@ const serializeAws_json1_1LoggingFilter = (input: LoggingFilter, context: __Serd
 
 const serializeAws_json1_1ManagedRuleGroupConfig = (input: ManagedRuleGroupConfig, context: __SerdeContext): any => {
   return {
+    ...(input.AWSManagedRulesATPRuleSet != null && {
+      AWSManagedRulesATPRuleSet: serializeAws_json1_1AWSManagedRulesATPRuleSet(
+        input.AWSManagedRulesATPRuleSet,
+        context
+      ),
+    }),
+    ...(input.AWSManagedRulesBotControlRuleSet != null && {
+      AWSManagedRulesBotControlRuleSet: serializeAws_json1_1AWSManagedRulesBotControlRuleSet(
+        input.AWSManagedRulesBotControlRuleSet,
+        context
+      ),
+    }),
     ...(input.LoginPath != null && { LoginPath: input.LoginPath }),
     ...(input.PasswordField != null && {
       PasswordField: serializeAws_json1_1PasswordField(input.PasswordField, context),
@@ -4668,6 +4737,9 @@ const serializeAws_json1_1ManagedRuleGroupStatement = (
       ManagedRuleGroupConfigs: serializeAws_json1_1ManagedRuleGroupConfigs(input.ManagedRuleGroupConfigs, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.RuleActionOverrides != null && {
+      RuleActionOverrides: serializeAws_json1_1RuleActionOverrides(input.RuleActionOverrides, context),
+    }),
     ...(input.ScopeDownStatement != null && {
       ScopeDownStatement: serializeAws_json1_1Statement(input.ScopeDownStatement, context),
     }),
@@ -4808,11 +4880,170 @@ const serializeAws_json1_1RegularExpressionList = (input: Regex[], context: __Se
     });
 };
 
+const serializeAws_json1_1RequestInspection = (input: RequestInspection, context: __SerdeContext): any => {
+  return {
+    ...(input.PasswordField != null && {
+      PasswordField: serializeAws_json1_1PasswordField(input.PasswordField, context),
+    }),
+    ...(input.PayloadType != null && { PayloadType: input.PayloadType }),
+    ...(input.UsernameField != null && {
+      UsernameField: serializeAws_json1_1UsernameField(input.UsernameField, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspection = (input: ResponseInspection, context: __SerdeContext): any => {
+  return {
+    ...(input.BodyContains != null && {
+      BodyContains: serializeAws_json1_1ResponseInspectionBodyContains(input.BodyContains, context),
+    }),
+    ...(input.Header != null && { Header: serializeAws_json1_1ResponseInspectionHeader(input.Header, context) }),
+    ...(input.Json != null && { Json: serializeAws_json1_1ResponseInspectionJson(input.Json, context) }),
+    ...(input.StatusCode != null && {
+      StatusCode: serializeAws_json1_1ResponseInspectionStatusCode(input.StatusCode, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspectionBodyContains = (
+  input: ResponseInspectionBodyContains,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FailureStrings != null && {
+      FailureStrings: serializeAws_json1_1ResponseInspectionBodyContainsFailureStrings(input.FailureStrings, context),
+    }),
+    ...(input.SuccessStrings != null && {
+      SuccessStrings: serializeAws_json1_1ResponseInspectionBodyContainsSuccessStrings(input.SuccessStrings, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspectionBodyContainsFailureStrings = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionBodyContainsSuccessStrings = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionHeader = (
+  input: ResponseInspectionHeader,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FailureValues != null && {
+      FailureValues: serializeAws_json1_1ResponseInspectionHeaderFailureValues(input.FailureValues, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SuccessValues != null && {
+      SuccessValues: serializeAws_json1_1ResponseInspectionHeaderSuccessValues(input.SuccessValues, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspectionHeaderFailureValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionHeaderSuccessValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionJson = (input: ResponseInspectionJson, context: __SerdeContext): any => {
+  return {
+    ...(input.FailureValues != null && {
+      FailureValues: serializeAws_json1_1ResponseInspectionJsonFailureValues(input.FailureValues, context),
+    }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.SuccessValues != null && {
+      SuccessValues: serializeAws_json1_1ResponseInspectionJsonSuccessValues(input.SuccessValues, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspectionJsonFailureValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionJsonSuccessValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionStatusCode = (
+  input: ResponseInspectionStatusCode,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FailureCodes != null && {
+      FailureCodes: serializeAws_json1_1ResponseInspectionStatusCodeFailureCodes(input.FailureCodes, context),
+    }),
+    ...(input.SuccessCodes != null && {
+      SuccessCodes: serializeAws_json1_1ResponseInspectionStatusCodeSuccessCodes(input.SuccessCodes, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ResponseInspectionStatusCodeFailureCodes = (
+  input: number[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResponseInspectionStatusCodeSuccessCodes = (
+  input: number[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => {
   return {
     ...(input.Action != null && { Action: serializeAws_json1_1RuleAction(input.Action, context) }),
     ...(input.CaptchaConfig != null && {
       CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
+    }),
+    ...(input.ChallengeConfig != null && {
+      ChallengeConfig: serializeAws_json1_1ChallengeConfig(input.ChallengeConfig, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OverrideAction != null && {
@@ -4832,8 +5063,24 @@ const serializeAws_json1_1RuleAction = (input: RuleAction, context: __SerdeConte
     ...(input.Allow != null && { Allow: serializeAws_json1_1AllowAction(input.Allow, context) }),
     ...(input.Block != null && { Block: serializeAws_json1_1BlockAction(input.Block, context) }),
     ...(input.Captcha != null && { Captcha: serializeAws_json1_1CaptchaAction(input.Captcha, context) }),
+    ...(input.Challenge != null && { Challenge: serializeAws_json1_1ChallengeAction(input.Challenge, context) }),
     ...(input.Count != null && { Count: serializeAws_json1_1CountAction(input.Count, context) }),
   };
+};
+
+const serializeAws_json1_1RuleActionOverride = (input: RuleActionOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.ActionToUse != null && { ActionToUse: serializeAws_json1_1RuleAction(input.ActionToUse, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1RuleActionOverrides = (input: RuleActionOverride[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1RuleActionOverride(entry, context);
+    });
 };
 
 const serializeAws_json1_1RuleGroupReferenceStatement = (
@@ -4844,6 +5091,9 @@ const serializeAws_json1_1RuleGroupReferenceStatement = (
     ...(input.ARN != null && { ARN: input.ARN }),
     ...(input.ExcludedRules != null && {
       ExcludedRules: serializeAws_json1_1ExcludedRules(input.ExcludedRules, context),
+    }),
+    ...(input.RuleActionOverrides != null && {
+      RuleActionOverrides: serializeAws_json1_1RuleActionOverrides(input.RuleActionOverrides, context),
     }),
   };
 };
@@ -5002,6 +5252,14 @@ const serializeAws_json1_1TimeWindow = (input: TimeWindow, context: __SerdeConte
   };
 };
 
+const serializeAws_json1_1TokenDomains = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
@@ -5072,6 +5330,9 @@ const serializeAws_json1_1UpdateWebACLRequest = (input: UpdateWebACLRequest, con
     ...(input.CaptchaConfig != null && {
       CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
     }),
+    ...(input.ChallengeConfig != null && {
+      ChallengeConfig: serializeAws_json1_1ChallengeConfig(input.ChallengeConfig, context),
+    }),
     ...(input.CustomResponseBodies != null && {
       CustomResponseBodies: serializeAws_json1_1CustomResponseBodies(input.CustomResponseBodies, context),
     }),
@@ -5084,6 +5345,7 @@ const serializeAws_json1_1UpdateWebACLRequest = (input: UpdateWebACLRequest, con
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Rules != null && { Rules: serializeAws_json1_1Rules(input.Rules, context) }),
     ...(input.Scope != null && { Scope: input.Scope }),
+    ...(input.TokenDomains != null && { TokenDomains: serializeAws_json1_1TokenDomains(input.TokenDomains, context) }),
     ...(input.VisibilityConfig != null && {
       VisibilityConfig: serializeAws_json1_1VisibilityConfig(input.VisibilityConfig, context),
     }),
@@ -5108,10 +5370,8 @@ const serializeAws_json1_1VersionsToPublish = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1VersionToPublish(value, context),
-    };
+    acc[key] = serializeAws_json1_1VersionToPublish(value, context);
+    return acc;
   }, {});
 };
 
@@ -5175,6 +5435,32 @@ const deserializeAws_json1_1AssociateWebACLResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1AWSManagedRulesATPRuleSet = (
+  output: any,
+  context: __SerdeContext
+): AWSManagedRulesATPRuleSet => {
+  return {
+    LoginPath: __expectString(output.LoginPath),
+    RequestInspection:
+      output.RequestInspection != null
+        ? deserializeAws_json1_1RequestInspection(output.RequestInspection, context)
+        : undefined,
+    ResponseInspection:
+      output.ResponseInspection != null
+        ? deserializeAws_json1_1ResponseInspection(output.ResponseInspection, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AWSManagedRulesBotControlRuleSet = (
+  output: any,
+  context: __SerdeContext
+): AWSManagedRulesBotControlRuleSet => {
+  return {
+    InspectionLevel: __expectString(output.InspectionLevel),
+  } as any;
+};
+
 const deserializeAws_json1_1BlockAction = (output: any, context: __SerdeContext): BlockAction => {
   return {
     CustomResponse:
@@ -5220,6 +5506,32 @@ const deserializeAws_json1_1CaptchaConfig = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1CaptchaResponse = (output: any, context: __SerdeContext): CaptchaResponse => {
+  return {
+    FailureReason: __expectString(output.FailureReason),
+    ResponseCode: __expectInt32(output.ResponseCode),
+    SolveTimestamp: __expectLong(output.SolveTimestamp),
+  } as any;
+};
+
+const deserializeAws_json1_1ChallengeAction = (output: any, context: __SerdeContext): ChallengeAction => {
+  return {
+    CustomRequestHandling:
+      output.CustomRequestHandling != null
+        ? deserializeAws_json1_1CustomRequestHandling(output.CustomRequestHandling, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ChallengeConfig = (output: any, context: __SerdeContext): ChallengeConfig => {
+  return {
+    ImmunityTimeProperty:
+      output.ImmunityTimeProperty != null
+        ? deserializeAws_json1_1ImmunityTimeProperty(output.ImmunityTimeProperty, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ChallengeResponse = (output: any, context: __SerdeContext): ChallengeResponse => {
   return {
     FailureReason: __expectString(output.FailureReason),
     ResponseCode: __expectInt32(output.ResponseCode),
@@ -5385,10 +5697,8 @@ const deserializeAws_json1_1CustomResponseBodies = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1CustomResponseBody(value, context),
-    };
+    acc[key] = deserializeAws_json1_1CustomResponseBody(value, context);
+    return acc;
   }, {});
 };
 
@@ -6116,6 +6426,14 @@ const deserializeAws_json1_1LoggingFilter = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ManagedRuleGroupConfig = (output: any, context: __SerdeContext): ManagedRuleGroupConfig => {
   return {
+    AWSManagedRulesATPRuleSet:
+      output.AWSManagedRulesATPRuleSet != null
+        ? deserializeAws_json1_1AWSManagedRulesATPRuleSet(output.AWSManagedRulesATPRuleSet, context)
+        : undefined,
+    AWSManagedRulesBotControlRuleSet:
+      output.AWSManagedRulesBotControlRuleSet != null
+        ? deserializeAws_json1_1AWSManagedRulesBotControlRuleSet(output.AWSManagedRulesBotControlRuleSet, context)
+        : undefined,
     LoginPath: __expectString(output.LoginPath),
     PasswordField:
       output.PasswordField != null ? deserializeAws_json1_1PasswordField(output.PasswordField, context) : undefined,
@@ -6152,6 +6470,10 @@ const deserializeAws_json1_1ManagedRuleGroupStatement = (
         ? deserializeAws_json1_1ManagedRuleGroupConfigs(output.ManagedRuleGroupConfigs, context)
         : undefined,
     Name: __expectString(output.Name),
+    RuleActionOverrides:
+      output.RuleActionOverrides != null
+        ? deserializeAws_json1_1RuleActionOverrides(output.RuleActionOverrides, context)
+        : undefined,
     ScopeDownStatement:
       output.ScopeDownStatement != null
         ? deserializeAws_json1_1Statement(output.ScopeDownStatement, context)
@@ -6328,10 +6650,8 @@ const deserializeAws_json1_1PublishedVersions = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1ManagedRuleSetVersion(value, context),
-    };
+    acc[key] = deserializeAws_json1_1ManagedRuleSetVersion(value, context);
+    return acc;
   }, {});
 };
 
@@ -6507,6 +6827,16 @@ const deserializeAws_json1_1ReleaseSummary = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1RequestInspection = (output: any, context: __SerdeContext): RequestInspection => {
+  return {
+    PasswordField:
+      output.PasswordField != null ? deserializeAws_json1_1PasswordField(output.PasswordField, context) : undefined,
+    PayloadType: __expectString(output.PayloadType),
+    UsernameField:
+      output.UsernameField != null ? deserializeAws_json1_1UsernameField(output.UsernameField, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceArns = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6519,11 +6849,207 @@ const deserializeAws_json1_1ResourceArns = (output: any, context: __SerdeContext
   return retVal;
 };
 
+const deserializeAws_json1_1ResponseInspection = (output: any, context: __SerdeContext): ResponseInspection => {
+  return {
+    BodyContains:
+      output.BodyContains != null
+        ? deserializeAws_json1_1ResponseInspectionBodyContains(output.BodyContains, context)
+        : undefined,
+    Header: output.Header != null ? deserializeAws_json1_1ResponseInspectionHeader(output.Header, context) : undefined,
+    Json: output.Json != null ? deserializeAws_json1_1ResponseInspectionJson(output.Json, context) : undefined,
+    StatusCode:
+      output.StatusCode != null
+        ? deserializeAws_json1_1ResponseInspectionStatusCode(output.StatusCode, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResponseInspectionBodyContains = (
+  output: any,
+  context: __SerdeContext
+): ResponseInspectionBodyContains => {
+  return {
+    FailureStrings:
+      output.FailureStrings != null
+        ? deserializeAws_json1_1ResponseInspectionBodyContainsFailureStrings(output.FailureStrings, context)
+        : undefined,
+    SuccessStrings:
+      output.SuccessStrings != null
+        ? deserializeAws_json1_1ResponseInspectionBodyContainsSuccessStrings(output.SuccessStrings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResponseInspectionBodyContainsFailureStrings = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionBodyContainsSuccessStrings = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionHeader = (
+  output: any,
+  context: __SerdeContext
+): ResponseInspectionHeader => {
+  return {
+    FailureValues:
+      output.FailureValues != null
+        ? deserializeAws_json1_1ResponseInspectionHeaderFailureValues(output.FailureValues, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    SuccessValues:
+      output.SuccessValues != null
+        ? deserializeAws_json1_1ResponseInspectionHeaderSuccessValues(output.SuccessValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResponseInspectionHeaderFailureValues = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionHeaderSuccessValues = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionJson = (output: any, context: __SerdeContext): ResponseInspectionJson => {
+  return {
+    FailureValues:
+      output.FailureValues != null
+        ? deserializeAws_json1_1ResponseInspectionJsonFailureValues(output.FailureValues, context)
+        : undefined,
+    Identifier: __expectString(output.Identifier),
+    SuccessValues:
+      output.SuccessValues != null
+        ? deserializeAws_json1_1ResponseInspectionJsonSuccessValues(output.SuccessValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResponseInspectionJsonFailureValues = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionJsonSuccessValues = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionStatusCode = (
+  output: any,
+  context: __SerdeContext
+): ResponseInspectionStatusCode => {
+  return {
+    FailureCodes:
+      output.FailureCodes != null
+        ? deserializeAws_json1_1ResponseInspectionStatusCodeFailureCodes(output.FailureCodes, context)
+        : undefined,
+    SuccessCodes:
+      output.SuccessCodes != null
+        ? deserializeAws_json1_1ResponseInspectionStatusCodeSuccessCodes(output.SuccessCodes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResponseInspectionStatusCodeFailureCodes = (
+  output: any,
+  context: __SerdeContext
+): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResponseInspectionStatusCodeSuccessCodes = (
+  output: any,
+  context: __SerdeContext
+): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule => {
   return {
     Action: output.Action != null ? deserializeAws_json1_1RuleAction(output.Action, context) : undefined,
     CaptchaConfig:
       output.CaptchaConfig != null ? deserializeAws_json1_1CaptchaConfig(output.CaptchaConfig, context) : undefined,
+    ChallengeConfig:
+      output.ChallengeConfig != null
+        ? deserializeAws_json1_1ChallengeConfig(output.ChallengeConfig, context)
+        : undefined,
     Name: __expectString(output.Name),
     OverrideAction:
       output.OverrideAction != null ? deserializeAws_json1_1OverrideAction(output.OverrideAction, context) : undefined,
@@ -6542,8 +7068,28 @@ const deserializeAws_json1_1RuleAction = (output: any, context: __SerdeContext):
     Allow: output.Allow != null ? deserializeAws_json1_1AllowAction(output.Allow, context) : undefined,
     Block: output.Block != null ? deserializeAws_json1_1BlockAction(output.Block, context) : undefined,
     Captcha: output.Captcha != null ? deserializeAws_json1_1CaptchaAction(output.Captcha, context) : undefined,
+    Challenge: output.Challenge != null ? deserializeAws_json1_1ChallengeAction(output.Challenge, context) : undefined,
     Count: output.Count != null ? deserializeAws_json1_1CountAction(output.Count, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1RuleActionOverride = (output: any, context: __SerdeContext): RuleActionOverride => {
+  return {
+    ActionToUse: output.ActionToUse != null ? deserializeAws_json1_1RuleAction(output.ActionToUse, context) : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1RuleActionOverrides = (output: any, context: __SerdeContext): RuleActionOverride[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RuleActionOverride(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1RuleGroup = (output: any, context: __SerdeContext): RuleGroup => {
@@ -6580,6 +7126,10 @@ const deserializeAws_json1_1RuleGroupReferenceStatement = (
     ARN: __expectString(output.ARN),
     ExcludedRules:
       output.ExcludedRules != null ? deserializeAws_json1_1ExcludedRules(output.ExcludedRules, context) : undefined,
+    RuleActionOverrides:
+      output.RuleActionOverrides != null
+        ? deserializeAws_json1_1RuleActionOverrides(output.RuleActionOverrides, context)
+        : undefined,
   } as any;
 };
 
@@ -6643,7 +7193,12 @@ const deserializeAws_json1_1SampledHTTPRequest = (output: any, context: __SerdeC
       output.CaptchaResponse != null
         ? deserializeAws_json1_1CaptchaResponse(output.CaptchaResponse, context)
         : undefined,
+    ChallengeResponse:
+      output.ChallengeResponse != null
+        ? deserializeAws_json1_1ChallengeResponse(output.ChallengeResponse, context)
+        : undefined,
     Labels: output.Labels != null ? deserializeAws_json1_1Labels(output.Labels, context) : undefined,
+    OverriddenAction: __expectString(output.OverriddenAction),
     Request: output.Request != null ? deserializeAws_json1_1HTTPRequest(output.Request, context) : undefined,
     RequestHeadersInserted:
       output.RequestHeadersInserted != null
@@ -6836,6 +7391,18 @@ const deserializeAws_json1_1TimeWindow = (output: any, context: __SerdeContext):
     StartTime:
       output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1TokenDomains = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
@@ -7075,6 +7642,10 @@ const deserializeAws_json1_1WebACL = (output: any, context: __SerdeContext): Web
     Capacity: __expectLong(output.Capacity),
     CaptchaConfig:
       output.CaptchaConfig != null ? deserializeAws_json1_1CaptchaConfig(output.CaptchaConfig, context) : undefined,
+    ChallengeConfig:
+      output.ChallengeConfig != null
+        ? deserializeAws_json1_1ChallengeConfig(output.ChallengeConfig, context)
+        : undefined,
     CustomResponseBodies:
       output.CustomResponseBodies != null
         ? deserializeAws_json1_1CustomResponseBodies(output.CustomResponseBodies, context)
@@ -7095,6 +7666,8 @@ const deserializeAws_json1_1WebACL = (output: any, context: __SerdeContext): Web
         ? deserializeAws_json1_1FirewallManagerRuleGroups(output.PreProcessFirewallManagerRuleGroups, context)
         : undefined,
     Rules: output.Rules != null ? deserializeAws_json1_1Rules(output.Rules, context) : undefined,
+    TokenDomains:
+      output.TokenDomains != null ? deserializeAws_json1_1TokenDomains(output.TokenDomains, context) : undefined,
     VisibilityConfig:
       output.VisibilityConfig != null
         ? deserializeAws_json1_1VisibilityConfig(output.VisibilityConfig, context)
@@ -7137,7 +7710,8 @@ const deserializeAws_json1_1XssMatchStatement = (output: any, context: __SerdeCo
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -7187,6 +7761,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -7197,6 +7777,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

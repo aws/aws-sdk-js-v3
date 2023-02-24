@@ -13,6 +13,11 @@ import {
   AssociatePackageCommandOutput,
 } from "./commands/AssociatePackageCommand";
 import {
+  AuthorizeVpcEndpointAccessCommand,
+  AuthorizeVpcEndpointAccessCommandInput,
+  AuthorizeVpcEndpointAccessCommandOutput,
+} from "./commands/AuthorizeVpcEndpointAccessCommand";
+import {
   CancelElasticsearchServiceSoftwareUpdateCommand,
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput,
@@ -32,6 +37,11 @@ import {
   CreatePackageCommandInput,
   CreatePackageCommandOutput,
 } from "./commands/CreatePackageCommand";
+import {
+  CreateVpcEndpointCommand,
+  CreateVpcEndpointCommandInput,
+  CreateVpcEndpointCommandOutput,
+} from "./commands/CreateVpcEndpointCommand";
 import {
   DeleteElasticsearchDomainCommand,
   DeleteElasticsearchDomainCommandInput,
@@ -57,6 +67,11 @@ import {
   DeletePackageCommandInput,
   DeletePackageCommandOutput,
 } from "./commands/DeletePackageCommand";
+import {
+  DeleteVpcEndpointCommand,
+  DeleteVpcEndpointCommandInput,
+  DeleteVpcEndpointCommandOutput,
+} from "./commands/DeleteVpcEndpointCommand";
 import {
   DescribeDomainAutoTunesCommand,
   DescribeDomainAutoTunesCommandInput,
@@ -113,6 +128,11 @@ import {
   DescribeReservedElasticsearchInstancesCommandOutput,
 } from "./commands/DescribeReservedElasticsearchInstancesCommand";
 import {
+  DescribeVpcEndpointsCommand,
+  DescribeVpcEndpointsCommandInput,
+  DescribeVpcEndpointsCommandOutput,
+} from "./commands/DescribeVpcEndpointsCommand";
+import {
   DissociatePackageCommand,
   DissociatePackageCommandInput,
   DissociatePackageCommandOutput,
@@ -164,6 +184,21 @@ import {
 } from "./commands/ListPackagesForDomainCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
+  ListVpcEndpointAccessCommand,
+  ListVpcEndpointAccessCommandInput,
+  ListVpcEndpointAccessCommandOutput,
+} from "./commands/ListVpcEndpointAccessCommand";
+import {
+  ListVpcEndpointsCommand,
+  ListVpcEndpointsCommandInput,
+  ListVpcEndpointsCommandOutput,
+} from "./commands/ListVpcEndpointsCommand";
+import {
+  ListVpcEndpointsForDomainCommand,
+  ListVpcEndpointsForDomainCommandInput,
+  ListVpcEndpointsForDomainCommandOutput,
+} from "./commands/ListVpcEndpointsForDomainCommand";
+import {
   PurchaseReservedElasticsearchInstanceOfferingCommand,
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
@@ -174,6 +209,11 @@ import {
   RejectInboundCrossClusterSearchConnectionCommandOutput,
 } from "./commands/RejectInboundCrossClusterSearchConnectionCommand";
 import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import {
+  RevokeVpcEndpointAccessCommand,
+  RevokeVpcEndpointAccessCommandInput,
+  RevokeVpcEndpointAccessCommandOutput,
+} from "./commands/RevokeVpcEndpointAccessCommand";
 import {
   StartElasticsearchServiceSoftwareUpdateCommand,
   StartElasticsearchServiceSoftwareUpdateCommandInput,
@@ -189,6 +229,11 @@ import {
   UpdatePackageCommandInput,
   UpdatePackageCommandOutput,
 } from "./commands/UpdatePackageCommand";
+import {
+  UpdateVpcEndpointCommand,
+  UpdateVpcEndpointCommandInput,
+  UpdateVpcEndpointCommandOutput,
+} from "./commands/UpdateVpcEndpointCommand";
 import {
   UpgradeElasticsearchDomainCommand,
   UpgradeElasticsearchDomainCommandInput,
@@ -289,6 +334,38 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
     cb?: (err: any, data?: AssociatePackageCommandOutput) => void
   ): Promise<AssociatePackageCommandOutput> | void {
     const command = new AssociatePackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
+   */
+  public authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AuthorizeVpcEndpointAccessCommandOutput>;
+  public authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    cb: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
+  ): Promise<AuthorizeVpcEndpointAccessCommandOutput> | void {
+    const command = new AuthorizeVpcEndpointAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -422,6 +499,38 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
     cb?: (err: any, data?: CreatePackageCommandOutput) => void
   ): Promise<CreatePackageCommandOutput> | void {
     const command = new CreatePackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an Amazon OpenSearch Service-managed VPC endpoint.</p>
+   */
+  public createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcEndpointCommandOutput>;
+  public createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): void;
+  public createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): void;
+  public createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcEndpointCommandOutput) => void),
+    cb?: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): Promise<CreateVpcEndpointCommandOutput> | void {
+    const command = new CreateVpcEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -586,6 +695,38 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
     cb?: (err: any, data?: DeletePackageCommandOutput) => void
   ): Promise<DeletePackageCommandOutput> | void {
     const command = new DeletePackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
+   */
+  public deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcEndpointCommandOutput>;
+  public deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
+  ): void;
+  public deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
+  ): void;
+  public deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcEndpointCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
+  ): Promise<DeleteVpcEndpointCommandOutput> | void {
+    const command = new DeleteVpcEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -967,6 +1108,38 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * <p>Describes one or more Amazon OpenSearch Service-managed VPC endpoints.</p>
+   */
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcEndpointsCommandOutput>;
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): void;
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): void;
+  public describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): Promise<DescribeVpcEndpointsCommandOutput> | void {
+    const command = new DescribeVpcEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Dissociates a package from the Amazon ES domain.</p>
    */
   public dissociatePackage(
@@ -1320,6 +1493,103 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * <p>Retrieves information about each  principal that is allowed to access a
+   *    given Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
+   */
+  public listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointAccessCommandOutput>;
+  public listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    cb: (err: any, data?: ListVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVpcEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: ListVpcEndpointAccessCommandOutput) => void
+  ): Promise<ListVpcEndpointAccessCommandOutput> | void {
+    const command = new ListVpcEndpointAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current account and Region.</p>
+   */
+  public listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointsCommandOutput>;
+  public listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
+  ): void;
+  public listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
+  ): void;
+  public listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVpcEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: ListVpcEndpointsCommandOutput) => void
+  ): Promise<ListVpcEndpointsCommandOutput> | void {
+    const command = new ListVpcEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a particular domain.</p>
+   */
+  public listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointsForDomainCommandOutput>;
+  public listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    cb: (err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void
+  ): void;
+  public listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void
+  ): void;
+  public listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void),
+    cb?: (err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void
+  ): Promise<ListVpcEndpointsForDomainCommandOutput> | void {
+    const command = new ListVpcEndpointsForDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Allows you to purchase reserved Elasticsearch instances.</p>
    */
   public purchaseReservedElasticsearchInstanceOffering(
@@ -1403,6 +1673,39 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
     cb?: (err: any, data?: RemoveTagsCommandOutput) => void
   ): Promise<RemoveTagsCommandOutput> | void {
     const command = new RemoveTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface
+   *    VPC endpoint.</p>
+   */
+  public revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeVpcEndpointAccessCommandOutput>;
+  public revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    cb: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
+  ): void;
+  public revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
+  ): Promise<RevokeVpcEndpointAccessCommandOutput> | void {
+    const command = new RevokeVpcEndpointAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1501,6 +1804,38 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
     cb?: (err: any, data?: UpdatePackageCommandOutput) => void
   ): Promise<UpdatePackageCommandOutput> | void {
     const command = new UpdatePackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
+   */
+  public updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVpcEndpointCommandOutput>;
+  public updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
+  ): void;
+  public updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
+  ): void;
+  public updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVpcEndpointCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
+  ): Promise<UpdateVpcEndpointCommandOutput> | void {
+    const command = new UpdateVpcEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

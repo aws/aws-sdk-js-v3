@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,13 +31,13 @@ export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPoli
 /**
  * <p>Gets information about the traffic policy instances that you created by using the
  * 			current Amazon Web Services account.</p>
- * 		       <note>
- * 			         <p>After you submit an <code>UpdateTrafficPolicyInstance</code> request, there's a
+ *          <note>
+ *             <p>After you submit an <code>UpdateTrafficPolicyInstance</code> request, there's a
  * 				brief delay while Amazon Route 53 creates the resource record sets that are
  * 				specified in the traffic policy definition. For more information, see the
  * 					<code>State</code> response element.</p>
- * 		       </note>
- * 		       <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic
+ *          </note>
+ *          <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic
  * 			policy instances, you can use the <code>MaxItems</code> parameter to list them in groups
  * 			of up to 100.</p>
  * @example
@@ -62,6 +63,15 @@ export class ListTrafficPolicyInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListTrafficPolicyInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +87,9 @@ export class ListTrafficPolicyInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTrafficPolicyInstancesCommandInput, ListTrafficPolicyInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTrafficPolicyInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

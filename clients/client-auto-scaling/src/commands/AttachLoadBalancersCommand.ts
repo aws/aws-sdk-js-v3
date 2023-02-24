@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,14 +31,14 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
 /**
  * <note>
  *             <p>To attach an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer, use the <a>AttachLoadBalancerTargetGroups</a> API operation instead.</p>
- *         </note>
- *         <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the
+ *          </note>
+ *          <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the
  *             running instances with these Classic Load Balancers.</p>
- *         <p>To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a> API. To detach a load balancer from the Auto Scaling
+ *          <p>To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a> API. To detach a load balancer from the Auto Scaling
  *             group, call the <a>DetachLoadBalancers</a> API.</p>
- *         <p>This operation is additive and does not detach existing Classic Load Balancers or
+ *          <p>This operation is additive and does not detach existing Classic Load Balancers or
  *             target groups from the Auto Scaling group.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to
  *                 distribute traffic across the instances in your Auto Scaling group</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
@@ -63,6 +64,15 @@ export class AttachLoadBalancersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AttachLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,9 @@ export class AttachLoadBalancersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AttachLoadBalancersCommandInput, AttachLoadBalancersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AttachLoadBalancersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

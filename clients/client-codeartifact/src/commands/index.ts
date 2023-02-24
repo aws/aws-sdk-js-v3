@@ -5,6 +5,7 @@ export * from "./CreateDomainCommand";
 export * from "./CreateRepositoryCommand";
 export * from "./DeleteDomainCommand";
 export * from "./DeleteDomainPermissionsPolicyCommand";
+export * from "./DeletePackageCommand";
 export * from "./DeletePackageVersionsCommand";
 export * from "./DeleteRepositoryCommand";
 export * from "./DeleteRepositoryPermissionsPolicyCommand";

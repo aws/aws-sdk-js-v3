@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -33,8 +34,8 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
 
 /**
  * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p>
- *         <p>This command doesn't apply to RDS Custom.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
+ *          <p>This command doesn't apply to RDS Custom.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
  *             Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon RDS User Guide.</i>
  *          </p>
  * @example
@@ -60,6 +61,15 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartDBInstanceAutomatedBackupsReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +88,12 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     StartDBInstanceAutomatedBackupsReplicationCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        StartDBInstanceAutomatedBackupsReplicationCommand.getEndpointParameterInstructions()
+      )
+    );
     this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

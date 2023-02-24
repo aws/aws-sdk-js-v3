@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,7 +37,6 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  *       client devices connect to IoT Greengrass to retrieve associated core devices' connectivity information
  *       and certificates. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html">Configure cloud
  *         discovery</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
- *
  *          <note>
  *             <p>Client devices are local IoT devices that connect to and communicate with an IoT Greengrass core
  *         device over MQTT. You can connect client devices to a core device to sync MQTT messages and
@@ -67,6 +67,15 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchAssociateClientDeviceWithCoreDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +94,12 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<
     BatchAssociateClientDeviceWithCoreDeviceCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        BatchAssociateClientDeviceWithCoreDeviceCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

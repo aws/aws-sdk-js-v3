@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -34,7 +34,6 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *          across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost Allocation
  *             and Tagging</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">Using Cost Allocation in Amazon S3 Bucket
  *                Tags</a>.</p>
- *
  *          <note>
  *             <p>
  *             When this operation sets the tags for a bucket, it will overwrite any current tags the
@@ -44,7 +43,6 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *             <code>s3:PutBucketTagging</code> action. The bucket owner has this permission by default
  *          and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
  *             Resources</a>.</p>
- *
  *          <p>
  *             <code>PutBucketTagging</code> has the following special errors:</p>
  *          <ul>
@@ -89,8 +87,6 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *                </ul>
  *             </li>
  *          </ul>
- *
- *
  *          <p>The following operations are related to <code>PutBucketTagging</code>:</p>
  *          <ul>
  *             <li>
@@ -127,6 +123,21 @@ export class PutBucketTaggingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutBucketTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,7 +153,9 @@ export class PutBucketTaggingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutBucketTaggingCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,

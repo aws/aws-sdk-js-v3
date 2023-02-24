@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,15 +29,12 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  *          bucket. You will get a <code>200 OK</code> response if the website configuration you are
  *          trying to delete does not exist on the bucket. Amazon S3 returns a <code>404</code> response if
  *          the bucket specified in the request does not exist.</p>
- *
  *          <p>This DELETE action requires the <code>S3:DeleteBucketWebsite</code> permission. By
  *          default, only the bucket owner can delete the website configuration attached to a bucket.
  *          However, bucket owners can grant other users permission to delete the website configuration
  *          by writing a bucket policy granting them the <code>S3:DeleteBucketWebsite</code>
  *          permission. </p>
- *
  *          <p>For more information about hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a>. </p>
- *
  *          <p>The following operations are related to <code>DeleteBucketWebsite</code>:</p>
  *          <ul>
  *             <li>
@@ -74,6 +71,21 @@ export class DeleteBucketWebsiteCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteBucketWebsiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +101,9 @@ export class DeleteBucketWebsiteCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteBucketWebsiteCommandInput, DeleteBucketWebsiteCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteBucketWebsiteCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

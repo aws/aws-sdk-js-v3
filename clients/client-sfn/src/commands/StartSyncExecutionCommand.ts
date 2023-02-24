@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,19 @@ export interface StartSyncExecutionCommandInput extends StartSyncExecutionInput 
 export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a Synchronous Express state machine execution.</p>
+ * <p>Starts a Synchronous Express state machine execution. <code>StartSyncExecution</code>
+ * 			  is not available for <code>STANDARD</code> workflows.</p>
+ *          <note>
+ *             <p>
+ *                <code>StartSyncExecution</code> will return a <code>200 OK</code> response, even if your
+ *         execution fails, because the status code in the API response doesn't reflect function
+ *         errors. Error codes are reserved for errors that prevent your execution from running, such
+ *         as permissions errors, limit errors, or issues with your state machine code and
+ *         configuration. </p>
+ *          </note>
+ *          <note>
+ *             <p>This API action isn't logged in CloudTrail.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +65,15 @@ export class StartSyncExecutionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartSyncExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +89,9 @@ export class StartSyncExecutionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartSyncExecutionCommandInput, StartSyncExecutionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartSyncExecutionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

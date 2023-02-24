@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConformancePackRequest, PutConformancePackRequestFilterSensitiveLog } from "../models/models_0";
-import { PutConformancePackResponse, PutConformancePackResponseFilterSensitiveLog } from "../models/models_1";
+import {
+  PutConformancePackRequest,
+  PutConformancePackRequestFilterSensitiveLog,
+  PutConformancePackResponse,
+  PutConformancePackResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1PutConformancePackCommand,
   serializeAws_json1_1PutConformancePackCommand,
@@ -24,7 +29,7 @@ export interface PutConformancePackCommandInput extends PutConformancePackReques
 export interface PutConformancePackCommandOutput extends PutConformancePackResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across Amazon Web Services Organization.
+ * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across an organization.
  * 			For information on how many conformance packs you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
@@ -32,8 +37,7 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * 		       <p>This API creates a service-linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
  * 		The service-linked role is created only when the role does not exist in your account. </p>
  * 		       <note>
- *             <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
- * 			If you provide both Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
+ *             <p>You must specify only one of the follow parameters: <code>TemplateS3Uri</code>, <code>TemplateBody</code> or <code>TemplateSSMDocumentDetails</code>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +62,15 @@ export class PutConformancePackCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +86,9 @@ export class PutConformancePackCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutConformancePackCommandInput, PutConformancePackCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutConformancePackCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

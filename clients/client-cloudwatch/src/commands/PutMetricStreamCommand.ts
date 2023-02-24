@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,18 +29,17 @@ export interface PutMetricStreamCommandInput extends PutMetricStreamInput {}
 export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch metrics
- * 			to Amazon Web Services destinations including
- * 			Amazon S3 and to many third-party solutions.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">
+ * <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch
+ * 			metrics to Amazon Web Services destinations, including Amazon S3, and to many third-party
+ * 			solutions.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">
  * 		Using Metric Streams</a>.</p>
- * 		       <p>To create a metric stream,
- * 			you must be logged on to an account that has the <code>iam:PassRole</code> permission
- * 			and either the <code>CloudWatchFullAccess</code>
- * 		policy or the <code>cloudwatch:PutMetricStream</code>
- * 		permission.</p>
- * 		       <p>When you create or update a metric stream, you choose one of the following:</p>
- * 		       <ul>
+ *          <p>To create a metric stream, you must be signed in to an account that has the
+ * 				<code>iam:PassRole</code> permission and either the
+ * 				<code>CloudWatchFullAccess</code> policy or the
+ * 				<code>cloudwatch:PutMetricStream</code> permission.</p>
+ *          <p>When you create or update a metric stream, you choose one of the following:</p>
+ *          <ul>
  *             <li>
  *                <p>Stream metrics from all metric namespaces in the account.</p>
  *             </li>
@@ -52,16 +52,17 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * 				<code>IncludeFilters</code>.</p>
  *             </li>
  *          </ul>
- *
- * 		       <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
- * 			and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can use the
- * 			<code>StatisticsConfigurations</code> parameter to have
- * 			the metric stream also send additional statistics in the stream. Streaming additional statistics incurs
- * 			additional costs. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>. </p>
- *
- * 		       <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream
+ *          <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>,
+ * 				<code>SUM</code>, and <code>SAMPLECOUNT</code> statistics for each metric that is
+ * 			streamed. You can use the <code>StatisticsConfigurations</code> parameter to have the
+ * 			metric stream send additional statistics in the stream. Streaming additional statistics
+ * 			incurs additional costs. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>. </p>
+ *          <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream
  * 		is created in the <code>running</code> state. If you use it to update an existing stream,
  * 		the state of the stream is not changed.</p>
+ *          <p>If you are using CloudWatch cross-account observability and you create a metric stream in a monitoring account,
+ * 			you can choose whether to include metrics from source accounts in the stream. For more information, see
+ * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,6 +86,15 @@ export class PutMetricStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutMetricStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,6 +110,9 @@ export class PutMetricStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutMetricStreamCommandInput, PutMetricStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutMetricStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

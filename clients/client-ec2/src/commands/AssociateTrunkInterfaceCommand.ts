@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,10 +32,9 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * <note>
  *             <p>This API action is currently in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
- *         </note>
- *
- *         <p>Associates a branch network interface with a trunk network interface.</p>
- *         <p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set
+ *          </note>
+ *          <p>Associates a branch network interface with a trunk network interface.</p>
+ *          <p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set
  *             <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +59,15 @@ export class AssociateTrunkInterfaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AssociateTrunkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +83,9 @@ export class AssociateTrunkInterfaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateTrunkInterfaceCommandInput, AssociateTrunkInterfaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateTrunkInterfaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

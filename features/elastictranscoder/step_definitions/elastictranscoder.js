@@ -1,16 +1,30 @@
-const { Before, Given, Then } = require("cucumber");
+const { After, Before, Given, Then } = require("@cucumber/cucumber");
 
-Before({ tags: "@elastictranscoder" }, function (scenario, callback) {
+Before({ tags: "@elastictranscoder" }, function () {
   const { S3 } = require("../../../clients/client-s3");
   const { IAM } = require("../../../clients/client-iam");
   const { ElasticTranscoder } = require("../../../clients/client-elastic-transcoder");
   this.iam = new IAM({});
   this.s3 = new S3({});
   this.service = new ElasticTranscoder({});
-  callback();
 });
 
-Given("I create an Elastic Transcoder pipeline with name prefix {string}", function (prefix, callback) {
+After({ tags: "@elastictranscoder" }, async function () {
+  if (this.iamRoleName) {
+    await this.iam.deleteRole({ RoleName: this.iamRoleName });
+    this.iamRoleName = undefined;
+  }
+  if (this.pipelineId) {
+    await this.service.deletePipeline({ Id: this.pipelineId });
+    this.pipelineId = undefined;
+  }
+  if (this.bucket) {
+    await this.s3.deleteBucket({ Bucket: this.bucket });
+    this.bucket = undefined;
+  }
+});
+
+Given("I create an Elastic Transcoder pipeline with name prefix {string}", async function (prefix) {
   this.pipelineName = this.uniqueName(prefix);
   const params = {
     Name: this.pipelineName,
@@ -25,62 +39,36 @@ Given("I create an Elastic Transcoder pipeline with name prefix {string}", funct
     },
   };
 
-  const world = this;
-  const next = function () {
-    if (world.data) world.pipelineId = world.data.Pipeline.Id;
-    callback();
-  };
-
-  this.request(null, "createPipeline", params, next, false);
+  try {
+    this.data = await this.service.createPipeline(params);
+    this.pipelineId = this.data.Pipeline.Id;
+  } catch (error) {
+    this.error = error;
+  }
 });
 
-Given("I list pipelines", function (callback) {
-  this.request(null, "listPipelines", {}, callback);
+Given("I list pipelines", async function () {
+  this.data = await this.service.listPipelines({});
 });
 
-Then("the list should contain the pipeline", function (callback) {
+Then("the list should contain the pipeline", function () {
   const id = this.pipelineId;
   this.assert.contains(this.data.Pipelines, function (pipeline) {
     return pipeline.Id === id;
   });
-  callback();
 });
 
-Then("I pause the pipeline", function (callback) {
-  this.request(
-    null,
-    "updatePipelineStatus",
-    {
-      Id: this.pipelineId,
-      Status: "Paused",
-    },
-    callback
-  );
+Then("I pause the pipeline", async function () {
+  this.data = await this.service.updatePipelineStatus({
+    Id: this.pipelineId,
+    Status: "Paused",
+  });
 });
 
-Then("I read the pipeline", function (callback) {
-  this.request(
-    null,
-    "readPipeline",
-    {
-      Id: this.pipelineId,
-    },
-    callback
-  );
+Then("I read the pipeline", async function () {
+  this.data = await this.service.readPipeline({ Id: this.pipelineId });
 });
 
-Then("the pipeline status should be {string}", function (status, callback) {
+Then("the pipeline status should be {string}", function (status) {
   this.assert.equal(this.data.Pipeline.Status, status);
-  callback();
-});
-
-Then("I delete the pipeline", function (callback) {
-  this.request(
-    null,
-    "deletePipeline",
-    {
-      Id: this.pipelineId,
-    },
-    callback
-  );
 });

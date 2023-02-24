@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,10 +32,15 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
 
 /**
  * <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
- *         <p>When you detach a target group, it enters the <code>Removing</code> state while
+ *          <p>When you detach a target group, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
  *             can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain
  *             running.</p>
+ *          <note>
+ *             <p>You can use this operation to detach target groups that were attached by using
+ *                     <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that
+ *                 were attached by using <a>AttachTrafficSources</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +64,15 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DetachLoadBalancerTargetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +88,9 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetachLoadBalancerTargetGroupsCommandInput, DetachLoadBalancerTargetGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetachLoadBalancerTargetGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -30,7 +30,7 @@ export interface AbortCriteria {
 
   /**
    * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
-   *         <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
+   *          <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
    */
   thresholdPercentage: number | undefined;
 
@@ -240,6 +240,12 @@ export interface CloudwatchLogsAction {
    * <p>The CloudWatch log group to which the action sends data.</p>
    */
   logGroupName: string | undefined;
+
+  /**
+   * <p>Indicates whether batches of log records will be extracted and uploaded into CloudWatch. Values include <code>true</code> or <code>false</code>
+   *             <i>(default)</i>.</p>
+   */
+  batchMode?: boolean;
 }
 
 /**
@@ -849,6 +855,65 @@ export interface LambdaAction {
 }
 
 /**
+ * <p>Describes how to interpret an application-defined timestamp value from an MQTT message
+ *          payload and the precision of that value.</p>
+ */
+export interface LocationTimestamp {
+  /**
+   * <p>An expression that returns a long epoch time value.</p>
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The precision of the timestamp value that results from the expression
+   *          described in <code>value</code>.</p>
+   *          <p>Valid values:  <code>SECONDS</code> | <code>MILLISECONDS</code> |
+   *          <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is
+   *          <code>MILLISECONDS</code>.</p>
+   */
+  unit?: string;
+}
+
+/**
+ * <p>The Amazon Location rule action sends device location updates from
+ *          an MQTT message to an Amazon Location tracker resource.</p>
+ */
+export interface LocationAction {
+  /**
+   * <p>The IAM role that grants permission to write to the Amazon Location resource.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The name of the tracker resource in Amazon Location in which the location is updated.</p>
+   */
+  trackerName: string | undefined;
+
+  /**
+   * <p>The unique ID of the device providing the location data.</p>
+   */
+  deviceId: string | undefined;
+
+  /**
+   * <p>The time that the location data was sampled. The default value is
+   *       the time the MQTT message was processed.</p>
+   */
+  timestamp?: LocationTimestamp;
+
+  /**
+   * <p>A string that evaluates to a double value that represents the
+   *          latitude of the device's location.</p>
+   */
+  latitude: string | undefined;
+
+  /**
+   * <p>A string that evaluates to a double value that represents the
+   *          longitude of the device's location.</p>
+   */
+  longitude: string | undefined;
+}
+
+/**
  * <p>Describes an action that writes data to an Amazon OpenSearch Service
  *          domain.</p>
  */
@@ -880,6 +945,91 @@ export interface OpenSearchAction {
 }
 
 /**
+ * <p>A key-value pair that you define in the header. Both the key and the value are either
+ *          literal strings or valid <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+ *             templates</a>.</p>
+ */
+export interface UserProperty {
+  /**
+   * <p>A key to be specified in <code>UserProperty</code>.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * <p>A value to be specified in <code>UserProperty</code>.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * <p>Specifies MQTT Version 5.0 headers information. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html"> MQTT</a> from
+ *          Amazon Web Services IoT Core Developer Guide.</p>
+ */
+export interface MqttHeaders {
+  /**
+   * <p>An <code>Enum</code> string value that indicates whether the payload is formatted as
+   *          UTF-8.</p>
+   *          <p>Valid values are <code>UNSPECIFIED_BYTES</code> and <code>UTF8_DATA</code>.</p>
+   *          <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111">
+   *          Payload Format Indicator</a> from the MQTT Version 5.0 specification.</p>
+   *          <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+   *          templates</a>.</p>
+   */
+  payloadFormatIndicator?: string;
+
+  /**
+   * <p>A UTF-8 encoded string that describes the content of the publishing message.</p>
+   *          <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118">
+   *          Content Type</a> from the MQTT Version 5.0 specification.</p>
+   *          <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+   *          templates</a>.</p>
+   */
+  contentType?: string;
+
+  /**
+   * <p>A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe
+   *          the topic which the receiver should publish to as part of the request-response flow. The topic must not contain wildcard
+   *          characters.</p>
+   *          <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114">
+   *          Response Topic</a> from the MQTT Version 5.0 specification.</p>
+   *          <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+   *          templates</a>.</p>
+   */
+  responseTopic?: string;
+
+  /**
+   * <p>The base64-encoded binary data used by the sender of the request message to identify which request the response message is
+   *          for when it's received.</p>
+   *          <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115">
+   *          Correlation Data</a> from the MQTT Version 5.0 specification.</p>
+   *          <note>
+   *             <p>
+   *          This binary data must be based64-encoded.
+   *       </p>
+   *          </note>
+   *          <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+   *          templates</a>.</p>
+   */
+  correlationData?: string;
+
+  /**
+   * <p>A user-defined integer value that will persist a message at the message broker for a
+   *          specified amount of time to ensure that the message will expire if it's no longer relevant to
+   *          the subscriber. The value of <code>messageExpiry</code> represents the number of seconds
+   *          before it expires. For more information about the limits of <code>messageExpiry</code>, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">Amazon Web Services IoT Core message broker and protocol
+   *             limits and quotas </a> from the Amazon Web Services Reference Guide.</p>
+   *          <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+   *          templates</a>.</p>
+   */
+  messageExpiry?: string;
+
+  /**
+   * <p>An array of key-value pairs that you define in the MQTT5 header.</p>
+   */
+  userProperties?: UserProperty[];
+}
+
+/**
  * <p>Describes an action to republish to another topic.</p>
  */
 export interface RepublishAction {
@@ -898,6 +1048,12 @@ export interface RepublishAction {
    *          is 0.</p>
    */
   qos?: number;
+
+  /**
+   * <p>MQTT Version 5.0 headers information. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">
+   *          MQTT</a> from the Amazon Web Services IoT Core Developer Guide.</p>
+   */
+  headers?: MqttHeaders;
 }
 
 export enum CannedAccessControlList {
@@ -1232,6 +1388,12 @@ export interface Action {
    * <p>Write data to an Amazon OpenSearch Service domain.</p>
    */
   openSearch?: OpenSearchAction;
+
+  /**
+   * <p>The Amazon Location Service rule action sends device location updates from
+   *          an MQTT message to an Amazon Location tracker resource.</p>
+   */
+  location?: LocationAction;
 }
 
 export enum ActionType {
@@ -1578,7 +1740,7 @@ export interface AddThingsToThingGroupParams {
 export interface AddThingToBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p>
    *          </note>
    */
@@ -1718,12 +1880,12 @@ export interface AssociateTargetsWithJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -1856,19 +2018,19 @@ export interface AttachThingPrincipalResponse {}
 export interface AttributePayload {
   /**
    * <p>A JSON string containing up to three key-value pair in JSON format. For example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
-   * 		       </p>
+   *          <p>
+   *             <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
+   *          </p>
    */
   attributes?: Record<string, string>;
 
   /**
    * <p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with
    * 			the attributes stored in the registry, instead of overwriting them.</p>
-   * 		       <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p>
-   * 		       <note>
-   * 			         <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p>
-   * 		       </note>
+   *          <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p>
+   *          <note>
+   *             <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p>
+   *          </note>
    */
   merge?: boolean;
 }
@@ -1937,6 +2099,26 @@ export interface AuditCheckDetails {
 }
 
 /**
+ * <p>The certificate issuer indentifier.</p>
+ */
+export interface IssuerCertificateIdentifier {
+  /**
+   * <p>The subject of the issuer certificate.</p>
+   */
+  issuerCertificateSubject?: string;
+
+  /**
+   * <p>The issuer ID.</p>
+   */
+  issuerId?: string;
+
+  /**
+   * <p>The issuer certificate serial number.</p>
+   */
+  issuerCertificateSerialNumber?: string;
+}
+
+/**
  * <p>Information about the version of the policy associated with the resource.</p>
  */
 export interface PolicyVersionIdentifier {
@@ -1994,6 +2176,16 @@ export interface ResourceIdentifier {
    * <p>The ARN of the role alias that has overly permissive actions.</p>
    */
   roleAliasArn?: string;
+
+  /**
+   * <p>The issuer certificate identifier.</p>
+   */
+  issuerCertificateIdentifier?: IssuerCertificateIdentifier;
+
+  /**
+   * <p>The ARN of the identified device certificate.</p>
+   */
+  deviceCertificateArn?: string;
 }
 
 export enum ResourceType {
@@ -2004,6 +2196,7 @@ export enum ResourceType {
   DEVICE_CERTIFICATE = "DEVICE_CERTIFICATE",
   IAM_ROLE = "IAM_ROLE",
   IOT_POLICY = "IOT_POLICY",
+  ISSUER_CERTIFICATE = "ISSUER_CERTIFICATE",
   ROLE_ALIAS = "ROLE_ALIAS",
 }
 
@@ -2609,7 +2802,7 @@ export interface CancelJobRequest {
    * <p>(Optional) If <code>true</code> job executions with status "IN_PROGRESS" and "QUEUED"
    *           are canceled, otherwise only job executions with status "QUEUED" are canceled. The default
    *           is <code>false</code>.</p>
-   *         <p>Canceling a job which is "IN_PROGRESS", will cause a device which is executing
+   *          <p>Canceling a job which is "IN_PROGRESS", will cause a device which is executing
    *           the job to be unable to update the job execution status.  Use caution and ensure that each
    *           device executing a job which is canceled is able to recover to a valid state.</p>
    */
@@ -2650,7 +2843,7 @@ export interface CancelJobExecutionRequest {
    *           QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set
    *           <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code>
    *           will be thrown. The default is <code>false</code>.</p>
-   *         <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable
+   *          <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable
    *           to update the job execution status.  Use caution and ensure that the device is able to
    *           recover to a valid state.</p>
    */
@@ -3213,24 +3406,24 @@ export interface CreateDynamicThingGroupRequest {
 
   /**
    * <p>The dynamic thing group index name.</p>
-   * 		       <note>
-   * 			         <p>Currently one index is supported: <code>AWS_Things</code>.</p>
-   * 		       </note>
+   *          <note>
+   *             <p>Currently one index is supported: <code>AWS_Things</code>.</p>
+   *          </note>
    */
   indexName?: string;
 
   /**
    * <p>The dynamic thing group search query string.</p>
-   * 		       <p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
+   *          <p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
    */
   queryString: string | undefined;
 
   /**
    * <p>The dynamic thing group query version.</p>
-   * 		       <note>
-   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
+   *          <note>
+   *             <p>Currently one query version is supported: "2017-09-30". If not specified, the
    * 				query version defaults to this value.</p>
-   * 		       </note>
+   *          </note>
    */
   queryVersion?: string;
 
@@ -3485,7 +3678,7 @@ export interface ExponentialRolloutRate {
 
   /**
    * <p>The exponential factor to increase the rate of rollout for a job.</p>
-   *         <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+   *          <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
    */
   incrementFactor: number | undefined;
 
@@ -3519,10 +3712,10 @@ export interface PresignedUrlConfig {
   /**
    * <p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job
    *             data/updates are stored. The role must also grant permission for IoT to download the files.</p>
-   *         <important>
+   *          <important>
    *             <p>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service
    *                 confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p>
-   *         </important>
+   *          </important>
    */
   roleArn?: string;
 
@@ -3531,6 +3724,41 @@ export interface PresignedUrlConfig {
    *             seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.</p>
    */
   expiresInSec?: number;
+}
+
+export enum JobEndBehavior {
+  CANCEL = "CANCEL",
+  FORCE_CANCEL = "FORCE_CANCEL",
+  STOP_ROLLOUT = "STOP_ROLLOUT",
+}
+
+/**
+ * <p>Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group. Additionally, you can specify the end behavior for each job execution when it reaches the scheduled end time.</p>
+ */
+export interface SchedulingConfig {
+  /**
+   * <p>The time a job will begin rollout of the job document to all devices in the target
+   *             group for a job. The <code>startTime</code> can be scheduled up to a year in advance and
+   *             must be scheduled a minimum of thirty minutes from the current time.</p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>The time a job will stop rollout of the job document to all devices in the target
+   *             group for a job. The <code>endTime</code> must take place no later than two years from
+   *             the current time and be scheduled a minimum of thirty minutes from the current time. The
+   *             minimum duration between <code>startTime</code> and <code>endTime</code> is thirty
+   *             minutes. The maximum duration between <code>startTime</code> and <code>endTime</code> is
+   *             two years. </p>
+   */
+  endTime?: string;
+
+  /**
+   * <p>Specifies the end behavior for all job executions after a job reaches the selected
+   *                 <code>endTime</code>. If <code>endTime</code> is not selected when creating the job,
+   *             then <code>endBehavior</code> does not apply.</p>
+   */
+  endBehavior?: JobEndBehavior | string;
 }
 
 export enum TargetSelection {
@@ -3569,14 +3797,14 @@ export interface CreateJobRequest {
 
   /**
    * <p>An S3 link to the job document. Required if you don't specify a value for <code>document</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
    *             <p>The placeholder link is of the following form:</p>
    *             <p>
    *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
    *             </p>
    *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
-   *         </note>
+   *          </note>
    */
   documentSource?: string;
 
@@ -3600,11 +3828,11 @@ export interface CreateJobRequest {
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
    *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
    *             target group, even after the job was completed by all things originally in the group.</p>
-   *         <note>
+   *          <note>
    *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
    *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
    *                 been created.</p>
-   *         </note>
+   *          </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -3633,12 +3861,12 @@ export interface CreateJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -3656,14 +3884,20 @@ export interface CreateJobRequest {
 
   /**
    * <p>Parameters of an Amazon Web Services managed template that you can specify to create the job document.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
    *                 managed templates. This parameter can't be used with custom job templates or to
    *                 create jobs from them.</p>
-   *         </note>
+   *          </note>
    */
   documentParameters?: Record<string, string>;
+
+  /**
+   * <p>The configuration that allows you to schedule a job for a future date and time in
+   *             addition to specifying the end behavior for each job execution.</p>
+   */
+  schedulingConfig?: SchedulingConfig;
 }
 
 export interface CreateJobResponse {
@@ -3716,14 +3950,14 @@ export interface CreateJobTemplateRequest {
 
   /**
    * <p>An S3 link to the job document to use in the template. Required if you don't specify a value for <code>document</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
    *             <p>The placeholder link is of the following form:</p>
    *             <p>
    *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
    *             </p>
    *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
-   *         </note>
+   *          </note>
    */
   documentSource?: string;
 
@@ -4063,7 +4297,7 @@ export interface AwsJobExponentialRolloutRate {
 
   /**
    * <p>The criteria to initiate the increase in rate of rollout for a job.</p>
-   *         <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+   *          <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
    */
   rateIncreaseCriteria: AwsJobRateIncreaseCriteria | undefined;
 }
@@ -4670,7 +4904,9 @@ export interface CreateProvisioningTemplateRequest {
   provisioningRoleArn: string | undefined;
 
   /**
-   * <p>Creates a pre-provisioning hook template.</p>
+   * <p>Creates a pre-provisioning hook template. Only supports template of type
+   *             <code>FLEET_PROVISIONING</code>. For more information about provisioning template types,
+   *          see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type">type</a>.</p>
    */
   preProvisioningHook?: ProvisioningHook;
 
@@ -4991,7 +5227,7 @@ export interface CreateStreamResponse {
 export interface CreateThingRequest {
   /**
    * <p>The name of the thing to create.</p>
-   * 		       <p>You can't change a thing's name after you create it. To change a thing's name, you must create a
+   *          <p>You can't change a thing's name after you create it. To change a thing's name, you must create a
    * 			new thing, give it the new name, and then delete the old thing.</p>
    */
   thingName: string | undefined;
@@ -5004,9 +5240,9 @@ export interface CreateThingRequest {
   /**
    * <p>The attribute payload, which consists of up to three name/value pairs in a JSON
    * 			document. For example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
-   * 		       </p>
+   *          <p>
+   *             <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
+   *          </p>
    */
   attributePayload?: AttributePayload;
 
@@ -5598,12 +5834,12 @@ export interface DeleteJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -5643,12 +5879,12 @@ export interface DeleteJobExecutionRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -5715,46 +5951,6 @@ export interface DeletePolicyVersionRequest {
    * <p>The policy version ID.</p>
    */
   policyVersionId: string | undefined;
-}
-
-export interface DeleteProvisioningTemplateRequest {
-  /**
-   * <p>The name of the fleet provision template to delete.</p>
-   */
-  templateName: string | undefined;
-}
-
-export interface DeleteProvisioningTemplateResponse {}
-
-export interface DeleteProvisioningTemplateVersionRequest {
-  /**
-   * <p>The name of the provisioning template version to delete.</p>
-   */
-  templateName: string | undefined;
-
-  /**
-   * <p>The provisioning template version ID to delete.</p>
-   */
-  versionId: number | undefined;
-}
-
-export interface DeleteProvisioningTemplateVersionResponse {}
-
-/**
- * <p>The input for the DeleteRegistrationCode operation.</p>
- */
-export interface DeleteRegistrationCodeRequest {}
-
-/**
- * <p>The output for the DeleteRegistrationCode operation.</p>
- */
-export interface DeleteRegistrationCodeResponse {}
-
-export interface DeleteRoleAliasRequest {
-  /**
-   * <p>The role alias to delete.</p>
-   */
-  roleAlias: string | undefined;
 }
 
 /**
@@ -5943,7 +6139,35 @@ export const LambdaActionFilterSensitiveLog = (obj: LambdaAction): any => ({
 /**
  * @internal
  */
+export const LocationTimestampFilterSensitiveLog = (obj: LocationTimestamp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocationActionFilterSensitiveLog = (obj: LocationAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const OpenSearchActionFilterSensitiveLog = (obj: OpenSearchAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserPropertyFilterSensitiveLog = (obj: UserProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MqttHeadersFilterSensitiveLog = (obj: MqttHeaders): any => ({
   ...obj,
 });
 
@@ -6217,6 +6441,13 @@ export const AuditCheckConfigurationFilterSensitiveLog = (obj: AuditCheckConfigu
  * @internal
  */
 export const AuditCheckDetailsFilterSensitiveLog = (obj: AuditCheckDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IssuerCertificateIdentifierFilterSensitiveLog = (obj: IssuerCertificateIdentifier): any => ({
   ...obj,
 });
 
@@ -6656,6 +6887,13 @@ export const JobExecutionsRolloutConfigFilterSensitiveLog = (obj: JobExecutionsR
  * @internal
  */
 export const PresignedUrlConfigFilterSensitiveLog = (obj: PresignedUrlConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchedulingConfigFilterSensitiveLog = (obj: SchedulingConfig): any => ({
   ...obj,
 });
 
@@ -7388,58 +7626,5 @@ export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest):
  * @internal
  */
 export const DeletePolicyVersionRequestFilterSensitiveLog = (obj: DeletePolicyVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisioningTemplateRequestFilterSensitiveLog = (obj: DeleteProvisioningTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisioningTemplateResponseFilterSensitiveLog = (obj: DeleteProvisioningTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisioningTemplateVersionRequestFilterSensitiveLog = (
-  obj: DeleteProvisioningTemplateVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisioningTemplateVersionResponseFilterSensitiveLog = (
-  obj: DeleteProvisioningTemplateVersionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRegistrationCodeRequestFilterSensitiveLog = (obj: DeleteRegistrationCodeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRegistrationCodeResponseFilterSensitiveLog = (obj: DeleteRegistrationCodeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRoleAliasRequestFilterSensitiveLog = (obj: DeleteRoleAliasRequest): any => ({
   ...obj,
 });

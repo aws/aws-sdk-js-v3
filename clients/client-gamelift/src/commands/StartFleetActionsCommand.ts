@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface StartFleetActionsCommandInput extends StartFleetActionsInput {}
 export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput, __MetadataBearer {}
 
 /**
- * <p>Resumes certain types of activity on fleet instances that were suspended with <a>StopFleetActions</a>. For multi-location fleets, fleet actions are managed
+ * <p>Resumes certain types of activity on fleet instances that were suspended with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. For multi-location fleets, fleet actions are managed
  *             separately for each location. Currently, this operation is used to restart a fleet's
  *             auto-scaling activity.</p>
  *         <p>This operation can be used in the following ways: </p>
@@ -39,32 +40,18 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  *             </li>
  *             <li>
  *                 <p>To restart actions on instances in one of the fleet's remote locations,
- *                     provide a fleet ID, a location name, and the type of actions to resume.  </p>
+ *                     provide a fleet ID, a location name, and the type of actions to resume. </p>
  *             </li>
  *          </ul>
  *         <p>If successful, GameLift once again initiates scaling events as triggered by the fleet's
  *             scaling policies. If actions on the fleet location were never stopped, this operation
- *             will have no effect. You can view a fleet's stopped actions using <a>DescribeFleetAttributes</a> or <a>DescribeFleetLocationAttributes</a>.</p>
- *         <p>
+ *             will have no effect.</p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateFleet</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
- *                     <a>DescribeFleetAttributes</a> |
- *                     <a>DescribeFleetLocationAttributes</a> |
- *                     <a>UpdateFleetAttributes</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>DeleteFleet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *                 fleets</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +76,15 @@ export class StartFleetActionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartFleetActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,6 +100,9 @@ export class StartFleetActionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartFleetActionsCommandInput, StartFleetActionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartFleetActionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,25 +28,21 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
 /**
  * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
  *      	that is either running or stopped.</p>
- * 	        <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
+ *          <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
  * 					take snapshots of the attached volumes while data is at rest, in order to ensure a consistent
  * 					state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request,
  * 					or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and
  * 					rebooting the instance.</p>
- *    	     <important>
- * 					       <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
+ *          <important>
+ *             <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
  * 					parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option
  * 					in the CLI, we can't guarantee the file system integrity of the created image.</p>
- * 				     </important>
- *
- *
- *
- *
- *    	     <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the
+ *          </important>
+ *          <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the
  *      	new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI,
  *      	the instance automatically launches with those additional volumes.</p>
- *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a>
- * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed Linux
+ *         AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +66,15 @@ export class CreateImageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +90,7 @@ export class CreateImageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateImageCommandInput, CreateImageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateImageCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

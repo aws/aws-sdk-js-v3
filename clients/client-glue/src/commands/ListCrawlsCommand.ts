@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ListCrawlsRequestFilterSensitiveLog,
   ListCrawlsResponse,
   ListCrawlsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListCrawlsCommand,
   serializeAws_json1_1ListCrawlsCommand,
@@ -29,9 +30,8 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
 
 /**
  * <p>Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.</p>
- *
- * 	        <p>You may use this API to:</p>
- * 	        <ul>
+ *          <p>You may use this API to:</p>
+ *          <ul>
  *             <li>
  *                <p>Retrive all the crawls of a specified crawler.</p>
  *             </li>
@@ -68,6 +68,15 @@ export class ListCrawlsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListCrawlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +92,7 @@ export class ListCrawlsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListCrawlsCommandInput, ListCrawlsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListCrawlsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

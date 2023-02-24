@@ -11,6 +11,7 @@ export * from "./DeleteFargateProfileCommand";
 export * from "./DeleteNodegroupCommand";
 export * from "./DeregisterClusterCommand";
 export * from "./DescribeAddonCommand";
+export * from "./DescribeAddonConfigurationCommand";
 export * from "./DescribeAddonVersionsCommand";
 export * from "./DescribeClusterCommand";
 export * from "./DescribeFargateProfileCommand";

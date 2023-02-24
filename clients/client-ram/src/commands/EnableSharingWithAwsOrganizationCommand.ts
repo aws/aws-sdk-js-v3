@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -37,7 +38,7 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  *             the OU's ID. Until you enable sharing within the organization, you can specify only
  *             individual Amazon Web Services accounts, or for supported resource types, IAM users and
  *             roles.</p>
- *         <p>You must call this operation from an IAM user or role in the organization's
+ *          <p>You must call this operation from an IAM user or role in the organization's
  *             management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +63,15 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EnableSharingWithAwsOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +87,9 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableSharingWithAwsOrganizationCommandInput, EnableSharingWithAwsOrganizationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableSharingWithAwsOrganizationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

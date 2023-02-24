@@ -13,7 +13,6 @@ AWS SDK for JavaScript RUM Client for Node.js, Browser and React Native.
 your web application performance from actual user sessions in real time. The data collected includes page load
 times, client-side errors, and user behavior. When you view this data, you can see it all aggregated together and
 also see breakdowns by the browsers and devices that your customers use.</p>
-
 <p>You can use the collected data to quickly identify and debug client-side performance issues. CloudWatch
 RUM helps you visualize anomalies in your application performance and find relevant debugging data such as error
 messages, stack traces, and user sessions. You can also use RUM to
@@ -34,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RUMClient` and
-the commands you need, for example `CreateAppMonitorCommand`:
+the commands you need, for example `BatchCreateRumMetricDefinitionsCommand`:
 
 ```js
 // ES5 example
-const { RUMClient, CreateAppMonitorCommand } = require("@aws-sdk/client-rum");
+const { RUMClient, BatchCreateRumMetricDefinitionsCommand } = require("@aws-sdk/client-rum");
 ```
 
 ```ts
 // ES6+ example
-import { RUMClient, CreateAppMonitorCommand } from "@aws-sdk/client-rum";
+import { RUMClient, BatchCreateRumMetricDefinitionsCommand } from "@aws-sdk/client-rum";
 ```
 
 ### Usage
@@ -62,7 +61,7 @@ const client = new RUMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAppMonitorCommand(params);
+const command = new BatchCreateRumMetricDefinitionsCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +140,7 @@ const client = new AWS.RUM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAppMonitor(params);
+  const data = await client.batchCreateRumMetricDefinitions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +148,7 @@ try {
 
 // Promises.
 client
-  .createAppMonitor(params)
+  .batchCreateRumMetricDefinitions(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +157,7 @@ client
   });
 
 // callbacks.
-client.createAppMonitor(params, (err, data) => {
+client.batchCreateRumMetricDefinitions(params, (err, data) => {
   // process err and data.
 });
 ```

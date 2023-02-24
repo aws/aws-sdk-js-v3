@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -38,7 +39,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *          that delete/expire objects after a certain period of time and abort incomplete multipart
  *          uploads.</p>
  *          <p></p>
- *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
+ *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
  *          <p>The following actions are related to
  *          <code>PutBucketLifecycleConfiguration</code>:</p>
  *          <ul>
@@ -76,6 +77,19 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
+      AccountId: { type: "contextParams", name: "AccountId" },
+      Bucket: { type: "contextParams", name: "Bucket" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +105,9 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutBucketLifecycleConfigurationCommandInput, PutBucketLifecycleConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutBucketLifecycleConfigurationCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getProcessArnablesPlugin(configuration));
     this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,11 +25,11 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
 
 /**
  * <p>Deletes a real-time log configuration.</p>
- * 		       <p>You cannot delete a real-time log configuration if it’s attached to a cache behavior.
+ *          <p>You cannot delete a real-time log configuration if it's attached to a cache behavior.
  * 			First update your distributions to remove the real-time log configuration from all cache
  * 			behaviors, then delete the real-time log configuration.</p>
- * 		       <p>To delete a real-time log configuration, you can provide the configuration’s name or its
- * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
+ *          <p>To delete a real-time log configuration, you can provide the configuration's name or
+ * 			its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
  * 			uses the name to identify the real-time log configuration to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +54,15 @@ export class DeleteRealtimeLogConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class DeleteRealtimeLogConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteRealtimeLogConfigCommandInput, DeleteRealtimeLogConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteRealtimeLogConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

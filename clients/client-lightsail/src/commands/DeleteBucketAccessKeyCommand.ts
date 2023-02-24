@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,9 +30,7 @@ export interface DeleteBucketAccessKeyCommandOutput extends DeleteBucketAccessKe
 
 /**
  * <p>Deletes an access key for the specified Amazon Lightsail bucket.</p>
- *
  *          <p>We recommend that you delete an access key if the secret access key is compromised.</p>
- *
  *          <p>For more information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
  *         <i>Amazon Lightsail Developer Guide</i>.</p>
  * @example
@@ -57,6 +56,15 @@ export class DeleteBucketAccessKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteBucketAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +80,9 @@ export class DeleteBucketAccessKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteBucketAccessKeyCommandInput, DeleteBucketAccessKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteBucketAccessKeyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

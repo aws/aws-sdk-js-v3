@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
@@ -12,7 +12,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -25,18 +28,16 @@ import { deserializeAws_restXmlGetObjectCommand, serializeAws_restXmlGetObjectCo
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface GetObjectCommandInput extends GetObjectRequest {}
-export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBearer {}
+export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOutput, "Body">, __MetadataBearer {}
 
 /**
  * <p>Retrieves objects from Amazon S3. To use <code>GET</code>, you must have <code>READ</code>
  *          access to the object. If you grant <code>READ</code> access to the anonymous user, you can
  *          return the object without using an authorization header.</p>
- *
  *          <p>An Amazon S3 bucket has no directory hierarchy such as you would find in a typical computer
  *          file system. You can, however, create a logical hierarchy by using object key names that
  *          imply a folder structure. For example, instead of naming an object <code>sample.jpg</code>,
  *          you can name it <code>photos/2006/February/sample.jpg</code>.</p>
- *
  *          <p>To get an object from such a logical hierarchy, specify the full key name for the object
  *          in the <code>GET</code> operation. For a virtual hosted-style request example, if you have
  *          the object <code>photos/2006/February/sample.jpg</code>, specify the resource as
@@ -45,9 +46,7 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *             <code>examplebucket</code>, specify the resource as
  *             <code>/examplebucket/photos/2006/February/sample.jpg</code>. For more information about
  *          request types, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingSpecifyBucket">HTTP Host Header Bucket Specification</a>.</p>
- *
  *          <p>For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.</p>
- *
  *          <p>If the object you are retrieving is stored in the S3 Glacier or
  *          S3 Glacier Deep Archive storage class, or S3 Intelligent-Tiering Archive or
  *          S3 Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you must first restore a
@@ -55,7 +54,6 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *             <code>InvalidObjectStateError</code> error. For information about restoring archived
  *          objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived
  *             Objects</a>.</p>
- *
  *          <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not
  *          be sent for GET requests if your object uses server-side encryption with KMS keys (SSE-KMS)
  *          or server-side encryption with Amazon S3–managed encryption keys (SSE-S3). If your
@@ -76,12 +74,10 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *          </ul>
  *          <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using
  *             Customer-Provided Encryption Keys)</a>.</p>
- *
  *          <p>Assuming you have the relevant permission to read object tags, the response also returns the
  *             <code>x-amz-tagging-count</code> header that provides the count of number of tags
  *          associated with the object. You can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a> to retrieve
  *          the tag set associated with an object.</p>
- *
  *          <p>
  *             <b>Permissions</b>
  *          </p>
@@ -99,14 +95,11 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *                HTTP status code 403 ("access denied") error.</p>
  *             </li>
  *          </ul>
- *
- *
  *          <p>
  *             <b>Versioning</b>
  *          </p>
  *          <p>By default, the GET action returns the current version of an object. To return a
  *          different version, use the <code>versionId</code> subresource.</p>
- *
  *          <note>
  *             <ul>
  *                <li>
@@ -123,17 +116,13 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *                </li>
  *             </ul>
  *          </note>
- *
- *
  *          <p>For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html">PutBucketVersioning</a>. </p>
- *
  *          <p>
  *             <b>Overriding Response Header Values</b>
  *          </p>
  *          <p>There are times when you want to override certain response header values in a GET
  *          response. For example, you might override the <code>Content-Disposition</code> response
  *          header value in your GET request.</p>
- *
  *          <p>You can override values for a set of response headers using the following query
  *          parameters. These response header values are sent only on a successful request, that is,
  *          when status code 200 OK is returned. The set of headers you can override using these
@@ -142,7 +131,6 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *             <code>Content-Language</code>, <code>Expires</code>, <code>Cache-Control</code>,
  *             <code>Content-Disposition</code>, and <code>Content-Encoding</code>. To override these
  *          header values in the GET response, you use the following request parameters.</p>
- *
  *          <note>
  *             <p>You must sign the request, either using an Authorization header or a presigned URL,
  *             when using these parameters. They cannot be used with an unsigned (anonymous)
@@ -180,23 +168,18 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <p>
  *             <b>Additional Considerations about Request Headers</b>
  *          </p>
- *
  *          <p>If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers are
  *          present in the request as follows: <code>If-Match</code> condition evaluates to
  *             <code>true</code>, and; <code>If-Unmodified-Since</code> condition evaluates to
  *             <code>false</code>; then, S3 returns 200 OK and the data requested. </p>
- *
  *          <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers are
  *          present in the request as follows:<code> If-None-Match</code> condition evaluates to
  *             <code>false</code>, and; <code>If-Modified-Since</code> condition evaluates to
  *             <code>true</code>; then, S3 returns 304 Not Modified response code.</p>
- *
  *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
- *
  *          <p>The following operations are related to <code>GetObject</code>:</p>
  *          <ul>
  *             <li>
@@ -229,6 +212,21 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -244,8 +242,8 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
     options?: __HttpHandlerOptions
   ): Handler<GetObjectCommandInput, GetObjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetObjectCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,
@@ -279,7 +277,10 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
     return serializeAws_restXmlGetObjectCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetObjectCommandOutput> {
     return deserializeAws_restXmlGetObjectCommand(output, context);
   }
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,7 +36,7 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  *             that you want to describe, you can use the <a>ListStreamConsumers</a>
  *             operation to get a list of the descriptions of all the consumers that are currently
  *             registered with a given data stream.</p>
- *         <p>This operation has a limit of 20 transactions per second per stream.</p>
+ *          <p>This operation has a limit of 20 transactions per second per stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,18 @@ export class DescribeStreamConsumerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeStreamConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +87,9 @@ export class DescribeStreamConsumerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeStreamConsumerCommandInput, DescribeStreamConsumerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeStreamConsumerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

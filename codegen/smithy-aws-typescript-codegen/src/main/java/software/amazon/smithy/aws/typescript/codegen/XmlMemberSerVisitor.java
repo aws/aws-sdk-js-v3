@@ -47,7 +47,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *
  * TODO: Work out support for BigDecimal and BigInteger, natively or through a library.
  *
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
 @SmithyInternalApi
 final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {

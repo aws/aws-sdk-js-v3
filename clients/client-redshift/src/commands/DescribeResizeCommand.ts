@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  *             no resize operation has ever been initiated for the specified cluster, a <code>HTTP
  *                 404</code> error is returned. If a resize operation was initiated and completed, the
  *             status of the resize remains as <code>SUCCEEDED</code> until the next resize. </p>
- *         <p>A resize operation can be requested using <a>ModifyCluster</a> and
+ *          <p>A resize operation can be requested using <a>ModifyCluster</a> and
  *             specifying a different number or type of nodes for the cluster. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +54,15 @@ export class DescribeResizeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeResizeCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class DescribeResizeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeResizeCommandInput, DescribeResizeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeResizeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

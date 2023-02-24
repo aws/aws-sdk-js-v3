@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -78,7 +79,6 @@ export interface CreateReplicationConfigurationCommandOutput
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p>The following properties are set by default:</p>
  *          <ul>
  *             <li>
@@ -90,12 +90,11 @@ export interface CreateReplicationConfigurationCommandOutput
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Throughput mode</b> - The destination file system uses the
- *           Bursting Throughput mode by default. After the file system is created, you can modify the
+ *                   <b>Throughput mode</b> - The destination file system's throughput
+ *         mode matches that of the source file system. After the file system is created, you can modify the
  *           throughput mode.</p>
  *             </li>
  *          </ul>
- *
  *          <p>The following properties are turned off by default:</p>
  *          <ul>
  *             <li>
@@ -112,7 +111,6 @@ export interface CreateReplicationConfigurationCommandOutput
  *           setting.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
  *           <i>Amazon EFS User Guide</i>.</p>
  * @example
@@ -138,6 +136,15 @@ export class CreateReplicationConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,6 +160,9 @@ export class CreateReplicationConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateReplicationConfigurationCommandInput, CreateReplicationConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateReplicationConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

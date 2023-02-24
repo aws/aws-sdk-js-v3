@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,15 +32,14 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * <p>Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code>
  * 			cluster when you launch your first container instance. However, you can create your own
  * 			cluster with a unique name with the <code>CreateCluster</code> action.</p>
- * 		       <note>
- * 			         <p>When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to
+ *          <note>
+ *             <p>When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to
  * 				create the Amazon ECS service-linked role for your account. This is so that it can manage
- * 				required resources in other Amazon Web Services services on your behalf. However, if the IAM user
+ * 				required resources in other Amazon Web Services services on your behalf. However, if the user
  * 				that makes the call doesn't have permissions to create the service-linked role, it
  * 				isn't created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
- * 					service-linked roles for Amazon ECS</a> in the
- * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
- * 		       </note>
+ * 					service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +63,15 @@ export class CreateClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +87,7 @@ export class CreateClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateClusterCommandInput, CreateClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateClusterCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,8 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Permanently deletes the specified domain and all of its data. Once a domain is deleted, it cannot
- *       be recovered.
- *     </p>
+ * <p>Deletes an Amazon OpenSearch Service domain and all of its data. You can't recover a domain
+ *    after you delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,15 @@ export class DeleteDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +78,7 @@ export class DeleteDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDomainCommandInput, DeleteDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteDomainCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

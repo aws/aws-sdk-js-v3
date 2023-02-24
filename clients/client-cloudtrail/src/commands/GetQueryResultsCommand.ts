@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,9 @@ export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
 export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value returned by the <code>StartQuery</code>
- *          operation, and an ARN for <code>EventDataStore</code>.</p>
+ * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
+ *          returned by the <code>StartQuery</code> operation, and an ARN for
+ *             <code>EventDataStore</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +55,15 @@ export class GetQueryResultsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetQueryResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +79,9 @@ export class GetQueryResultsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetQueryResultsCommandInput, GetQueryResultsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetQueryResultsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

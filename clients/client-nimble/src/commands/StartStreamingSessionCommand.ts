@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface StartStreamingSessionCommandInput extends StartStreamingSession
 export interface StartStreamingSessionCommandOutput extends StartStreamingSessionResponse, __MetadataBearer {}
 
 /**
- * <p> Transitions sessions from the STOPPED state into the READY state. The
- *             START_IN_PROGRESS state is the intermediate state between the STOPPED and READY
- *             states.</p>
+ * <p>Transitions sessions from the <code>STOPPED</code> state into the <code>READY</code>
+ *             state. The <code>START_IN_PROGRESS</code> state is the intermediate state between the
+ *                 <code>STOPPED</code> and <code>READY</code> states.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class StartStreamingSessionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartStreamingSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class StartStreamingSessionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartStreamingSessionCommandInput, StartStreamingSessionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartStreamingSessionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

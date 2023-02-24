@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,36 +26,35 @@ export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes an entire resource tree. This operation will delete the parent resource and
  *             its child resources.</p>
- *         <p>Child resources are resources that were created from another resource. For example,
+ *          <p>Child resources are resources that were created from another resource. For example,
  *             when a forecast is generated from a predictor, the forecast is the child resource and
  *             the predictor is the parent resource.</p>
- *         <p>Amazon Forecast resources possess the following parent-child resource hierarchies:</p>
- *
- *         <ul>
+ *          <p>Amazon Forecast resources possess the following parent-child resource hierarchies:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Dataset</b>: dataset import jobs</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Dataset Group</b>: predictors, predictor backtest
  *                     export jobs, forecasts, forecast export jobs</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Predictor</b>: predictor backtest export jobs,
  *                     forecasts, forecast export jobs</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Forecast</b>: forecast export jobs</p>
  *             </li>
  *          </ul>
- *         <note>
+ *          <note>
  *             <p>
  *                <code>DeleteResourceTree</code> will only delete Amazon Forecast resources, and will not
  *                 delete datasets or exported files stored in Amazon S3. </p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +78,15 @@ export class DeleteResourceTreeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteResourceTreeCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,6 +102,9 @@ export class DeleteResourceTreeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteResourceTreeCommandInput, DeleteResourceTreeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteResourceTreeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

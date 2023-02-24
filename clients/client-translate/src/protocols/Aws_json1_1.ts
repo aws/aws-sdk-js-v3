@@ -30,6 +30,10 @@ import { GetTerminologyCommandInput, GetTerminologyCommandOutput } from "../comm
 import { ImportTerminologyCommandInput, ImportTerminologyCommandOutput } from "../commands/ImportTerminologyCommand";
 import { ListLanguagesCommandInput, ListLanguagesCommandOutput } from "../commands/ListLanguagesCommand";
 import { ListParallelDataCommandInput, ListParallelDataCommandOutput } from "../commands/ListParallelDataCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { ListTerminologiesCommandInput, ListTerminologiesCommandOutput } from "../commands/ListTerminologiesCommand";
 import {
   ListTextTranslationJobsCommandInput,
@@ -43,7 +47,9 @@ import {
   StopTextTranslationJobCommandInput,
   StopTextTranslationJobCommandOutput,
 } from "../commands/StopTextTranslationJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TranslateTextCommandInput, TranslateTextCommandOutput } from "../commands/TranslateTextCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateParallelDataCommandInput, UpdateParallelDataCommandOutput } from "../commands/UpdateParallelDataCommand";
 import {
   AppliedTerminology,
@@ -76,6 +82,8 @@ import {
   ListLanguagesResponse,
   ListParallelDataRequest,
   ListParallelDataResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   ListTerminologiesRequest,
   ListTerminologiesResponse,
   ListTextTranslationJobsRequest,
@@ -90,6 +98,9 @@ import {
   StartTextTranslationJobResponse,
   StopTextTranslationJobRequest,
   StopTextTranslationJobResponse,
+  Tag,
+  TagResourceRequest,
+  TagResourceResponse,
   Term,
   TerminologyData,
   TerminologyDataLocation,
@@ -98,11 +109,14 @@ import {
   TextTranslationJobFilter,
   TextTranslationJobProperties,
   TooManyRequestsException,
+  TooManyTagsException,
   TranslateTextRequest,
   TranslateTextResponse,
   TranslationSettings,
   UnsupportedDisplayLanguageCodeException,
   UnsupportedLanguagePairException,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateParallelDataRequest,
   UpdateParallelDataResponse,
 } from "../models/models_0";
@@ -225,6 +239,19 @@ export const serializeAws_json1_1ListParallelDataCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSShineFrontendService_20170701.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListTerminologiesCommand = async (
   input: ListTerminologiesCommandInput,
   context: __SerdeContext
@@ -277,6 +304,19 @@ export const serializeAws_json1_1StopTextTranslationJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSShineFrontendService_20170701.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1TranslateTextCommand = async (
   input: TranslateTextCommandInput,
   context: __SerdeContext
@@ -287,6 +327,19 @@ export const serializeAws_json1_1TranslateTextCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TranslateTextRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSShineFrontendService_20170701.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -326,10 +379,13 @@ const deserializeAws_json1_1CreateParallelDataCommandError = async (
 ): Promise<CreateParallelDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.translate#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.translate#ConflictException":
       throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
@@ -348,6 +404,9 @@ const deserializeAws_json1_1CreateParallelDataCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.translate#TooManyRequestsException":
       throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.translate#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -382,7 +441,7 @@ const deserializeAws_json1_1DeleteParallelDataCommandError = async (
 ): Promise<DeleteParallelDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -429,7 +488,7 @@ const deserializeAws_json1_1DeleteTerminologyCommandError = async (
 ): Promise<DeleteTerminologyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -479,7 +538,7 @@ const deserializeAws_json1_1DescribeTextTranslationJobCommandError = async (
 ): Promise<DescribeTextTranslationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -526,7 +585,7 @@ const deserializeAws_json1_1GetParallelDataCommandError = async (
 ): Promise<GetParallelDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -576,7 +635,7 @@ const deserializeAws_json1_1GetTerminologyCommandError = async (
 ): Promise<GetTerminologyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -626,10 +685,13 @@ const deserializeAws_json1_1ImportTerminologyCommandError = async (
 ): Promise<ImportTerminologyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.translate#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
       throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
@@ -642,6 +704,9 @@ const deserializeAws_json1_1ImportTerminologyCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.translate#TooManyRequestsException":
       throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.translate#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -676,7 +741,7 @@ const deserializeAws_json1_1ListLanguagesCommandError = async (
 ): Promise<ListLanguagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -726,7 +791,7 @@ const deserializeAws_json1_1ListParallelDataCommandError = async (
 ): Promise<ListParallelDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -739,6 +804,53 @@ const deserializeAws_json1_1ListParallelDataCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.translate#TooManyRequestsException":
       throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -773,7 +885,7 @@ const deserializeAws_json1_1ListTerminologiesCommandError = async (
 ): Promise<ListTerminologiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -820,7 +932,7 @@ const deserializeAws_json1_1ListTextTranslationJobsCommandError = async (
 ): Promise<ListTextTranslationJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -870,7 +982,7 @@ const deserializeAws_json1_1StartTextTranslationJobCommandError = async (
 ): Promise<StartTextTranslationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -926,7 +1038,7 @@ const deserializeAws_json1_1StopTextTranslationJobCommandError = async (
 ): Promise<StopTextTranslationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -939,6 +1051,59 @@ const deserializeAws_json1_1StopTextTranslationJobCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.translate#TooManyRequestsException":
       throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.translate#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.translate#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -973,7 +1138,7 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
 ): Promise<TranslateTextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1012,6 +1177,56 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.translate#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateParallelDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1035,7 +1250,7 @@ const deserializeAws_json1_1UpdateParallelDataCommandError = async (
 ): Promise<UpdateParallelDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1230,6 +1445,19 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const exception = new TooManyTagsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1UnsupportedDisplayLanguageCodeExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1270,6 +1498,7 @@ const serializeAws_json1_1CreateParallelDataRequest = (
     ...(input.ParallelDataConfig != null && {
       ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
     }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -1331,6 +1560,7 @@ const serializeAws_json1_1ImportTerminologyRequest = (
     }),
     ...(input.MergeStrategy != null && { MergeStrategy: input.MergeStrategy }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TerminologyData != null && {
       TerminologyData: serializeAws_json1_1TerminologyData(input.TerminologyData, context),
     }),
@@ -1356,6 +1586,15 @@ const serializeAws_json1_1ListParallelDataRequest = (input: ListParallelDataRequ
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -1441,6 +1680,36 @@ const serializeAws_json1_1StopTextTranslationJobRequest = (
   };
 };
 
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1Tag(entry, context);
+    });
+};
+
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1TargetLanguageCodeStringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -1489,6 +1758,13 @@ const serializeAws_json1_1TranslationSettings = (input: TranslationSettings, con
   return {
     ...(input.Formality != null && { Formality: input.Formality }),
     ...(input.Profanity != null && { Profanity: input.Profanity }),
+  };
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -1752,6 +2028,15 @@ const deserializeAws_json1_1ListParallelDataResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTerminologiesResponse = (
   output: any,
   context: __SerdeContext
@@ -1902,6 +2187,29 @@ const deserializeAws_json1_1StopTextTranslationJobResponse = (
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
   } as any;
+};
+
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1TargetLanguageCodeStringList = (output: any, context: __SerdeContext): string[] => {
@@ -2062,6 +2370,13 @@ const deserializeAws_json1_1TooManyRequestsException = (
   } as any;
 };
 
+const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
+  return {
+    ResourceArn: __expectString(output.ResourceArn),
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_json1_1TranslateTextResponse = (output: any, context: __SerdeContext): TranslateTextResponse => {
   return {
     AppliedSettings:
@@ -2106,6 +2421,10 @@ const deserializeAws_json1_1UnsupportedLanguagePairException = (
   } as any;
 };
 
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1UpdateParallelDataResponse = (
   output: any,
   context: __SerdeContext
@@ -2123,7 +2442,8 @@ const deserializeAws_json1_1UpdateParallelDataResponse = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2173,6 +2493,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2183,6 +2509,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

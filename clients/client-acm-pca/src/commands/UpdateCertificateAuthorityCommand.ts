@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,11 +31,11 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * 			private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before you
  * 			can update it. You can disable a private CA that is in the <code>ACTIVE</code> state or
  * 			make a CA that is in the <code>DISABLED</code> state active again.</p>
- * 		       <note>
- *                         <p>Both PCA and the IAM principal must have permission to write to
+ *          <note>
+ *             <p>Both Amazon Web Services Private CA and the IAM principal must have permission to write to
  *                         the S3 bucket that you specify. If the IAM principal making the call
  *                         does not have permission to write to the bucket, then an exception is
- *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
+ *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies">Access
  * 						policies for CRLs in Amazon S3</a>.</p>
  *          </note>
  * @example
@@ -60,6 +61,15 @@ export class UpdateCertificateAuthorityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class UpdateCertificateAuthorityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateCertificateAuthorityCommandInput, UpdateCertificateAuthorityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateCertificateAuthorityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

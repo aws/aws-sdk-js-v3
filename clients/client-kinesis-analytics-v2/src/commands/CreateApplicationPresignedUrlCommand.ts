@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,8 +36,7 @@ export interface CreateApplicationPresignedUrlCommandOutput
 
 /**
  * <p>Creates and returns a URL that you can use to connect to
- *             an application's extension. Currently, the only
- *             available extension is the Apache Flink dashboard.</p>
+ *             an application's extension.</p>
  *         <p>The IAM role or user used to call this API defines the permissions to access the
  *       extension. After the presigned URL is created, no additional permission is required to access
  *       this URL. IAM authorization policies for this API are also enforced for every HTTP request
@@ -71,6 +71,15 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateApplicationPresignedUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +95,9 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateApplicationPresignedUrlCommandInput, CreateApplicationPresignedUrlCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateApplicationPresignedUrlCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

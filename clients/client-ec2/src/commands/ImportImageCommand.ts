@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,6 +27,12 @@ export interface ImportImageCommandOutput extends ImportImageResult, __MetadataB
 
 /**
  * <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p>
+ *          <important>
+ *             <p>Amazon Web Services VM Import/Export strongly recommends specifying a value for either the
+ *      <code>--license-type</code> or <code>--usage-operation</code> parameter when you create a new
+ *     VM Import task. This ensures your operating system is licensed appropriately and your billing is
+ *     optimized.</p>
+ *          </important>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing a
  *    VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
  * @example
@@ -51,6 +58,15 @@ export class ImportImageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ImportImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +82,7 @@ export class ImportImageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ImportImageCommandInput, ImportImageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ImportImageCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

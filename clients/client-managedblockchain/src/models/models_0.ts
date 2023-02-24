@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ManagedBlockchainServiceException as __BaseException } from "./ManagedBlockchainServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * <p>You don't have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,6 +24,103 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+export enum AccessorStatus {
+  AVAILABLE = "AVAILABLE",
+  DELETED = "DELETED",
+  PENDING_DELETION = "PENDING_DELETION",
+}
+
+export enum AccessorType {
+  BILLING_TOKEN = "BILLING_TOKEN",
+}
+
+/**
+ * <important>
+ *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
+ *         subject to change. We recommend that you use this feature only with
+ *         test scenarios, and not in production environments.</p>
+ *          </important>
+ *          <p>The properties of the Accessor.</p>
+ */
+export interface Accessor {
+  /**
+   * <p>The unique identifier of the accessor.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The type of the accessor.</p>
+   *          <note>
+   *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
+   *          </note>
+   */
+  Type?: AccessorType | string;
+
+  /**
+   * <p>The billing token is a property of the accessor. Use this token to make Ethereum API calls to your
+   *          Ethereum node. The billing token is used to track your accessor object for billing Ethereum API
+   *          requests made to your Ethereum nodes.</p>
+   */
+  BillingToken?: string;
+
+  /**
+   * <p>The current status of the accessor.</p>
+   */
+  Status?: AccessorStatus | string;
+
+  /**
+   * <p>The creation date and time of the accessor.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the accessor. For more information about
+   *          ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   *             Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * <important>
+ *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
+ *         subject to change. We recommend that you use this feature only with
+ *         test scenarios, and not in production environments.</p>
+ *          </important>
+ *          <p>A summary of accessor properties.</p>
+ */
+export interface AccessorSummary {
+  /**
+   * <p>The unique identifier of the accessor.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The type of the accessor.</p>
+   *          <note>
+   *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
+   *          </note>
+   */
+  Type?: AccessorType | string;
+
+  /**
+   * <p>The current status of the accessor.</p>
+   */
+  Status?: AccessorStatus | string;
+
+  /**
+   * <p>The creation date and time of the accessor.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the accessor. For more information about
+   *          ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   *             Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  Arn?: string;
+}
+
 export enum ThresholdComparator {
   GREATER_THAN = "GREATER_THAN",
   GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
@@ -40,7 +137,7 @@ export interface ApprovalThresholdPolicy {
   ThresholdPercentage?: number;
 
   /**
-   * <p>The duration from the time that a proposal is created until it expires. If members cast neither the required number of <code>YES</code> votes to approve the proposal nor the number of <code>NO</code> votes required to reject it before the duration expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> are not carried out.</p>
+   * <p>The duration from the time that a proposal is created until it expires. If members cast neither the required number of <code>YES</code> votes to approve the proposal nor the number of <code>NO</code> votes required to reject it before the duration expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> aren't carried out.</p>
    */
   ProposalDurationInHours?: number;
 
@@ -48,6 +145,144 @@ export interface ApprovalThresholdPolicy {
    * <p>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code> or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved.</p>
    */
   ThresholdComparator?: ThresholdComparator | string;
+}
+
+export interface CreateAccessorInput {
+  /**
+   * <p>This is a unique, case-sensitive identifier that you provide to ensure the idempotency of
+   *          the operation. An idempotent operation completes no more than once. This
+   *          identifier is required only if you make a service request directly using
+   *          an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the
+   *          Amazon Web Services CLI.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The type of accessor.</p>
+   *          <note>
+   *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
+   *          </note>
+   */
+  AccessorType: AccessorType | string | undefined;
+}
+
+export interface CreateAccessorOutput {
+  /**
+   * <p>The unique identifier of the accessor.</p>
+   */
+  AccessorId?: string;
+
+  /**
+   * <p>The billing token is a property of the Accessor. Use this token to make Ethereum API calls to
+   *          your Ethereum node. The billing token is used to track your accessor object for billing Ethereum
+   *          API requests made to your Ethereum nodes.</p>
+   */
+  BillingToken?: string;
+}
+
+/**
+ * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ */
+export class InternalServiceErrorException extends __BaseException {
+  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
+    super({
+      name: "InternalServiceErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
+  }
+}
+
+/**
+ * <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>A resource request is issued for a resource that already exists.</p>
+ */
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The maximum number of resources of that type already exist. Ensure the resources requested
+ *          are within the boundaries of the service edition and your account limits.</p>
+ */
+export class ResourceLimitExceededException extends __BaseException {
+  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request or operation couldn't be performed because a service is
+ *          throttling requests. The most common source of throttling errors is
+ *          creating resources that exceed your service limit for this resource type.
+ *          Request a limit increase or delete unused resources if possible.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
@@ -147,17 +382,17 @@ export interface MemberConfiguration {
   Tags?: Record<string, string>;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed key in AWS Key Management Service (AWS KMS) to use for encryption at rest in the member. This parameter is inherited by any nodes that this member creates.</p>
+   * <p>The Amazon Resource Name (ARN) of the customer managed key in Key Management Service (KMS) to use for encryption at rest in the member. This parameter is inherited by any nodes that this member creates. For more information, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html">Encryption at Rest</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    *          <p>Use one of the following options to specify this parameter:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Undefined or empty string</b> - The member uses an AWS owned KMS key for encryption by default.</p>
+   *                   <b>Undefined or empty string</b> - By default, use an KMS key that is owned and managed by Amazon Web Services on your behalf.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>A valid symmetric customer managed KMS key</b> - The member uses the specified key for encryption.</p>
-   *                <p>Amazon Managed Blockchain doesn't support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   *                   <b>A valid symmetric customer managed KMS key</b> - Use the specified KMS key in your account that you create, own, and manage.</p>
+   *                <p>Amazon Managed Blockchain doesn't support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *                <p>The following is an example of a KMS key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
    *                </p>
    *             </li>
@@ -168,7 +403,7 @@ export interface MemberConfiguration {
 
 export interface CreateMemberInput {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.</p>
    */
   ClientRequestToken?: string;
 
@@ -196,96 +431,14 @@ export interface CreateMemberOutput {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
- */
-export class InternalServiceErrorException extends __BaseException {
-  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
-    super({
-      name: "InternalServiceErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
-  }
-}
-
-/**
- * <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A resource request is issued for a resource that already exists.</p>
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.</p>
- */
-export class ResourceLimitExceededException extends __BaseException {
-  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A requested resource does not exist. It may have been deleted or referenced inaccurately.</p>
+ * <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * <p>A requested resource does not exist. It may have been deleted or referenced inaccurately.</p>
+   * <p>A requested resource doesn't exist. It may have been deleted or referenced inaccurately.</p>
    */
   ResourceName?: string;
   /**
@@ -304,7 +457,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The requested resource exists but is not in a status that can complete the operation.</p>
+ * <p>The requested resource exists but isn't in a status that can complete the operation.</p>
  */
 export class ResourceNotReadyException extends __BaseException {
   readonly name: "ResourceNotReadyException" = "ResourceNotReadyException";
@@ -321,25 +474,6 @@ export class ResourceNotReadyException extends __BaseException {
     });
     Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
     this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request or operation could not be performed because a service is throttling requests. The most common source of throttling errors is launching EC2 instances such that your service limit for EC2 instances is exceeded. Request a limit increase or delete unused resources if possible.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
   }
 }
 
@@ -418,7 +552,11 @@ export interface VotingPolicy {
 
 export interface CreateNetworkInput {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
+   * <p>This is a unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than once. This identifier is required only
+   *          if you make a service request directly using an HTTP client. It is generated automatically if you
+   *          use an Amazon Web Services SDK or the Amazon Web Services CLI.
+   *       </p>
    */
   ClientRequestToken?: string;
 
@@ -540,7 +678,7 @@ export interface NodeConfiguration {
 
 export interface CreateNodeInput {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.</p>
    */
   ClientRequestToken?: string;
 
@@ -551,6 +689,11 @@ export interface CreateNodeInput {
    *             <li>
    *                <p>
    *                   <code>n-ethereum-mainnet</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>n-ethereum-goerli</code>
    *                </p>
    *             </li>
    *             <li>
@@ -594,12 +737,12 @@ export interface CreateNodeOutput {
 }
 
 /**
- * <p>An action to invite a specific AWS account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.</p>
+ * <p>An action to invite a specific Amazon Web Services account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface InviteAction {
   /**
-   * <p>The AWS account ID to invite.</p>
+   * <p>The Amazon Web Services account ID to invite.</p>
    */
   Principal: string | undefined;
 }
@@ -624,7 +767,7 @@ export interface RemoveAction {
 export interface ProposalActions {
   /**
    * <p>
-   *          The actions to perform for an <code>APPROVED</code> proposal to invite an AWS account to create a member and join the network.
+   *          The actions to perform for an <code>APPROVED</code> proposal to invite an Amazon Web Services account to create a member and join the network.
    *       </p>
    */
   Invitations?: InviteAction[];
@@ -639,7 +782,7 @@ export interface ProposalActions {
 
 export interface CreateProposalInput {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.</p>
    */
   ClientRequestToken?: string;
 
@@ -650,7 +793,9 @@ export interface CreateProposalInput {
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member that is creating the proposal. This identifier is especially useful for identifying the member making the proposal when multiple members exist in a single AWS account.</p>
+   * <p>The unique identifier of the member that is creating the proposal. This
+   *          identifier is especially useful for identifying the member making the proposal
+   *          when multiple members exist in a single Amazon Web Services account.</p>
    */
   MemberId: string | undefined;
 
@@ -679,6 +824,15 @@ export interface CreateProposalOutput {
   ProposalId?: string;
 }
 
+export interface DeleteAccessorInput {
+  /**
+   * <p>The unique identifier of the accessor.</p>
+   */
+  AccessorId: string | undefined;
+}
+
+export interface DeleteAccessorOutput {}
+
 export interface DeleteMemberInput {
   /**
    * <p>The unique identifier of the network from which the member is removed.</p>
@@ -701,6 +855,11 @@ export interface DeleteNodeInput {
    *             <li>
    *                <p>
    *                   <code>n-ethereum-mainnet</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>n-ethereum-goerli</code>
    *                </p>
    *             </li>
    *             <li>
@@ -730,6 +889,20 @@ export interface DeleteNodeInput {
 }
 
 export interface DeleteNodeOutput {}
+
+export interface GetAccessorInput {
+  /**
+   * <p>The unique identifier of the accessor.</p>
+   */
+  AccessorId: string | undefined;
+}
+
+export interface GetAccessorOutput {
+  /**
+   * <p>The properties of the accessor.</p>
+   */
+  Accessor?: Accessor;
+}
 
 export interface GetMemberInput {
   /**
@@ -818,7 +991,7 @@ export interface Member {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code> - The AWS account is in the process of creating a member.</p>
+   *                   <code>CREATING</code> - The Amazon Web Services account is in the process of creating a member.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -826,7 +999,7 @@ export interface Member {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATE_FAILED</code> - The AWS account attempted to create a member and creation failed.</p>
+   *                   <code>CREATE_FAILED</code> - The Amazon Web Services account attempted to create a member and creation failed.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -834,18 +1007,18 @@ export interface Member {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
+   *                   <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
    *                   <code>PROPOSAL</code> to remove the member.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
+   *                   <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
    *                   <code>PROPOSAL</code> to remove the member.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The member is impaired and might not function as expected because it cannot access the specified customer managed key in AWS KMS for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
-   *                <p>The effect of disabling or deleting a key, or revoking a grant is not immediate. The member resource might take some time to find that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
+   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The member is impaired and might not function as expected because it cannot access the specified customer managed key in KMS for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
+   *                <p>The effect of disabling or deleting a key or of revoking a grant isn't immediate. It might take some time for the member resource to discover that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
    *             </li>
    *          </ul>
    */
@@ -862,12 +1035,13 @@ export interface Member {
   Tags?: Record<string, string>;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed key in AWS Key Management Service (AWS KMS) that the member uses for encryption at rest. If the value of this parameter is <code>"AWS Owned KMS Key"</code>, the member uses an AWS owned KMS key for encryption. This parameter is inherited by the nodes that this member owns.</p>
+   * <p>The Amazon Resource Name (ARN) of the customer managed key in Key Management Service (KMS) that the member uses for encryption at rest. If the value of this parameter is <code>"AWS Owned KMS Key"</code>, the member uses an Amazon Web Services owned KMS key for encryption. This parameter is inherited by the nodes that this member owns.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html">Encryption at Rest</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   KmsKeyArn?: string;
 }
@@ -895,6 +1069,10 @@ export interface NetworkEthereumAttributes {
    *          <ul>
    *             <li>
    *                <p>mainnet = <code>1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>goerli = <code>5</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1009,7 +1187,7 @@ export interface Network {
   Tags?: Record<string, string>;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
 }
@@ -1044,12 +1222,12 @@ export interface GetNodeInput {
  */
 export interface NodeEthereumAttributes {
   /**
-   * <p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over HTTP connections from a client. Use this endpoint in client code for smart contracts when using an HTTP connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+   * <p>The endpoint on which the Ethereum node listens to run Ethereum API methods over HTTP connections from a client. Use this endpoint in client code for smart contracts when using an HTTP connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
    */
   HttpEndpoint?: string;
 
   /**
-   * <p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over WebSockets connections from a client. Use this endpoint in client code for smart contracts when using a WebSockets connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+   * <p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over WebSocket connections from a client. Use this endpoint in client code for smart contracts when using a WebSocket connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
    */
   WebSocketEndpoint?: string;
 }
@@ -1147,7 +1325,7 @@ export interface Node {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code> - The AWS account is in the process of creating a node.</p>
+   *                   <code>CREATING</code> - The Amazon Web Services account is in the process of creating a node.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1159,7 +1337,7 @@ export interface Node {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATE_FAILED</code> - The AWS account attempted to create a node and creation failed.</p>
+   *                   <code>CREATE_FAILED</code> - The Amazon Web Services account attempted to create a node and creation failed.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1179,8 +1357,8 @@ export interface Node {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The node is impaired and might not function as expected because it cannot access the specified customer managed key in AWS KMS for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
-   *                <p>The effect of disabling or deleting a key, or revoking a grant is not immediate. The node resource might take some time to find that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
+   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The node is impaired and might not function as expected because it cannot access the specified customer managed key in KMS for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
+   *                <p>The effect of disabling or deleting a key or of revoking a grant isn't immediate. It might take some time for the node resource to discover that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
    *             </li>
    *          </ul>
    */
@@ -1198,12 +1376,13 @@ export interface Node {
   Tags?: Record<string, string>;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed key in AWS Key Management Service (AWS KMS) that the node uses for encryption at rest. If the value of this parameter is <code>"AWS Owned KMS Key"</code>, the node uses an AWS owned KMS key for encryption. The node inherits this parameter from the member that it belongs to.</p>
+   * <p>The Amazon Resource Name (ARN) of the customer managed key in Key Management Service (KMS) that the node uses for encryption at rest. If the value of this parameter is <code>"AWS Owned KMS Key"</code>, the node uses an Amazon Web Services owned KMS key for encryption. The node inherits this parameter from the member that it belongs to.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html">Encryption at Rest</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
   KmsKeyArn?: string;
@@ -1284,15 +1463,15 @@ export interface Proposal {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> are not carried out.</p>
+   *                   <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> aren't carried out.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>EXPIRED</code> - Members did not cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> are not carried out.</p>
+   *                   <code>EXPIRED</code> - Members didn't cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> aren't carried out.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error. The <code>ACTION_FAILED</code> status occurs even if only one ProposalAction fails and other actions are successful.</p>
+   *                   <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved couldn't be completed because of an error. The <code>ACTION_FAILED</code> status occurs even if only one ProposalAction fails and other actions are successful.</p>
    *             </li>
    *          </ul>
    */
@@ -1307,7 +1486,7 @@ export interface Proposal {
 
   /**
    * <p>
-   *          The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.
+   *          The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, if members haven't cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> aren't carried out.
    *       </p>
    */
   ExpirationDate?: Date;
@@ -1340,7 +1519,7 @@ export interface Proposal {
   Tags?: Record<string, string>;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
 }
@@ -1413,7 +1592,7 @@ export interface NetworkSummary {
   CreationDate?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
 }
@@ -1427,7 +1606,7 @@ export enum InvitationStatus {
 }
 
 /**
- * <p>An invitation to an AWS account to create a member and join the network.</p>
+ * <p>An invitation to an Amazon Web Services account to create a member and join the network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface Invitation {
@@ -1451,11 +1630,11 @@ export interface Invitation {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code> - The invitee has not created a member to join the network, and the invitation has not yet expired.</p>
+   *                   <code>PENDING</code> - The invitee hasn't created a member to join the network, and the invitation hasn't yet expired.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ACCEPTING</code> - The invitee has begun creating a member, and creation has not yet completed.</p>
+   *                   <code>ACCEPTING</code> - The invitee has begun creating a member, and creation hasn't yet completed.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1479,9 +1658,34 @@ export interface Invitation {
   NetworkSummary?: NetworkSummary;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the invitation. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the invitation. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
+}
+
+export interface ListAccessorsInput {
+  /**
+   * <p> The maximum number of accessors to list.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p> The pagination token that indicates the next set of results to retrieve. </p>
+   */
+  NextToken?: string;
+}
+
+export interface ListAccessorsOutput {
+  /**
+   * <p>An array of AccessorSummary objects that contain configuration properties for
+   *          each accessor.</p>
+   */
+  Accessors?: AccessorSummary[];
+
+  /**
+   * <p> The pagination token that indicates the next set of results to retrieve. </p>
+   */
+  NextToken?: string;
 }
 
 export interface ListInvitationsInput {
@@ -1526,7 +1730,7 @@ export interface ListMembersInput {
 
   /**
    * <p>An optional Boolean value. If provided, the request is limited either to
-   *          members that the current AWS account owns (<code>true</code>) or that other AWS accounts
+   *          members that the current Amazon Web Services account owns (<code>true</code>) or that other Amazon Web Services accountsn
    *          own (<code>false</code>). If omitted, all members are listed.</p>
    */
   IsOwned?: boolean;
@@ -1567,7 +1771,7 @@ export interface MemberSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code> - The AWS account is in the process of creating a member.</p>
+   *                   <code>CREATING</code> - The Amazon Web Services account is in the process of creating a member.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1575,7 +1779,7 @@ export interface MemberSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATE_FAILED</code> - The AWS account attempted to create a member and creation failed.</p>
+   *                   <code>CREATE_FAILED</code> - The Amazon Web Services account attempted to create a member and creation failed.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1583,18 +1787,18 @@ export interface MemberSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
+   *                   <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
    *                   <code>PROPOSAL</code> to remove the member.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
+   *                   <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
    *                   <code>PROPOSAL</code> to remove the member.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The member is impaired and might not function as expected because it cannot access the specified customer managed key in AWS Key Management Service (AWS KMS) for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
-   *                <p>The effect of disabling or deleting a key, or revoking a grant is not immediate. The member resource might take some time to find that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
+   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The member is impaired and might not function as expected because it cannot access the specified customer managed key in Key Management Service (KMS) for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
+   *                <p>The effect of disabling or deleting a key or of revoking a grant isn't immediate. It might take some time for the member resource to discover that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
    *             </li>
    *          </ul>
    */
@@ -1606,12 +1810,12 @@ export interface MemberSummary {
   CreationDate?: Date;
 
   /**
-   * <p>An indicator of whether the member is owned by your AWS account or a different AWS account.</p>
+   * <p>An indicator of whether the member is owned by your Amazon Web Services account or a different Amazon Web Services account.</p>
    */
   IsOwned?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
 }
@@ -1726,7 +1930,7 @@ export interface NodeSummary {
   InstanceType?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
 }
@@ -1812,15 +2016,15 @@ export interface ProposalSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> are not carried out.</p>
+   *                   <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> aren't carried out.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>EXPIRED</code> - Members did not cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> are not carried out.</p>
+   *                   <code>EXPIRED</code> - Members didn't cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> aren't carried out.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error.</p>
+   *                   <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved couldn't be completed because of an error.</p>
    *             </li>
    *          </ul>
    */
@@ -1835,13 +2039,13 @@ export interface ProposalSummary {
 
   /**
    * <p>
-   *          The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>.  After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.
+   *          The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>.  After this date and time, if members haven't cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> aren't carried out.
    *       </p>
    */
   ExpirationDate?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
 }
@@ -1940,7 +2144,7 @@ export interface ListProposalVotesOutput {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -1963,7 +2167,7 @@ export interface RejectInvitationOutput {}
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   ResourceArn: string | undefined;
 
@@ -1977,7 +2181,7 @@ export interface TagResourceResponse {}
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   ResourceArn: string | undefined;
 
@@ -2067,7 +2271,35 @@ export interface VoteOnProposalOutput {}
 /**
  * @internal
  */
+export const AccessorFilterSensitiveLog = (obj: Accessor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessorSummaryFilterSensitiveLog = (obj: AccessorSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ApprovalThresholdPolicyFilterSensitiveLog = (obj: ApprovalThresholdPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessorInputFilterSensitiveLog = (obj: CreateAccessorInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessorOutputFilterSensitiveLog = (obj: CreateAccessorOutput): any => ({
   ...obj,
 });
 
@@ -2257,6 +2489,20 @@ export const CreateProposalOutputFilterSensitiveLog = (obj: CreateProposalOutput
 /**
  * @internal
  */
+export const DeleteAccessorInputFilterSensitiveLog = (obj: DeleteAccessorInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessorOutputFilterSensitiveLog = (obj: DeleteAccessorOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteMemberInputFilterSensitiveLog = (obj: DeleteMemberInput): any => ({
   ...obj,
 });
@@ -2279,6 +2525,20 @@ export const DeleteNodeInputFilterSensitiveLog = (obj: DeleteNodeInput): any => 
  * @internal
  */
 export const DeleteNodeOutputFilterSensitiveLog = (obj: DeleteNodeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessorInputFilterSensitiveLog = (obj: GetAccessorInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessorOutputFilterSensitiveLog = (obj: GetAccessorOutput): any => ({
   ...obj,
 });
 
@@ -2433,6 +2693,20 @@ export const NetworkSummaryFilterSensitiveLog = (obj: NetworkSummary): any => ({
  * @internal
  */
 export const InvitationFilterSensitiveLog = (obj: Invitation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessorsInputFilterSensitiveLog = (obj: ListAccessorsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessorsOutputFilterSensitiveLog = (obj: ListAccessorsOutput): any => ({
   ...obj,
 });
 

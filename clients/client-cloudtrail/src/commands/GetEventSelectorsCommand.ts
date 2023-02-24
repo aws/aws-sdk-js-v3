@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,23 +29,35 @@ export interface GetEventSelectorsCommandInput extends GetEventSelectorsRequest 
 export interface GetEventSelectorsCommandOutput extends GetEventSelectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the settings for the event selectors that you configured for your trail.
- *          The information returned for your event selectors includes the following:</p>
+ * <p>Describes the settings for the event selectors that you configured for your trail. The
+ *          information returned for your event selectors includes the following:</p>
  *          <ul>
  *             <li>
- *                <p>If your event selector includes read-only events, write-only events, or
- *             all events. This applies to both management events and data events.</p>
+ *                <p>If your event selector includes read-only events, write-only events, or all
+ *                events. This applies to both management events and data events.</p>
  *             </li>
  *             <li>
  *                <p>If your event selector includes management events.</p>
  *             </li>
  *             <li>
- *                <p>If your event selector includes data events, the resources on which you are logging data
- *                events.</p>
+ *                <p>If your event selector includes data events, the resources on which you are
+ *                logging data events.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging Data and Management Events for Trails
- *       </a> in the <i>CloudTrail User Guide</i>.</p>
+ *          <p>For more information about logging management and data events, see the following topics
+ *          in the <i>CloudTrail User Guide</i>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails </a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails </a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +81,15 @@ export class GetEventSelectorsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetEventSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +105,9 @@ export class GetEventSelectorsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetEventSelectorsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

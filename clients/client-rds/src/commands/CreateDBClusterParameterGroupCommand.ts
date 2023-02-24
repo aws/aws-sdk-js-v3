@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,18 +32,18 @@ export interface CreateDBClusterParameterGroupCommandOutput
 
 /**
  * <p>Creates a new DB cluster parameter group.</p>
- *         <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.</p>
- *         <p>A DB cluster parameter group is initially created with the default parameters for the
+ *          <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.</p>
+ *          <p>A DB cluster parameter group is initially created with the default parameters for the
  *             database engine used by instances in the DB cluster. To provide custom values for any of the
  *             parameters, you must modify the group after creating it using
  *             <code>ModifyDBClusterParameterGroup</code>. Once you've created a DB cluster parameter group, you need to
  *             associate it with your DB cluster using <code>ModifyDBCluster</code>.</p>
- *         <p>When you associate a new DB cluster parameter group with a running Aurora DB cluster, reboot the DB
+ *          <p>When you associate a new DB cluster parameter group with a running Aurora DB cluster, reboot the DB
  *             instances in the DB cluster without failover for the new DB cluster parameter group and
  *             associated settings to take effect.</p>
- *         <p>When you associate a new DB cluster parameter group with a running Multi-AZ DB cluster, reboot the DB
+ *          <p>When you associate a new DB cluster parameter group with a running Multi-AZ DB cluster, reboot the DB
  *           cluster without failover for the new DB cluster parameter group and associated settings to take effect.</p>
- *         <important>
+ *          <important>
  *             <p>After you create a DB cluster parameter group, you should wait at least 5 minutes
  *                 before creating your first DB cluster that uses that DB cluster parameter group as
  *                 the default parameter group. This allows Amazon RDS to fully complete the create
@@ -53,13 +54,13 @@ export interface CreateDBClusterParameterGroupCommandOutput
  *                 the <i>Parameter Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
  *                     <code>DescribeDBClusterParameters</code> operation to verify that your DB
  *                 cluster parameter group has been created or modified.</p>
- *         </important>
- *         <p>For more information on Amazon Aurora, see
+ *          </important>
+ *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *         <p>For more information on Multi-AZ DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+ *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+ *                 cluster deployments</a> in the <i>Amazon RDS User
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +84,15 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,6 +108,9 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDBClusterParameterGroupCommandInput, CreateDBClusterParameterGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDBClusterParameterGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,8 @@ export interface DescribeUserCommandInput extends DescribeUserRequest {}
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the specified user account. You can find the instance ID in the console (it’s the
- *    final part of the ARN). The console does not display the user IDs. Instead, list the users and
- *    note the IDs provided in the output.</p>
+ * <p>Describes the specified user account. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN). The console does not display the
+ *    user IDs. Instead, list the users and note the IDs provided in the output.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,15 @@ export class DescribeUserCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +78,7 @@ export class DescribeUserCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeUserCommandInput, DescribeUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeUserCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

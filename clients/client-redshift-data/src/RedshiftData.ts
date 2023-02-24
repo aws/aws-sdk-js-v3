@@ -50,7 +50,7 @@ import { RedshiftDataClient } from "./RedshiftDataClient";
  *       can run SQL statements, which are committed if the statement succeeds. </p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
  *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
- *        <i>Amazon Redshift Cluster Management Guide</i>. </p>
+ *        <i>Amazon Redshift Management Guide</i>. </p>
  */
 export class RedshiftData extends RedshiftDataClient {
   /**
@@ -69,6 +69,9 @@ export class RedshiftData extends RedshiftDataClient {
    * When connecting to a serverless workgroup, specify the workgroup name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code> operation is required. </p>
    *             </li>
    *          </ul>
+   *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+   *       <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+   *       <i>Amazon Redshift Management Guide</i>. </p>
    */
   public batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
@@ -101,6 +104,9 @@ export class RedshiftData extends RedshiftDataClient {
 
   /**
    * <p>Cancels a running query. To be canceled, a query must be running. </p>
+   *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+   *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+   *        <i>Amazon Redshift Management Guide</i>. </p>
    */
   public cancelStatement(
     args: CancelStatementCommandInput,
@@ -135,6 +141,9 @@ export class RedshiftData extends RedshiftDataClient {
    * <p>Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information
    *       includes when the query started, when it finished, the query status, the number of rows returned, and the SQL
    *       statement. </p>
+   *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+   *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+   *        <i>Amazon Redshift Management Guide</i>. </p>
    */
   public describeStatement(
     args: DescribeStatementCommandInput,
@@ -182,6 +191,9 @@ export class RedshiftData extends RedshiftDataClient {
    * When connecting to a serverless workgroup, specify the workgroup name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code> operation is required. </p>
    *             </li>
    *          </ul>
+   *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+   *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+   *        <i>Amazon Redshift Management Guide</i>. </p>
    */
   public describeTable(
     args: DescribeTableCommandInput,
@@ -228,6 +240,9 @@ export class RedshiftData extends RedshiftDataClient {
    * When connecting to a serverless workgroup, specify the workgroup name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code> operation is required. </p>
    *             </li>
    *          </ul>
+   *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+   *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+   *        <i>Amazon Redshift Management Guide</i>. </p>
    */
   public executeStatement(
     args: ExecuteStatementCommandInput,
@@ -261,6 +276,9 @@ export class RedshiftData extends RedshiftDataClient {
   /**
    * <p>Fetches the temporarily cached result of an SQL statement.
    *        A token is returned to page through the statement results. </p>
+   *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+   *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+   *        <i>Amazon Redshift Management Guide</i>. </p>
    */
   public getStatementResult(
     args: GetStatementResultCommandInput,
@@ -307,6 +325,9 @@ export class RedshiftData extends RedshiftDataClient {
    * When connecting to a serverless workgroup, specify the workgroup name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code> operation is required. </p>
    *             </li>
    *          </ul>
+   *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+   *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+   *        <i>Amazon Redshift Management Guide</i>. </p>
    */
   public listDatabases(
     args: ListDatabasesCommandInput,
@@ -353,6 +374,9 @@ export class RedshiftData extends RedshiftDataClient {
    * When connecting to a serverless workgroup, specify the workgroup name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code> operation is required. </p>
    *             </li>
    *          </ul>
+   *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+   *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+   *        <i>Amazon Redshift Management Guide</i>. </p>
    */
   public listSchemas(args: ListSchemasCommandInput, options?: __HttpHandlerOptions): Promise<ListSchemasCommandOutput>;
   public listSchemas(args: ListSchemasCommandInput, cb: (err: any, data?: ListSchemasCommandOutput) => void): void;
@@ -380,6 +404,9 @@ export class RedshiftData extends RedshiftDataClient {
   /**
    * <p>List of SQL statements. By default, only finished statements are shown.
    *         A token is returned to page through the statement list. </p>
+   *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+   *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+   *        <i>Amazon Redshift Management Guide</i>. </p>
    */
   public listStatements(
     args: ListStatementsCommandInput,
@@ -427,6 +454,9 @@ export class RedshiftData extends RedshiftDataClient {
    * When connecting to a serverless workgroup, specify the workgroup name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code> operation is required. </p>
    *             </li>
    *          </ul>
+   *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+   *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+   *        <i>Amazon Redshift Management Guide</i>. </p>
    */
   public listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
   public listTables(args: ListTablesCommandInput, cb: (err: any, data?: ListTablesCommandOutput) => void): void;

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   SearchAnalysesRequestFilterSensitiveLog,
   SearchAnalysesResponse,
   SearchAnalysesResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1SearchAnalysesCommand,
   serializeAws_restJson1SearchAnalysesCommand,
@@ -29,9 +30,9 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
 
 /**
  * <p>Searches for analyses that belong to the user specified in the filter.</p>
- *         <note>
+ *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class SearchAnalysesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchAnalysesCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class SearchAnalysesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchAnalysesCommandInput, SearchAnalysesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchAnalysesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

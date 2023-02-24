@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,6 +34,11 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  *       to use the previous <code>definition</code> and <code>roleArn</code>. You must include at
  *       least one of <code>definition</code> or <code>roleArn</code> or you will receive a
  *         <code>MissingRequiredParameter</code> error.</p>
+ *
+ *          <p>If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>
+ *
+ *          <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>
+ *
  *          <note>
  *             <p>All <code>StartExecution</code> calls within a few seconds will use the updated
  *           <code>definition</code> and <code>roleArn</code>. Executions started immediately after
@@ -62,6 +68,15 @@ export class UpdateStateMachineCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateStateMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +92,9 @@ export class UpdateStateMachineCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateStateMachineCommandInput, UpdateStateMachineCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateStateMachineCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

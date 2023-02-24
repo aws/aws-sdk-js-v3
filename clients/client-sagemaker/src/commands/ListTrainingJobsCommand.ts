@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
 
 /**
  * <p>Lists training jobs.</p>
- *         <note>
+ *          <note>
  *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
  *                 time, the <code>MaxResults</code> number of training jobs are first retrieved
  *                 ignoring the <code>StatusEquals</code> parameter and then they are filtered by the
@@ -43,12 +44,13 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  *                     <code>InProgress</code>, are selected (sorted according to the creation time,
  *                 from the most current to the oldest). Next, those with a status of
  *                     <code>InProgress</code> are returned.</p>
- *             <p>You can quickly test the API using the following Amazon Web Services CLI code.</p>
+ *             <p>You can quickly test the API using the following Amazon Web Services CLI
+ *                 code.</p>
  *             <p>
  *                <code>aws sagemaker list-training-jobs --max-results 100 --status-equals
  *                     InProgress</code>
  *             </p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +74,15 @@ export class ListTrainingJobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListTrainingJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +98,9 @@ export class ListTrainingJobsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTrainingJobsCommandInput, ListTrainingJobsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTrainingJobsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

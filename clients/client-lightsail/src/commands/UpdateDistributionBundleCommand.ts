@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,8 +35,7 @@ export interface UpdateDistributionBundleCommandOutput extends UpdateDistributio
  *       your distribution.</p>
  *          <p>Update your distribution's bundle if your distribution is going over its monthly network
  *       transfer quota and is incurring an overage fee.</p>
- *          <p>You can update your distribution's bundle only one time within your monthly AWS billing
- *       cycle. To determine if you can update your distribution's bundle, use the
+ *          <p>You can update your distribution's bundle only one time within your monthly Amazon Web Services billing cycle. To determine if you can update your distribution's bundle, use the
  *         <code>GetDistributions</code> action. The <code>ableToUpdateBundle</code> parameter in the
  *       result will indicate whether you can currently update your distribution's bundle.</p>
  * @example
@@ -61,6 +61,15 @@ export class UpdateDistributionBundleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateDistributionBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +85,9 @@ export class UpdateDistributionBundleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDistributionBundleCommandInput, UpdateDistributionBundleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateDistributionBundleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

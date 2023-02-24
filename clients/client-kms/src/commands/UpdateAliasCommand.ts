@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,12 +28,12 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *       only one KMS key at a time, although a KMS key can have multiple aliases. The alias and the
  *       KMS key must be in the same Amazon Web Services account and Region.</p>
  *          <note>
- *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          </note>
- *          <p>The current and new KMS key must be the same type (both symmetric or both asymmetric), and
- *       they must have the same key usage (<code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>).
- *       This restriction prevents errors in code that uses aliases. If you must assign an alias to a
- *       different type of KMS key, use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to create a new alias.</p>
+ *          <p>The current and new KMS key must be the same type (both symmetric or both asymmetric or
+ *       both HMAC), and they must have the same key usage. This restriction prevents errors in code
+ *       that uses aliases. If you must assign an alias to a different type of KMS key, use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to create
+ *       a new alias.</p>
  *          <p>You cannot use <code>UpdateAlias</code> to change an alias name. To change an alias name,
  *       use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to
  *       create a new alias.</p>
@@ -42,7 +43,7 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *       in the account, use the <a>ListAliases</a> operation. </p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *         <p>
+ *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account. </p>
  *          <p>
  *             <b>Required permissions</b>
@@ -109,6 +110,15 @@ export class UpdateAliasCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,7 @@ export class UpdateAliasCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateAliasCommandInput, UpdateAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateAliasCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

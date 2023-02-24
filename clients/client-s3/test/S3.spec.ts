@@ -19,12 +19,11 @@ describe("endpoint", () => {
       expect(request.protocol).to.equal("http:");
       expect(request.hostname).to.equal("localhost");
       expect(request.port).to.equal(8080);
-      //query and path should not be overwritten
-      expect(request.query).not.to.contain({ foo: "bar" });
-      expect(request.path).not.to.equal("/path");
+      expect(request.path).to.equal("/path/bucket/key");
       return Promise.resolve({ output: {} as any, response: {} as any });
     };
-    const client = new S3({ endpoint: "http://localhost:8080/path?foo=bar" });
+    const client = new S3({ endpoint: "http://localhost:8080/path", forcePathStyle: true });
+
     client.middlewareStack.add(endpointValidator, {
       step: "serialize",
       name: "endpointValidator",
@@ -137,7 +136,6 @@ describe("Endpoints from ARN", () => {
       expect(result.request.headers["authorization"]).contains(
         `Credential=${credentials.accessKeyId}/${date}/${region}/s3-object-lambda/aws4_request`
       );
-      expect(result.request.headers["transfer-encoding"]).to.equal("chunked");
     });
   });
 });
@@ -148,6 +146,7 @@ describe("Throw 200 response", () => {
     headers: {},
     body: new PassThrough(),
   };
+
   const client = new S3({
     region: "us-west-2",
     requestHandler: {
@@ -156,61 +155,67 @@ describe("Throw 200 response", () => {
       }),
     },
   });
-  const errorBody = `<?xml version="1.0" encoding="UTF-8"?>
-    <Error>
-      <Code>InternalError</Code>
-      <Message>We encountered an internal error. Please try again.</Message>
-      <RequestId>656c76696e6727732072657175657374</RequestId>
-      <HostId>Uuag1LuByRx9e6j5Onimru9pO4ZVKnJ2Qz7/C1NPcfTWAtRPfTaOFg==</HostId>
-    </Error>`;
+
   const params = {
     Bucket: "bucket",
     Key: "key",
     CopySource: "source",
   };
 
-  beforeEach(() => {
-    response.body = new PassThrough();
+  describe("when response body is empty", () => {
+    const errorMsg = "S3 aborted request";
+
+    beforeEach(() => {
+      response.body = new PassThrough();
+      response.body.end("");
+    });
+
+    it("should throw if CopyObject() return with 200 and empty payload", async () => {
+      return expect(client.copyObject(params)).to.eventually.be.rejectedWith(errorMsg);
+    });
+
+    it("should throw if UploadPartCopy() return with 200 and empty payload", async () => {
+      return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).to.eventually.be.rejectedWith(
+        errorMsg
+      );
+    });
+
+    it("should throw if CompleteMultipartUpload() return with 200 and empty payload", async () => {
+      return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
+        errorMsg
+      );
+    });
   });
 
-  it("should throw if CopyObject() return with 200 and empty payload", async () => {
-    response.body.end("");
-    return expect(client.copyObject(params)).to.eventually.be.rejectedWith("S3 aborted request");
-  });
+  describe("when response body is an error", () => {
+    const errorMsg = "We encountered an internal error. Please try again.";
 
-  it("should throw if CopyObject() return with 200 and error preamble", async () => {
-    response.body.end(errorBody);
-    return expect(client.copyObject(params)).to.eventually.be.rejectedWith(
-      "We encountered an internal error. Please try again."
-    );
-  });
+    beforeEach(() => {
+      response.body = new PassThrough();
+      response.body.end(`<?xml version="1.0" encoding="UTF-8"?>
+      <Error>
+        <Code>InternalError</Code>
+        <Message>We encountered an internal error. Please try again.</Message>
+        <RequestId>656c76696e6727732072657175657374</RequestId>
+        <HostId>Uuag1LuByRx9e6j5Onimru9pO4ZVKnJ2Qz7/C1NPcfTWAtRPfTaOFg==</HostId>
+      </Error>`);
+    });
 
-  it("should throw if UploadPartCopy() return with 200 and empty payload", async () => {
-    response.body.end("");
-    return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).to.eventually.be.rejectedWith(
-      "S3 aborted request"
-    );
-  });
+    it("should throw if CopyObject() return with 200 and error preamble", async () => {
+      return expect(client.copyObject(params)).to.eventually.be.rejectedWith(errorMsg);
+    });
 
-  it("should throw if UploadPartCopy() return with 200 and error preamble", async () => {
-    response.body.end(errorBody);
-    return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).to.eventually.be.rejectedWith(
-      "We encountered an internal error. Please try again."
-    );
-  });
+    it("should throw if UploadPartCopy() return with 200 and error preamble", async () => {
+      return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).to.eventually.be.rejectedWith(
+        errorMsg
+      );
+    });
 
-  it("should throw if CompleteMultipartUpload() return with 200 and empty payload", async () => {
-    response.body.end("");
-    return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
-      "S3 aborted request"
-    );
-  });
-
-  it("should throw if CompleteMultipartUpload() return with 200 and error preamble", async () => {
-    response.body.end(errorBody);
-    return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
-      "We encountered an internal error. Please try again."
-    );
+    it("should throw if CompleteMultipartUpload() return with 200 and error preamble", async () => {
+      return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
+        errorMsg
+      );
+    });
   });
 });
 

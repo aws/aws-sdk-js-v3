@@ -1,13 +1,7 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -32,33 +26,40 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
 import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "./commands/AssociateAliasCommand";
+import { CopyDistributionCommandInput, CopyDistributionCommandOutput } from "./commands/CopyDistributionCommand";
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "./commands/CreateCachePolicyCommand";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
+import {
+  CreateContinuousDeploymentPolicyCommandInput,
+  CreateContinuousDeploymentPolicyCommandOutput,
+} from "./commands/CreateContinuousDeploymentPolicyCommand";
 import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "./commands/CreateDistributionCommand";
 import {
   CreateDistributionWithTagsCommandInput,
@@ -79,6 +80,10 @@ import {
   CreateMonitoringSubscriptionCommandInput,
   CreateMonitoringSubscriptionCommandOutput,
 } from "./commands/CreateMonitoringSubscriptionCommand";
+import {
+  CreateOriginAccessControlCommandInput,
+  CreateOriginAccessControlCommandOutput,
+} from "./commands/CreateOriginAccessControlCommand";
 import {
   CreateOriginRequestPolicyCommandInput,
   CreateOriginRequestPolicyCommandOutput,
@@ -105,6 +110,10 @@ import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
+import {
+  DeleteContinuousDeploymentPolicyCommandInput,
+  DeleteContinuousDeploymentPolicyCommandOutput,
+} from "./commands/DeleteContinuousDeploymentPolicyCommand";
 import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "./commands/DeleteDistributionCommand";
 import {
   DeleteFieldLevelEncryptionConfigCommandInput,
@@ -120,6 +129,10 @@ import {
   DeleteMonitoringSubscriptionCommandInput,
   DeleteMonitoringSubscriptionCommandOutput,
 } from "./commands/DeleteMonitoringSubscriptionCommand";
+import {
+  DeleteOriginAccessControlCommandInput,
+  DeleteOriginAccessControlCommandOutput,
+} from "./commands/DeleteOriginAccessControlCommand";
 import {
   DeleteOriginRequestPolicyCommandInput,
   DeleteOriginRequestPolicyCommandOutput,
@@ -151,6 +164,14 @@ import {
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
+import {
+  GetContinuousDeploymentPolicyCommandInput,
+  GetContinuousDeploymentPolicyCommandOutput,
+} from "./commands/GetContinuousDeploymentPolicyCommand";
+import {
+  GetContinuousDeploymentPolicyConfigCommandInput,
+  GetContinuousDeploymentPolicyConfigCommandOutput,
+} from "./commands/GetContinuousDeploymentPolicyConfigCommand";
 import { GetDistributionCommandInput, GetDistributionCommandOutput } from "./commands/GetDistributionCommand";
 import {
   GetDistributionConfigCommandInput,
@@ -180,6 +201,14 @@ import {
   GetMonitoringSubscriptionCommandInput,
   GetMonitoringSubscriptionCommandOutput,
 } from "./commands/GetMonitoringSubscriptionCommand";
+import {
+  GetOriginAccessControlCommandInput,
+  GetOriginAccessControlCommandOutput,
+} from "./commands/GetOriginAccessControlCommand";
+import {
+  GetOriginAccessControlConfigCommandInput,
+  GetOriginAccessControlConfigCommandOutput,
+} from "./commands/GetOriginAccessControlConfigCommand";
 import {
   GetOriginRequestPolicyCommandInput,
   GetOriginRequestPolicyCommandOutput,
@@ -220,6 +249,10 @@ import {
   ListConflictingAliasesCommandOutput,
 } from "./commands/ListConflictingAliasesCommand";
 import {
+  ListContinuousDeploymentPoliciesCommandInput,
+  ListContinuousDeploymentPoliciesCommandOutput,
+} from "./commands/ListContinuousDeploymentPoliciesCommand";
+import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
@@ -256,6 +289,10 @@ import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./command
 import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "./commands/ListInvalidationsCommand";
 import { ListKeyGroupsCommandInput, ListKeyGroupsCommandOutput } from "./commands/ListKeyGroupsCommand";
 import {
+  ListOriginAccessControlsCommandInput,
+  ListOriginAccessControlsCommandOutput,
+} from "./commands/ListOriginAccessControlsCommand";
+import {
   ListOriginRequestPoliciesCommandInput,
   ListOriginRequestPoliciesCommandOutput,
 } from "./commands/ListOriginRequestPoliciesCommand";
@@ -285,7 +322,15 @@ import {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
+import {
+  UpdateContinuousDeploymentPolicyCommandInput,
+  UpdateContinuousDeploymentPolicyCommandOutput,
+} from "./commands/UpdateContinuousDeploymentPolicyCommand";
 import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "./commands/UpdateDistributionCommand";
+import {
+  UpdateDistributionWithStagingConfigCommandInput,
+  UpdateDistributionWithStagingConfigCommandOutput,
+} from "./commands/UpdateDistributionWithStagingConfigCommand";
 import {
   UpdateFieldLevelEncryptionConfigCommandInput,
   UpdateFieldLevelEncryptionConfigCommandOutput,
@@ -296,6 +341,10 @@ import {
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand";
 import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
 import { UpdateKeyGroupCommandInput, UpdateKeyGroupCommandOutput } from "./commands/UpdateKeyGroupCommand";
+import {
+  UpdateOriginAccessControlCommandInput,
+  UpdateOriginAccessControlCommandOutput,
+} from "./commands/UpdateOriginAccessControlCommand";
 import {
   UpdateOriginRequestPolicyCommandInput,
   UpdateOriginRequestPolicyCommandOutput,
@@ -313,12 +362,20 @@ import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AssociateAliasCommandInput
+  | CopyDistributionCommandInput
   | CreateCachePolicyCommandInput
   | CreateCloudFrontOriginAccessIdentityCommandInput
+  | CreateContinuousDeploymentPolicyCommandInput
   | CreateDistributionCommandInput
   | CreateDistributionWithTagsCommandInput
   | CreateFieldLevelEncryptionConfigCommandInput
@@ -327,6 +384,7 @@ export type ServiceInputTypes =
   | CreateInvalidationCommandInput
   | CreateKeyGroupCommandInput
   | CreateMonitoringSubscriptionCommandInput
+  | CreateOriginAccessControlCommandInput
   | CreateOriginRequestPolicyCommandInput
   | CreatePublicKeyCommandInput
   | CreateRealtimeLogConfigCommandInput
@@ -335,12 +393,14 @@ export type ServiceInputTypes =
   | CreateStreamingDistributionWithTagsCommandInput
   | DeleteCachePolicyCommandInput
   | DeleteCloudFrontOriginAccessIdentityCommandInput
+  | DeleteContinuousDeploymentPolicyCommandInput
   | DeleteDistributionCommandInput
   | DeleteFieldLevelEncryptionConfigCommandInput
   | DeleteFieldLevelEncryptionProfileCommandInput
   | DeleteFunctionCommandInput
   | DeleteKeyGroupCommandInput
   | DeleteMonitoringSubscriptionCommandInput
+  | DeleteOriginAccessControlCommandInput
   | DeleteOriginRequestPolicyCommandInput
   | DeletePublicKeyCommandInput
   | DeleteRealtimeLogConfigCommandInput
@@ -351,6 +411,8 @@ export type ServiceInputTypes =
   | GetCachePolicyConfigCommandInput
   | GetCloudFrontOriginAccessIdentityCommandInput
   | GetCloudFrontOriginAccessIdentityConfigCommandInput
+  | GetContinuousDeploymentPolicyCommandInput
+  | GetContinuousDeploymentPolicyConfigCommandInput
   | GetDistributionCommandInput
   | GetDistributionConfigCommandInput
   | GetFieldLevelEncryptionCommandInput
@@ -362,6 +424,8 @@ export type ServiceInputTypes =
   | GetKeyGroupCommandInput
   | GetKeyGroupConfigCommandInput
   | GetMonitoringSubscriptionCommandInput
+  | GetOriginAccessControlCommandInput
+  | GetOriginAccessControlConfigCommandInput
   | GetOriginRequestPolicyCommandInput
   | GetOriginRequestPolicyConfigCommandInput
   | GetPublicKeyCommandInput
@@ -374,6 +438,7 @@ export type ServiceInputTypes =
   | ListCachePoliciesCommandInput
   | ListCloudFrontOriginAccessIdentitiesCommandInput
   | ListConflictingAliasesCommandInput
+  | ListContinuousDeploymentPoliciesCommandInput
   | ListDistributionsByCachePolicyIdCommandInput
   | ListDistributionsByKeyGroupCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
@@ -386,6 +451,7 @@ export type ServiceInputTypes =
   | ListFunctionsCommandInput
   | ListInvalidationsCommandInput
   | ListKeyGroupsCommandInput
+  | ListOriginAccessControlsCommandInput
   | ListOriginRequestPoliciesCommandInput
   | ListPublicKeysCommandInput
   | ListRealtimeLogConfigsCommandInput
@@ -398,11 +464,14 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateCachePolicyCommandInput
   | UpdateCloudFrontOriginAccessIdentityCommandInput
+  | UpdateContinuousDeploymentPolicyCommandInput
   | UpdateDistributionCommandInput
+  | UpdateDistributionWithStagingConfigCommandInput
   | UpdateFieldLevelEncryptionConfigCommandInput
   | UpdateFieldLevelEncryptionProfileCommandInput
   | UpdateFunctionCommandInput
   | UpdateKeyGroupCommandInput
+  | UpdateOriginAccessControlCommandInput
   | UpdateOriginRequestPolicyCommandInput
   | UpdatePublicKeyCommandInput
   | UpdateRealtimeLogConfigCommandInput
@@ -411,8 +480,10 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AssociateAliasCommandOutput
+  | CopyDistributionCommandOutput
   | CreateCachePolicyCommandOutput
   | CreateCloudFrontOriginAccessIdentityCommandOutput
+  | CreateContinuousDeploymentPolicyCommandOutput
   | CreateDistributionCommandOutput
   | CreateDistributionWithTagsCommandOutput
   | CreateFieldLevelEncryptionConfigCommandOutput
@@ -421,6 +492,7 @@ export type ServiceOutputTypes =
   | CreateInvalidationCommandOutput
   | CreateKeyGroupCommandOutput
   | CreateMonitoringSubscriptionCommandOutput
+  | CreateOriginAccessControlCommandOutput
   | CreateOriginRequestPolicyCommandOutput
   | CreatePublicKeyCommandOutput
   | CreateRealtimeLogConfigCommandOutput
@@ -429,12 +501,14 @@ export type ServiceOutputTypes =
   | CreateStreamingDistributionWithTagsCommandOutput
   | DeleteCachePolicyCommandOutput
   | DeleteCloudFrontOriginAccessIdentityCommandOutput
+  | DeleteContinuousDeploymentPolicyCommandOutput
   | DeleteDistributionCommandOutput
   | DeleteFieldLevelEncryptionConfigCommandOutput
   | DeleteFieldLevelEncryptionProfileCommandOutput
   | DeleteFunctionCommandOutput
   | DeleteKeyGroupCommandOutput
   | DeleteMonitoringSubscriptionCommandOutput
+  | DeleteOriginAccessControlCommandOutput
   | DeleteOriginRequestPolicyCommandOutput
   | DeletePublicKeyCommandOutput
   | DeleteRealtimeLogConfigCommandOutput
@@ -445,6 +519,8 @@ export type ServiceOutputTypes =
   | GetCachePolicyConfigCommandOutput
   | GetCloudFrontOriginAccessIdentityCommandOutput
   | GetCloudFrontOriginAccessIdentityConfigCommandOutput
+  | GetContinuousDeploymentPolicyCommandOutput
+  | GetContinuousDeploymentPolicyConfigCommandOutput
   | GetDistributionCommandOutput
   | GetDistributionConfigCommandOutput
   | GetFieldLevelEncryptionCommandOutput
@@ -456,6 +532,8 @@ export type ServiceOutputTypes =
   | GetKeyGroupCommandOutput
   | GetKeyGroupConfigCommandOutput
   | GetMonitoringSubscriptionCommandOutput
+  | GetOriginAccessControlCommandOutput
+  | GetOriginAccessControlConfigCommandOutput
   | GetOriginRequestPolicyCommandOutput
   | GetOriginRequestPolicyConfigCommandOutput
   | GetPublicKeyCommandOutput
@@ -468,6 +546,7 @@ export type ServiceOutputTypes =
   | ListCachePoliciesCommandOutput
   | ListCloudFrontOriginAccessIdentitiesCommandOutput
   | ListConflictingAliasesCommandOutput
+  | ListContinuousDeploymentPoliciesCommandOutput
   | ListDistributionsByCachePolicyIdCommandOutput
   | ListDistributionsByKeyGroupCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
@@ -480,6 +559,7 @@ export type ServiceOutputTypes =
   | ListFunctionsCommandOutput
   | ListInvalidationsCommandOutput
   | ListKeyGroupsCommandOutput
+  | ListOriginAccessControlsCommandOutput
   | ListOriginRequestPoliciesCommandOutput
   | ListPublicKeysCommandOutput
   | ListRealtimeLogConfigsCommandOutput
@@ -492,11 +572,14 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateCachePolicyCommandOutput
   | UpdateCloudFrontOriginAccessIdentityCommandOutput
+  | UpdateContinuousDeploymentPolicyCommandOutput
   | UpdateDistributionCommandOutput
+  | UpdateDistributionWithStagingConfigCommandOutput
   | UpdateFieldLevelEncryptionConfigCommandOutput
   | UpdateFieldLevelEncryptionProfileCommandOutput
   | UpdateFunctionCommandOutput
   | UpdateKeyGroupCommandOutput
+  | UpdateOriginAccessControlCommandOutput
   | UpdateOriginRequestPolicyCommandOutput
   | UpdatePublicKeyCommandOutput
   | UpdateRealtimeLogConfigCommandOutput
@@ -510,11 +593,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -571,6 +654,39 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -586,58 +702,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type CloudFrontClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of CloudFrontClient class constructor that set the region, credentials and other options.
  */
@@ -646,11 +724,12 @@ export interface CloudFrontClientConfig extends CloudFrontClientConfigType {}
 type CloudFrontClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of CloudFrontClient class. This is resolved and normalized from the {@link CloudFrontClientConfig | constructor configuration interface}.
  */
@@ -658,9 +737,10 @@ export interface CloudFrontClientResolvedConfig extends CloudFrontClientResolved
 
 /**
  * <fullname>Amazon CloudFront</fullname>
- * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide
- *             is for developers who need detailed information about
- * 			CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
+ *          <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers
+ * 			who need detailed information about CloudFront API actions, data types, and errors. For
+ * 			detailed information about CloudFront features, see the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class CloudFrontClient extends __Client<
   __HttpHandlerOptions,
@@ -675,14 +755,15 @@ export class CloudFrontClient extends __Client<
 
   constructor(configuration: CloudFrontClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

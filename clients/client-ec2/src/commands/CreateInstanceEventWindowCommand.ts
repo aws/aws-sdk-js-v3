@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,7 +37,6 @@ export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEv
  *          <p>When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags)
  *          are not yet associated with it. To ensure that the event window can be used, you must
  *          associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a> API.</p>
- *
  *          <important>
  *             <p>Event windows are applicable only for scheduled events that stop, reboot, or
  *             terminate instances.</p>
@@ -46,11 +46,10 @@ export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEv
  *                   <p>Expedited scheduled events and network maintenance events. </p>
  *                </li>
  *                <li>
- *                            <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p>
+ *                   <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p>
  *                </li>
  *             </ul>
  *          </important>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
  *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -76,6 +75,15 @@ export class CreateInstanceEventWindowCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateInstanceEventWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +99,9 @@ export class CreateInstanceEventWindowCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateInstanceEventWindowCommandInput, CreateInstanceEventWindowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateInstanceEventWindowCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

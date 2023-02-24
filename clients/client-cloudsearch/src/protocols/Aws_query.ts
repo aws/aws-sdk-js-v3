@@ -8,7 +8,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -21,8 +21,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import { BuildSuggestersCommandInput, BuildSuggestersCommandOutput } from "../commands/BuildSuggestersCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
@@ -620,7 +619,7 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
 ): Promise<BuildSuggestersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -630,7 +629,7 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -670,7 +669,7 @@ const deserializeAws_queryCreateDomainCommandError = async (
 ): Promise<CreateDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -680,10 +679,10 @@ const deserializeAws_queryCreateDomainCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
+    case "ResourceAlreadyExists":
     case "com.amazonaws.cloudsearch#ResourceAlreadyExistsException":
       throw await deserializeAws_queryResourceAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -723,7 +722,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
 ): Promise<DefineAnalysisSchemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -733,13 +732,13 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -779,7 +778,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
 ): Promise<DefineExpressionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -789,13 +788,13 @@ const deserializeAws_queryDefineExpressionCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -835,7 +834,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
 ): Promise<DefineIndexFieldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -845,13 +844,13 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -891,7 +890,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
 ): Promise<DefineSuggesterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -901,13 +900,13 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -947,7 +946,7 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
 ): Promise<DeleteAnalysisSchemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -957,10 +956,10 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1000,7 +999,7 @@ const deserializeAws_queryDeleteDomainCommandError = async (
 ): Promise<DeleteDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1044,7 +1043,7 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
 ): Promise<DeleteExpressionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1054,10 +1053,10 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1097,7 +1096,7 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
 ): Promise<DeleteIndexFieldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1107,10 +1106,10 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1150,7 +1149,7 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
 ): Promise<DeleteSuggesterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1160,10 +1159,10 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1203,7 +1202,7 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
 ): Promise<DescribeAnalysisSchemesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1213,7 +1212,7 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1250,26 +1249,26 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
 ): Promise<DescribeAvailabilityOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
-    case "DisabledOperationException":
+    case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1309,23 +1308,23 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
 ): Promise<DescribeDomainEndpointOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
-    case "DisabledOperationException":
+    case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1362,7 +1361,7 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
 ): Promise<DescribeDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1406,7 +1405,7 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
 ): Promise<DescribeExpressionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1416,7 +1415,7 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1453,7 +1452,7 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
 ): Promise<DescribeIndexFieldsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1463,7 +1462,7 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1500,7 +1499,7 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
 ): Promise<DescribeScalingParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1510,7 +1509,7 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1550,7 +1549,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
 ): Promise<DescribeServiceAccessPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1560,7 +1559,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1597,7 +1596,7 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
 ): Promise<DescribeSuggestersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1607,7 +1606,7 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1644,7 +1643,7 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
 ): Promise<IndexDocumentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1654,7 +1653,7 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1694,7 +1693,7 @@ const deserializeAws_queryListDomainNamesCommandError = async (
 ): Promise<ListDomainNamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1735,26 +1734,26 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
 ): Promise<UpdateAvailabilityOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
-    case "DisabledOperationException":
+    case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1794,26 +1793,26 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
 ): Promise<UpdateDomainEndpointOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
-    case "DisabledOperationException":
+    case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1853,7 +1852,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
 ): Promise<UpdateScalingParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1863,13 +1862,13 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1909,7 +1908,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
 ): Promise<UpdateServiceAccessPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1919,13 +1918,13 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -2271,6 +2270,9 @@ const serializeAws_queryDescribeAnalysisSchemesRequest = (
   }
   if (input.AnalysisSchemeNames != null) {
     const memberEntries = serializeAws_queryStandardNameList(input.AnalysisSchemeNames, context);
+    if (input.AnalysisSchemeNames?.length === 0) {
+      entries.AnalysisSchemeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisSchemeNames.${key}`;
       entries[loc] = value;
@@ -2314,6 +2316,9 @@ const serializeAws_queryDescribeDomainsRequest = (input: DescribeDomainsRequest,
   const entries: any = {};
   if (input.DomainNames != null) {
     const memberEntries = serializeAws_queryDomainNameList(input.DomainNames, context);
+    if (input.DomainNames?.length === 0) {
+      entries.DomainNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DomainNames.${key}`;
       entries[loc] = value;
@@ -2332,6 +2337,9 @@ const serializeAws_queryDescribeExpressionsRequest = (
   }
   if (input.ExpressionNames != null) {
     const memberEntries = serializeAws_queryStandardNameList(input.ExpressionNames, context);
+    if (input.ExpressionNames?.length === 0) {
+      entries.ExpressionNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExpressionNames.${key}`;
       entries[loc] = value;
@@ -2353,6 +2361,9 @@ const serializeAws_queryDescribeIndexFieldsRequest = (
   }
   if (input.FieldNames != null) {
     const memberEntries = serializeAws_queryDynamicFieldNameList(input.FieldNames, context);
+    if (input.FieldNames?.length === 0) {
+      entries.FieldNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FieldNames.${key}`;
       entries[loc] = value;
@@ -2399,6 +2410,9 @@ const serializeAws_queryDescribeSuggestersRequest = (
   }
   if (input.SuggesterNames != null) {
     const memberEntries = serializeAws_queryStandardNameList(input.SuggesterNames, context);
+    if (input.SuggesterNames?.length === 0) {
+      entries.SuggesterNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SuggesterNames.${key}`;
       entries[loc] = value;
@@ -3388,10 +3402,8 @@ const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext)
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -3878,10 +3890,10 @@ const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext):
     PendingDeletion: undefined,
   };
   if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(output["CreationDate"]));
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
   }
   if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["UpdateDate"]));
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
   }
   if (output["UpdateVersion"] !== undefined) {
     contents.UpdateVersion = __strictParseInt32(output["UpdateVersion"]) as number;
@@ -4140,7 +4152,8 @@ const deserializeAws_queryValidationException = (output: any, context: __SerdeCo
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -4185,13 +4198,18 @@ const buildHttpRpcRequest = async (
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -4204,13 +4222,21 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

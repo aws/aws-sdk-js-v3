@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,8 @@ export interface ListEventDataStoresCommandInput extends ListEventDataStoresRequ
 export interface ListEventDataStoresCommandOutput extends ListEventDataStoresResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all event data stores in the account, in the current region.</p>
+ * <p>Returns information about all event data stores in the account, in the current
+ *          region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +54,15 @@ export class ListEventDataStoresCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListEventDataStoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +78,9 @@ export class ListEventDataStoresCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListEventDataStoresCommandInput, ListEventDataStoresCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListEventDataStoresCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

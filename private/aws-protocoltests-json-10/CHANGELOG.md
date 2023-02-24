@@ -3,6 +3,457 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.278.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.277.0...v3.278.0) (2023-02-23)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.259.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.258.0...v3.259.0) (2023-01-26)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.258.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.257.0...v3.258.0) (2023-01-25)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.256.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.255.0...v3.256.0) (2023-01-23)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+
+### Bug Fixes
+
+* **clients:** revert timestamp format serialization ([#4348](https://github.com/aws/aws-sdk-js-v3/issues/4348)) ([0633164](https://github.com/aws/aws-sdk-js-v3/commit/063316423432fa21ace28678ea215cef27aff179))
+
+
+### Features
+
+* **checksum:** replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/issues/4346)) ([172b4f3](https://github.com/aws/aws-sdk-js-v3/commit/172b4f3475370b386271750436004706b36bc056))
+
+
+
+
+
+# [3.252.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.251.0...v3.252.0) (2023-01-17)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
+
+
+### Bug Fixes
+
+* **private:** error printout and broken reference to fail ([#4287](https://github.com/aws/aws-sdk-js-v3/issues/4287)) ([5582ee8](https://github.com/aws/aws-sdk-js-v3/commit/5582ee81afba728698f6fd81fbb6bd63bf707ed2))
+
+
+
+
+
+# [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.222.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.221.0...v3.222.0) (2022-12-01)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.217.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.216.0...v3.217.0) (2022-11-23)
+
+
+### Bug Fixes
+
+* **codegen:** add check for required query parameters ([#4220](https://github.com/aws/aws-sdk-js-v3/issues/4220)) ([0441081](https://github.com/aws/aws-sdk-js-v3/commit/0441081ea898ad7b2c91455f911216b1a60dd754))
+
+
+
+
+
+# [3.215.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.214.0...v3.215.0) (2022-11-21)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
+
+
+### Bug Fixes
+
+* **aws-procotoltests:** use default no-op logger ([#4178](https://github.com/aws/aws-sdk-js-v3/issues/4178)) ([796b02a](https://github.com/aws/aws-sdk-js-v3/commit/796b02a3ac16d6228ffc6bc2d59608aa109d9528))
+
+
+
+
+
+# [3.209.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.208.0...v3.209.0) (2022-11-11)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.208.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.207.0...v3.208.0) (2022-11-10)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.204.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.203.0...v3.204.0) (2022-11-04)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.201.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.200.0...v3.201.0) (2022-11-01)
+
+
+### Features
+
+* end support for Node.js 12.x ([#4123](https://github.com/aws/aws-sdk-js-v3/issues/4123)) ([83f913e](https://github.com/aws/aws-sdk-js-v3/commit/83f913ec2ac3878d8726c6964f585550dc5caf3e))
+
+
+
+
+
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.185.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.184.0...v3.185.0) (2022-10-05)
+
+
+### Bug Fixes
+
+* **codegen:** add deser check for x-amz-request-id ([#4015](https://github.com/aws/aws-sdk-js-v3/issues/4015)) ([6ff07bd](https://github.com/aws/aws-sdk-js-v3/commit/6ff07bd7e72bd56725f318013ac1d6d0fbbcdd9a))
+
+
+
+
+
+# [3.183.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.182.0...v3.183.0) (2022-10-03)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.181.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.180.0...v3.181.0) (2022-09-29)
+
+
+### Bug Fixes
+
+* **clients:** make parseErrorBody async ([#3999](https://github.com/aws/aws-sdk-js-v3/issues/3999)) ([2558c93](https://github.com/aws/aws-sdk-js-v3/commit/2558c93c050357ac6dc47aa0452b15b12ebfd676))
+* **clients:** populate message field when parsing errors ([#3995](https://github.com/aws/aws-sdk-js-v3/issues/3995)) ([02e47f1](https://github.com/aws/aws-sdk-js-v3/commit/02e47f14397ae0a5d2e2883350d038b307fdcdb4))
+
+
+
+
+
+# [3.180.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.179.0...v3.180.0) (2022-09-27)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.169.0...v3.170.0) (2022-09-13)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.168.0...v3.169.0) (2022-09-12)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.162.0...v3.163.0) (2022-09-01)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.160.0...v3.161.0) (2022-08-30)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.158.0...v3.159.0) (2022-08-26)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
+# [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-10

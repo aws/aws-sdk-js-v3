@@ -1,23 +1,30 @@
 import { calculateBodyLength } from "./calculateBodyLength";
 
-const arrayBuffer = new ArrayBuffer(1);
-const typedArray = new Uint8Array(1);
-
 describe(calculateBodyLength.name, () => {
-  it("should handle string inputs", () => {
-    expect(calculateBodyLength("foo")).toEqual(3);
+  describe("should handle string input", () => {
+    it.each([
+      { desc: "basic", input: "foo", output: 3 },
+      { desc: "emoji", input: "foo 🥺", output: 8 },
+      { desc: "multi-byte characters", input: "2。", output: 4 },
+    ])("%s", ({ input, output }) => {
+      expect(calculateBodyLength(input)).toEqual(output);
+    });
   });
 
-  it("should handle string inputs with multi-byte characters", () => {
-    expect(calculateBodyLength("2。")).toEqual(4);
-  });
+  describe("should handle input with byteLength", () => {
+    const sizes = [1, 256, 65536];
 
-  it("should handle inputs with byteLengths", () => {
-    expect(calculateBodyLength(arrayBuffer)).toEqual(1);
-  });
+    describe("ArrayBuffer", () => {
+      it.each(sizes)("size: %s", (size) => {
+        expect(calculateBodyLength(new ArrayBuffer(size))).toEqual(size);
+      });
+    });
 
-  it("should handle TypedArray inputs", () => {
-    expect(calculateBodyLength(typedArray)).toEqual(1);
+    describe("TypedArray", () => {
+      it.each(sizes)("size: %s", (size) => {
+        expect(calculateBodyLength(new Uint8Array(size))).toEqual(size);
+      });
+    });
   });
 
   it("should handle File object", () => {
@@ -34,9 +41,11 @@ describe(calculateBodyLength.name, () => {
     expect(calculateBodyLength(mockFileObject)).toEqual(mockFileObject.size);
   });
 
-  it.each([true, 1, {}, []])("throws error if Body Length computation fails for: %s", (body) => {
-    expect(() => {
-      expect(calculateBodyLength(body));
-    }).toThrowError(`Body Length computation failed for ${body}`);
+  describe("throws error if Body Length computation fails", () => {
+    it.each([true, 1, {}, []])("%s", (body) => {
+      expect(() => {
+        expect(calculateBodyLength(body));
+      }).toThrowError(`Body Length computation failed for ${body}`);
+    });
   });
 });

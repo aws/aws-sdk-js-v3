@@ -528,7 +528,7 @@ export const serializeAws_restJson1DeleteComponentCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteComponent";
   const query: any = map({
-    componentBuildVersionArn: [, input.componentBuildVersionArn!],
+    componentBuildVersionArn: [, __expectNonNull(input.componentBuildVersionArn!, `componentBuildVersionArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -551,7 +551,7 @@ export const serializeAws_restJson1DeleteContainerRecipeCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteContainerRecipe";
   const query: any = map({
-    containerRecipeArn: [, input.containerRecipeArn!],
+    containerRecipeArn: [, __expectNonNull(input.containerRecipeArn!, `containerRecipeArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -575,7 +575,10 @@ export const serializeAws_restJson1DeleteDistributionConfigurationCommand = asyn
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteDistributionConfiguration";
   const query: any = map({
-    distributionConfigurationArn: [, input.distributionConfigurationArn!],
+    distributionConfigurationArn: [
+      ,
+      __expectNonNull(input.distributionConfigurationArn!, `distributionConfigurationArn`),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -598,7 +601,7 @@ export const serializeAws_restJson1DeleteImageCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteImage";
   const query: any = map({
-    imageBuildVersionArn: [, input.imageBuildVersionArn!],
+    imageBuildVersionArn: [, __expectNonNull(input.imageBuildVersionArn!, `imageBuildVersionArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -621,7 +624,7 @@ export const serializeAws_restJson1DeleteImagePipelineCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteImagePipeline";
   const query: any = map({
-    imagePipelineArn: [, input.imagePipelineArn!],
+    imagePipelineArn: [, __expectNonNull(input.imagePipelineArn!, `imagePipelineArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -644,7 +647,7 @@ export const serializeAws_restJson1DeleteImageRecipeCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteImageRecipe";
   const query: any = map({
-    imageRecipeArn: [, input.imageRecipeArn!],
+    imageRecipeArn: [, __expectNonNull(input.imageRecipeArn!, `imageRecipeArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -668,7 +671,10 @@ export const serializeAws_restJson1DeleteInfrastructureConfigurationCommand = as
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteInfrastructureConfiguration";
   const query: any = map({
-    infrastructureConfigurationArn: [, input.infrastructureConfigurationArn!],
+    infrastructureConfigurationArn: [
+      ,
+      __expectNonNull(input.infrastructureConfigurationArn!, `infrastructureConfigurationArn`),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -691,7 +697,7 @@ export const serializeAws_restJson1GetComponentCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetComponent";
   const query: any = map({
-    componentBuildVersionArn: [, input.componentBuildVersionArn!],
+    componentBuildVersionArn: [, __expectNonNull(input.componentBuildVersionArn!, `componentBuildVersionArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -714,7 +720,7 @@ export const serializeAws_restJson1GetComponentPolicyCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetComponentPolicy";
   const query: any = map({
-    componentArn: [, input.componentArn!],
+    componentArn: [, __expectNonNull(input.componentArn!, `componentArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -737,7 +743,7 @@ export const serializeAws_restJson1GetContainerRecipeCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetContainerRecipe";
   const query: any = map({
-    containerRecipeArn: [, input.containerRecipeArn!],
+    containerRecipeArn: [, __expectNonNull(input.containerRecipeArn!, `containerRecipeArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -761,7 +767,7 @@ export const serializeAws_restJson1GetContainerRecipePolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetContainerRecipePolicy";
   const query: any = map({
-    containerRecipeArn: [, input.containerRecipeArn!],
+    containerRecipeArn: [, __expectNonNull(input.containerRecipeArn!, `containerRecipeArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -785,7 +791,10 @@ export const serializeAws_restJson1GetDistributionConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDistributionConfiguration";
   const query: any = map({
-    distributionConfigurationArn: [, input.distributionConfigurationArn!],
+    distributionConfigurationArn: [
+      ,
+      __expectNonNull(input.distributionConfigurationArn!, `distributionConfigurationArn`),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -808,7 +817,7 @@ export const serializeAws_restJson1GetImageCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImage";
   const query: any = map({
-    imageBuildVersionArn: [, input.imageBuildVersionArn!],
+    imageBuildVersionArn: [, __expectNonNull(input.imageBuildVersionArn!, `imageBuildVersionArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -831,7 +840,7 @@ export const serializeAws_restJson1GetImagePipelineCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImagePipeline";
   const query: any = map({
-    imagePipelineArn: [, input.imagePipelineArn!],
+    imagePipelineArn: [, __expectNonNull(input.imagePipelineArn!, `imagePipelineArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -854,7 +863,7 @@ export const serializeAws_restJson1GetImagePolicyCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImagePolicy";
   const query: any = map({
-    imageArn: [, input.imageArn!],
+    imageArn: [, __expectNonNull(input.imageArn!, `imageArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -877,7 +886,7 @@ export const serializeAws_restJson1GetImageRecipeCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImageRecipe";
   const query: any = map({
-    imageRecipeArn: [, input.imageRecipeArn!],
+    imageRecipeArn: [, __expectNonNull(input.imageRecipeArn!, `imageRecipeArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -900,7 +909,7 @@ export const serializeAws_restJson1GetImageRecipePolicyCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImageRecipePolicy";
   const query: any = map({
-    imageRecipeArn: [, input.imageRecipeArn!],
+    imageRecipeArn: [, __expectNonNull(input.imageRecipeArn!, `imageRecipeArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -924,7 +933,10 @@ export const serializeAws_restJson1GetInfrastructureConfigurationCommand = async
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetInfrastructureConfiguration";
   const query: any = map({
-    infrastructureConfigurationArn: [, input.infrastructureConfigurationArn!],
+    infrastructureConfigurationArn: [
+      ,
+      __expectNonNull(input.infrastructureConfigurationArn!, `infrastructureConfigurationArn`),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1486,7 +1498,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1651,7 +1666,7 @@ const deserializeAws_restJson1CancelImageCreationCommandError = async (
 ): Promise<CancelImageCreationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1719,7 +1734,7 @@ const deserializeAws_restJson1CreateComponentCommandError = async (
 ): Promise<CreateComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1796,7 +1811,7 @@ const deserializeAws_restJson1CreateContainerRecipeCommandError = async (
 ): Promise<CreateContainerRecipeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1873,7 +1888,7 @@ const deserializeAws_restJson1CreateDistributionConfigurationCommandError = asyn
 ): Promise<CreateDistributionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1950,7 +1965,7 @@ const deserializeAws_restJson1CreateImageCommandError = async (
 ): Promise<CreateImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2021,7 +2036,7 @@ const deserializeAws_restJson1CreateImagePipelineCommandError = async (
 ): Promise<CreateImagePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2095,7 +2110,7 @@ const deserializeAws_restJson1CreateImageRecipeCommandError = async (
 ): Promise<CreateImageRecipeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2172,7 +2187,7 @@ const deserializeAws_restJson1CreateInfrastructureConfigurationCommandError = as
 ): Promise<CreateInfrastructureConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2243,7 +2258,7 @@ const deserializeAws_restJson1DeleteComponentCommandError = async (
 ): Promise<DeleteComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2305,7 +2320,7 @@ const deserializeAws_restJson1DeleteContainerRecipeCommandError = async (
 ): Promise<DeleteContainerRecipeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2367,7 +2382,7 @@ const deserializeAws_restJson1DeleteDistributionConfigurationCommandError = asyn
 ): Promise<DeleteDistributionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2429,7 +2444,7 @@ const deserializeAws_restJson1DeleteImageCommandError = async (
 ): Promise<DeleteImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2491,7 +2506,7 @@ const deserializeAws_restJson1DeleteImagePipelineCommandError = async (
 ): Promise<DeleteImagePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2553,7 +2568,7 @@ const deserializeAws_restJson1DeleteImageRecipeCommandError = async (
 ): Promise<DeleteImageRecipeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2615,7 +2630,7 @@ const deserializeAws_restJson1DeleteInfrastructureConfigurationCommandError = as
 ): Promise<DeleteInfrastructureConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2677,7 +2692,7 @@ const deserializeAws_restJson1GetComponentCommandError = async (
 ): Promise<GetComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2736,7 +2751,7 @@ const deserializeAws_restJson1GetComponentPolicyCommandError = async (
 ): Promise<GetComponentPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2795,7 +2810,7 @@ const deserializeAws_restJson1GetContainerRecipeCommandError = async (
 ): Promise<GetContainerRecipeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2854,7 +2869,7 @@ const deserializeAws_restJson1GetContainerRecipePolicyCommandError = async (
 ): Promise<GetContainerRecipePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2916,7 +2931,7 @@ const deserializeAws_restJson1GetDistributionConfigurationCommandError = async (
 ): Promise<GetDistributionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2975,7 +2990,7 @@ const deserializeAws_restJson1GetImageCommandError = async (
 ): Promise<GetImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3034,7 +3049,7 @@ const deserializeAws_restJson1GetImagePipelineCommandError = async (
 ): Promise<GetImagePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3093,7 +3108,7 @@ const deserializeAws_restJson1GetImagePolicyCommandError = async (
 ): Promise<GetImagePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3152,7 +3167,7 @@ const deserializeAws_restJson1GetImageRecipeCommandError = async (
 ): Promise<GetImageRecipeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3211,7 +3226,7 @@ const deserializeAws_restJson1GetImageRecipePolicyCommandError = async (
 ): Promise<GetImageRecipePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3273,7 +3288,7 @@ const deserializeAws_restJson1GetInfrastructureConfigurationCommandError = async
 ): Promise<GetInfrastructureConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3335,7 +3350,7 @@ const deserializeAws_restJson1ImportComponentCommandError = async (
 ): Promise<ImportComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3409,7 +3424,7 @@ const deserializeAws_restJson1ImportVmImageCommandError = async (
 ): Promise<ImportVmImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3462,7 +3477,7 @@ const deserializeAws_restJson1ListComponentBuildVersionsCommandError = async (
 ): Promise<ListComponentBuildVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3527,7 +3542,7 @@ const deserializeAws_restJson1ListComponentsCommandError = async (
 ): Promise<ListComponentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3595,7 +3610,7 @@ const deserializeAws_restJson1ListContainerRecipesCommandError = async (
 ): Promise<ListContainerRecipesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3663,7 +3678,7 @@ const deserializeAws_restJson1ListDistributionConfigurationsCommandError = async
 ): Promise<ListDistributionConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3728,7 +3743,7 @@ const deserializeAws_restJson1ListImageBuildVersionsCommandError = async (
 ): Promise<ListImageBuildVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3793,7 +3808,7 @@ const deserializeAws_restJson1ListImagePackagesCommandError = async (
 ): Promise<ListImagePackagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3861,7 +3876,7 @@ const deserializeAws_restJson1ListImagePipelineImagesCommandError = async (
 ): Promise<ListImagePipelineImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3929,7 +3944,7 @@ const deserializeAws_restJson1ListImagePipelinesCommandError = async (
 ): Promise<ListImagePipelinesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3997,7 +4012,7 @@ const deserializeAws_restJson1ListImageRecipesCommandError = async (
 ): Promise<ListImageRecipesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4062,7 +4077,7 @@ const deserializeAws_restJson1ListImagesCommandError = async (
 ): Promise<ListImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4130,7 +4145,7 @@ const deserializeAws_restJson1ListInfrastructureConfigurationsCommandError = asy
 ): Promise<ListInfrastructureConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4189,7 +4204,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4239,7 +4254,7 @@ const deserializeAws_restJson1PutComponentPolicyCommandError = async (
 ): Promise<PutComponentPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4304,7 +4319,7 @@ const deserializeAws_restJson1PutContainerRecipePolicyCommandError = async (
 ): Promise<PutContainerRecipePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4369,7 +4384,7 @@ const deserializeAws_restJson1PutImagePolicyCommandError = async (
 ): Promise<PutImagePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4434,7 +4449,7 @@ const deserializeAws_restJson1PutImageRecipePolicyCommandError = async (
 ): Promise<PutImageRecipePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4502,7 +4517,7 @@ const deserializeAws_restJson1StartImagePipelineExecutionCommandError = async (
 ): Promise<StartImagePipelineExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4564,7 +4579,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4608,7 +4623,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4661,7 +4676,7 @@ const deserializeAws_restJson1UpdateDistributionConfigurationCommandError = asyn
 ): Promise<UpdateDistributionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4732,7 +4747,7 @@ const deserializeAws_restJson1UpdateImagePipelineCommandError = async (
 ): Promise<UpdateImagePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4800,7 +4815,7 @@ const deserializeAws_restJson1UpdateInfrastructureConfigurationCommandError = as
 ): Promise<UpdateInfrastructureConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5486,10 +5501,8 @@ const serializeAws_restJson1ResourceTagMap = (input: Record<string, string>, con
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5546,10 +5559,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5641,12 +5652,14 @@ const deserializeAws_restJson1Component = (output: any, context: __SerdeContext)
     encrypted: __expectBoolean(output.encrypted),
     kmsKeyId: __expectString(output.kmsKeyId),
     name: __expectString(output.name),
+    obfuscate: __expectBoolean(output.obfuscate),
     owner: __expectString(output.owner),
     parameters:
       output.parameters != null
         ? deserializeAws_restJson1ComponentParameterDetailList(output.parameters, context)
         : undefined,
     platform: __expectString(output.platform),
+    publisher: __expectString(output.publisher),
     state: output.state != null ? deserializeAws_restJson1ComponentState(output.state, context) : undefined,
     supportedOsVersions:
       output.supportedOsVersions != null
@@ -5762,8 +5775,10 @@ const deserializeAws_restJson1ComponentSummary = (output: any, context: __SerdeC
     dateCreated: __expectString(output.dateCreated),
     description: __expectString(output.description),
     name: __expectString(output.name),
+    obfuscate: __expectBoolean(output.obfuscate),
     owner: __expectString(output.owner),
     platform: __expectString(output.platform),
+    publisher: __expectString(output.publisher),
     state: output.state != null ? deserializeAws_restJson1ComponentState(output.state, context) : undefined,
     supportedOsVersions:
       output.supportedOsVersions != null
@@ -6089,6 +6104,7 @@ const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Im
     enhancedImageMetadataEnabled: __expectBoolean(output.enhancedImageMetadataEnabled),
     imageRecipe:
       output.imageRecipe != null ? deserializeAws_restJson1ImageRecipe(output.imageRecipe, context) : undefined,
+    imageSource: __expectString(output.imageSource),
     imageTestsConfiguration:
       output.imageTestsConfiguration != null
         ? deserializeAws_restJson1ImageTestsConfiguration(output.imageTestsConfiguration, context)
@@ -6233,6 +6249,7 @@ const deserializeAws_restJson1ImageSummary = (output: any, context: __SerdeConte
     arn: __expectString(output.arn),
     buildType: __expectString(output.buildType),
     dateCreated: __expectString(output.dateCreated),
+    imageSource: __expectString(output.imageSource),
     name: __expectString(output.name),
     osVersion: __expectString(output.osVersion),
     outputResources:
@@ -6275,6 +6292,7 @@ const deserializeAws_restJson1ImageVersion = (output: any, context: __SerdeConte
     arn: __expectString(output.arn),
     buildType: __expectString(output.buildType),
     dateCreated: __expectString(output.dateCreated),
+    imageSource: __expectString(output.imageSource),
     name: __expectString(output.name),
     osVersion: __expectString(output.osVersion),
     owner: __expectString(output.owner),
@@ -6549,10 +6567,8 @@ const deserializeAws_restJson1ResourceTagMap = (output: any, context: __SerdeCon
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6615,10 +6631,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6634,7 +6648,8 @@ const deserializeAws_restJson1TargetContainerRepository = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -6666,6 +6681,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -6676,6 +6697,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

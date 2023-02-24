@@ -29,6 +29,7 @@ import { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "../commands
 import { DeleteAgreementCommandInput, DeleteAgreementCommandOutput } from "../commands/DeleteAgreementCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "../commands/DeleteCertificateCommand";
 import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "../commands/DeleteConnectorCommand";
+import { DeleteHostKeyCommandInput, DeleteHostKeyCommandOutput } from "../commands/DeleteHostKeyCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../commands/DeleteProfileCommand";
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "../commands/DeleteServerCommand";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "../commands/DeleteSshPublicKeyCommand";
@@ -42,6 +43,7 @@ import {
 } from "../commands/DescribeCertificateCommand";
 import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "../commands/DescribeConnectorCommand";
 import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "../commands/DescribeExecutionCommand";
+import { DescribeHostKeyCommandInput, DescribeHostKeyCommandOutput } from "../commands/DescribeHostKeyCommand";
 import { DescribeProfileCommandInput, DescribeProfileCommandOutput } from "../commands/DescribeProfileCommand";
 import {
   DescribeSecurityPolicyCommandInput,
@@ -51,12 +53,14 @@ import { DescribeServerCommandInput, DescribeServerCommandOutput } from "../comm
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand";
 import { DescribeWorkflowCommandInput, DescribeWorkflowCommandOutput } from "../commands/DescribeWorkflowCommand";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "../commands/ImportCertificateCommand";
+import { ImportHostKeyCommandInput, ImportHostKeyCommandOutput } from "../commands/ImportHostKeyCommand";
 import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "../commands/ImportSshPublicKeyCommand";
 import { ListAccessesCommandInput, ListAccessesCommandOutput } from "../commands/ListAccessesCommand";
 import { ListAgreementsCommandInput, ListAgreementsCommandOutput } from "../commands/ListAgreementsCommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "../commands/ListCertificatesCommand";
 import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "../commands/ListConnectorsCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "../commands/ListExecutionsCommand";
+import { ListHostKeysCommandInput, ListHostKeysCommandOutput } from "../commands/ListHostKeysCommand";
 import { ListProfilesCommandInput, ListProfilesCommandOutput } from "../commands/ListProfilesCommand";
 import {
   ListSecurityPoliciesCommandInput,
@@ -86,6 +90,7 @@ import { UpdateAccessCommandInput, UpdateAccessCommandOutput } from "../commands
 import { UpdateAgreementCommandInput, UpdateAgreementCommandOutput } from "../commands/UpdateAgreementCommand";
 import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "../commands/UpdateCertificateCommand";
 import { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "../commands/UpdateConnectorCommand";
+import { UpdateHostKeyCommandInput, UpdateHostKeyCommandOutput } from "../commands/UpdateHostKeyCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../commands/UpdateProfileCommand";
 import { UpdateServerCommandInput, UpdateServerCommandOutput } from "../commands/UpdateServerCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
@@ -110,10 +115,12 @@ import {
   CreateWorkflowRequest,
   CreateWorkflowResponse,
   CustomStepDetails,
+  DecryptStepDetails,
   DeleteAccessRequest,
   DeleteAgreementRequest,
   DeleteCertificateRequest,
   DeleteConnectorRequest,
+  DeleteHostKeyRequest,
   DeleteProfileRequest,
   DeleteServerRequest,
   DeleteSshPublicKeyRequest,
@@ -133,6 +140,7 @@ import {
   DescribedCertificate,
   DescribedConnector,
   DescribedExecution,
+  DescribedHostKey,
   DescribedProfile,
   DescribedSecurityPolicy,
   DescribedServer,
@@ -140,6 +148,8 @@ import {
   DescribedWorkflow,
   DescribeExecutionRequest,
   DescribeExecutionResponse,
+  DescribeHostKeyRequest,
+  DescribeHostKeyResponse,
   DescribeProfileRequest,
   DescribeProfileResponse,
   DescribeSecurityPolicyRequest,
@@ -160,6 +170,8 @@ import {
   IdentityProviderDetails,
   ImportCertificateRequest,
   ImportCertificateResponse,
+  ImportHostKeyRequest,
+  ImportHostKeyResponse,
   ImportSshPublicKeyRequest,
   ImportSshPublicKeyResponse,
   InputFileLocation,
@@ -179,12 +191,15 @@ import {
   ListedCertificate,
   ListedConnector,
   ListedExecution,
+  ListedHostKey,
   ListedProfile,
   ListedServer,
   ListedUser,
   ListedWorkflow,
   ListExecutionsRequest,
   ListExecutionsResponse,
+  ListHostKeysRequest,
+  ListHostKeysResponse,
   ListProfilesRequest,
   ListProfilesResponse,
   ListSecurityPoliciesRequest,
@@ -230,6 +245,8 @@ import {
   UpdateCertificateResponse,
   UpdateConnectorRequest,
   UpdateConnectorResponse,
+  UpdateHostKeyRequest,
+  UpdateHostKeyResponse,
   UpdateProfileRequest,
   UpdateProfileResponse,
   UpdateServerRequest,
@@ -386,6 +403,19 @@ export const serializeAws_json1_1DeleteConnectorCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteHostKeyCommand = async (
+  input: DeleteHostKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TransferService.DeleteHostKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteHostKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteProfileCommand = async (
   input: DeleteProfileCommandInput,
   context: __SerdeContext
@@ -516,6 +546,19 @@ export const serializeAws_json1_1DescribeExecutionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeHostKeyCommand = async (
+  input: DescribeHostKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TransferService.DescribeHostKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeHostKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeProfileCommand = async (
   input: DescribeProfileCommandInput,
   context: __SerdeContext
@@ -594,6 +637,19 @@ export const serializeAws_json1_1ImportCertificateCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ImportHostKeyCommand = async (
+  input: ImportHostKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TransferService.ImportHostKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ImportHostKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ImportSshPublicKeyCommand = async (
   input: ImportSshPublicKeyCommandInput,
   context: __SerdeContext
@@ -669,6 +725,19 @@ export const serializeAws_json1_1ListExecutionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListExecutionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListHostKeysCommand = async (
+  input: ListHostKeysCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TransferService.ListHostKeys",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListHostKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -893,6 +962,19 @@ export const serializeAws_json1_1UpdateConnectorCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateHostKeyCommand = async (
+  input: UpdateHostKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TransferService.UpdateHostKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateHostKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateProfileCommand = async (
   input: UpdateProfileCommandInput,
   context: __SerdeContext
@@ -955,7 +1037,7 @@ const deserializeAws_json1_1CreateAccessCommandError = async (
 ): Promise<CreateAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1008,7 +1090,7 @@ const deserializeAws_json1_1CreateAgreementCommandError = async (
 ): Promise<CreateAgreementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1027,6 +1109,9 @@ const deserializeAws_json1_1CreateAgreementCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1061,7 +1146,7 @@ const deserializeAws_json1_1CreateConnectorCommandError = async (
 ): Promise<CreateConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1080,6 +1165,9 @@ const deserializeAws_json1_1CreateConnectorCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1114,7 +1202,7 @@ const deserializeAws_json1_1CreateProfileCommandError = async (
 ): Promise<CreateProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1130,6 +1218,9 @@ const deserializeAws_json1_1CreateProfileCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1164,7 +1255,7 @@ const deserializeAws_json1_1CreateServerCommandError = async (
 ): Promise<CreateServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1223,7 +1314,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
 ): Promise<CreateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1276,7 +1367,7 @@ const deserializeAws_json1_1CreateWorkflowCommandError = async (
 ): Promise<CreateWorkflowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1329,7 +1420,7 @@ const deserializeAws_json1_1DeleteAccessCommandError = async (
 ): Promise<DeleteAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1376,7 +1467,7 @@ const deserializeAws_json1_1DeleteAgreementCommandError = async (
 ): Promise<DeleteAgreementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1423,7 +1514,7 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
 ): Promise<DeleteCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1470,7 +1561,7 @@ const deserializeAws_json1_1DeleteConnectorCommandError = async (
 ): Promise<DeleteConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1486,6 +1577,56 @@ const deserializeAws_json1_1DeleteConnectorCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteHostKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHostKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteHostKeyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteHostKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteHostKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHostKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1517,7 +1658,7 @@ const deserializeAws_json1_1DeleteProfileCommandError = async (
 ): Promise<DeleteProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1564,7 +1705,7 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
 ): Promise<DeleteServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1614,7 +1755,7 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
 ): Promise<DeleteSshPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1664,7 +1805,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
 ): Promise<DeleteUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1711,7 +1852,7 @@ const deserializeAws_json1_1DeleteWorkflowCommandError = async (
 ): Promise<DeleteWorkflowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1764,7 +1905,7 @@ const deserializeAws_json1_1DescribeAccessCommandError = async (
 ): Promise<DescribeAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1814,7 +1955,7 @@ const deserializeAws_json1_1DescribeAgreementCommandError = async (
 ): Promise<DescribeAgreementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1864,7 +2005,7 @@ const deserializeAws_json1_1DescribeCertificateCommandError = async (
 ): Promise<DescribeCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1914,7 +2055,7 @@ const deserializeAws_json1_1DescribeConnectorCommandError = async (
 ): Promise<DescribeConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1964,7 +2105,57 @@ const deserializeAws_json1_1DescribeExecutionCommandError = async (
 ): Promise<DescribeExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeHostKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHostKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeHostKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeHostKeyResponse(data, context);
+  const response: DescribeHostKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeHostKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHostKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2014,7 +2205,7 @@ const deserializeAws_json1_1DescribeProfileCommandError = async (
 ): Promise<DescribeProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2064,7 +2255,7 @@ const deserializeAws_json1_1DescribeSecurityPolicyCommandError = async (
 ): Promise<DescribeSecurityPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2114,7 +2305,7 @@ const deserializeAws_json1_1DescribeServerCommandError = async (
 ): Promise<DescribeServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2164,7 +2355,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
 ): Promise<DescribeUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2214,7 +2405,7 @@ const deserializeAws_json1_1DescribeWorkflowCommandError = async (
 ): Promise<DescribeWorkflowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2264,7 +2455,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
 ): Promise<ImportCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2280,6 +2471,62 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ImportHostKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportHostKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ImportHostKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ImportHostKeyResponse(data, context);
+  const response: ImportHostKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ImportHostKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportHostKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.transfer#ResourceExistsException":
+      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2314,7 +2561,7 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
 ): Promise<ImportSshPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2370,7 +2617,7 @@ const deserializeAws_json1_1ListAccessesCommandError = async (
 ): Promise<ListAccessesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2423,7 +2670,7 @@ const deserializeAws_json1_1ListAgreementsCommandError = async (
 ): Promise<ListAgreementsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2476,7 +2723,7 @@ const deserializeAws_json1_1ListCertificatesCommandError = async (
 ): Promise<ListCertificatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2529,7 +2776,7 @@ const deserializeAws_json1_1ListConnectorsCommandError = async (
 ): Promise<ListConnectorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2582,7 +2829,60 @@ const deserializeAws_json1_1ListExecutionsCommandError = async (
 ): Promise<ListExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.transfer#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListHostKeysCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHostKeysCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListHostKeysCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListHostKeysResponse(data, context);
+  const response: ListHostKeysCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListHostKeysCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHostKeysCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2635,7 +2935,7 @@ const deserializeAws_json1_1ListProfilesCommandError = async (
 ): Promise<ListProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2688,7 +2988,7 @@ const deserializeAws_json1_1ListSecurityPoliciesCommandError = async (
 ): Promise<ListSecurityPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2738,7 +3038,7 @@ const deserializeAws_json1_1ListServersCommandError = async (
 ): Promise<ListServersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2788,7 +3088,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2838,7 +3138,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
 ): Promise<ListUsersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2891,7 +3191,7 @@ const deserializeAws_json1_1ListWorkflowsCommandError = async (
 ): Promise<ListWorkflowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2941,7 +3241,7 @@ const deserializeAws_json1_1SendWorkflowStepStateCommandError = async (
 ): Promise<SendWorkflowStepStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2997,7 +3297,7 @@ const deserializeAws_json1_1StartFileTransferCommandError = async (
 ): Promise<StartFileTransferCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3047,7 +3347,7 @@ const deserializeAws_json1_1StartServerCommandError = async (
 ): Promise<StartServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3097,7 +3397,7 @@ const deserializeAws_json1_1StopServerCommandError = async (
 ): Promise<StopServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3147,7 +3447,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3197,7 +3497,7 @@ const deserializeAws_json1_1TestIdentityProviderCommandError = async (
 ): Promise<TestIdentityProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3244,7 +3544,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3294,7 +3594,7 @@ const deserializeAws_json1_1UpdateAccessCommandError = async (
 ): Promise<UpdateAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3313,6 +3613,9 @@ const deserializeAws_json1_1UpdateAccessCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3347,7 +3650,7 @@ const deserializeAws_json1_1UpdateAgreementCommandError = async (
 ): Promise<UpdateAgreementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3366,6 +3669,9 @@ const deserializeAws_json1_1UpdateAgreementCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3400,7 +3706,7 @@ const deserializeAws_json1_1UpdateCertificateCommandError = async (
 ): Promise<UpdateCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3416,6 +3722,9 @@ const deserializeAws_json1_1UpdateCertificateCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3450,7 +3759,7 @@ const deserializeAws_json1_1UpdateConnectorCommandError = async (
 ): Promise<UpdateConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3469,6 +3778,62 @@ const deserializeAws_json1_1UpdateConnectorCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateHostKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHostKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateHostKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateHostKeyResponse(data, context);
+  const response: UpdateHostKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateHostKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHostKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3503,7 +3868,7 @@ const deserializeAws_json1_1UpdateProfileCommandError = async (
 ): Promise<UpdateProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3519,6 +3884,9 @@ const deserializeAws_json1_1UpdateProfileCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3553,7 +3921,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
 ): Promise<UpdateServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3615,7 +3983,7 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
 ): Promise<UpdateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3928,6 +4296,18 @@ const serializeAws_json1_1CustomStepDetails = (input: CustomStepDetails, context
   };
 };
 
+const serializeAws_json1_1DecryptStepDetails = (input: DecryptStepDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.DestinationFileLocation != null && {
+      DestinationFileLocation: serializeAws_json1_1InputFileLocation(input.DestinationFileLocation, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OverwriteExisting != null && { OverwriteExisting: input.OverwriteExisting }),
+    ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
 const serializeAws_json1_1DeleteAccessRequest = (input: DeleteAccessRequest, context: __SerdeContext): any => {
   return {
     ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
@@ -3954,6 +4334,13 @@ const serializeAws_json1_1DeleteCertificateRequest = (
 const serializeAws_json1_1DeleteConnectorRequest = (input: DeleteConnectorRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConnectorId != null && { ConnectorId: input.ConnectorId }),
+  };
+};
+
+const serializeAws_json1_1DeleteHostKeyRequest = (input: DeleteHostKeyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
@@ -4042,6 +4429,13 @@ const serializeAws_json1_1DescribeExecutionRequest = (
   return {
     ...(input.ExecutionId != null && { ExecutionId: input.ExecutionId }),
     ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
+  };
+};
+
+const serializeAws_json1_1DescribeHostKeyRequest = (input: DescribeHostKeyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
@@ -4148,6 +4542,15 @@ const serializeAws_json1_1ImportCertificateRequest = (
   };
 };
 
+const serializeAws_json1_1ImportHostKeyRequest = (input: ImportHostKeyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.HostKeyBody != null && { HostKeyBody: input.HostKeyBody }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1ImportSshPublicKeyRequest = (
   input: ImportSshPublicKeyRequest,
   context: __SerdeContext
@@ -4208,6 +4611,14 @@ const serializeAws_json1_1ListExecutionsRequest = (input: ListExecutionsRequest,
   };
 };
 
+const serializeAws_json1_1ListHostKeysRequest = (input: ListHostKeysRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
+  };
+};
+
 const serializeAws_json1_1ListProfilesRequest = (input: ListProfilesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -4257,6 +4668,14 @@ const serializeAws_json1_1ListWorkflowsRequest = (input: ListWorkflowsRequest, c
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
+};
+
+const serializeAws_json1_1OnPartialUploadWorkflowDetails = (input: WorkflowDetail[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1WorkflowDetail(entry, context);
+    });
 };
 
 const serializeAws_json1_1OnUploadWorkflowDetails = (input: WorkflowDetail[], context: __SerdeContext): any => {
@@ -4484,6 +4903,14 @@ const serializeAws_json1_1UpdateConnectorRequest = (input: UpdateConnectorReques
   };
 };
 
+const serializeAws_json1_1UpdateHostKeyRequest = (input: UpdateHostKeyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
+  };
+};
+
 const serializeAws_json1_1UpdateProfileRequest = (input: UpdateProfileRequest, context: __SerdeContext): any => {
   return {
     ...(input.CertificateIds != null && {
@@ -4547,6 +4974,9 @@ const serializeAws_json1_1WorkflowDetail = (input: WorkflowDetail, context: __Se
 
 const serializeAws_json1_1WorkflowDetails = (input: WorkflowDetails, context: __SerdeContext): any => {
   return {
+    ...(input.OnPartialUpload != null && {
+      OnPartialUpload: serializeAws_json1_1OnPartialUploadWorkflowDetails(input.OnPartialUpload, context),
+    }),
     ...(input.OnUpload != null && { OnUpload: serializeAws_json1_1OnUploadWorkflowDetails(input.OnUpload, context) }),
   };
 };
@@ -4558,6 +4988,9 @@ const serializeAws_json1_1WorkflowStep = (input: WorkflowStep, context: __SerdeC
     }),
     ...(input.CustomStepDetails != null && {
       CustomStepDetails: serializeAws_json1_1CustomStepDetails(input.CustomStepDetails, context),
+    }),
+    ...(input.DecryptStepDetails != null && {
+      DecryptStepDetails: serializeAws_json1_1DecryptStepDetails(input.DecryptStepDetails, context),
     }),
     ...(input.DeleteStepDetails != null && {
       DeleteStepDetails: serializeAws_json1_1DeleteStepDetails(input.DeleteStepDetails, context),
@@ -4709,6 +5142,19 @@ const deserializeAws_json1_1CustomStepDetails = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1DecryptStepDetails = (output: any, context: __SerdeContext): DecryptStepDetails => {
+  return {
+    DestinationFileLocation:
+      output.DestinationFileLocation != null
+        ? deserializeAws_json1_1InputFileLocation(output.DestinationFileLocation, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OverwriteExisting: __expectString(output.OverwriteExisting),
+    SourceFileLocation: __expectString(output.SourceFileLocation),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteStepDetails = (output: any, context: __SerdeContext): DeleteStepDetails => {
   return {
     Name: __expectString(output.Name),
@@ -4849,6 +5295,21 @@ const deserializeAws_json1_1DescribedExecution = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1DescribedHostKey = (output: any, context: __SerdeContext): DescribedHostKey => {
+  return {
+    Arn: __expectString(output.Arn),
+    DateImported:
+      output.DateImported != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateImported)))
+        : undefined,
+    Description: __expectString(output.Description),
+    HostKeyFingerprint: __expectString(output.HostKeyFingerprint),
+    HostKeyId: __expectString(output.HostKeyId),
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Type: __expectString(output.Type),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribedProfile = (output: any, context: __SerdeContext): DescribedProfile => {
   return {
     Arn: __expectString(output.Arn),
@@ -4955,6 +5416,15 @@ const deserializeAws_json1_1DescribeExecutionResponse = (
     Execution:
       output.Execution != null ? deserializeAws_json1_1DescribedExecution(output.Execution, context) : undefined,
     WorkflowId: __expectString(output.WorkflowId),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeHostKeyResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeHostKeyResponse => {
+  return {
+    HostKey: output.HostKey != null ? deserializeAws_json1_1DescribedHostKey(output.HostKey, context) : undefined,
   } as any;
 };
 
@@ -5109,6 +5579,13 @@ const deserializeAws_json1_1ImportCertificateResponse = (
 ): ImportCertificateResponse => {
   return {
     CertificateId: __expectString(output.CertificateId),
+  } as any;
+};
+
+const deserializeAws_json1_1ImportHostKeyResponse = (output: any, context: __SerdeContext): ImportHostKeyResponse => {
+  return {
+    HostKeyId: __expectString(output.HostKeyId),
+    ServerId: __expectString(output.ServerId),
   } as any;
 };
 
@@ -5316,6 +5793,32 @@ const deserializeAws_json1_1ListedExecutions = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1ListedHostKey = (output: any, context: __SerdeContext): ListedHostKey => {
+  return {
+    Arn: __expectString(output.Arn),
+    DateImported:
+      output.DateImported != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateImported)))
+        : undefined,
+    Description: __expectString(output.Description),
+    Fingerprint: __expectString(output.Fingerprint),
+    HostKeyId: __expectString(output.HostKeyId),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1ListedHostKeys = (output: any, context: __SerdeContext): ListedHostKey[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ListedHostKey(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ListedProfile = (output: any, context: __SerdeContext): ListedProfile => {
   return {
     Arn: __expectString(output.Arn),
@@ -5414,6 +5917,14 @@ const deserializeAws_json1_1ListExecutionsResponse = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1ListHostKeysResponse = (output: any, context: __SerdeContext): ListHostKeysResponse => {
+  return {
+    HostKeys: output.HostKeys != null ? deserializeAws_json1_1ListedHostKeys(output.HostKeys, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+    ServerId: __expectString(output.ServerId),
+  } as any;
+};
+
 const deserializeAws_json1_1ListProfilesResponse = (output: any, context: __SerdeContext): ListProfilesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
@@ -5472,6 +5983,21 @@ const deserializeAws_json1_1LoggingConfiguration = (output: any, context: __Serd
     LogGroupName: __expectString(output.LogGroupName),
     LoggingRole: __expectString(output.LoggingRole),
   } as any;
+};
+
+const deserializeAws_json1_1OnPartialUploadWorkflowDetails = (
+  output: any,
+  context: __SerdeContext
+): WorkflowDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WorkflowDetail(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1OnUploadWorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetail[] => {
@@ -5768,6 +6294,13 @@ const deserializeAws_json1_1UpdateConnectorResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1UpdateHostKeyResponse = (output: any, context: __SerdeContext): UpdateHostKeyResponse => {
+  return {
+    HostKeyId: __expectString(output.HostKeyId),
+    ServerId: __expectString(output.ServerId),
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateProfileResponse = (output: any, context: __SerdeContext): UpdateProfileResponse => {
   return {
     ProfileId: __expectString(output.ProfileId),
@@ -5804,6 +6337,10 @@ const deserializeAws_json1_1WorkflowDetail = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1WorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetails => {
   return {
+    OnPartialUpload:
+      output.OnPartialUpload != null
+        ? deserializeAws_json1_1OnPartialUploadWorkflowDetails(output.OnPartialUpload, context)
+        : undefined,
     OnUpload:
       output.OnUpload != null ? deserializeAws_json1_1OnUploadWorkflowDetails(output.OnUpload, context) : undefined,
   } as any;
@@ -5818,6 +6355,10 @@ const deserializeAws_json1_1WorkflowStep = (output: any, context: __SerdeContext
     CustomStepDetails:
       output.CustomStepDetails != null
         ? deserializeAws_json1_1CustomStepDetails(output.CustomStepDetails, context)
+        : undefined,
+    DecryptStepDetails:
+      output.DecryptStepDetails != null
+        ? deserializeAws_json1_1DecryptStepDetails(output.DecryptStepDetails, context)
         : undefined,
     DeleteStepDetails:
       output.DeleteStepDetails != null
@@ -5843,7 +6384,8 @@ const deserializeAws_json1_1WorkflowSteps = (output: any, context: __SerdeContex
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -5893,6 +6435,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -5903,6 +6451,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface DeleteCollectionCommandInput extends DeleteCollectionRequest {}
 export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified collection. Note that this operation
- *       removes all faces in the collection. For an example, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html">Deleting a collection</a>.</p>
- *
+ * <p>Deletes the specified collection. Note that this operation removes all faces in the
+ *       collection. For an example, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html">Deleting a
+ *       collection</a>.</p>
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:DeleteCollection</code> action.</p>
  * @example
@@ -56,6 +57,15 @@ export class DeleteCollectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DeleteCollectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteCollectionCommandInput, DeleteCollectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteCollectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

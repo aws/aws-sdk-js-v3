@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,7 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *         (<code>Choice</code> states), stop an execution with an error (<code>Fail</code> states),
  *       and so on. State machines are specified using a JSON-based, structured language. For more
  *       information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States
- *         Language</a> in the AWS Step Functions User Guide.</p>
+ *         Language</a> in the Step Functions User Guide.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
  *          </note>
@@ -42,9 +43,10 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *                <code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create a
  *         duplicate resource if it was already created. <code>CreateStateMachine</code>'s idempotency
  *         check is based on the state machine <code>name</code>, <code>definition</code>,
- *           <code>type</code>, <code>LoggingConfiguration</code> and <code>TracingConfiguration</code>. If a following request has a
- *         different <code>roleArn</code> or <code>tags</code>, Step Functions will ignore these differences and
- *         treat it as an idempotent request of the previous. In this case, <code>roleArn</code> and
+ *           <code>type</code>, <code>LoggingConfiguration</code> and
+ *         <code>TracingConfiguration</code>. If a following request has a different
+ *           <code>roleArn</code> or <code>tags</code>, Step Functions will ignore these differences and treat
+ *         it as an idempotent request of the previous. In this case, <code>roleArn</code> and
  *           <code>tags</code> will not be updated, even if they are different.</p>
  *          </note>
  * @example
@@ -70,6 +72,15 @@ export class CreateStateMachineCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateStateMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +96,9 @@ export class CreateStateMachineCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateStateMachineCommandInput, CreateStateMachineCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateStateMachineCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

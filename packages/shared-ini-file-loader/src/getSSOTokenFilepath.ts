@@ -6,8 +6,8 @@ import { getHomeDir } from "./getHomeDir";
 /**
  * Returns the filepath of the file where SSO token is stored.
  */
-export const getSSOTokenFilepath = (ssoStartUrl: string) => {
+export const getSSOTokenFilepath = (id: string) => {
   const hasher = createHash("sha1");
-  const cacheName = hasher.update(ssoStartUrl).digest("hex");
+  const cacheName = hasher.update(id).digest("hex");
   return join(getHomeDir(), ".aws", "sso", "cache", `${cacheName}.json`);
 };

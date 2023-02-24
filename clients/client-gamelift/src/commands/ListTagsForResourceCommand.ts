@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,11 +29,9 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             Retrieves all tags that are assigned to a GameLift resource.
- *             Resource tags are used to organize Amazon Web Services resources for a range of purposes.
- *             This operation handles the permissions necessary to manage tags for the following
- *             GameLift resource types:</p>
+ * <p>Retrieves all tags that are assigned to a GameLift resource. Resource tags are used to
+ *             organize Amazon Web Services resources for a range of purposes. This operation handles the permissions
+ *             necessary to manage tags for the following GameLift resource types:</p>
  *         <ul>
  *             <li>
  *                 <p>Build</p>
@@ -61,21 +60,18 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in the
- *             <i>Amazon Web Services General Reference</i>
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+ *                 Resources</a> in the <i>Amazon Web Services General Reference</i>
  *          </p>
  *         <p>
  *             <a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
- *             Amazon Web Services Tagging Strategies</a>
+ *                 Amazon Web Services Tagging Strategies</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>TagResource</a> |
- *                     <a>UntagResource</a> |
- *                     <a>ListTagsForResource</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +96,15 @@ export class ListTagsForResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,6 +120,9 @@ export class ListTagsForResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

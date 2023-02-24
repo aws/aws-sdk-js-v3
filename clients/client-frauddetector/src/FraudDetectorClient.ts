@@ -1,13 +1,7 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -32,22 +26,24 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -78,6 +74,7 @@ import {
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
 } from "./commands/CreateDetectorVersionCommand";
+import { CreateListCommandInput, CreateListCommandOutput } from "./commands/CreateListCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import { CreateModelVersionCommandInput, CreateModelVersionCommandOutput } from "./commands/CreateModelVersionCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
@@ -107,6 +104,7 @@ import {
   DeleteExternalModelCommandOutput,
 } from "./commands/DeleteExternalModelCommand";
 import { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
+import { DeleteListCommandInput, DeleteListCommandOutput } from "./commands/DeleteListCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import { DeleteModelVersionCommandInput, DeleteModelVersionCommandOutput } from "./commands/DeleteModelVersionCommand";
 import { DeleteOutcomeCommandInput, DeleteOutcomeCommandOutput } from "./commands/DeleteOutcomeCommand";
@@ -142,6 +140,8 @@ import {
   GetKMSEncryptionKeyCommandOutput,
 } from "./commands/GetKMSEncryptionKeyCommand";
 import { GetLabelsCommandInput, GetLabelsCommandOutput } from "./commands/GetLabelsCommand";
+import { GetListElementsCommandInput, GetListElementsCommandOutput } from "./commands/GetListElementsCommand";
+import { GetListsMetadataCommandInput, GetListsMetadataCommandOutput } from "./commands/GetListsMetadataCommand";
 import { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import { GetModelVersionCommandInput, GetModelVersionCommandOutput } from "./commands/GetModelVersionCommand";
 import { GetOutcomesCommandInput, GetOutcomesCommandOutput } from "./commands/GetOutcomesCommand";
@@ -181,6 +181,7 @@ import {
   UpdateDetectorVersionStatusCommandOutput,
 } from "./commands/UpdateDetectorVersionStatusCommand";
 import { UpdateEventLabelCommandInput, UpdateEventLabelCommandOutput } from "./commands/UpdateEventLabelCommand";
+import { UpdateListCommandInput, UpdateListCommandOutput } from "./commands/UpdateListCommand";
 import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import { UpdateModelVersionCommandInput, UpdateModelVersionCommandOutput } from "./commands/UpdateModelVersionCommand";
 import {
@@ -190,6 +191,12 @@ import {
 import { UpdateRuleMetadataCommandInput, UpdateRuleMetadataCommandOutput } from "./commands/UpdateRuleMetadataCommand";
 import { UpdateRuleVersionCommandInput, UpdateRuleVersionCommandOutput } from "./commands/UpdateRuleVersionCommand";
 import { UpdateVariableCommandInput, UpdateVariableCommandOutput } from "./commands/UpdateVariableCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -200,6 +207,7 @@ export type ServiceInputTypes =
   | CreateBatchImportJobCommandInput
   | CreateBatchPredictionJobCommandInput
   | CreateDetectorVersionCommandInput
+  | CreateListCommandInput
   | CreateModelCommandInput
   | CreateModelVersionCommandInput
   | CreateRuleCommandInput
@@ -214,6 +222,7 @@ export type ServiceInputTypes =
   | DeleteEventsByEventTypeCommandInput
   | DeleteExternalModelCommandInput
   | DeleteLabelCommandInput
+  | DeleteListCommandInput
   | DeleteModelCommandInput
   | DeleteModelVersionCommandInput
   | DeleteOutcomeCommandInput
@@ -234,6 +243,8 @@ export type ServiceInputTypes =
   | GetExternalModelsCommandInput
   | GetKMSEncryptionKeyCommandInput
   | GetLabelsCommandInput
+  | GetListElementsCommandInput
+  | GetListsMetadataCommandInput
   | GetModelVersionCommandInput
   | GetModelsCommandInput
   | GetOutcomesCommandInput
@@ -255,6 +266,7 @@ export type ServiceInputTypes =
   | UpdateDetectorVersionMetadataCommandInput
   | UpdateDetectorVersionStatusCommandInput
   | UpdateEventLabelCommandInput
+  | UpdateListCommandInput
   | UpdateModelCommandInput
   | UpdateModelVersionCommandInput
   | UpdateModelVersionStatusCommandInput
@@ -270,6 +282,7 @@ export type ServiceOutputTypes =
   | CreateBatchImportJobCommandOutput
   | CreateBatchPredictionJobCommandOutput
   | CreateDetectorVersionCommandOutput
+  | CreateListCommandOutput
   | CreateModelCommandOutput
   | CreateModelVersionCommandOutput
   | CreateRuleCommandOutput
@@ -284,6 +297,7 @@ export type ServiceOutputTypes =
   | DeleteEventsByEventTypeCommandOutput
   | DeleteExternalModelCommandOutput
   | DeleteLabelCommandOutput
+  | DeleteListCommandOutput
   | DeleteModelCommandOutput
   | DeleteModelVersionCommandOutput
   | DeleteOutcomeCommandOutput
@@ -304,6 +318,8 @@ export type ServiceOutputTypes =
   | GetExternalModelsCommandOutput
   | GetKMSEncryptionKeyCommandOutput
   | GetLabelsCommandOutput
+  | GetListElementsCommandOutput
+  | GetListsMetadataCommandOutput
   | GetModelVersionCommandOutput
   | GetModelsCommandOutput
   | GetOutcomesCommandOutput
@@ -325,6 +341,7 @@ export type ServiceOutputTypes =
   | UpdateDetectorVersionMetadataCommandOutput
   | UpdateDetectorVersionStatusCommandOutput
   | UpdateEventLabelCommandOutput
+  | UpdateListCommandOutput
   | UpdateModelCommandOutput
   | UpdateModelVersionCommandOutput
   | UpdateModelVersionStatusCommandOutput
@@ -339,11 +356,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -400,6 +417,39 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -415,58 +465,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type FraudDetectorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of FraudDetectorClient class constructor that set the region, credentials and other options.
  */
@@ -475,11 +487,12 @@ export interface FraudDetectorClientConfig extends FraudDetectorClientConfigType
 type FraudDetectorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of FraudDetectorClient class. This is resolved and normalized from the {@link FraudDetectorClientConfig | constructor configuration interface}.
  */
@@ -489,9 +502,8 @@ export interface FraudDetectorClientResolvedConfig extends FraudDetectorClientRe
  * <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need
  *             detailed information about Amazon Fraud Detector API actions, data types, and errors. For
  *             more information about Amazon Fraud Detector features, see the <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/">Amazon Fraud Detector User Guide</a>.</p>
- *
- *         <p>We provide the Query API as well as AWS software development kits (SDK) for Amazon Fraud Detector in Java and Python programming languages.</p>
- *         <p>The Amazon Fraud Detector Query API provides HTTPS requests that use the HTTP verb GET or POST and a Query parameter <code>Action</code>. AWS SDK provides libraries,
+ *          <p>We provide the Query API as well as AWS software development kits (SDK) for Amazon Fraud Detector in Java and Python programming languages.</p>
+ *          <p>The Amazon Fraud Detector Query API provides HTTPS requests that use the HTTP verb GET or POST and a Query parameter <code>Action</code>. AWS SDK provides libraries,
  *             sample code, tutorials, and other resources for software developers who prefer to build applications using language-specific APIs instead of submitting a request over
  *             HTTP or HTTPS. These libraries provide basic functions that automatically take care of tasks such as cryptographically signing your requests, retrying requests, and
  *             handling error responses, so that it is easier for you to get started. For more information about the AWS SDKs, see <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/tools/">Tools to build on AWS</a>.
@@ -510,14 +522,15 @@ export class FraudDetectorClient extends __Client<
 
   constructor(configuration: FraudDetectorClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

@@ -1,9 +1,10 @@
 import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity, STSClientConfig } from "@aws-sdk/client-sts";
 import { defaultProvider, DefaultProviderInit } from "@aws-sdk/credential-provider-node";
-import { CredentialProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider, Pluggable } from "@aws-sdk/types";
 
 export interface fromNodeProviderChainInit extends DefaultProviderInit {
   clientConfig?: STSClientConfig;
+  clientPlugins?: Pluggable<any, any>[];
 }
 
 /**
@@ -25,13 +26,16 @@ export interface fromNodeProviderChainInit extends DefaultProviderInit {
  *
  *   // Optional. Custom STS client configurations overriding the default ones.
  *   clientConfig: { region },
+ *   // Optional. Custom STS client middleware plugin to modify the client default behavior.
+ *   // e.g. adding custom headers.
+ *   clientPlugins: [addFooHeadersPlugin],
  * })
  * ```
  */
-export const fromNodeProviderChain = (init: fromNodeProviderChainInit = {}): CredentialProvider =>
+export const fromNodeProviderChain = (init: fromNodeProviderChainInit = {}): AwsCredentialIdentityProvider =>
   defaultProvider({
     ...init,
-    roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.clientConfig),
+    roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.clientConfig, init.clientPlugins),
     roleAssumerWithWebIdentity:
-      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig),
+      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig, init.clientPlugins),
   });

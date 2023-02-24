@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface DescribeQueriesCommandInput extends DescribeQueriesRequest {}
 export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have
- *       been executed recently in this account. You can request all queries or limit it to queries of
- *       a specific log group or queries with a certain status.</p>
+ * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have
+ *       been run recently in this account. You can request all queries or limit it to queries of a
+ *       specific log group or queries with a certain status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class DescribeQueriesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class DescribeQueriesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeQueriesCommandInput, DescribeQueriesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeQueriesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

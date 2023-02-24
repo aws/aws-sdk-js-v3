@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,9 +31,9 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
+ * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
  * 			associated with the specified cache policy.</p>
- * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+ *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
  * 			default maximum, the response is paginated. To get the next page of items, send a
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
@@ -60,6 +61,15 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListDistributionsByCachePolicyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDistributionsByCachePolicyIdCommandInput, ListDistributionsByCachePolicyIdCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDistributionsByCachePolicyIdCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

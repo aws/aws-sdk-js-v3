@@ -31,7 +31,7 @@ export interface AddAttachmentsToSetRequest {
   /**
    * <p>One or more attachments to add to the set. You can add up to three attachments per
    *             set. The size limit is 5 MB per attachment.</p>
-   *         <p>In the <code>Attachment</code> object, use the <code>data</code> parameter to specify
+   *          <p>In the <code>Attachment</code> object, use the <code>data</code> parameter to specify
    *             the contents of the attachment file. In the previous request syntax, the value for
    *                 <code>data</code> appear as <code>blob</code>, which is represented as a
    *             base64-encoded string. The value for <code>fileName</code> is the name of the
@@ -158,10 +158,10 @@ export class InternalServerError extends __BaseException {
 
 export interface AddCommunicationToCaseRequest {
   /**
-   * <p>The support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
+   * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
+   *             string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *         </p>
+   *          </p>
    */
   caseId?: string;
 
@@ -178,7 +178,7 @@ export interface AddCommunicationToCaseRequest {
   /**
    * <p>The ID of a set of one or more attachments for the communication to add to the case.
    *             Create the set by calling <a>AddAttachmentsToSet</a>
-   *         </p>
+   *          </p>
    */
   attachmentSetId?: string;
 }
@@ -283,12 +283,12 @@ export interface CreateCaseRequest {
    * <p>A value that indicates the urgency of the case. This value determines the response
    *             time according to your service level agreement with Amazon Web Services Support. You can use the <a>DescribeSeverityLevels</a> operation to get the possible values for
    *                 <code>severityCode</code>. </p>
-   *         <p>For more information, see <a>SeverityLevel</a> and <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
+   *          <p>For more information, see <a>SeverityLevel</a> and <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
    *                 Severity</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
-   *         <note>
+   *          <note>
    *             <p>The availability of severity levels depends on the support plan for the
    *                 Amazon Web Services account.</p>
-   *         </note>
+   *          </note>
    */
   severityCode?: string;
 
@@ -306,16 +306,15 @@ export interface CreateCaseRequest {
 
   /**
    * <p>A list of email addresses that Amazon Web Services Support copies on case correspondence. Amazon Web Services Support
-   *             identifies the account that creates the case when you specify your Amazon Web Services credentials in an
-   *             HTTP POST method or use the <a href="http://aws.amazon.com/tools/">Amazon Web Services SDKs</a>.
+   *             identifies the account that creates the case when you specify your Amazon Web Services credentials in
+   *             an HTTP POST method or use the <a href="http://aws.amazon.com/tools/">Amazon Web Services SDKs</a>.
    *         </p>
    */
   ccEmailAddresses?: string[];
 
   /**
-   * <p>The language in which Amazon Web Services Support handles the case. You must specify the ISO 639-1
-   *             code for the <code>language</code> parameter if you want support in that language.
-   *             Currently, English ("en") and Japanese ("ja") are supported.</p>
+   * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
+   * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
    */
   language?: string;
 
@@ -338,10 +337,10 @@ export interface CreateCaseRequest {
  */
 export interface CreateCaseResponse {
   /**
-   * <p>The support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string in the following format:
+   * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
+   *             string in the following format:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *         </p>
+   *          </p>
    */
   caseId?: string;
 }
@@ -379,7 +378,7 @@ export interface DescribeAttachmentRequest {
 export interface DescribeAttachmentResponse {
   /**
    * <p>This object includes the attachment content and file name.</p>
-   *         <p>In the previous response syntax, the value for the <code>data</code> parameter appears
+   *          <p>In the previous response syntax, the value for the <code>data</code> parameter appears
    *             as <code>blob</code>, which is represented as a base64-encoded string. The value for
    *                 <code>fileName</code> is the name of the attachment, such as
    *                 <code>troubleshoot-screenshot.png</code>.</p>
@@ -428,9 +427,8 @@ export interface DescribeCasesRequest {
   maxResults?: number;
 
   /**
-   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
-   *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
-   *             passed explicitly for operations that take them.</p>
+   * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
+   * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
    */
   language?: string;
 
@@ -442,16 +440,16 @@ export interface DescribeCasesRequest {
 }
 
 /**
- * <p>A communication associated with a support case. The communication consists of the
- *             case ID, the message body, attachment information, the submitter of the communication,
- *             and the date and time of the communication.</p>
+ * <p>A communication associated with a support case. The communication consists of the case
+ *             ID, the message body, attachment information, the submitter of the communication, and
+ *             the date and time of the communication.</p>
  */
 export interface Communication {
   /**
-   * <p>The support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
+   * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
+   *             string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *         </p>
+   *          </p>
    */
   caseId?: string;
 
@@ -498,113 +496,113 @@ export interface RecentCaseCommunications {
 /**
  * <p>A JSON-formatted object that contains the metadata for a support case. It is contained
  *             in the response from a <a>DescribeCases</a> request. <b>CaseDetails</b> contains the following fields:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <b>caseId</b> - The support case ID requested or
- *                     returned in the call. The case ID is an alphanumeric string formatted as shown
- *                     in this example:
- *                     case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>.</p>
+ *                <p>
+ *                   <b>caseId</b> - The support case ID requested
+ *                     or returned in the call. The case ID is an alphanumeric string formatted as
+ *                     shown in this example:
+ *                         case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>categoryCode</b> - The category of problem for the
- *                     support case. Corresponds to the <code>CategoryCode</code> values returned by a call to
- *                         <a>DescribeServices</a>.</p>
+ *                <p>
+ *                   <b>categoryCode</b> - The category of problem
+ *                     for the support case. Corresponds to the <code>CategoryCode</code> values
+ *                     returned by a call to <a>DescribeServices</a>.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>displayId</b> - The identifier for the case on pages
- *                     in the Amazon Web Services Support Center.</p>
+ *                <p>
+ *                   <b>displayId</b> - The identifier for the case
+ *                     on pages in the Amazon Web Services Support Center.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>language</b> - The ISO 639-1 code for the language
- *                     in which Amazon Web Services provides support. Amazon Web Services Support currently supports English ("en") and
- *                     Japanese ("ja"). Language parameters must be passed explicitly for operations
- *                     that take them.</p>
+ *                <p>
+ *                   <b>language</b> - The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
+ * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>nextToken</b> - A resumption point for
+ *                <p>
+ *                   <b>nextToken</b> - A resumption point for
  *                     pagination.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>recentCommunications</b> - One or more <a>Communication</a> objects. Fields of these objects are
+ *                <p>
+ *                   <b>recentCommunications</b> - One or more <a>Communication</a> objects. Fields of these objects are
  *                         <code>attachments</code>, <code>body</code>, <code>caseId</code>,
  *                         <code>submittedBy</code>, and <code>timeCreated</code>.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>serviceCode</b> - The identifier for the Amazon Web Services service
- *                     that corresponds to the service code defined in the call to <a>DescribeServices</a>.</p>
+ *                <p>
+ *                   <b>serviceCode</b> - The identifier for the
+ *                     Amazon Web Services service that corresponds to the service code defined in the call to <a>DescribeServices</a>.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>severityCode</b> - The severity code assigned to the
- *                     case. Contains one of the values returned by the call to <a>DescribeSeverityLevels</a>. The possible values are:
+ *                <p>
+ *                   <b>severityCode</b> - The severity code
+ *                     assigned to the case. Contains one of the values returned by the call to <a>DescribeSeverityLevels</a>. The possible values are:
  *                         <code>low</code>, <code>normal</code>, <code>high</code>,
  *                         <code>urgent</code>, and <code>critical</code>.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>status</b> - The status of the case in the Amazon Web Services Support Center. Valid values:</p>
- *                 <ul>
+ *                <p>
+ *                   <b>status</b> - The status of the case in the
+ *                     Amazon Web Services Support Center. Valid values:</p>
+ *                <ul>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <code>opened</code>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <code>pending-customer-action</code>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <code>reopened</code>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <code>resolved</code>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <code>unassigned</code>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                   <li>
- *                         <p>
+ *                      <p>
  *                         <code>work-in-progress</code>
  *                      </p>
- *                     </li>
+ *                   </li>
  *                </ul>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>subject</b> - The subject line of the case.</p>
+ *                <p>
+ *                   <b>subject</b> - The subject line of the
+ *                     case.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>submittedBy</b> - The email address of the account
- *                     that submitted the case.</p>
+ *                <p>
+ *                   <b>submittedBy</b> - The email address of the
+ *                     account that submitted the case.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>timeCreated</b> - The time the case was created, in
- *                     ISO-8601 format.</p>
+ *                <p>
+ *                   <b>timeCreated</b> - The time the case was
+ *                     created, in ISO-8601 format.</p>
  *             </li>
  *          </ul>
  */
 export interface CaseDetails {
   /**
-   * <p>The support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
+   * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
+   *             string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *         </p>
+   *          </p>
    */
   caseId?: string;
 
@@ -621,35 +619,35 @@ export interface CaseDetails {
 
   /**
    * <p>The status of the case.</p>
-   *         <p>Valid values:</p>
-   *         <ul>
+   *          <p>Valid values:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>opened</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>pending-customer-action</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>reopened</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resolved</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>unassigned</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>work-in-progress</code>
    *                </p>
    *             </li>
@@ -696,9 +694,8 @@ export interface CaseDetails {
   ccEmailAddresses?: string[];
 
   /**
-   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
-   *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
-   *             passed explicitly for operations that take them.</p>
+   * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
+   * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
    */
   language?: string;
 }
@@ -722,10 +719,10 @@ export interface DescribeCasesResponse {
 
 export interface DescribeCommunicationsRequest {
   /**
-   * <p>The support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
+   * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
+   *             string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *         </p>
+   *          </p>
    */
   caseId: string | undefined;
 
@@ -775,9 +772,8 @@ export interface DescribeServicesRequest {
   serviceCodeList?: string[];
 
   /**
-   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
-   *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
-   *             passed explicitly for operations that take them.</p>
+   * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
+   * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
    */
   language?: string;
 }
@@ -837,9 +833,8 @@ export interface DescribeServicesResponse {
 
 export interface DescribeSeverityLevelsRequest {
   /**
-   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
-   *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
-   *             passed explicitly for operations that take them.</p>
+   * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
+   * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
    */
   language?: string;
 }
@@ -853,7 +848,7 @@ export interface DescribeSeverityLevelsRequest {
 export interface SeverityLevel {
   /**
    * <p>The code for case severity level.</p>
-   *         <p>Valid values: <code>low</code> | <code>normal</code> | <code>high</code> |
+   *          <p>Valid values: <code>low</code> | <code>normal</code> | <code>high</code> |
    *                 <code>urgent</code> | <code>critical</code>
    *          </p>
    */
@@ -861,35 +856,35 @@ export interface SeverityLevel {
 
   /**
    * <p>The name of the severity level that corresponds to the severity level code.</p>
-   *         <note>
+   *          <note>
    *             <p>The values returned by the API are different from the values that appear in the
    *                 Amazon Web Services Support Center. For example, the API uses the code <code>low</code>, but the name
    *                 appears as General guidance in Support Center. </p>
    *             <p>The following are the API code names and how they appear in the console:</p>
    *             <ul>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <code>low</code> - General guidance</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <code>normal</code> - System impaired</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <code>high</code> - Production system impaired</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <code>urgent</code> - Production system down</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <code>critical</code> - Business-critical system down</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity">Choosing a
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity">Choosing a
    *                 severity</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    */
   name?: string;
@@ -910,10 +905,10 @@ export interface DescribeSeverityLevelsResponse {
 export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
   /**
    * <p>The IDs of the Trusted Advisor checks to get the status.</p>
-   *         <note>
+   *          <note>
    *             <p>If you specify the check ID of a check that is automatically refreshed, you might
    *                 see an <code>InvalidParameterValue</code> error.</p>
-   *         </note>
+   *          </note>
    */
   checkIds: string[] | undefined;
 }
@@ -930,28 +925,28 @@ export interface TrustedAdvisorCheckRefreshStatus {
   /**
    * <p>The status of the Trusted Advisor check for which a refresh has been requested:
    *             </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                   <code>none</code> - The check is not refreshed or the non-success status
-   *                     exceeds the timeout</p>
+   *                <p>
+   *                   <code>none</code> - The check is not refreshed or the non-success
+   *                     status exceeds the timeout</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>enqueued</code> - The check refresh requests has entered the refresh
-   *                     queue</p>
+   *                <p>
+   *                   <code>enqueued</code> - The check refresh requests has entered the
+   *                     refresh queue</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>processing</code> - The check refresh request is picked up by the rule
-   *                     processing engine</p>
+   *                <p>
+   *                   <code>processing</code> - The check refresh request is picked up by the
+   *                     rule processing engine</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>success</code> - The check is successfully refreshed</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>abandoned</code> - The check refresh has failed</p>
    *             </li>
    *          </ul>
@@ -985,9 +980,55 @@ export interface DescribeTrustedAdvisorCheckResultRequest {
   checkId: string | undefined;
 
   /**
-   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
-   *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
-   *             passed explicitly for operations that take them.</p>
+   * <p>The ISO 639-1 code for the language that you want your check results to appear
+   *             in.</p>
+   *          <p>The Amazon Web Services Support API currently supports the following languages for Trusted Advisor:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Chinese, Simplified - <code>zh</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Chinese, Traditional - <code>zh_TW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>English - <code>en</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>French - <code>fr</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>German - <code>de</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Indonesian - <code>id</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Italian - <code>it</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Japanese - <code>ja</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Korean - <code>ko</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Portuguese, Brazilian - <code>pt_BR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Spanish - <code>es</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   language?: string;
 }
@@ -1011,12 +1052,13 @@ export interface TrustedAdvisorCostOptimizingSummary {
 }
 
 /**
- * <p>The container for summary information that relates to the category of the Trusted Advisor check.</p>
+ * <p>The container for summary information that relates to the category of the Trusted Advisor
+ *             check.</p>
  */
 export interface TrustedAdvisorCategorySpecificSummary {
   /**
-   * <p>The summary information about cost savings for a Trusted Advisor check that is in the
-   *             Cost Optimizing category.</p>
+   * <p>The summary information about cost savings for a Trusted Advisor check that is in the Cost
+   *             Optimizing category.</p>
    */
   costOptimizing?: TrustedAdvisorCostOptimizingSummary;
 }
@@ -1041,8 +1083,8 @@ export interface TrustedAdvisorResourceDetail {
   resourceId: string | undefined;
 
   /**
-   * <p>Specifies whether the Amazon Web Services resource was ignored by Trusted Advisor because it was
-   *             marked as suppressed by the user.</p>
+   * <p>Specifies whether the Amazon Web Services resource was ignored by Trusted Advisor because it was marked as
+   *             suppressed by the user.</p>
    */
   isSuppressed?: boolean;
 
@@ -1065,8 +1107,7 @@ export interface TrustedAdvisorResourcesSummary {
   resourcesProcessed: number | undefined;
 
   /**
-   * <p>The number of Amazon Web Services resources that were flagged (listed) by the Trusted Advisor
-   *             check.</p>
+   * <p>The number of Amazon Web Services resources that were flagged (listed) by the Trusted Advisor check.</p>
    */
   resourcesFlagged: number | undefined;
 
@@ -1132,9 +1173,54 @@ export interface DescribeTrustedAdvisorCheckResultResponse {
 
 export interface DescribeTrustedAdvisorChecksRequest {
   /**
-   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
-   *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
-   *             passed explicitly for operations that take them.</p>
+   * <p>The ISO 639-1 code for the language that you want your checks to appear in.</p>
+   *          <p>The Amazon Web Services Support API currently supports the following languages for Trusted Advisor:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Chinese, Simplified - <code>zh</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Chinese, Traditional - <code>zh_TW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>English - <code>en</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>French - <code>fr</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>German - <code>de</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Indonesian - <code>id</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Italian - <code>it</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Japanese - <code>ja</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Korean - <code>ko</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Portuguese, Brazilian - <code>pt_BR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Spanish - <code>es</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   language: string | undefined;
 }
@@ -1165,8 +1251,8 @@ export interface TrustedAdvisorCheckDescription {
   category: string | undefined;
 
   /**
-   * <p>The column headings for the data returned by the Trusted Advisor check. The order of
-   *             the headings corresponds to the order of the data in the <b>Metadata</b> element of the <a>TrustedAdvisorResourceDetail</a>
+   * <p>The column headings for the data returned by the Trusted Advisor check. The order of the
+   *             headings corresponds to the order of the data in the <b>Metadata</b> element of the <a>TrustedAdvisorResourceDetail</a>
    *             for the check. <b>Metadata</b> contains all the data that is
    *             shown in the Excel download, even in those cases where the UI shows just summary data.
    *         </p>
@@ -1192,8 +1278,8 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
 }
 
 /**
- * <p>A summary of a Trusted Advisor check result, including the alert status, last refresh,
- *             and number of resources examined.</p>
+ * <p>A summary of a Trusted Advisor check result, including the alert status, last refresh, and
+ *             number of resources examined.</p>
  */
 export interface TrustedAdvisorCheckSummary {
   /**
@@ -1245,10 +1331,10 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
 export interface RefreshTrustedAdvisorCheckRequest {
   /**
    * <p>The unique identifier for the Trusted Advisor check to refresh.</p>
-   *             <note>
-   *                 <p>Specifying the check ID of a check that is automatically refreshed
-   *                     causes an <code>InvalidParameterValue</code> error.</p>
-   *             </note>
+   *          <note>
+   *             <p>Specifying the check ID of a check that is automatically refreshed causes an
+   *                     <code>InvalidParameterValue</code> error.</p>
+   *          </note>
    */
   checkId: string | undefined;
 }
@@ -1266,10 +1352,10 @@ export interface RefreshTrustedAdvisorCheckResponse {
 
 export interface ResolveCaseRequest {
   /**
-   * <p>The support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
+   * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
+   *             string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *         </p>
+   *          </p>
    */
   caseId?: string;
 }

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -44,44 +45,25 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *             to start and run game servers on each instance in the fleet. Set permissions for inbound
  *             traffic to your game servers, and enable optional features as needed. When creating a
  *             multi-location fleet, provide a list of additional remote locations.</p>
- *         <p>If you need to debug your fleet, fetch logs, view performance metrics
- *             or other actions on the fleet, create the development fleet with port 22/3389 open.
- *             As a best practice, we recommend opening ports for remote access only when you need them
- *             and closing them when you're finished. </p>
+ *         <p>If you need to debug your fleet, fetch logs, view performance metrics or other actions
+ *             on the fleet, create the development fleet with port 22/3389 open. As a best practice,
+ *             we recommend opening ports for remote access only when you need them and closing them
+ *             when you're finished. </p>
  *         <p>If successful, this operation creates a new Fleet resource and places it in
  *                 <code>NEW</code> status, which prompts GameLift to initiate the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creation-workflow.html">fleet creation
- *                 workflow</a>. You can track fleet creation by checking fleet status using <a>DescribeFleetAttributes</a> and <a>DescribeFleetLocationAttributes</a>/, or by monitoring fleet creation events
- *             using <a>DescribeFleetEvents</a>. As soon as the fleet status changes to
- *                 <code>ACTIVE</code>, you can enable automatic scaling for the fleet with <a>PutScalingPolicy</a> and set capacity for the home Region with <a>UpdateFleetCapacity</a>. When the status of each remote location reaches
- *                 <code>ACTIVE</code>, you can set capacity by location using <a>UpdateFleetCapacity</a>.</p>
- *
- *
- *         <p>
+ *                 workflow</a>.</p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up fleets</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up
+ *             fleets</a>
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug fleet creation issues</a>
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location fleets</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateFleet</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
- *                     <a>DescribeFleetAttributes</a> |
- *                     <a>DescribeFleetLocationAttributes</a> |
- *                     <a>UpdateFleetAttributes</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>DeleteFleet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +88,15 @@ export class CreateFleetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +112,7 @@ export class CreateFleetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateFleetCommandInput, CreateFleetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateFleetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

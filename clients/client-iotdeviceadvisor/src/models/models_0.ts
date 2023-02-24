@@ -43,13 +43,13 @@ export enum Protocol {
 }
 
 /**
- * <p>Gets Suite Definition Configuration.</p>
+ * <p>Gets the suite definition configuration.</p>
  */
 export interface SuiteDefinitionConfiguration {
   /**
-   * <p>Gets Suite Definition Configuration name.</p>
+   * <p>Gets the suite definition name. This is a required parameter.</p>
    */
-  suiteDefinitionName?: string;
+  suiteDefinitionName: string | undefined;
 
   /**
    * <p>Gets the devices configured.</p>
@@ -62,22 +62,22 @@ export interface SuiteDefinitionConfiguration {
   intendedForQualification?: boolean;
 
   /**
-   * <p> Verifies if the test suite is a long duration test. </p>
+   * <p>Verifies if the test suite is a long duration test.</p>
    */
   isLongDurationTest?: boolean;
 
   /**
-   * <p>Gets test suite root group.</p>
+   * <p>Gets the test suite root group. This is a required parameter.</p>
    */
-  rootGroup?: string;
+  rootGroup: string | undefined;
 
   /**
-   * <p>Gets the device permission ARN.</p>
+   * <p>Gets the device permission ARN. This is a required parameter.</p>
    */
-  devicePermissionRoleArn?: string;
+  devicePermissionRoleArn: string | undefined;
 
   /**
-   * <p> Gets the MQTT protocol that is configured in the suite definition.</p>
+   * <p>Sets the MQTT protocol that is configured in the suite definition.</p>
    */
   protocol?: Protocol | string;
 }
@@ -86,7 +86,7 @@ export interface CreateSuiteDefinitionRequest {
   /**
    * <p>Creates a Device Advisor test suite with suite definition configuration.</p>
    */
-  suiteDefinitionConfiguration?: SuiteDefinitionConfiguration;
+  suiteDefinitionConfiguration: SuiteDefinitionConfiguration | undefined;
 
   /**
    * <p>The tags to be attached to the suite definition.</p>
@@ -96,22 +96,22 @@ export interface CreateSuiteDefinitionRequest {
 
 export interface CreateSuiteDefinitionResponse {
   /**
-   * <p>Creates a Device Advisor test suite with suite UUID.</p>
+   * <p>The UUID of the test suite created.</p>
    */
   suiteDefinitionId?: string;
 
   /**
-   * <p>Creates a Device Advisor test suite with Amazon Resource Name (ARN).</p>
+   * <p>The Amazon Resource Name (ARN) of the test suite.</p>
    */
   suiteDefinitionArn?: string;
 
   /**
-   * <p>Creates a Device Advisor test suite with suite definition name.</p>
+   * <p>The suite definition name of the test suite. This is a required parameter.</p>
    */
   suiteDefinitionName?: string;
 
   /**
-   * <p>Creates a Device Advisor test suite with TimeStamp of when it was created.</p>
+   * <p>The timestamp of when the test suite was created.</p>
    */
   createdAt?: Date;
 }
@@ -284,12 +284,13 @@ export enum SuiteRunStatus {
  */
 export interface SuiteRunConfiguration {
   /**
-   * <p>Gets the primary device for suite run.</p>
+   * <p>Sets the primary device for the test suite run. This requires
+   *         a thing ARN or a certificate ARN.</p>
    */
-  primaryDevice?: DeviceUnderTest;
+  primaryDevice: DeviceUnderTest | undefined;
 
   /**
-   * <p>Gets test case list.</p>
+   * <p>Sets test case list.</p>
    */
   selectedTestList?: string[];
 
@@ -339,12 +340,12 @@ export interface TestCaseScenario {
 
   /**
    * <p>Provides test case scenario type. Type is one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Advanced</p>
+   *                <p>Advanced</p>
    *             </li>
    *             <li>
-   *                 <p>Basic</p>
+   *                <p>Basic</p>
    *             </li>
    *          </ul>
    */
@@ -352,39 +353,39 @@ export interface TestCaseScenario {
 
   /**
    * <p>Provides the test case scenario status. Status is one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PASS</code>: Test passed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAIL</code>: Test failed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code>: Test has not started running but is scheduled.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RUNNING</code>: Test is running.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STOPPING</code>: Test is performing cleanup steps. You will see this
    *                     status only if you stop a suite run.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STOPPED</code> Test is stopped. You will see this status only if you
    *                     stop a suite run.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PASS_WITH_WARNINGS</code>: Test passed with warnings.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ERORR</code>: Test faced an error when running due to an internal
    *                     issue.</p>
    *             </li>
@@ -399,7 +400,6 @@ export interface TestCaseScenario {
 
   /**
    * <p>
-   *
    *         </p>
    */
   systemMessage?: string;
@@ -426,39 +426,39 @@ export interface TestCaseRun {
 
   /**
    * <p>Provides the test case run status. Status is one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PASS</code>: Test passed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAIL</code>: Test failed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code>: Test has not started running but is scheduled.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RUNNING</code>: Test is running.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STOPPING</code>: Test is performing cleanup steps. You will see this
    *                     status only if you stop a suite run.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STOPPED</code> Test is stopped. You will see this status only if you
    *                     stop a suite run.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PASS_WITH_WARNINGS</code>: Test passed with warnings.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ERORR</code>: Test faced an error when running due to an internal
    *                     issue.</p>
    *             </li>
@@ -640,12 +640,12 @@ export interface SuiteDefinitionInformation {
   intendedForQualification?: boolean;
 
   /**
-   * <p> Verifies if the test suite is a long duration test. </p>
+   * <p>Verifies if the test suite is a long duration test.</p>
    */
   isLongDurationTest?: boolean;
 
   /**
-   * <p> Gets the MQTT protocol that is configured in the suite definition.</p>
+   * <p>Gets the MQTT protocol that is configured in the suite definition.</p>
    */
   protocol?: Protocol | string;
 
@@ -694,7 +694,7 @@ export interface ListSuiteRunsRequest {
 
 /**
  * <p>Information about the suite run.</p>
- *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SuiteRunInformation</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SuiteRunInformation</a> action.</p>
  */
 export interface SuiteRunInformation {
   /**
@@ -763,7 +763,8 @@ export interface ListSuiteRunsResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the IoT Device Advisor resource.</p>
+   * <p>The resource ARN of the IoT Device Advisor resource.
+   *         This can be SuiteDefinition ARN or SuiteRun ARN.</p>
    */
   resourceArn: string | undefined;
 }
@@ -789,7 +790,7 @@ export interface StartSuiteRunRequest {
   /**
    * <p>Suite run configuration.</p>
    */
-  suiteRunConfiguration?: SuiteRunConfiguration;
+  suiteRunConfiguration: SuiteRunConfiguration | undefined;
 
   /**
    * <p>The tags to be attached to the suite run.</p>
@@ -812,6 +813,11 @@ export interface StartSuiteRunResponse {
    * <p>Starts a Device Advisor test suite run based on suite create time.</p>
    */
   createdAt?: Date;
+
+  /**
+   * <p>The response of an Device Advisor test endpoint.</p>
+   */
+  endpoint?: string;
 }
 
 export interface StopSuiteRunRequest {
@@ -830,7 +836,8 @@ export interface StopSuiteRunResponse {}
 
 export interface TagResourceRequest {
   /**
-   * <p>The resource ARN of an IoT Device Advisor resource.</p>
+   * <p>The resource ARN of an IoT Device Advisor resource.
+   *             This can be SuiteDefinition ARN or SuiteRun ARN.</p>
    */
   resourceArn: string | undefined;
 
@@ -844,7 +851,8 @@ export interface TagResourceResponse {}
 
 export interface UntagResourceRequest {
   /**
-   * <p>The resource ARN of an IoT Device Advisor resource.</p>
+   * <p>The resource ARN of an IoT Device Advisor resource.
+   *             This can be SuiteDefinition ARN or SuiteRun ARN.</p>
    */
   resourceArn: string | undefined;
 
@@ -865,7 +873,7 @@ export interface UpdateSuiteDefinitionRequest {
   /**
    * <p>Updates a Device Advisor test suite with suite definition configuration.</p>
    */
-  suiteDefinitionConfiguration?: SuiteDefinitionConfiguration;
+  suiteDefinitionConfiguration: SuiteDefinitionConfiguration | undefined;
 }
 
 export interface UpdateSuiteDefinitionResponse {
@@ -880,7 +888,7 @@ export interface UpdateSuiteDefinitionResponse {
   suiteDefinitionArn?: string;
 
   /**
-   * <p>Suite definition name of the updated test suite.</p>
+   * <p>Updates the suite definition name. This is a required parameter.</p>
    */
   suiteDefinitionName?: string;
 

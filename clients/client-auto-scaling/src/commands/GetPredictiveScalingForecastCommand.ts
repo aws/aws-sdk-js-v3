@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,13 +32,13 @@ export interface GetPredictiveScalingForecastCommandOutput
 
 /**
  * <p>Retrieves the forecast data for a predictive scaling policy.</p>
- *         <p>Load forecasts are predictions of the hourly load values using historical load data
+ *          <p>Load forecasts are predictions of the hourly load values using historical load data
  *             from CloudWatch and an analysis of historical trends. Capacity forecasts are represented as
  *             predicted values for the minimum capacity that is needed on an hourly basis, based on
  *             the hourly load forecast.</p>
- *         <p>A minimum of 24 hours of data is required to create the initial forecasts. However,
+ *          <p>A minimum of 24 hours of data is required to create the initial forecasts. However,
  *             having a full 14 days of historical data results in more accurate forecasts.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html">Predictive
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html">Predictive
  *                 scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +63,15 @@ export class GetPredictiveScalingForecastCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetPredictiveScalingForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +87,9 @@ export class GetPredictiveScalingForecastCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPredictiveScalingForecastCommandInput, GetPredictiveScalingForecastCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetPredictiveScalingForecastCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

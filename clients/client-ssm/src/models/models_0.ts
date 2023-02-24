@@ -95,6 +95,7 @@ export interface Activation {
 }
 
 export enum ResourceTypeForTagging {
+  ASSOCIATION = "Association",
   AUTOMATION = "Automation",
   DOCUMENT = "Document",
   MAINTENANCE_WINDOW = "MaintenanceWindow",
@@ -263,6 +264,55 @@ export class TooManyUpdates extends __BaseException {
     Object.setPrototypeOf(this, TooManyUpdates.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * <p>A CloudWatch alarm you apply to an automation or command.</p>
+ */
+export interface Alarm {
+  /**
+   * <p>The name of your CloudWatch alarm.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * <p>The details for the CloudWatch alarm you want to apply to an automation or
+ *    command.</p>
+ */
+export interface AlarmConfiguration {
+  /**
+   * <p>When this value is <i>true</i>, your automation or command continues to run in
+   *    cases where we can’t retrieve alarm status information from CloudWatch. In cases
+   *    where we successfully retrieve an alarm status of OK or INSUFFICIENT_DATA, the automation or
+   *    command continues to run, regardless of this value. Default is <i>false</i>.</p>
+   */
+  IgnorePollAlarmFailure?: boolean;
+
+  /**
+   * <p>The name of the CloudWatch alarm specified in the configuration.</p>
+   */
+  Alarms: Alarm[] | undefined;
+}
+
+export enum ExternalAlarmState {
+  ALARM = "ALARM",
+  UNKNOWN = "UNKNOWN",
+}
+
+/**
+ * <p>The details about the state of your CloudWatch alarm.</p>
+ */
+export interface AlarmStateInformation {
+  /**
+   * <p>The name of your CloudWatch alarm.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The state of your CloudWatch alarm.</p>
+   */
+  State: ExternalAlarmState | string | undefined;
 }
 
 /**
@@ -596,6 +646,10 @@ export interface CreateActivationRequest {
    *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an
    *      IAM service role for a hybrid environment</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <note>
+   *             <p>You can't specify an IAM service-linked role for this parameter. You must
+   *     create a unique role.</p>
+   *          </note>
    */
   IamRole: string | undefined;
 
@@ -799,6 +853,12 @@ export interface TargetLocation {
    *    the default value is <code>AWS-SystemsManager-AutomationExecutionRole</code>.</p>
    */
   ExecutionRoleName?: string;
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
+   */
+  TargetLocationAlarmConfiguration?: AlarmConfiguration;
 }
 
 /**
@@ -920,7 +980,7 @@ export interface CreateAssociationRequest {
    * <p>The name of the SSM Command document or Automation runbook that contains the configuration
    *    information for the managed node.</p>
    *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
-   *    shared with you from another account.</p>
+   *    shared with you from another Amazon Web Services account.</p>
    *          <p>For Systems Manager documents (SSM documents) that are shared with you from other Amazon Web Services accounts, you
    *    must specify the complete SSM document ARN, in the following format:</p>
    *          <p>
@@ -1088,6 +1148,20 @@ export interface CreateAssociationRequest {
    *    can't be specified together.</p>
    */
   TargetMaps?: Record<string, string[]>[];
+
+  /**
+   * <p>Adds or overwrites one or more tags for a State Manager association.
+   *     <i>Tags</i> are metadata that you can assign to your Amazon Web Services resources. Tags enable
+   *    you to categorize your resources in different ways, for example, by purpose, owner, or
+   *    environment. Each tag consists of a key and an optional value, both of which you define. </p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 /**
@@ -1311,6 +1385,17 @@ export interface AssociationDescription {
    *    can't be specified together.</p>
    */
   TargetMaps?: Record<string, string[]>[];
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarm that was invoked during the association.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface CreateAssociationResult {
@@ -1402,6 +1487,27 @@ export class InvalidSchedule extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidSchedule.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The specified tag key or value isn't valid.</p>
+ */
+export class InvalidTag extends __BaseException {
+  readonly name: "InvalidTag" = "InvalidTag";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTag, __BaseException>) {
+    super({
+      name: "InvalidTag",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTag.prototype);
     this.Message = opts.Message;
   }
 }
@@ -1625,6 +1731,12 @@ export interface CreateAssociationBatchRequestEntry {
    *    can't be specified together.</p>
    */
   TargetMaps?: Record<string, string[]>[];
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface CreateAssociationBatchRequest {
@@ -1634,7 +1746,11 @@ export interface CreateAssociationBatchRequest {
   Entries: CreateAssociationBatchRequestEntry[] | undefined;
 }
 
-export type Fault = "Client" | "Server" | "Unknown";
+export enum Fault {
+  Client = "Client",
+  Server = "Server",
+  Unknown = "Unknown",
+}
 
 /**
  * <p>Describes a failed association.</p>
@@ -1741,12 +1857,15 @@ export enum DocumentType {
   Automation = "Automation",
   ChangeCalendar = "ChangeCalendar",
   ChangeTemplate = "Automation.ChangeTemplate",
+  CloudFormation = "CloudFormation",
   Command = "Command",
+  ConformancePackTemplate = "ConformancePackTemplate",
   DeploymentStrategy = "DeploymentStrategy",
   Package = "Package",
   Policy = "Policy",
   ProblemAnalysis = "ProblemAnalysis",
   ProblemAnalysisTemplate = "ProblemAnalysisTemplate",
+  QuickSetup = "QuickSetup",
   Session = "Session",
 }
 
@@ -1763,13 +1882,26 @@ export interface DocumentRequires {
    * <p>The document version required by the current document.</p>
    */
   Version?: string;
+
+  /**
+   * <p>The document type of the required SSM document.</p>
+   */
+  RequireType?: string;
+
+  /**
+   * <p>An optional field specifying the version of the artifact associated with the document. For
+   *    example, "Release 12, Update 6". This value is unique across all versions of a document, and
+   *    can't be changed.</p>
+   */
+  VersionName?: string;
 }
 
 export interface CreateDocumentRequest {
   /**
-   * <p>The content for the new SSM document in JSON or YAML format. We recommend storing the
-   *    contents for your new document in an external JSON or YAML file and referencing the file in a
-   *    command.</p>
+   * <p>The content for the new SSM document in JSON or YAML format. The content of the document
+   *    must not exceed 64KB. This quota also includes the content specified for input parameters at
+   *    runtime. We recommend storing the contents for your new document in an external JSON or YAML file
+   *    and referencing the file in a command.</p>
    *          <p>For examples, see the following topics in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <ul>
    *             <li>
@@ -1815,7 +1947,7 @@ export interface CreateDocumentRequest {
    *             <ul>
    *                <li>
    *                   <p>
-   *                      <code>aws-</code>
+   *                      <code>aws</code>
    *                   </p>
    *                </li>
    *                <li>
@@ -1912,11 +2044,14 @@ export enum DocumentHashType {
   SHA256 = "Sha256",
 }
 
-export type DocumentParameterType = "String" | "StringList";
+export enum DocumentParameterType {
+  String = "String",
+  StringList = "StringList",
+}
 
 /**
- * <p>Parameters specified in a System Manager document that run on the server when the command is
- *    run. </p>
+ * <p>Parameters specified in a Systems Manager document that run on the server when the command is run.
+ *   </p>
  */
 export interface DocumentParameter {
   /**
@@ -2026,7 +2161,7 @@ export interface DocumentDescription {
   VersionName?: string;
 
   /**
-   * <p>The Amazon Web Services user account that created the document.</p>
+   * <p>The Amazon Web Services user that created the document.</p>
    */
   Owner?: string;
 
@@ -2478,8 +2613,29 @@ export interface CreateOpsItemRequest {
   Description: string | undefined;
 
   /**
-   * <p>The type of OpsItem to create. Currently, the only valid values are
-   *     <code>/aws/changerequest</code> and <code>/aws/issue</code>.</p>
+   * <p>The type of OpsItem to create. Systems Manager supports the following types of OpsItems:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/issue</code>
+   *                </p>
+   *                <p>This type of OpsItem is used for default OpsItems created by OpsCenter. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/changerequest</code>
+   *                </p>
+   *                <p>This type of OpsItem is used by Change Manager for reviewing and approving or rejecting change
+   *      requests. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/insights</code>
+   *                </p>
+   *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
+   *      OpsItems. </p>
+   *             </li>
+   *          </ul>
    */
   OpsItemType?: string;
 
@@ -2586,6 +2742,14 @@ export interface CreateOpsItemRequest {
    *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
    */
   PlannedEndTime?: Date;
+
+  /**
+   * <p>The target Amazon Web Services account where you want to create an OpsItem. To make this call, your account
+   *    must be configured to work with OpsItems across accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-OpsCenter-multiple-accounts.html">Setting
+   *     up OpsCenter to work with OpsItems across accounts</a> in the
+   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   */
+  AccountId?: string;
 }
 
 export interface CreateOpsItemResponse {
@@ -2593,6 +2757,34 @@ export interface CreateOpsItemResponse {
    * <p>The ID of the OpsItem.</p>
    */
   OpsItemId?: string;
+
+  /**
+   * <p>The OpsItem Amazon Resource Name (ARN).</p>
+   */
+  OpsItemArn?: string;
+}
+
+/**
+ * <p>You don't have permission to view OpsItems in the specified account. Verify that your account
+ *    is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations
+ *    management account.</p>
+ */
+export class OpsItemAccessDeniedException extends __BaseException {
+  readonly name: "OpsItemAccessDeniedException" = "OpsItemAccessDeniedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OpsItemAccessDeniedException, __BaseException>) {
+    super({
+      name: "OpsItemAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OpsItemAccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2869,6 +3061,7 @@ export interface PatchRuleGroup {
 export enum OperatingSystem {
   AmazonLinux = "AMAZON_LINUX",
   AmazonLinux2 = "AMAZON_LINUX_2",
+  AmazonLinux2022 = "AMAZON_LINUX_2022",
   CentOS = "CENTOS",
   Debian = "DEBIAN",
   MacOS = "MACOS",
@@ -3787,6 +3980,73 @@ export class ResourceDataSyncNotFoundException extends __BaseException {
   }
 }
 
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource to which the policies are attached.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The policy ID.</p>
+   */
+  PolicyId: string | undefined;
+
+  /**
+   * <p>ID of the current policy version. The hash helps to prevent multiple calls from attempting
+   *    to overwrite a policy.</p>
+   */
+  PolicyHash: string | undefined;
+}
+
+export interface DeleteResourcePolicyResponse {}
+
+/**
+ * <p>The hash provided in the call doesn't match the stored hash. This exception is thrown when
+ *    trying to update an obsolete policy version or when multiple requests to update a policy are
+ *    sent.</p>
+ */
+export class ResourcePolicyConflictException extends __BaseException {
+  readonly name: "ResourcePolicyConflictException" = "ResourcePolicyConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourcePolicyConflictException, __BaseException>) {
+    super({
+      name: "ResourcePolicyConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourcePolicyConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
+ *    values and try again.</p>
+ */
+export class ResourcePolicyInvalidParameterException extends __BaseException {
+  readonly name: "ResourcePolicyInvalidParameterException" = "ResourcePolicyInvalidParameterException";
+  readonly $fault: "client" = "client";
+  ParameterNames?: string[];
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourcePolicyInvalidParameterException, __BaseException>) {
+    super({
+      name: "ResourcePolicyInvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourcePolicyInvalidParameterException.prototype);
+    this.ParameterNames = opts.ParameterNames;
+    this.Message = opts.Message;
+  }
+}
+
 export interface DeregisterManagedInstanceRequest {
   /**
    * <p>The ID assigned to the managed node when you registered it using the activation process.
@@ -4148,6 +4408,17 @@ export interface AssociationExecution {
    * <p>An aggregate status of the resources in the execution based on the status type.</p>
    */
   ResourceCountByStatus?: string;
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarms that were invoked by the association.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface DescribeAssociationExecutionsResult {
@@ -4598,6 +4869,16 @@ export interface AutomationExecutionMetadata {
   AutomationType?: AutomationType | string;
 
   /**
+   * <p>The details for the CloudWatch alarm applied to your automation.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarm that was invoked by the automation.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
+
+  /**
    * <p>The subtype of the Automation operation. Currently, the only supported value is
    *     <code>ChangeRequest</code>.</p>
    */
@@ -4909,6 +5190,11 @@ export interface StepExecution {
    *    execution.</p>
    */
   TargetLocation?: TargetLocation;
+
+  /**
+   * <p>The CloudWatch alarms that were invoked by the automation.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface DescribeAutomationStepExecutionsResult {
@@ -5028,7 +5314,6 @@ export interface DescribeAvailablePatchesRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>
    *             <b>Linux</b>
    *          </p>
@@ -5699,16 +5984,36 @@ export interface DescribeInstanceAssociationsStatusResult {
  */
 export interface InstanceInformationStringFilter {
   /**
-   * <p>The filter key name to describe your managed nodes. For example:</p>
-   *          <p>"InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag
-   *    Key"</p>
-   *          <important>
-   *             <p>
-   *                <code>Tag key</code> isn't a valid filter. You must specify either <code>tag-key</code> or
-   *      <code>tag:keyname</code> and a string. Here are some valid examples: tag-key, tag:123, tag:al!,
-   *     tag:Windows. Here are some <i>invalid</i> examples: tag-keys, Tag Key, tag:,
-   *     tagKey, abc:keyname.</p>
-   *          </important>
+   * <p>The filter key name to describe your managed nodes.</p>
+   *          <p>Valid filter key values: ActivationIds | AgentVersion | AssociationStatus | IamRole |
+   *    InstanceIds | PingStatus | PlatformTypes | ResourceType | SourceIds | SourceTypes | "tag-key" |
+   *     "tag:<code>{keyname}</code>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>Valid values for the <code>AssociationStatus</code> filter key: Success | Pending |
+   *      Failed</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid values for the <code>PingStatus</code> filter key: Online | ConnectionLost |
+   *      Inactive (deprecated)</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid values for the <code>PlatformType</code> filter key: Windows | Linux | MacOS</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid values for the <code>ResourceType</code> filter key: EC2Instance |
+   *      ManagedInstance</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid values for the <code>SourceType</code> filter key: AWS::EC2::Instance |
+   *      AWS::SSM::ManagedInstance | AWS::IoT::Thing</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid tag examples: <code>Key=tag-key,Values=Purpose</code> |
+   *       <code>Key=tag:Purpose,Values=Test</code>.</p>
+   *             </li>
+   *          </ul>
    */
   Key: string | undefined;
 
@@ -5762,8 +6067,8 @@ export interface DescribeInstanceInformationRequest {
 
   /**
    * <p>One or more filters. Use a filter to return a more specific list of managed nodes. You can
-   *    filter based on tags applied to EC2 instances. Use this <code>Filters</code> data type instead of
-   *     <code>InstanceInformationFilterList</code>, which is deprecated.</p>
+   *    filter based on tags applied to your managed nodes. Use this <code>Filters</code> data type
+   *    instead of <code>InstanceInformationFilterList</code>, which is deprecated.</p>
    */
   Filters?: InstanceInformationStringFilter[];
 
@@ -6316,25 +6621,25 @@ export interface InstancePatchState {
   RebootOption?: RebootOption | string;
 
   /**
-   * <p>The number of managed nodes where patches that are specified as <code>Critical</code> for
-   *    compliance reporting in the patch baseline aren't installed. These patches might be missing, have
-   *    failed installation, were rejected, or were installed but awaiting a required managed node
-   *    reboot. The status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
+   * <p>The number of patches per node that are specified as <code>Critical</code> for compliance
+   *    reporting in the patch baseline aren't installed. These patches might be missing, have failed
+   *    installation, were rejected, or were installed but awaiting a required managed node reboot. The
+   *    status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   CriticalNonCompliantCount?: number;
 
   /**
-   * <p>The number of managed nodes where patches that are specified as <code>Security</code> in a
-   *    patch advisory aren't installed. These patches might be missing, have failed installation, were
+   * <p>The number of patches per node that are specified as <code>Security</code> in a patch
+   *    advisory aren't installed. These patches might be missing, have failed installation, were
    *    rejected, or were installed but awaiting a required managed node reboot. The status of these
    *    managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   SecurityNonCompliantCount?: number;
 
   /**
-   * <p>The number of managed nodes with patches installed that are specified as other than
-   *     <code>Critical</code> or <code>Security</code> but aren't compliant with the patch baseline. The
-   *    status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
+   * <p>The number of patches per node that are specified as other than <code>Critical</code> or
+   *     <code>Security</code> but aren't compliant with the patch baseline. The status of these managed
+   *    nodes is <code>NON_COMPLIANT</code>.</p>
    */
   OtherNonCompliantCount?: number;
 }
@@ -6926,6 +7231,16 @@ export interface MaintenanceWindowExecutionTaskIdentity {
    * <p>The type of task that ran.</p>
    */
   TaskType?: MaintenanceWindowTaskType | string;
+
+  /**
+   * <p>The details for the CloudWatch alarm applied to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarm that was invoked by the maintenance window task.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface DescribeMaintenanceWindowExecutionTasksResult {
@@ -7305,7 +7620,7 @@ export enum MaintenanceWindowTaskCutoffBehavior {
  */
 export interface LoggingInfo {
   /**
-   * <p>The name of an S3 bucket where execution logs are stored .</p>
+   * <p>The name of an S3 bucket where execution logs are stored.</p>
    */
   S3BucketName: string | undefined;
 
@@ -7442,6 +7757,11 @@ export interface MaintenanceWindowTask {
    *    in the maintenance windows is reached. </p>
    */
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+
+  /**
+   * <p>The details for the CloudWatch alarm applied to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface DescribeMaintenanceWindowTasksResult {
@@ -7458,6 +7778,7 @@ export interface DescribeMaintenanceWindowTasksResult {
 }
 
 export enum OpsItemFilterKey {
+  ACCOUNT_ID = "AccountId",
   ACTUAL_END_TIME = "ActualEndTime",
   ACTUAL_START_TIME = "ActualStartTime",
   AUTOMATION_ID = "AutomationId",
@@ -7495,342 +7816,6 @@ export enum OpsItemFilterOperator {
 }
 
 /**
- * <p>Describes an OpsItem filter.</p>
- */
-export interface OpsItemFilter {
-  /**
-   * <p>The name of the filter.</p>
-   */
-  Key: OpsItemFilterKey | string | undefined;
-
-  /**
-   * <p>The filter value.</p>
-   */
-  Values: string[] | undefined;
-
-  /**
-   * <p>The operator used by the filter call.</p>
-   */
-  Operator: OpsItemFilterOperator | string | undefined;
-}
-
-export interface DescribeOpsItemsRequest {
-  /**
-   * <p>One or more filters to limit the response.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Key: CreatedTime</p>
-   *                <p>Operations: GreaterThan, LessThan</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: LastModifiedBy</p>
-   *                <p>Operations: Contains, Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: LastModifiedTime</p>
-   *                <p>Operations: GreaterThan, LessThan</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: Priority</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: Source</p>
-   *                <p>Operations: Contains, Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: Status</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: Title*</p>
-   *                <p>Operations: Equals,Contains</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: OperationalData**</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: OperationalDataKey</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: OperationalDataValue</p>
-   *                <p>Operations: Equals, Contains</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: OpsItemId</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: ResourceId</p>
-   *                <p>Operations: Contains</p>
-   *             </li>
-   *             <li>
-   *                <p>Key: AutomationId</p>
-   *                <p>Operations: Equals</p>
-   *             </li>
-   *          </ul>
-   *          <p>*The Equals operator for Title matches the first 100 characters. If you specify more than
-   *    100 characters, they system returns an error that the filter value exceeds the length
-   *    limit.</p>
-   *          <p>**If you filter the response by using the OperationalData operator, specify a key-value pair
-   *    by using the following JSON format: {"key":"key_name","value":"a_value"}</p>
-   */
-  OpsItemFilters?: OpsItemFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export enum OpsItemStatus {
-  APPROVED = "Approved",
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  CHANGE_CALENDAR_OVERRIDE_APPROVED = "ChangeCalendarOverrideApproved",
-  CHANGE_CALENDAR_OVERRIDE_REJECTED = "ChangeCalendarOverrideRejected",
-  CLOSED = "Closed",
-  COMPLETED_WITH_FAILURE = "CompletedWithFailure",
-  COMPLETED_WITH_SUCCESS = "CompletedWithSuccess",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  OPEN = "Open",
-  PENDING = "Pending",
-  PENDING_APPROVAL = "PendingApproval",
-  PENDING_CHANGE_CALENDAR_OVERRIDE = "PendingChangeCalendarOverride",
-  REJECTED = "Rejected",
-  RESOLVED = "Resolved",
-  RUNBOOK_IN_PROGRESS = "RunbookInProgress",
-  SCHEDULED = "Scheduled",
-  TIMED_OUT = "TimedOut",
-}
-
-/**
- * <p>A count of OpsItems.</p>
- */
-export interface OpsItemSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM entity that created the
-   *    OpsItem.</p>
-   */
-  CreatedBy?: string;
-
-  /**
-   * <p>The date and time the OpsItem was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM entity that created the
-   *    OpsItem.</p>
-   */
-  LastModifiedBy?: string;
-
-  /**
-   * <p>The date and time the OpsItem was last updated.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The impacted Amazon Web Services resource.</p>
-   */
-  Source?: string;
-
-  /**
-   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>.</p>
-   */
-  Status?: OpsItemStatus | string;
-
-  /**
-   * <p>The ID of the OpsItem.</p>
-   */
-  OpsItemId?: string;
-
-  /**
-   * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
-   */
-  Title?: string;
-
-  /**
-   * <p>Operational data is custom data that provides useful reference details about the OpsItem.
-   *   </p>
-   */
-  OperationalData?: Record<string, OpsItemDataValue>;
-
-  /**
-   * <p>A list of OpsItems by category.</p>
-   */
-  Category?: string;
-
-  /**
-   * <p>A list of OpsItems by severity.</p>
-   */
-  Severity?: string;
-
-  /**
-   * <p>The type of OpsItem. Currently, the only valid values are <code>/aws/changerequest</code>
-   *    and <code>/aws/issue</code>.</p>
-   */
-  OpsItemType?: string;
-
-  /**
-   * <p>The time a runbook workflow started. Currently reported only for the OpsItem type
-   *     <code>/aws/changerequest</code>.</p>
-   */
-  ActualStartTime?: Date;
-
-  /**
-   * <p>The time a runbook workflow ended. Currently reported only for the OpsItem type
-   *     <code>/aws/changerequest</code>.</p>
-   */
-  ActualEndTime?: Date;
-
-  /**
-   * <p>The time specified in a change request for a runbook workflow to start. Currently supported
-   *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
-   */
-  PlannedStartTime?: Date;
-
-  /**
-   * <p>The time specified in a change request for a runbook workflow to end. Currently supported
-   *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
-   */
-  PlannedEndTime?: Date;
-}
-
-export interface DescribeOpsItemsResponse {
-  /**
-   * <p>The token for the next set of items to return. Use this token to get the next set of
-   *    results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of OpsItems.</p>
-   */
-  OpsItemSummaries?: OpsItemSummary[];
-}
-
-export enum ParametersFilterKey {
-  KEY_ID = "KeyId",
-  NAME = "Name",
-  TYPE = "Type",
-}
-
-/**
- * <p>This data type is deprecated. Instead, use <a>ParameterStringFilter</a>.</p>
- */
-export interface ParametersFilter {
-  /**
-   * <p>The name of the filter.</p>
-   */
-  Key: ParametersFilterKey | string | undefined;
-
-  /**
-   * <p>The filter values.</p>
-   */
-  Values: string[] | undefined;
-}
-
-/**
- * <p>One or more filters. Use a filter to return a more specific list of results.</p>
- */
-export interface ParameterStringFilter {
-  /**
-   * <p>The name of the filter.</p>
-   *          <p>The <code>ParameterStringFilter</code> object is used by the <a>DescribeParameters</a> and <a>GetParametersByPath</a> API operations.
-   *    However, not all of the pattern values listed for <code>Key</code> can be used with both
-   *    operations.</p>
-   *          <p>For <code>DescribeParameters</code>, all of the listed patterns are valid except
-   *     <code>Label</code>.</p>
-   *          <p>For <code>GetParametersByPath</code>, the following patterns listed for <code>Key</code>
-   *    aren't valid: <code>tag</code>, <code>DataType</code>, <code>Name</code>, <code>Path</code>, and
-   *     <code>Tier</code>.</p>
-   *          <p>For examples of Amazon Web Services CLI commands demonstrating valid parameter filter constructions, see
-   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html">Searching for Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>For all filters used with <a>DescribeParameters</a>, valid options include
-   *     <code>Equals</code> and <code>BeginsWith</code>. The <code>Name</code> filter additionally
-   *    supports the <code>Contains</code> option. (Exception: For filters using the key
-   *     <code>Path</code>, valid options include <code>Recursive</code> and
-   *    <code>OneLevel</code>.)</p>
-   *          <p>For filters used with <a>GetParametersByPath</a>, valid options include
-   *     <code>Equals</code> and <code>BeginsWith</code>. (Exception: For filters using
-   *     <code>Label</code> as the Key name, the only valid option is <code>Equals</code>.)</p>
-   */
-  Option?: string;
-
-  /**
-   * <p>The value you want to search for.</p>
-   */
-  Values?: string[];
-}
-
-export interface DescribeParametersRequest {
-  /**
-   * <p>This data type is deprecated. Instead, use <code>ParameterFilters</code>.</p>
-   */
-  Filters?: ParametersFilter[];
-
-  /**
-   * <p>Filters to limit the request results.</p>
-   */
-  ParameterFilters?: ParameterStringFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>One or more policies assigned to a parameter.</p>
- */
-export interface ParameterInlinePolicy {
-  /**
-   * <p>The JSON text of the policy.</p>
-   */
-  PolicyText?: string;
-
-  /**
-   * <p>The type of policy. Parameter Store, a capability of Amazon Web Services Systems Manager, supports the following
-   *    policy types: Expiration, ExpirationNotification, and NoChangeNotification. </p>
-   */
-  PolicyType?: string;
-
-  /**
-   * <p>The status of the policy. Policies report the following statuses: Pending (the policy hasn't
-   *    been enforced or applied yet), Finished (the policy was applied), Failed (the policy wasn't
-   *    applied), or InProgress (the policy is being applied now). </p>
-   */
-  PolicyStatus?: string;
-}
-
-/**
  * @internal
  */
 export const AccountSharingInfoFilterSensitiveLog = (obj: AccountSharingInfo): any => ({
@@ -7862,6 +7847,27 @@ export const AddTagsToResourceRequestFilterSensitiveLog = (obj: AddTagsToResourc
  * @internal
  */
 export const AddTagsToResourceResultFilterSensitiveLog = (obj: AddTagsToResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmConfigurationFilterSensitiveLog = (obj: AlarmConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmStateInformationFilterSensitiveLog = (obj: AlarmStateInformation): any => ({
   ...obj,
 });
 
@@ -8419,6 +8425,20 @@ export const DeleteResourceDataSyncRequestFilterSensitiveLog = (obj: DeleteResou
  * @internal
  */
 export const DeleteResourceDataSyncResultFilterSensitiveLog = (obj: DeleteResourceDataSyncResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
   ...obj,
 });
 
@@ -9212,60 +9232,4 @@ export const DescribeMaintenanceWindowTasksResultFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Tasks && { Tasks: obj.Tasks.map((item) => MaintenanceWindowTaskFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const OpsItemFilterFilterSensitiveLog = (obj: OpsItemFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOpsItemsRequestFilterSensitiveLog = (obj: DescribeOpsItemsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpsItemSummaryFilterSensitiveLog = (obj: OpsItemSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOpsItemsResponseFilterSensitiveLog = (obj: DescribeOpsItemsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParametersFilterFilterSensitiveLog = (obj: ParametersFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterStringFilterFilterSensitiveLog = (obj: ParameterStringFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeParametersRequestFilterSensitiveLog = (obj: DescribeParametersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterInlinePolicyFilterSensitiveLog = (obj: ParameterInlinePolicy): any => ({
-  ...obj,
 });

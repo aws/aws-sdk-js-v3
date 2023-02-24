@@ -8,6 +8,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  LazyJsonString as __LazyJsonString,
   map as __map,
   resolvedPath as __resolvedPath,
   throwDefaultError,
@@ -172,14 +173,23 @@ export const serializeAws_restJson1PublishCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-  };
+    "x-amz-mqtt5-user-properties": [
+      () => isSerializableHeaderValue(input.userProperties),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.userProperties!))),
+    ],
+    "x-amz-mqtt5-payload-format-indicator": input.payloadFormatIndicator!,
+    "x-amz-mqtt5-correlation-data": input.correlationData!,
+  });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/topics/{topic}";
   resolvedPath = __resolvedPath(resolvedPath, input, "topic", () => input.topic!, "{topic}", false);
   const query: any = map({
     qos: [() => input.qos !== void 0, () => input.qos!.toString()],
     retain: [() => input.retain !== void 0, () => input.retain!.toString()],
+    contentType: [, input.contentType!],
+    responseTopic: [, input.responseTopic!],
+    messageExpiry: [() => input.messageExpiry !== void 0, () => input.messageExpiry!.toString()],
   });
   let body: any;
   if (input.payload !== undefined) {
@@ -248,7 +258,7 @@ const deserializeAws_restJson1DeleteThingShadowCommandError = async (
 ): Promise<DeleteThingShadowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -319,7 +329,7 @@ const deserializeAws_restJson1GetRetainedMessageCommandError = async (
 ): Promise<GetRetainedMessageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -376,7 +386,7 @@ const deserializeAws_restJson1GetThingShadowCommandError = async (
 ): Promise<GetThingShadowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -444,7 +454,7 @@ const deserializeAws_restJson1ListNamedShadowsForThingCommandError = async (
 ): Promise<ListNamedShadowsForThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -506,7 +516,7 @@ const deserializeAws_restJson1ListRetainedMessagesCommandError = async (
 ): Promise<ListRetainedMessagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -559,7 +569,7 @@ const deserializeAws_restJson1PublishCommandError = async (
 ): Promise<PublishCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -572,6 +582,9 @@ const deserializeAws_restJson1PublishCommandError = async (
     case "MethodNotAllowedException":
     case "com.amazonaws.iotdataplane#MethodNotAllowedException":
       throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotdataplane#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
@@ -607,7 +620,7 @@ const deserializeAws_restJson1UpdateThingShadowCommandError = async (
 ): Promise<UpdateThingShadowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -851,7 +864,8 @@ const deserializeAws_restJson1RetainedMessageSummary = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -883,6 +897,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -893,6 +913,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

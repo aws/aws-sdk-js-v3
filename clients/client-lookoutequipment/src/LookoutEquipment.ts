@@ -11,6 +11,12 @@ import {
   CreateInferenceSchedulerCommandInput,
   CreateInferenceSchedulerCommandOutput,
 } from "./commands/CreateInferenceSchedulerCommand";
+import { CreateLabelCommand, CreateLabelCommandInput, CreateLabelCommandOutput } from "./commands/CreateLabelCommand";
+import {
+  CreateLabelGroupCommand,
+  CreateLabelGroupCommandInput,
+  CreateLabelGroupCommandOutput,
+} from "./commands/CreateLabelGroupCommand";
 import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
   DeleteDatasetCommand,
@@ -22,6 +28,12 @@ import {
   DeleteInferenceSchedulerCommandInput,
   DeleteInferenceSchedulerCommandOutput,
 } from "./commands/DeleteInferenceSchedulerCommand";
+import { DeleteLabelCommand, DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
+import {
+  DeleteLabelGroupCommand,
+  DeleteLabelGroupCommandInput,
+  DeleteLabelGroupCommandOutput,
+} from "./commands/DeleteLabelGroupCommand";
 import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
   DescribeDataIngestionJobCommand,
@@ -38,6 +50,16 @@ import {
   DescribeInferenceSchedulerCommandInput,
   DescribeInferenceSchedulerCommandOutput,
 } from "./commands/DescribeInferenceSchedulerCommand";
+import {
+  DescribeLabelCommand,
+  DescribeLabelCommandInput,
+  DescribeLabelCommandOutput,
+} from "./commands/DescribeLabelCommand";
+import {
+  DescribeLabelGroupCommand,
+  DescribeLabelGroupCommandInput,
+  DescribeLabelGroupCommandOutput,
+} from "./commands/DescribeLabelGroupCommand";
 import {
   DescribeModelCommand,
   DescribeModelCommandInput,
@@ -68,6 +90,12 @@ import {
   ListInferenceSchedulersCommandInput,
   ListInferenceSchedulersCommandOutput,
 } from "./commands/ListInferenceSchedulersCommand";
+import {
+  ListLabelGroupsCommand,
+  ListLabelGroupsCommandInput,
+  ListLabelGroupsCommandOutput,
+} from "./commands/ListLabelGroupsCommand";
+import { ListLabelsCommand, ListLabelsCommandInput, ListLabelsCommandOutput } from "./commands/ListLabelsCommand";
 import { ListModelsCommand, ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
   ListSensorStatisticsCommand,
@@ -105,12 +133,16 @@ import {
   UpdateInferenceSchedulerCommandInput,
   UpdateInferenceSchedulerCommandOutput,
 } from "./commands/UpdateInferenceSchedulerCommand";
+import {
+  UpdateLabelGroupCommand,
+  UpdateLabelGroupCommandInput,
+  UpdateLabelGroupCommandOutput,
+} from "./commands/UpdateLabelGroupCommand";
 import { LookoutEquipmentClient } from "./LookoutEquipmentClient";
 
 /**
- * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics
- *          to identify anomalies in machines from sensor data for use in predictive maintenance.
- *       </p>
+ * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify
+ *          anomalies in machines from sensor data for use in predictive maintenance. </p>
  */
 export class LookoutEquipment extends LookoutEquipmentClient {
   /**
@@ -174,6 +206,68 @@ export class LookoutEquipment extends LookoutEquipmentClient {
     cb?: (err: any, data?: CreateInferenceSchedulerCommandOutput) => void
   ): Promise<CreateInferenceSchedulerCommandOutput> | void {
     const command = new CreateInferenceSchedulerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * Creates a label for an event.
+   * </p>
+   */
+  public createLabel(args: CreateLabelCommandInput, options?: __HttpHandlerOptions): Promise<CreateLabelCommandOutput>;
+  public createLabel(args: CreateLabelCommandInput, cb: (err: any, data?: CreateLabelCommandOutput) => void): void;
+  public createLabel(
+    args: CreateLabelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLabelCommandOutput) => void
+  ): void;
+  public createLabel(
+    args: CreateLabelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLabelCommandOutput) => void),
+    cb?: (err: any, data?: CreateLabelCommandOutput) => void
+  ): Promise<CreateLabelCommandOutput> | void {
+    const command = new CreateLabelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * Creates a group of labels.
+   * </p>
+   */
+  public createLabelGroup(
+    args: CreateLabelGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLabelGroupCommandOutput>;
+  public createLabelGroup(
+    args: CreateLabelGroupCommandInput,
+    cb: (err: any, data?: CreateLabelGroupCommandOutput) => void
+  ): void;
+  public createLabelGroup(
+    args: CreateLabelGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLabelGroupCommandOutput) => void
+  ): void;
+  public createLabelGroup(
+    args: CreateLabelGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLabelGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateLabelGroupCommandOutput) => void
+  ): Promise<CreateLabelGroupCommandOutput> | void {
+    const command = new CreateLabelGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -277,6 +371,68 @@ export class LookoutEquipment extends LookoutEquipmentClient {
     cb?: (err: any, data?: DeleteInferenceSchedulerCommandOutput) => void
   ): Promise<DeleteInferenceSchedulerCommandOutput> | void {
     const command = new DeleteInferenceSchedulerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * Deletes a label.
+   * </p>
+   */
+  public deleteLabel(args: DeleteLabelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLabelCommandOutput>;
+  public deleteLabel(args: DeleteLabelCommandInput, cb: (err: any, data?: DeleteLabelCommandOutput) => void): void;
+  public deleteLabel(
+    args: DeleteLabelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLabelCommandOutput) => void
+  ): void;
+  public deleteLabel(
+    args: DeleteLabelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLabelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLabelCommandOutput) => void
+  ): Promise<DeleteLabelCommandOutput> | void {
+    const command = new DeleteLabelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * Deletes a group of labels.
+   * </p>
+   */
+  public deleteLabelGroup(
+    args: DeleteLabelGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLabelGroupCommandOutput>;
+  public deleteLabelGroup(
+    args: DeleteLabelGroupCommandInput,
+    cb: (err: any, data?: DeleteLabelGroupCommandOutput) => void
+  ): void;
+  public deleteLabelGroup(
+    args: DeleteLabelGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLabelGroupCommandOutput) => void
+  ): void;
+  public deleteLabelGroup(
+    args: DeleteLabelGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLabelGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLabelGroupCommandOutput) => void
+  ): Promise<DeleteLabelGroupCommandOutput> | void {
+    const command = new DeleteLabelGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -415,6 +571,74 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * <p>
+   * Returns the name of the label.
+   * </p>
+   */
+  public describeLabel(
+    args: DescribeLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLabelCommandOutput>;
+  public describeLabel(
+    args: DescribeLabelCommandInput,
+    cb: (err: any, data?: DescribeLabelCommandOutput) => void
+  ): void;
+  public describeLabel(
+    args: DescribeLabelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLabelCommandOutput) => void
+  ): void;
+  public describeLabel(
+    args: DescribeLabelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLabelCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLabelCommandOutput) => void
+  ): Promise<DescribeLabelCommandOutput> | void {
+    const command = new DescribeLabelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * Returns information about the label group.
+   * </p>
+   */
+  public describeLabelGroup(
+    args: DescribeLabelGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLabelGroupCommandOutput>;
+  public describeLabelGroup(
+    args: DescribeLabelGroupCommandInput,
+    cb: (err: any, data?: DescribeLabelGroupCommandOutput) => void
+  ): void;
+  public describeLabelGroup(
+    args: DescribeLabelGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLabelGroupCommandOutput) => void
+  ): void;
+  public describeLabelGroup(
+    args: DescribeLabelGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLabelGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLabelGroupCommandOutput) => void
+  ): Promise<DescribeLabelGroupCommandOutput> | void {
+    const command = new DescribeLabelGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides a JSON containing the overall information about a specific ML model, including
    *          model name and ARN, dataset, training and evaluation information, status, and so on.
    *       </p>
@@ -512,8 +736,8 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
-   * <p> Lists all inference events that have been found for the specified inference
-   *          scheduler. </p>
+   * <p> Lists all inference events that have been found for the specified inference scheduler.
+   *       </p>
    */
   public listInferenceEvents(
     args: ListInferenceEventsCommandInput,
@@ -600,6 +824,68 @@ export class LookoutEquipment extends LookoutEquipmentClient {
     cb?: (err: any, data?: ListInferenceSchedulersCommandOutput) => void
   ): Promise<ListInferenceSchedulersCommandOutput> | void {
     const command = new ListInferenceSchedulersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * Returns a list of the label groups.
+   * </p>
+   */
+  public listLabelGroups(
+    args: ListLabelGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLabelGroupsCommandOutput>;
+  public listLabelGroups(
+    args: ListLabelGroupsCommandInput,
+    cb: (err: any, data?: ListLabelGroupsCommandOutput) => void
+  ): void;
+  public listLabelGroups(
+    args: ListLabelGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLabelGroupsCommandOutput) => void
+  ): void;
+  public listLabelGroups(
+    args: ListLabelGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLabelGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListLabelGroupsCommandOutput) => void
+  ): Promise<ListLabelGroupsCommandOutput> | void {
+    const command = new ListLabelGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * Provides a list of labels.
+   * </p>
+   */
+  public listLabels(args: ListLabelsCommandInput, options?: __HttpHandlerOptions): Promise<ListLabelsCommandOutput>;
+  public listLabels(args: ListLabelsCommandInput, cb: (err: any, data?: ListLabelsCommandOutput) => void): void;
+  public listLabels(
+    args: ListLabelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLabelsCommandOutput) => void
+  ): void;
+  public listLabels(
+    args: ListLabelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLabelsCommandOutput) => void),
+    cb?: (err: any, data?: ListLabelsCommandOutput) => void
+  ): Promise<ListLabelsCommandOutput> | void {
+    const command = new ListLabelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -884,6 +1170,40 @@ export class LookoutEquipment extends LookoutEquipmentClient {
     cb?: (err: any, data?: UpdateInferenceSchedulerCommandOutput) => void
   ): Promise<UpdateInferenceSchedulerCommandOutput> | void {
     const command = new UpdateInferenceSchedulerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * Updates the label group.
+   * </p>
+   */
+  public updateLabelGroup(
+    args: UpdateLabelGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLabelGroupCommandOutput>;
+  public updateLabelGroup(
+    args: UpdateLabelGroupCommandInput,
+    cb: (err: any, data?: UpdateLabelGroupCommandOutput) => void
+  ): void;
+  public updateLabelGroup(
+    args: UpdateLabelGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLabelGroupCommandOutput) => void
+  ): void;
+  public updateLabelGroup(
+    args: UpdateLabelGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLabelGroupCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLabelGroupCommandOutput) => void
+  ): Promise<UpdateLabelGroupCommandOutput> | void {
+    const command = new UpdateLabelGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

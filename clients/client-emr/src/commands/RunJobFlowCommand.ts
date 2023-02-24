@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -42,10 +43,9 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
  *          require more than 256 steps to process your data. You can bypass the 256-step limitation in
  *          various ways, including using the SSH shell to connect to the master node and submitting
- *          queries directly to the software running on the master node, such as Hive and Hadoop. For
- *          more information on how to do this, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html">Add More than 256 Steps to a
- *             Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>
- *          <p>For long running clusters, we recommend that you periodically store your results.</p>
+ *          queries directly to the software running on the master node, such as Hive and
+ *          Hadoop.</p>
+ *          <p>For long-running clusters, we recommend that you periodically store your results.</p>
  *          <note>
  *             <p>The instance fleets configuration is available only in Amazon EMR versions
  *             4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain
@@ -74,6 +74,15 @@ export class RunJobFlowCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RunJobFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,6 +98,7 @@ export class RunJobFlowCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RunJobFlowCommandInput, RunJobFlowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, RunJobFlowCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

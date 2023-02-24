@@ -20,6 +20,8 @@ export * from "./GetMilestoneCommand";
 export * from "./GetWorkloadCommand";
 export * from "./ImportLensCommand";
 export * from "./ListAnswersCommand";
+export * from "./ListCheckDetailsCommand";
+export * from "./ListCheckSummariesCommand";
 export * from "./ListLensReviewImprovementsCommand";
 export * from "./ListLensReviewsCommand";
 export * from "./ListLensSharesCommand";

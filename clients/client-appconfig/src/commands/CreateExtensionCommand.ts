@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,8 +32,8 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * <p>Creates an AppConfig extension. An extension augments your ability to inject
  *          logic or behavior at different points during the AppConfig workflow of creating
  *          or deploying a configuration.</p>
- *          <p>You can create your own extensions or use the Amazon Web Services-authored extensions provided by
- *             AppConfig. For most use-cases, to create your own extension, you must create
+ *          <p>You can create your own extensions or use the Amazon Web Services authored extensions provided by
+ *             AppConfig. For most use cases, to create your own extension, you must create
  *          an Lambda function to perform any computation and processing defined in the
  *          extension. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
@@ -60,6 +61,15 @@ export class CreateExtensionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateExtensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class CreateExtensionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateExtensionCommandInput, CreateExtensionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateExtensionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

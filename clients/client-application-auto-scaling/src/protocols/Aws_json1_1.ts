@@ -77,6 +77,7 @@ import {
   InvalidNextTokenException,
   LimitExceededException,
   MetricDimension,
+  NotScaledReason,
   ObjectNotFoundException,
   PredefinedMetricSpecification,
   PutScalingPolicyRequest,
@@ -250,7 +251,7 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
 ): Promise<DeleteScalingPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -300,7 +301,7 @@ const deserializeAws_json1_1DeleteScheduledActionCommandError = async (
 ): Promise<DeleteScheduledActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -350,7 +351,7 @@ const deserializeAws_json1_1DeregisterScalableTargetCommandError = async (
 ): Promise<DeregisterScalableTargetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -400,7 +401,7 @@ const deserializeAws_json1_1DescribeScalableTargetsCommandError = async (
 ): Promise<DescribeScalableTargetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -450,7 +451,7 @@ const deserializeAws_json1_1DescribeScalingActivitiesCommandError = async (
 ): Promise<DescribeScalingActivitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -500,7 +501,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
 ): Promise<DescribeScalingPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -553,7 +554,7 @@ const deserializeAws_json1_1DescribeScheduledActionsCommandError = async (
 ): Promise<DescribeScheduledActionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -603,7 +604,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
 ): Promise<PutScalingPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -659,7 +660,7 @@ const deserializeAws_json1_1PutScheduledActionCommandError = async (
 ): Promise<PutScheduledActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -712,7 +713,7 @@ const deserializeAws_json1_1RegisterScalableTargetCommandError = async (
 ): Promise<RegisterScalableTargetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -898,6 +899,7 @@ const serializeAws_json1_1DescribeScalingActivitiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.IncludeNotScaledActivities != null && { IncludeNotScaledActivities: input.IncludeNotScaledActivities }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
@@ -1270,6 +1272,27 @@ const deserializeAws_json1_1MetricDimensions = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1NotScaledReason = (output: any, context: __SerdeContext): NotScaledReason => {
+  return {
+    Code: __expectString(output.Code),
+    CurrentCapacity: __expectInt32(output.CurrentCapacity),
+    MaxCapacity: __expectInt32(output.MaxCapacity),
+    MinCapacity: __expectInt32(output.MinCapacity),
+  } as any;
+};
+
+const deserializeAws_json1_1NotScaledReasons = (output: any, context: __SerdeContext): NotScaledReason[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1NotScaledReason(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ObjectNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -1369,6 +1392,10 @@ const deserializeAws_json1_1ScalingActivity = (output: any, context: __SerdeCont
     Details: __expectString(output.Details),
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    NotScaledReasons:
+      output.NotScaledReasons != null
+        ? deserializeAws_json1_1NotScaledReasons(output.NotScaledReasons, context)
+        : undefined,
     ResourceId: __expectString(output.ResourceId),
     ScalableDimension: __expectString(output.ScalableDimension),
     ServiceNamespace: __expectString(output.ServiceNamespace),
@@ -1526,7 +1553,8 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1576,6 +1604,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1586,6 +1620,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

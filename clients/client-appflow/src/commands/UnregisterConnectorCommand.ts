@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,8 @@ export interface UnregisterConnectorCommandInput extends UnregisterConnectorRequ
 export interface UnregisterConnectorCommandOutput extends UnregisterConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Unregisters the custom connector registered in your account that matches the
- *       connectorLabel provided in the request.</p>
+ * <p>Unregisters the custom connector registered in your account that matches the connector
+ *       label provided in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,15 @@ export class UnregisterConnectorCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UnregisterConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class UnregisterConnectorCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UnregisterConnectorCommandInput, UnregisterConnectorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UnregisterConnectorCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

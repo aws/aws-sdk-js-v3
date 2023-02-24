@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -59,7 +59,7 @@
         "AddressDefinition": {
           "target": "com.amazonaws.networkfirewall#AddressDefinition",
           "traits": {
-            "smithy.api#documentation": "<p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure Network Firewall to inspect for the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
+            "smithy.api#documentation": "<p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure Network Firewall to inspect for the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -128,13 +128,13 @@
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n        <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallPolicyArn": {
@@ -222,13 +222,13 @@
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "SubnetMappings": {
@@ -287,7 +287,13 @@
         "Status": {
           "target": "com.amazonaws.networkfirewall#AttachmentStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the firewall endpoint in the subnet. This value reflects both the\n         instantiation of the endpoint in the VPC subnet and the sync states that are reported in\n         the <code>Config</code> settings. When this value is <code>READY</code>, the endpoint is\n         available and configured properly to handle network traffic. When the endpoint isn't\n         available for traffic, this value will reflect its state, for example\n         <code>CREATING</code>, <code>DELETING</code>, or <code>FAILED</code>.</p>"
+            "smithy.api#documentation": "<p>The current status of the firewall endpoint in the subnet. This value reflects both the\n         instantiation of the endpoint in the VPC subnet and the sync states that are reported in\n         the <code>Config</code> settings. When this value is <code>READY</code>, the endpoint is\n         available and configured properly to handle network traffic. When the endpoint isn't\n         available for traffic, this value will reflect its state, for example\n         <code>CREATING</code> or <code>DELETING</code>.</p>"
+          }
+        },
+        "StatusMessage": {
+          "target": "com.amazonaws.networkfirewall#StatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>If Network Firewall fails to create or delete the firewall endpoint in the subnet, it populates this with the reason for the failure and how to resolve it. Depending on the error, it can take as many as 15 minutes to populate this field. For more information about the errors and solutions available for this field, see <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html\">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>"
           }
         }
       },
@@ -296,26 +302,32 @@
       }
     },
     "com.amazonaws.networkfirewall#AttachmentStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATING",
-            "name": "CREATING"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
-          },
-          {
-            "value": "SCALING",
-            "name": "SCALING"
-          },
-          {
-            "value": "READY",
-            "name": "READY"
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
           }
-        ]
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "SCALING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SCALING"
+          }
+        },
+        "READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READY"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#AvailabilityZone": {
@@ -338,12 +350,14 @@
       }
     },
     "com.amazonaws.networkfirewall#Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.networkfirewall#CIDRCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 1000000
@@ -394,22 +408,26 @@
       "type": "string"
     },
     "com.amazonaws.networkfirewall#ConfigurationSyncState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "IN_SYNC",
-            "name": "IN_SYNC"
-          },
-          {
-            "value": "CAPACITY_CONSTRAINED",
-            "name": "CAPACITY_CONSTRAINED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "IN_SYNC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_SYNC"
+          }
+        },
+        "CAPACITY_CONSTRAINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CAPACITY_CONSTRAINED"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#CreateFirewall": {
@@ -441,7 +459,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an Network Firewall <a>Firewall</a> and accompanying <a>FirewallStatus</a> for a VPC. </p>\n         <p>The firewall defines the configuration settings for an Network Firewall firewall. The settings that you can define at creation include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p> \n         <p>After you create a firewall, you can provide additional settings, like the logging configuration. </p>\n         <p>To update the settings for a firewall, you use the operations that apply to the settings\n         themselves, for example <a>UpdateLoggingConfiguration</a>, <a>AssociateSubnets</a>, and <a>UpdateFirewallDeleteProtection</a>. </p>\n         <p>To manage a firewall's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>\n         <p>To retrieve information about firewalls, use <a>ListFirewalls</a> and <a>DescribeFirewall</a>.</p>"
+        "smithy.api#documentation": "<p>Creates an Network Firewall <a>Firewall</a> and accompanying <a>FirewallStatus</a> for a VPC. </p>\n         <p>The firewall defines the configuration settings for an Network Firewall firewall. The settings that you can define at creation include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>\n         <p>After you create a firewall, you can provide additional settings, like the logging configuration. </p>\n         <p>To update the settings for a firewall, you use the operations that apply to the settings\n         themselves, for example <a>UpdateLoggingConfiguration</a>, <a>AssociateSubnets</a>, and <a>UpdateFirewallDeleteProtection</a>. </p>\n         <p>To manage a firewall's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>\n         <p>To retrieve information about firewalls, use <a>ListFirewalls</a> and <a>DescribeFirewall</a>.</p>"
       }
     },
     "com.amazonaws.networkfirewall#CreateFirewallPolicy": {
@@ -505,6 +523,7 @@
         "DryRun": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p>\n         <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,\n         but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with\n         dry run set to <code>FALSE</code>, but doesn't make additions or changes to your resources. This option allows you to make sure that you have\n         the required permissions to run the request and that your request parameters are valid. </p>\n         <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>"
           }
         },
@@ -569,18 +588,21 @@
         "DeleteProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates\n         that the firewall is protected against deletion. Use this setting to protect against\n         accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>"
           }
         },
         "SubnetChangeProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A setting indicating whether the firewall is protected against changes to the subnet associations.\n         Use this setting to protect against\n         accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>"
           }
         },
         "FirewallPolicyChangeProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A setting indicating whether the firewall is protected against a change to the firewall policy association.\n         Use this setting to protect against\n         accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>"
           }
         },
@@ -669,7 +691,7 @@
         "Rules": {
           "target": "com.amazonaws.networkfirewall#RulesString",
           "traits": {
-            "smithy.api#documentation": "<p>A string containing stateful rule group rules specifications in Suricata flat format, with one rule\nper line. Use this to import your existing Suricata compatible rule groups. </p>\n         <note>\n            <p>You must provide either this rules setting or a populated <code>RuleGroup</code> setting, but not both. </p>\n         </note>  \n         <p>You can provide your rule group specification in Suricata flat format through this setting when you create or update your rule group. The call\nresponse returns a <a>RuleGroup</a> object that Network Firewall has populated from your string. </p>"
+            "smithy.api#documentation": "<p>A string containing stateful rule group rules specifications in Suricata flat format, with one rule\nper line. Use this to import your existing Suricata compatible rule groups. </p>\n         <note>\n            <p>You must provide either this rules setting or a populated <code>RuleGroup</code> setting, but not both. </p>\n         </note>\n         <p>You can provide your rule group specification in Suricata flat format through this setting when you create or update your rule group. The call\nresponse returns a <a>RuleGroup</a> object that Network Firewall has populated from your string. </p>"
           }
         },
         "Type": {
@@ -688,7 +710,7 @@
         "Capacity": {
           "target": "com.amazonaws.networkfirewall#RuleCapacity",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation.\n      When you update a rule group, you are limited to this capacity. When you reference a rule group\n      from a firewall policy, Network Firewall reserves this capacity for the rule group. </p>\n         <p>You can retrieve the capacity that would be required for a rule group before you create the rule group by calling\n      <a>CreateRuleGroup</a> with <code>DryRun</code> set to <code>TRUE</code>. </p> \n         <note>\n            <p>You can't change or exceed this capacity when you update the rule group, so leave\n            room for your rule group to grow. </p>\n         </note>\n         <p>\n            <b>Capacity for a stateless rule group</b>\n         </p>\n         <p>For a stateless rule group, the capacity required is the sum of the capacity\n         requirements of the individual rules that you expect to have in the rule group. </p>\n         <p>To calculate the capacity requirement of a single rule, multiply the capacity\n         requirement values of each of the rule's match settings:</p>\n         <ul>\n            <li>\n               <p>A match setting with no criteria specified has a value of 1. </p>\n            </li>\n            <li>\n               <p>A match setting with <code>Any</code> specified has a value of 1. </p>\n            </li>\n            <li>\n               <p>All other match settings have a value equal to the number of elements provided in\n               the setting. For example, a protocol setting [\"UDP\"] and a source setting\n               [\"10.0.0.0/24\"] each have a value of 1. A protocol setting [\"UDP\",\"TCP\"] has a value\n               of 2. A source setting [\"10.0.0.0/24\",\"10.0.0.1/24\",\"10.0.0.2/24\"] has a value of 3.\n            </p>\n            </li>\n         </ul>\n         <p>A rule with no criteria specified in any of its match settings has a capacity\n         requirement of 1. A rule with protocol setting [\"UDP\",\"TCP\"], source setting\n         [\"10.0.0.0/24\",\"10.0.0.1/24\",\"10.0.0.2/24\"], and a single specification or no specification\n         for each of the other match settings has a capacity requirement of 6. </p>\n         <p>\n            <b>Capacity for a stateful rule group</b>\n         </p>\n         <p>For\n         a stateful rule group, the minimum capacity required is the number of individual rules that\n         you expect to have in the rule group. </p>",
+            "smithy.api#documentation": "<p>The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation.\n      When you update a rule group, you are limited to this capacity. When you reference a rule group\n      from a firewall policy, Network Firewall reserves this capacity for the rule group. </p>\n         <p>You can retrieve the capacity that would be required for a rule group before you create the rule group by calling\n      <a>CreateRuleGroup</a> with <code>DryRun</code> set to <code>TRUE</code>. </p>\n         <note>\n            <p>You can't change or exceed this capacity when you update the rule group, so leave\n            room for your rule group to grow. </p>\n         </note>\n         <p>\n            <b>Capacity for a stateless rule group</b>\n         </p>\n         <p>For a stateless rule group, the capacity required is the sum of the capacity\n         requirements of the individual rules that you expect to have in the rule group. </p>\n         <p>To calculate the capacity requirement of a single rule, multiply the capacity\n         requirement values of each of the rule's match settings:</p>\n         <ul>\n            <li>\n               <p>A match setting with no criteria specified has a value of 1. </p>\n            </li>\n            <li>\n               <p>A match setting with <code>Any</code> specified has a value of 1. </p>\n            </li>\n            <li>\n               <p>All other match settings have a value equal to the number of elements provided in\n               the setting. For example, a protocol setting [\"UDP\"] and a source setting\n               [\"10.0.0.0/24\"] each have a value of 1. A protocol setting [\"UDP\",\"TCP\"] has a value\n               of 2. A source setting [\"10.0.0.0/24\",\"10.0.0.1/24\",\"10.0.0.2/24\"] has a value of 3.\n            </p>\n            </li>\n         </ul>\n         <p>A rule with no criteria specified in any of its match settings has a capacity\n         requirement of 1. A rule with protocol setting [\"UDP\",\"TCP\"], source setting\n         [\"10.0.0.0/24\",\"10.0.0.1/24\",\"10.0.0.2/24\"], and a single specification or no specification\n         for each of the other match settings has a capacity requirement of 6. </p>\n         <p>\n            <b>Capacity for a stateful rule group</b>\n         </p>\n         <p>For\n         a stateful rule group, the minimum capacity required is the number of individual rules that\n         you expect to have in the rule group. </p>",
             "smithy.api#required": {}
           }
         },
@@ -701,6 +723,7 @@
         "DryRun": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p>\n         <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,\n         but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with\n         dry run set to <code>FALSE</code>, but doesn't make additions or changes to your resources. This option allows you to make sure that you have\n         the required permissions to run the request and that your request parameters are valid. </p>\n         <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>"
           }
         },
@@ -835,13 +858,13 @@
         "FirewallPolicyName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p> \n         <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallPolicyArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall policy.</p> \n         <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall policy.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         }
       }
@@ -864,13 +887,13 @@
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         }
       }
@@ -969,19 +992,19 @@
         "RuleGroupName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> \n         <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "RuleGroupArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule group.</p> \n         <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule group.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.networkfirewall#RuleGroupType",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains\nstateless rules. If it is stateful, it contains stateful rules. </p> \n         <note>\n            <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains\nstateless rules. If it is stateful, it contains stateful rules. </p>\n         <note>\n            <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>\n         </note>"
           }
         }
       }
@@ -1056,13 +1079,13 @@
         "FirewallPolicyName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallPolicyArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall policy.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall policy.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         }
       }
@@ -1098,13 +1121,13 @@
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         }
       }
@@ -1164,13 +1187,13 @@
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         }
       }
@@ -1296,19 +1319,19 @@
         "RuleGroupName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> \n         <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "RuleGroupArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> \n         <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.networkfirewall#RuleGroupType",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains\nstateless rules. If it is stateful, it contains stateful rules. </p> \n         <note>\n            <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains\nstateless rules. If it is stateful, it contains stateful rules. </p>\n         <note>\n            <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>\n         </note>"
           }
         }
       }
@@ -1319,14 +1342,14 @@
         "RuleGroupArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> \n         <p>You must specify the ARN or the name, and you can specify both. </p>",
+            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>",
             "smithy.api#required": {}
           }
         },
         "RuleGroupName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> \n         <p>You must specify the ARN or the name, and you can specify both. </p>",
+            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>",
             "smithy.api#required": {}
           }
         },
@@ -1339,7 +1362,7 @@
         "Type": {
           "target": "com.amazonaws.networkfirewall#RuleGroupType",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains\nstateless rules. If it is stateful, it contains stateful rules. </p> \n         <note>\n            <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains\nstateless rules. If it is stateful, it contains stateful rules. </p>\n         <note>\n            <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>\n         </note>"
           }
         },
         "Capacity": {
@@ -1365,19 +1388,19 @@
         "RuleGroupName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "RuleGroupArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule group.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule group.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.networkfirewall#RuleGroupType",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains\nstateless rules. If it is stateful, it contains stateful rules. </p> \n           <note>\n            <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains\nstateless rules. If it is stateful, it contains stateful rules. </p>\n         <note>\n            <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>\n         </note>"
           }
         }
       }
@@ -1508,13 +1531,13 @@
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "SubnetIds": {
@@ -1577,18 +1600,20 @@
       }
     },
     "com.amazonaws.networkfirewall#EncryptionType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CUSTOMER_KMS",
-            "name": "CUSTOMER_KMS"
-          },
-          {
-            "value": "AWS_OWNED_KMS_KEY",
-            "name": "AWS_OWNED_KMS_KEY"
+      "type": "enum",
+      "members": {
+        "CUSTOMER_KMS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CUSTOMER_KMS"
           }
-        ]
+        },
+        "AWS_OWNED_KMS_KEY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_OWNED_KMS_KEY"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#EndpointId": {
@@ -1615,7 +1640,7 @@
         "FirewallPolicyArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall policy.</p> \n         <p>The relationship of firewall to firewall policy is many to one. Each firewall requires\n         one firewall policy association, and you can use the same firewall policy for multiple\n         firewalls. </p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall policy.</p>\n         <p>The relationship of firewall to firewall policy is many to one. Each firewall requires\n         one firewall policy association, and you can use the same firewall policy for multiple\n         firewalls. </p>",
             "smithy.api#required": {}
           }
         },
@@ -1636,18 +1661,21 @@
         "DeleteProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates\n         that the firewall is protected against deletion. Use this setting to protect against\n         accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>"
           }
         },
         "SubnetChangeProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A setting indicating whether the firewall is protected against changes to the subnet associations.\n         Use this setting to protect against\n         accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>"
           }
         },
         "FirewallPolicyChangeProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A setting indicating whether the firewall is protected against a change to the firewall policy association.\n         Use this setting to protect against\n         accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>"
           }
         },
@@ -1678,7 +1706,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The firewall defines the configuration settings for an Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p> \n         <p>The status of the firewall, for example whether it's ready to filter network traffic,\n         is provided in the corresponding <a>FirewallStatus</a>. You can retrieve both\n         objects by calling <a>DescribeFirewall</a>.</p>"
+        "smithy.api#documentation": "<p>The firewall defines the configuration settings for an Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>\n         <p>The status of the firewall, for example whether it's ready to filter network traffic,\n         is provided in the corresponding <a>FirewallStatus</a>. You can retrieve both\n         objects by calling <a>DescribeFirewall</a>.</p>"
       }
     },
     "com.amazonaws.networkfirewall#FirewallMetadata": {
@@ -1792,7 +1820,7 @@
         "FirewallPolicyArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall policy.</p> \n         <note>\n            <p>If this response is for a create request that had <code>DryRun</code> set to\n               <code>TRUE</code>, then this ARN is a placeholder that isn't attached to a valid\n            resource.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall policy.</p>\n         <note>\n            <p>If this response is for a create request that had <code>DryRun</code> set to\n               <code>TRUE</code>, then this ARN is a placeholder that isn't attached to a valid\n            resource.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -1891,22 +1919,26 @@
       }
     },
     "com.amazonaws.networkfirewall#FirewallStatusValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROVISIONING",
-            "name": "PROVISIONING"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
-          },
-          {
-            "value": "READY",
-            "name": "READY"
+      "type": "enum",
+      "members": {
+        "PROVISIONING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROVISIONING"
           }
-        ]
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READY"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#Firewalls": {
@@ -1922,18 +1954,20 @@
       }
     },
     "com.amazonaws.networkfirewall#GeneratedRulesType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ALLOWLIST",
-            "name": "ALLOWLIST"
-          },
-          {
-            "value": "DENYLIST",
-            "name": "DENYLIST"
+      "type": "enum",
+      "members": {
+        "ALLOWLIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALLOWLIST"
           }
-        ]
+        },
+        "DENYLIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DENYLIST"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#HashMapKey": {
@@ -1969,7 +2003,7 @@
         "Source": {
           "target": "com.amazonaws.networkfirewall#Source",
           "traits": {
-            "smithy.api#documentation": "<p>The source IP address or address range to inspect for, in CIDR notation.\n          To match with any address, specify <code>ANY</code>. </p>\n         <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure Network Firewall to inspect for the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
+            "smithy.api#documentation": "<p>The source IP address or address range to inspect for, in CIDR notation.\n          To match with any address, specify <code>ANY</code>. </p>\n         <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure Network Firewall to inspect for the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1990,7 +2024,7 @@
         "Destination": {
           "target": "com.amazonaws.networkfirewall#Destination",
           "traits": {
-            "smithy.api#documentation": "<p>The destination IP address or address range to inspect for, in CIDR notation.\n          To match with any address, specify <code>ANY</code>. </p>\n         <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure Network Firewall to inspect for the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
+            "smithy.api#documentation": "<p>The destination IP address or address range to inspect for, in CIDR notation.\n          To match with any address, specify <code>ANY</code>. </p>\n         <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6. </p>\n         <p>Examples: </p>\n         <ul>\n            <li>\n               <p>To configure Network Firewall to inspect for the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n            </li>\n            <li>\n               <p>To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless\n         Inter-Domain Routing</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2004,6 +2038,23 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The basic rule criteria for Network Firewall to use to inspect packet headers in stateful\n         traffic flow inspection. Traffic flows that match the criteria are a match for the\n         corresponding <a>StatefulRule</a>. </p>"
+      }
+    },
+    "com.amazonaws.networkfirewall#IPAddressType": {
+      "type": "enum",
+      "members": {
+        "DUALSTACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DUALSTACK"
+          }
+        },
+        "IPV4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IPV4"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#IPSet": {
@@ -2539,22 +2590,28 @@
       }
     },
     "com.amazonaws.networkfirewall#LogDestinationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "S3",
-            "name": "S3"
-          },
-          {
-            "value": "CloudWatchLogs",
-            "name": "CLOUDWATCH_LOGS"
-          },
-          {
-            "value": "KinesisDataFirehose",
-            "name": "KINESIS_DATA_FIREHOSE"
+      "type": "enum",
+      "members": {
+        "S3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "S3"
           }
-        ],
+        },
+        "CLOUDWATCH_LOGS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CloudWatchLogs"
+          }
+        },
+        "KINESIS_DATA_FIREHOSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KinesisDataFirehose"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#length": {
           "min": 2,
           "max": 30
@@ -2563,18 +2620,20 @@
       }
     },
     "com.amazonaws.networkfirewall#LogType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ALERT",
-            "name": "ALERT"
-          },
-          {
-            "value": "FLOW",
-            "name": "FLOW"
+      "type": "enum",
+      "members": {
+        "ALERT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALERT"
           }
-        ]
+        },
+        "FLOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FLOW"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#LoggingConfiguration": {
@@ -2638,21 +2697,6 @@
     },
     "com.amazonaws.networkfirewall#NetworkFirewall_20201112": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Network Firewall",
-          "arnNamespace": "network-firewall",
-          "cloudFormationName": "NetworkFirewall",
-          "cloudTrailEventSource": "networkfirewall.amazonaws.com",
-          "endpointPrefix": "network-firewall"
-        },
-        "aws.auth#sigv4": {
-          "name": "network-firewall"
-        },
-        "aws.protocols#awsJson1_0": {},
-        "smithy.api#documentation": "<p>This is the API Reference for Network Firewall. This guide is for developers who need\n         detailed information about the Network Firewall API actions, data types, and errors. </p>\n         <ul>\n            <li>\n               <p>The REST API requires you to handle connection details, such as calculating\n               signatures, handling request retries, and error handling. For general information\n               about using the Amazon Web Services REST APIs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-apis.html\">Amazon Web Services APIs</a>. </p>\n               <p>To access Network Firewall using the REST API endpoint:\n                  <code>https://network-firewall.<region>.amazonaws.com </code>\n               </p>\n            </li>\n            <li>\n               <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to\n               the programming language or platform that you're using. For more information, see\n               <a href=\"http://aws.amazon.com/tools/#SDKs\">Amazon Web Services SDKs</a>.</p>\n            </li>\n            <li>\n               <p>For descriptions of Network Firewall features, including and step-by-step\n               instructions on how to use them through the Network Firewall console, see the <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/\">Network Firewall Developer\n                  Guide</a>.</p>\n            </li>\n         </ul>\n         <p>Network Firewall is a stateful, managed, network firewall and intrusion detection and\n         prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the\n         perimeter of your VPC. This includes filtering traffic going to and coming from an internet\n         gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible\n      with Suricata, a free, open source intrusion detection system (IDS) engine.\n      Network Firewall supports Suricata version 5.0.2. For information about Suricata,\n          see the <a href=\"https://suricata-ids.org/\">Suricata website</a>.</p>\n         <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.\n         The following are just a few examples: </p>\n         <ul>\n            <li>\n               <p>Allow domains or IP addresses for known Amazon Web Services service endpoints, such as Amazon S3, and\n               block all other forms of traffic.</p>\n            </li>\n            <li>\n               <p>Use custom lists of known bad domains to limit the types of domain names that your\n               applications can access.</p>\n            </li>\n            <li>\n               <p>Perform deep packet inspection on traffic entering or leaving your VPC.</p>\n            </li>\n            <li>\n               <p>Use stateful protocol detection to filter protocols like HTTPS, regardless of the\n               port used.</p>\n            </li>\n         </ul>\n         <p>To enable Network Firewall for your VPCs, you perform steps in both Amazon VPC and in\n         Network Firewall. For information about using Amazon VPC, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/\">Amazon VPC User Guide</a>.</p>\n         <p>To start using Network Firewall, do the following: </p>\n         <ol>\n            <li>\n               <p>(Optional) If you don't already have a VPC that you want to protect, create it in\n               Amazon VPC. </p>\n            </li>\n            <li>\n               <p>In Amazon VPC, in each Availability Zone where you want to have a firewall endpoint, create a\n               subnet for the sole use of Network Firewall. </p>\n            </li>\n            <li>\n               <p>In Network Firewall, create stateless and stateful rule groups,\n                 to define the components of the network traffic filtering behavior that you want your firewall to have. </p>\n            </li>\n            <li>\n               <p>In Network Firewall, create a firewall policy that uses your rule groups and\n                 specifies additional default traffic filtering behavior. </p>\n            </li>\n            <li>\n               <p>In Network Firewall, create a firewall and specify your new firewall policy and\n                 VPC subnets. Network Firewall creates a firewall endpoint in each subnet that you\n               specify, with the behavior that's defined in the firewall policy.</p>\n            </li>\n            <li>\n               <p>In Amazon VPC, use ingress routing enhancements to route traffic through the new firewall\n               endpoints.</p>\n            </li>\n         </ol>",
-        "smithy.api#title": "AWS Network Firewall"
-      },
       "version": "2020-11-12",
       "operations": [
         {
@@ -2748,29 +2792,1685 @@
         {
           "target": "com.amazonaws.networkfirewall#UpdateSubnetChangeProtection"
         }
-      ]
-    },
-    "com.amazonaws.networkfirewall#NumberOfAssociations": {
-      "type": "integer",
+      ],
       "traits": {
-        "smithy.api#box": {}
+        "aws.api#service": {
+          "sdkId": "Network Firewall",
+          "arnNamespace": "network-firewall",
+          "cloudFormationName": "NetworkFirewall",
+          "cloudTrailEventSource": "networkfirewall.amazonaws.com",
+          "endpointPrefix": "network-firewall"
+        },
+        "aws.auth#sigv4": {
+          "name": "network-firewall"
+        },
+        "aws.protocols#awsJson1_0": {},
+        "smithy.api#documentation": "<p>This is the API Reference for Network Firewall. This guide is for developers who need\n         detailed information about the Network Firewall API actions, data types, and errors. </p>\n         <ul>\n            <li>\n               <p>The REST API requires you to handle connection details, such as calculating\n               signatures, handling request retries, and error handling. For general information\n               about using the Amazon Web Services REST APIs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-apis.html\">Amazon Web Services APIs</a>. </p>\n               <p>To access Network Firewall using the REST API endpoint:\n                  <code>https://network-firewall.<region>.amazonaws.com </code>\n               </p>\n            </li>\n            <li>\n               <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to\n               the programming language or platform that you're using. For more information, see\n               <a href=\"http://aws.amazon.com/tools/#SDKs\">Amazon Web Services SDKs</a>.</p>\n            </li>\n            <li>\n               <p>For descriptions of Network Firewall features, including and step-by-step\n               instructions on how to use them through the Network Firewall console, see the <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/\">Network Firewall Developer\n                  Guide</a>.</p>\n            </li>\n         </ul>\n         <p>Network Firewall is a stateful, managed, network firewall and intrusion detection and\n         prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the\n         perimeter of your VPC. This includes filtering traffic going to and coming from an internet\n         gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible\n      with Suricata, a free, open source network analysis and threat detection engine.\n      Network Firewall supports Suricata version 5.0.2. For information about Suricata,\n          see the <a href=\"https://suricata.io/\">Suricata website</a>.</p>\n         <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.\n         The following are just a few examples: </p>\n         <ul>\n            <li>\n               <p>Allow domains or IP addresses for known Amazon Web Services service endpoints, such as Amazon S3, and\n               block all other forms of traffic.</p>\n            </li>\n            <li>\n               <p>Use custom lists of known bad domains to limit the types of domain names that your\n               applications can access.</p>\n            </li>\n            <li>\n               <p>Perform deep packet inspection on traffic entering or leaving your VPC.</p>\n            </li>\n            <li>\n               <p>Use stateful protocol detection to filter protocols like HTTPS, regardless of the\n               port used.</p>\n            </li>\n         </ul>\n         <p>To enable Network Firewall for your VPCs, you perform steps in both Amazon VPC and in\n         Network Firewall. For information about using Amazon VPC, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/\">Amazon VPC User Guide</a>.</p>\n         <p>To start using Network Firewall, do the following: </p>\n         <ol>\n            <li>\n               <p>(Optional) If you don't already have a VPC that you want to protect, create it in\n               Amazon VPC. </p>\n            </li>\n            <li>\n               <p>In Amazon VPC, in each Availability Zone where you want to have a firewall endpoint, create a\n               subnet for the sole use of Network Firewall. </p>\n            </li>\n            <li>\n               <p>In Network Firewall, create stateless and stateful rule groups,\n                 to define the components of the network traffic filtering behavior that you want your firewall to have. </p>\n            </li>\n            <li>\n               <p>In Network Firewall, create a firewall policy that uses your rule groups and\n                 specifies additional default traffic filtering behavior. </p>\n            </li>\n            <li>\n               <p>In Network Firewall, create a firewall and specify your new firewall policy and\n                 VPC subnets. Network Firewall creates a firewall endpoint in each subnet that you\n               specify, with the behavior that's defined in the firewall policy.</p>\n            </li>\n            <li>\n               <p>In Amazon VPC, use ingress routing enhancements to route traffic through the new firewall\n               endpoints.</p>\n            </li>\n         </ol>",
+        "smithy.api#title": "AWS Network Firewall",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": true,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://network-firewall-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://network-firewall-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://network-firewall.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://network-firewall.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "sa-east-1"
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "sa-east-1"
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "sa-east-1"
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "sa-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://network-firewall.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
       }
     },
+    "com.amazonaws.networkfirewall#NumberOfAssociations": {
+      "type": "integer"
+    },
     "com.amazonaws.networkfirewall#OverrideAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DROP_TO_ALERT",
-            "name": "DROP_TO_ALERT"
+      "type": "enum",
+      "members": {
+        "DROP_TO_ALERT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DROP_TO_ALERT"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.networkfirewall#PaginationMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -2808,22 +4508,26 @@
       }
     },
     "com.amazonaws.networkfirewall#PerObjectSyncStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "IN_SYNC",
-            "name": "IN_SYNC"
-          },
-          {
-            "value": "CAPACITY_CONSTRAINED",
-            "name": "CAPACITY_CONSTRAINED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "IN_SYNC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_SYNC"
+          }
+        },
+        "CAPACITY_CONSTRAINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CAPACITY_CONSTRAINED"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#PolicyString": {
@@ -2852,6 +4556,7 @@
         "FromPort": {
           "target": "com.amazonaws.networkfirewall#PortRangeBound",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The lower limit of the port range. This must be less than or equal to the\n            <code>ToPort</code> specification. </p>",
             "smithy.api#required": {}
           }
@@ -2859,6 +4564,7 @@
         "ToPort": {
           "target": "com.amazonaws.networkfirewall#PortRangeBound",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The upper limit of the port range. This must be greater than or equal to the\n            <code>FromPort</code> specification. </p>",
             "smithy.api#required": {}
           }
@@ -2871,6 +4577,7 @@
     "com.amazonaws.networkfirewall#PortRangeBound": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 65535
@@ -2909,6 +4616,7 @@
     "com.amazonaws.networkfirewall#Priority": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 65535
@@ -2918,6 +4626,7 @@
     "com.amazonaws.networkfirewall#ProtocolNumber": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 255
@@ -2971,7 +4680,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates or updates an IAM policy for your rule group or firewall policy. Use this to share rule groups and firewall policies between accounts. This operation works in conjunction with the Amazon Web Services Resource Access Manager (RAM) service\n           to manage resource sharing for Network Firewall. </p>\n         <p>Use this operation to create or update a resource policy for your rule group or firewall policy. In the policy, you specify the accounts that you want to share the resource with and the operations that you want the accounts to be able to perform. </p>\n         <p>When you add an account in the resource policy, you then run the following Resource Access Manager (RAM) operations to access and accept the shared rule group or firewall policy. </p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_GetResourceShareInvitations.html\">GetResourceShareInvitations</a> - Returns the Amazon Resource Names (ARNs) of the resource share invitations.  </p>\n           </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_AcceptResourceShareInvitation.html\">AcceptResourceShareInvitation</a> - Accepts the share invitation for a specified resource share. </p>\n           </li>\n         </ul>\n         <p>For additional information about resource sharing using RAM, see <a href=\"https://docs.aws.amazon.com/ram/latest/userguide/what-is.html\">Resource Access Manager User Guide</a>.</p>"
+        "smithy.api#documentation": "<p>Creates or updates an IAM policy for your rule group or firewall policy. Use this to share rule groups and firewall policies between accounts. This operation works in conjunction with the Amazon Web Services Resource Access Manager (RAM) service\n           to manage resource sharing for Network Firewall. </p>\n         <p>Use this operation to create or update a resource policy for your rule group or firewall policy. In the policy, you specify the accounts that you want to share the resource with and the operations that you want the accounts to be able to perform. </p>\n         <p>When you add an account in the resource policy, you then run the following Resource Access Manager (RAM) operations to access and accept the shared rule group or firewall policy. </p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_GetResourceShareInvitations.html\">GetResourceShareInvitations</a> - Returns the Amazon Resource Names (ARNs) of the resource share invitations.  </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_AcceptResourceShareInvitation.html\">AcceptResourceShareInvitation</a> - Accepts the share invitation for a specified resource share. </p>\n            </li>\n         </ul>\n         <p>For additional information about resource sharing using RAM, see <a href=\"https://docs.aws.amazon.com/ram/latest/userguide/what-is.html\">Resource Access Manager User Guide</a>.</p>"
       }
     },
     "com.amazonaws.networkfirewall#PutResourcePolicyRequest": {
@@ -3032,33 +4741,37 @@
       }
     },
     "com.amazonaws.networkfirewall#ResourceManagedStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MANAGED",
-            "name": "MANAGED"
-          },
-          {
-            "value": "ACCOUNT",
-            "name": "ACCOUNT"
+      "type": "enum",
+      "members": {
+        "MANAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MANAGED"
           }
-        ]
+        },
+        "ACCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#ResourceManagedType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AWS_MANAGED_THREAT_SIGNATURES",
-            "name": "AWS_MANAGED_THREAT_SIGNATURES"
-          },
-          {
-            "value": "AWS_MANAGED_DOMAIN_LISTS",
-            "name": "AWS_MANAGED_DOMAIN_LISTS"
+      "type": "enum",
+      "members": {
+        "AWS_MANAGED_THREAT_SIGNATURES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_MANAGED_THREAT_SIGNATURES"
           }
-        ]
+        },
+        "AWS_MANAGED_DOMAIN_LISTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_MANAGED_DOMAIN_LISTS"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#ResourceName": {
@@ -3096,25 +4809,24 @@
       }
     },
     "com.amazonaws.networkfirewall#ResourceStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#RuleCapacity": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.networkfirewall#RuleDefinition": {
       "type": "structure",
@@ -3197,7 +4909,7 @@
         "RuleGroupArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule group.</p> \n         <note>\n            <p>If this response is for a create request that had <code>DryRun</code> set to\n               <code>TRUE</code>, then this ARN is a placeholder that isn't attached to a valid\n            resource.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule group.</p>\n         <note>\n            <p>If this response is for a create request that had <code>DryRun</code> set to\n               <code>TRUE</code>, then this ARN is a placeholder that isn't attached to a valid\n            resource.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -3287,18 +4999,20 @@
       }
     },
     "com.amazonaws.networkfirewall#RuleGroupType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STATELESS",
-            "name": "STATELESS"
-          },
-          {
-            "value": "STATEFUL",
-            "name": "STATEFUL"
+      "type": "enum",
+      "members": {
+        "STATELESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STATELESS"
           }
-        ]
+        },
+        "STATEFUL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STATEFUL"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#RuleGroups": {
@@ -3335,18 +5049,20 @@
       }
     },
     "com.amazonaws.networkfirewall#RuleOrder": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEFAULT_ACTION_ORDER",
-            "name": "DEFAULT_ACTION_ORDER"
-          },
-          {
-            "value": "STRICT_ORDER",
-            "name": "STRICT_ORDER"
+      "type": "enum",
+      "members": {
+        "DEFAULT_ACTION_ORDER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_ACTION_ORDER"
           }
-        ]
+        },
+        "STRICT_ORDER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STRICT_ORDER"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#RuleTargets": {
@@ -3403,7 +5119,7 @@
         "StatefulRules": {
           "target": "com.amazonaws.networkfirewall#StatefulRules",
           "traits": {
-            "smithy.api#documentation": "<p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.\n       Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.\n       For information about the Suricata <code>Rules</code> format, see\n                                        <a href=\"https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#\">Rules Format</a>. </p>"
+            "smithy.api#documentation": "<p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.\n       Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.\n       For information about the Suricata <code>Rules</code> format, see\n                                        <a href=\"https://suricata.readthedocs.io/rules/intro.html#\">Rules Format</a>. </p>"
           }
         },
         "StatelessRulesAndCustomActions": {
@@ -3423,7 +5139,7 @@
         "Targets": {
           "target": "com.amazonaws.networkfirewall#RuleTargets",
           "traits": {
-            "smithy.api#documentation": "<p>The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:</p>\n         <ul>\n            <li>\n               <p>Explicit names. For example, <code>abc.example.com</code> matches only the domain <code>abc.example.com</code>.</p>\n            </li>\n            <li>\n               <p>Names that use a domain wildcard, which you indicate with an initial '<code>.</code>'. For example,<code>.example.com</code> matches <code>example.com</code> and matches all subdomains of <code>example.com</code>, such as <code>abc.example.com</code> and <code>www.example.com</code>. </p>\n\t           </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:</p>\n         <ul>\n            <li>\n               <p>Explicit names. For example, <code>abc.example.com</code> matches only the domain <code>abc.example.com</code>.</p>\n            </li>\n            <li>\n               <p>Names that use a domain wildcard, which you indicate with an initial '<code>.</code>'. For example,<code>.example.com</code> matches <code>example.com</code> and matches all subdomains of <code>example.com</code>, such as <code>abc.example.com</code> and <code>www.example.com</code>. </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -3502,22 +5218,32 @@
       }
     },
     "com.amazonaws.networkfirewall#StatefulAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PASS",
-            "name": "PASS"
-          },
-          {
-            "value": "DROP",
-            "name": "DROP"
-          },
-          {
-            "value": "ALERT",
-            "name": "ALERT"
+      "type": "enum",
+      "members": {
+        "PASS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PASS"
           }
-        ]
+        },
+        "DROP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DROP"
+          }
+        },
+        "ALERT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALERT"
+          }
+        },
+        "REJECT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECT"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#StatefulActions": {
@@ -3534,6 +5260,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates how to manage the order of stateful rule evaluation for the policy. <code>DEFAULT_ACTION_ORDER</code> is\n         the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them\n         based on certain settings. For more information, see\n         <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html\">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.\n      </p>"
           }
+        },
+        "StreamExceptionPolicy": {
+          "target": "com.amazonaws.networkfirewall#StreamExceptionPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>DROP</code> - Network Firewall fails closed and drops all subsequent traffic going to the firewall. This is the default behavior.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CONTINUE</code> - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to <code>drop http</code> traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a <code>flow:stateless</code> rule would still match, as would the <code>aws:drop_strict</code> default action.</p>\n            </li>\n         </ul>"
+          }
         }
       },
       "traits": {
@@ -3546,7 +5278,7 @@
         "Action": {
           "target": "com.amazonaws.networkfirewall#StatefulAction",
           "traits": {
-            "smithy.api#documentation": "<p>Defines what Network Firewall should do with the packets in a traffic flow when the flow\n         matches the stateful rule criteria. For all actions, Network Firewall performs the specified\n         action and discontinues stateful inspection of the traffic flow. </p>\n         <p>The actions for a stateful rule are defined as follows: </p>\n         <ul>\n            <li>\n               <p>\n                  <b>PASS</b> - Permits the packets to go to the\n               intended destination.</p>\n            </li>\n            <li>\n               <p>\n                  <b>DROP</b> - Blocks the packets from going to\n               the intended destination and sends an alert log message, if alert logging is configured in the <a>Firewall</a> \n                  <a>LoggingConfiguration</a>. </p>\n            </li>\n            <li>\n               <p>\n                  <b>ALERT</b> - Permits the packets to go to the\n               intended destination and sends an alert log message, if alert logging is configured in the <a>Firewall</a> \n                  <a>LoggingConfiguration</a>. </p>\n               <p>You can use this action to test a rule that you intend to use to drop traffic. You\n               can enable the rule with <code>ALERT</code> action, verify in the logs that the rule\n               is filtering as you want, then change the action to <code>DROP</code>.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>Defines what Network Firewall should do with the packets in a traffic flow when the flow\n         matches the stateful rule criteria. For all actions, Network Firewall performs the specified\n         action and discontinues stateful inspection of the traffic flow. </p>\n         <p>The actions for a stateful rule are defined as follows: </p>\n         <ul>\n            <li>\n               <p>\n                  <b>PASS</b> - Permits the packets to go to the\n               intended destination.</p>\n            </li>\n            <li>\n               <p>\n                  <b>DROP</b> - Blocks the packets from going to\n               the intended destination and sends an alert log message, if alert logging is configured in the <a>Firewall</a>\n                  <a>LoggingConfiguration</a>. </p>\n            </li>\n            <li>\n               <p>\n                  <b>ALERT</b> - Permits the packets to go to the\n               intended destination and sends an alert log message, if alert logging is configured in the <a>Firewall</a>\n                  <a>LoggingConfiguration</a>. </p>\n               <p>You can use this action to test a rule that you intend to use to drop traffic. You\n               can enable the rule with <code>ALERT</code> action, verify in the logs that the rule\n               is filtering as you want, then change the action to <code>DROP</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>REJECT</b> - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a <code>RST</code> bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the <a>Firewall</a>\n                  <a>LoggingConfiguration</a>.</p>\n               <p>\n                  <code>REJECT</code> isn't currently available for use with IMAP and FTP protocols.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -3566,22 +5298,24 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A single Suricata rules specification, for use in a stateful rule group.\n       Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.\n       For information about the Suricata <code>Rules</code> format, see\n                                        <a href=\"https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#\">Rules Format</a>. </p>"
+        "smithy.api#documentation": "<p>A single Suricata rules specification, for use in a stateful rule group.\n       Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.\n       For information about the Suricata <code>Rules</code> format, see\n                                        <a href=\"https://suricata.readthedocs.io/rules/intro.html#\">Rules Format</a>. </p>"
       }
     },
     "com.amazonaws.networkfirewall#StatefulRuleDirection": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FORWARD",
-            "name": "FORWARD"
-          },
-          {
-            "value": "ANY",
-            "name": "ANY"
+      "type": "enum",
+      "members": {
+        "FORWARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FORWARD"
           }
-        ]
+        },
+        "ANY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ANY"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#StatefulRuleGroupOverride": {
@@ -3611,7 +5345,7 @@
         "Priority": {
           "target": "com.amazonaws.networkfirewall#Priority",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>An integer setting that indicates the order in which to run the stateful rule groups in\n      a single <a>FirewallPolicy</a>. This setting only applies to firewall policies\n      that specify the <code>STRICT_ORDER</code> rule order in the stateful engine options settings.</p>\n         <p>Network Firewall evalutes each stateful rule group\n         against a packet starting with the group that has the lowest priority setting. You must ensure\n         that the priority settings are unique within each policy.</p>\n         <p>You can change the priority settings of your rule groups at any time. To make it easier to\n         insert rule groups later, number them so there's a wide range in between, for example use 100,\n         200, and so on. </p>"
           }
         },
@@ -3647,86 +5381,122 @@
       }
     },
     "com.amazonaws.networkfirewall#StatefulRuleProtocol": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IP",
-            "name": "ANY"
-          },
-          {
-            "value": "TCP",
-            "name": "TCP"
-          },
-          {
-            "value": "UDP",
-            "name": "UDP"
-          },
-          {
-            "value": "ICMP",
-            "name": "ICMP"
-          },
-          {
-            "value": "HTTP",
-            "name": "HTTP"
-          },
-          {
-            "value": "FTP",
-            "name": "FTP"
-          },
-          {
-            "value": "TLS",
-            "name": "TLS"
-          },
-          {
-            "value": "SMB",
-            "name": "SMB"
-          },
-          {
-            "value": "DNS",
-            "name": "DNS"
-          },
-          {
-            "value": "DCERPC",
-            "name": "DCERPC"
-          },
-          {
-            "value": "SSH",
-            "name": "SSH"
-          },
-          {
-            "value": "SMTP",
-            "name": "SMTP"
-          },
-          {
-            "value": "IMAP",
-            "name": "IMAP"
-          },
-          {
-            "value": "MSN",
-            "name": "MSN"
-          },
-          {
-            "value": "KRB5",
-            "name": "KRB5"
-          },
-          {
-            "value": "IKEV2",
-            "name": "IKEV2"
-          },
-          {
-            "value": "TFTP",
-            "name": "TFTP"
-          },
-          {
-            "value": "NTP",
-            "name": "NTP"
-          },
-          {
-            "value": "DHCP",
-            "name": "DHCP"
+      "type": "enum",
+      "members": {
+        "ANY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IP"
           }
-        ]
+        },
+        "TCP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TCP"
+          }
+        },
+        "UDP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UDP"
+          }
+        },
+        "ICMP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ICMP"
+          }
+        },
+        "HTTP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HTTP"
+          }
+        },
+        "FTP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FTP"
+          }
+        },
+        "TLS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TLS"
+          }
+        },
+        "SMB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SMB"
+          }
+        },
+        "DNS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DNS"
+          }
+        },
+        "DCERPC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DCERPC"
+          }
+        },
+        "SSH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SSH"
+          }
+        },
+        "SMTP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SMTP"
+          }
+        },
+        "IMAP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMAP"
+          }
+        },
+        "MSN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MSN"
+          }
+        },
+        "KRB5": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KRB5"
+          }
+        },
+        "IKEV2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IKEV2"
+          }
+        },
+        "TFTP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TFTP"
+          }
+        },
+        "NTP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NTP"
+          }
+        },
+        "DHCP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DHCP"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#StatefulRules": {
@@ -3754,6 +5524,7 @@
         "Priority": {
           "target": "com.amazonaws.networkfirewall#Priority",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Indicates the order in which to run this rule relative to all of the\n         rules that are defined for a stateless rule group. Network Firewall evaluates the rules in a\n         rule group starting with the lowest priority setting. You must ensure that the priority\n         settings are unique for the rule group. </p>\n         <p>Each stateless rule group uses exactly one <code>StatelessRulesAndCustomActions</code>\n         object, and each <code>StatelessRulesAndCustomActions</code> contains exactly one\n            <code>StatelessRules</code> object. To ensure unique priority settings for your rule\n         groups, set unique priorities for the stateless rules that you define inside any single\n            <code>StatelessRules</code> object.</p>\n         <p>You can change the priority settings of your rules at any time. To make it easier to\n         insert rules later, number them so there's a wide range in between, for example use 100,\n         200, and so on. </p>",
             "smithy.api#required": {}
           }
@@ -3776,6 +5547,7 @@
         "Priority": {
           "target": "com.amazonaws.networkfirewall#Priority",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>An integer setting that indicates the order in which to run the stateless rule groups in\n         a single <a>FirewallPolicy</a>. Network Firewall applies each stateless rule group\n         to a packet starting with the group that has the lowest priority setting. You must ensure\n         that the priority settings are unique within each policy.</p>",
             "smithy.api#required": {}
           }
@@ -3818,6 +5590,26 @@
         "smithy.api#documentation": "<p>Stateless inspection criteria. Each stateless rule group uses exactly one of these data\n         types to define its stateless rules. </p>"
       }
     },
+    "com.amazonaws.networkfirewall#StatusMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.networkfirewall#StreamExceptionPolicy": {
+      "type": "enum",
+      "members": {
+        "DROP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DROP"
+          }
+        },
+        "CONTINUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTINUE"
+          }
+        }
+      }
+    },
     "com.amazonaws.networkfirewall#SubnetMapping": {
       "type": "structure",
       "members": {
@@ -3826,6 +5618,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the subnet. </p>",
             "smithy.api#required": {}
+          }
+        },
+        "IPAddressType": {
+          "target": "com.amazonaws.networkfirewall#IPAddressType",
+          "traits": {
+            "smithy.api#documentation": "<p>The subnet's IP address type. You can't change the IP address type after you create the subnet.</p>"
           }
         }
       },
@@ -3878,42 +5676,56 @@
       }
     },
     "com.amazonaws.networkfirewall#TCPFlag": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FIN",
-            "name": "FIN"
-          },
-          {
-            "value": "SYN",
-            "name": "SYN"
-          },
-          {
-            "value": "RST",
-            "name": "RST"
-          },
-          {
-            "value": "PSH",
-            "name": "PSH"
-          },
-          {
-            "value": "ACK",
-            "name": "ACK"
-          },
-          {
-            "value": "URG",
-            "name": "URG"
-          },
-          {
-            "value": "ECE",
-            "name": "ECE"
-          },
-          {
-            "value": "CWR",
-            "name": "CWR"
+      "type": "enum",
+      "members": {
+        "FIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FIN"
           }
-        ]
+        },
+        "SYN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SYN"
+          }
+        },
+        "RST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RST"
+          }
+        },
+        "PSH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PSH"
+          }
+        },
+        "ACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACK"
+          }
+        },
+        "URG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "URG"
+          }
+        },
+        "ECE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ECE"
+          }
+        },
+        "CWR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CWR"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#TCPFlagField": {
@@ -3922,7 +5734,7 @@
         "Flags": {
           "target": "com.amazonaws.networkfirewall#Flags",
           "traits": {
-            "smithy.api#documentation": "<p>Used in conjunction with the <code>Masks</code> setting to define the flags that must be set and flags that must not be set in order for the packet to match. This setting can only specify values that are also specified in the <code>Masks</code> setting.</p>\n         <p>For the flags that are specified in the masks setting, the following must be true for the packet to match: </p>\n         <ul>\n            <li>\n               <p>The ones that are set in this flags setting must be set in the packet. </p>\n           </li>\n            <li>\n               <p>The ones that are not set in this flags setting must also not be set in the packet. </p>\n           </li>\n         </ul>",
+            "smithy.api#documentation": "<p>Used in conjunction with the <code>Masks</code> setting to define the flags that must be set and flags that must not be set in order for the packet to match. This setting can only specify values that are also specified in the <code>Masks</code> setting.</p>\n         <p>For the flags that are specified in the masks setting, the following must be true for the packet to match: </p>\n         <ul>\n            <li>\n               <p>The ones that are set in this flags setting must be set in the packet. </p>\n            </li>\n            <li>\n               <p>The ones that are not set in this flags setting must also not be set in the packet. </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -4061,7 +5873,6 @@
     "com.amazonaws.networkfirewall#TagsPaginationMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -4069,18 +5880,20 @@
       }
     },
     "com.amazonaws.networkfirewall#TargetType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TLS_SNI",
-            "name": "TLS_SNI"
-          },
-          {
-            "value": "HTTP_HOST",
-            "name": "HTTP_HOST"
+      "type": "enum",
+      "members": {
+        "TLS_SNI": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TLS_SNI"
           }
-        ]
+        },
+        "HTTP_HOST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HTTP_HOST"
+          }
+        }
       }
     },
     "com.amazonaws.networkfirewall#TargetTypes": {
@@ -4206,18 +6019,19 @@
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "DeleteProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates\n         that the firewall is protected against deletion. Use this setting to protect against\n         accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>",
             "smithy.api#required": {}
           }
@@ -4242,6 +6056,7 @@
         "DeleteProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates\n         that the firewall is protected against deletion. Use this setting to protect against\n         accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>"
           }
         },
@@ -4294,13 +6109,13 @@
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "Description": {
@@ -4497,18 +6312,19 @@
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallPolicyChangeProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A setting indicating whether the firewall is protected against a change to the firewall policy association.\n         Use this setting to protect against\n         accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>",
             "smithy.api#required": {}
           }
@@ -4539,6 +6355,7 @@
         "FirewallPolicyChangeProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A setting indicating whether the firewall is protected against a change to the firewall policy association.\n         Use this setting to protect against\n         accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>"
           }
         }
@@ -4557,13 +6374,13 @@
         "FirewallPolicyArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall policy.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall policy.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallPolicyName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallPolicy": {
@@ -4582,6 +6399,7 @@
         "DryRun": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p>\n         <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,\n         but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with\n         dry run set to <code>FALSE</code>, but doesn't make additions or changes to your resources. This option allows you to make sure that you have\n         the required permissions to run the request and that your request parameters are valid. </p>\n         <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>"
           }
         },
@@ -4650,13 +6468,13 @@
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "LoggingConfiguration": {
@@ -4729,13 +6547,13 @@
         "RuleGroupArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule group.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule group.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "RuleGroupName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> \n          <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "RuleGroup": {
@@ -4747,13 +6565,13 @@
         "Rules": {
           "target": "com.amazonaws.networkfirewall#RulesString",
           "traits": {
-            "smithy.api#documentation": "<p>A string containing stateful rule group rules specifications in Suricata flat format, with one rule\nper line. Use this to import your existing Suricata compatible rule groups. </p>\n         <note>\n            <p>You must provide either this rules setting or a populated <code>RuleGroup</code> setting, but not both. </p>\n         </note>  \n         <p>You can provide your rule group specification in Suricata flat format through this setting when you create or update your rule group. The call\nresponse returns a <a>RuleGroup</a> object that Network Firewall has populated from your string. </p>"
+            "smithy.api#documentation": "<p>A string containing stateful rule group rules specifications in Suricata flat format, with one rule\nper line. Use this to import your existing Suricata compatible rule groups. </p>\n         <note>\n            <p>You must provide either this rules setting or a populated <code>RuleGroup</code> setting, but not both. </p>\n         </note>\n         <p>You can provide your rule group specification in Suricata flat format through this setting when you create or update your rule group. The call\nresponse returns a <a>RuleGroup</a> object that Network Firewall has populated from your string. </p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.networkfirewall#RuleGroupType",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains\nstateless rules. If it is stateful, it contains stateful rules. </p> \n           <note>\n            <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains\nstateless rules. If it is stateful, it contains stateful rules. </p>\n         <note>\n            <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>\n         </note>"
           }
         },
         "Description": {
@@ -4765,6 +6583,7 @@
         "DryRun": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p>\n         <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,\n         but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with\n         dry run set to <code>FALSE</code>, but doesn't make additions or changes to your resources. This option allows you to make sure that you have\n         the required permissions to run the request and that your request parameters are valid. </p>\n         <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>"
           }
         },
@@ -4845,18 +6664,19 @@
         "FirewallArn": {
           "target": "com.amazonaws.networkfirewall#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p> \n         <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the firewall.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "FirewallName": {
           "target": "com.amazonaws.networkfirewall#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> \n           <p>You must specify the ARN or the name, and you can specify both. </p>"
+            "smithy.api#documentation": "<p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>\n         <p>You must specify the ARN or the name, and you can specify both. </p>"
           }
         },
         "SubnetChangeProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A setting indicating whether the firewall is protected against changes to the subnet associations.\n         Use this setting to protect against\n         accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>",
             "smithy.api#required": {}
           }
@@ -4887,6 +6707,7 @@
         "SubnetChangeProtection": {
           "target": "com.amazonaws.networkfirewall#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A setting indicating whether the firewall is protected against changes to the subnet associations.\n         Use this setting to protect against\n         accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>"
           }
         }

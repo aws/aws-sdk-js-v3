@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,11 +32,11 @@ export interface ExportLambdaFunctionRecommendationsCommandOutput
 
 /**
  * <p>Exports optimization recommendations for Lambda functions.</p>
- *         <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
+ *          <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
  *                 Recommendations</a> in the <i>Compute Optimizer User
  *             Guide</i>.</p>
- *         <p>You can have only one Lambda function export job in progress per Amazon Web Services Region.</p>
+ *          <p>You can have only one Lambda function export job in progress per Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,15 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ExportLambdaFunctionRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ExportLambdaFunctionRecommendationsCommandInput, ExportLambdaFunctionRecommendationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ExportLambdaFunctionRecommendationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -4,6 +4,7 @@ import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
 import { Readable } from "stream";
 
+import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
 import { EmptyOperationCommand } from "../../src/commands/EmptyOperationCommand";
 import { EndpointOperationCommand } from "../../src/commands/EndpointOperationCommand";
 import { EndpointWithHostLabelOperationCommand } from "../../src/commands/EndpointWithHostLabelOperationCommand";
@@ -146,6 +147,96 @@ const clientParams = {
 };
 
 /**
+ * A wrapper function that shadows `fail` from jest-jasmine2
+ * (jasmine2 was replaced with circus in > v27 as the default test runner)
+ */
+const fail = (error?: any): never => {
+  throw new Error(error);
+};
+
+/**
+ * Ensures that clients can correctly parse datetime (timestamps) with offsets
+ */
+it("AwsJson11DateTimeWithNegativeOffset:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `      {
+                "datetime": "2019-12-16T22:48:18-01:00"
+            }
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new DatetimeOffsetsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(1576540098000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse datetime (timestamps) with offsets
+ */
+it("AwsJson11DateTimeWithPositiveOffset:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `      {
+                "datetime": "2019-12-17T00:48:18+01:00"
+            }
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new DatetimeOffsetsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(1576540098000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Sends requests to /
  */
 it("sends_requests_to_slash:Request", async () => {
@@ -167,6 +258,11 @@ it("sends_requests_to_slash:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EmptyOperation");
   }
 });
 
@@ -230,6 +326,8 @@ it("json_1_1_client_sends_empty_payload_for_no_input_shape:Request", async () =>
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EmptyOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -265,7 +363,7 @@ it("handles_empty_output_shape:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -299,7 +397,7 @@ it("handles_unexpected_json_output:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -332,7 +430,7 @@ it("json_1_1_service_responds_with_no_payload:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -362,6 +460,11 @@ it("AwsJson11EndpointTrait:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EndpointOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -398,6 +501,11 @@ it("AwsJson11EndpointTraitWithHostLabel:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EndpointWithHostLabelOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -872,6 +980,11 @@ it("AwsJson11HostWithPath:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/custom/");
 
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.HostWithPathOperation");
+
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
@@ -921,6 +1034,8 @@ it("AwsJson11Enums:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonEnums");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -985,7 +1100,7 @@ it("AwsJson11Enums:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1448,7 +1563,7 @@ it("AwsJson11DeserializeStringUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1492,7 +1607,7 @@ it("AwsJson11DeserializeBooleanUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1536,7 +1651,7 @@ it("AwsJson11DeserializeNumberUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1580,7 +1695,7 @@ it("AwsJson11DeserializeBlobUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1624,7 +1739,7 @@ it("AwsJson11DeserializeTimestampUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1668,7 +1783,7 @@ it("AwsJson11DeserializeEnumUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1712,7 +1827,7 @@ it("AwsJson11DeserializeListUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1759,7 +1874,7 @@ it("AwsJson11DeserializeMapUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1809,7 +1924,7 @@ it("AwsJson11DeserializeStructureUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1856,6 +1971,8 @@ it("serializes_string_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -1894,6 +2011,8 @@ it("serializes_string_shapes_with_jsonvalue_trait:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -1931,6 +2050,8 @@ it("serializes_integer_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -1968,6 +2089,8 @@ it("serializes_long_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2005,6 +2128,8 @@ it("serializes_float_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2042,6 +2167,8 @@ it("serializes_double_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2079,6 +2206,8 @@ it("serializes_blob_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2116,6 +2245,8 @@ it("serializes_boolean_shapes_true:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2153,6 +2284,8 @@ it("serializes_boolean_shapes_false:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2190,6 +2323,8 @@ it("serializes_timestamp_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2227,6 +2362,8 @@ it("serializes_timestamp_shapes_with_iso8601_timestampformat:Request", async () 
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2264,6 +2401,8 @@ it("serializes_timestamp_shapes_with_httpdate_timestampformat:Request", async ()
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2301,6 +2440,8 @@ it("serializes_timestamp_shapes_with_unixtimestamp_timestampformat:Request", asy
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2338,6 +2479,8 @@ it("serializes_list_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2375,6 +2518,8 @@ it("serializes_empty_list_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2424,6 +2569,8 @@ it("serializes_list_of_map_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2473,6 +2620,8 @@ it("serializes_list_of_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2522,6 +2671,8 @@ it("serializes_list_of_recursive_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2563,6 +2714,8 @@ it("serializes_map_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2600,6 +2753,8 @@ it("serializes_empty_map_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2641,6 +2796,8 @@ it("serializes_map_of_list_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2686,6 +2843,8 @@ it("serializes_map_of_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2735,6 +2894,8 @@ it("serializes_map_of_recursive_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2774,6 +2935,8 @@ it("serializes_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2813,6 +2976,8 @@ it("serializes_structure_members_with_locationname_traits:Request", async () => 
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2850,6 +3015,8 @@ it("serializes_empty_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2887,6 +3054,8 @@ it("serializes_structure_which_have_no_members:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2948,6 +3117,8 @@ it("serializes_recursive_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2980,7 +3151,7 @@ it("parses_operations_with_empty_json_bodies:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3009,7 +3180,7 @@ it("parses_string_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3047,7 +3218,7 @@ it("parses_integer_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3085,7 +3256,7 @@ it("parses_long_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3123,7 +3294,7 @@ it("parses_float_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3161,7 +3332,7 @@ it("parses_double_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3199,7 +3370,7 @@ it("parses_boolean_shapes_true:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3237,7 +3408,7 @@ it("parses_boolean_false:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3275,7 +3446,7 @@ it("parses_blob_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3313,7 +3484,7 @@ it("parses_timestamp_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3351,7 +3522,7 @@ it("parses_iso8601_timestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3389,7 +3560,7 @@ it("parses_httpdate_timestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3427,7 +3598,7 @@ it("parses_list_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3465,7 +3636,7 @@ it("parses_list_of_map_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3511,7 +3682,7 @@ it("parses_list_of_list_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3553,7 +3724,7 @@ it("parses_list_of_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3599,7 +3770,7 @@ it("parses_list_of_recursive_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3649,7 +3820,7 @@ it("parses_map_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3691,7 +3862,7 @@ it("parses_map_of_list_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3733,7 +3904,7 @@ it("parses_map_of_map_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3783,7 +3954,7 @@ it("parses_map_of_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3829,7 +4000,7 @@ it("parses_map_of_recursive_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3880,7 +4051,7 @@ it("parses_the_request_id_from_the_response:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3913,6 +4084,8 @@ it("AwsJson11StructuresDontSerializeNullValues:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.NullOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -3951,6 +4124,8 @@ it("AwsJson11MapsSerializeNullValues:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.NullOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -3991,6 +4166,8 @@ it("AwsJson11ListsSerializeNull:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.NullOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -4029,7 +4206,7 @@ it("AwsJson11StructuresDontDeserializeNullValues:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4062,7 +4239,7 @@ it("AwsJson11MapsDeserializeNullValues:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4106,7 +4283,7 @@ it("AwsJson11ListsDeserializeNull:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4225,6 +4402,8 @@ it("PutAndGetInlineDocumentsInput:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.PutAndGetInlineDocuments");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -4261,7 +4440,7 @@ it("PutAndGetInlineDocumentsInput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4433,7 +4612,7 @@ it("AwsJson11SupportsNaNFloatInputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4476,7 +4655,7 @@ it("AwsJson11SupportsInfinityFloatInputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4519,7 +4698,7 @@ it("AwsJson11SupportsNegativeInfinityFloatInputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface RegisterClientCommandInput extends RegisterClientRequest {}
 export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a client with Amazon Web Services SSO. This allows clients to initiate device authorization.
+ * <p>Registers a client with IAM Identity Center. This allows clients to initiate device authorization.
  *       The output should be persisted for reuse through many authentication requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +54,15 @@ export class RegisterClientCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class RegisterClientCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterClientCommandInput, RegisterClientCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterClientCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,11 +49,10 @@ import { STSClient } from "./STSClient";
 export class STS extends STSClient {
   /**
    * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
-   *          resources that you might not normally have access to. These temporary credentials consist
-   *          of an access key ID, a secret access key, and a security token. Typically, you use
-   *             <code>AssumeRole</code> within your account or for cross-account access. For a
-   *          comparison of <code>AssumeRole</code> with other API operations that produce temporary
-   *          credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
+   *          resources. These temporary credentials consist of an access key ID, a secret access key,
+   *          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
+   *          cross-account access. For a comparison of <code>AssumeRole</code> with other API operations
+   *          that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
    *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
    *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
    *          <p>
@@ -65,9 +64,9 @@ export class STS extends STSClient {
    *          operations.</p>
    *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
    *          this operation. You can pass a single JSON policy document to use as an inline session
-   *          policy. You can also specify up to 10 managed policies to use as managed session policies.
-   *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
-   *          characters. Passing policies to this operation returns new
+   *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+   *          managed session policies. The plaintext that you use for both inline and managed session
+   *          policies can't exceed 2,048 characters. Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
    *          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -103,7 +102,6 @@ export class STS extends STSClient {
    *          additional identity-based policy is required. For more information about trust policies and
    *          resource-based policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *
    *          <p>
    *             <b>Tags</b>
    *          </p>
@@ -210,9 +208,9 @@ export class STS extends STSClient {
    *          operations.</p>
    *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
    *          this operation. You can pass a single JSON policy document to use as an inline session
-   *          policy. You can also specify up to 10 managed policies to use as managed session policies.
-   *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
-   *          characters. Passing policies to this operation returns new
+   *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+   *          managed session policies. The plaintext that you use for both inline and managed session
+   *          policies can't exceed 2,048 characters. Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
    *          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -242,16 +240,13 @@ export class STS extends STSClient {
    *          characters and the values can’t exceed 256 characters. For these and additional limits, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *
    *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-   *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-   *             response element indicates by percentage how close the policies and tags for your
-   *             request are to the upper size limit.
-   *             </p>
+   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+   *             and session tags into a packed binary format that has a separate limit. Your request can
+   *             fail for this limit even if your plaintext meets the other requirements. The
+   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
+   *             policies and tags for your request are to the upper size limit.</p>
    *          </note>
-   *
    *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
    *          you do, session tags override the role's tags with the same key.</p>
    *          <p>An administrator must grant you the permissions necessary to pass session tags. The
@@ -376,9 +371,9 @@ export class STS extends STSClient {
    *          operations.</p>
    *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
    *          this operation. You can pass a single JSON policy document to use as an inline session
-   *          policy. You can also specify up to 10 managed policies to use as managed session policies.
-   *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
-   *          characters. Passing policies to this operation returns new
+   *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+   *          managed session policies. The plaintext that you use for both inline and managed session
+   *          policies can't exceed 2,048 characters. Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
    *          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -397,16 +392,13 @@ export class STS extends STSClient {
    *          characters and the values can’t exceed 256 characters. For these and additional limits, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *
    *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-   *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-   *             response element indicates by percentage how close the policies and tags for your
-   *             request are to the upper size limit.
-   *             </p>
+   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+   *             and session tags into a packed binary format that has a separate limit. Your request can
+   *             fail for this limit even if your plaintext meets the other requirements. The
+   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
+   *             policies and tags for your request are to the upper size limit.</p>
    *          </note>
-   *
    *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
    *          you do, the session tag overrides the role tag with the same key.</p>
    *          <p>An administrator must grant you the permissions necessary to pass session tags. The
@@ -684,20 +676,21 @@ export class STS extends STSClient {
    *             <b>Permissions</b>
    *          </p>
    *          <p>You can use the temporary credentials created by <code>GetFederationToken</code> in any
-   *          Amazon Web Services service except the following:</p>
+   *          Amazon Web Services service with the following exceptions:</p>
    *          <ul>
    *             <li>
-   *                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. </p>
+   *                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. This limitation does not apply to console sessions.</p>
    *             </li>
    *             <li>
    *                <p>You cannot call any STS operations except <code>GetCallerIdentity</code>.</p>
    *             </li>
    *          </ul>
+   *          <p>You can use temporary credentials for single sign-on (SSO) to the console.</p>
    *          <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
    *          this operation. You can pass a single JSON policy document to use as an inline session
-   *          policy. You can also specify up to 10 managed policies to use as managed session policies.
-   *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
-   *          characters.</p>
+   *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+   *          managed session policies. The plaintext that you use for both inline and managed session
+   *          policies can't exceed 2,048 characters.</p>
    *          <p>Though the session policy parameters are optional, if you do not pass a policy, then the
    *          resulting federated user session has no permissions. When you pass session policies, the
    *          session permissions are the intersection of the IAM user policies and the session

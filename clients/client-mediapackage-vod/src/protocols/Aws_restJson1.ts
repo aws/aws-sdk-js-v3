@@ -77,6 +77,7 @@ import {
   DashPackage,
   EgressAccessLogs,
   EgressEndpoint,
+  EncryptionContractConfiguration,
   ForbiddenException,
   HlsEncryption,
   HlsManifest,
@@ -465,7 +466,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -545,7 +549,7 @@ const deserializeAws_restJson1ConfigureLogsCommandError = async (
 ): Promise<ConfigureLogsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -625,7 +629,7 @@ const deserializeAws_restJson1CreateAssetCommandError = async (
 ): Promise<CreateAssetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -702,7 +706,7 @@ const deserializeAws_restJson1CreatePackagingConfigurationCommandError = async (
 ): Promise<CreatePackagingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -773,7 +777,7 @@ const deserializeAws_restJson1CreatePackagingGroupCommandError = async (
 ): Promise<CreatePackagingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -826,7 +830,7 @@ const deserializeAws_restJson1DeleteAssetCommandError = async (
 ): Promise<DeleteAssetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -879,7 +883,7 @@ const deserializeAws_restJson1DeletePackagingConfigurationCommandError = async (
 ): Promise<DeletePackagingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -932,7 +936,7 @@ const deserializeAws_restJson1DeletePackagingGroupCommandError = async (
 ): Promise<DeletePackagingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1012,7 +1016,7 @@ const deserializeAws_restJson1DescribeAssetCommandError = async (
 ): Promise<DescribeAssetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1089,7 +1093,7 @@ const deserializeAws_restJson1DescribePackagingConfigurationCommandError = async
 ): Promise<DescribePackagingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1133,6 +1137,9 @@ export const deserializeAws_restJson1DescribePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.approximateAssetCount != null) {
+    contents.ApproximateAssetCount = __expectInt32(data.approximateAssetCount);
+  }
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
   }
@@ -1160,7 +1167,7 @@ const deserializeAws_restJson1DescribePackagingGroupCommandError = async (
 ): Promise<DescribePackagingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1219,7 +1226,7 @@ const deserializeAws_restJson1ListAssetsCommandError = async (
 ): Promise<ListAssetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1281,7 +1288,7 @@ const deserializeAws_restJson1ListPackagingConfigurationsCommandError = async (
 ): Promise<ListPackagingConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1340,7 +1347,7 @@ const deserializeAws_restJson1ListPackagingGroupsCommandError = async (
 ): Promise<ListPackagingGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1396,7 +1403,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1428,7 +1435,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1460,7 +1467,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1483,6 +1490,9 @@ export const deserializeAws_restJson1UpdatePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.approximateAssetCount != null) {
+    contents.ApproximateAssetCount = __expectInt32(data.approximateAssetCount);
+  }
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
   }
@@ -1510,7 +1520,7 @@ const deserializeAws_restJson1UpdatePackagingGroupCommandError = async (
 ): Promise<UpdatePackagingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1688,10 +1698,8 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1756,6 +1764,7 @@ const serializeAws_restJson1DashPackage = (input: DashPackage, context: __SerdeC
     ...(input.IncludeEncoderConfigurationInSegments != null && {
       includeEncoderConfigurationInSegments: input.IncludeEncoderConfigurationInSegments,
     }),
+    ...(input.IncludeIframeOnlyStream != null && { includeIframeOnlyStream: input.IncludeIframeOnlyStream }),
     ...(input.PeriodTriggers != null && {
       periodTriggers: serializeAws_restJson1__listOf__PeriodTriggersElement(input.PeriodTriggers, context),
     }),
@@ -1767,6 +1776,16 @@ const serializeAws_restJson1DashPackage = (input: DashPackage, context: __SerdeC
 const serializeAws_restJson1EgressAccessLogs = (input: EgressAccessLogs, context: __SerdeContext): any => {
   return {
     ...(input.LogGroupName != null && { logGroupName: input.LogGroupName }),
+  };
+};
+
+const serializeAws_restJson1EncryptionContractConfiguration = (
+  input: EncryptionContractConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PresetSpeke20Audio != null && { presetSpeke20Audio: input.PresetSpeke20Audio }),
+    ...(input.PresetSpeke20Video != null && { presetSpeke20Video: input.PresetSpeke20Video }),
   };
 };
 
@@ -1838,6 +1857,12 @@ const serializeAws_restJson1MssPackage = (input: MssPackage, context: __SerdeCon
 
 const serializeAws_restJson1SpekeKeyProvider = (input: SpekeKeyProvider, context: __SerdeContext): any => {
   return {
+    ...(input.EncryptionContractConfiguration != null && {
+      encryptionContractConfiguration: serializeAws_restJson1EncryptionContractConfiguration(
+        input.EncryptionContractConfiguration,
+        context
+      ),
+    }),
     ...(input.RoleArn != null && { roleArn: input.RoleArn }),
     ...(input.SystemIds != null && { systemIds: serializeAws_restJson1__listOf__string(input.SystemIds, context) }),
     ...(input.Url != null && { url: input.Url }),
@@ -1857,10 +1882,8 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1983,10 +2006,8 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2065,6 +2086,7 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
     Encryption:
       output.encryption != null ? deserializeAws_restJson1DashEncryption(output.encryption, context) : undefined,
     IncludeEncoderConfigurationInSegments: __expectBoolean(output.includeEncoderConfigurationInSegments),
+    IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
     PeriodTriggers:
       output.periodTriggers != null
         ? deserializeAws_restJson1__listOf__PeriodTriggersElement(output.periodTriggers, context)
@@ -2085,6 +2107,16 @@ const deserializeAws_restJson1EgressEndpoint = (output: any, context: __SerdeCon
     PackagingConfigurationId: __expectString(output.packagingConfigurationId),
     Status: __expectString(output.status),
     Url: __expectString(output.url),
+  } as any;
+};
+
+const deserializeAws_restJson1EncryptionContractConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EncryptionContractConfiguration => {
+  return {
+    PresetSpeke20Audio: __expectString(output.presetSpeke20Audio),
+    PresetSpeke20Video: __expectString(output.presetSpeke20Video),
   } as any;
 };
 
@@ -2178,6 +2210,7 @@ const deserializeAws_restJson1PackagingConfiguration = (
 
 const deserializeAws_restJson1PackagingGroup = (output: any, context: __SerdeContext): PackagingGroup => {
   return {
+    ApproximateAssetCount: __expectInt32(output.approximateAssetCount),
     Arn: __expectString(output.arn),
     Authorization:
       output.authorization != null ? deserializeAws_restJson1Authorization(output.authorization, context) : undefined,
@@ -2193,6 +2226,10 @@ const deserializeAws_restJson1PackagingGroup = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1SpekeKeyProvider = (output: any, context: __SerdeContext): SpekeKeyProvider => {
   return {
+    EncryptionContractConfiguration:
+      output.encryptionContractConfiguration != null
+        ? deserializeAws_restJson1EncryptionContractConfiguration(output.encryptionContractConfiguration, context)
+        : undefined,
     RoleArn: __expectString(output.roleArn),
     SystemIds:
       output.systemIds != null ? deserializeAws_restJson1__listOf__string(output.systemIds, context) : undefined,
@@ -2213,16 +2250,15 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2254,6 +2290,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2264,6 +2306,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

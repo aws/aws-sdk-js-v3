@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,10 +32,10 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
  * <p>Creates an association between a geofence collection and a tracker resource. This
  *             allows the tracker resource to communicate location data to the linked geofence
  *             collection. </p>
- *         <p>You can associate up to five geofence collections to each tracker resource.</p>
- *         <note>
+ *          <p>You can associate up to five geofence collections to each tracker resource.</p>
+ *          <note>
  *             <p>Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class AssociateTrackerConsumerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AssociateTrackerConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class AssociateTrackerConsumerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateTrackerConsumerCommandInput, AssociateTrackerConsumerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateTrackerConsumerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

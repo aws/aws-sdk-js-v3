@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteFunctionRequest, DeleteFunctionRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteFunctionRequest, DeleteFunctionRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteFunctionCommand,
   serializeAws_restXmlDeleteFunctionCommand,
@@ -24,12 +25,12 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a CloudFront function.</p>
- * 		       <p>You cannot delete a function if it’s associated with a cache behavior. First, update your
- * 			distributions to remove the function association from all cache behaviors, then delete
- * 			the function.</p>
- * 		       <p>To delete a function, you must provide the function’s name and version
- * 			(<code>ETag</code> value). To get these values, you can use <code>ListFunctions</code>
- * 			and <code>DescribeFunction</code>.</p>
+ *          <p>You cannot delete a function if it's associated with a cache behavior. First, update
+ * 			your distributions to remove the function association from all cache behaviors, then
+ * 			delete the function.</p>
+ *          <p>To delete a function, you must provide the function's name and version
+ * 				(<code>ETag</code> value). To get these values, you can use
+ * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,15 @@ export class DeleteFunctionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class DeleteFunctionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteFunctionCommandInput, DeleteFunctionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteFunctionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

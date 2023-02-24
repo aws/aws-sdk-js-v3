@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,6 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
 
 /**
  * <p>Gets the path tracking results of a Amazon Rekognition Video analysis started by <a>StartPersonTracking</a>.</p>
- *
  *          <p>The person path tracking operation is started by a call to <code>StartPersonTracking</code>
  *      which returns a job identifier (<code>JobId</code>). When the operation finishes, Amazon Rekognition Video publishes a completion status to
  *      the Amazon Simple Notification Service topic registered in the initial call to <code>StartPersonTracking</code>.</p>
@@ -46,14 +46,10 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
  *        facial attributes (<code>BoundingBox</code>, <code>Confidence</code>,
  *        <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>). The other facial attributes listed
  *        in the <code>Face</code> object of the following response syntax are not returned. </p>
- *
  *             <p>For more information, see FaceDetail in the Amazon Rekognition Developer Guide.</p>
  *          </note>
- *
- *
  *          <p>By default, the array is sorted by the time(s) a person's path is tracked in the video.
  *       You can sort by tracked persons by specifying <code>INDEX</code> for the <code>SortBy</code> input parameter.</p>
- *
  *          <p>Use the <code>MaxResults</code> parameter to limit the number of items returned. If there are more results than
  *    specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set
  *    of results. To get the next page of results, call <code>GetPersonTracking</code> and populate the <code>NextToken</code> request parameter with the token
@@ -81,6 +77,15 @@ export class GetPersonTrackingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetPersonTrackingCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,6 +101,9 @@ export class GetPersonTrackingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetPersonTrackingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

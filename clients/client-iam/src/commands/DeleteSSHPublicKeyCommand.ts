@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified SSH public key.</p>
- *         <p>The SSH public key deleted by this operation is used only for authenticating the
+ *          <p>The SSH public key deleted by this operation is used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
  *             to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for
  *                 SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
@@ -51,6 +52,15 @@ export class DeleteSSHPublicKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +76,9 @@ export class DeleteSSHPublicKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSSHPublicKeyCommandInput, DeleteSSHPublicKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteSSHPublicKeyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

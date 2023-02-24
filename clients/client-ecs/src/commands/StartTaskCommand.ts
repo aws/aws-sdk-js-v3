@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,9 +28,8 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
 /**
  * <p>Starts a new task from the specified task definition on the specified container
  * 			instance or instances.</p>
- * 		       <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +49,15 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +73,7 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
     options?: __HttpHandlerOptions
   ): Handler<StartTaskCommandInput, StartTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StartTaskCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

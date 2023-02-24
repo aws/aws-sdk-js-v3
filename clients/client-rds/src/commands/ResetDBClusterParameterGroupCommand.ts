@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,16 +36,16 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *             and <code>ApplyMethod</code>. To reset the
  *             entire DB cluster parameter group, specify the <code>DBClusterParameterGroupName</code>
  *             and <code>ResetAllParameters</code> parameters.</p>
- *         <p>When resetting the entire group, dynamic parameters are updated immediately and static parameters
+ *          <p>When resetting the entire group, dynamic parameters are updated immediately and static parameters
  *             are set to <code>pending-reboot</code> to take effect on the next DB instance restart
  *             or <code>RebootDBInstance</code> request. You must call <code>RebootDBInstance</code> for every
  *             DB instance in your DB cluster that you want the updated static parameter to apply to.</p>
- *         <p>For more information on Amazon Aurora DB clusters, see
+ *          <p>For more information on Amazon Aurora DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *         <p>For more information on Multi-AZ DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+ *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+ *                 cluster deployments</a> in the <i>Amazon RDS User
+ *             Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +70,15 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ResetDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +94,9 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ResetDBClusterParameterGroupCommandInput, ResetDBClusterParameterGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ResetDBClusterParameterGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -47,6 +47,8 @@ import { DLMServiceException as __BaseException } from "../models/DLMServiceExce
 import {
   _Parameters,
   Action,
+  ArchiveRetainRule,
+  ArchiveRule,
   CreateRule,
   CrossRegionCopyAction,
   CrossRegionCopyDeprecateRule,
@@ -67,6 +69,7 @@ import {
   ResourceNotFoundException,
   ResourceTypeValues,
   RetainRule,
+  RetentionArchiveTier,
   Schedule,
   ShareRule,
   Tag,
@@ -226,7 +229,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -294,7 +300,7 @@ const deserializeAws_restJson1CreateLifecyclePolicyCommandError = async (
 ): Promise<CreateLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -338,7 +344,7 @@ const deserializeAws_restJson1DeleteLifecyclePolicyCommandError = async (
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -385,7 +391,7 @@ const deserializeAws_restJson1GetLifecyclePoliciesCommandError = async (
 ): Promise<GetLifecyclePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -435,7 +441,7 @@ const deserializeAws_restJson1GetLifecyclePolicyCommandError = async (
 ): Promise<GetLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -482,7 +488,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -526,7 +532,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -570,7 +576,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -614,7 +620,7 @@ const deserializeAws_restJson1UpdateLifecyclePolicyCommandError = async (
 ): Promise<UpdateLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -753,6 +759,20 @@ const serializeAws_restJson1ActionList = (input: Action[], context: __SerdeConte
     });
 };
 
+const serializeAws_restJson1ArchiveRetainRule = (input: ArchiveRetainRule, context: __SerdeContext): any => {
+  return {
+    ...(input.RetentionArchiveTier != null && {
+      RetentionArchiveTier: serializeAws_restJson1RetentionArchiveTier(input.RetentionArchiveTier, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ArchiveRule = (input: ArchiveRule, context: __SerdeContext): any => {
+  return {
+    ...(input.RetainRule != null && { RetainRule: serializeAws_restJson1ArchiveRetainRule(input.RetainRule, context) }),
+  };
+};
+
 const serializeAws_restJson1AvailabilityZoneList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -873,6 +893,14 @@ const serializeAws_restJson1EventSource = (input: EventSource, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1ExcludeDataVolumeTagList = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Tag(entry, context);
+    });
+};
+
 const serializeAws_restJson1FastRestoreRule = (input: FastRestoreRule, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityZones != null && {
@@ -887,6 +915,9 @@ const serializeAws_restJson1FastRestoreRule = (input: FastRestoreRule, context: 
 const serializeAws_restJson1_Parameters = (input: _Parameters, context: __SerdeContext): any => {
   return {
     ...(input.ExcludeBootVolume != null && { ExcludeBootVolume: input.ExcludeBootVolume }),
+    ...(input.ExcludeDataVolumeTags != null && {
+      ExcludeDataVolumeTags: serializeAws_restJson1ExcludeDataVolumeTagList(input.ExcludeDataVolumeTags, context),
+    }),
     ...(input.NoReboot != null && { NoReboot: input.NoReboot }),
   };
 };
@@ -938,8 +969,17 @@ const serializeAws_restJson1RetainRule = (input: RetainRule, context: __SerdeCon
   };
 };
 
+const serializeAws_restJson1RetentionArchiveTier = (input: RetentionArchiveTier, context: __SerdeContext): any => {
+  return {
+    ...(input.Count != null && { Count: input.Count }),
+    ...(input.Interval != null && { Interval: input.Interval }),
+    ...(input.IntervalUnit != null && { IntervalUnit: input.IntervalUnit }),
+  };
+};
+
 const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext): any => {
   return {
+    ...(input.ArchiveRule != null && { ArchiveRule: serializeAws_restJson1ArchiveRule(input.ArchiveRule, context) }),
     ...(input.CopyTags != null && { CopyTags: input.CopyTags }),
     ...(input.CreateRule != null && { CreateRule: serializeAws_restJson1CreateRule(input.CreateRule, context) }),
     ...(input.CrossRegionCopyRules != null && {
@@ -1015,10 +1055,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1074,6 +1112,22 @@ const deserializeAws_restJson1ActionList = (output: any, context: __SerdeContext
       return deserializeAws_restJson1Action(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1ArchiveRetainRule = (output: any, context: __SerdeContext): ArchiveRetainRule => {
+  return {
+    RetentionArchiveTier:
+      output.RetentionArchiveTier != null
+        ? deserializeAws_restJson1RetentionArchiveTier(output.RetentionArchiveTier, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ArchiveRule = (output: any, context: __SerdeContext): ArchiveRule => {
+  return {
+    RetainRule:
+      output.RetainRule != null ? deserializeAws_restJson1ArchiveRetainRule(output.RetainRule, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1AvailabilityZoneList = (output: any, context: __SerdeContext): string[] => {
@@ -1214,6 +1268,18 @@ const deserializeAws_restJson1EventSource = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1ExcludeDataVolumeTagList = (output: any, context: __SerdeContext): Tag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeContext): FastRestoreRule => {
   return {
     AvailabilityZones:
@@ -1291,6 +1357,10 @@ const deserializeAws_restJson1ParameterList = (output: any, context: __SerdeCont
 const deserializeAws_restJson1_Parameters = (output: any, context: __SerdeContext): _Parameters => {
   return {
     ExcludeBootVolume: __expectBoolean(output.ExcludeBootVolume),
+    ExcludeDataVolumeTags:
+      output.ExcludeDataVolumeTags != null
+        ? deserializeAws_restJson1ExcludeDataVolumeTagList(output.ExcludeDataVolumeTags, context)
+        : undefined,
     NoReboot: __expectBoolean(output.NoReboot),
   } as any;
 };
@@ -1366,8 +1436,18 @@ const deserializeAws_restJson1RetainRule = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_restJson1RetentionArchiveTier = (output: any, context: __SerdeContext): RetentionArchiveTier => {
+  return {
+    Count: __expectInt32(output.Count),
+    Interval: __expectInt32(output.Interval),
+    IntervalUnit: __expectString(output.IntervalUnit),
+  } as any;
+};
+
 const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext): Schedule => {
   return {
+    ArchiveRule:
+      output.ArchiveRule != null ? deserializeAws_restJson1ArchiveRule(output.ArchiveRule, context) : undefined,
     CopyTags: __expectBoolean(output.CopyTags),
     CreateRule: output.CreateRule != null ? deserializeAws_restJson1CreateRule(output.CreateRule, context) : undefined,
     CrossRegionCopyRules:
@@ -1460,10 +1540,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1517,7 +1595,8 @@ const deserializeAws_restJson1VariableTagsList = (output: any, context: __SerdeC
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1549,6 +1628,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1559,6 +1644,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

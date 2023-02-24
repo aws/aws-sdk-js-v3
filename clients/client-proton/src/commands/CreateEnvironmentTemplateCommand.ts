@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface CreateEnvironmentTemplateCommandInput extends CreateEnvironment
 export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment Templates</a> in the <i>Proton Administrator Guide</i>.</p>
+ * <p>Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment Templates</a> in the <i>Proton User Guide</i>.</p>
  *          <p>You can create an environment template in one of the two following ways:</p>
  *          <ul>
  *             <li>
@@ -39,8 +40,8 @@ export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmen
  *                <p>Register and publish a <i>customer managed</i> environment template that connects Proton to your existing provisioned
  *           infrastructure that you manage. Proton <i>doesn't</i> manage your existing provisioned infrastructure. To create an environment
  *           template for customer provisioned and managed infrastructure, include the <code>provisioning</code> parameter and set the value to
- *             <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html">Register
- *             and publish an environment template</a> in the <i>Proton Administrator Guide</i>.</p>
+ *             <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/template-create.html">Register
+ *             and publish an environment template</a> in the <i>Proton User Guide</i>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -66,6 +67,15 @@ export class CreateEnvironmentTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateEnvironmentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +91,9 @@ export class CreateEnvironmentTemplateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateEnvironmentTemplateCommandInput, CreateEnvironmentTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateEnvironmentTemplateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateAddressRequest, DisassociateAddressRequestFilterSensitiveLog } from "../models/models_4";
+import { DisassociateAddressRequest, DisassociateAddressRequestFilterSensitiveLog } from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateAddressCommand,
   serializeAws_ec2DisassociateAddressCommand,
@@ -24,12 +25,11 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>
- * 			      <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
+ *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
  * 				Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *
  *          <note>
- *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
  *          <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>
  * @example
@@ -55,6 +55,15 @@ export class DisassociateAddressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisassociateAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +79,9 @@ export class DisassociateAddressCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateAddressCommandInput, DisassociateAddressCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateAddressCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

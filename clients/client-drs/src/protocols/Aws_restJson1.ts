@@ -96,12 +96,15 @@ import {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
 } from "../commands/RetryDataReplicationCommand";
+import { ReverseReplicationCommandInput, ReverseReplicationCommandOutput } from "../commands/ReverseReplicationCommand";
 import {
   StartFailbackLaunchCommandInput,
   StartFailbackLaunchCommandOutput,
 } from "../commands/StartFailbackLaunchCommand";
 import { StartRecoveryCommandInput, StartRecoveryCommandOutput } from "../commands/StartRecoveryCommand";
+import { StartReplicationCommandInput, StartReplicationCommandOutput } from "../commands/StartReplicationCommand";
 import { StopFailbackCommandInput, StopFailbackCommandOutput } from "../commands/StopFailbackCommand";
+import { StopReplicationCommandInput, StopReplicationCommandOutput } from "../commands/StopReplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   TerminateRecoveryInstancesCommandInput,
@@ -168,6 +171,7 @@ import {
   ReplicationConfigurationTemplate,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  SourceCloudProperties,
   SourceProperties,
   SourceServer,
   StagingArea,
@@ -773,6 +777,30 @@ export const serializeAws_restJson1RetryDataReplicationCommand = async (
   });
 };
 
+export const serializeAws_restJson1ReverseReplicationCommand = async (
+  input: ReverseReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ReverseReplication";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.recoveryInstanceID != null && { recoveryInstanceID: input.recoveryInstanceID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1StartFailbackLaunchCommand = async (
   input: StartFailbackLaunchCommandInput,
   context: __SerdeContext
@@ -831,6 +859,30 @@ export const serializeAws_restJson1StartRecoveryCommand = async (
   });
 };
 
+export const serializeAws_restJson1StartReplicationCommand = async (
+  input: StartReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartReplication";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.sourceServerID != null && { sourceServerID: input.sourceServerID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1StopFailbackCommand = async (
   input: StopFailbackCommandInput,
   context: __SerdeContext
@@ -843,6 +895,30 @@ export const serializeAws_restJson1StopFailbackCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.recoveryInstanceID != null && { recoveryInstanceID: input.recoveryInstanceID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StopReplicationCommand = async (
+  input: StopReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StopReplication";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.sourceServerID != null && { sourceServerID: input.sourceServerID }),
   });
   return new __HttpRequest({
     protocol,
@@ -919,7 +995,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1131,7 +1210,7 @@ const deserializeAws_restJson1CreateExtendedSourceServerCommandError = async (
 ): Promise<CreateExtendedSourceServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1238,7 +1317,7 @@ const deserializeAws_restJson1CreateReplicationConfigurationTemplateCommandError
 ): Promise<CreateReplicationConfigurationTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1291,7 +1370,7 @@ const deserializeAws_restJson1DeleteJobCommandError = async (
 ): Promise<DeleteJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1341,7 +1420,7 @@ const deserializeAws_restJson1DeleteRecoveryInstanceCommandError = async (
 ): Promise<DeleteRecoveryInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1391,7 +1470,7 @@ const deserializeAws_restJson1DeleteReplicationConfigurationTemplateCommandError
 ): Promise<DeleteReplicationConfigurationTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1441,7 +1520,7 @@ const deserializeAws_restJson1DeleteSourceServerCommandError = async (
 ): Promise<DeleteSourceServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1497,7 +1576,7 @@ const deserializeAws_restJson1DescribeJobLogItemsCommandError = async (
 ): Promise<DescribeJobLogItemsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1550,7 +1629,7 @@ const deserializeAws_restJson1DescribeJobsCommandError = async (
 ): Promise<DescribeJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1603,7 +1682,7 @@ const deserializeAws_restJson1DescribeRecoveryInstancesCommandError = async (
 ): Promise<DescribeRecoveryInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1656,7 +1735,7 @@ const deserializeAws_restJson1DescribeRecoverySnapshotsCommandError = async (
 ): Promise<DescribeRecoverySnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1712,7 +1791,7 @@ const deserializeAws_restJson1DescribeReplicationConfigurationTemplatesCommandEr
 ): Promise<DescribeReplicationConfigurationTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1768,7 +1847,7 @@ const deserializeAws_restJson1DescribeSourceServersCommandError = async (
 ): Promise<DescribeSourceServersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1815,7 +1894,7 @@ const deserializeAws_restJson1DisconnectRecoveryInstanceCommandError = async (
 ): Promise<DisconnectRecoveryInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1874,6 +1953,15 @@ export const deserializeAws_restJson1DisconnectSourceServerCommand = async (
   if (data.recoveryInstanceId != null) {
     contents.recoveryInstanceId = __expectString(data.recoveryInstanceId);
   }
+  if (data.replicationDirection != null) {
+    contents.replicationDirection = __expectString(data.replicationDirection);
+  }
+  if (data.reversedDirectionSourceServerArn != null) {
+    contents.reversedDirectionSourceServerArn = __expectString(data.reversedDirectionSourceServerArn);
+  }
+  if (data.sourceCloudProperties != null) {
+    contents.sourceCloudProperties = deserializeAws_restJson1SourceCloudProperties(data.sourceCloudProperties, context);
+  }
   if (data.sourceProperties != null) {
     contents.sourceProperties = deserializeAws_restJson1SourceProperties(data.sourceProperties, context);
   }
@@ -1895,7 +1983,7 @@ const deserializeAws_restJson1DisconnectSourceServerCommandError = async (
 ): Promise<DisconnectSourceServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1957,7 +2045,7 @@ const deserializeAws_restJson1GetFailbackReplicationConfigurationCommandError = 
 ): Promise<GetFailbackReplicationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2028,7 +2116,7 @@ const deserializeAws_restJson1GetLaunchConfigurationCommandError = async (
 ): Promise<GetLaunchConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2129,7 +2217,7 @@ const deserializeAws_restJson1GetReplicationConfigurationCommandError = async (
 ): Promise<GetReplicationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2179,7 +2267,7 @@ const deserializeAws_restJson1InitializeServiceCommandError = async (
 ): Promise<InitializeServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2232,7 +2320,7 @@ const deserializeAws_restJson1ListExtensibleSourceServersCommandError = async (
 ): Promise<ListExtensibleSourceServersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2288,7 +2376,7 @@ const deserializeAws_restJson1ListStagingAccountsCommandError = async (
 ): Promise<ListStagingAccountsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2341,7 +2429,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2397,6 +2485,15 @@ export const deserializeAws_restJson1RetryDataReplicationCommand = async (
   if (data.recoveryInstanceId != null) {
     contents.recoveryInstanceId = __expectString(data.recoveryInstanceId);
   }
+  if (data.replicationDirection != null) {
+    contents.replicationDirection = __expectString(data.replicationDirection);
+  }
+  if (data.reversedDirectionSourceServerArn != null) {
+    contents.reversedDirectionSourceServerArn = __expectString(data.reversedDirectionSourceServerArn);
+  }
+  if (data.sourceCloudProperties != null) {
+    contents.sourceCloudProperties = deserializeAws_restJson1SourceCloudProperties(data.sourceCloudProperties, context);
+  }
   if (data.sourceProperties != null) {
     contents.sourceProperties = deserializeAws_restJson1SourceProperties(data.sourceProperties, context);
   }
@@ -2418,10 +2515,69 @@ const deserializeAws_restJson1RetryDataReplicationCommandError = async (
 ): Promise<RetryDataReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ReverseReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReverseReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ReverseReplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.reversedDirectionSourceServerArn != null) {
+    contents.reversedDirectionSourceServerArn = __expectString(data.reversedDirectionSourceServerArn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ReverseReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReverseReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.drs#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.drs#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -2471,7 +2627,7 @@ const deserializeAws_restJson1StartFailbackLaunchCommandError = async (
 ): Promise<StartFailbackLaunchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2527,7 +2683,7 @@ const deserializeAws_restJson1StartRecoveryCommandError = async (
 ): Promise<StartRecoveryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2540,6 +2696,59 @@ const deserializeAws_restJson1StartRecoveryCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.drs#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StartReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartReplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.sourceServer != null) {
+    contents.sourceServer = deserializeAws_restJson1SourceServer(data.sourceServer, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StartReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.drs#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -2577,10 +2786,63 @@ const deserializeAws_restJson1StopFailbackCommandError = async (
 ): Promise<StopFailbackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StopReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StopReplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.sourceServer != null) {
+    contents.sourceServer = deserializeAws_restJson1SourceServer(data.sourceServer, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StopReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.drs#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -2624,7 +2886,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2677,7 +2939,7 @@ const deserializeAws_restJson1TerminateRecoveryInstancesCommandError = async (
 ): Promise<TerminateRecoveryInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2727,7 +2989,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2777,7 +3039,7 @@ const deserializeAws_restJson1UpdateFailbackReplicationConfigurationCommandError
 ): Promise<UpdateFailbackReplicationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2851,7 +3113,7 @@ const deserializeAws_restJson1UpdateLaunchConfigurationCommandError = async (
 ): Promise<UpdateLaunchConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2958,7 +3220,7 @@ const deserializeAws_restJson1UpdateReplicationConfigurationCommandError = async
 ): Promise<UpdateReplicationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3065,7 +3327,7 @@ const deserializeAws_restJson1UpdateReplicationConfigurationTemplateCommandError
 ): Promise<UpdateReplicationConfigurationTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3496,10 +3758,8 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3526,10 +3786,8 @@ const deserializeAws_restJson1ConversionMap = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3908,6 +4166,7 @@ const deserializeAws_restJson1RecoveryInstance = (output: any, context: __SerdeC
       output.failback != null ? deserializeAws_restJson1RecoveryInstanceFailback(output.failback, context) : undefined,
     isDrill: __expectBoolean(output.isDrill),
     jobID: __expectString(output.jobID),
+    originEnvironment: __expectString(output.originEnvironment),
     pointInTimeSnapshotDateTime: __expectString(output.pointInTimeSnapshotDateTime),
     recoveryInstanceID: __expectString(output.recoveryInstanceID),
     recoveryInstanceProperties:
@@ -4052,6 +4311,7 @@ const deserializeAws_restJson1RecoveryInstanceFailback = (
     failbackClientLastSeenByServiceDateTime: __expectString(output.failbackClientLastSeenByServiceDateTime),
     failbackInitiationTime: __expectString(output.failbackInitiationTime),
     failbackJobID: __expectString(output.failbackJobID),
+    failbackLaunchType: __expectString(output.failbackLaunchType),
     failbackToOriginalServer: __expectBoolean(output.failbackToOriginalServer),
     firstByteDateTime: __expectString(output.firstByteDateTime),
     state: __expectString(output.state),
@@ -4192,6 +4452,14 @@ const deserializeAws_restJson1ReplicationServersSecurityGroupsIDs = (
   return retVal;
 };
 
+const deserializeAws_restJson1SourceCloudProperties = (output: any, context: __SerdeContext): SourceCloudProperties => {
+  return {
+    originAccountID: __expectString(output.originAccountID),
+    originAvailabilityZone: __expectString(output.originAvailabilityZone),
+    originRegion: __expectString(output.originRegion),
+  } as any;
+};
+
 const deserializeAws_restJson1SourceProperties = (output: any, context: __SerdeContext): SourceProperties => {
   return {
     cpus: output.cpus != null ? deserializeAws_restJson1Cpus(output.cpus, context) : undefined,
@@ -4221,6 +4489,12 @@ const deserializeAws_restJson1SourceServer = (output: any, context: __SerdeConte
     lastLaunchResult: __expectString(output.lastLaunchResult),
     lifeCycle: output.lifeCycle != null ? deserializeAws_restJson1LifeCycle(output.lifeCycle, context) : undefined,
     recoveryInstanceId: __expectString(output.recoveryInstanceId),
+    replicationDirection: __expectString(output.replicationDirection),
+    reversedDirectionSourceServerArn: __expectString(output.reversedDirectionSourceServerArn),
+    sourceCloudProperties:
+      output.sourceCloudProperties != null
+        ? deserializeAws_restJson1SourceCloudProperties(output.sourceCloudProperties, context)
+        : undefined,
     sourceProperties:
       output.sourceProperties != null
         ? deserializeAws_restJson1SourceProperties(output.sourceProperties, context)
@@ -4281,10 +4555,8 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4321,10 +4593,8 @@ const deserializeAws_restJson1VolumeToConversionMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ConversionMap(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ConversionMap(value, context);
+    return acc;
   }, {});
 };
 
@@ -4333,16 +4603,15 @@ const deserializeAws_restJson1VolumeToSizeMap = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectLong(value) as any,
-    };
+    acc[key] = __expectLong(value) as any;
+    return acc;
   }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -4374,6 +4643,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -4384,6 +4659,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

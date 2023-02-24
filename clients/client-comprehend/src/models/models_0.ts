@@ -79,9 +79,8 @@ export interface AugmentedManifestsListItem {
 
 export interface BatchDetectDominantLanguageRequest {
   /**
-   * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document should contain at least 20 characters and must contain fewer than
-   *       5,000 bytes of UTF-8 encoded characters.</p>
+   * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
+   *       documents. Each document should contain at least 20 characters. The maximum size of each document is 5 KB.</p>
    */
   TextList: string[] | undefined;
 }
@@ -206,6 +205,41 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+export enum InvalidRequestDetailReason {
+  DOCUMENT_SIZE_EXCEEDED = "DOCUMENT_SIZE_EXCEEDED",
+  PAGE_LIMIT_EXCEEDED = "PAGE_LIMIT_EXCEEDED",
+  TEXTRACT_ACCESS_DENIED = "TEXTRACT_ACCESS_DENIED",
+  UNSUPPORTED_DOC_TYPE = "UNSUPPORTED_DOC_TYPE",
+}
+
+/**
+ * <p>Provides additional detail about why the request failed:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Document size is too large - Check the size of your file and resubmit the request.</p>
+ *             </li>
+ *             <li>
+ *                <p>Document type is not supported - Check the file type and resubmit the request.</p>
+ *             </li>
+ *             <li>
+ *                <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p>
+ *             </li>
+ *             <li>
+ *                <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface InvalidRequestDetail {
+  /**
+   * <p>Reason code is <code>INVALID_DOCUMENT</code>.</p>
+   */
+  Reason?: InvalidRequestDetailReason | string;
+}
+
+export enum InvalidRequestReason {
+  INVALID_DOCUMENT = "INVALID_DOCUMENT",
+}
+
 /**
  * <p>The request is invalid.</p>
  */
@@ -213,6 +247,25 @@ export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
   Message?: string;
+  Reason?: InvalidRequestReason | string;
+  /**
+   * <p>Provides additional detail about why the request failed:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Document size is too large - Check the size of your file and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>Document type is not supported - Check the file type and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p>
+   *             </li>
+   *          </ul>
+   */
+  Detail?: InvalidRequestDetail;
   /**
    * @internal
    */
@@ -224,6 +277,8 @@ export class InvalidRequestException extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidRequestException.prototype);
     this.Message = opts.Message;
+    this.Reason = opts.Reason;
+    this.Detail = opts.Detail;
   }
 }
 
@@ -265,9 +320,8 @@ export enum LanguageCode {
 
 export interface BatchDetectEntitiesRequest {
   /**
-   * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
+   *       documents. The maximum size of each document is 5 KB.</p>
    */
   TextList: string[] | undefined;
 
@@ -276,6 +330,51 @@ export interface BatchDetectEntitiesRequest {
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
+}
+
+/**
+ * <p>Nested block contained within a block.</p>
+ */
+export interface ChildBlock {
+  /**
+   * <p>Unique identifier for the child block.</p>
+   */
+  ChildBlockId?: string;
+
+  /**
+   * <p>Offset of the start of the child block within its parent block.</p>
+   */
+  BeginOffset?: number;
+
+  /**
+   * <p>Offset of the end of the child block within its parent block.</p>
+   */
+  EndOffset?: number;
+}
+
+/**
+ * <p>A reference to a block. </p>
+ */
+export interface BlockReference {
+  /**
+   * <p>Unique identifier for the block.</p>
+   */
+  BlockId?: string;
+
+  /**
+   * <p>Offset of the start of the block within its parent block.</p>
+   */
+  BeginOffset?: number;
+
+  /**
+   * <p>Offset of the end of the block within its parent block.</p>
+   */
+  EndOffset?: number;
+
+  /**
+   * <p>List of child blocks within this block.</p>
+   */
+  ChildBlocks?: ChildBlock[];
 }
 
 export enum EntityType {
@@ -302,7 +401,10 @@ export interface Entity {
   Score?: number;
 
   /**
-   * <p>The entity's type.</p>
+   * <p>The entity type. For entity detection using the built-in model, this field contains one of the
+   *       standard entity types listed below.</p>
+   *          <p>For custom entity detection, this field contains one of the
+   *       entity types that you specified when you trained your custom model.</p>
    */
   Type?: EntityType | string;
 
@@ -312,21 +414,23 @@ export interface Entity {
   Text?: string;
 
   /**
-   * <p>A character offset in the input text that shows where the entity begins (the first
-   *       character is at position 0). The offset returns the position of each UTF-8 code point in the
-   *       string. A <i>code point</i> is the abstract character from a particular
-   *       graphical representation. For example, a multi-byte UTF-8 character maps to a single code
-   *       point.</p>
+   * <p>The zero-based offset from the beginning of the source text to the first character in the
+   *       entity.</p>
+   *          <p>This field is empty for non-text input.</p>
    */
   BeginOffset?: number;
 
   /**
-   * <p>A character offset in the input text that shows where the entity ends. The offset
-   *       returns the position of each UTF-8 code point in the string. A <i>code point</i>
-   *       is the abstract character from a particular graphical representation. For example, a
-   *       multi-byte UTF-8 character maps to a single code point. </p>
+   * <p>The zero-based offset from the beginning of the source text to the last character in the
+   *       entity.</p>
+   *          <p>This field is empty for non-text input.</p>
    */
   EndOffset?: number;
+
+  /**
+   * <p>A reference to each block for this entity. This field is empty for plain-text input.</p>
+   */
+  BlockReferences?: BlockReference[];
 }
 
 /**
@@ -368,7 +472,9 @@ export interface BatchDetectEntitiesResponse {
 /**
  * <p>Amazon Comprehend can't process the language of the input text. For custom entity
  *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
- *       For a list of supported languages, see <a>supported-languages</a>. </p>
+ *       For a list of supported languages,
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
+ *     </p>
  */
 export class UnsupportedLanguageException extends __BaseException {
   readonly name: "UnsupportedLanguageException" = "UnsupportedLanguageException";
@@ -390,9 +496,8 @@ export class UnsupportedLanguageException extends __BaseException {
 
 export interface BatchDetectKeyPhrasesRequest {
   /**
-   * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
+   *       documents. The maximum size of each document is 5 KB.</p>
    */
   TextList: string[] | undefined;
 
@@ -419,19 +524,14 @@ export interface KeyPhrase {
   Text?: string;
 
   /**
-   * <p>A character offset in the input text that shows where the key phrase begins (the first
-   *       character is at position 0). The offset returns the position of each UTF-8 code point in the
-   *       string. A <i>code point</i> is the abstract character from a particular
-   *       graphical representation. For example, a multi-byte UTF-8 character maps to a single code
-   *       point.</p>
+   * <p>The zero-based offset from the beginning of the source text to the first character in the
+   *       key phrase.</p>
    */
   BeginOffset?: number;
 
   /**
-   * <p>A character offset in the input text where the key phrase ends. The offset returns the
-   *       position of each UTF-8 code point in the string. A <code>code point</code> is the abstract
-   *       character from a particular graphical representation. For example, a multi-byte UTF-8
-   *       character maps to a single code point.</p>
+   * <p>The zero-based offset from the beginning of the source text to the last character in the
+   *       key phrase.</p>
    */
   EndOffset?: number;
 }
@@ -474,9 +574,12 @@ export interface BatchDetectKeyPhrasesResponse {
 
 export interface BatchDetectSentimentRequest {
   /**
-   * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
+   *       documents. The maximum size of each document is 5 KB. </p>
+   *          <note>
+   *             <p>Amazon Comprehend performs real-time sentiment analysis on the first 500 characters of the input text
+   *     and ignores any additional text in the input.</p>
+   *          </note>
    */
   TextList: string[] | undefined;
 
@@ -576,9 +679,8 @@ export enum SyntaxLanguageCode {
 
 export interface BatchDetectSyntaxRequest {
   /**
-   * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
+   *       documents. The maximum size for each document is 5 KB.</p>
    */
   TextList: string[] | undefined;
 
@@ -614,7 +716,9 @@ export enum PartOfSpeechTagType {
 /**
  * <p>Identifies the part of speech represented by the token and gives the confidence that
  *       Amazon Comprehend has that the part of speech was correctly identified. For more information
- *       about the parts of speech that Amazon Comprehend can identify, see <a>how-syntax</a>.</p>
+ *       about the parts of speech that Amazon Comprehend can identify, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
+ *        </p>
  */
 export interface PartOfSpeechTag {
   /**
@@ -658,7 +762,9 @@ export interface SyntaxToken {
 
   /**
    * <p>Provides the part of speech label and the confidence level that Amazon Comprehend has that
-   *       the part of speech was correctly identified. For more information, see <a>how-syntax</a>.</p>
+   *       the part of speech was correctly identified. For more information, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   PartOfSpeech?: PartOfSpeechTag;
 }
@@ -695,6 +801,279 @@ export interface BatchDetectSyntaxResponse {
    *       the <code>ErrorList</code> is empty.</p>
    */
   ErrorList: BatchItemError[] | undefined;
+}
+
+export interface BatchDetectTargetedSentimentRequest {
+  /**
+   * <p>A list containing the UTF-8 encoded text of the input documents.
+   *       The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>
+   */
+  TextList: string[] | undefined;
+
+  /**
+   * <p>The language of the input documents. Currently, English is the only supported language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+}
+
+/**
+ * <p>Contains the sentiment and sentiment score for one mention of an entity.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ */
+export interface MentionSentiment {
+  /**
+   * <p>The sentiment of the mention. </p>
+   */
+  Sentiment?: SentimentType | string;
+
+  /**
+   * <p>Describes the level of confidence that Amazon Comprehend has in the accuracy of its
+   *       detection of sentiments.</p>
+   */
+  SentimentScore?: SentimentScore;
+}
+
+export enum TargetedSentimentEntityType {
+  ATTRIBUTE = "ATTRIBUTE",
+  BOOK = "BOOK",
+  BRAND = "BRAND",
+  COMMERCIAL_ITEM = "COMMERCIAL_ITEM",
+  DATE = "DATE",
+  EVENT = "EVENT",
+  FACILITY = "FACILITY",
+  GAME = "GAME",
+  LOCATION = "LOCATION",
+  MOVIE = "MOVIE",
+  MUSIC = "MUSIC",
+  ORGANIZATION = "ORGANIZATION",
+  OTHER = "OTHER",
+  PERSON = "PERSON",
+  PERSONAL_TITLE = "PERSONAL_TITLE",
+  QUANTITY = "QUANTITY",
+  SOFTWARE = "SOFTWARE",
+}
+
+/**
+ * <p>Information about one mention of an entity. The mention information includes the location of the mention
+ *       in the text and the sentiment of the mention.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ */
+export interface TargetedSentimentMention {
+  /**
+   * <p>Model confidence that the entity is relevant. Value range is zero to one, where one is highest confidence.</p>
+   */
+  Score?: number;
+
+  /**
+   * <p>The confidence that all the entities mentioned in the group relate to the same entity.</p>
+   */
+  GroupScore?: number;
+
+  /**
+   * <p>The text in the document that identifies the entity.</p>
+   */
+  Text?: string;
+
+  /**
+   * <p>The type of the entity. Amazon Comprehend supports a variety of <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-entities">entity types</a>.</p>
+   */
+  Type?: TargetedSentimentEntityType | string;
+
+  /**
+   * <p>Contains the sentiment and sentiment score for the mention.</p>
+   */
+  MentionSentiment?: MentionSentiment;
+
+  /**
+   * <p>The offset into the document text where the mention begins.</p>
+   */
+  BeginOffset?: number;
+
+  /**
+   * <p>The offset into the document text where the mention ends.</p>
+   */
+  EndOffset?: number;
+}
+
+/**
+ * <p>Information about one of the entities found by targeted sentiment analysis.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ */
+export interface TargetedSentimentEntity {
+  /**
+   * <p>One or more index into the Mentions array that provides the best name for the entity group.</p>
+   */
+  DescriptiveMentionIndex?: number[];
+
+  /**
+   * <p>An array of mentions of the entity in the document. The array represents a co-reference group.
+   *       See <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-values">
+   *         Co-reference group</a> for an example. </p>
+   */
+  Mentions?: TargetedSentimentMention[];
+}
+
+/**
+ * <p>Analysis results for one of the documents in the batch.</p>
+ */
+export interface BatchDetectTargetedSentimentItemResult {
+  /**
+   * <p>The zero-based index of this result in the input list.</p>
+   */
+  Index?: number;
+
+  /**
+   * <p>An array of targeted sentiment entities.</p>
+   */
+  Entities?: TargetedSentimentEntity[];
+}
+
+export interface BatchDetectTargetedSentimentResponse {
+  /**
+   * <p>A list of objects containing the results of the operation.
+   *       The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list.
+   *       If all of the documents contain an error, the <code>ResultList</code> is empty.</p>
+   */
+  ResultList: BatchDetectTargetedSentimentItemResult[] | undefined;
+
+  /**
+   * <p>List of errors that the operation can return.</p>
+   */
+  ErrorList: BatchItemError[] | undefined;
+}
+
+export enum BlockType {
+  LINE = "LINE",
+  WORD = "WORD",
+}
+
+/**
+ * <p>The bounding box around the detected page
+ *      or around an element on a document page.
+ *     The left (x-coordinate) and top (y-coordinate) are coordinates that
+ *       represent the top and left sides of the bounding box. Note that the upper-left
+ *       corner of the image is the origin (0,0). </p>
+ *          <p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_BoundingBox.html">BoundingBox</a> in the Amazon Textract API reference.</p>
+ */
+export interface BoundingBox {
+  /**
+   * <p>The height of the bounding box as a ratio of the overall document page height.</p>
+   */
+  Height?: number;
+
+  /**
+   * <p>The left coordinate of the bounding box as a ratio of overall document page width.</p>
+   */
+  Left?: number;
+
+  /**
+   * <p>The top coordinate of the bounding box as a ratio of overall document page height.</p>
+   */
+  Top?: number;
+
+  /**
+   * <p>The width of the bounding box as a ratio of the overall document page width.</p>
+   */
+  Width?: number;
+}
+
+/**
+ * <p>The X and Y coordinates of a point on a document page.</p>
+ *          <p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_Point.html">Point</a> in the Amazon Textract API reference.</p>
+ */
+export interface Point {
+  /**
+   * <p>The value of the X coordinate for a point on a polygon</p>
+   */
+  X?: number;
+
+  /**
+   * <p>The value of the Y coordinate for a point on a polygon</p>
+   */
+  Y?: number;
+}
+
+/**
+ * <p>Information about the location of items on a document page.</p>
+ *          <p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_Geometry.html">Geometry</a> in the Amazon Textract API reference.</p>
+ */
+export interface Geometry {
+  /**
+   * <p>An axis-aligned coarse representation of the location of the recognized item on the
+   *       document page.</p>
+   */
+  BoundingBox?: BoundingBox;
+
+  /**
+   * <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
+   */
+  Polygon?: Point[];
+}
+
+export enum RelationshipType {
+  CHILD = "CHILD",
+}
+
+/**
+ * <p>List of child blocks for the current block.</p>
+ */
+export interface RelationshipsListItem {
+  /**
+   * <p>Identifers of the child blocks.</p>
+   */
+  Ids?: string[];
+
+  /**
+   * <p>Only supported relationship is a child relationship.</p>
+   */
+  Type?: RelationshipType | string;
+}
+
+/**
+ * <p>Information about each word or line of text in the input document.</p>
+ *          <p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_Block.html">Block</a> in the Amazon Textract API reference.</p>
+ */
+export interface Block {
+  /**
+   * <p>Unique identifier for the block.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The block represents a line of text or one word of text.</p>
+   *          <ul>
+   *             <li>
+   *                <p>WORD - A word that's detected on a document page.
+   *         A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p>
+   *             </li>
+   *             <li>
+   *                <p>LINE - A string of tab-delimited, contiguous words
+   *         that are detected on a document page</p>
+   *             </li>
+   *          </ul>
+   */
+  BlockType?: BlockType | string;
+
+  /**
+   * <p>The word or line of text extracted from the block.</p>
+   */
+  Text?: string;
+
+  /**
+   * <p>Page number where the block appears.</p>
+   */
+  Page?: number;
+
+  /**
+   * <p>Co-ordinates of the rectangle or polygon that contains the text.</p>
+   */
+  Geometry?: Geometry;
+
+  /**
+   * <p>A list of child blocks of the current block.
+   *       For example, a LINE object has child blocks for each WORD block that's part of the line of text. </p>
+   */
+  Relationships?: RelationshipsListItem[];
 }
 
 /**
@@ -791,16 +1170,130 @@ export interface ClassifierMetadata {
   EvaluationMetrics?: ClassifierEvaluationMetrics;
 }
 
+export enum DocumentReadAction {
+  TEXTRACT_ANALYZE_DOCUMENT = "TEXTRACT_ANALYZE_DOCUMENT",
+  TEXTRACT_DETECT_DOCUMENT_TEXT = "TEXTRACT_DETECT_DOCUMENT_TEXT",
+}
+
+export enum DocumentReadMode {
+  FORCE_DOCUMENT_READ_ACTION = "FORCE_DOCUMENT_READ_ACTION",
+  SERVICE_DEFAULT = "SERVICE_DEFAULT",
+}
+
+export enum DocumentReadFeatureTypes {
+  FORMS = "FORMS",
+  TABLES = "TABLES",
+}
+
+/**
+ * <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files. </p>
+ *          <p> By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Word files</b> - Amazon Comprehend parser extracts the text. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Digital PDF files</b> - Amazon Comprehend parser extracts the text. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Image files and scanned PDF files</b> - Amazon Comprehend uses the Amazon Textract <code>DetectDocumentText</code>
+ *           API to extract the text. </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <code>DocumentReaderConfig</code> does not apply to plain text files or Word files.</p>
+ *          <p>
+ *         For image files and PDF documents, you can override these default actions using the fields listed below.
+ *         For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/detecting-cer.html#detecting-cer-pdf">
+ *         Setting text extraction options</a>.
+ *     </p>
+ */
+export interface DocumentReaderConfig {
+  /**
+   * <p>This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files.
+   *       Enter one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The Amazon Comprehend service uses the <code>DetectDocumentText</code>
+   *            API operation. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TEXTRACT_ANALYZE_DOCUMENT</code> - The Amazon Comprehend service uses the <code>AnalyzeDocument</code>
+   *           API operation. </p>
+   *             </li>
+   *          </ul>
+   */
+  DocumentReadAction: DocumentReadAction | string | undefined;
+
+  /**
+   * <p>Determines the text extraction actions for PDF files. Enter one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SERVICE_DEFAULT</code> - use the Amazon Comprehend service defaults for PDF files.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FORCE_DOCUMENT_READ_ACTION</code> - Amazon Comprehend uses the Textract API specified by
+   *           DocumentReadAction for all PDF files, including digital PDF files. </p>
+   *             </li>
+   *          </ul>
+   */
+  DocumentReadMode?: DocumentReadMode | string;
+
+  /**
+   * <p>Specifies the type of Amazon Textract features to apply. If you chose <code>TEXTRACT_ANALYZE_DOCUMENT</code>
+   *       as the read action, you must specify one or both of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TABLES</code> - Returns information about any tables that are detected in the input document. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FORMS</code> - Returns information and the data from any forms that are detected in the input document. </p>
+   *             </li>
+   *          </ul>
+   */
+  FeatureTypes?: (DocumentReadFeatureTypes | string)[];
+}
+
 export interface ClassifyDocumentRequest {
   /**
-   * <p>The document text to be analyzed.</p>
+   * <p>The document text to be analyzed. If you enter text using this parameter,
+   *       do not use the <code>Bytes</code> parameter.</p>
    */
-  Text: string | undefined;
+  Text?: string;
 
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
    */
   EndpointArn: string | undefined;
+
+  /**
+   * <p>Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file.
+   *       You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code>
+   *       or <code>AnalyzeDocument</code> output file.</p>
+   *          <p>Provide the input document as a sequence of base64-encoded bytes.
+   *       If your code uses an Amazon Web Services SDK to classify documents, the SDK may encode
+   *       the document file bytes for you. </p>
+   *          <p>The maximum length of this field depends on the input document type. For details, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync.html">
+   *         Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </p>
+   *          <p>If you use the <code>Bytes</code> parameter, do not use the <code>Text</code> parameter.</p>
+   */
+  Bytes?: Uint8Array;
+
+  /**
+   * <p>Provides configuration parameters to override the default actions for extracting text
+   *       from PDF documents and image files.</p>
+   */
+  DocumentReaderConfig?: DocumentReaderConfig;
 }
 
 /**
@@ -816,6 +1309,117 @@ export interface DocumentClass {
    * <p>The confidence score that Amazon Comprehend has this class correctly attributed.</p>
    */
   Score?: number;
+
+  /**
+   * <p>Page number in the input document. This field is present
+   *       in the response only if your request includes the <code>Byte</code> parameter. </p>
+   */
+  Page?: number;
+}
+
+/**
+ * <p>Array of the number of characters extracted from each page.</p>
+ */
+export interface ExtractedCharactersListItem {
+  /**
+   * <p>Page number.</p>
+   */
+  Page?: number;
+
+  /**
+   * <p>Number of characters extracted from each page.</p>
+   */
+  Count?: number;
+}
+
+/**
+ * <p>Information about the document, discovered during text extraction.</p>
+ */
+export interface DocumentMetadata {
+  /**
+   * <p>Number of pages in the document.</p>
+   */
+  Pages?: number;
+
+  /**
+   * <p>List of pages in the document, with the number of characters extracted from each page.</p>
+   */
+  ExtractedCharacters?: ExtractedCharactersListItem[];
+}
+
+export enum DocumentType {
+  IMAGE = "IMAGE",
+  MS_WORD = "MS_WORD",
+  NATIVE_PDF = "NATIVE_PDF",
+  PLAIN_TEXT = "PLAIN_TEXT",
+  SCANNED_PDF = "SCANNED_PDF",
+  TEXTRACT_ANALYZE_DOCUMENT_JSON = "TEXTRACT_ANALYZE_DOCUMENT_JSON",
+  TEXTRACT_DETECT_DOCUMENT_TEXT_JSON = "TEXTRACT_DETECT_DOCUMENT_TEXT_JSON",
+}
+
+/**
+ * <p>Document type for each page in the document.</p>
+ */
+export interface DocumentTypeListItem {
+  /**
+   * <p>Page number.</p>
+   */
+  Page?: number;
+
+  /**
+   * <p>Document type.</p>
+   */
+  Type?: DocumentType | string;
+}
+
+export enum PageBasedErrorCode {
+  INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
+  PAGE_CHARACTERS_EXCEEDED = "PAGE_CHARACTERS_EXCEEDED",
+  PAGE_SIZE_EXCEEDED = "PAGE_SIZE_EXCEEDED",
+  TEXTRACT_BAD_PAGE = "TEXTRACT_BAD_PAGE",
+  TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED = "TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED",
+}
+
+/**
+ * <p>Text extraction encountered one or more page-level errors in the input document.</p>
+ *          <p>The <code>ErrorCode</code> contains one of the following values:</p>
+ *          <ul>
+ *             <li>
+ *                <p>TEXTRACT_BAD_PAGE - Amazon Textract cannot read the page. For more information
+ *           about page limits in Amazon Textract, see <a href="https://docs.aws.amazon.com/textract/latest/dg/limits-document.html">
+ *             Page Quotas in Amazon Textract</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED - The number of requests exceeded your throughput limit.
+ *           For more information about throughput quotas in Amazon Textract, see <a href="https://docs.aws.amazon.com/textract/latest/dg/limits-quotas-explained.html">
+ *             Default quotas in Amazon Textract</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>PAGE_CHARACTERS_EXCEEDED - Too many text characters on the page (10,000 characters maximum).</p>
+ *             </li>
+ *             <li>
+ *                <p>PAGE_SIZE_EXCEEDED - The maximum page size is 10 MB.</p>
+ *             </li>
+ *             <li>
+ *                <p>INTERNAL_SERVER_ERROR - The request encountered a service issue. Try the API request again.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface ErrorsListItem {
+  /**
+   * <p>Page number where the error occurred.</p>
+   */
+  Page?: number;
+
+  /**
+   * <p>Error code for the cause of the error.</p>
+   */
+  ErrorCode?: PageBasedErrorCode | string;
+
+  /**
+   * <p>Text message explaining the reason for the error.</p>
+   */
+  ErrorMessage?: string;
 }
 
 /**
@@ -831,6 +1435,12 @@ export interface DocumentLabel {
    * <p>The confidence score that Amazon Comprehend has this label correctly attributed.</p>
    */
   Score?: number;
+
+  /**
+   * <p>Page number where the label occurs. This field is present
+   *       in the response only if your request includes the <code>Byte</code> parameter. </p>
+   */
+  Page?: number;
 }
 
 export interface ClassifyDocumentResponse {
@@ -849,6 +1459,24 @@ export interface ClassifyDocumentResponse {
    *       action movie, a science fiction movie, and a comedy, all at the same time. </p>
    */
   Labels?: DocumentLabel[];
+
+  /**
+   * <p>Extraction information about the document. This field is present
+   *       in the response only if your request includes the <code>Byte</code> parameter. </p>
+   */
+  DocumentMetadata?: DocumentMetadata;
+
+  /**
+   * <p>The document type for each page in the input document. This field is present
+   *       in the response only if your request includes the <code>Byte</code> parameter. </p>
+   */
+  DocumentType?: DocumentTypeListItem[];
+
+  /**
+   * <p>Page-level errors that the system detected while processing the input document.
+   *       The field is empty if the system encountered no errors.</p>
+   */
+  Errors?: ErrorsListItem[];
 }
 
 /**
@@ -875,8 +1503,7 @@ export class ResourceUnavailableException extends __BaseException {
 
 export interface ContainsPiiEntitiesRequest {
   /**
-   * <p>Creates a new document classification request to analyze a single document in real-time,
-   *       returning personally identifiable information (PII) entity labels.</p>
+   * <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
    */
   Text: string | undefined;
 
@@ -958,7 +1585,9 @@ export enum DocumentClassifierDataFormat {
 
 /**
  * <p>The input properties for training a document classifier. </p>
- *          <p>For more information on how the input file is formatted, see <a>prep-classifier-data</a>. </p>
+ *          <p>For more information on how the input file is formatted, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html">Preparing training data</a> in the Comprehend Developer Guide.
+ *     </p>
  */
 export interface DocumentClassifierInputDataConfig {
   /**
@@ -997,9 +1626,9 @@ export interface DocumentClassifierInputDataConfig {
   S3Uri?: string;
 
   /**
-   * <p>The Amazon S3 URI for the input data. The Amazon S3 bucket must be in the same AWS Region
-   *       as the API endpoint that you are calling. The URI can point to a single input file or it can
-   *       provide the prefix for a collection of input files. </p>
+   * <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer
+   *       are located. The URI must be in the same AWS Region as the API endpoint that you are
+   *       calling. </p>
    */
   TestS3Uri?: string;
 
@@ -1439,9 +2068,8 @@ export interface EntityRecognizerAnnotations {
   S3Uri: string | undefined;
 
   /**
-   * <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer
-   *       are located. The URI must be in the same AWS Region as the API endpoint that you are
-   *       calling.</p>
+   * <p> Specifies the Amazon S3 location where the test annotations for an entity recognizer are
+   *       located. The URI must be in the same region as the API endpoint that you are calling.</p>
    */
   TestS3Uri?: string;
 }
@@ -1624,9 +2252,11 @@ export interface CreateEntityRecognizerRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p> You can specify any of the following languages supported by Amazon Comprehend: English
+   * <p> You can specify any of the following languages: English
    *       ("en"), Spanish ("es"), French ("fr"), Italian ("it"), German ("de"), or Portuguese ("pt").
-   *       All documents must be in the same language.</p>
+   *       If you plan to use this entity recognizer with PDF, Word, or image input files, you must
+   *       specify English as the language.
+   *       All training documents must be in the same language.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 
@@ -1748,67 +2378,9 @@ export interface DescribeDocumentClassificationJobRequest {
   JobId: string | undefined;
 }
 
-export enum DocumentReadAction {
-  TEXTRACT_ANALYZE_DOCUMENT = "TEXTRACT_ANALYZE_DOCUMENT",
-  TEXTRACT_DETECT_DOCUMENT_TEXT = "TEXTRACT_DETECT_DOCUMENT_TEXT",
-}
-
-export enum DocumentReadMode {
-  FORCE_DOCUMENT_READ_ACTION = "FORCE_DOCUMENT_READ_ACTION",
-  SERVICE_DEFAULT = "SERVICE_DEFAULT",
-}
-
-export enum DocumentReadFeatureTypes {
-  FORMS = "FORMS",
-  TABLES = "TABLES",
-}
-
 /**
- * <p>The input properties for a topic detection job.</p>
- */
-export interface DocumentReaderConfig {
-  /**
-   * <p>This enum field will start with two values which will apply to PDFs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The service calls DetectDocumentText
-   *           for PDF documents per page.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TEXTRACT_ANALYZE_DOCUMENT</code> - The service calls AnalyzeDocument for PDF
-   *           documents per page.</p>
-   *             </li>
-   *          </ul>
-   */
-  DocumentReadAction: DocumentReadAction | string | undefined;
-
-  /**
-   * <p>This enum field provides two values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SERVICE_DEFAULT</code> - use service defaults for Document reading. For
-   *           Digital PDF it would mean using an internal parser instead of Textract APIs</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FORCE_DOCUMENT_READ_ACTION</code> - Always use specified action for
-   *           DocumentReadAction, including Digital PDF. </p>
-   *             </li>
-   *          </ul>
-   */
-  DocumentReadMode?: DocumentReadMode | string;
-
-  /**
-   * <p>Specifies how the text in an input file should be processed:</p>
-   */
-  FeatureTypes?: (DocumentReadFeatureTypes | string)[];
-}
-
-/**
- * <p>The input properties for an inference job.</p>
+ * <p>The input properties for an inference job. The document reader config field applies
+ *       only to non-text inputs for custom analysis.</p>
  */
 export interface InputDataConfig {
   /**
@@ -1841,11 +2413,8 @@ export interface InputDataConfig {
   InputFormat?: InputFormat | string;
 
   /**
-   * <p>The document reader config field applies only for InputDataConfig of
-   *       StartEntitiesDetectionJob. </p>
-   *          <p>Use DocumentReaderConfig to provide specifications about how you want your inference
-   *       documents read. Currently it applies for PDF documents in StartEntitiesDetectionJob custom
-   *       inference.</p>
+   * <p>Provides configuration parameters to override the default actions for extracting text
+   *       from PDF documents and image files.</p>
    */
   DocumentReaderConfig?: DocumentReaderConfig;
 }
@@ -3108,7 +3677,7 @@ export interface DescribePiiEntitiesDetectionJobResponse {
 
 export interface DescribeResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy to describe.</p>
+   * <p>The Amazon Resource Name (ARN) of the custom model version that has the resource policy.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -3307,7 +3876,8 @@ export interface TargetedSentimentDetectionJobProperties {
   EndTime?: Date;
 
   /**
-   * <p>The input properties for an inference job.</p>
+   * <p>The input properties for an inference job. The document reader config field applies
+   *       only to non-text inputs for custom analysis.</p>
    */
   InputDataConfig?: InputDataConfig;
 
@@ -3476,8 +4046,7 @@ export interface DescribeTopicsDetectionJobResponse {
 
 export interface DetectDominantLanguageRequest {
   /**
-   * <p>A UTF-8 text string. Each string should contain at least 20 characters and must contain
-   *       fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+   * <p>A UTF-8 text string. The string must contain at least 20 characters. The maximum string size is 100 KB.</p>
    */
   Text: string | undefined;
 }
@@ -3494,17 +4063,17 @@ export interface DetectDominantLanguageResponse {
 
 export interface DetectEntitiesRequest {
   /**
-   * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A UTF-8 text string. The maximum string size is 100 KB. If you enter text using this parameter,
+   *     do not use the <code>Bytes</code> parameter.</p>
    */
-  Text: string | undefined;
+  Text?: string;
 
   /**
    * <p>The language of the input documents. You can specify any of the primary languages
-   *       supported by Amazon Comprehend. All documents must be in the same language.</p>
-   *          <p>If your request includes the endpoint for a custom entity recognition model, Amazon
+   *       supported by Amazon Comprehend. If your request includes the endpoint for a custom entity recognition model, Amazon
    *       Comprehend uses the language of your custom model, and it ignores any language code that you
    *       specify here.</p>
+   *          <p>All input documents must be in the same language.</p>
    */
   LanguageCode?: LanguageCode | string;
 
@@ -3517,6 +4086,32 @@ export interface DetectEntitiesRequest {
    *          <p>For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
    */
   EndpointArn?: string;
+
+  /**
+   * <p>This field applies only when you use a custom entity recognition model that
+   *       was trained with PDF annotations. For other cases,
+   *       enter your text input in the <code>Text</code> field.</p>
+   *          <p>
+   *       Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file.
+   *       Using a plain-text file in the <code>Bytes</code> parameter is equivelent to using the
+   *       <code>Text</code> parameter (the <code>Entities</code> field in the response is identical).</p>
+   *          <p>You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code>
+   *       or <code>AnalyzeDocument</code> output file.</p>
+   *          <p>Provide the input document as a sequence of base64-encoded bytes.
+   *       If your code uses an Amazon Web Services SDK to detect entities, the SDK may encode
+   *       the document file bytes for you. </p>
+   *          <p>The maximum length of this field depends on the input document type. For details, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync.html">
+   *         Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </p>
+   *          <p>If you use the <code>Bytes</code> parameter, do not use the <code>Text</code> parameter.</p>
+   */
+  Bytes?: Uint8Array;
+
+  /**
+   * <p>Provides configuration parameters to override the default actions for extracting text
+   *       from PDF documents and image files.</p>
+   */
+  DocumentReaderConfig?: DocumentReaderConfig;
 }
 
 export interface DetectEntitiesResponse {
@@ -3526,14 +4121,43 @@ export interface DetectEntitiesResponse {
    *       confidence that Amazon Comprehend has in the detection. </p>
    *          <p>If your request uses a custom entity recognition model, Amazon Comprehend detects the
    *       entities that the model is trained to recognize. Otherwise, it detects the default entity
-   *       types. For a list of default entity types, see <a>how-entities</a>.</p>
+   *       types. For a list of default entity types, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   Entities?: Entity[];
+
+  /**
+   * <p>Information about the document, discovered during text extraction. This field is present
+   *       in the response only if your request used the <code>Byte</code> parameter. </p>
+   */
+  DocumentMetadata?: DocumentMetadata;
+
+  /**
+   * <p>The document type for each page in the input document. This field is present
+   *       in the response only if your request used the <code>Byte</code> parameter. </p>
+   */
+  DocumentType?: DocumentTypeListItem[];
+
+  /**
+   * <p>Information about each block of text in the input document.
+   *       Blocks are nested. A page block contains a block for each line of text,
+   *       which contains a block for each word. </p>
+   *          <p>The <code>Block</code> content for a Word input document does not include a <code>Geometry</code> field.</p>
+   *          <p>The <code>Block</code> field is not present in the response for plain-text inputs.</p>
+   */
+  Blocks?: Block[];
+
+  /**
+   * <p>Page-level errors that the system detected while processing the input document.
+   *       The field is empty if the system encountered no errors.</p>
+   */
+  Errors?: ErrorsListItem[];
 }
 
 export interface DetectKeyPhrasesRequest {
   /**
-   * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
+   * <p>A UTF-8 text string. The string must contain less than 100 KB of UTF-8 encoded
    *       characters.</p>
    */
   Text: string | undefined;
@@ -3557,8 +4181,7 @@ export interface DetectKeyPhrasesResponse {
 
 export interface DetectPiiEntitiesRequest {
   /**
-   * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
    */
   Text: string | undefined;
 
@@ -3584,19 +4207,14 @@ export interface PiiEntity {
   Type?: PiiEntityType | string;
 
   /**
-   * <p>A character offset in the input text that shows where the PII entity begins (the first
-   *       character is at position 0). The offset returns the position of each UTF-8 code point in the
-   *       string. A <i>code point</i> is the abstract character from a particular
-   *       graphical representation. For example, a multi-byte UTF-8 character maps to a single code
-   *       point.</p>
+   * <p>The zero-based offset from the beginning of the source text to the first character in the
+   *       entity.</p>
    */
   BeginOffset?: number;
 
   /**
-   * <p>A character offset in the input text that shows where the PII entity ends. The offset
-   *       returns the position of each UTF-8 code point in the string. A <i>code point</i>
-   *       is the abstract character from a particular graphical representation. For example, a
-   *       multi-byte UTF-8 character maps to a single code point.</p>
+   * <p>The zero-based offset from the beginning of the source text to the last character in the
+   *       entity.</p>
    */
   EndOffset?: number;
 }
@@ -3612,8 +4230,11 @@ export interface DetectPiiEntitiesResponse {
 
 export interface DetectSentimentRequest {
   /**
-   * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A UTF-8 text string. The maximum string size is 5 KB.</p>
+   *          <note>
+   *             <p>Amazon Comprehend performs real-time sentiment analysis on the first 500 characters of the input text
+   *     and ignores any additional text in the input.</p>
+   *          </note>
    */
   Text: string | undefined;
 
@@ -3640,8 +4261,7 @@ export interface DetectSentimentResponse {
 
 export interface DetectSyntaxRequest {
   /**
-   * <p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded
-   *       characters.</p>
+   * <p>A UTF-8 string. The maximum string size is 5 KB.</p>
    */
   Text: string | undefined;
 
@@ -3657,9 +4277,30 @@ export interface DetectSyntaxResponse {
   /**
    * <p>A collection of syntax tokens describing the text. For each token, the response provides
    *       the text, the token type, where the text begins and ends, and the level of confidence that
-   *       Amazon Comprehend has that the token is correct. For a list of token types, see <a>how-syntax</a>.</p>
+   *       Amazon Comprehend has that the token is correct. For a list of token types, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   SyntaxTokens?: SyntaxToken[];
+}
+
+export interface DetectTargetedSentimentRequest {
+  /**
+   * <p>A UTF-8 text string. The maximum string length is 5 KB.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The language of the input documents. Currently, English is the only supported language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+}
+
+export interface DetectTargetedSentimentResponse {
+  /**
+   * <p>Targeted sentiment analysis for each of the entities identified in the input text.</p>
+   */
+  Entities?: TargetedSentimentEntity[];
 }
 
 export interface ImportModelRequest {
@@ -5358,7 +5999,8 @@ export interface StartSentimentDetectionJobResponse {
 
 export interface StartTargetedSentimentDetectionJobRequest {
   /**
-   * <p>The input properties for an inference job.</p>
+   * <p>The input properties for an inference job. The document reader config field applies
+   *       only to non-text inputs for custom analysis.</p>
    */
   InputDataConfig: InputDataConfig | undefined;
 
@@ -5379,7 +6021,7 @@ export interface StartTargetedSentimentDetectionJobRequest {
   JobName?: string;
 
   /**
-   * <p>The language of the input documents. Currently, English is the only valid language.</p>
+   * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 
@@ -5891,9 +6533,30 @@ export const BatchDetectDominantLanguageResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const InvalidRequestDetailFilterSensitiveLog = (obj: InvalidRequestDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const BatchDetectEntitiesRequestFilterSensitiveLog = (obj: BatchDetectEntitiesRequest): any => ({
   ...obj,
   ...(obj.TextList && { TextList: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChildBlockFilterSensitiveLog = (obj: ChildBlock): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlockReferenceFilterSensitiveLog = (obj: BlockReference): any => ({
+  ...obj,
 });
 
 /**
@@ -6014,6 +6677,90 @@ export const BatchDetectSyntaxResponseFilterSensitiveLog = (obj: BatchDetectSynt
 /**
  * @internal
  */
+export const BatchDetectTargetedSentimentRequestFilterSensitiveLog = (
+  obj: BatchDetectTargetedSentimentRequest
+): any => ({
+  ...obj,
+  ...(obj.TextList && { TextList: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MentionSentimentFilterSensitiveLog = (obj: MentionSentiment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetedSentimentMentionFilterSensitiveLog = (obj: TargetedSentimentMention): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetedSentimentEntityFilterSensitiveLog = (obj: TargetedSentimentEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetectTargetedSentimentItemResultFilterSensitiveLog = (
+  obj: BatchDetectTargetedSentimentItemResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetectTargetedSentimentResponseFilterSensitiveLog = (
+  obj: BatchDetectTargetedSentimentResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BoundingBoxFilterSensitiveLog = (obj: BoundingBox): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PointFilterSensitiveLog = (obj: Point): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeometryFilterSensitiveLog = (obj: Geometry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationshipsListItemFilterSensitiveLog = (obj: RelationshipsListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlockFilterSensitiveLog = (obj: Block): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ClassifierEvaluationMetricsFilterSensitiveLog = (obj: ClassifierEvaluationMetrics): any => ({
   ...obj,
 });
@@ -6022,6 +6769,13 @@ export const ClassifierEvaluationMetricsFilterSensitiveLog = (obj: ClassifierEva
  * @internal
  */
 export const ClassifierMetadataFilterSensitiveLog = (obj: ClassifierMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentReaderConfigFilterSensitiveLog = (obj: DocumentReaderConfig): any => ({
   ...obj,
 });
 
@@ -6037,6 +6791,34 @@ export const ClassifyDocumentRequestFilterSensitiveLog = (obj: ClassifyDocumentR
  * @internal
  */
 export const DocumentClassFilterSensitiveLog = (obj: DocumentClass): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtractedCharactersListItemFilterSensitiveLog = (obj: ExtractedCharactersListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentMetadataFilterSensitiveLog = (obj: DocumentMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentTypeListItemFilterSensitiveLog = (obj: DocumentTypeListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorsListItemFilterSensitiveLog = (obj: ErrorsListItem): any => ({
   ...obj,
 });
 
@@ -6242,13 +7024,6 @@ export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResour
 export const DescribeDocumentClassificationJobRequestFilterSensitiveLog = (
   obj: DescribeDocumentClassificationJobRequest
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentReaderConfigFilterSensitiveLog = (obj: DocumentReaderConfig): any => ({
   ...obj,
 });
 
@@ -6702,6 +7477,21 @@ export const DetectSyntaxRequestFilterSensitiveLog = (obj: DetectSyntaxRequest):
  * @internal
  */
 export const DetectSyntaxResponseFilterSensitiveLog = (obj: DetectSyntaxResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectTargetedSentimentRequestFilterSensitiveLog = (obj: DetectTargetedSentimentRequest): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DetectTargetedSentimentResponseFilterSensitiveLog = (obj: DetectTargetedSentimentResponse): any => ({
   ...obj,
 });
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
 
 /**
  * <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p>
- *         <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
+ *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
  *             address ranges, or to the instances that are associated with the specified source
  *             security groups. When specifying an outbound rule for your security group in a VPC, the
  *             <code>IpPermissions</code> must include a destination for the traffic.</p>
@@ -64,6 +65,15 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AuthorizeSecurityGroupEgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +89,9 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AuthorizeSecurityGroupEgressCommandInput, AuthorizeSecurityGroupEgressCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AuthorizeSecurityGroupEgressCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

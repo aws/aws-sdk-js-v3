@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a batch transform job.</p>
- *         <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
+ *          <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
  *             changes to <code>Stopping</code>. After Amazon SageMaker
  *             stops
  *             the job, the status is set to <code>Stopped</code>. When you stop a batch transform job before
@@ -52,6 +53,15 @@ export class StopTransformJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopTransformJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,9 @@ export class StopTransformJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopTransformJobCommandInput, StopTransformJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopTransformJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

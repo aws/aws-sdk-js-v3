@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,16 @@ export interface ListAppsCommandInput extends ListAppsRequest {}
 export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists your Resilience Hub applications.</p>
+ * <p>Lists your AWS Resilience Hub applications.</p>
+ *          <note>
+ *             <p>You can filter applications using only one filter at a time or without using any filter.
+ *         If you try to filter applications using multiple filters, you will get the following
+ *         error:</p>
+ *             <p>
+ *                <code>An error occurred (ValidationException) when calling the ListApps operation: Only
+ *           one filter is supported for this operation.</code>
+ *             </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +62,15 @@ export class ListAppsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListAppsCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +86,7 @@ export class ListAppsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAppsCommandInput, ListAppsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListAppsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

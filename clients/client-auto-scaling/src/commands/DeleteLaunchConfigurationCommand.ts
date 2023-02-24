@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
 
 /**
  * <p>Deletes the specified launch configuration.</p>
- *         <p>The launch configuration must not be attached to an Auto Scaling group. When this call
+ *          <p>The launch configuration must not be attached to an Auto Scaling group. When this call
  *             completes, the launch configuration is no longer available for use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +50,15 @@ export class DeleteLaunchConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +74,9 @@ export class DeleteLaunchConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLaunchConfigurationCommandInput, DeleteLaunchConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteLaunchConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

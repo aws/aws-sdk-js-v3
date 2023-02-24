@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   UpdateEndpointInputFilterSensitiveLog,
   UpdateEndpointOutput,
   UpdateEndpointOutputFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateEndpointCommand,
   serializeAws_json1_1UpdateEndpointCommand,
@@ -31,12 +32,12 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * <p>Deploys the new <code>EndpointConfig</code> specified in the request, switches to
  *             using newly created endpoint, and then deletes resources provisioned for the endpoint
  *             using the previous <code>EndpointConfig</code> (there is no availability loss). </p>
- *         <p>When SageMaker receives the request, it sets the endpoint status to
+ *          <p>When SageMaker receives the request, it sets the endpoint status to
  *                 <code>Updating</code>. After updating the endpoint, it sets the status to
  *                 <code>InService</code>. To check the status of an endpoint, use the <a>DescribeEndpoint</a> API.
  *
  *         </p>
- *         <note>
+ *          <note>
  *             <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is
  *                 live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code>
  *                 operations are being performed on the endpoint. To update an endpoint, you must
@@ -44,7 +45,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *             <p>If you delete the <code>EndpointConfig</code> of an endpoint that is active or
  *                 being created or updated you may lose visibility into the instance type the endpoint
  *                 is using. The endpoint must be deleted in order to stop incurring charges.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +69,15 @@ export class UpdateEndpointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +93,9 @@ export class UpdateEndpointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateEndpointCommandInput, UpdateEndpointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateEndpointCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

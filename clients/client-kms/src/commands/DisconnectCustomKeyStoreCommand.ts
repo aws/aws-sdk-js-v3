@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,26 +29,26 @@ export interface DisconnectCustomKeyStoreCommandInput extends DisconnectCustomKe
 export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its associated CloudHSM cluster. While a custom key
- *       store is disconnected, you can manage the custom key store and its KMS keys, but you cannot
- *       create or use KMS keys in the custom key store. You can reconnect the custom key store at any
+ * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its backing key store. This operation disconnects an
+ *       CloudHSM key store from its associated CloudHSM cluster or disconnects an external key store from
+ *       the external key store proxy that communicates with your external key manager.</p>
+ *          <p> This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> feature in KMS, which
+ * combines the convenience and extensive integration of KMS with the isolation and control of a
+ * key store that you own and manage.</p>
+ *          <p>While a custom key store is disconnected, you can manage the custom key store and its KMS
+ *       keys, but you cannot create or use its KMS keys. You can reconnect the custom key store at any
  *       time.</p>
  *          <note>
  *             <p>While a custom key store is disconnected, all attempts to create KMS keys in the custom key store or to use existing KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> will
  *         fail. This action can prevent users from storing and accessing sensitive data.</p>
  *          </note>
- *          <p></p>
- *          <p>To find the connection state of a custom key store, use the <a>DescribeCustomKeyStores</a> operation. To reconnect a custom key store, use the
+ *          <p>When you disconnect a custom key store, its <code>ConnectionState</code> changes to
+ *         <code>Disconnected</code>. To find the connection state of a custom key store, use the <a>DescribeCustomKeyStores</a> operation. To reconnect a custom key store, use the
  *         <a>ConnectCustomKeyStore</a> operation.</p>
  *          <p>If the operation succeeds, it returns a JSON object with no
  * properties.</p>
- *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store feature</a> feature in KMS, which
- * combines the convenience and extensive integration of KMS with the isolation and control of a
- * single-tenant key store.</p>
- *
- *         <p>
- *             <b>Cross-account use</b>: No.
- *       You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
+ *          <p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
  *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisconnectCustomKeyStore</a> (IAM policy)</p>
@@ -104,6 +105,15 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DisconnectCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisconnectCustomKeyStoreCommandInput, DisconnectCustomKeyStoreCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisconnectCustomKeyStoreCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

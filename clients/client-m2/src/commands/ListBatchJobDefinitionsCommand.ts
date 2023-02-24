@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface ListBatchJobDefinitionsCommandOutput extends ListBatchJobDefini
 
 /**
  * <p>Lists all the available batch job definitions based on the batch job resources uploaded
- *          during the application creation. The listed batch job definitions can then be used to start
+ *          during the application creation. You can use the batch job definitions in the list to start
  *          a batch job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +55,15 @@ export class ListBatchJobDefinitionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListBatchJobDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class ListBatchJobDefinitionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListBatchJobDefinitionsCommandInput, ListBatchJobDefinitionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListBatchJobDefinitionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

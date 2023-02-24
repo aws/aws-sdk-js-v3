@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,10 +25,10 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified version from the specified managed policy.</p>
- *         <p>You cannot delete the default version from a policy using this operation. To delete
+ *          <p>You cannot delete the default version from a policy using this operation. To delete
  *             the default version from a policy, use <a>DeletePolicy</a>. To find out which
  *             version of a policy is marked as the default version, use <a>ListPolicyVersions</a>.</p>
- *         <p>For information about versions for managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
+ *          <p>For information about versions for managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +53,15 @@ export class DeletePolicyVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeletePolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,9 @@ export class DeletePolicyVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeletePolicyVersionCommandInput, DeletePolicyVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeletePolicyVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

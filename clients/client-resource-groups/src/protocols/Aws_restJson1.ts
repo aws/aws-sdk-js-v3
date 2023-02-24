@@ -18,6 +18,7 @@ import {
 
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
+import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "../commands/GetAccountSettingsCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
 import {
   GetGroupConfigurationCommandInput,
@@ -36,9 +37,14 @@ import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "../co
 import { TagCommandInput, TagCommandOutput } from "../commands/TagCommand";
 import { UngroupResourcesCommandInput, UngroupResourcesCommandOutput } from "../commands/UngroupResourcesCommand";
 import { UntagCommandInput, UntagCommandOutput } from "../commands/UntagCommand";
+import {
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "../commands/UpdateAccountSettingsCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand";
 import { UpdateGroupQueryCommandInput, UpdateGroupQueryCommandOutput } from "../commands/UpdateGroupQueryCommand";
 import {
+  AccountSettings,
   BadRequestException,
   FailedResource,
   ForbiddenException,
@@ -110,6 +116,28 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
     ...(input.Group != null && { Group: input.Group }),
     ...(input.GroupName != null && { GroupName: input.GroupName }),
   });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetAccountSettingsCommand = async (
+  input: GetAccountSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-account-settings";
+  let body: any;
+  body = "";
   return new __HttpRequest({
     protocol,
     hostname,
@@ -433,6 +461,33 @@ export const serializeAws_restJson1UntagCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateAccountSettingsCommand = async (
+  input: UpdateAccountSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-account-settings";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.GroupLifecycleEventsDesiredStatus != null && {
+      GroupLifecycleEventsDesiredStatus: input.GroupLifecycleEventsDesiredStatus,
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
@@ -519,7 +574,7 @@ const deserializeAws_restJson1CreateGroupCommandError = async (
 ): Promise<CreateGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -572,7 +627,7 @@ const deserializeAws_restJson1DeleteGroupCommandError = async (
 ): Promise<DeleteGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -591,6 +646,59 @@ const deserializeAws_restJson1DeleteGroupCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.resourcegroups#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.resourcegroups#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetAccountSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetAccountSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AccountSettings != null) {
+    contents.AccountSettings = deserializeAws_restJson1AccountSettings(data.AccountSettings, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetAccountSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.resourcegroups#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.resourcegroups#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.resourcegroups#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "MethodNotAllowedException":
+    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
+      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.resourcegroups#TooManyRequestsException":
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
@@ -628,7 +736,7 @@ const deserializeAws_restJson1GetGroupCommandError = async (
 ): Promise<GetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -684,7 +792,7 @@ const deserializeAws_restJson1GetGroupConfigurationCommandError = async (
 ): Promise<GetGroupConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -740,7 +848,7 @@ const deserializeAws_restJson1GetGroupQueryCommandError = async (
 ): Promise<GetGroupQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -799,7 +907,7 @@ const deserializeAws_restJson1GetTagsCommandError = async (
 ): Promise<GetTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -861,7 +969,7 @@ const deserializeAws_restJson1GroupResourcesCommandError = async (
 ): Promise<GroupResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -926,7 +1034,7 @@ const deserializeAws_restJson1ListGroupResourcesCommandError = async (
 ): Promise<ListGroupResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -991,7 +1099,7 @@ const deserializeAws_restJson1ListGroupsCommandError = async (
 ): Promise<ListGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1041,7 +1149,7 @@ const deserializeAws_restJson1PutGroupConfigurationCommandError = async (
 ): Promise<PutGroupConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1103,7 +1211,7 @@ const deserializeAws_restJson1SearchResourcesCommandError = async (
 ): Promise<SearchResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1162,7 +1270,7 @@ const deserializeAws_restJson1TagCommandError = async (
 ): Promise<TagCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1224,7 +1332,7 @@ const deserializeAws_restJson1UngroupResourcesCommandError = async (
 ): Promise<UngroupResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1283,7 +1391,7 @@ const deserializeAws_restJson1UntagCommandError = async (
 ): Promise<UntagCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1302,6 +1410,59 @@ const deserializeAws_restJson1UntagCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.resourcegroups#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.resourcegroups#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateAccountSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccountSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateAccountSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AccountSettings != null) {
+    contents.AccountSettings = deserializeAws_restJson1AccountSettings(data.AccountSettings, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateAccountSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccountSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.resourcegroups#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.resourcegroups#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.resourcegroups#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "MethodNotAllowedException":
+    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
+      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.resourcegroups#TooManyRequestsException":
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
@@ -1339,7 +1500,7 @@ const deserializeAws_restJson1UpdateGroupCommandError = async (
 ): Promise<UpdateGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1395,7 +1556,7 @@ const deserializeAws_restJson1UpdateGroupQueryCommandError = async (
 ): Promise<UpdateGroupQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1666,11 +1827,17 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
+  return {
+    GroupLifecycleEventsDesiredStatus: __expectString(output.GroupLifecycleEventsDesiredStatus),
+    GroupLifecycleEventsStatus: __expectString(output.GroupLifecycleEventsStatus),
+    GroupLifecycleEventsStatusMessage: __expectString(output.GroupLifecycleEventsStatusMessage),
+  } as any;
 };
 
 const deserializeAws_restJson1FailedResource = (output: any, context: __SerdeContext): FailedResource => {
@@ -1948,16 +2115,15 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1989,6 +2155,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -1999,6 +2171,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

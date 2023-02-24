@@ -6,7 +6,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getValueFromTextNode as __getValueFromTextNode,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -16,8 +16,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import { AssumeRoleCommandInput, AssumeRoleCommandOutput } from "../commands/AssumeRoleCommand";
 import { AssumeRoleWithSAMLCommandInput, AssumeRoleWithSAMLCommandOutput } from "../commands/AssumeRoleWithSAMLCommand";
@@ -217,17 +216,17 @@ const deserializeAws_queryAssumeRoleCommandError = async (
 ): Promise<AssumeRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
       throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
@@ -267,23 +266,23 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
 ): Promise<AssumeRoleWithSAMLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
       throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
-    case "IDPRejectedClaimException":
+    case "IDPRejectedClaim":
     case "com.amazonaws.sts#IDPRejectedClaimException":
       throw await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context);
-    case "InvalidIdentityTokenException":
+    case "InvalidIdentityToken":
     case "com.amazonaws.sts#InvalidIdentityTokenException":
       throw await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
@@ -323,26 +322,26 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
 ): Promise<AssumeRoleWithWebIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
       throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
-    case "IDPCommunicationErrorException":
+    case "IDPCommunicationError":
     case "com.amazonaws.sts#IDPCommunicationErrorException":
       throw await deserializeAws_queryIDPCommunicationErrorExceptionResponse(parsedOutput, context);
-    case "IDPRejectedClaimException":
+    case "IDPRejectedClaim":
     case "com.amazonaws.sts#IDPRejectedClaimException":
       throw await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context);
-    case "InvalidIdentityTokenException":
+    case "InvalidIdentityToken":
     case "com.amazonaws.sts#InvalidIdentityTokenException":
       throw await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
@@ -382,7 +381,7 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (
 ): Promise<DecodeAuthorizationMessageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -423,7 +422,7 @@ const deserializeAws_queryGetAccessKeyInfoCommandError = async (
 ): Promise<GetAccessKeyInfoCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -458,7 +457,7 @@ const deserializeAws_queryGetCallerIdentityCommandError = async (
 ): Promise<GetCallerIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -493,14 +492,14 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
 ): Promise<GetFederationTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
@@ -540,7 +539,7 @@ const deserializeAws_queryGetSessionTokenCommandError = async (
 ): Promise<GetSessionTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -672,6 +671,9 @@ const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: 
   }
   if (input.PolicyArns != null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+    if (input.PolicyArns?.length === 0) {
+      entries.PolicyArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -685,6 +687,9 @@ const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: 
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -692,6 +697,9 @@ const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: 
   }
   if (input.TransitiveTagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TransitiveTagKeys, context);
+    if (input.TransitiveTagKeys?.length === 0) {
+      entries.TransitiveTagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitiveTagKeys.${key}`;
       entries[loc] = value;
@@ -728,6 +736,9 @@ const serializeAws_queryAssumeRoleWithSAMLRequest = (
   }
   if (input.PolicyArns != null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+    if (input.PolicyArns?.length === 0) {
+      entries.PolicyArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -761,6 +772,9 @@ const serializeAws_queryAssumeRoleWithWebIdentityRequest = (
   }
   if (input.PolicyArns != null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+    if (input.PolicyArns?.length === 0) {
+      entries.PolicyArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -812,6 +826,9 @@ const serializeAws_queryGetFederationTokenRequest = (
   }
   if (input.PolicyArns != null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+    if (input.PolicyArns?.length === 0) {
+      entries.PolicyArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -822,6 +839,9 @@ const serializeAws_queryGetFederationTokenRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -1043,7 +1063,7 @@ const deserializeAws_queryCredentials = (output: any, context: __SerdeContext): 
     contents.SessionToken = __expectString(output["SessionToken"]);
   }
   if (output["Expiration"] !== undefined) {
-    contents.Expiration = __expectNonNull(__parseRfc3339DateTime(output["Expiration"]));
+    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
   }
   return contents;
 };
@@ -1240,7 +1260,8 @@ const deserializeAws_queryRegionDisabledException = (output: any, context: __Ser
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -1285,13 +1306,18 @@ const buildHttpRpcRequest = async (
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -1304,13 +1330,21 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

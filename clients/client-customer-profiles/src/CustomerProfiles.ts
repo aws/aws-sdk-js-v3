@@ -175,19 +175,15 @@ import { CustomerProfilesClient } from "./CustomerProfilesClient";
 
 /**
  * <fullname>Amazon Connect Customer Profiles</fullname>
- *          <p>Welcome to the Amazon Connect Customer Profiles API Reference. This guide provides information
- *          about the Amazon Connect Customer Profiles API, including supported operations, data types,
- *          parameters, and schemas.</p>
  *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has
  *          pre-built connectors powered by AppFlow that make it easy to combine customer information
  *          from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your
- *          enterprise resource planning (ERP), with contact history from your Amazon Connect contact
- *          center.</p>
- *          <p>If you're new to Amazon Connect , you might find it helpful to also review the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html">Amazon Connect Administrator Guide</a>.</p>
+ *          enterprise resource planning (ERP), with contact history from your Amazon Connect contact center.
+ *          If you're new to Amazon Connect, you might find it helpful to review the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/">Amazon Connect Administrator Guide</a>.</p>
  */
 export class CustomerProfiles extends CustomerProfilesClient {
   /**
-   * <p>Associates a new key value with a specific profile, such as a Contact Trace Record (CTR)
+   * <p>Associates a new key value with a specific profile, such as a Contact Record
    *          ContactId.</p>
    *          <p>A profile object can have a single unique key and any number of additional keys that can
    *          be used to identify the profile that it belongs to.</p>
@@ -560,7 +556,6 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *          enables you to evaluate the accuracy of the attributes in your matching list. </p>
    *          <p>You can't view which profiles are matched and would be merged.</p>
    *          <important>
-   *
    *             <p>We strongly recommend you use this API to do a dry run of the automerging process
    *             before running the Identity Resolution Job. Include <b>at least</b> two matching
    *             attributes. If your matching list includes too few attributes (such as only
@@ -704,7 +699,6 @@ export class CustomerProfiles extends CustomerProfilesClient {
    * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
    * S3.</p>
    *          </important>
-   *
    *          <p>Amazon Connect uses the following profile attributes to identify matches:</p>
    *          <ul>
    *             <li>
@@ -1197,7 +1191,6 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *                   </li>
    *                   <li>
    *                      <p>When there are conflicting fields:</p>
-   *
    *                      <ol>
    *                         <li>
    *                            <p>If no <code>SourceProfileIds</code> entry is specified, the main
@@ -1249,6 +1242,9 @@ export class CustomerProfiles extends CustomerProfilesClient {
    * <p>Adds an integration between the service and a third-party service, which includes
    *          Amazon AppFlow and Amazon Connect.</p>
    *          <p>An integration can belong to only one domain.</p>
+   *          <p>To add or remove tags on an existing Integration, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html"> TagResource
+   *       </a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">
+   *          UntagResource</a>.</p>
    */
   public putIntegration(
     args: PutIntegrationCommandInput,
@@ -1281,9 +1277,9 @@ export class CustomerProfiles extends CustomerProfilesClient {
 
   /**
    * <p>Adds additional objects to customer profiles of a given ObjectType.</p>
-   *          <p>When adding a specific profile object, like a Contact Trace Record (CTR), an inferred
-   *          profile can get created if it is not mapped to an existing profile. The resulting profile
-   *          will only have a phone number populated in the standard ProfileObject. Any additional CTRs
+   *          <p>When adding a specific profile object, like a Contact Record, an inferred profile can
+   *          get created if it is not mapped to an existing profile. The resulting profile will only
+   *          have a phone number populated in the standard ProfileObject. Any additional Contact Records
    *          with the same phone number will be mapped to the same inferred profile.</p>
    *          <p>When a ProfileObject is created and if a ProfileObjectType already exists for the
    *          ProfileObject, it will provide data to a standard profile depending on the
@@ -1322,6 +1318,8 @@ export class CustomerProfiles extends CustomerProfilesClient {
 
   /**
    * <p>Defines a ProfileObjectType.</p>
+   *          <p>To add or remove tags on an existing ObjectType, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">
+   *          TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
    */
   public putProfileObjectType(
     args: PutProfileObjectTypeCommandInput,
@@ -1353,8 +1351,11 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
-   * <p>Searches for profiles within a specific domain name using name, phone number, email
-   *          address, account number, or a custom defined index.</p>
+   * <p>Searches for profiles within a specific domain using one or more predefined search keys
+   *          (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search keys. A search key
+   *          is a data type pair that consists of a <code>KeyName</code> and <code>Values</code> list.</p>
+   *          <p>This operation supports searching for profiles with a minimum of 1 key-value(s) pair and up to
+   *          5 key-value(s) pairs using either <code>AND</code> or <code>OR</code> logic.</p>
    */
   public searchProfiles(
     args: SearchProfilesCommandInput,
@@ -1464,6 +1465,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *             resolution</a>: set <code>Matching</code> to true. </p>
    *          <p>To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service confused deputy prevention</a> for sample policies that you should
    *          apply. </p>
+   *          <p>To add or remove tags on an existing Domain, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
    */
   public updateDomain(
     args: UpdateDomainCommandInput,

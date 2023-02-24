@@ -36,7 +36,6 @@ export enum AccessDirection {
 
 /**
  * <p>Describes the last time an access key was used.</p>
- *
  *          <note>
  *             <p>This object does not include data in the response of a <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action.</p>
  *          </note>
@@ -49,13 +48,14 @@ export interface AccessKeyLastUsed {
   lastUsedDate?: Date;
 
   /**
-   * <p>The AWS Region where this access key was most recently used.</p>
+   * <p>The Amazon Web Services Region where this access key was most recently used.</p>
    *          <p>This value is <code>N/A</code> if the access key has not been used.</p>
    */
   region?: string;
 
   /**
-   * <p>The name of the AWS service with which this access key was most recently used.</p>
+   * <p>The name of the Amazon Web Services service with which this access key was most recently
+   *       used.</p>
    *          <p>This value is <code>N/A</code> if the access key has not been used.</p>
    */
   serviceName?: string;
@@ -68,12 +68,10 @@ export enum StatusType {
 
 /**
  * <p>Describes an access key for an Amazon Lightsail bucket.</p>
- *
  *          <p>Access keys grant full programmatic access to the specified bucket and its objects. You
  *       can have a maximum of two access keys per bucket. Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action to create an access key for a specific bucket. For
  *       more information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
  *         <i>Amazon Lightsail Developer Guide</i>.</p>
- *
  *          <important>
  *             <p>The <code>secretAccessKey</code> value is returned only in response to the
  *           <code>CreateBucketAccessKey</code> action. You can get a secret access key only when you
@@ -89,7 +87,6 @@ export interface AccessKey {
 
   /**
    * <p>The secret access key used to sign requests.</p>
-   *
    *          <p>You should store the secret access key in a safe location. We recommend that you delete
    *       the access key if the secret access key is compromised.</p>
    */
@@ -97,7 +94,6 @@ export interface AccessKey {
 
   /**
    * <p>The status of the access key.</p>
-   *
    *          <p>A status of <code>Active</code> means that the key is valid, while <code>Inactive</code>
    *       means it is not.</p>
    */
@@ -110,7 +106,6 @@ export interface AccessKey {
 
   /**
    * <p>An object that describes the last time the access key was used.</p>
-   *
    *          <note>
    *             <p>This object does not include data in the response of a <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action. If the access key has not been used, the
    *           <code>region</code> and <code>serviceName</code> values are <code>N/A</code>, and the
@@ -150,16 +145,12 @@ export enum AccessType {
 export interface AccessRules {
   /**
    * <p>Specifies the anonymous access to all objects in a bucket.</p>
-   *
    *          <p>The following options can be specified:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>public</code> - Sets all objects in the bucket to public (read-only), making
    *           them readable by anyone in the world.</p>
-   *
-   *
    *                <p>If the <code>getObject</code> value is set to <code>public</code>, then all objects in
    *           the bucket default to public regardless of the <code>allowPublicOverrides</code>
    *           value.</p>
@@ -168,8 +159,6 @@ export interface AccessRules {
    *                <p>
    *                   <code>private</code> - Sets all objects in the bucket to private, making them readable
    *           only by you or anyone you give access to.</p>
-   *
-   *
    *                <p>If the <code>getObject</code> value is set to <code>private</code>, and the
    *             <code>allowPublicOverrides</code> value is set to <code>true</code>, then all objects in
    *           the bucket default to private unless they are configured with a <code>public-read</code>
@@ -184,7 +173,6 @@ export interface AccessRules {
    * <p>A Boolean value that indicates whether the access control list (ACL) permissions that are
    *       applied to individual objects override the <code>getObject</code> option that is currently
    *       specified.</p>
-   *
    *          <p>When this is true, you can use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html">PutObjectAcl</a> Amazon S3 API action to set
    *       individual objects to public (read-only) using the <code>public-read</code> ACL, or to private
    *       using the <code>private</code> ACL.</p>
@@ -209,7 +197,6 @@ export enum AccountLevelBpaSyncStatus {
 /**
  * <p>Describes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
  *       account-level block public access (BPA) feature for your Lightsail buckets.</p>
- *
  *          <p>The account-level BPA feature of Amazon S3 provides centralized controls to limit
  *       public access to all Amazon S3 buckets in an account. BPA can make all Amazon S3 buckets in an Amazon Web Services account private regardless of the individual bucket and
  *       object permissions that are configured. Lightsail buckets take into account the
@@ -223,7 +210,6 @@ export enum AccountLevelBpaSyncStatus {
 export interface AccountLevelBpaSync {
   /**
    * <p>The status of the account-level BPA synchronization.</p>
-   *
    *          <p>The following statuses are possible:</p>
    *          <ul>
    *             <li>
@@ -264,7 +250,6 @@ export interface AccountLevelBpaSync {
   /**
    * <p>A message that provides a reason for a <code>Failed</code> or <code>Defaulted</code>
    *       synchronization status.</p>
-   *
    *          <p>The following messages are possible:</p>
    *          <ul>
    *             <li>
@@ -490,7 +475,7 @@ export interface ResourceLocation {
   availabilityZone?: string;
 
   /**
-   * <p>The AWS Region name.</p>
+   * <p>The Amazon Web Services Region name.</p>
    */
   regionName?: RegionName | string;
 }
@@ -887,6 +872,7 @@ export enum OperationType {
   UpdateDistribution = "UpdateDistribution",
   UpdateDistributionBundle = "UpdateDistributionBundle",
   UpdateDomainEntry = "UpdateDomainEntry",
+  UpdateInstanceMetadataOptions = "UpdateInstanceMetadataOptions",
   UpdateLoadBalancerAttribute = "UpdateLoadBalancerAttribute",
   UpdateRelationalDatabase = "UpdateRelationalDatabase",
   UpdateRelationalDatabaseParameters = "UpdateRelationalDatabaseParameters",
@@ -1299,7 +1285,8 @@ export interface AutoSnapshotDetails {
 }
 
 /**
- * <p>Describes an Availability Zone.</p>
+ * <p>Describes an Availability Zone. This is returned only as part of a <code>GetRegions</code>
+ *       request.</p>
  */
 export interface AvailabilityZone {
   /**
@@ -1447,9 +1434,7 @@ export interface BucketAccessLogConfig {
 export interface BucketState {
   /**
    * <p>The state code of the bucket.</p>
-   *
    *          <p>The following codes are possible:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1511,10 +1496,8 @@ export interface Bucket {
 
   /**
    * <p>The ID of the bundle currently applied to the bucket.</p>
-   *
    *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
    *       bucket.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to change the
    *       bundle of a bucket.</p>
    */
@@ -1556,7 +1539,6 @@ export interface Bucket {
 
   /**
    * <p>Indicates whether object versioning is enabled for the bucket.</p>
-   *
    *          <p>The following options can be configured:</p>
    *          <ul>
    *             <li>
@@ -1579,10 +1561,8 @@ export interface Bucket {
   /**
    * <p>Indicates whether the bundle that is currently applied to a bucket can be changed to
    *       another bundle.</p>
-   *
    *          <p>You can update a bucket's bundle only one time within a monthly Amazon Web Services billing
    *       cycle.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to change a
    *       bucket's bundle.</p>
    */
@@ -1597,7 +1577,6 @@ export interface Bucket {
   /**
    * <p>An array of objects that describe Lightsail instances that have access to the
    *       bucket.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html">SetResourceAccessForBucket</a>
    *       action to update the instances that have access to a bucket.</p>
    */
@@ -1617,7 +1596,6 @@ export interface Bucket {
 /**
  * <p>Describes the specifications of a bundle that can be applied to an Amazon Lightsail
  *       bucket.</p>
- *
  *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
  *       bucket.</p>
  */
@@ -2063,6 +2041,53 @@ export interface CacheSettings {
   forwardedQueryStrings?: QueryStringObject;
 }
 
+export enum DnsRecordCreationStateCode {
+  Failed = "FAILED",
+  Started = "STARTED",
+  Succeeded = "SUCCEEDED",
+}
+
+/**
+ * <p>Describes the creation state of the canonical name (CNAME) records that are automatically
+ *       added by Amazon Lightsail to the DNS of a domain to validate domain ownership for
+ *       an SSL/TLS certificate.</p>
+ *          <p>When you create an SSL/TLS certificate for a Lightsail resource, you must
+ *       add a set of CNAME records to the DNS of the domains for the certificate to validate that you
+ *       own the domains. Lightsail can automatically add the CNAME records to the DNS
+ *       of the domain if the DNS zone for the domain exists within your Lightsail
+ *       account. If automatic record addition fails, or if you manage the DNS of your domain using a
+ *       third-party service, then you must manually add the CNAME records to the DNS of your domain.
+ *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/verify-tls-ssl-certificate-using-dns-cname-https">Verify an SSL/TLS certificate in Amazon Lightsail</a> in the
+ *           <i>Amazon Lightsail Developer Guide</i>.</p>
+ */
+export interface DnsRecordCreationState {
+  /**
+   * <p>The status code for the automated DNS record creation.</p>
+   *          <p>Following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code> - The validation records were successfully added to the
+   *           domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STARTED</code> - The automatic DNS record creation has started.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The validation records failed to be added to the domain.</p>
+   *             </li>
+   *          </ul>
+   */
+  code?: DnsRecordCreationStateCode | string;
+
+  /**
+   * <p>The message that describes the reason for the status code.</p>
+   */
+  message?: string;
+}
+
 /**
  * <p>Describes the domain name system (DNS) records to add to your domain's DNS to validate it
  *       for an Amazon Lightsail certificate.</p>
@@ -2084,8 +2109,15 @@ export interface ResourceRecord {
   value?: string;
 }
 
+export enum CertificateDomainValidationStatus {
+  Failed = "FAILED",
+  PendingValidation = "PENDING_VALIDATION",
+  Success = "SUCCESS",
+}
+
 /**
- * <p>Describes the domain validation records of an Amazon Lightsail SSL/TLS certificate.</p>
+ * <p>Describes the domain name system (DNS) records that you must add to the DNS of your
+ *       registered domain to validate ownership for an Amazon Lightsail SSL/TLS certificate.</p>
  */
 export interface DomainValidationRecord {
   /**
@@ -2099,6 +2131,18 @@ export interface DomainValidationRecord {
    *       the certificate.</p>
    */
   resourceRecord?: ResourceRecord;
+
+  /**
+   * <p>An object that describes the state of the canonical name (CNAME) records that are
+   *       automatically added by Lightsail to the DNS of the domain to validate domain
+   *       ownership.</p>
+   */
+  dnsRecordCreationState?: DnsRecordCreationState;
+
+  /**
+   * <p>The validation status of the record.</p>
+   */
+  validationStatus?: CertificateDomainValidationStatus | string;
 }
 
 export enum RenewalStatus {
@@ -2244,8 +2288,8 @@ export interface Certificate {
    *                   </b> -
    *           Lightsail requires additional information to process this certificate request. This can
    *           happen as a fraud-protection measure, such as when the domain ranks within the Alexa top
-   *           1000 websites. To provide the required information, use the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a> to contact
-   *           AWS Support.</p>
+   *           1000 websites. To provide the required information, use the <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Support
+   *             Center</a> to contact Amazon Web Services Support.</p>
    *                <note>
    *                   <p>You cannot request a certificate for Amazon-owned domain names such as those ending
    *             in amazonaws.com, cloudfront.net, or elasticbeanstalk.com.</p>
@@ -2265,8 +2309,8 @@ export interface Certificate {
    *           cannot remove your domain from a block list itself. After you correct the problem and the
    *           VirusTotal registry has been updated, request a new certificate.</p>
    *                <p>If you see this error and your domain is not included in the VirusTotal list, visit
-   *           the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a>
-   *           and create a case.</p>
+   *           the <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Support
+   *             Center</a> and create a case.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2751,7 +2795,6 @@ export enum ContainerServiceProtocol {
 export interface Container {
   /**
    * <p>The name of the image used for the container.</p>
-   *
    *          <p>Container images sourced from your Lightsail container service, that are registered and
    *       stored on your service, start with a colon (<code>:</code>). For example, if your container
    *       service name is <code>container-service-1</code>, the container image label is
@@ -2761,7 +2804,6 @@ export interface Container {
    *       image, specify <code>latest</code> instead of a version number (for example,
    *         <code>:container-service-1.mystaticsite.latest</code>). Lightsail will automatically use
    *       the highest numbered version of the registered container image.</p>
-   *
    *          <p>Container images sourced from a public registry like Docker Hub don't start with a colon.
    *       For example, <code>nginx:latest</code> or <code>nginx</code>.</p>
    */
@@ -2879,7 +2921,6 @@ export enum ContainerServiceDeploymentState {
 /**
  * <p>Describes a container deployment configuration of an Amazon Lightsail container
  *       service.</p>
- *
  *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
  *       that are deployed to your container service.</p>
  */
@@ -2891,7 +2932,6 @@ export interface ContainerServiceDeployment {
 
   /**
    * <p>The state of the deployment.</p>
-   *
    *          <p>A deployment can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -2947,7 +2987,6 @@ export enum ContainerServicePowerName {
 /**
  * <p>Describes the activation status of the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR)
  *       private repositories.</p>
- *
  *          <p>When activated, Lightsail creates an Identity and Access Management (IAM) role
  *       for the specified Lightsail container service. You can use the ARN of the role to create a
  *       trust relationship between your Lightsail container service and an Amazon ECR private repository in your Amazon Web Services account. This allows your container
@@ -2969,7 +3008,6 @@ export interface ContainerServiceECRImagePullerRole {
 /**
  * <p>Describes the configuration for an Amazon Lightsail container service to
  *       access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
- *
  *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
  */
 export interface PrivateRegistryAccess {
@@ -3121,7 +3159,6 @@ export interface ContainerService {
 
   /**
    * <p>The power specification of the container service.</p>
-   *
    *          <p>The power specifies the amount of RAM, the number of vCPUs, and the base price of the
    *       container service.</p>
    */
@@ -3184,7 +3221,6 @@ export interface ContainerService {
 
   /**
    * <p>The scale specification of the container service.</p>
-   *
    *          <p>The scale specifies the allocated compute nodes of the container service.</p>
    */
   scale?: number;
@@ -3196,7 +3232,6 @@ export interface ContainerService {
 
   /**
    * <p>An object that describes the next deployment of the container service.</p>
-   *
    *          <p>This value is <code>null</code> when there is no deployment in a <code>pending</code>
    *       state.</p>
    */
@@ -3209,7 +3244,6 @@ export interface ContainerService {
 
   /**
    * <p>The principal ARN of the container service.</p>
-   *
    *          <p>The principal ARN can be used to create a trust relationship between your standard Amazon Web Services account and your Lightsail container service. This allows you to give your
    *       service permission to access resources in your standard Amazon Web Services account.</p>
    */
@@ -3217,7 +3251,6 @@ export interface ContainerService {
 
   /**
    * <p>The private domain name of the container service.</p>
-   *
    *          <p>The private domain name is accessible only by other resources within the default virtual
    *       private cloud (VPC) of your Lightsail account.</p>
    */
@@ -3226,20 +3259,16 @@ export interface ContainerService {
   /**
    * <p>The public domain name of the container service, such as <code>example.com</code> and
    *         <code>www.example.com</code>.</p>
-   *
    *          <p>You can specify up to four public domain names for a container service. The domain names
    *       that you specify are used when you create a deployment with a container configured as the
    *       public endpoint of your container service.</p>
-   *
    *          <p>If you don't specify public domain names, then you can use the default domain of the
    *       container service.</p>
-   *
    *          <important>
    *             <p>You must create and validate an SSL/TLS certificate before you can use public domain
    *         names with your container service. Use the <code>CreateCertificate</code> action to create a
    *         certificate for the public domain names you want to use with your container service.</p>
    *          </important>
-   *
    *          <p>See <code>CreateContainerService</code> or <code>UpdateContainerService</code> for
    *       information about how to specify public domain names for your Lightsail container
    *       service.</p>
@@ -3248,7 +3277,6 @@ export interface ContainerService {
 
   /**
    * <p>The publicly accessible URL of the container service.</p>
-   *
    *          <p>If no public endpoint is specified in the <code>currentDeployment</code>, this URL returns
    *       a 404 response.</p>
    */
@@ -3258,7 +3286,6 @@ export interface ContainerService {
    * <p>An object that describes the configuration for the container service to access private
    *       container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private
    *       repositories.</p>
-   *
    *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    */
   privateRegistryAccess?: PrivateRegistryAccess;
@@ -3288,7 +3315,6 @@ export interface EndpointRequest {
 /**
  * <p>Describes a container deployment configuration of an Amazon Lightsail container
  *       service.</p>
- *
  *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
  *       that are deployed to your container service.</p>
  */
@@ -3307,7 +3333,6 @@ export interface ContainerServiceDeploymentRequest {
 /**
  * <p>Describes a request to activate or deactivate the role that you can use to grant an
  *         Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
- *
  *          <p>When activated, Lightsail creates an Identity and Access Management (IAM) role
  *       for the specified Lightsail container service. You can use the ARN of the role to create a
  *       trust relationship between your Lightsail container service and an Amazon ECR private repository in your Amazon Web Services account. This allows your container
@@ -3344,7 +3369,6 @@ export enum ContainerServiceMetricName {
 /**
  * <p>Describes the powers that can be specified for an Amazon Lightsail container
  *       service.</p>
- *
  *          <p>The power specifies the amount of RAM, the number of vCPUs, and the base price of the
  *       container service.</p>
  */
@@ -3382,7 +3406,7 @@ export interface ContainerServicePower {
 }
 
 /**
- * <p>Describes the login information for the container image registry of an Amazon Lightsail
+ * <p>Describes the sign-in credentials for the container image registry of an Amazon Lightsail
  *       account.</p>
  */
 export interface ContainerServiceRegistryLogin {
@@ -3399,8 +3423,7 @@ export interface ContainerServiceRegistryLogin {
   password?: string;
 
   /**
-   * <p>The timestamp of when the container image registry username and password expire.</p>
-   *
+   * <p>The timestamp of when the container image registry sign-in credentials expire.</p>
    *          <p>The log in credentials expire 12 hours after they are created, at which point you will
    *       need to create a new set of log in credentials using the
    *         <code>CreateContainerServiceRegistryLogin</code> action.</p>
@@ -3509,7 +3532,6 @@ export interface CopySnapshotResult {
 export interface CreateBucketRequest {
   /**
    * <p>The name for the bucket.</p>
-   *
    *          <p>For more information about bucket names, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/bucket-naming-rules-in-amazon-lightsail">Bucket naming rules in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
    *         Guide</i>.</p>
    */
@@ -3517,13 +3539,10 @@ export interface CreateBucketRequest {
 
   /**
    * <p>The ID of the bundle to use for the bucket.</p>
-   *
    *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
    *       bucket.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html">GetBucketBundles</a> action to get a list of
    *       bundle IDs that you can specify.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to change the
    *       bundle after the bucket is created.</p>
    */
@@ -3531,7 +3550,6 @@ export interface CreateBucketRequest {
 
   /**
    * <p>The tag keys and optional values to add to the bucket during creation.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html">TagResource</a> action to tag the bucket after it's
    *       created.</p>
    */
@@ -3540,7 +3558,6 @@ export interface CreateBucketRequest {
   /**
    * <p>A Boolean value that indicates whether to enable versioning of objects in the
    *       bucket.</p>
-   *
    *          <p>For more information about versioning, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-managing-bucket-object-versioning">Enabling and suspending object versioning in a bucket in Amazon Lightsail</a> in the
    *         <i>Amazon Lightsail Developer Guide</i>.</p>
    */
@@ -3647,7 +3664,6 @@ export interface InstanceEntry {
 
   /**
    * <p>The port configuration to use for the new Amazon EC2 instance.</p>
-   *
    *          <p>The following configuration options are available:</p>
    *          <ul>
    *             <li>
@@ -3776,7 +3792,6 @@ export interface CreateContactMethodResult {
 /**
  * <p>Describes a request to configure an Amazon Lightsail container service to
  *       access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
- *
  *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
  */
 export interface PrivateRegistryAccessRequest {
@@ -3791,18 +3806,15 @@ export interface PrivateRegistryAccessRequest {
 export interface CreateContainerServiceRequest {
   /**
    * <p>The name for the container service.</p>
-   *
    *          <p>The name that you specify for your container service will make up part of its default
    *       domain. The default domain of a container service is typically
    *         <code>https://<ServiceName>.<RandomGUID>.<AWSRegion>.cs.amazonlightsail.com</code>.
    *       If the name of your container service is <code>container-service-1</code>, and it's located in
-   *       the US East (Ohio) AWS region (<code>us-east-2</code>), then the domain for your container
-   *       service will be like the following example:
+   *       the US East (Ohio) Amazon Web Services Region (<code>us-east-2</code>), then the domain for
+   *       your container service will be like the following example:
    *         <code>https://container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com</code>
    *          </p>
-   *
    *          <p>The following are the requirements for container service names:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>Must be unique within each Amazon Web Services Region in your Lightsail
@@ -3823,13 +3835,11 @@ export interface CreateContainerServiceRequest {
 
   /**
    * <p>The power specification for the container service.</p>
-   *
    *          <p>The power specifies the amount of memory, vCPUs, and base monthly cost of each node of the
    *       container service. The <code>power</code> and <code>scale</code> of a container service makes
    *       up its configured capacity. To determine the monthly price of your container service, multiply
    *       the base price of the <code>power</code> with the <code>scale</code> (the number of nodes) of
    *       the service.</p>
-   *
    *          <p>Use the <code>GetContainerServicePowers</code> action to get a list of power options that
    *       you can specify using this parameter, and their base monthly cost.</p>
    */
@@ -3837,7 +3847,6 @@ export interface CreateContainerServiceRequest {
 
   /**
    * <p>The scale specification for the container service.</p>
-   *
    *          <p>The scale specifies the allocated compute nodes of the container service. The
    *         <code>power</code> and <code>scale</code> of a container service makes up its configured
    *       capacity. To determine the monthly price of your container service, multiply the base price of
@@ -3856,20 +3865,16 @@ export interface CreateContainerServiceRequest {
   /**
    * <p>The public domain names to use with the container service, such as
    *         <code>example.com</code> and <code>www.example.com</code>.</p>
-   *
    *          <p>You can specify up to four public domain names for a container service. The domain names
    *       that you specify are used when you create a deployment with a container configured as the
    *       public endpoint of your container service.</p>
-   *
    *          <p>If you don't specify public domain names, then you can use the default domain of the
    *       container service.</p>
-   *
    *          <important>
    *             <p>You must create and validate an SSL/TLS certificate before you can use public domain
    *         names with your container service. Use the <code>CreateCertificate</code> action to create a
    *         certificate for the public domain names you want to use with your container service.</p>
    *          </important>
-   *
    *          <p>You can specify public domain names using a string to array map as shown in the example
    *       later on this page.</p>
    */
@@ -3877,7 +3882,6 @@ export interface CreateContainerServiceRequest {
 
   /**
    * <p>An object that describes a deployment for the container service.</p>
-   *
    *          <p>A deployment specifies the containers that will be launched on the container service and
    *       their settings, such as the ports to open, the environment variables to apply, and the launch
    *       command to run. It also specifies the container that will serve as the public endpoint of the
@@ -3890,7 +3894,6 @@ export interface CreateContainerServiceRequest {
    * <p>An object to describe the configuration for the container service to access private
    *       container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private
    *       repositories.</p>
-   *
    *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    */
   privateRegistryAccess?: PrivateRegistryAccessRequest;
@@ -4206,10 +4209,8 @@ export interface CreateDistributionRequest {
 
   /**
    * <p>The IP address type for the distribution.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
-   *
    *          <p>The default value is <code>dualstack</code>.</p>
    */
   ipAddressType?: IpAddressType | string;
@@ -4360,7 +4361,6 @@ export interface LightsailDistribution {
 
   /**
    * <p>The IP address type of the distribution.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
@@ -4389,12 +4389,6 @@ export interface CreateDistributionResult {
 export interface CreateDomainRequest {
   /**
    * <p>The domain name to manage (e.g., <code>example.com</code>).</p>
-   *          <note>
-   *             <p>You cannot register a new domain name using Lightsail. You must register a domain name
-   *         using Amazon Route 53 or another domain name registrar. If you have already registered your
-   *         domain, you can enter its name in this parameter to manage the DNS records for that domain
-   *         using Lightsail.</p>
-   *          </note>
    */
   domainName: string | undefined;
 
@@ -4441,9 +4435,10 @@ export interface DomainEntry {
   target?: string;
 
   /**
-   * <p>When <code>true</code>, specifies whether the domain entry is an alias used by the
-   *       Lightsail load balancer. You can include an alias (A type) record in your request, which
-   *       points to a load balancer DNS name and routes traffic to your load balancer.</p>
+   * <p>When <code>true</code>, specifies whether the domain entry is an alias used by the Lightsail load balancer, Lightsail container service, Lightsail content delivery network (CDN) distribution, or another Amazon Web Services
+   *       resource. You can include an alias (A type) record in your request, which points to the DNS
+   *       name of a load balancer, container service, CDN distribution, or other Amazon Web Services
+   *       resource and routes traffic to that resource.</p>
    */
   isAlias?: boolean;
 
@@ -4609,10 +4604,8 @@ export interface CreateInstancesRequest {
 
   /**
    * <p>The IP address type for the instance.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
-   *
    *          <p>The default value is <code>dualstack</code>.</p>
    */
   ipAddressType?: IpAddressType | string;
@@ -4697,10 +4690,8 @@ export interface CreateInstancesFromSnapshotRequest {
 
   /**
    * <p>The IP address type for the instance.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
-   *
    *          <p>The default value is <code>dualstack</code>.</p>
    */
   ipAddressType?: IpAddressType | string;
@@ -4933,20 +4924,16 @@ export interface CreateLoadBalancerRequest {
 
   /**
    * <p>The IP address type for the load balancer.</p>
-   *
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
-   *
    *          <p>The default value is <code>dualstack</code>.</p>
    */
   ipAddressType?: IpAddressType | string;
 
   /**
    * <p>The name of the TLS policy to apply to the load balancer.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html">GetLoadBalancerTlsPolicies</a> action to get a list of TLS policy names that you can
    *       specify.</p>
-   *
    *          <p>For more information about load balancer TLS policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
    *         balancers</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    */
@@ -5159,7 +5146,7 @@ export interface CreateRelationalDatabaseRequest {
    *       automated backups are enabled.</p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
    *       AWS Region. For more information about the preferred backup window time blocks for each
-   *       region, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Working With Backups</a> guide in the Amazon Relational Database Service (Amazon RDS) documentation.</p>
+   *       region, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Working With Backups</a> guide in the Amazon Relational Database Service documentation.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -5406,7 +5393,6 @@ export interface DeleteAutoSnapshotResult {
 export interface DeleteBucketRequest {
   /**
    * <p>The name of the bucket to delete.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a> action to get a list of bucket names
    *       that you can specify.</p>
    */
@@ -5414,7 +5400,6 @@ export interface DeleteBucketRequest {
 
   /**
    * <p>A Boolean value that indicates whether to force delete the bucket.</p>
-   *
    *          <p>You must force delete the bucket if it has one of the following conditions:</p>
    *          <ul>
    *             <li>
@@ -5430,7 +5415,6 @@ export interface DeleteBucketRequest {
    *                <p>The bucket has access keys.</p>
    *             </li>
    *          </ul>
-   *
    *          <important>
    *             <p>Force deleting a bucket might impact other resources that rely on the bucket, such as
    *         instances, distributions, or software that use the issued access keys.</p>
@@ -5455,7 +5439,6 @@ export interface DeleteBucketAccessKeyRequest {
 
   /**
    * <p>The ID of the access key to delete.</p>
-   *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html">GetBucketAccessKeys</a> action to get a
    *       list of access key IDs that you can specify.</p>
    */
@@ -5516,10 +5499,8 @@ export interface DeleteContainerImageRequest {
 
   /**
    * <p>The name of the container image to delete from the container service.</p>
-   *
    *          <p>Use the <code>GetContainerImages</code> action to get the name of the container images
    *       that are registered to a container service.</p>
-   *
    *          <note>
    *             <p>Container images sourced from your Lightsail container service, that are registered
    *         and stored on your service, start with a colon (<code>:</code>). For example,
@@ -5549,7 +5530,7 @@ export interface DeleteDiskRequest {
   diskName: string | undefined;
 
   /**
-   * <p>A Boolean value to indicate whether to delete the enabled add-ons for the disk.</p>
+   * <p>A Boolean value to indicate whether to delete all add-ons for the disk.</p>
    */
   forceDeleteAddOns?: boolean;
 }
@@ -5637,7 +5618,7 @@ export interface DeleteInstanceRequest {
   instanceName: string | undefined;
 
   /**
-   * <p>A Boolean value to indicate whether to delete the enabled add-ons for the disk.</p>
+   * <p>A Boolean value to indicate whether to delete all add-ons for the instance.</p>
    */
   forceDeleteAddOns?: boolean;
 }
@@ -6181,6 +6162,133 @@ export enum DistributionMetricName {
   TotalErrorRate = "TotalErrorRate",
 }
 
+export enum NameServersUpdateStateCode {
+  Failed = "FAILED",
+  Pending = "PENDING",
+  Started = "STARTED",
+  Succeeded = "SUCCEEDED",
+}
+
+/**
+ * <p>Describes the state of the name server records update made by Amazon Lightsail
+ *       to an Amazon Route 53 registered domain.</p>
+ *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/understanding-dns-in-amazon-lightsail">DNS in Amazon Lightsail</a> in the <i>Amazon Lightsail
+ *         Developer Guide</i>.</p>
+ */
+export interface NameServersUpdateState {
+  /**
+   * <p>The status code for the name servers update.</p>
+   *          <p>Following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code> - The name server records were successfully updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The name server record update is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The name server record update failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STARTED</code> - The automatic name server record update started.</p>
+   *             </li>
+   *          </ul>
+   */
+  code?: NameServersUpdateStateCode | string;
+
+  /**
+   * <p>The message that describes the reason for the status code.</p>
+   */
+  message?: string;
+}
+
+export enum R53HostedZoneDeletionStateCode {
+  Failed = "FAILED",
+  Pending = "PENDING",
+  Started = "STARTED",
+  Succeeded = "SUCCEEDED",
+}
+
+/**
+ * <p>Describes the deletion state of an Amazon Route 53 hosted zone for a domain that is
+ *       being automatically delegated to an Amazon Lightsail DNS zone.</p>
+ */
+export interface R53HostedZoneDeletionState {
+  /**
+   * <p>The status code for the deletion state.</p>
+   *          <p>Following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code> - The hosted zone was successfully deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The hosted zone deletion is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The hosted zone deletion failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STARTED</code> - The hosted zone deletion started.</p>
+   *             </li>
+   *          </ul>
+   */
+  code?: R53HostedZoneDeletionStateCode | string;
+
+  /**
+   * <p>The message that describes the reason for the status code.</p>
+   */
+  message?: string;
+}
+
+/**
+ * <p>Describes the delegation state of an Amazon Route 53 registered domain to Amazon Lightsail.</p>
+ *          <p>When you delegate an Amazon Route 53 registered domain to Lightsail,
+ *       you can manage the DNS of the domain using a Lightsail DNS zone. You no longer
+ *       use the Route 53 hosted zone to manage the DNS of the domain. To delegate the
+ *       domain, Lightsail automatically updates the domain's name servers in Route 53 to the name servers of the Lightsail DNS zone. Then, Lightsail automatically deletes the Route 53 hosted zone for the
+ *       domain.</p>
+ *          <p>All of the following conditions must be true for automatic domain delegation to be
+ *       successful:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The registered domain must be in the same Amazon Web Services account as the Lightsail account making the request.</p>
+ *             </li>
+ *             <li>
+ *                <p>The user or entity making the request must have permission to manage domains in
+ *             Route 53.</p>
+ *             </li>
+ *             <li>
+ *                <p>The Route 53 hosted zone for the domain must be empty. It cannot contain DNS
+ *           records other than start of authority (SOA) and name server records.</p>
+ *             </li>
+ *          </ul>
+ *          <p>If automatic domain delegation fails, or if you manage the DNS of your domain using a
+ *       service other than Route 53, then you must manually add the Lightsail
+ *       DNS zone name servers to your domain in order to delegate management of its DNS to Lightsail. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-create-dns-entry">Creating a DNS zone to manage your domain’s records in Amazon Lightsail</a>
+ *       in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ */
+export interface RegisteredDomainDelegationInfo {
+  /**
+   * <p>An object that describes the state of the name server records that are automatically added
+   *       to the Route 53 domain by Lightsail.</p>
+   */
+  nameServersUpdateState?: NameServersUpdateState;
+
+  /**
+   * <p>Describes the deletion state of an Amazon Route 53 hosted zone for a domain that is
+   *       being automatically delegated to an Amazon Lightsail DNS zone.</p>
+   */
+  r53HostedZoneDeletionState?: R53HostedZoneDeletionState;
+}
+
 /**
  * <p>Describes a domain where you are storing recordsets.</p>
  */
@@ -6228,6 +6336,12 @@ export interface Domain {
    * <p>An array of key-value pairs containing information about the domain entries.</p>
    */
   domainEntries?: DomainEntry[];
+
+  /**
+   * <p>An object that describes the state of the Route 53 domain delegation to a
+   *         Lightsail DNS zone.</p>
+   */
+  registeredDomainDelegationInfo?: RegisteredDomainDelegationInfo;
 }
 
 export interface DownloadDefaultKeyPairRequest {}
@@ -6559,14 +6673,11 @@ export interface GetBucketMetricDataRequest {
 
   /**
    * <p>The metric for which you want to return information.</p>
-   *
    *          <p>Valid bucket metric names are listed below, along with the most useful statistics to
    *       include in your request, and the published unit value.</p>
-   *
    *          <note>
    *             <p>These bucket metrics are reported once per day.</p>
    *          </note>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -6615,9 +6726,7 @@ export interface GetBucketMetricDataRequest {
 
   /**
    * <p>The statistic for the metric.</p>
-   *
    *          <p>The following statistics are available:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -6714,7 +6823,6 @@ export interface GetBucketMetricDataResult {
 export interface GetBucketsRequest {
   /**
    * <p>The name of the bucket for which to return information.</p>
-   *
    *          <p>When omitted, the response includes all of your buckets in the Amazon Web Services Region
    *       where the request is made.</p>
    */
@@ -6722,7 +6830,6 @@ export interface GetBucketsRequest {
 
   /**
    * <p>The token to advance to the next page of results from your request.</p>
-   *
    *          <p>To get a page token, perform an initial <code>GetBuckets</code> request. If your results
    *       are paginated, the response will return a next page token that you can specify as the page
    *       token in a subsequent request.</p>
@@ -6745,9 +6852,7 @@ export interface GetBucketsResult {
 
   /**
    * <p>The token to advance to the next page of results from your request.</p>
-   *
    *          <p>A next page token is not returned if there are no more results to display.</p>
-   *
    *          <p>To get the next page of results, perform another <code>GetBuckets</code> request and
    *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
@@ -6756,7 +6861,6 @@ export interface GetBucketsResult {
   /**
    * <p>An object that describes the synchronization status of the Amazon S3 account-level
    *       block public access feature for your Lightsail buckets.</p>
-   *
    *          <p>For more information about this feature and how it affects Lightsail buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-block-public-access-for-buckets">Block public access for buckets in Amazon Lightsail</a>.</p>
    */
   accountLevelBpaSync?: AccountLevelBpaSync;
@@ -6908,49 +7012,40 @@ export interface GetContainerLogRequest {
 
   /**
    * <p>The start of the time interval for which to get log data.</p>
-   *
    *          <p>Constraints:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>Specified in Coordinated Universal Time (UTC).</p>
    *             </li>
    *             <li>
    *                <p>Specified in the Unix time format.</p>
-   *
    *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
    *             <code>1538424000</code> as the start time.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
    */
   startTime?: Date;
 
   /**
    * <p>The end of the time interval for which to get log data.</p>
-   *
    *          <p>Constraints:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>Specified in Coordinated Universal Time (UTC).</p>
    *             </li>
    *             <li>
    *                <p>Specified in the Unix time format.</p>
-   *
    *                <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
    *             <code>1538427600</code> as the end time.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
    */
   endTime?: Date;
 
   /**
    * <p>The pattern to use to filter the returned log events to a specific term.</p>
-   *
    *          <p>The following are a few examples of filter patterns that you can specify:</p>
    *          <ul>
    *             <li>
@@ -6980,7 +7075,6 @@ export interface GetContainerLogRequest {
 
   /**
    * <p>The token to advance to the next page of results from your request.</p>
-   *
    *          <p>To get a page token, perform an initial <code>GetContainerLog</code> request. If your
    *       results are paginated, the response will return a next page token that you can specify as the
    *       page token in a subsequent request.</p>
@@ -6996,9 +7090,7 @@ export interface GetContainerLogResult {
 
   /**
    * <p>The token to advance to the next page of results from your request.</p>
-   *
    *          <p>A next page token is not returned if there are no more results to display.</p>
-   *
    *          <p>To get the next page of results, perform another <code>GetContainerLog</code> request and
    *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
@@ -7027,10 +7119,8 @@ export interface GetContainerServiceMetricDataRequest {
 
   /**
    * <p>The metric for which you want to return information.</p>
-   *
    *          <p>Valid container service metric names are listed below, along with the most useful
    *       statistics to include in your request, and the published unit value.</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -7066,7 +7156,6 @@ export interface GetContainerServiceMetricDataRequest {
 
   /**
    * <p>The granularity, in seconds, of the returned data points.</p>
-   *
    *          <p>All container service metric data is available in 5-minute (300 seconds)
    *       granularity.</p>
    */
@@ -7074,9 +7163,7 @@ export interface GetContainerServiceMetricDataRequest {
 
   /**
    * <p>The statistic for the metric.</p>
-   *
    *          <p>The following statistics are available:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -7136,7 +7223,6 @@ export interface GetContainerServicePowersResult {
 export interface GetContainerServicesRequest {
   /**
    * <p>The name of the container service for which to return information.</p>
-   *
    *          <p>When omitted, the response includes all of your container services in the Amazon Web Services Region where the request is made.</p>
    */
   serviceName?: string;
@@ -7252,263 +7338,6 @@ export interface GetDistributionLatestCacheResetResult {
    *       format.</p>
    */
   createTime?: Date;
-}
-
-export interface GetDistributionMetricDataRequest {
-  /**
-   * <p>The name of the distribution for which to get metric data.</p>
-   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
-   *       can specify.</p>
-   */
-  distributionName: string | undefined;
-
-  /**
-   * <p>The metric for which you want to return information.</p>
-   *          <p>Valid distribution metric names are listed below, along with the most useful
-   *         <code>statistics</code> to include in your request, and the published <code>unit</code>
-   *       value.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>Requests</code>
-   *                   </b> - The total number of viewer
-   *           requests received by your Lightsail distribution, for all HTTP methods, and for both
-   *           HTTP and HTTPS requests.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>BytesDownloaded</code>
-   *                   </b> - The number of bytes
-   *           downloaded by viewers for GET, HEAD, and OPTIONS requests.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>BytesUploaded </code>
-   *                   </b> - The number of bytes
-   *           uploaded to your origin by your Lightsail distribution, using POST and PUT
-   *           requests.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>TotalErrorRate</code>
-   *                   </b> - The percentage of all
-   *           viewer requests for which the response's HTTP status code was 4xx or 5xx.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>4xxErrorRate</code>
-   *                   </b> - The percentage of all
-   *           viewer requests for which the response's HTTP status cod was 4xx. In these cases, the
-   *           client or client viewer may have made an error. For example, a status code of 404 (Not
-   *           Found) means that the client requested an object that could not be found.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>5xxErrorRate</code>
-   *                   </b> - The percentage of all
-   *           viewer requests for which the response's HTTP status code was 5xx. In these cases, the
-   *           origin server did not satisfy the requests. For example, a status code of 503 (Service
-   *           Unavailable) means that the origin server is currently unavailable.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  metricName: DistributionMetricName | string | undefined;
-
-  /**
-   * <p>The start of the time interval for which to get metric data.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specified in Coordinated Universal Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
-   *             <code>1538424000</code> as the start time.</p>
-   *             </li>
-   *          </ul>
-   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>The end of the time interval for which to get metric data.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specified in Coordinated Universal Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
-   *             <code>1538427600</code> as the end time.</p>
-   *             </li>
-   *          </ul>
-   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
-   */
-  endTime: Date | undefined;
-
-  /**
-   * <p>The granularity, in seconds, for the metric data points that will be returned.</p>
-   */
-  period: number | undefined;
-
-  /**
-   * <p>The unit for the metric data request.</p>
-   *          <p>Valid units depend on the metric data being requested. For the valid units with each
-   *       available metric, see the <code>metricName</code> parameter.</p>
-   */
-  unit: MetricUnit | string | undefined;
-
-  /**
-   * <p>The statistic for the metric.</p>
-   *          <p>The following statistics are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
-   *           value to determine low volumes of activity for your application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
-   *           this value to determine high volumes of activity for your application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
-   *           can use this statistic to determine the total volume of a metric.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
-   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
-   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
-   *           comparison helps you to know when to increase or decrease your resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SampleCount</code> - The count, or number, of data points used for the
-   *           statistical calculation.</p>
-   *             </li>
-   *          </ul>
-   */
-  statistics: (MetricStatistic | string)[] | undefined;
-}
-
-export interface GetDistributionMetricDataResult {
-  /**
-   * <p>The name of the metric returned.</p>
-   */
-  metricName?: DistributionMetricName | string;
-
-  /**
-   * <p>An array of objects that describe the metric data returned.</p>
-   */
-  metricData?: MetricDatapoint[];
-}
-
-export interface GetDistributionsRequest {
-  /**
-   * <p>The name of the distribution for which to return information.</p>
-   *
-   *          <p>When omitted, the response includes all of your distributions in the Amazon Web Services
-   *       Region where the request is made.</p>
-   */
-  distributionName?: string;
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetDistributions</code> request. If your
-   *       results are paginated, the response will return a next page token that you can specify as the
-   *       page token in a subsequent request.</p>
-   */
-  pageToken?: string;
-}
-
-export interface GetDistributionsResult {
-  /**
-   * <p>An array of objects that describe your distributions.</p>
-   */
-  distributions?: LightsailDistribution[];
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetDistributions</code> request and
-   *       specify the next page token using the <code>pageToken</code> parameter.</p>
-   */
-  nextPageToken?: string;
-}
-
-export interface GetDomainRequest {
-  /**
-   * <p>The domain name for which your want to return information about.</p>
-   */
-  domainName: string | undefined;
-}
-
-export interface GetDomainResult {
-  /**
-   * <p>An array of key-value pairs containing information about your get domain request.</p>
-   */
-  domain?: Domain;
-}
-
-export interface GetDomainsRequest {
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetDomains</code> request. If your results
-   *       are paginated, the response will return a next page token that you can specify as the page
-   *       token in a subsequent request.</p>
-   */
-  pageToken?: string;
-}
-
-export interface GetDomainsResult {
-  /**
-   * <p>An array of key-value pairs containing information about each of the domain entries in the
-   *       user's account.</p>
-   */
-  domains?: Domain[];
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetDomains</code> request and
-   *       specify the next page token using the <code>pageToken</code> parameter.</p>
-   */
-  nextPageToken?: string;
 }
 
 /**
@@ -7808,6 +7637,13 @@ export const QueryStringObjectFilterSensitiveLog = (obj: QueryStringObject): any
  * @internal
  */
 export const CacheSettingsFilterSensitiveLog = (obj: CacheSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsRecordCreationStateFilterSensitiveLog = (obj: DnsRecordCreationState): any => ({
   ...obj,
 });
 
@@ -8836,6 +8672,27 @@ export const DistributionBundleFilterSensitiveLog = (obj: DistributionBundle): a
 /**
  * @internal
  */
+export const NameServersUpdateStateFilterSensitiveLog = (obj: NameServersUpdateState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const R53HostedZoneDeletionStateFilterSensitiveLog = (obj: R53HostedZoneDeletionState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisteredDomainDelegationInfoFilterSensitiveLog = (obj: RegisteredDomainDelegationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DomainFilterSensitiveLog = (obj: Domain): any => ({
   ...obj,
 });
@@ -9267,61 +9124,5 @@ export const GetDistributionLatestCacheResetRequestFilterSensitiveLog = (
 export const GetDistributionLatestCacheResetResultFilterSensitiveLog = (
   obj: GetDistributionLatestCacheResetResult
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionMetricDataRequestFilterSensitiveLog = (obj: GetDistributionMetricDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionMetricDataResultFilterSensitiveLog = (obj: GetDistributionMetricDataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionsRequestFilterSensitiveLog = (obj: GetDistributionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionsResultFilterSensitiveLog = (obj: GetDistributionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainRequestFilterSensitiveLog = (obj: GetDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainResultFilterSensitiveLog = (obj: GetDomainResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainsRequestFilterSensitiveLog = (obj: GetDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainsResultFilterSensitiveLog = (obj: GetDomainsResult): any => ({
   ...obj,
 });

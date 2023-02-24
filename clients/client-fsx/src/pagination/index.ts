@@ -4,6 +4,8 @@ export * from "./DescribeDataRepositoryAssociationsPaginator";
 
 export * from "./DescribeDataRepositoryTasksPaginator";
 
+export * from "./DescribeFileCachesPaginator";
+
 export * from "./DescribeFileSystemAliasesPaginator";
 
 export * from "./DescribeFileSystemsPaginator";

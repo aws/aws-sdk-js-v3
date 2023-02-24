@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -29,19 +29,16 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  *          the root user of the Amazon Web Services account that owns the bucket, the calling identity must have the
  *             <code>PutBucketPolicy</code> permissions on the specified bucket and belong to the
  *          bucket owner's account in order to use this operation.</p>
- *
  *          <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403
  *             Access Denied</code> error. If you have the correct permissions, but you're not using an
  *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
  *             Allowed</code> error.</p>
- *
  *          <important>
  *             <p> As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
  *             always use this operation, even if the policy explicitly denies the root user the
  *             ability to perform this action. </p>
  *          </important>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html">Bucket policy examples</a>.</p>
- *
  *          <p>The following operations are related to <code>PutBucketPolicy</code>:</p>
  *          <ul>
  *             <li>
@@ -78,6 +75,21 @@ export class PutBucketPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +105,9 @@ export class PutBucketPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutBucketPolicyCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,

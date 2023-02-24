@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -37,12 +38,13 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  *       that you own or control the domain. You can use <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email validation</a>.
  *       We recommend that you use DNS validation. ACM issues public certificates after receiving
  *       approval from the domain owner. </p>
- *
  *          <note>
- *             <p>ACM behavior differs from the <a href="https://tools.ietf.org/html/rfc6125#appendix-B.2">https://tools.ietf.org/html/rfc6125#appendix-B.2</a>RFC 6125 specification of the
- *         certificate validation process. first checks for a subject alternative name, and, if it
- *         finds one, ignores the common name (CN)</p>
+ *             <p>ACM behavior differs from the <a href="https://datatracker.ietf.org/doc/html/rfc6125#appendix-B.2">RFC 6125</a>
+ *         specification of the certificate validation process. ACM first checks for a Subject
+ *         Alternative Name, and, if it finds one, ignores the common name (CN).</p>
  *          </note>
+ *          <p>After successful completion of the <code>RequestCertificate</code> action, there is a
+ *       delay of several seconds before you can retrieve information about the new certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +68,15 @@ export class RequestCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RequestCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +92,9 @@ export class RequestCertificateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RequestCertificateCommandInput, RequestCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RequestCertificateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

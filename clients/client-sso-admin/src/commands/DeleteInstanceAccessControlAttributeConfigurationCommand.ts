@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,10 +32,10 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disables the attributes-based access control (ABAC) feature for the specified Amazon Web Services SSO
+ * <p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
  *       instance and deletes all of the attribute mappings that have been configured. Once deleted,
  *       any attributes that are received from an identity source and any custom attributes you have
- *       previously configured will not be passed. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+ *       previously configured will not be passed. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteInstanceAccessControlAttributeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,12 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
     DeleteInstanceAccessControlAttributeConfigurationCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DeleteInstanceAccessControlAttributeConfigurationCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

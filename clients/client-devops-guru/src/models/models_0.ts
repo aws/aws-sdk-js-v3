@@ -64,14 +64,51 @@ export interface AccountHealth {
   Insight?: AccountInsightHealth;
 }
 
+export enum NotificationMessageType {
+  CLOSED_INSIGHT = "CLOSED_INSIGHT",
+  NEW_ASSOCIATION = "NEW_ASSOCIATION",
+  NEW_INSIGHT = "NEW_INSIGHT",
+  NEW_RECOMMENDATION = "NEW_RECOMMENDATION",
+  SEVERITY_UPGRADED = "SEVERITY_UPGRADED",
+}
+
+export enum InsightSeverity {
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+}
+
+/**
+ * <p>
+ * 			The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. You can choose to specify which events or message types to receive notifications for.
+ * 			You can also choose to specify which severity levels to receive notifications for.
+ * 		</p>
+ */
+export interface NotificationFilterConfig {
+  /**
+   * <p>
+   * 			The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with <code>HIGH</code> and <code>MEDIUM</code> severity levels.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding insight severities</a>.
+   * 		</p>
+   */
+  Severities?: (InsightSeverity | string)[];
+
+  /**
+   * <p>
+   * 			The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
+   * 		</p>
+   */
+  MessageTypes?: (NotificationMessageType | string)[];
+}
+
 /**
  * <p> Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. </p>
  *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
  * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
  * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
  * 				for cross account Amazon SNS topics</a>.</p>
- * 				     <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
- * 				     <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
+ *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
+ *          <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
  * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
  * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
  */
@@ -95,12 +132,20 @@ export interface NotificationChannelConfig {
    * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
    * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
    * 				for cross account Amazon SNS topics</a>.</p>
-   * 				     <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
-   * 				     <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
+   *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
+   *          <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
    * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
    * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
    */
   Sns: SnsChannelConfig | undefined;
+
+  /**
+   * <p>
+   * 			The filter configurations for the Amazon SNS notification topic you use with DevOps Guru.
+   * 			If you do not provide filter configurations, the default configurations are to receive notifications for all message types of <code>High</code> or <code>Medium</code> severity.
+   * 		</p>
+   */
+  Filters?: NotificationFilterConfig;
 }
 
 export interface AddNotificationChannelRequest {
@@ -629,10 +674,10 @@ export interface CloudWatchMetricsDetail {
  * 				<code>db.sql</code> dimension group consists of the following dimensions:
  * 				<code>db.sql.id</code>, <code>db.sql.db_id</code>, <code>db.sql.statement</code>,
  * 			and <code>db.sql.tokenized_id</code>.</p>
- * 		       <note>
- * 			         <p>Each response element returns a maximum of 500 bytes. For larger elements, such as
+ *          <note>
+ *             <p>Each response element returns a maximum of 500 bytes. For larger elements, such as
  * 				SQL statements, only the first 500 bytes are returned.</p>
- * 		       </note>
+ *          </note>
  *          <p>Amazon RDS Performance Insights enables you to monitor and explore different
  *    		dimensions of database load based on data captured from a running DB instance.
  *    		DB load is measured as average active sessions. Performance Insights provides the
@@ -640,65 +685,63 @@ export interface CloudWatchMetricsDetail {
  *    		provides DB load data for each time point in the queried time range. Each time point
  *    		decomposes overall load in relation to the requested dimensions, measured at that
  *    		time point. Examples include SQL, Wait event, User, and Host. </p>
- *
- *    	     <ul>
+ *          <ul>
  *             <li>
- *    			         <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>.
+ *                <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>.
  *    			</p>
- *    		       </li>
+ *             </li>
  *             <li>
- *    			         <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>.
+ *                <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>.
  *    			</p>
- *    		       </li>
+ *             </li>
  *          </ul>
  */
 export interface PerformanceInsightsMetricDimensionGroup {
   /**
    * <p>The name of the dimension group. Its valid values are:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
-   * 					             <code>db</code> - The name of the database to which the client is connected
+   *                <p>
+   *                   <code>db</code> - The name of the database to which the client is connected
    * 					(only Aurora PostgreSQL, Amazon RDS PostgreSQL, Aurora MySQL, Amazon RDS MySQL, and MariaDB)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.application</code> - The name of the application that is connected to
+   *                <p>
+   *                   <code>db.application</code> - The name of the application that is connected to
    * 					the database (only Aurora PostgreSQL and RDS PostgreSQL)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.host</code> - The host name of the connected client (all
+   *                <p>
+   *                   <code>db.host</code> - The host name of the connected client (all
    * 					engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.session_type</code> - The type of the current session (only Aurora PostgreSQL
+   *                <p>
+   *                   <code>db.session_type</code> - The type of the current session (only Aurora PostgreSQL
    * 					and RDS PostgreSQL)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.sql</code> - The SQL that is currently executing (all engines)</p>
-   * 			         </li>
+   *                <p>
+   *                   <code>db.sql</code> - The SQL that is currently executing (all engines)</p>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.sql_tokenized</code> - The SQL digest (all engines)</p>
-   * 			         </li>
+   *                <p>
+   *                   <code>db.sql_tokenized</code> - The SQL digest (all engines)</p>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.wait_event</code> - The event for which the database backend is waiting
+   *                <p>
+   *                   <code>db.wait_event</code> - The event for which the database backend is waiting
    * 					(all engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.wait_event_type</code> - The type of event for which the database
+   *                <p>
+   *                   <code>db.wait_event_type</code> - The type of event for which the database
    * 					backend is waiting (all engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.user</code> - The user logged in to the database (all engines)</p>
-   * 			         </li>
+   *                <p>
+   *                   <code>db.user</code> - The user logged in to the database (all engines)</p>
+   *             </li>
    *          </ul>
    */
   Group?: string;
@@ -707,93 +750,92 @@ export interface PerformanceInsightsMetricDimensionGroup {
    * <p>A list of specific dimensions from a dimension group. If this parameter is not
    * 			present, then it signifies that all of the dimensions in the group were requested or are
    * 			present in the response.</p>
-   * 		       <p>Valid values for elements in the <code>Dimensions</code> array are:</p>
-   *
-   * 		       <ul>
+   *          <p>Valid values for elements in the <code>Dimensions</code> array are:</p>
+   *          <ul>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.application.name</code> - The name of the application that is connected
+   *                <p>
+   *                   <code>db.application.name</code> - The name of the application that is connected
    * 					to the database (only Aurora PostgreSQL and RDS PostgreSQL)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.host.id</code> - The host ID of the connected client (all
+   *                <p>
+   *                   <code>db.host.id</code> - The host ID of the connected client (all
    * 					engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.host.name</code> - The host name of the connected client (all
+   *                <p>
+   *                   <code>db.host.name</code> - The host name of the connected client (all
    * 					engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.name</code> - The name of the database to which the client is connected
+   *                <p>
+   *                   <code>db.name</code> - The name of the database to which the client is connected
    * 					(only Aurora PostgreSQL, Amazon RDS PostgreSQL, Aurora MySQL, Amazon RDS MySQL, and MariaDB)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.session_type.name</code> - The type of the current session (only Aurora
+   *                <p>
+   *                   <code>db.session_type.name</code> - The type of the current session (only Aurora
    * 					PostgreSQL and RDS PostgreSQL)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.sql.id</code> - The SQL ID generated by Performance Insights (all engines)</p>
-   * 			         </li>
+   *                <p>
+   *                   <code>db.sql.id</code> - The SQL ID generated by Performance Insights (all engines)</p>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.sql.db_id</code> - The SQL ID generated by the database (all
+   *                <p>
+   *                   <code>db.sql.db_id</code> - The SQL ID generated by the database (all
    * 					engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.sql.statement</code> - The SQL text that is being executed (all
+   *                <p>
+   *                   <code>db.sql.statement</code> - The SQL text that is being executed (all
    * 					engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.sql.tokenized_id</code>
-   * 				           </p>
-   * 			         </li>
+   *                <p>
+   *                   <code>db.sql.tokenized_id</code>
+   *                </p>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.sql_tokenized.id</code> - The SQL digest ID generated by Performance Insights (all
+   *                <p>
+   *                   <code>db.sql_tokenized.id</code> - The SQL digest ID generated by Performance Insights (all
    * 					engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.sql_tokenized.db_id</code> - SQL digest ID generated by the database
+   *                <p>
+   *                   <code>db.sql_tokenized.db_id</code> - SQL digest ID generated by the database
    * 					(all engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.sql_tokenized.statement</code> - The SQL digest text (all
+   *                <p>
+   *                   <code>db.sql_tokenized.statement</code> - The SQL digest text (all
    * 					engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.user.id</code> - The ID of the user logged in to the database (all
+   *                <p>
+   *                   <code>db.user.id</code> - The ID of the user logged in to the database (all
    * 					engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.user.name</code> - The name of the user logged in to the database (all
+   *                <p>
+   *                   <code>db.user.name</code> - The name of the user logged in to the database (all
    * 					engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.wait_event.name</code> - The event for which the backend is waiting
+   *                <p>
+   *                   <code>db.wait_event.name</code> - The event for which the backend is waiting
    * 					(all engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.wait_event.type</code> - The type of event for which the backend is
+   *                <p>
+   *                   <code>db.wait_event.type</code> - The type of event for which the backend is
    * 					waiting (all engines)</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.wait_event_type.name</code> - The name of the event type for which the
+   *                <p>
+   *                   <code>db.wait_event_type.name</code> - The name of the event type for which the
    * 					backend is waiting (all engines)</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Dimensions?: string[];
@@ -818,38 +860,35 @@ export interface PerformanceInsightsMetricDimensionGroup {
  *    		provides DB load data for each time point in the queried time range. Each time point
  *    		decomposes overall load in relation to the requested dimensions, measured at that
  *    		time point. Examples include SQL, Wait event, User, and Host. </p>
- *
- *    	     <ul>
+ *          <ul>
  *             <li>
- *    			         <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>.
+ *                <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>.
  *    			</p>
- *    		       </li>
+ *             </li>
  *             <li>
- *    			         <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>.
+ *                <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>.
  *    			</p>
- *    		       </li>
+ *             </li>
  *          </ul>
  */
 export interface PerformanceInsightsMetricQuery {
   /**
    * <p>The name of the meteric used used when querying an Performance Insights
    * 				<code>GetResourceMetrics</code> API for anomaly metrics.</p>
-   *
-   * 		       <p>Valid values for <code>Metric</code> are:</p>
-   *
-   * 		       <ul>
+   *          <p>Valid values for <code>Metric</code> are:</p>
+   *          <ul>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.load.avg</code> - a scaled representation of the number of active sessions for the
+   *                <p>
+   *                   <code>db.load.avg</code> - a scaled representation of the number of active sessions for the
    * 					database engine.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>db.sampledload.avg</code> - the raw number of active sessions for the database
+   *                <p>
+   *                   <code>db.sampledload.avg</code> - the raw number of active sessions for the database
    * 					engine.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
-   * 		       <p>If the number of active sessions is less than an internal Performance Insights threshold,
+   *          <p>If the number of active sessions is less than an internal Performance Insights threshold,
    * 				<code>db.load.avg</code> and <code>db.sampledload.avg</code> are the same value. If
    * 			the number of active sessions is greater than the internal threshold, Performance Insights samples the active sessions, with
    * 				<code>db.load.avg</code> showing the scaled values, <code>db.sampledload.avg</code>
@@ -871,14 +910,14 @@ export interface PerformanceInsightsMetricQuery {
   /**
    * <p>One or more filters to apply to a Performance Insights <code>GetResourceMetrics</code> API query.
    * 			Restrictions:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>Any number of filters by the same dimension, as specified in the
+   *                <p>Any number of filters by the same dimension, as specified in the
    * 						<code>GroupBy</code> parameter.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>A single filter for any other dimension in this dimension group.</p>
-   * 			         </li>
+   *                <p>A single filter for any other dimension in this dimension group.</p>
+   *             </li>
    *          </ul>
    */
   Filter?: Record<string, string>;
@@ -969,16 +1008,15 @@ export interface PerformanceInsightsStat {
  *    		provides DB load data for each time point in the queried time range. Each time point
  *    		decomposes overall load in relation to the requested dimensions, measured at that
  *    		time point. Examples include SQL, Wait event, User, and Host. </p>
- *
- *    	     <ul>
+ *          <ul>
  *             <li>
- *    			         <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>.
+ *                <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>.
  *    			</p>
- *    		       </li>
+ *             </li>
  *             <li>
- *    			         <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>.
+ *                <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>.
  *    			</p>
- *    		       </li>
+ *             </li>
  *          </ul>
  */
 export interface PerformanceInsightsMetricsDetail {
@@ -1120,6 +1158,13 @@ export interface DescribeAccountHealthResponse {
    * 			the last hour. </p>
    */
   ResourceHours: number | undefined;
+
+  /**
+   * <p>
+   * 			Number of resources that DevOps Guru is monitoring in your Amazon Web Services account.
+   * 		</p>
+   */
+  AnalyzedResourceCount?: number;
 }
 
 export interface DescribeAccountOverviewRequest {
@@ -1201,40 +1246,40 @@ export interface CloudFormationCollection {
 }
 
 /**
- * <p>A collection of Amazon Web Services stags.</p>
+ * <p>A collection of Amazon Web Services tags.</p>
  *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
  *    		tagging, so you can assign the same tag to resources from different services to indicate
  *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
  *    		table resource that you assign to an Lambda function. For more information about
  *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
  *    			best practices</a> whitepaper. </p>
- *    	     <p>Each Amazon Web Services tag has two parts. </p>
- *    	     <ul>
+ *          <p>Each Amazon Web Services tag has two parts. </p>
+ *          <ul>
  *             <li>
- *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+ *                <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
  *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
  *    				<i>keys</i> are case-sensitive.</p>
- *    		       </li>
+ *             </li>
  *             <li>
- *    			         <p>An optional field known as a tag <i>value</i> (for example,
+ *                <p>An optional field known as a tag <i>value</i> (for example,
  *    				<code>111122223333</code>, <code>Production</code>, or a team
  *    				name). Omitting the tag <i>value</i> is the same as using an empty
  *    				string. Like tag <i>keys</i>, tag <i>values</i> are
  *    				case-sensitive.</p>
- *    		       </li>
+ *             </li>
  *          </ul>
- *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
- *    	     <important>
- * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+ *          <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+ *          <important>
+ *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
  * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
- * 			<code>Devops-guru-deployment-application</code> or
- * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
- * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+ * 			<code>DevOps-Guru-deployment-application</code> or
+ * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+ * 			 For example, DevOps Guru works with a
  * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
- * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+ * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
  * 			application might be <code>Devops-Guru-production-application/RDS</code> or
  * 			<code>Devops-Guru-production-application/containers</code>.</p>
- * 	        </important>
+ *          </important>
  */
 export interface TagCollection {
   /**
@@ -1242,16 +1287,16 @@ export interface TagCollection {
    *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
    *       up your DevOps Guru application and analysis boundary.</p>
    *          <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   AppBoundaryKey: string | undefined;
 
@@ -1282,39 +1327,39 @@ export interface ResourceCollection {
 
   /**
    * <p>The Amazon Web Services tags that are used by resources in the resource collection.</p>
-   * 		       <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
    *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
    *    			best practices</a> whitepaper. </p>
-   *    	     <p>Each Amazon Web Services tag has two parts. </p>
-   *    	     <ul>
+   *          <p>Each Amazon Web Services tag has two parts. </p>
+   *          <ul>
    *             <li>
-   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *                <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
    *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    *    				<i>keys</i> are case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *             <li>
-   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *                <p>An optional field known as a tag <i>value</i> (for example,
    *    				<code>111122223333</code>, <code>Production</code>, or a team
    *    				name). Omitting the tag <i>value</i> is the same as using an empty
    *    				string. Like tag <i>keys</i>, tag <i>values</i> are
    *    				case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *          </ul>
-   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
-   *    	     <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *          <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *          <important>
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   Tags?: TagCollection[];
 }
@@ -1463,15 +1508,15 @@ export interface ReactiveAnomaly {
 
   /**
    * <p>The type of the reactive anomaly. It can be one of the following types.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
-   * 	   	          <p>
-   * 	   		            <code>CAUSAL</code> - the anomaly can cause a new insight.</p>
-   * 	           </li>
+   *                <p>
+   *                   <code>CAUSAL</code> - the anomaly can cause a new insight.</p>
+   *             </li>
    *             <li>
-   * 	   	          <p>
-   * 	   		            <code>CONTEXTUAL</code> - the anomaly contains additional information about an insight or its causal anomaly.</p>
-   * 	           </li>
+   *                <p>
+   *                   <code>CONTEXTUAL</code> - the anomaly contains additional information about an insight or its causal anomaly.</p>
+   *             </li>
    *          </ul>
    */
   Type?: AnomalyType | string;
@@ -1594,12 +1639,6 @@ export interface InsightTimeRange {
    * <p> The time when the behavior described in an insight ended. </p>
    */
   EndTime?: Date;
-}
-
-export enum InsightSeverity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
 }
 
 export enum InsightStatus {
@@ -1885,6 +1924,13 @@ export interface CloudFormationHealth {
    * 			insights, and the Mean Time to Recover (MTTR) of closed insights. </p>
    */
   Insight?: InsightHealth;
+
+  /**
+   * <p>
+   * 			Number of resources that DevOps Guru is monitoring in your account that are specified by an Amazon Web Services CloudFormation stack.
+   * 		</p>
+   */
+  AnalyzedResourceCount?: number;
 }
 
 /**
@@ -1946,6 +1992,13 @@ export interface ServiceHealth {
    * 			service.</p>
    */
   Insight?: ServiceInsightHealth;
+
+  /**
+   * <p>
+   * 			Number of resources that DevOps Guru is monitoring in an analyzed Amazon Web Services service.
+   * 		</p>
+   */
+  AnalyzedResourceCount?: number;
 }
 
 /**
@@ -1958,16 +2011,16 @@ export interface TagHealth {
    *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
    *       up your DevOps Guru application and analysis boundary.</p>
    *          <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   AppBoundaryKey?: string;
 
@@ -1988,6 +2041,13 @@ export interface TagHealth {
    * 			Mean Time to Recover (MTTR) of closed insights. </p>
    */
   Insight?: InsightHealth;
+
+  /**
+   * <p>
+   * 			Number of resources that DevOps Guru is monitoring in your account that are specified by an Amazon Web Services tag.
+   * 		</p>
+   */
+  AnalyzedResourceCount?: number;
 }
 
 export interface DescribeOrganizationResourceCollectionHealthResponse {
@@ -2022,33 +2082,33 @@ export interface DescribeOrganizationResourceCollectionHealthResponse {
    *    		table resource that you assign to an Lambda function. For more information about
    *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
    *    			best practices</a> whitepaper. </p>
-   *    	     <p>Each Amazon Web Services tag has two parts. </p>
-   *    	     <ul>
+   *          <p>Each Amazon Web Services tag has two parts. </p>
+   *          <ul>
    *             <li>
-   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *                <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
    *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    *    				<i>keys</i> are case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *             <li>
-   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *                <p>An optional field known as a tag <i>value</i> (for example,
    *    				<code>111122223333</code>, <code>Production</code>, or a team
    *    				name). Omitting the tag <i>value</i> is the same as using an empty
    *    				string. Like tag <i>keys</i>, tag <i>values</i> are
    *    				case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *          </ul>
-   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
-   *    	     <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *          <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *          <important>
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   Tags?: TagHealth[];
 }
@@ -2097,39 +2157,39 @@ export interface DescribeResourceCollectionHealthResponse {
 
   /**
    * <p>The Amazon Web Services tags that are used by resources in the resource collection.</p>
-   * 		       <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
    *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
    *    			best practices</a> whitepaper. </p>
-   *    	     <p>Each Amazon Web Services tag has two parts. </p>
-   *    	     <ul>
+   *          <p>Each Amazon Web Services tag has two parts. </p>
+   *          <ul>
    *             <li>
-   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *                <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
    *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    *    				<i>keys</i> are case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *             <li>
-   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *                <p>An optional field known as a tag <i>value</i> (for example,
    *    				<code>111122223333</code>, <code>Production</code>, or a team
    *    				name). Omitting the tag <i>value</i> is the same as using an empty
    *    				string. Like tag <i>keys</i>, tag <i>values</i> are
    *    				case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *          </ul>
-   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
-   *    	     <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *          <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *          <important>
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   Tags?: TagHealth[];
 }
@@ -2276,16 +2336,16 @@ export interface TagCostEstimationResourceCollectionFilter {
    *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
    *       up your DevOps Guru application and analysis boundary.</p>
    *          <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   AppBoundaryKey: string | undefined;
 
@@ -2324,33 +2384,33 @@ export interface CostEstimationResourceCollectionFilter {
    *    		table resource that you assign to an Lambda function. For more information about
    *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
    *    			best practices</a> whitepaper. </p>
-   *    	     <p>Each Amazon Web Services tag has two parts. </p>
-   *    	     <ul>
+   *          <p>Each Amazon Web Services tag has two parts. </p>
+   *          <ul>
    *             <li>
-   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *                <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
    *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    *    				<i>keys</i> are case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *             <li>
-   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *                <p>An optional field known as a tag <i>value</i> (for example,
    *    				<code>111122223333</code>, <code>Production</code>, or a team
    *    				name). Omitting the tag <i>value</i> is the same as using an empty
    *    				string. Like tag <i>keys</i>, tag <i>values</i> are
    *    				case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *          </ul>
-   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
-   *    	     <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *          <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *          <important>
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   Tags?: TagCostEstimationResourceCollectionFilter[];
 }
@@ -2451,16 +2511,16 @@ export interface TagCollectionFilter {
    *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
    *       up your DevOps Guru application and analysis boundary.</p>
    *          <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   AppBoundaryKey: string | undefined;
 
@@ -2491,39 +2551,39 @@ export interface ResourceCollectionFilter {
 
   /**
    * <p>The Amazon Web Services tags used to filter the resources in the resource collection.</p>
-   * 		       <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
    *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
    *    			best practices</a> whitepaper. </p>
-   *    	     <p>Each Amazon Web Services tag has two parts. </p>
-   *    	     <ul>
+   *          <p>Each Amazon Web Services tag has two parts. </p>
+   *          <ul>
    *             <li>
-   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *                <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
    *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    *    				<i>keys</i> are case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *             <li>
-   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *                <p>An optional field known as a tag <i>value</i> (for example,
    *    				<code>111122223333</code>, <code>Production</code>, or a team
    *    				name). Omitting the tag <i>value</i> is the same as using an empty
    *    				string. Like tag <i>keys</i>, tag <i>values</i> are
    *    				case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *          </ul>
-   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
-   *    	     <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *          <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *          <important>
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   Tags?: TagCollectionFilter[];
 }
@@ -2542,6 +2602,28 @@ export interface GetResourceCollectionResponse {
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
+}
+
+/**
+ * <p>A collection of the names of Amazon Web Services services.</p>
+ */
+export interface ServiceCollection {
+  /**
+   * <p>An array of strings that each specifies the name of an Amazon Web Services service.</p>
+   */
+  ServiceNames?: (ServiceName | string)[];
+}
+
+/**
+ * <p>
+ * 			Specifies one or more service names that are used to list anomalies.
+ * 		</p>
+ */
+export interface ListAnomaliesForInsightFilters {
+  /**
+   * <p>A collection of the names of Amazon Web Services services.</p>
+   */
+  ServiceCollection?: ServiceCollection;
 }
 
 /**
@@ -2588,6 +2670,13 @@ export interface ListAnomaliesForInsightRequest {
    * <p>The ID of the Amazon Web Services account. </p>
    */
   AccountId?: string;
+
+  /**
+   * <p>
+   * 			Specifies one or more service names that are used to list anomalies.
+   * 		</p>
+   */
+  Filters?: ListAnomaliesForInsightFilters;
 }
 
 /**
@@ -2736,15 +2825,15 @@ export interface ReactiveAnomalySummary {
 
   /**
    * <p>The type of the reactive anomaly. It can be one of the following types.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
-   * 	   	          <p>
-   * 	   		            <code>CAUSAL</code> - the anomaly can cause a new insight.</p>
-   * 	           </li>
+   *                <p>
+   *                   <code>CAUSAL</code> - the anomaly can cause a new insight.</p>
+   *             </li>
    *             <li>
-   * 	   	          <p>
-   * 	   		            <code>CONTEXTUAL</code> - the anomaly contains additional information about an insight or its causal anomaly.</p>
-   * 	           </li>
+   *                <p>
+   *                   <code>CONTEXTUAL</code> - the anomaly contains additional information about an insight or its causal anomaly.</p>
+   *             </li>
    *          </ul>
    */
   Type?: AnomalyType | string;
@@ -3129,16 +3218,6 @@ export interface ListInsightsRequest {
 }
 
 /**
- * <p>A collection of the names of Amazon Web Services services.</p>
- */
-export interface ServiceCollection {
-  /**
-   * <p>An array of strings that each specifies the name of an Amazon Web Services service.</p>
-   */
-  ServiceNames?: (ServiceName | string)[];
-}
-
-/**
  * <p>Details about a proactive insight. This object is returned by
  * 				<code>DescribeInsight.</code>
  *          </p>
@@ -3276,7 +3355,33 @@ export enum ResourcePermission {
 }
 
 export enum ResourceTypeFilter {
+  CLOUDFRONT_DISTRIBUTION = "CLOUDFRONT_DISTRIBUTION",
+  DYNAMODB_TABLE = "DYNAMODB_TABLE",
+  EC2_NAT_GATEWAY = "EC2_NAT_GATEWAY",
+  ECS_CLUSTER = "ECS_CLUSTER",
+  ECS_SERVICE = "ECS_SERVICE",
+  EKS_CLUSTER = "EKS_CLUSTER",
+  ELASTICACHE_CACHE_CLUSTER = "ELASTICACHE_CACHE_CLUSTER",
+  ELASTICSEARCH_DOMAIN = "ELASTICSEARCH_DOMAIN",
+  ELASTIC_BEANSTALK_ENVIRONMENT = "ELASTIC_BEANSTALK_ENVIRONMENT",
+  ELASTIC_LOAD_BALANCER_LOAD_BALANCER = "ELASTIC_LOAD_BALANCER_LOAD_BALANCER",
+  ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER = "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER",
+  ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP = "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP",
+  KINESIS_STREAM = "KINESIS_STREAM",
+  LAMBDA_FUNCTION = "LAMBDA_FUNCTION",
   LOG_GROUPS = "LOG_GROUPS",
+  OPEN_SEARCH_SERVICE_DOMAIN = "OPEN_SEARCH_SERVICE_DOMAIN",
+  RDS_DB_CLUSTER = "RDS_DB_CLUSTER",
+  RDS_DB_INSTANCE = "RDS_DB_INSTANCE",
+  REDSHIFT_CLUSTER = "REDSHIFT_CLUSTER",
+  ROUTE53_HEALTH_CHECK = "ROUTE53_HEALTH_CHECK",
+  ROUTE53_HOSTED_ZONE = "ROUTE53_HOSTED_ZONE",
+  S3_BUCKET = "S3_BUCKET",
+  SAGEMAKER_ENDPOINT = "SAGEMAKER_ENDPOINT",
+  SNS_TOPIC = "SNS_TOPIC",
+  SQS_QUEUE = "SQS_QUEUE",
+  STEP_FUNCTIONS_ACTIVITY = "STEP_FUNCTIONS_ACTIVITY",
+  STEP_FUNCTIONS_STATE_MACHINE = "STEP_FUNCTIONS_STATE_MACHINE",
 }
 
 /**
@@ -3306,7 +3411,7 @@ export interface ListMonitoredResourcesRequest {
    * 			Filters to determine which monitored resources you want to retrieve. You can filter by resource type or resource permission status.
    * 		</p>
    */
-  Filters: ListMonitoredResourcesFilters | undefined;
+  Filters?: ListMonitoredResourcesFilters;
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -3347,6 +3452,21 @@ export interface MonitoredResourceIdentifier {
    * 		</p>
    */
   ResourcePermission?: ResourcePermission | string;
+
+  /**
+   * <p>
+   * 			The time at which DevOps Guru last updated this resource.
+   * 		</p>
+   */
+  LastUpdated?: Date;
+
+  /**
+   * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   */
+  ResourceCollection?: ResourceCollection;
 }
 
 export interface ListMonitoredResourcesResponse {
@@ -3376,12 +3496,12 @@ export interface ListNotificationChannelsRequest {
  * <p> Information about a notification channel. A notification channel is used to notify
  * 			you when DevOps Guru creates an insight. The one
  *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS). </p>
- * 		       <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
+ *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
  * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
  * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
  * 				for cross account Amazon SNS topics</a>.</p>
- * 				     <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
- * 				     <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
+ *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
+ *          <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
  * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
  * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
  */
@@ -4014,16 +4134,16 @@ export interface UpdateTagCollectionFilter {
    *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
    *       up your DevOps Guru application and analysis boundary.</p>
    *          <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   AppBoundaryKey: string | undefined;
 
@@ -4050,39 +4170,39 @@ export interface UpdateResourceCollectionFilter {
 
   /**
    * <p>The updated Amazon Web Services tags used to filter the resources in the resource collection.</p>
-   * 		       <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
    *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
    *    			best practices</a> whitepaper. </p>
-   *    	     <p>Each Amazon Web Services tag has two parts. </p>
-   *    	     <ul>
+   *          <p>Each Amazon Web Services tag has two parts. </p>
+   *          <ul>
    *             <li>
-   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *                <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
    *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    *    				<i>keys</i> are case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *             <li>
-   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *                <p>An optional field known as a tag <i>value</i> (for example,
    *    				<code>111122223333</code>, <code>Production</code>, or a team
    *    				name). Omitting the tag <i>value</i> is the same as using an empty
    *    				string. Like tag <i>keys</i>, tag <i>values</i> are
    *    				case-sensitive.</p>
-   *    		       </li>
+   *             </li>
    *          </ul>
-   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
-   *    	     <important>
-   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   *          <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *          <important>
+   *             <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
    * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-   * 			<code>Devops-guru-deployment-application</code> or
-   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
-   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<code>DevOps-Guru-deployment-application</code> or
+   * 			<code>devops-guru-rds-application</code>. When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is case-sensitive.
+   * 			 For example, DevOps Guru works with a
    * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			<code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible <i>key</i>/<i>value</i> pairs in your
    * 			application might be <code>Devops-Guru-production-application/RDS</code> or
    * 			<code>Devops-Guru-production-application/containers</code>.</p>
-   * 	        </important>
+   *          </important>
    */
   Tags?: UpdateTagCollectionFilter[];
 }
@@ -4166,6 +4286,13 @@ export const AccountInsightHealthFilterSensitiveLog = (obj: AccountInsightHealth
  * @internal
  */
 export const AccountHealthFilterSensitiveLog = (obj: AccountHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationFilterConfigFilterSensitiveLog = (obj: NotificationFilterConfig): any => ({
   ...obj,
 });
 
@@ -4761,6 +4888,20 @@ export const GetResourceCollectionResponseFilterSensitiveLog = (obj: GetResource
 /**
  * @internal
  */
+export const ServiceCollectionFilterSensitiveLog = (obj: ServiceCollection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomaliesForInsightFiltersFilterSensitiveLog = (obj: ListAnomaliesForInsightFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const StartTimeRangeFilterSensitiveLog = (obj: StartTimeRange): any => ({
   ...obj,
 });
@@ -4888,13 +5029,6 @@ export const ListInsightsStatusFilterFilterSensitiveLog = (obj: ListInsightsStat
  * @internal
  */
 export const ListInsightsRequestFilterSensitiveLog = (obj: ListInsightsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceCollectionFilterSensitiveLog = (obj: ServiceCollection): any => ({
   ...obj,
 });
 

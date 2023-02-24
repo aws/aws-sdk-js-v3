@@ -34,12 +34,6 @@ import {
   HlsManifestCompression,
   HlsManifestDurationFormat,
   HlsMode,
-  HlsOutputSelection,
-  HlsProgramDateTime,
-  HlsProgramDateTimeClock,
-  HlsRedundantManifest,
-  HlsSegmentationMode,
-  HlsStreamInfResolution,
   IFrameOnlyPlaylistType,
   Input,
   InputAttachment,
@@ -50,7 +44,6 @@ import {
   InputDeviceConnectionState,
   InputDeviceHdSettings,
   InputDeviceNetworkSettings,
-  InputDeviceRequest,
   InputDeviceSettings,
   InputDeviceSummary,
   InputDeviceType,
@@ -87,6 +80,37 @@ import {
   ReservationResourceSpecification,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+export enum HlsOutputSelection {
+  MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
+  SEGMENTS_ONLY = "SEGMENTS_ONLY",
+  VARIANT_MANIFESTS_AND_SEGMENTS = "VARIANT_MANIFESTS_AND_SEGMENTS",
+}
+
+export enum HlsProgramDateTime {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
+
+export enum HlsProgramDateTimeClock {
+  INITIALIZE_FROM_OUTPUT_TIMECODE = "INITIALIZE_FROM_OUTPUT_TIMECODE",
+  SYSTEM_CLOCK = "SYSTEM_CLOCK",
+}
+
+export enum HlsRedundantManifest {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum HlsSegmentationMode {
+  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
+  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
+}
+
+export enum HlsStreamInfResolution {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
 
 export enum HlsTimedMetadataId3Frame {
   NONE = "NONE",
@@ -263,7 +287,7 @@ export interface HlsGroupSettings {
   ManifestDurationFormat?: HlsManifestDurationFormat | string;
 
   /**
-   * When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
+   * Minimum length of MPEG-2 Transport Stream segments in seconds. When set, minimum segment length is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
    */
   MinSegmentLength?: number;
 
@@ -312,7 +336,7 @@ export interface HlsGroupSettings {
   RedundantManifest?: HlsRedundantManifest | string;
 
   /**
-   * Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
+   * Length of MPEG-2 Transport Stream segments to create in seconds. Note that segments will end on the next keyframe after this duration, so actual segment length may be longer.
    */
   SegmentLength?: number;
 
@@ -1021,6 +1045,26 @@ export interface PauseStateScheduleActionSettings {
   Pipelines?: PipelinePauseStateSettings[];
 }
 
+export enum Scte35InputMode {
+  FIXED = "FIXED",
+  FOLLOW_ACTIVE = "FOLLOW_ACTIVE",
+}
+
+/**
+ * Scte35Input Schedule Action Settings
+ */
+export interface Scte35InputScheduleActionSettings {
+  /**
+   * In fixed mode, enter the name of the input attachment that you want to use as a SCTE-35 input. (Don't enter the ID of the input.)"
+   */
+  InputAttachmentNameReference?: string;
+
+  /**
+   * Whether the SCTE-35 input should be the active input or a fixed input.
+   */
+  Mode: Scte35InputMode | string | undefined;
+}
+
 /**
  * Settings for a SCTE-35 return_to_network message.
  */
@@ -1298,6 +1342,11 @@ export interface ScheduleActionSettings {
   PauseStateSettings?: PauseStateScheduleActionSettings;
 
   /**
+   * Action to specify scte35 input
+   */
+  Scte35InputSettings?: Scte35InputScheduleActionSettings;
+
+  /**
    * Action to insert SCTE-35 return_to_network message
    */
   Scte35ReturnToNetworkSettings?: Scte35ReturnToNetworkScheduleActionSettings;
@@ -1448,6 +1497,45 @@ export enum FrameCaptureIntervalUnit {
   SECONDS = "SECONDS",
 }
 
+export enum TimecodeBurninFontSize {
+  EXTRA_SMALL_10 = "EXTRA_SMALL_10",
+  LARGE_48 = "LARGE_48",
+  MEDIUM_32 = "MEDIUM_32",
+  SMALL_16 = "SMALL_16",
+}
+
+export enum TimecodeBurninPosition {
+  BOTTOM_CENTER = "BOTTOM_CENTER",
+  BOTTOM_LEFT = "BOTTOM_LEFT",
+  BOTTOM_RIGHT = "BOTTOM_RIGHT",
+  MIDDLE_CENTER = "MIDDLE_CENTER",
+  MIDDLE_LEFT = "MIDDLE_LEFT",
+  MIDDLE_RIGHT = "MIDDLE_RIGHT",
+  TOP_CENTER = "TOP_CENTER",
+  TOP_LEFT = "TOP_LEFT",
+  TOP_RIGHT = "TOP_RIGHT",
+}
+
+/**
+ * Timecode Burnin Settings
+ */
+export interface TimecodeBurninSettings {
+  /**
+   * Choose a timecode burn-in font size
+   */
+  FontSize: TimecodeBurninFontSize | string | undefined;
+
+  /**
+   * Choose a timecode burn-in output position
+   */
+  Position: TimecodeBurninPosition | string | undefined;
+
+  /**
+   * Create a timecode burn-in prefix (optional)
+   */
+  Prefix?: string;
+}
+
 /**
  * Frame Capture Settings
  */
@@ -1461,6 +1549,11 @@ export interface FrameCaptureSettings {
    * Unit for the frame capture interval.
    */
   CaptureIntervalUnits?: FrameCaptureIntervalUnit | string;
+
+  /**
+   * Timecode burn-in settings
+   */
+  TimecodeBurninSettings?: TimecodeBurninSettings;
 }
 
 export enum H264AdaptiveQuantization {
@@ -1942,6 +2035,11 @@ export interface H264Settings {
    * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
    */
   TimecodeInsertion?: H264TimecodeInsertionBehavior | string;
+
+  /**
+   * Timecode burn-in settings
+   */
+  TimecodeBurninSettings?: TimecodeBurninSettings;
 }
 
 export enum H265AdaptiveQuantization {
@@ -1965,6 +2063,11 @@ export enum H265ColorMetadata {
 }
 
 /**
+ * Dolby Vision81 Settings
+ */
+export interface DolbyVision81Settings {}
+
+/**
  * H265 Color Space Settings
  */
 export interface H265ColorSpaceSettings {
@@ -1972,6 +2075,11 @@ export interface H265ColorSpaceSettings {
    * Passthrough applies no color space conversion to the output
    */
   ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
+
+  /**
+   * Dolby Vision81 Settings
+   */
+  DolbyVision81Settings?: DolbyVision81Settings;
 
   /**
    * Hdr10 Settings
@@ -2229,6 +2337,11 @@ export interface H265Settings {
    * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
    */
   TimecodeInsertion?: H265TimecodeInsertionBehavior | string;
+
+  /**
+   * Timecode burn-in settings
+   */
+  TimecodeBurninSettings?: TimecodeBurninSettings;
 }
 
 export enum Mpeg2AdaptiveQuantization {
@@ -2380,6 +2493,11 @@ export interface Mpeg2Settings {
    * GOP_TIMECODE: Include timecode metadata in the GOP header.
    */
   TimecodeInsertion?: Mpeg2TimecodeInsertionBehavior | string;
+
+  /**
+   * Timecode burn-in settings
+   */
+  TimecodeBurninSettings?: TimecodeBurninSettings;
 }
 
 /**
@@ -2722,6 +2840,41 @@ export interface AvailBlanking {
   State?: AvailBlankingState | string;
 }
 
+/**
+ * Esam
+ */
+export interface Esam {
+  /**
+   * Sent as acquisitionPointIdentity to identify the MediaLive channel to the POIS.
+   */
+  AcquisitionPointId: string | undefined;
+
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   */
+  AdAvailOffset?: number;
+
+  /**
+   * Documentation update needed
+   */
+  PasswordParam?: string;
+
+  /**
+   * The URL of the signal conditioner endpoint on the Placement Opportunity Information System (POIS). MediaLive sends SignalProcessingEvents here when SCTE-35 messages are read.
+   */
+  PoisEndpoint: string | undefined;
+
+  /**
+   * Documentation update needed
+   */
+  Username?: string;
+
+  /**
+   * Optional data sent as zoneIdentity to identify the MediaLive channel to the POIS.
+   */
+  ZoneIdentity?: string;
+}
+
 export enum Scte35SpliceInsertNoRegionalBlackoutBehavior {
   FOLLOW = "FOLLOW",
   IGNORE = "IGNORE",
@@ -2786,6 +2939,11 @@ export interface Scte35TimeSignalApos {
  * Avail Settings
  */
 export interface AvailSettings {
+  /**
+   * Esam
+   */
+  Esam?: Esam;
+
   /**
    * Scte35 Splice Insert
    */
@@ -5136,6 +5294,11 @@ export interface InputDeviceConfigurableSettings {
    * The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
    */
   MaxBitrate?: number;
+
+  /**
+   * The Link device's buffer size (latency) in milliseconds (ms).
+   */
+  LatencyMs?: number;
 }
 
 /**
@@ -5761,417 +5924,6 @@ export interface StartInputDeviceMaintenanceWindowRequest {
 export interface StartInputDeviceMaintenanceWindowResponse {}
 
 /**
- * Placeholder documentation for StartMultiplexRequest
- */
-export interface StartMultiplexRequest {
-  /**
-   * The ID of the multiplex.
-   */
-  MultiplexId: string | undefined;
-}
-
-/**
- * Placeholder documentation for StartMultiplexResponse
- */
-export interface StartMultiplexResponse {
-  /**
-   * The unique arn of the multiplex.
-   */
-  Arn?: string;
-
-  /**
-   * A list of availability zones for the multiplex.
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * A list of the multiplex output destinations.
-   */
-  Destinations?: MultiplexOutputDestination[];
-
-  /**
-   * The unique id of the multiplex.
-   */
-  Id?: string;
-
-  /**
-   * Configuration for a multiplex event.
-   */
-  MultiplexSettings?: MultiplexSettings;
-
-  /**
-   * The name of the multiplex.
-   */
-  Name?: string;
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The number of programs in the multiplex.
-   */
-  ProgramCount?: number;
-
-  /**
-   * The current state of the multiplex.
-   */
-  State?: MultiplexState | string;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for StopChannelRequest
- */
-export interface StopChannelRequest {
-  /**
-   * A request to stop a running channel
-   */
-  ChannelId: string | undefined;
-}
-
-/**
- * Placeholder documentation for StopChannelResponse
- */
-export interface StopChannelResponse {
-  /**
-   * The unique arn of the channel.
-   */
-  Arn?: string;
-
-  /**
-   * Specification of CDI inputs for this channel
-   */
-  CdiInputSpecification?: CdiInputSpecification;
-
-  /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   */
-  ChannelClass?: ChannelClass | string;
-
-  /**
-   * A list of destinations of the channel. For UDP outputs, there is one
-   * destination per output. For other types (HLS, for example), there is
-   * one destination per packager.
-   */
-  Destinations?: OutputDestination[];
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * Encoder Settings
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * The unique id of the channel.
-   */
-  Id?: string;
-
-  /**
-   * List of input attachments for channel.
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Specification of network and file inputs for this channel
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
-   * The log level being written to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * Maintenance settings for this channel.
-   */
-  Maintenance?: MaintenanceStatus;
-
-  /**
-   * The name of the channel. (user-mutable)
-   */
-  Name?: string;
-
-  /**
-   * Runtime details for the pipelines of a running channel.
-   */
-  PipelineDetails?: PipelineDetail[];
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-   */
-  RoleArn?: string;
-
-  /**
-   * Placeholder documentation for ChannelState
-   */
-  State?: ChannelState | string;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * Settings for VPC output
-   */
-  Vpc?: VpcOutputSettingsDescription;
-}
-
-/**
- * Placeholder documentation for StopMultiplexRequest
- */
-export interface StopMultiplexRequest {
-  /**
-   * The ID of the multiplex.
-   */
-  MultiplexId: string | undefined;
-}
-
-/**
- * Placeholder documentation for StopMultiplexResponse
- */
-export interface StopMultiplexResponse {
-  /**
-   * The unique arn of the multiplex.
-   */
-  Arn?: string;
-
-  /**
-   * A list of availability zones for the multiplex.
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * A list of the multiplex output destinations.
-   */
-  Destinations?: MultiplexOutputDestination[];
-
-  /**
-   * The unique id of the multiplex.
-   */
-  Id?: string;
-
-  /**
-   * Configuration for a multiplex event.
-   */
-  MultiplexSettings?: MultiplexSettings;
-
-  /**
-   * The name of the multiplex.
-   */
-  Name?: string;
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The number of programs in the multiplex.
-   */
-  ProgramCount?: number;
-
-  /**
-   * The current state of the multiplex.
-   */
-  State?: MultiplexState | string;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * A request to transfer an input device.
- */
-export interface TransferInputDeviceRequest {
-  /**
-   * The unique ID of this input device. For example, hd-123456789abcdef.
-   */
-  InputDeviceId: string | undefined;
-
-  /**
-   * The AWS account ID (12 digits) for the recipient of the device transfer.
-   */
-  TargetCustomerId?: string;
-
-  /**
-   * The target AWS region to transfer the device.
-   */
-  TargetRegion?: string;
-
-  /**
-   * An optional message for the recipient. Maximum 280 characters.
-   */
-  TransferMessage?: string;
-}
-
-/**
- * Placeholder documentation for TransferInputDeviceResponse
- */
-export interface TransferInputDeviceResponse {}
-
-/**
- * A request to update a channel.
- */
-export interface UpdateChannelRequest {
-  /**
-   * Specification of CDI inputs for this channel
-   */
-  CdiInputSpecification?: CdiInputSpecification;
-
-  /**
-   * channel ID
-   */
-  ChannelId: string | undefined;
-
-  /**
-   * A list of output destinations for this channel.
-   */
-  Destinations?: OutputDestination[];
-
-  /**
-   * The encoder settings for this channel.
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * Placeholder documentation for __listOfInputAttachment
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Specification of network and file inputs for this channel
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
-   * The log level to write to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * Maintenance settings for this channel.
-   */
-  Maintenance?: MaintenanceUpdateSettings;
-
-  /**
-   * The name of the channel.
-   */
-  Name?: string;
-
-  /**
-   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
-   */
-  RoleArn?: string;
-}
-
-/**
- * Placeholder documentation for UpdateChannelResponse
- */
-export interface UpdateChannelResponse {
-  /**
-   * Placeholder documentation for Channel
-   */
-  Channel?: Channel;
-}
-
-/**
- * Channel class that the channel should be updated to.
- */
-export interface UpdateChannelClassRequest {
-  /**
-   * The channel class that you wish to update this channel to use.
-   */
-  ChannelClass: ChannelClass | string | undefined;
-
-  /**
-   * Channel Id of the channel whose class should be updated.
-   */
-  ChannelId: string | undefined;
-
-  /**
-   * A list of output destinations for this channel.
-   */
-  Destinations?: OutputDestination[];
-}
-
-/**
- * Placeholder documentation for UpdateChannelClassResponse
- */
-export interface UpdateChannelClassResponse {
-  /**
-   * Placeholder documentation for Channel
-   */
-  Channel?: Channel;
-}
-
-/**
- * A request to update an input.
- */
-export interface UpdateInputRequest {
-  /**
-   * Destination settings for PUSH type inputs.
-   */
-  Destinations?: InputDestinationRequest[];
-
-  /**
-   * Settings for the devices.
-   */
-  InputDevices?: InputDeviceRequest[];
-
-  /**
-   * Unique ID of the input.
-   */
-  InputId: string | undefined;
-
-  /**
-   * A list of security groups referenced by IDs to attach to the input.
-   */
-  InputSecurityGroups?: string[];
-
-  /**
-   * A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
-   * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
-   * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
-   */
-  MediaConnectFlows?: MediaConnectFlowRequest[];
-
-  /**
-   * Name of the input.
-   */
-  Name?: string;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-   */
-  RoleArn?: string;
-
-  /**
-   * The source URLs for a PULL-type input. Every PULL type input needs
-   * exactly two source URLs for redundancy.
-   * Only specify sources for PULL type Inputs. Leave Destinations empty.
-   */
-  Sources?: InputSourceRequest[];
-}
-
-/**
  * @internal
  */
 export const HlsGroupSettingsFilterSensitiveLog = (obj: HlsGroupSettings): any => ({
@@ -6336,6 +6088,13 @@ export const PauseStateScheduleActionSettingsFilterSensitiveLog = (obj: PauseSta
 /**
  * @internal
  */
+export const Scte35InputScheduleActionSettingsFilterSensitiveLog = (obj: Scte35InputScheduleActionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const Scte35ReturnToNetworkScheduleActionSettingsFilterSensitiveLog = (
   obj: Scte35ReturnToNetworkScheduleActionSettings
 ): any => ({
@@ -6471,6 +6230,13 @@ export const ValidationErrorFilterSensitiveLog = (obj: ValidationError): any => 
 /**
  * @internal
  */
+export const TimecodeBurninSettingsFilterSensitiveLog = (obj: TimecodeBurninSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const FrameCaptureSettingsFilterSensitiveLog = (obj: FrameCaptureSettings): any => ({
   ...obj,
 });
@@ -6521,6 +6287,13 @@ export const H264FilterSettingsFilterSensitiveLog = (obj: H264FilterSettings): a
  * @internal
  */
 export const H264SettingsFilterSensitiveLog = (obj: H264Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DolbyVision81SettingsFilterSensitiveLog = (obj: DolbyVision81Settings): any => ({
   ...obj,
 });
 
@@ -6591,6 +6364,13 @@ export const AcceptInputDeviceTransferResponseFilterSensitiveLog = (obj: AcceptI
  * @internal
  */
 export const AvailBlankingFilterSensitiveLog = (obj: AvailBlanking): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EsamFilterSensitiveLog = (obj: Esam): any => ({
   ...obj,
 });
 
@@ -7455,96 +7235,5 @@ export const StartInputDeviceMaintenanceWindowRequestFilterSensitiveLog = (
 export const StartInputDeviceMaintenanceWindowResponseFilterSensitiveLog = (
   obj: StartInputDeviceMaintenanceWindowResponse
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMultiplexRequestFilterSensitiveLog = (obj: StartMultiplexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMultiplexResponseFilterSensitiveLog = (obj: StartMultiplexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopChannelRequestFilterSensitiveLog = (obj: StopChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopChannelResponseFilterSensitiveLog = (obj: StopChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMultiplexRequestFilterSensitiveLog = (obj: StopMultiplexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMultiplexResponseFilterSensitiveLog = (obj: StopMultiplexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransferInputDeviceRequestFilterSensitiveLog = (obj: TransferInputDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransferInputDeviceResponseFilterSensitiveLog = (obj: TransferInputDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelClassRequestFilterSensitiveLog = (obj: UpdateChannelClassRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelClassResponseFilterSensitiveLog = (obj: UpdateChannelClassResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInputRequestFilterSensitiveLog = (obj: UpdateInputRequest): any => ({
   ...obj,
 });

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -44,23 +45,15 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  *                     only.</p>
  *             </li>
  *          </ul>
- *          <p>To request player sessions, specify either a player session ID, game session ID, or player
- *             ID. You can filter this request by player session status. Use the pagination parameters
- *             to retrieve results as a set of sequential pages. </p>
+ *         <p>To request player sessions, specify either a player session ID, game session ID, or
+ *             player ID. You can filter this request by player session status. Use the pagination
+ *             parameters to retrieve results as a set of sequential pages. </p>
  *         <p>If successful, a <code>PlayerSession</code> object is returned for each session that
  *             matches the request.</p>
- *          <p>
- *             <i>Available in Amazon GameLift Local.</i>
- *          </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreatePlayerSession</a> |
- *                     <a>CreatePlayerSessions</a> |
- *                     <a>DescribePlayerSessions</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -86,6 +79,15 @@ export class DescribePlayerSessionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribePlayerSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,6 +103,9 @@ export class DescribePlayerSessionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribePlayerSessionsCommandInput, DescribePlayerSessionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribePlayerSessionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

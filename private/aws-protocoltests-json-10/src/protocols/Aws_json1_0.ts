@@ -221,7 +221,7 @@ const deserializeAws_json1_0EmptyInputAndEmptyOutputCommandError = async (
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -253,7 +253,7 @@ const deserializeAws_json1_0EndpointOperationCommandError = async (
 ): Promise<EndpointOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -285,7 +285,7 @@ const deserializeAws_json1_0EndpointWithHostLabelOperationCommandError = async (
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -320,7 +320,7 @@ const deserializeAws_json1_0GreetingWithErrorsCommandError = async (
 ): Promise<GreetingWithErrorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -364,7 +364,7 @@ const deserializeAws_json1_0HostWithPathOperationCommandError = async (
 ): Promise<HostWithPathOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -399,7 +399,7 @@ const deserializeAws_json1_0JsonUnionsCommandError = async (
 ): Promise<JsonUnionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -431,7 +431,7 @@ const deserializeAws_json1_0NoInputAndNoOutputCommandError = async (
 ): Promise<NoInputAndNoOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -466,7 +466,7 @@ const deserializeAws_json1_0NoInputAndOutputCommandError = async (
 ): Promise<NoInputAndOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -501,7 +501,7 @@ const deserializeAws_json1_0SimpleScalarPropertiesCommandError = async (
 ): Promise<SimpleScalarPropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -585,6 +585,7 @@ const serializeAws_json1_0MyUnion = (input: MyUnion, context: __SerdeContext): a
     blobValue: (value) => ({ blobValue: context.base64Encoder(value) }),
     booleanValue: (value) => ({ booleanValue: value }),
     enumValue: (value) => ({ enumValue: value }),
+    intEnumValue: (value) => ({ intEnumValue: value }),
     listValue: (value) => ({ listValue: serializeAws_json1_0StringList(value, context) }),
     mapValue: (value) => ({ mapValue: serializeAws_json1_0StringMap(value, context) }),
     numberValue: (value) => ({ numberValue: value }),
@@ -624,10 +625,8 @@ const serializeAws_json1_0StringMap = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -688,6 +687,9 @@ const deserializeAws_json1_0MyUnion = (output: any, context: __SerdeContext): My
   }
   if (__expectString(output.enumValue) !== undefined) {
     return { enumValue: __expectString(output.enumValue) as any };
+  }
+  if (__expectInt32(output.intEnumValue) !== undefined) {
+    return { intEnumValue: __expectInt32(output.intEnumValue) as any };
   }
   if (output.listValue != null) {
     return {
@@ -755,16 +757,15 @@ const deserializeAws_json1_0StringMap = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -814,6 +815,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -824,6 +831,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

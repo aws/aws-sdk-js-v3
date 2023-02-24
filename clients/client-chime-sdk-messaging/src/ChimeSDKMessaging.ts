@@ -178,6 +178,11 @@ import {
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
 import {
+  ListSubChannelsCommand,
+  ListSubChannelsCommandInput,
+  ListSubChannelsCommandOutput,
+} from "./commands/ListSubChannelsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -1674,6 +1679,38 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * <p>Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.</p>
+   */
+  public listSubChannels(
+    args: ListSubChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSubChannelsCommandOutput>;
+  public listSubChannels(
+    args: ListSubChannelsCommandInput,
+    cb: (err: any, data?: ListSubChannelsCommandOutput) => void
+  ): void;
+  public listSubChannels(
+    args: ListSubChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSubChannelsCommandOutput) => void
+  ): void;
+  public listSubChannels(
+    args: ListSubChannelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubChannelsCommandOutput) => void),
+    cb?: (err: any, data?: ListSubChannelsCommandOutput) => void
+  ): Promise<ListSubChannelsCommandOutput> | void {
+    const command = new ListSubChannelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the tags applied to an Amazon Chime SDK messaging resource.</p>
    */
   public listTagsForResource(
@@ -1779,8 +1816,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
-   * <p>Allows an <code>AppInstanceUser</code> to search the channels that they belong to. The <code>AppInstanceUser</code> can search by membership or external ID.
-   *          An <code>AppInstanceAdmin</code> can search across all channels within the <code>AppInstance</code>.</p>
+   * <p>Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers can search across the channels that they belong to. AppInstanceAdmins can search across all channels.</p>
    */
   public searchChannels(
     args: SearchChannelsCommandInput,

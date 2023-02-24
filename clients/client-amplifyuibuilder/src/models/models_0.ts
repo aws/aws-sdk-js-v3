@@ -338,6 +338,870 @@ export interface ExchangeCodeForTokenResponse {
   refreshToken: string | undefined;
 }
 
+export enum FixedPosition {
+  FIRST = "first",
+}
+
+/**
+ * <p>Describes the field position.</p>
+ */
+export type FieldPosition =
+  | FieldPosition.BelowMember
+  | FieldPosition.FixedMember
+  | FieldPosition.RightOfMember
+  | FieldPosition.$UnknownMember;
+
+export namespace FieldPosition {
+  /**
+   * <p>The field position is fixed and doesn't change in relation to other fields.</p>
+   */
+  export interface FixedMember {
+    fixed: FixedPosition | string;
+    rightOf?: never;
+    below?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The field position is to the right of the field specified by the string.</p>
+   */
+  export interface RightOfMember {
+    fixed?: never;
+    rightOf: string;
+    below?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The field position is below the field specified by the string.</p>
+   */
+  export interface BelowMember {
+    fixed?: never;
+    rightOf?: never;
+    below: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    fixed?: never;
+    rightOf?: never;
+    below?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    fixed: (value: FixedPosition | string) => T;
+    rightOf: (value: string) => T;
+    below: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FieldPosition, visitor: Visitor<T>): T => {
+    if (value.fixed !== undefined) return visitor.fixed(value.fixed);
+    if (value.rightOf !== undefined) return visitor.rightOf(value.rightOf);
+    if (value.below !== undefined) return visitor.below(value.below);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Describes the configuration for a button UI element that is a part of a form.</p>
+ */
+export interface FormButton {
+  /**
+   * <p>Specifies whether the button is visible on the form.</p>
+   */
+  excluded?: boolean;
+
+  /**
+   * <p>Describes the button's properties.</p>
+   */
+  children?: string;
+
+  /**
+   * <p>The position of the button.</p>
+   */
+  position?: FieldPosition;
+}
+
+export enum FormButtonsPosition {
+  BOTTOM = "bottom",
+  TOP = "top",
+  TOP_AND_BOTTOM = "top_and_bottom",
+}
+
+/**
+ * <p>Describes the call to action button configuration for the form.</p>
+ */
+export interface FormCTA {
+  /**
+   * <p>The position of the button.</p>
+   */
+  position?: FormButtonsPosition | string;
+
+  /**
+   * <p>Displays a clear button.</p>
+   */
+  clear?: FormButton;
+
+  /**
+   * <p>Displays a cancel button.</p>
+   */
+  cancel?: FormButton;
+
+  /**
+   * <p>Displays a submit button.</p>
+   */
+  submit?: FormButton;
+}
+
+export enum FormDataSourceType {
+  /**
+   * Will use passed in hooks to use when creating a form from scratch
+   */
+  CUSTOM = "Custom",
+  /**
+   * Will use a provided Amplify DataStore enabled API
+   */
+  DATASTORE = "DataStore",
+}
+
+/**
+ * <p>Describes the data type configuration for the data source associated with a form.</p>
+ */
+export interface FormDataTypeConfig {
+  /**
+   * <p>The data source type, either an Amplify DataStore model or a custom data type.</p>
+   */
+  dataSourceType: FormDataSourceType | string | undefined;
+
+  /**
+   * <p>The unique name of the data type you are using as the data source for the form.</p>
+   */
+  dataTypeName: string | undefined;
+}
+
+/**
+ * <p>Describes the configuration for an input field on a form. Use
+ *       <code>FormInputValueProperty</code> to specify the values to render or bind by
+ *       default.</p>
+ */
+export interface FormInputValueProperty {
+  /**
+   * <p>The value to assign to the input field.</p>
+   */
+  value?: string;
+}
+
+/**
+ * <p>Associates a complex object with a display value. Use <code>ValueMapping</code> to store
+ *       how to represent complex objects when they are displayed.</p>
+ */
+export interface ValueMapping {
+  /**
+   * <p>The value to display for the complex object.</p>
+   */
+  displayValue?: FormInputValueProperty;
+
+  /**
+   * <p>The complex object.</p>
+   */
+  value: FormInputValueProperty | undefined;
+}
+
+/**
+ * <p>Represents the data binding configuration for a value map.</p>
+ */
+export interface ValueMappings {
+  /**
+   * <p>The value and display value pairs.</p>
+   */
+  values: ValueMapping[] | undefined;
+}
+
+/**
+ * <p>Describes the configuration for the default input values to display for a field.</p>
+ */
+export interface FieldInputConfig {
+  /**
+   * <p>The input type for the field. </p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>Specifies a field that requires input.</p>
+   */
+  required?: boolean;
+
+  /**
+   * <p>Specifies a read only field.</p>
+   */
+  readOnly?: boolean;
+
+  /**
+   * <p>The text to display as a placeholder for the field.</p>
+   */
+  placeholder?: string;
+
+  /**
+   * <p>The default value for the field.</p>
+   */
+  defaultValue?: string;
+
+  /**
+   * <p>The text to display to describe the field.</p>
+   */
+  descriptiveText?: string;
+
+  /**
+   * <p>Specifies whether a field has a default value.</p>
+   */
+  defaultChecked?: boolean;
+
+  /**
+   * <p>The default country code for a phone number.</p>
+   */
+  defaultCountryCode?: string;
+
+  /**
+   * <p>The information to use to customize the input fields with data at runtime.</p>
+   */
+  valueMappings?: ValueMappings;
+
+  /**
+   * <p>The name of the field.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The minimum value to display for the field.</p>
+   */
+  minValue?: number;
+
+  /**
+   * <p>The maximum value to display for the field.</p>
+   */
+  maxValue?: number;
+
+  /**
+   * <p>The stepping increment for a numeric value in a field.</p>
+   */
+  step?: number;
+
+  /**
+   * <p>The value for the field.</p>
+   */
+  value?: string;
+
+  /**
+   * <p>Specifies whether to render the field as an array. This property is ignored if the <code>dataSourceType</code> for the form is a Data Store.</p>
+   */
+  isArray?: boolean;
+}
+
+/**
+ * <p>Describes the validation configuration for a field.</p>
+ */
+export interface FieldValidationConfiguration {
+  /**
+   * <p>The validation to perform on an object type.<code/>
+   *          </p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The validation to perform on a string value.</p>
+   */
+  strValues?: string[];
+
+  /**
+   * <p>The validation to perform on a number value.</p>
+   */
+  numValues?: number[];
+
+  /**
+   * <p>The validation message to display.</p>
+   */
+  validationMessage?: string;
+}
+
+/**
+ * <p>Describes the configuration information for a field in a table.</p>
+ */
+export interface FieldConfig {
+  /**
+   * <p>The label for the field.</p>
+   */
+  label?: string;
+
+  /**
+   * <p>Specifies the field position.</p>
+   */
+  position?: FieldPosition;
+
+  /**
+   * <p>Specifies whether to hide a field.</p>
+   */
+  excluded?: boolean;
+
+  /**
+   * <p>Describes the configuration for the default input value to display for a field.</p>
+   */
+  inputType?: FieldInputConfig;
+
+  /**
+   * <p>The validations to perform on the value in the field.</p>
+   */
+  validations?: FieldValidationConfiguration[];
+}
+
+export enum FormActionType {
+  CREATE = "create",
+  UPDATE = "update",
+}
+
+/**
+ * <p>Stores the configuration information for a visual helper element for a form. A sectional
+ *       element can be a header, a text block, or a divider. These elements are static and not
+ *       associated with any data.</p>
+ */
+export interface SectionalElement {
+  /**
+   * <p>The type of sectional element. Valid values are <code>Heading</code>, <code>Text</code>,
+   *       and <code>Divider</code>.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>Specifies the position of the text in a field for a <code>Text</code> sectional
+   *       element.</p>
+   */
+  position?: FieldPosition;
+
+  /**
+   * <p>The text for a <code>Text</code> sectional element.</p>
+   */
+  text?: string;
+
+  /**
+   * <p>Specifies the size of the font for a <code>Heading</code> sectional element. Valid values
+   *       are <code>1 | 2 | 3 | 4 | 5 | 6</code>.</p>
+   */
+  level?: number;
+
+  /**
+   * <p>Specifies the orientation for a <code>Divider</code> sectional element. Valid values are
+   *       <code>horizontal</code> or <code>vertical</code>.</p>
+   */
+  orientation?: string;
+}
+
+/**
+ * <p>Describes the configuration settings for the form's style properties.</p>
+ */
+export type FormStyleConfig =
+  | FormStyleConfig.TokenReferenceMember
+  | FormStyleConfig.ValueMember
+  | FormStyleConfig.$UnknownMember;
+
+export namespace FormStyleConfig {
+  /**
+   * <p>A reference to a design token to use to bind the form's style properties to an existing
+   *       theme.</p>
+   */
+  export interface TokenReferenceMember {
+    tokenReference: string;
+    value?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The value of the style setting.</p>
+   */
+  export interface ValueMember {
+    tokenReference?: never;
+    value: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    tokenReference?: never;
+    value?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    tokenReference: (value: string) => T;
+    value: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FormStyleConfig, visitor: Visitor<T>): T => {
+    if (value.tokenReference !== undefined) return visitor.tokenReference(value.tokenReference);
+    if (value.value !== undefined) return visitor.value(value.value);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Describes the configuration for the form's style.</p>
+ */
+export interface FormStyle {
+  /**
+   * <p>The spacing for the horizontal gap.</p>
+   */
+  horizontalGap?: FormStyleConfig;
+
+  /**
+   * <p>The spacing for the vertical gap.</p>
+   */
+  verticalGap?: FormStyleConfig;
+
+  /**
+   * <p>The size of the outer padding for the form.</p>
+   */
+  outerPadding?: FormStyleConfig;
+}
+
+/**
+ * <p>Represents all of the information that is required to create a form.</p>
+ */
+export interface CreateFormData {
+  /**
+   * <p>The name of the form.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of data source to use to create the form.</p>
+   */
+  dataType: FormDataTypeConfig | undefined;
+
+  /**
+   * <p>Specifies whether to perform a create or update action on the form.</p>
+   */
+  formActionType: FormActionType | string | undefined;
+
+  /**
+   * <p>The configuration information for the form's fields.</p>
+   */
+  fields: Record<string, FieldConfig> | undefined;
+
+  /**
+   * <p>The configuration for the form's style.</p>
+   */
+  style: FormStyle | undefined;
+
+  /**
+   * <p>The configuration information for the visual helper elements for the form. These elements
+   *       are not associated with any data.</p>
+   */
+  sectionalElements: Record<string, SectionalElement> | undefined;
+
+  /**
+   * <p>The schema version of the form.</p>
+   */
+  schemaVersion: string | undefined;
+
+  /**
+   * <p>The <code>FormCTA</code> object that stores the call to action configuration for the
+   *       form.</p>
+   */
+  cta?: FormCTA;
+
+  /**
+   * <p>One or more key-value pairs to use when tagging the form data.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export interface CreateFormRequest {
+  /**
+   * <p>The unique ID of the Amplify app to associate with the form.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The unique client token.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>Represents the configuration of the form to create.</p>
+   */
+  formToCreate: CreateFormData | undefined;
+}
+
+/**
+ * <p>Contains the configuration settings for a <code>Form</code> user interface (UI) element
+ *       for an Amplify app. A form is a component you can add to your project by specifying a data
+ *       source as the default configuration for the form.</p>
+ */
+export interface Form {
+  /**
+   * <p>The unique ID of the Amplify app associated with the form.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The unique ID of the form.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the form.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The operation to perform on the specified form.</p>
+   */
+  formActionType: FormActionType | string | undefined;
+
+  /**
+   * <p>Stores the configuration for the form's style.</p>
+   */
+  style: FormStyle | undefined;
+
+  /**
+   * <p>The type of data source to use to create the form.</p>
+   */
+  dataType: FormDataTypeConfig | undefined;
+
+  /**
+   * <p>Stores the information about the form's fields.</p>
+   */
+  fields: Record<string, FieldConfig> | undefined;
+
+  /**
+   * <p>Stores the visual helper elements for the form that are not associated with any
+   *       data.</p>
+   */
+  sectionalElements: Record<string, SectionalElement> | undefined;
+
+  /**
+   * <p>The schema version of the form when it was imported.</p>
+   */
+  schemaVersion: string | undefined;
+
+  /**
+   * <p>One or more key-value pairs to use when tagging the form.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Stores the call to action configuration for the form.</p>
+   */
+  cta?: FormCTA;
+}
+
+export interface CreateFormResponse {
+  /**
+   * <p>Describes the configuration of the new form.</p>
+   */
+  entity?: Form;
+}
+
+export interface DeleteFormRequest {
+  /**
+   * <p>The unique ID of the Amplify app associated with the form to delete.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The unique ID of the form to delete.</p>
+   */
+  id: string | undefined;
+}
+
+export interface ExportFormsRequest {
+  /**
+   * <p>The unique ID of the Amplify app to export forms to.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ExportFormsResponse {
+  /**
+   * <p>Represents the configuration of the exported forms.</p>
+   */
+  entities: Form[] | undefined;
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  nextToken?: string;
+}
+
+export interface GetFormRequest {
+  /**
+   * <p>The unique ID of the Amplify app.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The unique ID of the form.</p>
+   */
+  id: string | undefined;
+}
+
+export interface GetFormResponse {
+  /**
+   * <p>Represents the configuration settings for the form.</p>
+   */
+  form?: Form;
+}
+
+export interface ListFormsRequest {
+  /**
+   * <p>The unique ID for the Amplify app.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of forms to retrieve.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>Describes the basic information about a form.</p>
+ */
+export interface FormSummary {
+  /**
+   * <p>The unique ID for the app associated with the form summary.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The form's data source type.</p>
+   */
+  dataType: FormDataTypeConfig | undefined;
+
+  /**
+   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The type of operation to perform on the form.</p>
+   */
+  formActionType: FormActionType | string | undefined;
+
+  /**
+   * <p>The ID of the form.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the form.</p>
+   */
+  name: string | undefined;
+}
+
+export interface ListFormsResponse {
+  /**
+   * <p>The list of forms for the Amplify app.</p>
+   */
+  entities: FormSummary[] | undefined;
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Updates and saves all of the information about a form, based on form ID.</p>
+ */
+export interface UpdateFormData {
+  /**
+   * <p>The name of the form.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The type of data source to use to create the form.</p>
+   */
+  dataType?: FormDataTypeConfig;
+
+  /**
+   * <p>Specifies whether to perform a create or update action on the form.</p>
+   */
+  formActionType?: FormActionType | string;
+
+  /**
+   * <p>The configuration information for the form's fields.</p>
+   */
+  fields?: Record<string, FieldConfig>;
+
+  /**
+   * <p>The configuration for the form's style.</p>
+   */
+  style?: FormStyle;
+
+  /**
+   * <p>The configuration information for the visual helper elements for the form. These elements
+   *       are not associated with any data.</p>
+   */
+  sectionalElements?: Record<string, SectionalElement>;
+
+  /**
+   * <p>The schema version of the form.</p>
+   */
+  schemaVersion?: string;
+
+  /**
+   * <p>The <code>FormCTA</code> object that stores the call to action configuration for the
+   *       form.</p>
+   */
+  cta?: FormCTA;
+}
+
+export interface UpdateFormRequest {
+  /**
+   * <p>The unique ID for the Amplify app.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The unique ID for the form.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique client token.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The request accepts the following data in JSON format.</p>
+   */
+  updatedForm: UpdateFormData | undefined;
+}
+
+export interface UpdateFormResponse {
+  /**
+   * <p>Describes the configuration of the updated form.</p>
+   */
+  entity?: Form;
+}
+
+export interface GetMetadataRequest {
+  /**
+   * <p>The unique ID of the Amplify app.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+}
+
+export interface GetMetadataResponse {
+  /**
+   * <p>Represents the configuration settings for the features metadata.</p>
+   */
+  features: Record<string, string> | undefined;
+}
+
+/**
+ * <p>You don't have permission to perform this operation.</p>
+ */
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
+}
+
+/**
+ * <p>Stores the metadata information about a feature on a form or view.</p>
+ */
+export interface PutMetadataFlagBody {
+  /**
+   * <p>The new information to store.</p>
+   */
+  newValue: string | undefined;
+}
+
+export interface PutMetadataFlagRequest {
+  /**
+   * <p>The unique ID for the Amplify app.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The name of the feature associated with the metadata.</p>
+   */
+  featureName: string | undefined;
+
+  /**
+   * <p>The metadata information to store.</p>
+   */
+  body: PutMetadataFlagBody | undefined;
+}
+
 /**
  * <p>Describes a refresh token.</p>
  */
@@ -588,6 +1452,11 @@ export interface ComponentBindingPropertiesValueProperties {
    * <p>The default value to assign to the property.</p>
    */
   defaultValue?: string;
+
+  /**
+   * <p>The name of a component slot.</p>
+   */
+  slotName?: string;
 }
 
 /**
@@ -829,8 +1698,8 @@ export interface UpdateThemeData {
 }
 
 /**
- * <p>Represents the state configuration when an action modifies a property of another element
- *       within the same component.</p>
+ * <p>Represents the state configuration when an action modifies a property of another
+ *       element within the same component.</p>
  */
 export interface MutationActionSetStateParameter {
   /**
@@ -976,15 +1845,14 @@ export interface ExportThemesResponse {
 }
 
 /**
- * <p>Represents the event action configuration for an element of a <code>Component</code> or
- *         <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio
+ * <p>Represents the event action configuration for an element of a <code>Component</code>
+ *       or <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio
  *       that allows you to bind events and actions to components. <code>ActionParameters</code>
  *       defines the action that is performed when an event occurs on the component.</p>
  */
 export interface ActionParameters {
   /**
-   * <p>The type of navigation action. Valid values are <code>url</code> and <code>anchor</code>.
-   *       This value is required for a navigation action.</p>
+   * <p>The type of navigation action. Valid values are <code>url</code> and <code>anchor</code>. This value is required for a navigation action.</p>
    */
   type?: ComponentProperty;
 
@@ -994,8 +1862,7 @@ export interface ActionParameters {
   url?: ComponentProperty;
 
   /**
-   * <p>The HTML anchor link to the location to open. Specify this value for a navigation
-   *       action.</p>
+   * <p>The HTML anchor link to the location to open. Specify this value for a navigation action.</p>
    */
   anchor?: ComponentProperty;
 
@@ -1005,13 +1872,13 @@ export interface ActionParameters {
   target?: ComponentProperty;
 
   /**
-   * <p>Specifies whether the user should be signed out globally. Specify this value for an auth
-   *       sign out action.</p>
+   * <p>Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.</p>
    */
   global?: ComponentProperty;
 
   /**
-   * <p>The name of the data model. Use when the action performs an operation on an Amplify DataStore model.</p>
+   * <p>The name of the data model. Use when the action performs an operation on an Amplify DataStore
+   *       model.</p>
    */
   model?: string;
 
@@ -1021,9 +1888,8 @@ export interface ActionParameters {
   id?: ComponentProperty;
 
   /**
-   * <p>A dictionary of key-value pairs mapping Amplify Studio properties to fields
-   *       in a data model. Use when the action performs an operation on an Amplify
-   *       DataStore model.</p>
+   * <p>A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action
+   *       performs an operation on an Amplify DataStore model.</p>
    */
   fields?: Record<string, ComponentProperty>;
 
@@ -1034,9 +1900,9 @@ export interface ActionParameters {
 }
 
 /**
- * <p>Describes the configuration of an event. You can bind an event and a corresponding action
- *       to a <code>Component</code> or a <code>ComponentChild</code>. A button click is an example of
- *       an event. </p>
+ * <p>Describes the configuration of an event. You can bind an event and a corresponding
+ *       action to a <code>Component</code> or a <code>ComponentChild</code>. A button click
+ *       is an example of an event. </p>
  */
 export interface ComponentEvent {
   /**
@@ -1050,7 +1916,8 @@ export interface ComponentEvent {
   parameters?: ActionParameters;
 
   /**
-   * <p>Binds an event to an action on a component. When you specify a <code>bindingEvent</code>, the event is called when the action is performed.</p>
+   * <p>Binds an event to an action on a component. When you specify a <code>bindingEvent</code>,
+   *       the event is called when the action is performed.</p>
    */
   bindingEvent?: string;
 }
@@ -1081,9 +1948,8 @@ export interface ComponentChild {
   children?: ComponentChild[];
 
   /**
-   * <p>Describes the events that can be raised on the child component. Use for the workflow
-   *       feature in Amplify Studio that allows you to bind events and actions to
-   *       components.</p>
+   * <p>Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to
+   *       bind events and actions to components.</p>
    */
   events?: Record<string, ComponentEvent>;
 
@@ -1186,9 +2052,8 @@ export interface Component {
   tags?: Record<string, string>;
 
   /**
-   * <p>Describes the events that can be raised on the component. Use for the workflow feature in
-   *         Amplify Studio that allows you to bind events and actions to
-   *       components.</p>
+   * <p>Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to
+   *       bind events and actions to components.</p>
    */
   events?: Record<string, ComponentEvent>;
 
@@ -1509,6 +2374,298 @@ export const ExchangeCodeForTokenResponseFilterSensitiveLog = (obj: ExchangeCode
   ...obj,
   ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FieldPositionFilterSensitiveLog = (obj: FieldPosition): any => {
+  if (obj.fixed !== undefined) return { fixed: obj.fixed };
+  if (obj.rightOf !== undefined) return { rightOf: obj.rightOf };
+  if (obj.below !== undefined) return { below: obj.below };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FormButtonFilterSensitiveLog = (obj: FormButton): any => ({
+  ...obj,
+  ...(obj.position && { position: FieldPositionFilterSensitiveLog(obj.position) }),
+});
+
+/**
+ * @internal
+ */
+export const FormCTAFilterSensitiveLog = (obj: FormCTA): any => ({
+  ...obj,
+  ...(obj.clear && { clear: FormButtonFilterSensitiveLog(obj.clear) }),
+  ...(obj.cancel && { cancel: FormButtonFilterSensitiveLog(obj.cancel) }),
+  ...(obj.submit && { submit: FormButtonFilterSensitiveLog(obj.submit) }),
+});
+
+/**
+ * @internal
+ */
+export const FormDataTypeConfigFilterSensitiveLog = (obj: FormDataTypeConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FormInputValuePropertyFilterSensitiveLog = (obj: FormInputValueProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValueMappingFilterSensitiveLog = (obj: ValueMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValueMappingsFilterSensitiveLog = (obj: ValueMappings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldInputConfigFilterSensitiveLog = (obj: FieldInputConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldValidationConfigurationFilterSensitiveLog = (obj: FieldValidationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldConfigFilterSensitiveLog = (obj: FieldConfig): any => ({
+  ...obj,
+  ...(obj.position && { position: FieldPositionFilterSensitiveLog(obj.position) }),
+});
+
+/**
+ * @internal
+ */
+export const SectionalElementFilterSensitiveLog = (obj: SectionalElement): any => ({
+  ...obj,
+  ...(obj.position && { position: FieldPositionFilterSensitiveLog(obj.position) }),
+});
+
+/**
+ * @internal
+ */
+export const FormStyleConfigFilterSensitiveLog = (obj: FormStyleConfig): any => {
+  if (obj.tokenReference !== undefined) return { tokenReference: obj.tokenReference };
+  if (obj.value !== undefined) return { value: obj.value };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FormStyleFilterSensitiveLog = (obj: FormStyle): any => ({
+  ...obj,
+  ...(obj.horizontalGap && { horizontalGap: FormStyleConfigFilterSensitiveLog(obj.horizontalGap) }),
+  ...(obj.verticalGap && { verticalGap: FormStyleConfigFilterSensitiveLog(obj.verticalGap) }),
+  ...(obj.outerPadding && { outerPadding: FormStyleConfigFilterSensitiveLog(obj.outerPadding) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFormDataFilterSensitiveLog = (obj: CreateFormData): any => ({
+  ...obj,
+  ...(obj.fields && {
+    fields: Object.entries(obj.fields).reduce(
+      (acc: any, [key, value]: [string, FieldConfig]) => ((acc[key] = FieldConfigFilterSensitiveLog(value)), acc),
+      {}
+    ),
+  }),
+  ...(obj.style && { style: FormStyleFilterSensitiveLog(obj.style) }),
+  ...(obj.sectionalElements && {
+    sectionalElements: Object.entries(obj.sectionalElements).reduce(
+      (acc: any, [key, value]: [string, SectionalElement]) => (
+        (acc[key] = SectionalElementFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
+  ...(obj.cta && { cta: FormCTAFilterSensitiveLog(obj.cta) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFormRequestFilterSensitiveLog = (obj: CreateFormRequest): any => ({
+  ...obj,
+  ...(obj.formToCreate && { formToCreate: CreateFormDataFilterSensitiveLog(obj.formToCreate) }),
+});
+
+/**
+ * @internal
+ */
+export const FormFilterSensitiveLog = (obj: Form): any => ({
+  ...obj,
+  ...(obj.style && { style: FormStyleFilterSensitiveLog(obj.style) }),
+  ...(obj.fields && {
+    fields: Object.entries(obj.fields).reduce(
+      (acc: any, [key, value]: [string, FieldConfig]) => ((acc[key] = FieldConfigFilterSensitiveLog(value)), acc),
+      {}
+    ),
+  }),
+  ...(obj.sectionalElements && {
+    sectionalElements: Object.entries(obj.sectionalElements).reduce(
+      (acc: any, [key, value]: [string, SectionalElement]) => (
+        (acc[key] = SectionalElementFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
+  ...(obj.cta && { cta: FormCTAFilterSensitiveLog(obj.cta) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFormResponseFilterSensitiveLog = (obj: CreateFormResponse): any => ({
+  ...obj,
+  ...(obj.entity && { entity: FormFilterSensitiveLog(obj.entity) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteFormRequestFilterSensitiveLog = (obj: DeleteFormRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportFormsRequestFilterSensitiveLog = (obj: ExportFormsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportFormsResponseFilterSensitiveLog = (obj: ExportFormsResponse): any => ({
+  ...obj,
+  ...(obj.entities && { entities: obj.entities.map((item) => FormFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetFormRequestFilterSensitiveLog = (obj: GetFormRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFormResponseFilterSensitiveLog = (obj: GetFormResponse): any => ({
+  ...obj,
+  ...(obj.form && { form: FormFilterSensitiveLog(obj.form) }),
+});
+
+/**
+ * @internal
+ */
+export const ListFormsRequestFilterSensitiveLog = (obj: ListFormsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FormSummaryFilterSensitiveLog = (obj: FormSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFormsResponseFilterSensitiveLog = (obj: ListFormsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFormDataFilterSensitiveLog = (obj: UpdateFormData): any => ({
+  ...obj,
+  ...(obj.fields && {
+    fields: Object.entries(obj.fields).reduce(
+      (acc: any, [key, value]: [string, FieldConfig]) => ((acc[key] = FieldConfigFilterSensitiveLog(value)), acc),
+      {}
+    ),
+  }),
+  ...(obj.style && { style: FormStyleFilterSensitiveLog(obj.style) }),
+  ...(obj.sectionalElements && {
+    sectionalElements: Object.entries(obj.sectionalElements).reduce(
+      (acc: any, [key, value]: [string, SectionalElement]) => (
+        (acc[key] = SectionalElementFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
+  ...(obj.cta && { cta: FormCTAFilterSensitiveLog(obj.cta) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFormRequestFilterSensitiveLog = (obj: UpdateFormRequest): any => ({
+  ...obj,
+  ...(obj.updatedForm && { updatedForm: UpdateFormDataFilterSensitiveLog(obj.updatedForm) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFormResponseFilterSensitiveLog = (obj: UpdateFormResponse): any => ({
+  ...obj,
+  ...(obj.entity && { entity: FormFilterSensitiveLog(obj.entity) }),
+});
+
+/**
+ * @internal
+ */
+export const GetMetadataRequestFilterSensitiveLog = (obj: GetMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMetadataResponseFilterSensitiveLog = (obj: GetMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMetadataFlagBodyFilterSensitiveLog = (obj: PutMetadataFlagBody): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMetadataFlagRequestFilterSensitiveLog = (obj: PutMetadataFlagRequest): any => ({
+  ...obj,
 });
 
 /**

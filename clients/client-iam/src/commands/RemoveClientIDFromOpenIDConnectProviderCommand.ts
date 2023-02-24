@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  * <p>Removes the specified client ID (also known as audience) from the list of client IDs
  *             registered for the specified IAM OpenID Connect (OIDC) provider resource
  *             object.</p>
- *         <p>This operation is idempotent; it does not fail or return an error if you try to remove
+ *          <p>This operation is idempotent; it does not fail or return an error if you try to remove
  *             a client ID that does not exist.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +56,15 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RemoveClientIDFromOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,12 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     RemoveClientIDFromOpenIDConnectProviderCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        RemoveClientIDFromOpenIDConnectProviderCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -41,6 +41,7 @@ fC3JsQKBgANzZbf9D0lgQE1wsb45fzrAPAqRQHeVY7V8sZPQoJFcZ2Ymp/3L/UHc
 NwfPmGXHQDQaK9I3XpHfbyOelD6ghHi/wZj0sKR3Uoo84n8sIpCdUvwitjlHlZBE
 aoCHJ9c5Pnu6FwMAjP8aaKLQDvoHZKVWL2Ml6A6V3Ed95Itp/g2J
 -----END RSA PRIVATE KEY-----`);
+const passphrase = "SAMPLE";
 
 function createSignature(data: string): string {
   const signer = createSign("RSA-SHA1");
@@ -71,6 +72,7 @@ describe("getSignedUrl", () => {
         keyPairId,
         dateLessThan,
         privateKey,
+        passphrase,
       })
     );
     if (!result.query) {
@@ -86,6 +88,7 @@ describe("getSignedUrl", () => {
         keyPairId,
         dateLessThan,
         privateKey,
+        passphrase,
       })
     );
     if (!result.query) {
@@ -113,6 +116,7 @@ describe("getSignedUrl", () => {
       keyPairId,
       dateLessThan,
       privateKey,
+      passphrase,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -140,6 +144,7 @@ describe("getSignedUrl", () => {
       dateLessThan,
       dateGreaterThan,
       privateKey,
+      passphrase,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -170,6 +175,7 @@ describe("getSignedUrl", () => {
       dateLessThan,
       ipAddress,
       privateKey,
+      passphrase,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -201,6 +207,7 @@ describe("getSignedUrl", () => {
       dateGreaterThan,
       ipAddress,
       privateKey,
+      passphrase,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -233,6 +240,7 @@ describe("getSignedUrl", () => {
       keyPairId,
       dateLessThan,
       privateKey,
+      passphrase,
     };
     expect(
       getSignedUrl({
@@ -253,6 +261,7 @@ describe("getSignedUrl", () => {
       keyPairId,
       dateLessThan,
       privateKey,
+      passphrase,
     };
     expect(() =>
       getSignedUrl({
@@ -298,6 +307,7 @@ describe("getSignedUrl", () => {
       keyPairId,
       dateLessThan,
       privateKey,
+      passphrase,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -324,6 +334,7 @@ describe("getSignedUrl", () => {
       keyPairId,
       privateKey,
       policy,
+      passphrase,
     });
     const signature = createSignature(policy);
     expect(result).toBe(`${url}?Policy=${encodeToBase64(policy)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
@@ -339,6 +350,7 @@ describe("getSignedCookies", () => {
       keyPairId,
       dateLessThan,
       privateKey,
+      passphrase,
     };
     expect(
       getSignedCookies({
@@ -359,6 +371,7 @@ describe("getSignedCookies", () => {
       keyPairId,
       dateLessThan,
       privateKey,
+      passphrase,
     };
     expect(() =>
       getSignedCookies({
@@ -404,6 +417,7 @@ describe("getSignedCookies", () => {
       keyPairId,
       dateLessThan,
       privateKey,
+      passphrase,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -425,6 +439,7 @@ describe("getSignedCookies", () => {
       keyPairId,
       dateLessThan,
       privateKey,
+      passphrase,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -456,6 +471,7 @@ describe("getSignedCookies", () => {
       dateLessThan,
       dateGreaterThan,
       privateKey,
+      passphrase,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -490,6 +506,7 @@ describe("getSignedCookies", () => {
       dateLessThan,
       ipAddress,
       privateKey,
+      passphrase,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -525,6 +542,7 @@ describe("getSignedCookies", () => {
       dateGreaterThan,
       ipAddress,
       privateKey,
+      passphrase,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -562,6 +580,7 @@ describe("getSignedCookies", () => {
       keyPairId,
       privateKey,
       policy,
+      passphrase,
     });
     const signature = createSignature(policy);
     const expected = {

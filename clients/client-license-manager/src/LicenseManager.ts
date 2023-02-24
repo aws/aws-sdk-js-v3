@@ -154,10 +154,20 @@ import {
   ListReceivedGrantsCommandOutput,
 } from "./commands/ListReceivedGrantsCommand";
 import {
+  ListReceivedGrantsForOrganizationCommand,
+  ListReceivedGrantsForOrganizationCommandInput,
+  ListReceivedGrantsForOrganizationCommandOutput,
+} from "./commands/ListReceivedGrantsForOrganizationCommand";
+import {
   ListReceivedLicensesCommand,
   ListReceivedLicensesCommandInput,
   ListReceivedLicensesCommandOutput,
 } from "./commands/ListReceivedLicensesCommand";
+import {
+  ListReceivedLicensesForOrganizationCommand,
+  ListReceivedLicensesForOrganizationCommandInput,
+  ListReceivedLicensesForOrganizationCommandOutput,
+} from "./commands/ListReceivedLicensesForOrganizationCommand";
 import {
   ListResourceInventoryCommand,
   ListResourceInventoryCommandInput,
@@ -300,6 +310,10 @@ export class LicenseManager extends LicenseManagerClient {
 
   /**
    * <p>Checks out the specified license.</p>
+   *          <note>
+   *             <p>If the account that created the license is the same that is performing the check out, you must
+   *             specify the account as the beneficiary.</p>
+   *          </note>
    */
   public checkoutLicense(
     args: CheckoutLicenseCommandInput,
@@ -1337,6 +1351,38 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * <p>Lists the grants received for all accounts in the organization.</p>
+   */
+  public listReceivedGrantsForOrganization(
+    args: ListReceivedGrantsForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReceivedGrantsForOrganizationCommandOutput>;
+  public listReceivedGrantsForOrganization(
+    args: ListReceivedGrantsForOrganizationCommandInput,
+    cb: (err: any, data?: ListReceivedGrantsForOrganizationCommandOutput) => void
+  ): void;
+  public listReceivedGrantsForOrganization(
+    args: ListReceivedGrantsForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReceivedGrantsForOrganizationCommandOutput) => void
+  ): void;
+  public listReceivedGrantsForOrganization(
+    args: ListReceivedGrantsForOrganizationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReceivedGrantsForOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: ListReceivedGrantsForOrganizationCommandOutput) => void
+  ): Promise<ListReceivedGrantsForOrganizationCommandOutput> | void {
+    const command = new ListReceivedGrantsForOrganizationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists received licenses.</p>
    */
   public listReceivedLicenses(
@@ -1358,6 +1404,38 @@ export class LicenseManager extends LicenseManagerClient {
     cb?: (err: any, data?: ListReceivedLicensesCommandOutput) => void
   ): Promise<ListReceivedLicensesCommandOutput> | void {
     const command = new ListReceivedLicensesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the licenses received for all accounts in the organization.</p>
+   */
+  public listReceivedLicensesForOrganization(
+    args: ListReceivedLicensesForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReceivedLicensesForOrganizationCommandOutput>;
+  public listReceivedLicensesForOrganization(
+    args: ListReceivedLicensesForOrganizationCommandInput,
+    cb: (err: any, data?: ListReceivedLicensesForOrganizationCommandOutput) => void
+  ): void;
+  public listReceivedLicensesForOrganization(
+    args: ListReceivedLicensesForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReceivedLicensesForOrganizationCommandOutput) => void
+  ): void;
+  public listReceivedLicensesForOrganization(
+    args: ListReceivedLicensesForOrganizationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReceivedLicensesForOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: ListReceivedLicensesForOrganizationCommandOutput) => void
+  ): Promise<ListReceivedLicensesForOrganizationCommandOutput> | void {
+    const command = new ListReceivedLicensesForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

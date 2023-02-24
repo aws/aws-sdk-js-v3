@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,7 +28,7 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  *             disconnects the ML storage volume from it. SageMaker preserves the ML storage volume. SageMaker
  *             stops charging you for the ML compute instance when you call
  *                 <code>StopNotebookInstance</code>.</p>
- *         <p>To access data on the ML storage volume for a notebook instance that has been
+ *          <p>To access data on the ML storage volume for a notebook instance that has been
  *             terminated, call the <code>StartNotebookInstance</code> API.
  *                 <code>StartNotebookInstance</code> launches another ML compute instance, configures
  *             it, and attaches the preserved ML storage volume so you can continue your work.
@@ -55,6 +56,15 @@ export class StopNotebookInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StopNotebookInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class StopNotebookInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopNotebookInstanceCommandInput, StopNotebookInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopNotebookInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

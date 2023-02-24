@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,13 +30,13 @@ export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTrans
 
 /**
  * <p>Provides information about the specified medical transcription job.</p>
- *         <p>To view the status of the specified medical transcription job, check the
- *             <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the
- *             job is finished and you can find the results at the location specified in
- *             <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>,
- *             <code>FailureReason</code> provides details on why your transcription job failed.</p>
- *         <p>To get a list of your medical transcription jobs, use the
- *              operation.</p>
+ *          <p>To view the status of the specified medical transcription job, check the
+ *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
+ *             the job is finished. You can find the results at the location specified in
+ *                 <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>,
+ *                 <code>FailureReason</code> provides details on why your transcription job
+ *             failed.</p>
+ *          <p>To get a list of your medical transcription jobs, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,15 @@ export class GetMedicalTranscriptionJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetMedicalTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class GetMedicalTranscriptionJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetMedicalTranscriptionJobCommandInput, GetMedicalTranscriptionJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetMedicalTranscriptionJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

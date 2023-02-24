@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,16 +26,27 @@ export interface PublishBatchCommandInput extends PublishBatchInput {}
 export interface PublishBatchCommandOutput extends PublishBatchResponse, __MetadataBearer {}
 
 /**
- * <p>Publishes up to ten messages to the specified topic. This is a batch version of <code>Publish</code>. For FIFO topics, multiple messages within a single batch are published in the order they are sent, and messages are deduplicated within the batch and across batches for 5 minutes.</p>
- *         <p>The result of publishing each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
- *         <p>The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KB (262,144 bytes). </p>
- *             <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this: </p>
- *             <p>&AttributeName.1=first</p>
- *             <p>&AttributeName.2=second</p>
- *         <p>If you send a batch message to a topic, Amazon SNS publishes the batch message to each endpoint that is
- *             subscribed to the topic. The format of the batch message depends on the notification protocol
- *             for each subscribed endpoint.</p>
- *         <p>When a <code>messageId</code> is returned, the batch message is saved and Amazon SNS immediately delivers the message to subscribers.</p>
+ * <p>Publishes up to ten messages to the specified topic. This is a batch version of
+ *                 <code>Publish</code>. For FIFO topics, multiple messages within a single batch are
+ *             published in the order they are sent, and messages are deduplicated within the batch and
+ *             across batches for 5 minutes.</p>
+ *          <p>The result of publishing each message is reported individually in the response.
+ *             Because the batch request can result in a combination of successful and unsuccessful
+ *             actions, you should check for batch errors even when the call returns an HTTP status
+ *             code of <code>200</code>.</p>
+ *          <p>The maximum allowed individual message size and the maximum total payload size (the
+ *             sum of the individual lengths of all of the batched messages) are both 256 KB (262,144
+ *             bytes). </p>
+ *          <p>Some actions take lists of parameters. These lists are specified using the
+ *                 <code>param.n</code> notation. Values of <code>n</code> are integers starting from
+ *             1. For example, a parameter list with two elements looks like this: </p>
+ *          <p>&AttributeName.1=first</p>
+ *          <p>&AttributeName.2=second</p>
+ *          <p>If you send a batch message to a topic, Amazon SNS publishes the batch message to each
+ *             endpoint that is subscribed to the topic. The format of the batch message depends on the
+ *             notification protocol for each subscribed endpoint.</p>
+ *          <p>When a <code>messageId</code> is returned, the batch message is saved and Amazon SNS
+ *             immediately delivers the message to subscribers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +70,15 @@ export class PublishBatchCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PublishBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +94,7 @@ export class PublishBatchCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PublishBatchCommandInput, PublishBatchCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PublishBatchCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

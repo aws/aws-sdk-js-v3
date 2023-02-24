@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * <p>Creates a cluster. All nodes in the
  *             cluster run the same protocol-compliant cache engine software, either Memcached
  *             or Redis.</p>
- *         <p>This operation is not supported for Redis (cluster mode enabled) clusters.</p>
+ *          <p>This operation is not supported for Redis (cluster mode enabled) clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class CreateCacheClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateCacheClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class CreateCacheClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateCacheClusterCommandInput, CreateCacheClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateCacheClusterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

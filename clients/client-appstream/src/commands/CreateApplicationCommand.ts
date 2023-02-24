@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,12 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
 
 /**
  * <p>Creates an application.</p>
- *         <p>Applications are an Amazon AppStream 2.0 resource that stores the details about how to
+ *          <p>Applications are an Amazon AppStream 2.0 resource that stores the details about how to
  *             launch applications on Elastic fleet streaming instances. An application consists of the
  *             launch details, icon, and display name. Applications are associated with an app block
  *             that contains the application binaries and other files. The applications assigned to an
  *             Elastic fleet are the applications users can launch. </p>
- *         <p>This is only supported for Elastic fleets.</p>
+ *          <p>This is only supported for Elastic fleets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class CreateApplicationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class CreateApplicationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateApplicationCommandInput, CreateApplicationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateApplicationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

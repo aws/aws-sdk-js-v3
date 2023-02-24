@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,9 +30,9 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
 
 /**
  * <p>Notifies Amazon ECR that you intend to upload an image layer.</p>
- *          <p>When an image is pushed, the InitiateLayerUpload API is called once per image layer that
- *          has not already been uploaded. Whether or not an image layer has been uploaded is
- *          determined by the BatchCheckLayerAvailability API action.</p>
+ *          <p>When an image is pushed, the InitiateLayerUpload API is called once for each image layer
+ *          that hasn't already been uploaded. Whether an image layer uploads is determined by the
+ *          BatchCheckLayerAvailability API action.</p>
  *          <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>
@@ -58,6 +59,15 @@ export class InitiateLayerUploadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: InitiateLayerUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class InitiateLayerUploadCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<InitiateLayerUploadCommandInput, InitiateLayerUploadCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, InitiateLayerUploadCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

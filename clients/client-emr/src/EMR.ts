@@ -94,6 +94,11 @@ import {
   GetBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/GetBlockPublicAccessConfigurationCommand";
 import {
+  GetClusterSessionCredentialsCommand,
+  GetClusterSessionCredentialsCommandInput,
+  GetClusterSessionCredentialsCommandOutput,
+} from "./commands/GetClusterSessionCredentialsCommand";
+import {
   GetManagedScalingPolicyCommand,
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
@@ -319,9 +324,7 @@ export class EMR extends EMRClient {
    *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
    *          require more than 256 steps to process your data. You can bypass the 256-step limitation in
    *          various ways, including using SSH to connect to the master node and submitting queries
-   *          directly to the software running on the master node, such as Hive and Hadoop. For more
-   *          information on how to do this, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html">Add More than 256 Steps to a
-   *             Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>
+   *          directly to the software running on the master node, such as Hive and Hadoop.</p>
    *          <p>A step specifies the location of a JAR file stored either on the master node of the
    *          cluster or in Amazon S3. Each step is performed by the main function of the main
    *          class of the JAR file. The main class can be specified either in the manifest of the JAR or
@@ -491,7 +494,7 @@ export class EMR extends EMRClient {
    * <p>Maps a user or group to the Amazon EMR Studio specified by
    *          <code>StudioId</code>, and applies a session policy to refine Studio permissions for that
    *          user or group. Use <code>CreateStudioSessionMapping</code> to assign users to a Studio when
-   *          you use Amazon Web Services SSO authentication. For instructions on how to assign users to a
+   *          you use IAM Identity Center authentication. For instructions on how to assign users to a
    *          Studio when you use IAM authentication, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-manage-users.html#emr-studio-assign-users-groups">Assign a user or group to your EMR Studio</a>.</p>
    */
   public createStudioSessionMapping(
@@ -920,6 +923,39 @@ export class EMR extends EMRClient {
     cb?: (err: any, data?: GetBlockPublicAccessConfigurationCommandOutput) => void
   ): Promise<GetBlockPublicAccessConfigurationCommandOutput> | void {
     const command = new GetBlockPublicAccessConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides temporary, HTTP basic credentials that are associated with a given runtime IAM role
+   *          and used by a cluster with fine-grained access control activated. You can use these credentials to connect to cluster endpoints that support username and password authentication.</p>
+   */
+  public getClusterSessionCredentials(
+    args: GetClusterSessionCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetClusterSessionCredentialsCommandOutput>;
+  public getClusterSessionCredentials(
+    args: GetClusterSessionCredentialsCommandInput,
+    cb: (err: any, data?: GetClusterSessionCredentialsCommandOutput) => void
+  ): void;
+  public getClusterSessionCredentials(
+    args: GetClusterSessionCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetClusterSessionCredentialsCommandOutput) => void
+  ): void;
+  public getClusterSessionCredentials(
+    args: GetClusterSessionCredentialsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetClusterSessionCredentialsCommandOutput) => void),
+    cb?: (err: any, data?: GetClusterSessionCredentialsCommandOutput) => void
+  ): Promise<GetClusterSessionCredentialsCommandOutput> | void {
+    const command = new GetClusterSessionCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1747,10 +1783,9 @@ export class EMR extends EMRClient {
    *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
    *          require more than 256 steps to process your data. You can bypass the 256-step limitation in
    *          various ways, including using the SSH shell to connect to the master node and submitting
-   *          queries directly to the software running on the master node, such as Hive and Hadoop. For
-   *          more information on how to do this, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html">Add More than 256 Steps to a
-   *             Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>
-   *          <p>For long running clusters, we recommend that you periodically store your results.</p>
+   *          queries directly to the software running on the master node, such as Hive and
+   *          Hadoop.</p>
+   *          <p>For long-running clusters, we recommend that you periodically store your results.</p>
    *          <note>
    *             <p>The instance fleets configuration is available only in Amazon EMR versions
    *             4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain

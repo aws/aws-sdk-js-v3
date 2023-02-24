@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,14 +31,11 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
 /**
  * <p>Removes the specified targets from the specified rule. When the rule is triggered, those
  *       targets are no longer be invoked.</p>
- *
  *          <note>
  *             <p>A successful execution of <code>RemoveTargets</code> doesn't guarantee all targets are removed from the rule, it means that the target(s) listed in the request are removed.</p>
  *          </note>
- *
  *          <p>When you remove a target, when the associated rule triggers, removed targets might
  *       continue to be invoked. Allow a short period of time for changes to take effect.</p>
- *
  *          <p>This action can partially fail if too many requests are made at the same time. If that
  *       happens, <code>FailedEntryCount</code> is non-zero in the response and each entry in
  *         <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>
@@ -64,6 +62,15 @@ export class RemoveTargetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RemoveTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +86,7 @@ export class RemoveTargetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RemoveTargetsCommandInput, RemoveTargetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, RemoveTargetsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

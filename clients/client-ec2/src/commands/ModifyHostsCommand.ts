@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyHostsRequestFilterSensitiveLog,
   ModifyHostsResult,
   ModifyHostsResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { deserializeAws_ec2ModifyHostsCommand, serializeAws_ec2ModifyHostsCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyHostsCommandInput extends ModifyHostsRequest {}
@@ -26,13 +27,14 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
 
 /**
  * <p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
- *             any instances that you launch with a tenancy of <code>host</code> but without a specific host
- *         	ID are placed onto any available Dedicated Host in your account that has auto-placement enabled.
- *         	When auto-placement is disabled, you need to provide a host ID to have the instance launch onto
- *         	a specific host. If no host ID is provided, the instance is launched onto a suitable host with
- *         	auto-placement enabled.</p>
- *     	    <p>You can also use this API action to modify a Dedicated Host to support either multiple
- *     		instance types in an instance family, or to support a specific instance type only.</p>
+ *             any instances that you launch with a tenancy of <code>host</code> but without a specific
+ *             host ID are placed onto any available Dedicated Host in your account that has
+ *             auto-placement enabled. When auto-placement is disabled, you need to provide a host ID
+ *             to have the instance launch onto a specific host. If no host ID is provided, the
+ *             instance is launched onto a suitable host with auto-placement enabled.</p>
+ *          <p>You can also use this API action to modify a Dedicated Host to support either multiple
+ *             instance types in an instance family, or to support a specific instance type
+ *             only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +58,15 @@ export class ModifyHostsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +82,7 @@ export class ModifyHostsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyHostsCommandInput, ModifyHostsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ModifyHostsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

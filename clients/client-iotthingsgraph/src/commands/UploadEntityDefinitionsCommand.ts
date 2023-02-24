@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,6 +29,8 @@ export interface UploadEntityDefinitionsCommandInput extends UploadEntityDefinit
 export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if
  *       <code>syncWithPublicNamespace</code> and <code>deleteExistingEntites</code> are false. If the <code>syncWithPublicNamespace</code> parameter  is set to
  *          <code>true</code>, the user's namespace will synchronize with the latest version of the public namespace. If <code>deprecateExistingEntities</code> is set to true,
@@ -62,6 +65,15 @@ export class UploadEntityDefinitionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UploadEntityDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +89,9 @@ export class UploadEntityDefinitionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UploadEntityDefinitionsCommandInput, UploadEntityDefinitionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UploadEntityDefinitionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

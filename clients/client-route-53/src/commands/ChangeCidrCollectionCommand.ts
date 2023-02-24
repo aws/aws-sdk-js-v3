@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -31,29 +32,28 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
 /**
  * <p>Creates, changes, or deletes CIDR blocks within a collection. Contains authoritative
  * 			IP information mapping blocks to one or multiple locations.</p>
- * 		       <p>A change request can update multiple locations in a collection at a time, which is
+ *          <p>A change request can update multiple locations in a collection at a time, which is
  * 			helpful if you want to move one or more CIDR blocks from one location to another in one
  * 			transaction, without downtime. </p>
- * 		       <p>
+ *          <p>
  *             <b>Limits</b>
  *          </p>
- * 		       <p>The max number of CIDR blocks included in the request is
- * 			1000.
- * 			As a result, big updates require multiple API calls.</p>
- * 		       <p>
+ *          <p>The max number of CIDR blocks included in the request is 1000. As a result, big updates
+ * 			require multiple API calls.</p>
+ *          <p>
  *             <b> PUT and DELETE_IF_EXISTS</b>
  *          </p>
- * 		       <p>Use <code>ChangeCidrCollection</code> to perform the following actions:</p>
- * 		       <ul>
+ *          <p>Use <code>ChangeCidrCollection</code> to perform the following actions:</p>
+ *          <ul>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>PUT</code>: Create a CIDR block within the specified collection.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code> DELETE_IF_EXISTS</code>: Delete an existing CIDR block from the
  * 					collection.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +78,15 @@ export class ChangeCidrCollectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ChangeCidrCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,6 +102,9 @@ export class ChangeCidrCollectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ChangeCidrCollectionCommandInput, ChangeCidrCollectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ChangeCidrCollectionCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

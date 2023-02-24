@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,42 +27,47 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  * <p>Splits a shard into two new shards in the Kinesis data stream, to increase the
  *             stream's capacity to ingest and transport data. <code>SplitShard</code> is called when
  *             there is a need to increase the overall capacity of a stream because of an expected
- *             increase in the volume of data records being ingested. </p>
- *         <p>You can also use <code>SplitShard</code> when a shard appears to be approaching its
+ *             increase in the volume of data records being ingested. This API is only supported for
+ *             the data streams with the provisioned capacity mode.</p>
+ *          <note>
+ *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+ *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *          </note>
+ *          <p>You can also use <code>SplitShard</code> when a shard appears to be approaching its
  *             maximum utilization; for example, the producers sending data into the specific shard are
  *             suddenly sending more than previously anticipated. You can also call
  *                 <code>SplitShard</code> to increase stream capacity, so that more Kinesis Data
  *             Streams applications can simultaneously read data from the stream for real-time
  *             processing. </p>
- *         <p>You must specify the shard to be split and the new hash key, which is the position in
+ *          <p>You must specify the shard to be split and the new hash key, which is the position in
  *             the shard where the shard gets split in two. In many cases, the new hash key might be
  *             the average of the beginning and ending hash key, but it can be any hash key value in
  *             the range being mapped into the shard. For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-split.html">Split a
  *                 Shard</a> in the <i>Amazon Kinesis Data Streams Developer
  *                 Guide</i>.</p>
- *         <p>You can use <a>DescribeStreamSummary</a> and the <a>ListShards</a> APIs to determine the shard ID and hash key values for the <code>ShardToSplit</code>
+ *          <p>You can use <a>DescribeStreamSummary</a> and the <a>ListShards</a> APIs to determine the shard ID and hash key values for the <code>ShardToSplit</code>
  *             and <code>NewStartingHashKey</code> parameters that are specified in the
  *                 <code>SplitShard</code> request.</p>
- *         <p>
+ *          <p>
  *             <code>SplitShard</code> is an asynchronous operation. Upon receiving a
  *                 <code>SplitShard</code> request, Kinesis Data Streams immediately returns a response
  *             and sets the stream status to <code>UPDATING</code>. After the operation is completed,
  *             Kinesis Data Streams sets the stream status to <code>ACTIVE</code>. Read and write
  *             operations continue to work while the stream is in the <code>UPDATING</code> state. </p>
- *         <p>You can use <a>DescribeStreamSummary</a> to check the status of the stream,
+ *          <p>You can use <a>DescribeStreamSummary</a> to check the status of the stream,
  *             which is returned in <code>StreamStatus</code>. If the stream is in the
  *                 <code>ACTIVE</code> state, you can call <code>SplitShard</code>.
  *             </p>
- *         <p>If the specified stream does not exist, <a>DescribeStreamSummary</a>
+ *          <p>If the specified stream does not exist, <a>DescribeStreamSummary</a>
  *             returns a <code>ResourceNotFoundException</code>. If you try to create more shards than
  *             are authorized for your account, you receive a <code>LimitExceededException</code>. </p>
- *         <p>For the default shard limit for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Kinesis
+ *          <p>For the default shard limit for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Kinesis
  *                 Data Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer
  *                 Guide</i>. To increase this limit, <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact Amazon Web Services
  *                 Support</a>.</p>
- *         <p>If you try to operate on too many streams simultaneously using <a>CreateStream</a>, <a>DeleteStream</a>, <a>MergeShards</a>, and/or <a>SplitShard</a>, you receive a
+ *          <p>If you try to operate on too many streams simultaneously using <a>CreateStream</a>, <a>DeleteStream</a>, <a>MergeShards</a>, and/or <a>SplitShard</a>, you receive a
  *                 <code>LimitExceededException</code>. </p>
- *         <p>
+ *          <p>
  *             <code>SplitShard</code> has a limit of five transactions per second per account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +92,17 @@ export class SplitShardCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SplitShardCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,6 +118,7 @@ export class SplitShardCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SplitShardCommandInput, SplitShardCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, SplitShardCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

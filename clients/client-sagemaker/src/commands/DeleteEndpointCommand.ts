@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,15 +26,15 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes an endpoint. SageMaker frees up all of the resources that were deployed when the
  *             endpoint was created. </p>
- *         <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
+ *          <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
  *             need to use the <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> API call.</p>
- *         <p>When you delete your endpoint, SageMaker asynchronously deletes associated endpoint resources such as KMS key grants.
- *             You might still see these resources in your account for a few minutes after deleting your endpoint.
- *             Do not delete or revoke the permissions for your
- *             <code>
+ *          <p>When you delete your endpoint, SageMaker asynchronously deletes associated endpoint
+ *             resources such as KMS key grants. You might still see these resources in your account
+ *             for a few minutes after deleting your endpoint. Do not delete or revoke the permissions
+ *             for your <code>
  *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn">ExecutionRoleArn</a>
- *             </code>,
- *             otherwise SageMaker cannot delete these resources.</p>
+ *             </code>, otherwise SageMaker cannot delete these
+ *             resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,15 @@ export class DeleteEndpointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class DeleteEndpointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteEndpointCommandInput, DeleteEndpointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteEndpointCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

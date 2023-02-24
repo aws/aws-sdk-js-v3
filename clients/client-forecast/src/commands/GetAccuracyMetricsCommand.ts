@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -40,7 +41,6 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  *       metrics. If you want all items to contribute, specify <code>zero</code>. If you want only
  *       those items that have complete data in the range being evaluated to contribute, specify
  *         <code>nan</code>. For more information, see <a>FeaturizationMethod</a>.</p>
- *
  *          <note>
  *             <p>Before you can get accuracy metrics, the <code>Status</code> of the predictor must be
  *           <code>ACTIVE</code>, signifying that training has completed. To get the status, use the
@@ -69,6 +69,15 @@ export class GetAccuracyMetricsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetAccuracyMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +93,9 @@ export class GetAccuracyMetricsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAccuracyMetricsCommandInput, GetAccuracyMetricsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAccuracyMetricsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

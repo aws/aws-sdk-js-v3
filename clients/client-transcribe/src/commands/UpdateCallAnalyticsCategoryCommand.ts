@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,9 +32,10 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
 
 /**
  * <p>Updates the specified Call Analytics category with new rules. Note that the
- *             <code>UpdateCallAnalyticsCategory</code> operation overwrites all existing rules contained in
- *             the specified category. You cannot append additional rules onto an existing category.</p>
- *         <p>To create a new category, see .</p>
+ *                 <code>UpdateCallAnalyticsCategory</code> operation overwrites all existing rules
+ *             contained in the specified category. You cannot append additional rules onto an existing
+ *             category.</p>
+ *          <p>To create a new category, see .</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +59,15 @@ export class UpdateCallAnalyticsCategoryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateCallAnalyticsCategoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +83,9 @@ export class UpdateCallAnalyticsCategoryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateCallAnalyticsCategoryCommandInput, UpdateCallAnalyticsCategoryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateCallAnalyticsCategoryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

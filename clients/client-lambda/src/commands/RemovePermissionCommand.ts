@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,8 +24,8 @@ export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Revokes function-use permission from an Amazon Web Services service or another account. You can get the ID of the statement
- *       from the output of <a>GetPolicy</a>.</p>
+ * <p>Revokes function-use permission from an Amazon Web Service or another Amazon Web Services account. You
+ *       can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +49,15 @@ export class RemovePermissionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RemovePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +73,9 @@ export class RemovePermissionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RemovePermissionCommandInput, RemovePermissionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RemovePermissionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

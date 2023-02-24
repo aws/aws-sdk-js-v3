@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface GetEBSVolumeRecommendationsCommandOutput
 
 /**
  * <p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p>
- *         <p>Compute Optimizer generates recommendations for Amazon EBS volumes that
+ *          <p>Compute Optimizer generates recommendations for Amazon EBS volumes that
  *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
  *                 resources and requirements</a> in the <i>Compute Optimizer User
  *                 Guide</i>.</p>
@@ -58,6 +59,15 @@ export class GetEBSVolumeRecommendationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetEBSVolumeRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class GetEBSVolumeRecommendationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetEBSVolumeRecommendationsCommandInput, GetEBSVolumeRecommendationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetEBSVolumeRecommendationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

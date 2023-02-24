@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,19 +23,19 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
 /**
  * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource
  *             group are not changed if they are not specified in the request parameters.</p>
- *         <important>
+ *          <important>
  *             <p>Do not store personally identifiable information (PII) or other confidential or
  *                 sensitive information in tags. We use tags to provide you with billing and
  *                 administration services. Tags are not intended to be used for private or sensitive
  *                 data.</p>
- *         </important>
- *         <p>
+ *          </important>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:Tag</code>
  *                </p>
  *             </li>
@@ -58,6 +59,15 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TagCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,7 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
     options?: __HttpHandlerOptions
   ): Handler<TagCommandInput, TagCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

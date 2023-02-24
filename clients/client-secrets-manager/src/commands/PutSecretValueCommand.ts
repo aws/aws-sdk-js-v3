@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -40,8 +41,8 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *       If you don't include <code>VersionStages</code>, then Secrets Manager automatically
  *       moves the staging label <code>AWSCURRENT</code> to this version. If this operation creates
  *       the first version for the secret, then Secrets Manager
- *         automatically attaches the staging label <code>AWSCURRENT</code> to it .</p>
- *          <p>If this operation moves the staging label <code>AWSCURRENT</code> from another version to this
+ *         automatically attaches the staging label <code>AWSCURRENT</code> to it.
+ *     If this operation moves the staging label <code>AWSCURRENT</code> from another version to this
  *       version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to
  *       the version that <code>AWSCURRENT</code> was removed from.</p>
  *          <p>This operation is idempotent. If you call this operation with a <code>ClientRequestToken</code>
@@ -49,6 +50,7 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *       same secret data, the operation succeeds but does nothing. However, if the secret data is
  *       different, then the operation fails because you can't modify an existing version; you can
  *       only create new ones.</p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except <code>SecretBinary</code> or <code>SecretString</code> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:PutSecretValue</code>.
@@ -78,6 +80,15 @@ export class PutSecretValueCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutSecretValueCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,6 +104,9 @@ export class PutSecretValueCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutSecretValueCommandInput, PutSecretValueCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutSecretValueCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

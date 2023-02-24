@@ -81,6 +81,7 @@ import {
   CreateFlowDefinitionCommandInput,
   CreateFlowDefinitionCommandOutput,
 } from "../commands/CreateFlowDefinitionCommand";
+import { CreateHubCommandInput, CreateHubCommandOutput } from "../commands/CreateHubCommand";
 import { CreateHumanTaskUiCommandInput, CreateHumanTaskUiCommandOutput } from "../commands/CreateHumanTaskUiCommand";
 import {
   CreateHyperParameterTuningJobCommandInput,
@@ -88,6 +89,10 @@ import {
 } from "../commands/CreateHyperParameterTuningJobCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "../commands/CreateImageCommand";
 import { CreateImageVersionCommandInput, CreateImageVersionCommandOutput } from "../commands/CreateImageVersionCommand";
+import {
+  CreateInferenceExperimentCommandInput,
+  CreateInferenceExperimentCommandOutput,
+} from "../commands/CreateInferenceExperimentCommand";
 import {
   CreateInferenceRecommendationsJobCommandInput,
   CreateInferenceRecommendationsJobCommandOutput,
@@ -97,6 +102,11 @@ import {
   CreateModelBiasJobDefinitionCommandInput,
   CreateModelBiasJobDefinitionCommandOutput,
 } from "../commands/CreateModelBiasJobDefinitionCommand";
+import { CreateModelCardCommandInput, CreateModelCardCommandOutput } from "../commands/CreateModelCardCommand";
+import {
+  CreateModelCardExportJobCommandInput,
+  CreateModelCardExportJobCommandOutput,
+} from "../commands/CreateModelCardExportJobCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "../commands/CreateModelCommand";
 import {
   CreateModelExplainabilityJobDefinitionCommandInput,
@@ -137,6 +147,7 @@ import {
   CreateProcessingJobCommandOutput,
 } from "../commands/CreateProcessingJobCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
+import { CreateSpaceCommandInput, CreateSpaceCommandOutput } from "../commands/CreateSpaceCommand";
 import {
   CreateStudioLifecycleConfigCommandInput,
   CreateStudioLifecycleConfigCommandOutput,
@@ -190,13 +201,20 @@ import {
   DeleteFlowDefinitionCommandInput,
   DeleteFlowDefinitionCommandOutput,
 } from "../commands/DeleteFlowDefinitionCommand";
+import { DeleteHubCommandInput, DeleteHubCommandOutput } from "../commands/DeleteHubCommand";
+import { DeleteHubContentCommandInput, DeleteHubContentCommandOutput } from "../commands/DeleteHubContentCommand";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "../commands/DeleteHumanTaskUiCommand";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "../commands/DeleteImageCommand";
 import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "../commands/DeleteImageVersionCommand";
 import {
+  DeleteInferenceExperimentCommandInput,
+  DeleteInferenceExperimentCommandOutput,
+} from "../commands/DeleteInferenceExperimentCommand";
+import {
   DeleteModelBiasJobDefinitionCommandInput,
   DeleteModelBiasJobDefinitionCommandOutput,
 } from "../commands/DeleteModelBiasJobDefinitionCommand";
+import { DeleteModelCardCommandInput, DeleteModelCardCommandOutput } from "../commands/DeleteModelCardCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "../commands/DeleteModelCommand";
 import {
   DeleteModelExplainabilityJobDefinitionCommandInput,
@@ -229,6 +247,7 @@ import {
 } from "../commands/DeleteNotebookInstanceLifecycleConfigCommand";
 import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "../commands/DeletePipelineCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
+import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "../commands/DeleteSpaceCommand";
 import {
   DeleteStudioLifecycleConfigCommandInput,
   DeleteStudioLifecycleConfigCommandOutput,
@@ -297,6 +316,8 @@ import {
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
 } from "../commands/DescribeFlowDefinitionCommand";
+import { DescribeHubCommandInput, DescribeHubCommandOutput } from "../commands/DescribeHubCommand";
+import { DescribeHubContentCommandInput, DescribeHubContentCommandOutput } from "../commands/DescribeHubContentCommand";
 import {
   DescribeHumanTaskUiCommandInput,
   DescribeHumanTaskUiCommandOutput,
@@ -310,6 +331,10 @@ import {
   DescribeImageVersionCommandInput,
   DescribeImageVersionCommandOutput,
 } from "../commands/DescribeImageVersionCommand";
+import {
+  DescribeInferenceExperimentCommandInput,
+  DescribeInferenceExperimentCommandOutput,
+} from "../commands/DescribeInferenceExperimentCommand";
 import {
   DescribeInferenceRecommendationsJobCommandInput,
   DescribeInferenceRecommendationsJobCommandOutput,
@@ -326,6 +351,11 @@ import {
   DescribeModelBiasJobDefinitionCommandInput,
   DescribeModelBiasJobDefinitionCommandOutput,
 } from "../commands/DescribeModelBiasJobDefinitionCommand";
+import { DescribeModelCardCommandInput, DescribeModelCardCommandOutput } from "../commands/DescribeModelCardCommand";
+import {
+  DescribeModelCardExportJobCommandInput,
+  DescribeModelCardExportJobCommandOutput,
+} from "../commands/DescribeModelCardExportJobCommand";
 import { DescribeModelCommandInput, DescribeModelCommandOutput } from "../commands/DescribeModelCommand";
 import {
   DescribeModelExplainabilityJobDefinitionCommandInput,
@@ -369,6 +399,7 @@ import {
   DescribeProcessingJobCommandOutput,
 } from "../commands/DescribeProcessingJobCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "../commands/DescribeProjectCommand";
+import { DescribeSpaceCommandInput, DescribeSpaceCommandOutput } from "../commands/DescribeSpaceCommand";
 import {
   DescribeStudioLifecycleConfigCommandInput,
   DescribeStudioLifecycleConfigCommandOutput,
@@ -428,8 +459,10 @@ import {
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput,
 } from "../commands/GetSearchSuggestionsCommand";
+import { ImportHubContentCommandInput, ImportHubContentCommandOutput } from "../commands/ImportHubContentCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "../commands/ListActionsCommand";
 import { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "../commands/ListAlgorithmsCommand";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
 import {
   ListAppImageConfigsCommandInput,
   ListAppImageConfigsCommandOutput,
@@ -477,6 +510,12 @@ import {
   ListFlowDefinitionsCommandInput,
   ListFlowDefinitionsCommandOutput,
 } from "../commands/ListFlowDefinitionsCommand";
+import { ListHubContentsCommandInput, ListHubContentsCommandOutput } from "../commands/ListHubContentsCommand";
+import {
+  ListHubContentVersionsCommandInput,
+  ListHubContentVersionsCommandOutput,
+} from "../commands/ListHubContentVersionsCommand";
+import { ListHubsCommandInput, ListHubsCommandOutput } from "../commands/ListHubsCommand";
 import { ListHumanTaskUisCommandInput, ListHumanTaskUisCommandOutput } from "../commands/ListHumanTaskUisCommand";
 import {
   ListHyperParameterTuningJobsCommandInput,
@@ -485,9 +524,17 @@ import {
 import { ListImagesCommandInput, ListImagesCommandOutput } from "../commands/ListImagesCommand";
 import { ListImageVersionsCommandInput, ListImageVersionsCommandOutput } from "../commands/ListImageVersionsCommand";
 import {
+  ListInferenceExperimentsCommandInput,
+  ListInferenceExperimentsCommandOutput,
+} from "../commands/ListInferenceExperimentsCommand";
+import {
   ListInferenceRecommendationsJobsCommandInput,
   ListInferenceRecommendationsJobsCommandOutput,
 } from "../commands/ListInferenceRecommendationsJobsCommand";
+import {
+  ListInferenceRecommendationsJobStepsCommandInput,
+  ListInferenceRecommendationsJobStepsCommandOutput,
+} from "../commands/ListInferenceRecommendationsJobStepsCommand";
 import { ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput } from "../commands/ListLabelingJobsCommand";
 import {
   ListLabelingJobsForWorkteamCommandInput,
@@ -498,6 +545,15 @@ import {
   ListModelBiasJobDefinitionsCommandInput,
   ListModelBiasJobDefinitionsCommandOutput,
 } from "../commands/ListModelBiasJobDefinitionsCommand";
+import {
+  ListModelCardExportJobsCommandInput,
+  ListModelCardExportJobsCommandOutput,
+} from "../commands/ListModelCardExportJobsCommand";
+import { ListModelCardsCommandInput, ListModelCardsCommandOutput } from "../commands/ListModelCardsCommand";
+import {
+  ListModelCardVersionsCommandInput,
+  ListModelCardVersionsCommandOutput,
+} from "../commands/ListModelCardVersionsCommand";
 import {
   ListModelExplainabilityJobDefinitionsCommandInput,
   ListModelExplainabilityJobDefinitionsCommandOutput,
@@ -513,6 +569,14 @@ import {
   ListModelQualityJobDefinitionsCommandOutput,
 } from "../commands/ListModelQualityJobDefinitionsCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "../commands/ListModelsCommand";
+import {
+  ListMonitoringAlertHistoryCommandInput,
+  ListMonitoringAlertHistoryCommandOutput,
+} from "../commands/ListMonitoringAlertHistoryCommand";
+import {
+  ListMonitoringAlertsCommandInput,
+  ListMonitoringAlertsCommandOutput,
+} from "../commands/ListMonitoringAlertsCommand";
 import {
   ListMonitoringExecutionsCommandInput,
   ListMonitoringExecutionsCommandOutput,
@@ -544,6 +608,7 @@ import {
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "../commands/ListPipelinesCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "../commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
+import { ListSpacesCommandInput, ListSpacesCommandOutput } from "../commands/ListSpacesCommand";
 import { ListStageDevicesCommandInput, ListStageDevicesCommandOutput } from "../commands/ListStageDevicesCommand";
 import {
   ListStudioLifecycleConfigsCommandInput,
@@ -593,6 +658,10 @@ import {
   StartEdgeDeploymentStageCommandOutput,
 } from "../commands/StartEdgeDeploymentStageCommand";
 import {
+  StartInferenceExperimentCommandInput,
+  StartInferenceExperimentCommandOutput,
+} from "../commands/StartInferenceExperimentCommand";
+import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
 } from "../commands/StartMonitoringScheduleCommand";
@@ -618,6 +687,10 @@ import {
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput,
 } from "../commands/StopHyperParameterTuningJobCommand";
+import {
+  StopInferenceExperimentCommandInput,
+  StopInferenceExperimentCommandOutput,
+} from "../commands/StopInferenceExperimentCommand";
 import {
   StopInferenceRecommendationsJobCommandInput,
   StopInferenceRecommendationsJobCommandOutput,
@@ -663,8 +736,19 @@ import {
   UpdateFeatureMetadataCommandInput,
   UpdateFeatureMetadataCommandOutput,
 } from "../commands/UpdateFeatureMetadataCommand";
+import { UpdateHubCommandInput, UpdateHubCommandOutput } from "../commands/UpdateHubCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "../commands/UpdateImageCommand";
+import { UpdateImageVersionCommandInput, UpdateImageVersionCommandOutput } from "../commands/UpdateImageVersionCommand";
+import {
+  UpdateInferenceExperimentCommandInput,
+  UpdateInferenceExperimentCommandOutput,
+} from "../commands/UpdateInferenceExperimentCommand";
+import { UpdateModelCardCommandInput, UpdateModelCardCommandOutput } from "../commands/UpdateModelCardCommand";
 import { UpdateModelPackageCommandInput, UpdateModelPackageCommandOutput } from "../commands/UpdateModelPackageCommand";
+import {
+  UpdateMonitoringAlertCommandInput,
+  UpdateMonitoringAlertCommandOutput,
+} from "../commands/UpdateMonitoringAlertCommand";
 import {
   UpdateMonitoringScheduleCommandInput,
   UpdateMonitoringScheduleCommandOutput,
@@ -683,6 +767,7 @@ import {
   UpdatePipelineExecutionCommandOutput,
 } from "../commands/UpdatePipelineExecutionCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
+import { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "../commands/UpdateSpaceCommand";
 import { UpdateTrainingJobCommandInput, UpdateTrainingJobCommandOutput } from "../commands/UpdateTrainingJobCommand";
 import { UpdateTrialCommandInput, UpdateTrialCommandOutput } from "../commands/UpdateTrialCommand";
 import {
@@ -723,6 +808,8 @@ import {
   AsyncInferenceNotificationConfig,
   AsyncInferenceOutputConfig,
   AthenaDatasetDefinition,
+  AutoMLAlgorithm,
+  AutoMLAlgorithmConfig,
   AutoMLCandidate,
   AutoMLCandidateGenerationConfig,
   AutoMLCandidateStep,
@@ -734,22 +821,27 @@ import {
   AutoMLJobCompletionCriteria,
   AutoMLJobConfig,
   AutoMLJobObjective,
+  AutoMLJobStepMetadata,
   AutoMLJobSummary,
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
   AutoMLS3DataSource,
   AutoMLSecurityConfig,
   AutoRollbackConfig,
+  BatchDataCaptureConfig,
   BatchDescribeModelPackageError,
   BatchDescribeModelPackageInput,
   BatchDescribeModelPackageOutput,
   BatchDescribeModelPackageSummary,
+  BatchTransformInput,
+  BestObjectiveNotImproving,
   Bias,
   BlueGreenUpdatePolicy,
   CacheHitResult,
   CallbackStepMetadata,
   CandidateArtifactLocations,
   CandidateProperties,
+  CanvasAppSettings,
   CapacitySize,
   CaptureContentTypeHeader,
   CaptureOption,
@@ -760,6 +852,13 @@ import {
   ChannelSpecification,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
+  ClarifyExplainerConfig,
+  ClarifyFeatureType,
+  ClarifyInferenceConfig,
+  ClarifyShapBaselineConfig,
+  ClarifyShapConfig,
+  ClarifyTextConfig,
+  CodeRepository,
   CodeRepositorySummary,
   CognitoConfig,
   CognitoMemberDefinition,
@@ -774,6 +873,7 @@ import {
   ContextSummary,
   ContinuousParameterRange,
   ContinuousParameterRangeSpecification,
+  ConvergenceDetected,
   CreateActionRequest,
   CreateActionResponse,
   CreateAlgorithmInput,
@@ -801,25 +901,15 @@ import {
   CreateEdgeDeploymentPlanResponse,
   CreateEdgeDeploymentStageRequest,
   CreateEdgePackagingJobRequest,
-  CreateEndpointConfigInput,
-  CreateEndpointConfigOutput,
   CreateEndpointInput,
   CreateEndpointOutput,
-  CreateExperimentRequest,
-  CreateExperimentResponse,
-  CreateFeatureGroupRequest,
-  CreateFeatureGroupResponse,
-  CreateFlowDefinitionRequest,
-  CreateFlowDefinitionResponse,
-  CreateHumanTaskUiRequest,
-  CreateHumanTaskUiResponse,
   CustomImage,
   DataCaptureConfig,
-  DataCatalogConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DataSource,
+  DefaultSpaceSettings,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -828,23 +918,17 @@ import {
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInput,
-  FeatureDefinition,
+  ExplainerConfig,
   FileSystemConfig,
   FileSystemDataSource,
   FinalAutoMLJobObjectiveMetric,
-  FlowDefinitionOutputConfig,
   GitConfig,
-  HumanLoopActivationConditionsConfig,
-  HumanLoopActivationConfig,
-  HumanLoopConfig,
-  HumanLoopRequestSource,
   HyperParameterSpecification,
   HyperParameterTuningJobObjective,
   ImageConfig,
   InferenceSpecification,
   InputConfig,
   InstanceGroup,
-  IntegerParameterRange,
   IntegerParameterRangeSpecification,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
@@ -859,50 +943,50 @@ import {
   ModelPackageContainerDefinition,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
+  MonitoringCsvDatasetFormat,
+  MonitoringDatasetFormat,
+  MonitoringJsonDatasetFormat,
   MonitoringNetworkConfig,
   MonitoringOutput,
   MonitoringOutputConfig,
+  MonitoringParquetDatasetFormat,
   MonitoringResources,
   MonitoringS3Output,
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   MultiModelConfig,
   NeoVpcConfig,
-  OfflineStoreConfig,
-  OnlineStoreConfig,
-  OnlineStoreSecurityConfig,
   OutputConfig,
   OutputDataConfig,
   OutputParameter,
   ParameterRange,
-  ParameterRanges,
   ProductionVariant,
   ProductionVariantCoreDumpConfig,
   ProductionVariantInstanceType,
   ProductionVariantServerlessConfig,
-  PublicWorkforceTaskPrice,
   RepositoryAuthConfig,
   ResourceConfig,
   ResourceInUse,
   ResourceLimitExceeded,
-  ResourceLimits,
   ResourceNotFound,
   ResourceSpec,
   RSessionAppSettings,
   RStudioServerProAppSettings,
   RStudioServerProDomainSettings,
   S3DataSource,
-  S3StorageConfig,
   SharingSettings,
   ShuffleConfig,
   StoppingCondition,
   Tag,
   TargetPlatform,
   TensorBoardAppSettings,
+  TimeSeriesForecastingSettings,
   TrafficRoutingConfig,
+  TrainingImageConfig,
   TrainingInputMode,
   TrainingInstanceType,
   TrainingJobDefinition,
+  TrainingRepositoryAuthConfig,
   TrainingSpecification,
   TransformDataSource,
   TransformInput,
@@ -911,26 +995,41 @@ import {
   TransformOutput,
   TransformResources,
   TransformS3DataSource,
-  TuningJobCompletionCriteria,
-  UiTemplate,
-  USD,
   UserContext,
   UserSettings,
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateEndpointConfigInput,
+  CreateEndpointConfigOutput,
+  CreateExperimentRequest,
+  CreateExperimentResponse,
+  CreateFeatureGroupRequest,
+  CreateFeatureGroupResponse,
+  CreateFlowDefinitionRequest,
+  CreateFlowDefinitionResponse,
+  CreateHubRequest,
+  CreateHubResponse,
+  CreateHumanTaskUiRequest,
+  CreateHumanTaskUiResponse,
   CreateHyperParameterTuningJobRequest,
   CreateHyperParameterTuningJobResponse,
   CreateImageRequest,
   CreateImageResponse,
   CreateImageVersionRequest,
   CreateImageVersionResponse,
+  CreateInferenceExperimentRequest,
+  CreateInferenceExperimentResponse,
   CreateInferenceRecommendationsJobRequest,
   CreateInferenceRecommendationsJobResponse,
   CreateLabelingJobRequest,
   CreateLabelingJobResponse,
   CreateModelBiasJobDefinitionRequest,
   CreateModelBiasJobDefinitionResponse,
+  CreateModelCardExportJobRequest,
+  CreateModelCardExportJobResponse,
+  CreateModelCardRequest,
+  CreateModelCardResponse,
   CreateModelExplainabilityJobDefinitionRequest,
   CreateModelExplainabilityJobDefinitionResponse,
   CreateModelInput,
@@ -957,6 +1056,8 @@ import {
   CreateProcessingJobResponse,
   CreateProjectInput,
   CreateProjectOutput,
+  CreateSpaceRequest,
+  CreateSpaceResponse,
   CreateStudioLifecycleConfigRequest,
   CreateStudioLifecycleConfigResponse,
   CreateTrainingJobRequest,
@@ -974,6 +1075,7 @@ import {
   CreateWorkteamRequest,
   CreateWorkteamResponse,
   DataCaptureConfigSummary,
+  DataCatalogConfig,
   DataProcessing,
   DatasetDefinition,
   DebugHookConfig,
@@ -1003,13 +1105,18 @@ import {
   DeleteFeatureGroupRequest,
   DeleteFlowDefinitionRequest,
   DeleteFlowDefinitionResponse,
+  DeleteHubContentRequest,
+  DeleteHubRequest,
   DeleteHumanTaskUiRequest,
   DeleteHumanTaskUiResponse,
   DeleteImageRequest,
   DeleteImageResponse,
   DeleteImageVersionRequest,
   DeleteImageVersionResponse,
+  DeleteInferenceExperimentRequest,
+  DeleteInferenceExperimentResponse,
   DeleteModelBiasJobDefinitionRequest,
+  DeleteModelCardRequest,
   DeleteModelExplainabilityJobDefinitionRequest,
   DeleteModelInput,
   DeleteModelPackageGroupInput,
@@ -1022,6 +1129,7 @@ import {
   DeletePipelineRequest,
   DeletePipelineResponse,
   DeleteProjectInput,
+  DeleteSpaceRequest,
   DeleteStudioLifecycleConfigRequest,
   DeleteTagsInput,
   DeleteTagsOutput,
@@ -1033,6 +1141,135 @@ import {
   DeleteWorkforceRequest,
   DeleteWorkforceResponse,
   DeleteWorkteamRequest,
+  DriftCheckBaselines,
+  DriftCheckBias,
+  DriftCheckExplainability,
+  DriftCheckModelDataQuality,
+  DriftCheckModelQuality,
+  EndpointInfo,
+  EndpointInputConfiguration,
+  EnvironmentParameterRanges,
+  ExperimentConfig,
+  Explainability,
+  FeatureDefinition,
+  FileSource,
+  FlowDefinitionOutputConfig,
+  HubS3StorageConfig,
+  HumanLoopActivationConditionsConfig,
+  HumanLoopActivationConfig,
+  HumanLoopConfig,
+  HumanLoopRequestSource,
+  HumanTaskConfig,
+  HyperbandStrategyConfig,
+  HyperParameterAlgorithmSpecification,
+  HyperParameterTrainingJobDefinition,
+  HyperParameterTuningInstanceConfig,
+  HyperParameterTuningJobConfig,
+  HyperParameterTuningJobStrategyConfig,
+  HyperParameterTuningJobWarmStartConfig,
+  HyperParameterTuningResourceConfig,
+  InferenceExecutionConfig,
+  InferenceExperimentDataStorageConfig,
+  InferenceExperimentSchedule,
+  InstanceMetadataServiceConfiguration,
+  IntegerParameterRange,
+  LabelingJobAlgorithmsConfig,
+  LabelingJobDataAttributes,
+  LabelingJobDataSource,
+  LabelingJobInputConfig,
+  LabelingJobOutputConfig,
+  LabelingJobResourceConfig,
+  LabelingJobS3DataSource,
+  LabelingJobSnsDataSource,
+  LabelingJobStoppingConditions,
+  MemberDefinition,
+  ModelBiasAppSpecification,
+  ModelBiasBaselineConfig,
+  ModelBiasJobInput,
+  ModelCardExportOutputConfig,
+  ModelCardSecurityConfig,
+  ModelClientConfig,
+  ModelDataQuality,
+  ModelExplainabilityAppSpecification,
+  ModelExplainabilityBaselineConfig,
+  ModelExplainabilityJobInput,
+  ModelInfrastructureConfig,
+  ModelLatencyThreshold,
+  ModelMetrics,
+  ModelPackageValidationProfile,
+  ModelPackageValidationSpecification,
+  ModelQuality,
+  ModelQualityAppSpecification,
+  ModelQualityBaselineConfig,
+  ModelQualityJobInput,
+  ModelVariantConfig,
+  MonitoringAppSpecification,
+  MonitoringBaselineConfig,
+  MonitoringGroundTruthS3Input,
+  MonitoringInput,
+  MonitoringJobDefinition,
+  MonitoringScheduleConfig,
+  NetworkConfig,
+  NotebookInstanceAcceleratorType,
+  NotebookInstanceLifecycleHook,
+  NotificationConfiguration,
+  OfflineStoreConfig,
+  OidcConfig,
+  OidcMemberDefinition,
+  OnlineStoreConfig,
+  OnlineStoreSecurityConfig,
+  ParallelismConfiguration,
+  ParameterRanges,
+  ParentHyperParameterTuningJob,
+  Phase,
+  PipelineDefinitionS3Location,
+  ProcessingClusterConfig,
+  ProcessingFeatureStoreOutput,
+  ProcessingInput,
+  ProcessingOutput,
+  ProcessingOutputConfig,
+  ProcessingResources,
+  ProcessingS3Input,
+  ProcessingS3Output,
+  ProcessingStoppingCondition,
+  ProfilerConfig,
+  ProfilerRuleConfiguration,
+  ProvisioningParameter,
+  PublicWorkforceTaskPrice,
+  RealTimeInferenceConfig,
+  RecommendationJobCompiledOutputConfig,
+  RecommendationJobContainerConfig,
+  RecommendationJobInputConfig,
+  RecommendationJobOutputConfig,
+  RecommendationJobPayloadConfig,
+  RecommendationJobResourceLimit,
+  RecommendationJobStoppingConditions,
+  RecommendationJobVpcConfig,
+  RedshiftDatasetDefinition,
+  ResourceLimits,
+  RetentionPolicy,
+  RetryStrategy,
+  S3StorageConfig,
+  ScheduleConfig,
+  ServiceCatalogProvisioningDetails,
+  ShadowModeConfig,
+  ShadowModelVariantConfig,
+  SourceAlgorithm,
+  SourceAlgorithmSpecification,
+  SourceIpConfig,
+  SpaceSettings,
+  TensorBoardOutputConfig,
+  TrafficPattern,
+  TrialComponentArtifact,
+  TrialComponentParameterValue,
+  TrialComponentStatus,
+  TuningJobCompletionCriteria,
+  UiConfig,
+  UiTemplate,
+  USD,
+  WorkforceVpcConfigRequest,
+} from "../models/models_1";
+import {
   DeleteWorkteamResponse,
   DeployedImage,
   DeploymentStageStatusSummary,
@@ -1079,123 +1316,20 @@ import {
   DescribeFeatureMetadataResponse,
   DescribeFlowDefinitionRequest,
   DescribeFlowDefinitionResponse,
+  DescribeHubContentRequest,
+  DescribeHubContentResponse,
+  DescribeHubRequest,
+  DescribeHubResponse,
   DescribeHumanTaskUiRequest,
   DescribeHumanTaskUiResponse,
-  DriftCheckBaselines,
-  DriftCheckBias,
-  DriftCheckExplainability,
-  DriftCheckModelDataQuality,
-  DriftCheckModelQuality,
-  EdgeDeploymentStatus,
-  EdgeModel,
-  EdgePresetDeploymentOutput,
-  EndpointInputConfiguration,
-  EnvironmentParameterRanges,
-  ExperimentConfig,
-  ExperimentSource,
-  Explainability,
-  FeatureParameter,
-  FileSource,
-  HumanTaskConfig,
-  HyperParameterAlgorithmSpecification,
-  HyperParameterTrainingJobDefinition,
-  HyperParameterTuningJobConfig,
-  HyperParameterTuningJobWarmStartConfig,
-  InferenceExecutionConfig,
-  InstanceMetadataServiceConfiguration,
-  LabelingJobAlgorithmsConfig,
-  LabelingJobDataAttributes,
-  LabelingJobDataSource,
-  LabelingJobInputConfig,
-  LabelingJobOutputConfig,
-  LabelingJobResourceConfig,
-  LabelingJobS3DataSource,
-  LabelingJobSnsDataSource,
-  LabelingJobStoppingConditions,
-  LastUpdateStatus,
-  MemberDefinition,
-  ModelArtifacts,
-  ModelBiasAppSpecification,
-  ModelBiasBaselineConfig,
-  ModelBiasJobInput,
-  ModelClientConfig,
-  ModelDataQuality,
-  ModelDeployResult,
-  ModelDigests,
-  ModelExplainabilityAppSpecification,
-  ModelExplainabilityBaselineConfig,
-  ModelExplainabilityJobInput,
-  ModelLatencyThreshold,
-  ModelMetrics,
-  ModelPackageValidationProfile,
-  ModelPackageValidationSpecification,
-  ModelQuality,
-  ModelQualityAppSpecification,
-  ModelQualityBaselineConfig,
-  ModelQualityJobInput,
-  MonitoringAppSpecification,
-  MonitoringBaselineConfig,
-  MonitoringGroundTruthS3Input,
-  MonitoringInput,
-  MonitoringJobDefinition,
-  MonitoringScheduleConfig,
-  NetworkConfig,
-  NotebookInstanceAcceleratorType,
-  NotebookInstanceLifecycleHook,
-  NotificationConfiguration,
-  OfflineStoreStatus,
-  OidcConfig,
-  OidcMemberDefinition,
-  ParallelismConfiguration,
-  ParentHyperParameterTuningJob,
-  PendingDeploymentSummary,
-  PendingProductionVariantSummary,
-  Phase,
-  PipelineDefinitionS3Location,
-  ProcessingClusterConfig,
-  ProcessingFeatureStoreOutput,
-  ProcessingInput,
-  ProcessingOutput,
-  ProcessingOutputConfig,
-  ProcessingResources,
-  ProcessingS3Input,
-  ProcessingS3Output,
-  ProcessingStoppingCondition,
-  ProductionVariantStatus,
-  ProductionVariantSummary,
-  ProfilerConfig,
-  ProfilerRuleConfiguration,
-  ProvisioningParameter,
-  RecommendationJobCompiledOutputConfig,
-  RecommendationJobInputConfig,
-  RecommendationJobOutputConfig,
-  RecommendationJobResourceLimit,
-  RecommendationJobStoppingConditions,
-  RedshiftDatasetDefinition,
-  ResolvedAttributes,
-  RetentionPolicy,
-  RetryStrategy,
-  ScheduleConfig,
-  ServiceCatalogProvisioningDetails,
-  SourceAlgorithm,
-  SourceAlgorithmSpecification,
-  SourceIpConfig,
-  TensorBoardOutputConfig,
-  TrafficPattern,
-  TrialComponentArtifact,
-  TrialComponentParameterValue,
-  TrialComponentStatus,
-  UiConfig,
-  UiTemplateInfo,
-  WorkforceVpcConfigRequest,
-} from "../models/models_1";
-import {
   DescribeHyperParameterTuningJobRequest,
   DescribeHyperParameterTuningJobResponse,
   DescribeImageRequest,
   DescribeImageResponse,
   DescribeImageVersionRequest,
   DescribeImageVersionResponse,
+  DescribeInferenceExperimentRequest,
+  DescribeInferenceExperimentResponse,
   DescribeInferenceRecommendationsJobRequest,
   DescribeInferenceRecommendationsJobResponse,
   DescribeLabelingJobRequest,
@@ -1204,6 +1338,10 @@ import {
   DescribeLineageGroupResponse,
   DescribeModelBiasJobDefinitionRequest,
   DescribeModelBiasJobDefinitionResponse,
+  DescribeModelCardExportJobRequest,
+  DescribeModelCardExportJobResponse,
+  DescribeModelCardRequest,
+  DescribeModelCardResponse,
   DescribeModelExplainabilityJobDefinitionRequest,
   DescribeModelExplainabilityJobDefinitionResponse,
   DescribeModelInput,
@@ -1230,6 +1368,8 @@ import {
   DescribeProcessingJobResponse,
   DescribeProjectInput,
   DescribeProjectOutput,
+  DescribeSpaceRequest,
+  DescribeSpaceResponse,
   DescribeStudioLifecycleConfigRequest,
   DescribeStudioLifecycleConfigResponse,
   DescribeSubscribedWorkteamRequest,
@@ -1262,23 +1402,30 @@ import {
   DomainSettingsForUpdate,
   Edge,
   EdgeDeploymentPlanSummary,
+  EdgeDeploymentStatus,
+  EdgeModel,
   EdgeModelStat,
   EdgeModelSummary,
   EdgePackagingJobSummary,
+  EdgePresetDeploymentOutput,
   EMRStepMetadata,
   EnableSagemakerServicecatalogPortfolioInput,
   EnableSagemakerServicecatalogPortfolioOutput,
   Endpoint,
   EndpointConfigSummary,
+  EndpointMetadata,
   EndpointOutputConfiguration,
+  EndpointPerformance,
   EndpointSummary,
   EnvironmentParameter,
   Experiment,
+  ExperimentSource,
   ExperimentSummary,
   FailStepMetadata,
   FeatureGroup,
   FeatureGroupSummary,
   FeatureMetadata,
+  FeatureParameter,
   Filter,
   FinalHyperParameterTuningJobObjectiveMetric,
   FlowDefinitionSummary,
@@ -1293,25 +1440,80 @@ import {
   GetSearchSuggestionsRequest,
   GetSearchSuggestionsResponse,
   GitConfigForUpdate,
+  HubContentDependency,
+  HubContentInfo,
+  HubInfo,
   HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
+  HyperParameterTuningJobCompletionDetails,
+  HyperParameterTuningJobConsumedResources,
+  HyperParameterTuningJobSearchEntity,
   HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
+  ImportHubContentRequest,
+  ImportHubContentResponse,
+  InferenceExperimentSummary,
+  InferenceMetrics,
   InferenceRecommendation,
   InferenceRecommendationsJob,
+  InferenceRecommendationsJobStep,
   LabelCounters,
   LabelCountersForWorkteam,
   LabelingJobForWorkteamSummary,
   LabelingJobOutput,
   LabelingJobSummary,
   LambdaStepMetadata,
+  LastUpdateStatus,
   LineageGroupSummary,
   LineageType,
   ListActionsRequest,
   ListActionsResponse,
   ListAlgorithmsInput,
   ListAlgorithmsOutput,
+  ListAliasesRequest,
+  MetricData,
+  ModelArtifacts,
+  ModelCardExportArtifacts,
+  ModelConfiguration,
+  ModelDeployResult,
+  ModelDigests,
+  ModelPackageStatusDetails,
+  ModelPackageStatusItem,
+  ModelVariantConfigSummary,
+  MonitoringExecutionSummary,
+  MonitoringSchedule,
+  ObjectiveStatusCounters,
+  OfflineStoreStatus,
+  OidcConfigForResponse,
+  PendingDeploymentSummary,
+  PendingProductionVariantSummary,
+  PipelineExperimentConfig,
+  ProductionVariantStatus,
+  ProductionVariantSummary,
+  ProfilerRuleEvaluationStatus,
+  PropertyNameQuery,
+  PropertyNameSuggestion,
+  RecommendationJobInferenceBenchmark,
+  RecommendationMetrics,
+  ResolvedAttributes,
+  RStudioServerProDomainSettingsForUpdate,
+  SecondaryStatusTransition,
+  ServiceCatalogProvisionedProductDetails,
+  SubscribedWorkteam,
+  SuggestionQuery,
+  TrainingJobStatusCounters,
+  TrialComponentMetricSummary,
+  TrialComponentSource,
+  TrialSource,
+  UiTemplateInfo,
+  WarmPoolStatus,
+  Workforce,
+  WorkforceVpcConfigResponse,
+  Workteam,
+} from "../models/models_2";
+import {
+  ListAliasesResponse,
   ListAppImageConfigsRequest,
   ListAppImageConfigsResponse,
   ListAppsRequest,
@@ -1352,6 +1554,12 @@ import {
   ListFeatureGroupsResponse,
   ListFlowDefinitionsRequest,
   ListFlowDefinitionsResponse,
+  ListHubContentsRequest,
+  ListHubContentsResponse,
+  ListHubContentVersionsRequest,
+  ListHubContentVersionsResponse,
+  ListHubsRequest,
+  ListHubsResponse,
   ListHumanTaskUisRequest,
   ListHumanTaskUisResponse,
   ListHyperParameterTuningJobsRequest,
@@ -1360,8 +1568,12 @@ import {
   ListImagesResponse,
   ListImageVersionsRequest,
   ListImageVersionsResponse,
+  ListInferenceExperimentsRequest,
+  ListInferenceExperimentsResponse,
   ListInferenceRecommendationsJobsRequest,
   ListInferenceRecommendationsJobsResponse,
+  ListInferenceRecommendationsJobStepsRequest,
+  ListInferenceRecommendationsJobStepsResponse,
   ListLabelingJobsForWorkteamRequest,
   ListLabelingJobsForWorkteamResponse,
   ListLabelingJobsRequest,
@@ -1370,6 +1582,12 @@ import {
   ListLineageGroupsResponse,
   ListModelBiasJobDefinitionsRequest,
   ListModelBiasJobDefinitionsResponse,
+  ListModelCardExportJobsRequest,
+  ListModelCardExportJobsResponse,
+  ListModelCardsRequest,
+  ListModelCardsResponse,
+  ListModelCardVersionsRequest,
+  ListModelCardVersionsResponse,
   ListModelExplainabilityJobDefinitionsRequest,
   ListModelExplainabilityJobDefinitionsResponse,
   ListModelMetadataRequest,
@@ -1382,6 +1600,10 @@ import {
   ListModelQualityJobDefinitionsResponse,
   ListModelsInput,
   ListModelsOutput,
+  ListMonitoringAlertHistoryRequest,
+  ListMonitoringAlertHistoryResponse,
+  ListMonitoringAlertsRequest,
+  ListMonitoringAlertsResponse,
   ListMonitoringExecutionsRequest,
   ListMonitoringExecutionsResponse,
   ListMonitoringSchedulesRequest,
@@ -1392,44 +1614,6 @@ import {
   ListNotebookInstancesOutput,
   ListPipelineExecutionsRequest,
   ListPipelineExecutionsResponse,
-  MetricData,
-  ModelConfiguration,
-  ModelMetadataFilter,
-  ModelMetadataSearchExpression,
-  ModelMetadataSummary,
-  ModelPackageGroupSummary,
-  ModelPackageStatusDetails,
-  ModelPackageStatusItem,
-  ModelPackageSummary,
-  ModelSummary,
-  MonitoringExecutionSummary,
-  MonitoringJobDefinitionSummary,
-  MonitoringSchedule,
-  MonitoringScheduleSummary,
-  NotebookInstanceLifecycleConfigSummary,
-  NotebookInstanceSummary,
-  ObjectiveStatusCounters,
-  OidcConfigForResponse,
-  PipelineExecutionSummary,
-  PipelineExperimentConfig,
-  ProfilerRuleEvaluationStatus,
-  PropertyNameQuery,
-  PropertyNameSuggestion,
-  RecommendationMetrics,
-  RStudioServerProDomainSettingsForUpdate,
-  SecondaryStatusTransition,
-  ServiceCatalogProvisionedProductDetails,
-  SubscribedWorkteam,
-  SuggestionQuery,
-  TrainingJobStatusCounters,
-  TrialComponentMetricSummary,
-  TrialComponentSource,
-  TrialSource,
-  Workforce,
-  WorkforceVpcConfigResponse,
-  Workteam,
-} from "../models/models_2";
-import {
   ListPipelineExecutionStepsRequest,
   ListPipelineExecutionStepsResponse,
   ListPipelineParametersForExecutionRequest,
@@ -1440,6 +1624,8 @@ import {
   ListProcessingJobsResponse,
   ListProjectsInput,
   ListProjectsOutput,
+  ListSpacesRequest,
+  ListSpacesResponse,
   ListStageDevicesRequest,
   ListStageDevicesResponse,
   ListStudioLifecycleConfigsRequest,
@@ -1464,16 +1650,41 @@ import {
   ListWorkforcesResponse,
   ListWorkteamsRequest,
   ListWorkteamsResponse,
+  Model,
+  ModelCard,
+  ModelCardExportJobSummary,
+  ModelCardSummary,
+  ModelCardVersionSummary,
+  ModelDashboardEndpoint,
+  ModelDashboardIndicatorAction,
+  ModelDashboardModel,
+  ModelDashboardModelCard,
+  ModelDashboardMonitoringSchedule,
+  ModelMetadataFilter,
+  ModelMetadataSearchExpression,
+  ModelMetadataSummary,
   ModelPackage,
   ModelPackageGroup,
+  ModelPackageGroupSummary,
+  ModelPackageSummary,
   ModelStepMetadata,
+  ModelSummary,
+  ModelVariantAction,
+  MonitoringAlertActions,
+  MonitoringAlertHistorySummary,
+  MonitoringAlertSummary,
+  MonitoringJobDefinitionSummary,
+  MonitoringScheduleSummary,
   NestedFilters,
+  NotebookInstanceLifecycleConfigSummary,
+  NotebookInstanceSummary,
   Parameter,
   Parent,
   Pipeline,
   PipelineExecution,
   PipelineExecutionStep,
   PipelineExecutionStepMetadata,
+  PipelineExecutionSummary,
   PipelineSummary,
   ProcessingJob,
   ProcessingJobStepMetadata,
@@ -1493,18 +1704,19 @@ import {
   RenderingError,
   RenderUiTemplateRequest,
   RenderUiTemplateResponse,
+  ResourceConfigForUpdate,
   RetryPipelineExecutionRequest,
   RetryPipelineExecutionResponse,
-  SearchExpression,
   SearchRecord,
-  SearchRequest,
   SearchResponse,
   SendPipelineExecutionStepFailureRequest,
   SendPipelineExecutionStepFailureResponse,
   SendPipelineExecutionStepSuccessRequest,
   SendPipelineExecutionStepSuccessResponse,
-  ServiceCatalogProvisioningUpdateDetails,
+  SpaceDetails,
   StartEdgeDeploymentStageRequest,
+  StartInferenceExperimentRequest,
+  StartInferenceExperimentResponse,
   StartMonitoringScheduleRequest,
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
@@ -1514,6 +1726,8 @@ import {
   StopEdgeDeploymentStageRequest,
   StopEdgePackagingJobRequest,
   StopHyperParameterTuningJobRequest,
+  StopInferenceExperimentRequest,
+  StopInferenceExperimentResponse,
   StopInferenceRecommendationsJobRequest,
   StopLabelingJobRequest,
   StopMonitoringScheduleRequest,
@@ -1550,6 +1764,13 @@ import {
   UpdateDeviceFleetRequest,
   UpdateDevicesRequest,
   UpdateDomainRequest,
+  UserProfileDetails,
+  Vertex,
+} from "../models/models_3";
+import {
+  SearchExpression,
+  SearchRequest,
+  ServiceCatalogProvisioningUpdateDetails,
   UpdateDomainResponse,
   UpdateEndpointInput,
   UpdateEndpointOutput,
@@ -1560,10 +1781,20 @@ import {
   UpdateFeatureGroupRequest,
   UpdateFeatureGroupResponse,
   UpdateFeatureMetadataRequest,
+  UpdateHubRequest,
+  UpdateHubResponse,
   UpdateImageRequest,
   UpdateImageResponse,
+  UpdateImageVersionRequest,
+  UpdateImageVersionResponse,
+  UpdateInferenceExperimentRequest,
+  UpdateInferenceExperimentResponse,
+  UpdateModelCardRequest,
+  UpdateModelCardResponse,
   UpdateModelPackageInput,
   UpdateModelPackageOutput,
+  UpdateMonitoringAlertRequest,
+  UpdateMonitoringAlertResponse,
   UpdateMonitoringScheduleRequest,
   UpdateMonitoringScheduleResponse,
   UpdateNotebookInstanceInput,
@@ -1576,6 +1807,8 @@ import {
   UpdatePipelineResponse,
   UpdateProjectInput,
   UpdateProjectOutput,
+  UpdateSpaceRequest,
+  UpdateSpaceResponse,
   UpdateTrainingJobRequest,
   UpdateTrainingJobResponse,
   UpdateTrialComponentRequest,
@@ -1588,10 +1821,8 @@ import {
   UpdateWorkforceResponse,
   UpdateWorkteamRequest,
   UpdateWorkteamResponse,
-  UserProfileDetails,
   VariantProperty,
-  Vertex,
-} from "../models/models_3";
+} from "../models/models_4";
 import { SageMakerServiceException as __BaseException } from "../models/SageMakerServiceException";
 
 export const serializeAws_json1_1AddAssociationCommand = async (
@@ -1906,6 +2137,19 @@ export const serializeAws_json1_1CreateFlowDefinitionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateHubCommand = async (
+  input: CreateHubCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateHub",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateHubRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateHumanTaskUiCommand = async (
   input: CreateHumanTaskUiCommandInput,
   context: __SerdeContext
@@ -1958,6 +2202,19 @@ export const serializeAws_json1_1CreateImageVersionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateInferenceExperimentCommand = async (
+  input: CreateInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateInferenceExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateInferenceRecommendationsJobCommand = async (
   input: CreateInferenceRecommendationsJobCommandInput,
   context: __SerdeContext
@@ -2007,6 +2264,32 @@ export const serializeAws_json1_1CreateModelBiasJobDefinitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateModelBiasJobDefinitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateModelCardCommand = async (
+  input: CreateModelCardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateModelCard",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateModelCardRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateModelCardExportJobCommand = async (
+  input: CreateModelCardExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateModelCardExportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateModelCardExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2163,6 +2446,19 @@ export const serializeAws_json1_1CreateProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateSpaceCommand = async (
+  input: CreateSpaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateSpace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2504,6 +2800,32 @@ export const serializeAws_json1_1DeleteFlowDefinitionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteHubCommand = async (
+  input: DeleteHubCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteHub",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteHubRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteHubContentCommand = async (
+  input: DeleteHubContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteHubContent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteHubContentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteHumanTaskUiCommand = async (
   input: DeleteHumanTaskUiCommandInput,
   context: __SerdeContext
@@ -2543,6 +2865,19 @@ export const serializeAws_json1_1DeleteImageVersionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteInferenceExperimentCommand = async (
+  input: DeleteInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteInferenceExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteModelCommand = async (
   input: DeleteModelCommandInput,
   context: __SerdeContext
@@ -2566,6 +2901,19 @@ export const serializeAws_json1_1DeleteModelBiasJobDefinitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteModelBiasJobDefinitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteModelCardCommand = async (
+  input: DeleteModelCardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteModelCard",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteModelCardRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2696,6 +3044,19 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteSpaceCommand = async (
+  input: DeleteSpaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteSpace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3076,6 +3437,32 @@ export const serializeAws_json1_1DescribeFlowDefinitionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeHubCommand = async (
+  input: DescribeHubCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeHub",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeHubRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeHubContentCommand = async (
+  input: DescribeHubContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeHubContent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeHubContentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeHumanTaskUiCommand = async (
   input: DescribeHumanTaskUiCommandInput,
   context: __SerdeContext
@@ -3125,6 +3512,19 @@ export const serializeAws_json1_1DescribeImageVersionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeImageVersionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeInferenceExperimentCommand = async (
+  input: DescribeInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeInferenceExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3190,6 +3590,32 @@ export const serializeAws_json1_1DescribeModelBiasJobDefinitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeModelBiasJobDefinitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeModelCardCommand = async (
+  input: DescribeModelCardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeModelCard",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeModelCardRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeModelCardExportJobCommand = async (
+  input: DescribeModelCardExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeModelCardExportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeModelCardExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3346,6 +3772,19 @@ export const serializeAws_json1_1DescribeProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeSpaceCommand = async (
+  input: DescribeSpaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeSpace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3570,6 +4009,19 @@ export const serializeAws_json1_1GetSearchSuggestionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ImportHubContentCommand = async (
+  input: ImportHubContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ImportHubContent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ImportHubContentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListActionsCommand = async (
   input: ListActionsCommandInput,
   context: __SerdeContext
@@ -3593,6 +4045,19 @@ export const serializeAws_json1_1ListAlgorithmsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAlgorithmsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListAliasesCommand = async (
+  input: ListAliasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListAliases",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3856,6 +4321,45 @@ export const serializeAws_json1_1ListFlowDefinitionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListHubContentsCommand = async (
+  input: ListHubContentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListHubContents",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListHubContentsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListHubContentVersionsCommand = async (
+  input: ListHubContentVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListHubContentVersions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListHubContentVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListHubsCommand = async (
+  input: ListHubsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListHubs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListHubsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListHumanTaskUisCommand = async (
   input: ListHumanTaskUisCommandInput,
   context: __SerdeContext
@@ -3908,6 +4412,19 @@ export const serializeAws_json1_1ListImageVersionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListInferenceExperimentsCommand = async (
+  input: ListInferenceExperimentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListInferenceExperiments",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListInferenceExperimentsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListInferenceRecommendationsJobsCommand = async (
   input: ListInferenceRecommendationsJobsCommandInput,
   context: __SerdeContext
@@ -3918,6 +4435,19 @@ export const serializeAws_json1_1ListInferenceRecommendationsJobsCommand = async
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListInferenceRecommendationsJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListInferenceRecommendationsJobStepsCommand = async (
+  input: ListInferenceRecommendationsJobStepsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListInferenceRecommendationsJobSteps",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListInferenceRecommendationsJobStepsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3970,6 +4500,45 @@ export const serializeAws_json1_1ListModelBiasJobDefinitionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListModelBiasJobDefinitionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListModelCardExportJobsCommand = async (
+  input: ListModelCardExportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListModelCardExportJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListModelCardExportJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListModelCardsCommand = async (
+  input: ListModelCardsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListModelCards",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListModelCardsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListModelCardVersionsCommand = async (
+  input: ListModelCardVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListModelCardVersions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListModelCardVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4048,6 +4617,32 @@ export const serializeAws_json1_1ListModelsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListModelsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListMonitoringAlertHistoryCommand = async (
+  input: ListMonitoringAlertHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListMonitoringAlertHistory",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListMonitoringAlertHistoryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListMonitoringAlertsCommand = async (
+  input: ListMonitoringAlertsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListMonitoringAlerts",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListMonitoringAlertsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4178,6 +4773,19 @@ export const serializeAws_json1_1ListProjectsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProjectsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListSpacesCommand = async (
+  input: ListSpacesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListSpaces",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListSpacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4454,6 +5062,19 @@ export const serializeAws_json1_1StartEdgeDeploymentStageCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartInferenceExperimentCommand = async (
+  input: StartInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.StartInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartInferenceExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartMonitoringScheduleCommand = async (
   input: StartMonitoringScheduleCommandInput,
   context: __SerdeContext
@@ -4555,6 +5176,19 @@ export const serializeAws_json1_1StopHyperParameterTuningJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopHyperParameterTuningJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopInferenceExperimentCommand = async (
+  input: StopInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.StopInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopInferenceExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4831,6 +5465,19 @@ export const serializeAws_json1_1UpdateFeatureMetadataCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateHubCommand = async (
+  input: UpdateHubCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateHub",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateHubRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateImageCommand = async (
   input: UpdateImageCommandInput,
   context: __SerdeContext
@@ -4844,6 +5491,45 @@ export const serializeAws_json1_1UpdateImageCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateImageVersionCommand = async (
+  input: UpdateImageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateImageVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateImageVersionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateInferenceExperimentCommand = async (
+  input: UpdateInferenceExperimentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateInferenceExperiment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateInferenceExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateModelCardCommand = async (
+  input: UpdateModelCardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateModelCard",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateModelCardRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateModelPackageCommand = async (
   input: UpdateModelPackageCommandInput,
   context: __SerdeContext
@@ -4854,6 +5540,19 @@ export const serializeAws_json1_1UpdateModelPackageCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateModelPackageInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateMonitoringAlertCommand = async (
+  input: UpdateMonitoringAlertCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateMonitoringAlert",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateMonitoringAlertRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4932,6 +5631,19 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateSpaceCommand = async (
+  input: UpdateSpaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateSpace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -5036,7 +5748,7 @@ const deserializeAws_json1_1AddAssociationCommandError = async (
 ): Promise<AddAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5080,7 +5792,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
 ): Promise<AddTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5115,7 +5827,7 @@ const deserializeAws_json1_1AssociateTrialComponentCommandError = async (
 ): Promise<AssociateTrialComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5159,7 +5871,7 @@ const deserializeAws_json1_1BatchDescribeModelPackageCommandError = async (
 ): Promise<BatchDescribeModelPackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5194,7 +5906,7 @@ const deserializeAws_json1_1CreateActionCommandError = async (
 ): Promise<CreateActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5235,7 +5947,7 @@ const deserializeAws_json1_1CreateAlgorithmCommandError = async (
 ): Promise<CreateAlgorithmCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5270,7 +5982,7 @@ const deserializeAws_json1_1CreateAppCommandError = async (
 ): Promise<CreateAppCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5314,7 +6026,7 @@ const deserializeAws_json1_1CreateAppImageConfigCommandError = async (
 ): Promise<CreateAppImageConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5355,7 +6067,7 @@ const deserializeAws_json1_1CreateArtifactCommandError = async (
 ): Promise<CreateArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5396,7 +6108,7 @@ const deserializeAws_json1_1CreateAutoMLJobCommandError = async (
 ): Promise<CreateAutoMLJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5440,7 +6152,7 @@ const deserializeAws_json1_1CreateCodeRepositoryCommandError = async (
 ): Promise<CreateCodeRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5475,7 +6187,7 @@ const deserializeAws_json1_1CreateCompilationJobCommandError = async (
 ): Promise<CreateCompilationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5519,7 +6231,7 @@ const deserializeAws_json1_1CreateContextCommandError = async (
 ): Promise<CreateContextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5560,7 +6272,7 @@ const deserializeAws_json1_1CreateDataQualityJobDefinitionCommandError = async (
 ): Promise<CreateDataQualityJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5601,7 +6313,7 @@ const deserializeAws_json1_1CreateDeviceFleetCommandError = async (
 ): Promise<CreateDeviceFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5645,7 +6357,7 @@ const deserializeAws_json1_1CreateDomainCommandError = async (
 ): Promise<CreateDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5689,7 +6401,7 @@ const deserializeAws_json1_1CreateEdgeDeploymentPlanCommandError = async (
 ): Promise<CreateEdgeDeploymentPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5727,7 +6439,7 @@ const deserializeAws_json1_1CreateEdgeDeploymentStageCommandError = async (
 ): Promise<CreateEdgeDeploymentStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5765,7 +6477,7 @@ const deserializeAws_json1_1CreateEdgePackagingJobCommandError = async (
 ): Promise<CreateEdgePackagingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5806,7 +6518,7 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
 ): Promise<CreateEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5847,7 +6559,7 @@ const deserializeAws_json1_1CreateEndpointConfigCommandError = async (
 ): Promise<CreateEndpointConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5888,7 +6600,7 @@ const deserializeAws_json1_1CreateExperimentCommandError = async (
 ): Promise<CreateExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5929,7 +6641,7 @@ const deserializeAws_json1_1CreateFeatureGroupCommandError = async (
 ): Promise<CreateFeatureGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5973,7 +6685,51 @@ const deserializeAws_json1_1CreateFlowDefinitionCommandError = async (
 ): Promise<CreateFlowDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateHubCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHubCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateHubCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateHubResponse(data, context);
+  const response: CreateHubCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateHubCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHubCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6017,7 +6773,7 @@ const deserializeAws_json1_1CreateHumanTaskUiCommandError = async (
 ): Promise<CreateHumanTaskUiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6061,7 +6817,7 @@ const deserializeAws_json1_1CreateHyperParameterTuningJobCommandError = async (
 ): Promise<CreateHyperParameterTuningJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6105,7 +6861,7 @@ const deserializeAws_json1_1CreateImageCommandError = async (
 ): Promise<CreateImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6149,7 +6905,7 @@ const deserializeAws_json1_1CreateImageVersionCommandError = async (
 ): Promise<CreateImageVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6162,6 +6918,50 @@ const deserializeAws_json1_1CreateImageVersionCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateInferenceExperimentResponse(data, context);
+  const response: CreateInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6196,7 +6996,7 @@ const deserializeAws_json1_1CreateInferenceRecommendationsJobCommandError = asyn
 ): Promise<CreateInferenceRecommendationsJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6240,7 +7040,7 @@ const deserializeAws_json1_1CreateLabelingJobCommandError = async (
 ): Promise<CreateLabelingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6284,7 +7084,7 @@ const deserializeAws_json1_1CreateModelCommandError = async (
 ): Promise<CreateModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6325,7 +7125,7 @@ const deserializeAws_json1_1CreateModelBiasJobDefinitionCommandError = async (
 ): Promise<CreateModelBiasJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6335,6 +7135,97 @@ const deserializeAws_json1_1CreateModelBiasJobDefinitionCommandError = async (
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateModelCardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelCardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateModelCardCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateModelCardResponse(data, context);
+  const response: CreateModelCardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateModelCardCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelCardCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateModelCardExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelCardExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateModelCardExportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateModelCardExportJobResponse(data, context);
+  const response: CreateModelCardExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateModelCardExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelCardExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6369,7 +7260,7 @@ const deserializeAws_json1_1CreateModelExplainabilityJobDefinitionCommandError =
 ): Promise<CreateModelExplainabilityJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6413,7 +7304,7 @@ const deserializeAws_json1_1CreateModelPackageCommandError = async (
 ): Promise<CreateModelPackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6457,7 +7348,7 @@ const deserializeAws_json1_1CreateModelPackageGroupCommandError = async (
 ): Promise<CreateModelPackageGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6498,7 +7389,7 @@ const deserializeAws_json1_1CreateModelQualityJobDefinitionCommandError = async 
 ): Promise<CreateModelQualityJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6542,7 +7433,7 @@ const deserializeAws_json1_1CreateMonitoringScheduleCommandError = async (
 ): Promise<CreateMonitoringScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6586,7 +7477,7 @@ const deserializeAws_json1_1CreateNotebookInstanceCommandError = async (
 ): Promise<CreateNotebookInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6627,7 +7518,7 @@ const deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommandError = 
 ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6668,7 +7559,7 @@ const deserializeAws_json1_1CreatePipelineCommandError = async (
 ): Promise<CreatePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6712,7 +7603,7 @@ const deserializeAws_json1_1CreatePresignedDomainUrlCommandError = async (
 ): Promise<CreatePresignedDomainUrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6753,7 +7644,7 @@ const deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommandError = asy
 ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6788,7 +7679,7 @@ const deserializeAws_json1_1CreateProcessingJobCommandError = async (
 ): Promise<CreateProcessingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6835,10 +7726,54 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
 ): Promise<CreateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateSpaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSpaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateSpaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateSpaceResponse(data, context);
+  const response: CreateSpaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateSpaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSpaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
@@ -6876,7 +7811,7 @@ const deserializeAws_json1_1CreateStudioLifecycleConfigCommandError = async (
 ): Promise<CreateStudioLifecycleConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6917,7 +7852,7 @@ const deserializeAws_json1_1CreateTrainingJobCommandError = async (
 ): Promise<CreateTrainingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6964,7 +7899,7 @@ const deserializeAws_json1_1CreateTransformJobCommandError = async (
 ): Promise<CreateTransformJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7011,7 +7946,7 @@ const deserializeAws_json1_1CreateTrialCommandError = async (
 ): Promise<CreateTrialCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7055,7 +7990,7 @@ const deserializeAws_json1_1CreateTrialComponentCommandError = async (
 ): Promise<CreateTrialComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7096,7 +8031,7 @@ const deserializeAws_json1_1CreateUserProfileCommandError = async (
 ): Promise<CreateUserProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7140,7 +8075,7 @@ const deserializeAws_json1_1CreateWorkforceCommandError = async (
 ): Promise<CreateWorkforceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7175,7 +8110,7 @@ const deserializeAws_json1_1CreateWorkteamCommandError = async (
 ): Promise<CreateWorkteamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7219,7 +8154,7 @@ const deserializeAws_json1_1DeleteActionCommandError = async (
 ): Promise<DeleteActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7257,7 +8192,7 @@ const deserializeAws_json1_1DeleteAlgorithmCommandError = async (
 ): Promise<DeleteAlgorithmCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7289,7 +8224,7 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
 ): Promise<DeleteAppCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7330,7 +8265,7 @@ const deserializeAws_json1_1DeleteAppImageConfigCommandError = async (
 ): Promise<DeleteAppImageConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7371,7 +8306,7 @@ const deserializeAws_json1_1DeleteArtifactCommandError = async (
 ): Promise<DeleteArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7412,7 +8347,7 @@ const deserializeAws_json1_1DeleteAssociationCommandError = async (
 ): Promise<DeleteAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7450,7 +8385,7 @@ const deserializeAws_json1_1DeleteCodeRepositoryCommandError = async (
 ): Promise<DeleteCodeRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7485,7 +8420,7 @@ const deserializeAws_json1_1DeleteContextCommandError = async (
 ): Promise<DeleteContextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7523,7 +8458,7 @@ const deserializeAws_json1_1DeleteDataQualityJobDefinitionCommandError = async (
 ): Promise<DeleteDataQualityJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7561,7 +8496,7 @@ const deserializeAws_json1_1DeleteDeviceFleetCommandError = async (
 ): Promise<DeleteDeviceFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7599,7 +8534,7 @@ const deserializeAws_json1_1DeleteDomainCommandError = async (
 ): Promise<DeleteDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7640,7 +8575,7 @@ const deserializeAws_json1_1DeleteEdgeDeploymentPlanCommandError = async (
 ): Promise<DeleteEdgeDeploymentPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7678,7 +8613,7 @@ const deserializeAws_json1_1DeleteEdgeDeploymentStageCommandError = async (
 ): Promise<DeleteEdgeDeploymentStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7716,7 +8651,7 @@ const deserializeAws_json1_1DeleteEndpointCommandError = async (
 ): Promise<DeleteEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7748,7 +8683,7 @@ const deserializeAws_json1_1DeleteEndpointConfigCommandError = async (
 ): Promise<DeleteEndpointConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -7783,7 +8718,7 @@ const deserializeAws_json1_1DeleteExperimentCommandError = async (
 ): Promise<DeleteExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7821,7 +8756,7 @@ const deserializeAws_json1_1DeleteFeatureGroupCommandError = async (
 ): Promise<DeleteFeatureGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7862,7 +8797,89 @@ const deserializeAws_json1_1DeleteFlowDefinitionCommandError = async (
 ): Promise<DeleteFlowDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteHubCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHubCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteHubCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteHubCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteHubCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHubCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteHubContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHubContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteHubContentCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteHubContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteHubContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHubContentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7906,7 +8923,7 @@ const deserializeAws_json1_1DeleteHumanTaskUiCommandError = async (
 ): Promise<DeleteHumanTaskUiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7947,7 +8964,7 @@ const deserializeAws_json1_1DeleteImageCommandError = async (
 ): Promise<DeleteImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7991,13 +9008,57 @@ const deserializeAws_json1_1DeleteImageVersionCommandError = async (
 ): Promise<DeleteImageVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteInferenceExperimentResponse(data, context);
+  const response: DeleteInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
@@ -8032,7 +9093,7 @@ const deserializeAws_json1_1DeleteModelCommandError = async (
 ): Promise<DeleteModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -8064,10 +9125,51 @@ const deserializeAws_json1_1DeleteModelBiasJobDefinitionCommandError = async (
 ): Promise<DeleteModelBiasJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteModelCardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteModelCardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteModelCardCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteModelCardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteModelCardCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteModelCardCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
@@ -8102,7 +9204,7 @@ const deserializeAws_json1_1DeleteModelExplainabilityJobDefinitionCommandError =
 ): Promise<DeleteModelExplainabilityJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8140,7 +9242,7 @@ const deserializeAws_json1_1DeleteModelPackageCommandError = async (
 ): Promise<DeleteModelPackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8178,7 +9280,7 @@ const deserializeAws_json1_1DeleteModelPackageGroupCommandError = async (
 ): Promise<DeleteModelPackageGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8216,7 +9318,7 @@ const deserializeAws_json1_1DeleteModelPackageGroupPolicyCommandError = async (
 ): Promise<DeleteModelPackageGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -8248,7 +9350,7 @@ const deserializeAws_json1_1DeleteModelQualityJobDefinitionCommandError = async 
 ): Promise<DeleteModelQualityJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8286,7 +9388,7 @@ const deserializeAws_json1_1DeleteMonitoringScheduleCommandError = async (
 ): Promise<DeleteMonitoringScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8324,7 +9426,7 @@ const deserializeAws_json1_1DeleteNotebookInstanceCommandError = async (
 ): Promise<DeleteNotebookInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -8356,7 +9458,7 @@ const deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommandError = 
 ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -8391,7 +9493,7 @@ const deserializeAws_json1_1DeletePipelineCommandError = async (
 ): Promise<DeletePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8429,13 +9531,54 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
 ): Promise<DeleteProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.sagemaker#ConflictException":
       throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteSpaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSpaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteSpaceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteSpaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteSpaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSpaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -8467,7 +9610,7 @@ const deserializeAws_json1_1DeleteStudioLifecycleConfigCommandError = async (
 ): Promise<DeleteStudioLifecycleConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8511,7 +9654,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
 ): Promise<DeleteTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -8546,7 +9689,7 @@ const deserializeAws_json1_1DeleteTrialCommandError = async (
 ): Promise<DeleteTrialCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8587,7 +9730,7 @@ const deserializeAws_json1_1DeleteTrialComponentCommandError = async (
 ): Promise<DeleteTrialComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8625,7 +9768,7 @@ const deserializeAws_json1_1DeleteUserProfileCommandError = async (
 ): Promise<DeleteUserProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8669,7 +9812,7 @@ const deserializeAws_json1_1DeleteWorkforceCommandError = async (
 ): Promise<DeleteWorkforceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -8704,7 +9847,7 @@ const deserializeAws_json1_1DeleteWorkteamCommandError = async (
 ): Promise<DeleteWorkteamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8742,7 +9885,7 @@ const deserializeAws_json1_1DeregisterDevicesCommandError = async (
 ): Promise<DeregisterDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -8777,7 +9920,7 @@ const deserializeAws_json1_1DescribeActionCommandError = async (
 ): Promise<DescribeActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8818,7 +9961,7 @@ const deserializeAws_json1_1DescribeAlgorithmCommandError = async (
 ): Promise<DescribeAlgorithmCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -8853,7 +9996,7 @@ const deserializeAws_json1_1DescribeAppCommandError = async (
 ): Promise<DescribeAppCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8894,7 +10037,7 @@ const deserializeAws_json1_1DescribeAppImageConfigCommandError = async (
 ): Promise<DescribeAppImageConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8935,7 +10078,7 @@ const deserializeAws_json1_1DescribeArtifactCommandError = async (
 ): Promise<DescribeArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8976,7 +10119,7 @@ const deserializeAws_json1_1DescribeAutoMLJobCommandError = async (
 ): Promise<DescribeAutoMLJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9017,7 +10160,7 @@ const deserializeAws_json1_1DescribeCodeRepositoryCommandError = async (
 ): Promise<DescribeCodeRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -9052,7 +10195,7 @@ const deserializeAws_json1_1DescribeCompilationJobCommandError = async (
 ): Promise<DescribeCompilationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9093,7 +10236,7 @@ const deserializeAws_json1_1DescribeContextCommandError = async (
 ): Promise<DescribeContextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9134,7 +10277,7 @@ const deserializeAws_json1_1DescribeDataQualityJobDefinitionCommandError = async
 ): Promise<DescribeDataQualityJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9175,7 +10318,7 @@ const deserializeAws_json1_1DescribeDeviceCommandError = async (
 ): Promise<DescribeDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9216,7 +10359,7 @@ const deserializeAws_json1_1DescribeDeviceFleetCommandError = async (
 ): Promise<DescribeDeviceFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9257,7 +10400,7 @@ const deserializeAws_json1_1DescribeDomainCommandError = async (
 ): Promise<DescribeDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9298,7 +10441,7 @@ const deserializeAws_json1_1DescribeEdgeDeploymentPlanCommandError = async (
 ): Promise<DescribeEdgeDeploymentPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9339,7 +10482,7 @@ const deserializeAws_json1_1DescribeEdgePackagingJobCommandError = async (
 ): Promise<DescribeEdgePackagingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9380,7 +10523,7 @@ const deserializeAws_json1_1DescribeEndpointCommandError = async (
 ): Promise<DescribeEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -9415,7 +10558,7 @@ const deserializeAws_json1_1DescribeEndpointConfigCommandError = async (
 ): Promise<DescribeEndpointConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -9450,7 +10593,7 @@ const deserializeAws_json1_1DescribeExperimentCommandError = async (
 ): Promise<DescribeExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9491,7 +10634,7 @@ const deserializeAws_json1_1DescribeFeatureGroupCommandError = async (
 ): Promise<DescribeFeatureGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9532,7 +10675,7 @@ const deserializeAws_json1_1DescribeFeatureMetadataCommandError = async (
 ): Promise<DescribeFeatureMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9573,7 +10716,89 @@ const deserializeAws_json1_1DescribeFlowDefinitionCommandError = async (
 ): Promise<DescribeFlowDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeHubCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHubCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeHubCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeHubResponse(data, context);
+  const response: DescribeHubCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeHubCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHubCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeHubContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHubContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeHubContentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeHubContentResponse(data, context);
+  const response: DescribeHubContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeHubContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHubContentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9614,7 +10839,7 @@ const deserializeAws_json1_1DescribeHumanTaskUiCommandError = async (
 ): Promise<DescribeHumanTaskUiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9655,7 +10880,7 @@ const deserializeAws_json1_1DescribeHyperParameterTuningJobCommandError = async 
 ): Promise<DescribeHyperParameterTuningJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9696,7 +10921,7 @@ const deserializeAws_json1_1DescribeImageCommandError = async (
 ): Promise<DescribeImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9737,7 +10962,48 @@ const deserializeAws_json1_1DescribeImageVersionCommandError = async (
 ): Promise<DescribeImageVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeInferenceExperimentResponse(data, context);
+  const response: DescribeInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9778,7 +11044,7 @@ const deserializeAws_json1_1DescribeInferenceRecommendationsJobCommandError = as
 ): Promise<DescribeInferenceRecommendationsJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9819,7 +11085,7 @@ const deserializeAws_json1_1DescribeLabelingJobCommandError = async (
 ): Promise<DescribeLabelingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9860,7 +11126,7 @@ const deserializeAws_json1_1DescribeLineageGroupCommandError = async (
 ): Promise<DescribeLineageGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9901,7 +11167,7 @@ const deserializeAws_json1_1DescribeModelCommandError = async (
 ): Promise<DescribeModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -9936,7 +11202,89 @@ const deserializeAws_json1_1DescribeModelBiasJobDefinitionCommandError = async (
 ): Promise<DescribeModelBiasJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeModelCardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelCardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeModelCardCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeModelCardResponse(data, context);
+  const response: DescribeModelCardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeModelCardCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelCardCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeModelCardExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelCardExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeModelCardExportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeModelCardExportJobResponse(data, context);
+  const response: DescribeModelCardExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeModelCardExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelCardExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -9977,7 +11325,7 @@ const deserializeAws_json1_1DescribeModelExplainabilityJobDefinitionCommandError
 ): Promise<DescribeModelExplainabilityJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10018,7 +11366,7 @@ const deserializeAws_json1_1DescribeModelPackageCommandError = async (
 ): Promise<DescribeModelPackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10053,7 +11401,7 @@ const deserializeAws_json1_1DescribeModelPackageGroupCommandError = async (
 ): Promise<DescribeModelPackageGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10088,7 +11436,7 @@ const deserializeAws_json1_1DescribeModelQualityJobDefinitionCommandError = asyn
 ): Promise<DescribeModelQualityJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10129,7 +11477,7 @@ const deserializeAws_json1_1DescribeMonitoringScheduleCommandError = async (
 ): Promise<DescribeMonitoringScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10170,7 +11518,7 @@ const deserializeAws_json1_1DescribeNotebookInstanceCommandError = async (
 ): Promise<DescribeNotebookInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10205,7 +11553,7 @@ const deserializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommandError 
 ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10240,7 +11588,7 @@ const deserializeAws_json1_1DescribePipelineCommandError = async (
 ): Promise<DescribePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10281,7 +11629,7 @@ const deserializeAws_json1_1DescribePipelineDefinitionForExecutionCommandError =
 ): Promise<DescribePipelineDefinitionForExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10322,7 +11670,7 @@ const deserializeAws_json1_1DescribePipelineExecutionCommandError = async (
 ): Promise<DescribePipelineExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10363,7 +11711,7 @@ const deserializeAws_json1_1DescribeProcessingJobCommandError = async (
 ): Promise<DescribeProcessingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10404,7 +11752,7 @@ const deserializeAws_json1_1DescribeProjectCommandError = async (
 ): Promise<DescribeProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10414,6 +11762,47 @@ const deserializeAws_json1_1DescribeProjectCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1DescribeSpaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSpaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeSpaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeSpaceResponse(data, context);
+  const response: DescribeSpaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeSpaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSpaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1DescribeStudioLifecycleConfigCommand = async (
@@ -10439,7 +11828,7 @@ const deserializeAws_json1_1DescribeStudioLifecycleConfigCommandError = async (
 ): Promise<DescribeStudioLifecycleConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10480,7 +11869,7 @@ const deserializeAws_json1_1DescribeSubscribedWorkteamCommandError = async (
 ): Promise<DescribeSubscribedWorkteamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10515,7 +11904,7 @@ const deserializeAws_json1_1DescribeTrainingJobCommandError = async (
 ): Promise<DescribeTrainingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10556,7 +11945,7 @@ const deserializeAws_json1_1DescribeTransformJobCommandError = async (
 ): Promise<DescribeTransformJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10597,7 +11986,7 @@ const deserializeAws_json1_1DescribeTrialCommandError = async (
 ): Promise<DescribeTrialCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10638,7 +12027,7 @@ const deserializeAws_json1_1DescribeTrialComponentCommandError = async (
 ): Promise<DescribeTrialComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10679,7 +12068,7 @@ const deserializeAws_json1_1DescribeUserProfileCommandError = async (
 ): Promise<DescribeUserProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10720,7 +12109,7 @@ const deserializeAws_json1_1DescribeWorkforceCommandError = async (
 ): Promise<DescribeWorkforceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10755,7 +12144,7 @@ const deserializeAws_json1_1DescribeWorkteamCommandError = async (
 ): Promise<DescribeWorkteamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10790,7 +12179,7 @@ const deserializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommandError 
 ): Promise<DisableSagemakerServicecatalogPortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10825,7 +12214,7 @@ const deserializeAws_json1_1DisassociateTrialComponentCommandError = async (
 ): Promise<DisassociateTrialComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10866,7 +12255,7 @@ const deserializeAws_json1_1EnableSagemakerServicecatalogPortfolioCommandError =
 ): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10901,7 +12290,7 @@ const deserializeAws_json1_1GetDeviceFleetReportCommandError = async (
 ): Promise<GetDeviceFleetReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -10936,7 +12325,7 @@ const deserializeAws_json1_1GetLineageGroupPolicyCommandError = async (
 ): Promise<GetLineageGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10977,7 +12366,7 @@ const deserializeAws_json1_1GetModelPackageGroupPolicyCommandError = async (
 ): Promise<GetModelPackageGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11012,7 +12401,7 @@ const deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommandErro
 ): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11047,7 +12436,7 @@ const deserializeAws_json1_1GetSearchSuggestionsCommandError = async (
 ): Promise<GetSearchSuggestionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11057,6 +12446,53 @@ const deserializeAws_json1_1GetSearchSuggestionsCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1ImportHubContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportHubContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ImportHubContentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ImportHubContentResponse(data, context);
+  const response: ImportHubContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ImportHubContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportHubContentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1ListActionsCommand = async (
@@ -11082,7 +12518,7 @@ const deserializeAws_json1_1ListActionsCommandError = async (
 ): Promise<ListActionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11123,7 +12559,7 @@ const deserializeAws_json1_1ListAlgorithmsCommandError = async (
 ): Promise<ListAlgorithmsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11133,6 +12569,47 @@ const deserializeAws_json1_1ListAlgorithmsCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1ListAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAliasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListAliasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListAliasesResponse(data, context);
+  const response: ListAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListAliasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAliasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1ListAppImageConfigsCommand = async (
@@ -11158,7 +12635,7 @@ const deserializeAws_json1_1ListAppImageConfigsCommandError = async (
 ): Promise<ListAppImageConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11193,7 +12670,7 @@ const deserializeAws_json1_1ListAppsCommandError = async (
 ): Promise<ListAppsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11228,7 +12705,7 @@ const deserializeAws_json1_1ListArtifactsCommandError = async (
 ): Promise<ListArtifactsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11269,7 +12746,7 @@ const deserializeAws_json1_1ListAssociationsCommandError = async (
 ): Promise<ListAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11310,7 +12787,7 @@ const deserializeAws_json1_1ListAutoMLJobsCommandError = async (
 ): Promise<ListAutoMLJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11345,7 +12822,7 @@ const deserializeAws_json1_1ListCandidatesForAutoMLJobCommandError = async (
 ): Promise<ListCandidatesForAutoMLJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11386,7 +12863,7 @@ const deserializeAws_json1_1ListCodeRepositoriesCommandError = async (
 ): Promise<ListCodeRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11421,7 +12898,7 @@ const deserializeAws_json1_1ListCompilationJobsCommandError = async (
 ): Promise<ListCompilationJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11456,7 +12933,7 @@ const deserializeAws_json1_1ListContextsCommandError = async (
 ): Promise<ListContextsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -11497,7 +12974,7 @@ const deserializeAws_json1_1ListDataQualityJobDefinitionsCommandError = async (
 ): Promise<ListDataQualityJobDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11532,7 +13009,7 @@ const deserializeAws_json1_1ListDeviceFleetsCommandError = async (
 ): Promise<ListDeviceFleetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11567,7 +13044,7 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
 ): Promise<ListDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11602,7 +13079,7 @@ const deserializeAws_json1_1ListDomainsCommandError = async (
 ): Promise<ListDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11637,7 +13114,7 @@ const deserializeAws_json1_1ListEdgeDeploymentPlansCommandError = async (
 ): Promise<ListEdgeDeploymentPlansCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11672,7 +13149,7 @@ const deserializeAws_json1_1ListEdgePackagingJobsCommandError = async (
 ): Promise<ListEdgePackagingJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11707,7 +13184,7 @@ const deserializeAws_json1_1ListEndpointConfigsCommandError = async (
 ): Promise<ListEndpointConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11742,7 +13219,7 @@ const deserializeAws_json1_1ListEndpointsCommandError = async (
 ): Promise<ListEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11777,7 +13254,7 @@ const deserializeAws_json1_1ListExperimentsCommandError = async (
 ): Promise<ListExperimentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11812,7 +13289,7 @@ const deserializeAws_json1_1ListFeatureGroupsCommandError = async (
 ): Promise<ListFeatureGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11847,7 +13324,124 @@ const deserializeAws_json1_1ListFlowDefinitionsCommandError = async (
 ): Promise<ListFlowDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_json1_1ListHubContentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubContentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListHubContentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListHubContentsResponse(data, context);
+  const response: ListHubContentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListHubContentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubContentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListHubContentVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubContentVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListHubContentVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListHubContentVersionsResponse(data, context);
+  const response: ListHubContentVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListHubContentVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubContentVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListHubsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListHubsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListHubsResponse(data, context);
+  const response: ListHubsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListHubsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHubsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11882,7 +13476,7 @@ const deserializeAws_json1_1ListHumanTaskUisCommandError = async (
 ): Promise<ListHumanTaskUisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11917,7 +13511,7 @@ const deserializeAws_json1_1ListHyperParameterTuningJobsCommandError = async (
 ): Promise<ListHyperParameterTuningJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11952,7 +13546,7 @@ const deserializeAws_json1_1ListImagesCommandError = async (
 ): Promise<ListImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -11987,7 +13581,7 @@ const deserializeAws_json1_1ListImageVersionsCommandError = async (
 ): Promise<ListImageVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12003,6 +13597,41 @@ const deserializeAws_json1_1ListImageVersionsCommandError = async (
         errorCode,
       });
   }
+};
+
+export const deserializeAws_json1_1ListInferenceExperimentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceExperimentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListInferenceExperimentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListInferenceExperimentsResponse(data, context);
+  const response: ListInferenceExperimentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListInferenceExperimentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceExperimentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
 };
 
 export const deserializeAws_json1_1ListInferenceRecommendationsJobsCommand = async (
@@ -12028,7 +13657,7 @@ const deserializeAws_json1_1ListInferenceRecommendationsJobsCommandError = async
 ): Promise<ListInferenceRecommendationsJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12038,6 +13667,47 @@ const deserializeAws_json1_1ListInferenceRecommendationsJobsCommandError = async
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceRecommendationsJobStepsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListInferenceRecommendationsJobStepsResponse(data, context);
+  const response: ListInferenceRecommendationsJobStepsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceRecommendationsJobStepsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1ListLabelingJobsCommand = async (
@@ -12063,7 +13733,7 @@ const deserializeAws_json1_1ListLabelingJobsCommandError = async (
 ): Promise<ListLabelingJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12098,7 +13768,7 @@ const deserializeAws_json1_1ListLabelingJobsForWorkteamCommandError = async (
 ): Promise<ListLabelingJobsForWorkteamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12139,7 +13809,7 @@ const deserializeAws_json1_1ListLineageGroupsCommandError = async (
 ): Promise<ListLineageGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12174,7 +13844,7 @@ const deserializeAws_json1_1ListModelBiasJobDefinitionsCommandError = async (
 ): Promise<ListModelBiasJobDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12184,6 +13854,117 @@ const deserializeAws_json1_1ListModelBiasJobDefinitionsCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1ListModelCardExportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardExportJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListModelCardExportJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListModelCardExportJobsResponse(data, context);
+  const response: ListModelCardExportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListModelCardExportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardExportJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_json1_1ListModelCardsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListModelCardsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListModelCardsResponse(data, context);
+  const response: ListModelCardsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListModelCardsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_json1_1ListModelCardVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListModelCardVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListModelCardVersionsResponse(data, context);
+  const response: ListModelCardVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListModelCardVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCardVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1ListModelExplainabilityJobDefinitionsCommand = async (
@@ -12209,7 +13990,7 @@ const deserializeAws_json1_1ListModelExplainabilityJobDefinitionsCommandError = 
 ): Promise<ListModelExplainabilityJobDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12244,7 +14025,7 @@ const deserializeAws_json1_1ListModelMetadataCommandError = async (
 ): Promise<ListModelMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12279,7 +14060,7 @@ const deserializeAws_json1_1ListModelPackageGroupsCommandError = async (
 ): Promise<ListModelPackageGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12314,7 +14095,7 @@ const deserializeAws_json1_1ListModelPackagesCommandError = async (
 ): Promise<ListModelPackagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12349,7 +14130,7 @@ const deserializeAws_json1_1ListModelQualityJobDefinitionsCommandError = async (
 ): Promise<ListModelQualityJobDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12384,7 +14165,7 @@ const deserializeAws_json1_1ListModelsCommandError = async (
 ): Promise<ListModelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12394,6 +14175,88 @@ const deserializeAws_json1_1ListModelsCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1ListMonitoringAlertHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoringAlertHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListMonitoringAlertHistoryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListMonitoringAlertHistoryResponse(data, context);
+  const response: ListMonitoringAlertHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListMonitoringAlertHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoringAlertHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListMonitoringAlertsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoringAlertsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListMonitoringAlertsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListMonitoringAlertsResponse(data, context);
+  const response: ListMonitoringAlertsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListMonitoringAlertsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoringAlertsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1ListMonitoringExecutionsCommand = async (
@@ -12419,7 +14282,7 @@ const deserializeAws_json1_1ListMonitoringExecutionsCommandError = async (
 ): Promise<ListMonitoringExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12454,7 +14317,7 @@ const deserializeAws_json1_1ListMonitoringSchedulesCommandError = async (
 ): Promise<ListMonitoringSchedulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12489,7 +14352,7 @@ const deserializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommandError = a
 ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12524,7 +14387,7 @@ const deserializeAws_json1_1ListNotebookInstancesCommandError = async (
 ): Promise<ListNotebookInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12559,7 +14422,7 @@ const deserializeAws_json1_1ListPipelineExecutionsCommandError = async (
 ): Promise<ListPipelineExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12600,7 +14463,7 @@ const deserializeAws_json1_1ListPipelineExecutionStepsCommandError = async (
 ): Promise<ListPipelineExecutionStepsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12641,7 +14504,7 @@ const deserializeAws_json1_1ListPipelineParametersForExecutionCommandError = asy
 ): Promise<ListPipelineParametersForExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12682,7 +14545,7 @@ const deserializeAws_json1_1ListPipelinesCommandError = async (
 ): Promise<ListPipelinesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12717,7 +14580,7 @@ const deserializeAws_json1_1ListProcessingJobsCommandError = async (
 ): Promise<ListProcessingJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12752,7 +14615,42 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
 ): Promise<ListProjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_json1_1ListSpacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSpacesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListSpacesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSpacesResponse(data, context);
+  const response: ListSpacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListSpacesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSpacesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12787,7 +14685,7 @@ const deserializeAws_json1_1ListStageDevicesCommandError = async (
 ): Promise<ListStageDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12822,7 +14720,7 @@ const deserializeAws_json1_1ListStudioLifecycleConfigsCommandError = async (
 ): Promise<ListStudioLifecycleConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -12863,7 +14761,7 @@ const deserializeAws_json1_1ListSubscribedWorkteamsCommandError = async (
 ): Promise<ListSubscribedWorkteamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12898,7 +14796,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
 ): Promise<ListTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12933,7 +14831,7 @@ const deserializeAws_json1_1ListTrainingJobsCommandError = async (
 ): Promise<ListTrainingJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12968,7 +14866,7 @@ const deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommandErr
 ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13009,7 +14907,7 @@ const deserializeAws_json1_1ListTransformJobsCommandError = async (
 ): Promise<ListTransformJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13044,7 +14942,7 @@ const deserializeAws_json1_1ListTrialComponentsCommandError = async (
 ): Promise<ListTrialComponentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13085,7 +14983,7 @@ const deserializeAws_json1_1ListTrialsCommandError = async (
 ): Promise<ListTrialsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13126,7 +15024,7 @@ const deserializeAws_json1_1ListUserProfilesCommandError = async (
 ): Promise<ListUserProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13161,7 +15059,7 @@ const deserializeAws_json1_1ListWorkforcesCommandError = async (
 ): Promise<ListWorkforcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13196,7 +15094,7 @@ const deserializeAws_json1_1ListWorkteamsCommandError = async (
 ): Promise<ListWorkteamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13231,7 +15129,7 @@ const deserializeAws_json1_1PutModelPackageGroupPolicyCommandError = async (
 ): Promise<PutModelPackageGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13266,7 +15164,7 @@ const deserializeAws_json1_1QueryLineageCommandError = async (
 ): Promise<QueryLineageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13304,7 +15202,7 @@ const deserializeAws_json1_1RegisterDevicesCommandError = async (
 ): Promise<RegisterDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13345,7 +15243,7 @@ const deserializeAws_json1_1RenderUiTemplateCommandError = async (
 ): Promise<RenderUiTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13386,7 +15284,7 @@ const deserializeAws_json1_1RetryPipelineExecutionCommandError = async (
 ): Promise<RetryPipelineExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13433,7 +15331,7 @@ const deserializeAws_json1_1SearchCommandError = async (
 ): Promise<SearchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13468,7 +15366,7 @@ const deserializeAws_json1_1SendPipelineExecutionStepFailureCommandError = async
 ): Promise<SendPipelineExecutionStepFailureCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13512,7 +15410,7 @@ const deserializeAws_json1_1SendPipelineExecutionStepSuccessCommandError = async
 ): Promise<SendPipelineExecutionStepSuccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13553,7 +15451,7 @@ const deserializeAws_json1_1StartEdgeDeploymentStageCommandError = async (
 ): Promise<StartEdgeDeploymentStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13563,6 +15461,50 @@ const deserializeAws_json1_1StartEdgeDeploymentStageCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1StartInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartInferenceExperimentResponse(data, context);
+  const response: StartInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1StartMonitoringScheduleCommand = async (
@@ -13585,7 +15527,7 @@ const deserializeAws_json1_1StartMonitoringScheduleCommandError = async (
 ): Promise<StartMonitoringScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13623,7 +15565,7 @@ const deserializeAws_json1_1StartNotebookInstanceCommandError = async (
 ): Promise<StartNotebookInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13664,7 +15606,7 @@ const deserializeAws_json1_1StartPipelineExecutionCommandError = async (
 ): Promise<StartPipelineExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13705,7 +15647,7 @@ const deserializeAws_json1_1StopAutoMLJobCommandError = async (
 ): Promise<StopAutoMLJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13743,7 +15685,7 @@ const deserializeAws_json1_1StopCompilationJobCommandError = async (
 ): Promise<StopCompilationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13781,7 +15723,7 @@ const deserializeAws_json1_1StopEdgeDeploymentStageCommandError = async (
 ): Promise<StopEdgeDeploymentStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13813,7 +15755,7 @@ const deserializeAws_json1_1StopEdgePackagingJobCommandError = async (
 ): Promise<StopEdgePackagingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13845,10 +15787,54 @@ const deserializeAws_json1_1StopHyperParameterTuningJobCommandError = async (
 ): Promise<StopHyperParameterTuningJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1StopInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopInferenceExperimentResponse(data, context);
+  const response: StopInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
@@ -13883,7 +15869,7 @@ const deserializeAws_json1_1StopInferenceRecommendationsJobCommandError = async 
 ): Promise<StopInferenceRecommendationsJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13921,7 +15907,7 @@ const deserializeAws_json1_1StopLabelingJobCommandError = async (
 ): Promise<StopLabelingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13959,7 +15945,7 @@ const deserializeAws_json1_1StopMonitoringScheduleCommandError = async (
 ): Promise<StopMonitoringScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -13997,7 +15983,7 @@ const deserializeAws_json1_1StopNotebookInstanceCommandError = async (
 ): Promise<StopNotebookInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14032,7 +16018,7 @@ const deserializeAws_json1_1StopPipelineExecutionCommandError = async (
 ): Promise<StopPipelineExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14070,7 +16056,7 @@ const deserializeAws_json1_1StopProcessingJobCommandError = async (
 ): Promise<StopProcessingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14108,7 +16094,7 @@ const deserializeAws_json1_1StopTrainingJobCommandError = async (
 ): Promise<StopTrainingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14146,7 +16132,7 @@ const deserializeAws_json1_1StopTransformJobCommandError = async (
 ): Promise<StopTransformJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14187,7 +16173,7 @@ const deserializeAws_json1_1UpdateActionCommandError = async (
 ): Promise<UpdateActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14231,7 +16217,7 @@ const deserializeAws_json1_1UpdateAppImageConfigCommandError = async (
 ): Promise<UpdateAppImageConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14272,7 +16258,7 @@ const deserializeAws_json1_1UpdateArtifactCommandError = async (
 ): Promise<UpdateArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14316,7 +16302,7 @@ const deserializeAws_json1_1UpdateCodeRepositoryCommandError = async (
 ): Promise<UpdateCodeRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14351,7 +16337,7 @@ const deserializeAws_json1_1UpdateContextCommandError = async (
 ): Promise<UpdateContextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14392,7 +16378,7 @@ const deserializeAws_json1_1UpdateDeviceFleetCommandError = async (
 ): Promise<UpdateDeviceFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14430,7 +16416,7 @@ const deserializeAws_json1_1UpdateDevicesCommandError = async (
 ): Promise<UpdateDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14465,7 +16451,7 @@ const deserializeAws_json1_1UpdateDomainCommandError = async (
 ): Promise<UpdateDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14512,7 +16498,7 @@ const deserializeAws_json1_1UpdateEndpointCommandError = async (
 ): Promise<UpdateEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14553,7 +16539,7 @@ const deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommandError = asy
 ): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14594,7 +16580,7 @@ const deserializeAws_json1_1UpdateExperimentCommandError = async (
 ): Promise<UpdateExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14638,7 +16624,7 @@ const deserializeAws_json1_1UpdateFeatureGroupCommandError = async (
 ): Promise<UpdateFeatureGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14676,7 +16662,48 @@ const deserializeAws_json1_1UpdateFeatureMetadataCommandError = async (
 ): Promise<UpdateFeatureMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateHubCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHubCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateHubCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateHubResponse(data, context);
+  const response: UpdateHubCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateHubCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHubCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14717,13 +16744,148 @@ const deserializeAws_json1_1UpdateImageCommandError = async (
 ): Promise<UpdateImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceInUse":
     case "com.amazonaws.sagemaker#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateImageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateImageVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateImageVersionResponse(data, context);
+  const response: UpdateImageVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateImageVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateInferenceExperimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInferenceExperimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateInferenceExperimentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateInferenceExperimentResponse(data, context);
+  const response: UpdateInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateInferenceExperimentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInferenceExperimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateModelCardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateModelCardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateModelCardCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateModelCardResponse(data, context);
+  const response: UpdateModelCardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateModelCardCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateModelCardCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
@@ -14761,7 +16923,7 @@ const deserializeAws_json1_1UpdateModelPackageCommandError = async (
 ): Promise<UpdateModelPackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14771,6 +16933,50 @@ const deserializeAws_json1_1UpdateModelPackageCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1UpdateMonitoringAlertCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMonitoringAlertCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateMonitoringAlertCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateMonitoringAlertResponse(data, context);
+  const response: UpdateMonitoringAlertCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateMonitoringAlertCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMonitoringAlertCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1UpdateMonitoringScheduleCommand = async (
@@ -14796,7 +17002,7 @@ const deserializeAws_json1_1UpdateMonitoringScheduleCommandError = async (
 ): Promise<UpdateMonitoringScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14840,7 +17046,7 @@ const deserializeAws_json1_1UpdateNotebookInstanceCommandError = async (
 ): Promise<UpdateNotebookInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14881,7 +17087,7 @@ const deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommandError = 
 ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14922,7 +17128,7 @@ const deserializeAws_json1_1UpdatePipelineCommandError = async (
 ): Promise<UpdatePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14963,7 +17169,7 @@ const deserializeAws_json1_1UpdatePipelineExecutionCommandError = async (
 ): Promise<UpdatePipelineExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15004,7 +17210,7 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
 ): Promise<UpdateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15014,6 +17220,53 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_json1_1UpdateSpaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSpaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateSpaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateSpaceResponse(data, context);
+  const response: UpdateSpaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateSpaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSpaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_1UpdateTrainingJobCommand = async (
@@ -15039,7 +17292,7 @@ const deserializeAws_json1_1UpdateTrainingJobCommandError = async (
 ): Promise<UpdateTrainingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15080,7 +17333,7 @@ const deserializeAws_json1_1UpdateTrialCommandError = async (
 ): Promise<UpdateTrialCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15124,7 +17377,7 @@ const deserializeAws_json1_1UpdateTrialComponentCommandError = async (
 ): Promise<UpdateTrialComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15168,7 +17421,7 @@ const deserializeAws_json1_1UpdateUserProfileCommandError = async (
 ): Promise<UpdateUserProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15215,7 +17468,7 @@ const deserializeAws_json1_1UpdateWorkforceCommandError = async (
 ): Promise<UpdateWorkforceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15256,7 +17509,7 @@ const deserializeAws_json1_1UpdateWorkteamCommandError = async (
 ): Promise<UpdateWorkteamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -15416,6 +17669,12 @@ const serializeAws_json1_1AlarmList = (input: Alarm[], context: __SerdeContext):
 const serializeAws_json1_1AlgorithmSpecification = (input: AlgorithmSpecification, context: __SerdeContext): any => {
   return {
     ...(input.AlgorithmName != null && { AlgorithmName: input.AlgorithmName }),
+    ...(input.ContainerArguments != null && {
+      ContainerArguments: serializeAws_json1_1TrainingContainerArguments(input.ContainerArguments, context),
+    }),
+    ...(input.ContainerEntrypoint != null && {
+      ContainerEntrypoint: serializeAws_json1_1TrainingContainerEntrypoint(input.ContainerEntrypoint, context),
+    }),
     ...(input.EnableSageMakerMetricsTimeSeries != null && {
       EnableSageMakerMetricsTimeSeries: input.EnableSageMakerMetricsTimeSeries,
     }),
@@ -15423,6 +17682,9 @@ const serializeAws_json1_1AlgorithmSpecification = (input: AlgorithmSpecificatio
       MetricDefinitions: serializeAws_json1_1MetricDefinitionList(input.MetricDefinitions, context),
     }),
     ...(input.TrainingImage != null && { TrainingImage: input.TrainingImage }),
+    ...(input.TrainingImageConfig != null && {
+      TrainingImageConfig: serializeAws_json1_1TrainingImageConfig(input.TrainingImageConfig, context),
+    }),
     ...(input.TrainingInputMode != null && { TrainingInputMode: input.TrainingInputMode }),
   };
 };
@@ -15588,11 +17850,38 @@ const serializeAws_json1_1AttributeNames = (input: string[], context: __SerdeCon
     });
 };
 
+const serializeAws_json1_1AutoMLAlgorithmConfig = (input: AutoMLAlgorithmConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.AutoMLAlgorithms != null && {
+      AutoMLAlgorithms: serializeAws_json1_1AutoMLAlgorithms(input.AutoMLAlgorithms, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1AutoMLAlgorithms = (input: (AutoMLAlgorithm | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1AutoMLAlgorithmsConfig = (input: AutoMLAlgorithmConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1AutoMLAlgorithmConfig(entry, context);
+    });
+};
+
 const serializeAws_json1_1AutoMLCandidateGenerationConfig = (
   input: AutoMLCandidateGenerationConfig,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AlgorithmsConfig != null && {
+      AlgorithmsConfig: serializeAws_json1_1AutoMLAlgorithmsConfig(input.AlgorithmsConfig, context),
+    }),
     ...(input.FeatureSpecificationS3Uri != null && { FeatureSpecificationS3Uri: input.FeatureSpecificationS3Uri }),
   };
 };
@@ -15658,6 +17947,7 @@ const serializeAws_json1_1AutoMLJobConfig = (input: AutoMLJobConfig, context: __
     ...(input.DataSplitConfig != null && {
       DataSplitConfig: serializeAws_json1_1AutoMLDataSplitConfig(input.DataSplitConfig, context),
     }),
+    ...(input.Mode != null && { Mode: input.Mode }),
     ...(input.SecurityConfig != null && {
       SecurityConfig: serializeAws_json1_1AutoMLSecurityConfig(input.SecurityConfig, context),
     }),
@@ -15700,6 +17990,14 @@ const serializeAws_json1_1AutoRollbackConfig = (input: AutoRollbackConfig, conte
   };
 };
 
+const serializeAws_json1_1BatchDataCaptureConfig = (input: BatchDataCaptureConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.DestinationS3Uri != null && { DestinationS3Uri: input.DestinationS3Uri }),
+    ...(input.GenerateInferenceId != null && { GenerateInferenceId: input.GenerateInferenceId }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+  };
+};
+
 const serializeAws_json1_1BatchDescribeModelPackageInput = (
   input: BatchDescribeModelPackageInput,
   context: __SerdeContext
@@ -15707,6 +18005,39 @@ const serializeAws_json1_1BatchDescribeModelPackageInput = (
   return {
     ...(input.ModelPackageArnList != null && {
       ModelPackageArnList: serializeAws_json1_1ModelPackageArnList(input.ModelPackageArnList, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1BatchTransformInput = (input: BatchTransformInput, context: __SerdeContext): any => {
+  return {
+    ...(input.DataCapturedDestinationS3Uri != null && {
+      DataCapturedDestinationS3Uri: input.DataCapturedDestinationS3Uri,
+    }),
+    ...(input.DatasetFormat != null && {
+      DatasetFormat: serializeAws_json1_1MonitoringDatasetFormat(input.DatasetFormat, context),
+    }),
+    ...(input.EndTimeOffset != null && { EndTimeOffset: input.EndTimeOffset }),
+    ...(input.FeaturesAttribute != null && { FeaturesAttribute: input.FeaturesAttribute }),
+    ...(input.InferenceAttribute != null && { InferenceAttribute: input.InferenceAttribute }),
+    ...(input.LocalPath != null && { LocalPath: input.LocalPath }),
+    ...(input.ProbabilityAttribute != null && { ProbabilityAttribute: input.ProbabilityAttribute }),
+    ...(input.ProbabilityThresholdAttribute != null && {
+      ProbabilityThresholdAttribute: __serializeFloat(input.ProbabilityThresholdAttribute),
+    }),
+    ...(input.S3DataDistributionType != null && { S3DataDistributionType: input.S3DataDistributionType }),
+    ...(input.S3InputMode != null && { S3InputMode: input.S3InputMode }),
+    ...(input.StartTimeOffset != null && { StartTimeOffset: input.StartTimeOffset }),
+  };
+};
+
+const serializeAws_json1_1BestObjectiveNotImproving = (
+  input: BestObjectiveNotImproving,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxNumberOfTrainingJobsNotImproving != null && {
+      MaxNumberOfTrainingJobsNotImproving: input.MaxNumberOfTrainingJobsNotImproving,
     }),
   };
 };
@@ -15731,6 +18062,17 @@ const serializeAws_json1_1BlueGreenUpdatePolicy = (input: BlueGreenUpdatePolicy,
     ...(input.TerminationWaitInSeconds != null && { TerminationWaitInSeconds: input.TerminationWaitInSeconds }),
     ...(input.TrafficRoutingConfiguration != null && {
       TrafficRoutingConfiguration: serializeAws_json1_1TrafficRoutingConfig(input.TrafficRoutingConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1CanvasAppSettings = (input: CanvasAppSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.TimeSeriesForecastingSettings != null && {
+      TimeSeriesForecastingSettings: serializeAws_json1_1TimeSeriesForecastingSettings(
+        input.TimeSeriesForecastingSettings,
+        context
+      ),
     }),
   };
 };
@@ -15877,6 +18219,109 @@ const serializeAws_json1_1Cidrs = (input: string[], context: __SerdeContext): an
     });
 };
 
+const serializeAws_json1_1ClarifyExplainerConfig = (input: ClarifyExplainerConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.EnableExplanations != null && { EnableExplanations: input.EnableExplanations }),
+    ...(input.InferenceConfig != null && {
+      InferenceConfig: serializeAws_json1_1ClarifyInferenceConfig(input.InferenceConfig, context),
+    }),
+    ...(input.ShapConfig != null && { ShapConfig: serializeAws_json1_1ClarifyShapConfig(input.ShapConfig, context) }),
+  };
+};
+
+const serializeAws_json1_1ClarifyFeatureHeaders = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ClarifyFeatureTypes = (
+  input: (ClarifyFeatureType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ClarifyInferenceConfig = (input: ClarifyInferenceConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ContentTemplate != null && { ContentTemplate: input.ContentTemplate }),
+    ...(input.FeatureHeaders != null && {
+      FeatureHeaders: serializeAws_json1_1ClarifyFeatureHeaders(input.FeatureHeaders, context),
+    }),
+    ...(input.FeatureTypes != null && {
+      FeatureTypes: serializeAws_json1_1ClarifyFeatureTypes(input.FeatureTypes, context),
+    }),
+    ...(input.FeaturesAttribute != null && { FeaturesAttribute: input.FeaturesAttribute }),
+    ...(input.LabelAttribute != null && { LabelAttribute: input.LabelAttribute }),
+    ...(input.LabelHeaders != null && {
+      LabelHeaders: serializeAws_json1_1ClarifyLabelHeaders(input.LabelHeaders, context),
+    }),
+    ...(input.LabelIndex != null && { LabelIndex: input.LabelIndex }),
+    ...(input.MaxPayloadInMB != null && { MaxPayloadInMB: input.MaxPayloadInMB }),
+    ...(input.MaxRecordCount != null && { MaxRecordCount: input.MaxRecordCount }),
+    ...(input.ProbabilityAttribute != null && { ProbabilityAttribute: input.ProbabilityAttribute }),
+    ...(input.ProbabilityIndex != null && { ProbabilityIndex: input.ProbabilityIndex }),
+  };
+};
+
+const serializeAws_json1_1ClarifyLabelHeaders = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ClarifyShapBaselineConfig = (
+  input: ClarifyShapBaselineConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MimeType != null && { MimeType: input.MimeType }),
+    ...(input.ShapBaseline != null && { ShapBaseline: input.ShapBaseline }),
+    ...(input.ShapBaselineUri != null && { ShapBaselineUri: input.ShapBaselineUri }),
+  };
+};
+
+const serializeAws_json1_1ClarifyShapConfig = (input: ClarifyShapConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.NumberOfSamples != null && { NumberOfSamples: input.NumberOfSamples }),
+    ...(input.Seed != null && { Seed: input.Seed }),
+    ...(input.ShapBaselineConfig != null && {
+      ShapBaselineConfig: serializeAws_json1_1ClarifyShapBaselineConfig(input.ShapBaselineConfig, context),
+    }),
+    ...(input.TextConfig != null && { TextConfig: serializeAws_json1_1ClarifyTextConfig(input.TextConfig, context) }),
+    ...(input.UseLogit != null && { UseLogit: input.UseLogit }),
+  };
+};
+
+const serializeAws_json1_1ClarifyTextConfig = (input: ClarifyTextConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Granularity != null && { Granularity: input.Granularity }),
+    ...(input.Language != null && { Language: input.Language }),
+  };
+};
+
+const serializeAws_json1_1CodeRepositories = (input: CodeRepository[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1CodeRepository(entry, context);
+    });
+};
+
+const serializeAws_json1_1CodeRepository = (input: CodeRepository, context: __SerdeContext): any => {
+  return {
+    ...(input.RepositoryUrl != null && { RepositoryUrl: input.RepositoryUrl }),
+  };
+};
+
 const serializeAws_json1_1CognitoConfig = (input: CognitoConfig, context: __SerdeContext): any => {
   return {
     ...(input.ClientId != null && { ClientId: input.ClientId }),
@@ -15917,10 +18362,8 @@ const serializeAws_json1_1CollectionParameters = (input: Record<string, string>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -16032,6 +18475,12 @@ const serializeAws_json1_1ContinuousParameterRangeSpecification = (
   };
 };
 
+const serializeAws_json1_1ConvergenceDetected = (input: ConvergenceDetected, context: __SerdeContext): any => {
+  return {
+    ...(input.CompleteOnConvergence != null && { CompleteOnConvergence: input.CompleteOnConvergence }),
+  };
+};
+
 const serializeAws_json1_1CreateActionRequest = (input: CreateActionRequest, context: __SerdeContext): any => {
   return {
     ...(input.ActionName != null && { ActionName: input.ActionName }),
@@ -16089,6 +18538,7 @@ const serializeAws_json1_1CreateAppRequest = (input: CreateAppRequest, context: 
     ...(input.AppType != null && { AppType: input.AppType }),
     ...(input.DomainId != null && { DomainId: input.DomainId }),
     ...(input.ResourceSpec != null && { ResourceSpec: serializeAws_json1_1ResourceSpec(input.ResourceSpec, context) }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.UserProfileName != null && { UserProfileName: input.UserProfileName }),
   };
@@ -16237,6 +18687,9 @@ const serializeAws_json1_1CreateDomainRequest = (input: CreateDomainRequest, con
     ...(input.AppNetworkAccessType != null && { AppNetworkAccessType: input.AppNetworkAccessType }),
     ...(input.AppSecurityGroupManagement != null && { AppSecurityGroupManagement: input.AppSecurityGroupManagement }),
     ...(input.AuthMode != null && { AuthMode: input.AuthMode }),
+    ...(input.DefaultSpaceSettings != null && {
+      DefaultSpaceSettings: serializeAws_json1_1DefaultSpaceSettings(input.DefaultSpaceSettings, context),
+    }),
     ...(input.DefaultUserSettings != null && {
       DefaultUserSettings: serializeAws_json1_1UserSettings(input.DefaultUserSettings, context),
     }),
@@ -16307,9 +18760,15 @@ const serializeAws_json1_1CreateEndpointConfigInput = (
       DataCaptureConfig: serializeAws_json1_1DataCaptureConfig(input.DataCaptureConfig, context),
     }),
     ...(input.EndpointConfigName != null && { EndpointConfigName: input.EndpointConfigName }),
+    ...(input.ExplainerConfig != null && {
+      ExplainerConfig: serializeAws_json1_1ExplainerConfig(input.ExplainerConfig, context),
+    }),
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.ProductionVariants != null && {
       ProductionVariants: serializeAws_json1_1ProductionVariantList(input.ProductionVariants, context),
+    }),
+    ...(input.ShadowProductionVariants != null && {
+      ShadowProductionVariants: serializeAws_json1_1ProductionVariantList(input.ShadowProductionVariants, context),
     }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
@@ -16386,6 +18845,21 @@ const serializeAws_json1_1CreateFlowDefinitionRequest = (
   };
 };
 
+const serializeAws_json1_1CreateHubRequest = (input: CreateHubRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HubDescription != null && { HubDescription: input.HubDescription }),
+    ...(input.HubDisplayName != null && { HubDisplayName: input.HubDisplayName }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+    ...(input.HubSearchKeywords != null && {
+      HubSearchKeywords: serializeAws_json1_1HubSearchKeywordList(input.HubSearchKeywords, context),
+    }),
+    ...(input.S3StorageConfig != null && {
+      S3StorageConfig: serializeAws_json1_1HubS3StorageConfig(input.S3StorageConfig, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateHumanTaskUiRequest = (
   input: CreateHumanTaskUiRequest,
   context: __SerdeContext
@@ -16445,9 +18919,44 @@ const serializeAws_json1_1CreateImageVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Aliases != null && { Aliases: serializeAws_json1_1SageMakerImageVersionAliases(input.Aliases, context) }),
     ...(input.BaseImage != null && { BaseImage: input.BaseImage }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Horovod != null && { Horovod: input.Horovod }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
+    ...(input.JobType != null && { JobType: input.JobType }),
+    ...(input.MLFramework != null && { MLFramework: input.MLFramework }),
+    ...(input.Processor != null && { Processor: input.Processor }),
+    ...(input.ProgrammingLang != null && { ProgrammingLang: input.ProgrammingLang }),
+    ...(input.ReleaseNotes != null && { ReleaseNotes: input.ReleaseNotes }),
+    ...(input.VendorGuidance != null && { VendorGuidance: input.VendorGuidance }),
+  };
+};
+
+const serializeAws_json1_1CreateInferenceExperimentRequest = (
+  input: CreateInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataStorageConfig != null && {
+      DataStorageConfig: serializeAws_json1_1InferenceExperimentDataStorageConfig(input.DataStorageConfig, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.EndpointName != null && { EndpointName: input.EndpointName }),
+    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
+    ...(input.ModelVariants != null && {
+      ModelVariants: serializeAws_json1_1ModelVariantConfigList(input.ModelVariants, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.Schedule != null && {
+      Schedule: serializeAws_json1_1InferenceExperimentSchedule(input.Schedule, context),
+    }),
+    ...(input.ShadowModeConfig != null && {
+      ShadowModeConfig: serializeAws_json1_1ShadowModeConfig(input.ShadowModeConfig, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -16534,6 +19043,32 @@ const serializeAws_json1_1CreateModelBiasJobDefinitionRequest = (
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
     ...(input.StoppingCondition != null && {
       StoppingCondition: serializeAws_json1_1MonitoringStoppingCondition(input.StoppingCondition, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateModelCardExportJobRequest = (
+  input: CreateModelCardExportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ModelCardExportJobName != null && { ModelCardExportJobName: input.ModelCardExportJobName }),
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardVersion != null && { ModelCardVersion: input.ModelCardVersion }),
+    ...(input.OutputConfig != null && {
+      OutputConfig: serializeAws_json1_1ModelCardExportOutputConfig(input.OutputConfig, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1CreateModelCardRequest = (input: CreateModelCardRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardStatus != null && { ModelCardStatus: input.ModelCardStatus }),
+    ...(input.SecurityConfig != null && {
+      SecurityConfig: serializeAws_json1_1ModelCardSecurityConfig(input.SecurityConfig, context),
     }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
@@ -16801,6 +19336,7 @@ const serializeAws_json1_1CreatePresignedDomainUrlRequest = (
     ...(input.SessionExpirationDurationInSeconds != null && {
       SessionExpirationDurationInSeconds: input.SessionExpirationDurationInSeconds,
     }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
     ...(input.UserProfileName != null && { UserProfileName: input.UserProfileName }),
   };
 };
@@ -16861,6 +19397,17 @@ const serializeAws_json1_1CreateProjectInput = (input: CreateProjectInput, conte
         input.ServiceCatalogProvisioningDetails,
         context
       ),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateSpaceRequest = (input: CreateSpaceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
+    ...(input.SpaceSettings != null && {
+      SpaceSettings: serializeAws_json1_1SpaceSettings(input.SpaceSettings, context),
     }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
@@ -16953,6 +19500,9 @@ const serializeAws_json1_1CreateTransformJobRequest = (
 ): any => {
   return {
     ...(input.BatchStrategy != null && { BatchStrategy: input.BatchStrategy }),
+    ...(input.DataCaptureConfig != null && {
+      DataCaptureConfig: serializeAws_json1_1BatchDataCaptureConfig(input.DataCaptureConfig, context),
+    }),
     ...(input.DataProcessing != null && {
       DataProcessing: serializeAws_json1_1DataProcessing(input.DataProcessing, context),
     }),
@@ -17090,10 +19640,8 @@ const serializeAws_json1_1CustomerMetadataMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -17185,6 +19733,9 @@ const serializeAws_json1_1DataQualityBaselineConfig = (
 
 const serializeAws_json1_1DataQualityJobInput = (input: DataQualityJobInput, context: __SerdeContext): any => {
   return {
+    ...(input.BatchTransformInput != null && {
+      BatchTransformInput: serializeAws_json1_1BatchTransformInput(input.BatchTransformInput, context),
+    }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
     }),
@@ -17252,6 +19803,21 @@ const serializeAws_json1_1DebugRuleConfigurations = (input: DebugRuleConfigurati
     });
 };
 
+const serializeAws_json1_1DefaultSpaceSettings = (input: DefaultSpaceSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.ExecutionRole != null && { ExecutionRole: input.ExecutionRole }),
+    ...(input.JupyterServerAppSettings != null && {
+      JupyterServerAppSettings: serializeAws_json1_1JupyterServerAppSettings(input.JupyterServerAppSettings, context),
+    }),
+    ...(input.KernelGatewayAppSettings != null && {
+      KernelGatewayAppSettings: serializeAws_json1_1KernelGatewayAppSettings(input.KernelGatewayAppSettings, context),
+    }),
+    ...(input.SecurityGroups != null && {
+      SecurityGroups: serializeAws_json1_1SecurityGroupIds(input.SecurityGroups, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1DeleteActionRequest = (input: DeleteActionRequest, context: __SerdeContext): any => {
   return {
     ...(input.ActionName != null && { ActionName: input.ActionName }),
@@ -17278,6 +19844,7 @@ const serializeAws_json1_1DeleteAppRequest = (input: DeleteAppRequest, context: 
     ...(input.AppName != null && { AppName: input.AppName }),
     ...(input.AppType != null && { AppType: input.AppType }),
     ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
     ...(input.UserProfileName != null && { UserProfileName: input.UserProfileName }),
   };
 };
@@ -17399,6 +19966,21 @@ const serializeAws_json1_1DeleteFlowDefinitionRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteHubContentRequest = (input: DeleteHubContentRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HubContentName != null && { HubContentName: input.HubContentName }),
+    ...(input.HubContentType != null && { HubContentType: input.HubContentType }),
+    ...(input.HubContentVersion != null && { HubContentVersion: input.HubContentVersion }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+  };
+};
+
+const serializeAws_json1_1DeleteHubRequest = (input: DeleteHubRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HubName != null && { HubName: input.HubName }),
+  };
+};
+
 const serializeAws_json1_1DeleteHumanTaskUiRequest = (
   input: DeleteHumanTaskUiRequest,
   context: __SerdeContext
@@ -17419,8 +20001,18 @@ const serializeAws_json1_1DeleteImageVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Alias != null && { Alias: input.Alias }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
     ...(input.Version != null && { Version: input.Version }),
+  };
+};
+
+const serializeAws_json1_1DeleteInferenceExperimentRequest = (
+  input: DeleteInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -17430,6 +20022,12 @@ const serializeAws_json1_1DeleteModelBiasJobDefinitionRequest = (
 ): any => {
   return {
     ...(input.JobDefinitionName != null && { JobDefinitionName: input.JobDefinitionName }),
+  };
+};
+
+const serializeAws_json1_1DeleteModelCardRequest = (input: DeleteModelCardRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
   };
 };
 
@@ -17520,6 +20118,13 @@ const serializeAws_json1_1DeletePipelineRequest = (input: DeletePipelineRequest,
 const serializeAws_json1_1DeleteProjectInput = (input: DeleteProjectInput, context: __SerdeContext): any => {
   return {
     ...(input.ProjectName != null && { ProjectName: input.ProjectName }),
+  };
+};
+
+const serializeAws_json1_1DeleteSpaceRequest = (input: DeleteSpaceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
   };
 };
 
@@ -17643,6 +20248,7 @@ const serializeAws_json1_1DescribeAppRequest = (input: DescribeAppRequest, conte
     ...(input.AppName != null && { AppName: input.AppName }),
     ...(input.AppType != null && { AppType: input.AppType }),
     ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
     ...(input.UserProfileName != null && { UserProfileName: input.UserProfileName }),
   };
 };
@@ -17791,6 +20397,24 @@ const serializeAws_json1_1DescribeFlowDefinitionRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeHubContentRequest = (
+  input: DescribeHubContentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HubContentName != null && { HubContentName: input.HubContentName }),
+    ...(input.HubContentType != null && { HubContentType: input.HubContentType }),
+    ...(input.HubContentVersion != null && { HubContentVersion: input.HubContentVersion }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+  };
+};
+
+const serializeAws_json1_1DescribeHubRequest = (input: DescribeHubRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HubName != null && { HubName: input.HubName }),
+  };
+};
+
 const serializeAws_json1_1DescribeHumanTaskUiRequest = (
   input: DescribeHumanTaskUiRequest,
   context: __SerdeContext
@@ -17822,8 +20446,18 @@ const serializeAws_json1_1DescribeImageVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Alias != null && { Alias: input.Alias }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
     ...(input.Version != null && { Version: input.Version }),
+  };
+};
+
+const serializeAws_json1_1DescribeInferenceExperimentRequest = (
+  input: DescribeInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -17860,6 +20494,25 @@ const serializeAws_json1_1DescribeModelBiasJobDefinitionRequest = (
 ): any => {
   return {
     ...(input.JobDefinitionName != null && { JobDefinitionName: input.JobDefinitionName }),
+  };
+};
+
+const serializeAws_json1_1DescribeModelCardExportJobRequest = (
+  input: DescribeModelCardExportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ModelCardExportJobArn != null && { ModelCardExportJobArn: input.ModelCardExportJobArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeModelCardRequest = (
+  input: DescribeModelCardRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardVersion != null && { ModelCardVersion: input.ModelCardVersion }),
   };
 };
 
@@ -17970,6 +20623,13 @@ const serializeAws_json1_1DescribeProcessingJobRequest = (
 const serializeAws_json1_1DescribeProjectInput = (input: DescribeProjectInput, context: __SerdeContext): any => {
   return {
     ...(input.ProjectName != null && { ProjectName: input.ProjectName }),
+  };
+};
+
+const serializeAws_json1_1DescribeSpaceRequest = (input: DescribeSpaceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
   };
 };
 
@@ -18131,6 +20791,9 @@ const serializeAws_json1_1DomainSecurityGroupIds = (input: string[], context: __
 
 const serializeAws_json1_1DomainSettings = (input: DomainSettings, context: __SerdeContext): any => {
   return {
+    ...(input.ExecutionRoleIdentityConfig != null && {
+      ExecutionRoleIdentityConfig: input.ExecutionRoleIdentityConfig,
+    }),
     ...(input.RStudioServerProDomainSettings != null && {
       RStudioServerProDomainSettings: serializeAws_json1_1RStudioServerProDomainSettings(
         input.RStudioServerProDomainSettings,
@@ -18145,11 +20808,17 @@ const serializeAws_json1_1DomainSettings = (input: DomainSettings, context: __Se
 
 const serializeAws_json1_1DomainSettingsForUpdate = (input: DomainSettingsForUpdate, context: __SerdeContext): any => {
   return {
+    ...(input.ExecutionRoleIdentityConfig != null && {
+      ExecutionRoleIdentityConfig: input.ExecutionRoleIdentityConfig,
+    }),
     ...(input.RStudioServerProDomainSettingsForUpdate != null && {
       RStudioServerProDomainSettingsForUpdate: serializeAws_json1_1RStudioServerProDomainSettingsForUpdate(
         input.RStudioServerProDomainSettingsForUpdate,
         context
       ),
+    }),
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_json1_1DomainSecurityGroupIds(input.SecurityGroupIds, context),
     }),
   };
 };
@@ -18251,6 +20920,12 @@ const serializeAws_json1_1EnableSagemakerServicecatalogPortfolioInput = (
   return {};
 };
 
+const serializeAws_json1_1EndpointInfo = (input: EndpointInfo, context: __SerdeContext): any => {
+  return {
+    ...(input.EndpointName != null && { EndpointName: input.EndpointName }),
+  };
+};
+
 const serializeAws_json1_1EndpointInput = (input: EndpointInput, context: __SerdeContext): any => {
   return {
     ...(input.EndTimeOffset != null && { EndTimeOffset: input.EndTimeOffset }),
@@ -18295,15 +20970,21 @@ const serializeAws_json1_1EndpointInputConfigurations = (
     });
 };
 
+const serializeAws_json1_1Endpoints = (input: EndpointInfo[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1EndpointInfo(entry, context);
+    });
+};
+
 const serializeAws_json1_1EnvironmentMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -18321,6 +21002,7 @@ const serializeAws_json1_1EnvironmentParameterRanges = (
 const serializeAws_json1_1ExperimentConfig = (input: ExperimentConfig, context: __SerdeContext): any => {
   return {
     ...(input.ExperimentName != null && { ExperimentName: input.ExperimentName }),
+    ...(input.RunName != null && { RunName: input.RunName }),
     ...(input.TrialComponentDisplayName != null && { TrialComponentDisplayName: input.TrialComponentDisplayName }),
     ...(input.TrialName != null && { TrialName: input.TrialName }),
   };
@@ -18329,6 +21011,14 @@ const serializeAws_json1_1ExperimentConfig = (input: ExperimentConfig, context: 
 const serializeAws_json1_1Explainability = (input: Explainability, context: __SerdeContext): any => {
   return {
     ...(input.Report != null && { Report: serializeAws_json1_1MetricsSource(input.Report, context) }),
+  };
+};
+
+const serializeAws_json1_1ExplainerConfig = (input: ExplainerConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ClarifyExplainerConfig != null && {
+      ClarifyExplainerConfig: serializeAws_json1_1ClarifyExplainerConfig(input.ClarifyExplainerConfig, context),
+    }),
   };
 };
 
@@ -18510,11 +21200,31 @@ const serializeAws_json1_1HookParameters = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
+};
+
+const serializeAws_json1_1HubContentSearchKeywordList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1HubS3StorageConfig = (input: HubS3StorageConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.S3OutputPath != null && { S3OutputPath: input.S3OutputPath }),
+  };
+};
+
+const serializeAws_json1_1HubSearchKeywordList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1HumanLoopActivationConditionsConfig = (
@@ -18598,6 +21308,13 @@ const serializeAws_json1_1HumanTaskConfig = (input: HumanTaskConfig, context: __
   };
 };
 
+const serializeAws_json1_1HyperbandStrategyConfig = (input: HyperbandStrategyConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResource != null && { MaxResource: input.MaxResource }),
+    ...(input.MinResource != null && { MinResource: input.MinResource }),
+  };
+};
+
 const serializeAws_json1_1HyperParameterAlgorithmSpecification = (
   input: HyperParameterAlgorithmSpecification,
   context: __SerdeContext
@@ -18617,10 +21334,8 @@ const serializeAws_json1_1HyperParameters = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -18670,8 +21385,17 @@ const serializeAws_json1_1HyperParameterTrainingJobDefinition = (
     }),
     ...(input.EnableManagedSpotTraining != null && { EnableManagedSpotTraining: input.EnableManagedSpotTraining }),
     ...(input.EnableNetworkIsolation != null && { EnableNetworkIsolation: input.EnableNetworkIsolation }),
+    ...(input.Environment != null && {
+      Environment: serializeAws_json1_1HyperParameterTrainingJobEnvironmentMap(input.Environment, context),
+    }),
     ...(input.HyperParameterRanges != null && {
       HyperParameterRanges: serializeAws_json1_1ParameterRanges(input.HyperParameterRanges, context),
+    }),
+    ...(input.HyperParameterTuningResourceConfig != null && {
+      HyperParameterTuningResourceConfig: serializeAws_json1_1HyperParameterTuningResourceConfig(
+        input.HyperParameterTuningResourceConfig,
+        context
+      ),
     }),
     ...(input.InputDataConfig != null && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
@@ -18710,6 +21434,41 @@ const serializeAws_json1_1HyperParameterTrainingJobDefinitions = (
     });
 };
 
+const serializeAws_json1_1HyperParameterTrainingJobEnvironmentMap = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
+const serializeAws_json1_1HyperParameterTuningInstanceConfig = (
+  input: HyperParameterTuningInstanceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
+    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+    ...(input.VolumeSizeInGB != null && { VolumeSizeInGB: input.VolumeSizeInGB }),
+  };
+};
+
+const serializeAws_json1_1HyperParameterTuningInstanceConfigs = (
+  input: HyperParameterTuningInstanceConfig[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1HyperParameterTuningInstanceConfig(entry, context);
+    });
+};
+
 const serializeAws_json1_1HyperParameterTuningJobConfig = (
   input: HyperParameterTuningJobConfig,
   context: __SerdeContext
@@ -18724,10 +21483,14 @@ const serializeAws_json1_1HyperParameterTuningJobConfig = (
     ...(input.ParameterRanges != null && {
       ParameterRanges: serializeAws_json1_1ParameterRanges(input.ParameterRanges, context),
     }),
+    ...(input.RandomSeed != null && { RandomSeed: input.RandomSeed }),
     ...(input.ResourceLimits != null && {
       ResourceLimits: serializeAws_json1_1ResourceLimits(input.ResourceLimits, context),
     }),
     ...(input.Strategy != null && { Strategy: input.Strategy }),
+    ...(input.StrategyConfig != null && {
+      StrategyConfig: serializeAws_json1_1HyperParameterTuningJobStrategyConfig(input.StrategyConfig, context),
+    }),
     ...(input.TrainingJobEarlyStoppingType != null && {
       TrainingJobEarlyStoppingType: input.TrainingJobEarlyStoppingType,
     }),
@@ -18761,6 +21524,17 @@ const serializeAws_json1_1HyperParameterTuningJobObjectives = (
     });
 };
 
+const serializeAws_json1_1HyperParameterTuningJobStrategyConfig = (
+  input: HyperParameterTuningJobStrategyConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HyperbandStrategyConfig != null && {
+      HyperbandStrategyConfig: serializeAws_json1_1HyperbandStrategyConfig(input.HyperbandStrategyConfig, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
   input: HyperParameterTuningJobWarmStartConfig,
   context: __SerdeContext
@@ -18773,6 +21547,22 @@ const serializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
       ),
     }),
     ...(input.WarmStartType != null && { WarmStartType: input.WarmStartType }),
+  };
+};
+
+const serializeAws_json1_1HyperParameterTuningResourceConfig = (
+  input: HyperParameterTuningResourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllocationStrategy != null && { AllocationStrategy: input.AllocationStrategy }),
+    ...(input.InstanceConfigs != null && {
+      InstanceConfigs: serializeAws_json1_1HyperParameterTuningInstanceConfigs(input.InstanceConfigs, context),
+    }),
+    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
+    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VolumeSizeInGB != null && { VolumeSizeInGB: input.VolumeSizeInGB }),
   };
 };
 
@@ -18793,12 +21583,56 @@ const serializeAws_json1_1ImageDeletePropertyList = (input: string[], context: _
     });
 };
 
+const serializeAws_json1_1ImportHubContentRequest = (input: ImportHubContentRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DocumentSchemaVersion != null && { DocumentSchemaVersion: input.DocumentSchemaVersion }),
+    ...(input.HubContentDescription != null && { HubContentDescription: input.HubContentDescription }),
+    ...(input.HubContentDisplayName != null && { HubContentDisplayName: input.HubContentDisplayName }),
+    ...(input.HubContentDocument != null && { HubContentDocument: input.HubContentDocument }),
+    ...(input.HubContentMarkdown != null && { HubContentMarkdown: input.HubContentMarkdown }),
+    ...(input.HubContentName != null && { HubContentName: input.HubContentName }),
+    ...(input.HubContentSearchKeywords != null && {
+      HubContentSearchKeywords: serializeAws_json1_1HubContentSearchKeywordList(
+        input.HubContentSearchKeywords,
+        context
+      ),
+    }),
+    ...(input.HubContentType != null && { HubContentType: input.HubContentType }),
+    ...(input.HubContentVersion != null && { HubContentVersion: input.HubContentVersion }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1InferenceExecutionConfig = (
   input: InferenceExecutionConfig,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Mode != null && { Mode: input.Mode }),
+  };
+};
+
+const serializeAws_json1_1InferenceExperimentDataStorageConfig = (
+  input: InferenceExperimentDataStorageConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ContentType != null && {
+      ContentType: serializeAws_json1_1CaptureContentTypeHeader(input.ContentType, context),
+    }),
+    ...(input.Destination != null && { Destination: input.Destination }),
+    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
+  };
+};
+
+const serializeAws_json1_1InferenceExperimentSchedule = (
+  input: InferenceExperimentSchedule,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -18928,6 +21762,9 @@ const serializeAws_json1_1JupyterServerAppSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CodeRepositories != null && {
+      CodeRepositories: serializeAws_json1_1CodeRepositories(input.CodeRepositories, context),
+    }),
     ...(input.DefaultResourceSpec != null && {
       DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
     }),
@@ -19090,10 +21927,8 @@ const serializeAws_json1_1LineageEntityParameters = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -19121,6 +21956,16 @@ const serializeAws_json1_1ListAlgorithmsInput = (input: ListAlgorithmsInput, con
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Alias != null && { Alias: input.Alias }),
+    ...(input.ImageName != null && { ImageName: input.ImageName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
@@ -19152,6 +21997,7 @@ const serializeAws_json1_1ListAppsRequest = (input: ListAppsRequest, context: __
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.SpaceNameEquals != null && { SpaceNameEquals: input.SpaceNameEquals }),
     ...(input.UserProfileNameEquals != null && { UserProfileNameEquals: input.UserProfileNameEquals }),
   };
 };
@@ -19470,6 +22316,64 @@ const serializeAws_json1_1ListFlowDefinitionsRequest = (
   };
 };
 
+const serializeAws_json1_1ListHubContentsRequest = (input: ListHubContentsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.HubContentType != null && { HubContentType: input.HubContentType }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MaxSchemaVersion != null && { MaxSchemaVersion: input.MaxSchemaVersion }),
+    ...(input.NameContains != null && { NameContains: input.NameContains }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListHubContentVersionsRequest = (
+  input: ListHubContentVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.HubContentName != null && { HubContentName: input.HubContentName }),
+    ...(input.HubContentType != null && { HubContentType: input.HubContentType }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MaxSchemaVersion != null && { MaxSchemaVersion: input.MaxSchemaVersion }),
+    ...(input.MinVersion != null && { MinVersion: input.MinVersion }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListHubsRequest = (input: ListHubsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeAfter != null && {
+      LastModifiedTimeAfter: Math.round(input.LastModifiedTimeAfter.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeBefore != null && {
+      LastModifiedTimeBefore: Math.round(input.LastModifiedTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains != null && { NameContains: input.NameContains }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
 const serializeAws_json1_1ListHumanTaskUisRequest = (input: ListHumanTaskUisRequest, context: __SerdeContext): any => {
   return {
     ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
@@ -19549,6 +22453,31 @@ const serializeAws_json1_1ListImageVersionsRequest = (
   };
 };
 
+const serializeAws_json1_1ListInferenceExperimentsRequest = (
+  input: ListInferenceExperimentsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeAfter != null && {
+      LastModifiedTimeAfter: Math.round(input.LastModifiedTimeAfter.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeBefore != null && {
+      LastModifiedTimeBefore: Math.round(input.LastModifiedTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains != null && { NameContains: input.NameContains }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
 const serializeAws_json1_1ListInferenceRecommendationsJobsRequest = (
   input: ListInferenceRecommendationsJobsRequest,
   context: __SerdeContext
@@ -19570,6 +22499,19 @@ const serializeAws_json1_1ListInferenceRecommendationsJobsRequest = (
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
     ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
+  };
+};
+
+const serializeAws_json1_1ListInferenceRecommendationsJobStepsRequest = (
+  input: ListInferenceRecommendationsJobStepsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobName != null && { JobName: input.JobName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.StepType != null && { StepType: input.StepType }),
   };
 };
 
@@ -19646,6 +22588,61 @@ const serializeAws_json1_1ListModelBiasJobDefinitionsRequest = (
     ...(input.EndpointName != null && { EndpointName: input.EndpointName }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NameContains != null && { NameContains: input.NameContains }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListModelCardExportJobsRequest = (
+  input: ListModelCardExportJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.ModelCardExportJobNameContains != null && {
+      ModelCardExportJobNameContains: input.ModelCardExportJobNameContains,
+    }),
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardVersion != null && { ModelCardVersion: input.ModelCardVersion }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
+  };
+};
+
+const serializeAws_json1_1ListModelCardsRequest = (input: ListModelCardsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.ModelCardStatus != null && { ModelCardStatus: input.ModelCardStatus }),
+    ...(input.NameContains != null && { NameContains: input.NameContains }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListModelCardVersionsRequest = (
+  input: ListModelCardVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardStatus != null && { ModelCardStatus: input.ModelCardStatus }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
@@ -19746,6 +22743,36 @@ const serializeAws_json1_1ListModelsInput = (input: ListModelsInput, context: __
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListMonitoringAlertHistoryRequest = (
+  input: ListMonitoringAlertHistoryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MonitoringAlertName != null && { MonitoringAlertName: input.MonitoringAlertName }),
+    ...(input.MonitoringScheduleName != null && { MonitoringScheduleName: input.MonitoringScheduleName }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
+  };
+};
+
+const serializeAws_json1_1ListMonitoringAlertsRequest = (
+  input: ListMonitoringAlertsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MonitoringScheduleName != null && { MonitoringScheduleName: input.MonitoringScheduleName }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -19957,6 +22984,17 @@ const serializeAws_json1_1ListProjectsInput = (input: ListProjectsInput, context
   };
 };
 
+const serializeAws_json1_1ListSpacesRequest = (input: ListSpacesRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainIdEquals != null && { DomainIdEquals: input.DomainIdEquals }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.SpaceNameContains != null && { SpaceNameContains: input.SpaceNameContains }),
+  };
+};
+
 const serializeAws_json1_1ListStageDevicesRequest = (input: ListStageDevicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
@@ -20044,6 +23082,7 @@ const serializeAws_json1_1ListTrainingJobsRequest = (input: ListTrainingJobsRequ
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
     ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
+    ...(input.WarmPoolStatusEquals != null && { WarmPoolStatusEquals: input.WarmPoolStatusEquals }),
   };
 };
 
@@ -20215,12 +23254,30 @@ const serializeAws_json1_1ModelBiasBaselineConfig = (input: ModelBiasBaselineCon
 
 const serializeAws_json1_1ModelBiasJobInput = (input: ModelBiasJobInput, context: __SerdeContext): any => {
   return {
+    ...(input.BatchTransformInput != null && {
+      BatchTransformInput: serializeAws_json1_1BatchTransformInput(input.BatchTransformInput, context),
+    }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
     }),
     ...(input.GroundTruthS3Input != null && {
       GroundTruthS3Input: serializeAws_json1_1MonitoringGroundTruthS3Input(input.GroundTruthS3Input, context),
     }),
+  };
+};
+
+const serializeAws_json1_1ModelCardExportOutputConfig = (
+  input: ModelCardExportOutputConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3OutputPath != null && { S3OutputPath: input.S3OutputPath }),
+  };
+};
+
+const serializeAws_json1_1ModelCardSecurityConfig = (input: ModelCardSecurityConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
   };
 };
 
@@ -20277,8 +23334,23 @@ const serializeAws_json1_1ModelExplainabilityJobInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.BatchTransformInput != null && {
+      BatchTransformInput: serializeAws_json1_1BatchTransformInput(input.BatchTransformInput, context),
+    }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ModelInfrastructureConfig = (
+  input: ModelInfrastructureConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InfrastructureType != null && { InfrastructureType: input.InfrastructureType }),
+    ...(input.RealTimeInferenceConfig != null && {
+      RealTimeInferenceConfig: serializeAws_json1_1RealTimeInferenceConfig(input.RealTimeInferenceConfig, context),
     }),
   };
 };
@@ -20459,6 +23531,9 @@ const serializeAws_json1_1ModelQualityBaselineConfig = (
 
 const serializeAws_json1_1ModelQualityJobInput = (input: ModelQualityJobInput, context: __SerdeContext): any => {
   return {
+    ...(input.BatchTransformInput != null && {
+      BatchTransformInput: serializeAws_json1_1BatchTransformInput(input.BatchTransformInput, context),
+    }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
     }),
@@ -20466,6 +23541,37 @@ const serializeAws_json1_1ModelQualityJobInput = (input: ModelQualityJobInput, c
       GroundTruthS3Input: serializeAws_json1_1MonitoringGroundTruthS3Input(input.GroundTruthS3Input, context),
     }),
   };
+};
+
+const serializeAws_json1_1ModelVariantActionMap = (
+  input: Record<string, ModelVariantAction | string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
+const serializeAws_json1_1ModelVariantConfig = (input: ModelVariantConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.InfrastructureConfig != null && {
+      InfrastructureConfig: serializeAws_json1_1ModelInfrastructureConfig(input.InfrastructureConfig, context),
+    }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
+    ...(input.VariantName != null && { VariantName: input.VariantName }),
+  };
+};
+
+const serializeAws_json1_1ModelVariantConfigList = (input: ModelVariantConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1ModelVariantConfig(entry, context);
+    });
 };
 
 const serializeAws_json1_1MonitoringAppSpecification = (
@@ -20530,15 +23636,32 @@ const serializeAws_json1_1MonitoringContainerArguments = (input: string[], conte
     });
 };
 
+const serializeAws_json1_1MonitoringCsvDatasetFormat = (
+  input: MonitoringCsvDatasetFormat,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Header != null && { Header: input.Header }),
+  };
+};
+
+const serializeAws_json1_1MonitoringDatasetFormat = (input: MonitoringDatasetFormat, context: __SerdeContext): any => {
+  return {
+    ...(input.Csv != null && { Csv: serializeAws_json1_1MonitoringCsvDatasetFormat(input.Csv, context) }),
+    ...(input.Json != null && { Json: serializeAws_json1_1MonitoringJsonDatasetFormat(input.Json, context) }),
+    ...(input.Parquet != null && {
+      Parquet: serializeAws_json1_1MonitoringParquetDatasetFormat(input.Parquet, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1MonitoringEnvironmentMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -20553,6 +23676,9 @@ const serializeAws_json1_1MonitoringGroundTruthS3Input = (
 
 const serializeAws_json1_1MonitoringInput = (input: MonitoringInput, context: __SerdeContext): any => {
   return {
+    ...(input.BatchTransformInput != null && {
+      BatchTransformInput: serializeAws_json1_1BatchTransformInput(input.BatchTransformInput, context),
+    }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
     }),
@@ -20600,6 +23726,15 @@ const serializeAws_json1_1MonitoringJobDefinition = (input: MonitoringJobDefinit
   };
 };
 
+const serializeAws_json1_1MonitoringJsonDatasetFormat = (
+  input: MonitoringJsonDatasetFormat,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Line != null && { Line: input.Line }),
+  };
+};
+
 const serializeAws_json1_1MonitoringNetworkConfig = (input: MonitoringNetworkConfig, context: __SerdeContext): any => {
   return {
     ...(input.EnableInterContainerTrafficEncryption != null && {
@@ -20631,6 +23766,13 @@ const serializeAws_json1_1MonitoringOutputs = (input: MonitoringOutput[], contex
     .map((entry) => {
       return serializeAws_json1_1MonitoringOutput(entry, context);
     });
+};
+
+const serializeAws_json1_1MonitoringParquetDatasetFormat = (
+  input: MonitoringParquetDatasetFormat,
+  context: __SerdeContext
+): any => {
+  return {};
 };
 
 const serializeAws_json1_1MonitoringResources = (input: MonitoringResources, context: __SerdeContext): any => {
@@ -20790,6 +23932,7 @@ const serializeAws_json1_1OfflineStoreConfig = (input: OfflineStoreConfig, conte
     ...(input.S3StorageConfig != null && {
       S3StorageConfig: serializeAws_json1_1S3StorageConfig(input.S3StorageConfig, context),
     }),
+    ...(input.TableFormat != null && { TableFormat: input.TableFormat }),
   };
 };
 
@@ -21002,10 +24145,8 @@ const serializeAws_json1_1ProcessingEnvironmentMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21102,17 +24243,24 @@ const serializeAws_json1_1ProcessingStoppingCondition = (
 const serializeAws_json1_1ProductionVariant = (input: ProductionVariant, context: __SerdeContext): any => {
   return {
     ...(input.AcceleratorType != null && { AcceleratorType: input.AcceleratorType }),
+    ...(input.ContainerStartupHealthCheckTimeoutInSeconds != null && {
+      ContainerStartupHealthCheckTimeoutInSeconds: input.ContainerStartupHealthCheckTimeoutInSeconds,
+    }),
     ...(input.CoreDumpConfig != null && {
       CoreDumpConfig: serializeAws_json1_1ProductionVariantCoreDumpConfig(input.CoreDumpConfig, context),
     }),
     ...(input.InitialInstanceCount != null && { InitialInstanceCount: input.InitialInstanceCount }),
     ...(input.InitialVariantWeight != null && { InitialVariantWeight: __serializeFloat(input.InitialVariantWeight) }),
     ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+    ...(input.ModelDataDownloadTimeoutInSeconds != null && {
+      ModelDataDownloadTimeoutInSeconds: input.ModelDataDownloadTimeoutInSeconds,
+    }),
     ...(input.ModelName != null && { ModelName: input.ModelName }),
     ...(input.ServerlessConfig != null && {
       ServerlessConfig: serializeAws_json1_1ProductionVariantServerlessConfig(input.ServerlessConfig, context),
     }),
     ...(input.VariantName != null && { VariantName: input.VariantName }),
+    ...(input.VolumeSizeInGB != null && { VolumeSizeInGB: input.VolumeSizeInGB }),
   };
 };
 
@@ -21146,6 +24294,7 @@ const serializeAws_json1_1ProductionVariantServerlessConfig = (
 
 const serializeAws_json1_1ProfilerConfig = (input: ProfilerConfig, context: __SerdeContext): any => {
   return {
+    ...(input.DisableProfiler != null && { DisableProfiler: input.DisableProfiler }),
     ...(input.ProfilingIntervalInMilliseconds != null && {
       ProfilingIntervalInMilliseconds: input.ProfilingIntervalInMilliseconds,
     }),
@@ -21202,10 +24351,8 @@ const serializeAws_json1_1ProfilingParameters = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21296,10 +24443,8 @@ const serializeAws_json1_1QueryProperties = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21309,6 +24454,13 @@ const serializeAws_json1_1QueryTypes = (input: string[], context: __SerdeContext
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_1RealTimeInferenceConfig = (input: RealTimeInferenceConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
+    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+  };
 };
 
 const serializeAws_json1_1RealtimeInferenceInstanceTypes = (
@@ -21331,15 +24483,43 @@ const serializeAws_json1_1RecommendationJobCompiledOutputConfig = (
   };
 };
 
+const serializeAws_json1_1RecommendationJobContainerConfig = (
+  input: RecommendationJobContainerConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataInputConfig != null && { DataInputConfig: input.DataInputConfig }),
+    ...(input.Domain != null && { Domain: input.Domain }),
+    ...(input.Framework != null && { Framework: input.Framework }),
+    ...(input.FrameworkVersion != null && { FrameworkVersion: input.FrameworkVersion }),
+    ...(input.NearestModelName != null && { NearestModelName: input.NearestModelName }),
+    ...(input.PayloadConfig != null && {
+      PayloadConfig: serializeAws_json1_1RecommendationJobPayloadConfig(input.PayloadConfig, context),
+    }),
+    ...(input.SupportedInstanceTypes != null && {
+      SupportedInstanceTypes: serializeAws_json1_1RecommendationJobSupportedInstanceTypes(
+        input.SupportedInstanceTypes,
+        context
+      ),
+    }),
+    ...(input.Task != null && { Task: input.Task }),
+  };
+};
+
 const serializeAws_json1_1RecommendationJobInputConfig = (
   input: RecommendationJobInputConfig,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ContainerConfig != null && {
+      ContainerConfig: serializeAws_json1_1RecommendationJobContainerConfig(input.ContainerConfig, context),
+    }),
     ...(input.EndpointConfigurations != null && {
       EndpointConfigurations: serializeAws_json1_1EndpointInputConfigurations(input.EndpointConfigurations, context),
     }),
+    ...(input.Endpoints != null && { Endpoints: serializeAws_json1_1Endpoints(input.Endpoints, context) }),
     ...(input.JobDurationInSeconds != null && { JobDurationInSeconds: input.JobDurationInSeconds }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
     ...(input.ModelPackageVersionArn != null && { ModelPackageVersionArn: input.ModelPackageVersionArn }),
     ...(input.ResourceLimit != null && {
       ResourceLimit: serializeAws_json1_1RecommendationJobResourceLimit(input.ResourceLimit, context),
@@ -21348,6 +24528,9 @@ const serializeAws_json1_1RecommendationJobInputConfig = (
       TrafficPattern: serializeAws_json1_1TrafficPattern(input.TrafficPattern, context),
     }),
     ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig != null && {
+      VpcConfig: serializeAws_json1_1RecommendationJobVpcConfig(input.VpcConfig, context),
+    }),
   };
 };
 
@@ -21363,6 +24546,21 @@ const serializeAws_json1_1RecommendationJobOutputConfig = (
       ),
     }),
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+  };
+};
+
+const serializeAws_json1_1RecommendationJobPayloadConfig = (
+  input: RecommendationJobPayloadConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SamplePayloadUrl != null && { SamplePayloadUrl: input.SamplePayloadUrl }),
+    ...(input.SupportedContentTypes != null && {
+      SupportedContentTypes: serializeAws_json1_1RecommendationJobSupportedContentTypes(
+        input.SupportedContentTypes,
+        context
+      ),
+    }),
   };
 };
 
@@ -21386,6 +24584,50 @@ const serializeAws_json1_1RecommendationJobStoppingConditions = (
       ModelLatencyThresholds: serializeAws_json1_1ModelLatencyThresholds(input.ModelLatencyThresholds, context),
     }),
   };
+};
+
+const serializeAws_json1_1RecommendationJobSupportedContentTypes = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RecommendationJobSupportedInstanceTypes = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RecommendationJobVpcConfig = (
+  input: RecommendationJobVpcConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_json1_1RecommendationJobVpcSecurityGroupIds(input.SecurityGroupIds, context),
+    }),
+    ...(input.Subnets != null && { Subnets: serializeAws_json1_1RecommendationJobVpcSubnets(input.Subnets, context) }),
+  };
+};
+
+const serializeAws_json1_1RecommendationJobVpcSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RecommendationJobVpcSubnets = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1RedshiftDatasetDefinition = (
@@ -21443,8 +24685,15 @@ const serializeAws_json1_1ResourceConfig = (input: ResourceConfig, context: __Se
       InstanceGroups: serializeAws_json1_1InstanceGroups(input.InstanceGroups, context),
     }),
     ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+    ...(input.KeepAlivePeriodInSeconds != null && { KeepAlivePeriodInSeconds: input.KeepAlivePeriodInSeconds }),
     ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VolumeSizeInGB != null && { VolumeSizeInGB: input.VolumeSizeInGB }),
+  };
+};
+
+const serializeAws_json1_1ResourceConfigForUpdate = (input: ResourceConfigForUpdate, context: __SerdeContext): any => {
+  return {
+    ...(input.KeepAlivePeriodInSeconds != null && { KeepAlivePeriodInSeconds: input.KeepAlivePeriodInSeconds }),
   };
 };
 
@@ -21452,6 +24701,7 @@ const serializeAws_json1_1ResourceLimits = (input: ResourceLimits, context: __Se
   return {
     ...(input.MaxNumberOfTrainingJobs != null && { MaxNumberOfTrainingJobs: input.MaxNumberOfTrainingJobs }),
     ...(input.MaxParallelTrainingJobs != null && { MaxParallelTrainingJobs: input.MaxParallelTrainingJobs }),
+    ...(input.MaxRuntimeInSeconds != null && { MaxRuntimeInSeconds: input.MaxRuntimeInSeconds }),
   };
 };
 
@@ -21539,6 +24789,8 @@ const serializeAws_json1_1RStudioServerProDomainSettingsForUpdate = (
       DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
     }),
     ...(input.DomainExecutionRoleArn != null && { DomainExecutionRoleArn: input.DomainExecutionRoleArn }),
+    ...(input.RStudioConnectUrl != null && { RStudioConnectUrl: input.RStudioConnectUrl }),
+    ...(input.RStudioPackageManagerUrl != null && { RStudioPackageManagerUrl: input.RStudioPackageManagerUrl }),
   };
 };
 
@@ -21547,10 +24799,8 @@ const serializeAws_json1_1RuleParameters = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21574,6 +24824,14 @@ const serializeAws_json1_1S3StorageConfig = (input: S3StorageConfig, context: __
     ...(input.ResolvedOutputS3Uri != null && { ResolvedOutputS3Uri: input.ResolvedOutputS3Uri }),
     ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
   };
+};
+
+const serializeAws_json1_1SageMakerImageVersionAliases = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ScheduleConfig = (input: ScheduleConfig, context: __SerdeContext): any => {
@@ -21674,6 +24932,36 @@ const serializeAws_json1_1ServiceCatalogProvisioningUpdateDetails = (
   };
 };
 
+const serializeAws_json1_1ShadowModeConfig = (input: ShadowModeConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ShadowModelVariants != null && {
+      ShadowModelVariants: serializeAws_json1_1ShadowModelVariantConfigList(input.ShadowModelVariants, context),
+    }),
+    ...(input.SourceModelVariantName != null && { SourceModelVariantName: input.SourceModelVariantName }),
+  };
+};
+
+const serializeAws_json1_1ShadowModelVariantConfig = (
+  input: ShadowModelVariantConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SamplingPercentage != null && { SamplingPercentage: input.SamplingPercentage }),
+    ...(input.ShadowModelVariantName != null && { ShadowModelVariantName: input.ShadowModelVariantName }),
+  };
+};
+
+const serializeAws_json1_1ShadowModelVariantConfigList = (
+  input: ShadowModelVariantConfig[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1ShadowModelVariantConfig(entry, context);
+    });
+};
+
 const serializeAws_json1_1SharingSettings = (input: SharingSettings, context: __SerdeContext): any => {
   return {
     ...(input.NotebookOutputOption != null && { NotebookOutputOption: input.NotebookOutputOption }),
@@ -21720,6 +25008,17 @@ const serializeAws_json1_1SourceIpConfig = (input: SourceIpConfig, context: __Se
   };
 };
 
+const serializeAws_json1_1SpaceSettings = (input: SpaceSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.JupyterServerAppSettings != null && {
+      JupyterServerAppSettings: serializeAws_json1_1JupyterServerAppSettings(input.JupyterServerAppSettings, context),
+    }),
+    ...(input.KernelGatewayAppSettings != null && {
+      KernelGatewayAppSettings: serializeAws_json1_1KernelGatewayAppSettings(input.KernelGatewayAppSettings, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1StartEdgeDeploymentStageRequest = (
   input: StartEdgeDeploymentStageRequest,
   context: __SerdeContext
@@ -21727,6 +25026,15 @@ const serializeAws_json1_1StartEdgeDeploymentStageRequest = (
   return {
     ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
     ...(input.StageName != null && { StageName: input.StageName }),
+  };
+};
+
+const serializeAws_json1_1StartInferenceExperimentRequest = (
+  input: StartInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -21812,6 +25120,23 @@ const serializeAws_json1_1StopHyperParameterTuningJobRequest = (
     ...(input.HyperParameterTuningJobName != null && {
       HyperParameterTuningJobName: input.HyperParameterTuningJobName,
     }),
+  };
+};
+
+const serializeAws_json1_1StopInferenceExperimentRequest = (
+  input: StopInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DesiredModelVariants != null && {
+      DesiredModelVariants: serializeAws_json1_1ModelVariantConfigList(input.DesiredModelVariants, context),
+    }),
+    ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
+    ...(input.ModelVariantActions != null && {
+      ModelVariantActions: serializeAws_json1_1ModelVariantActionMap(input.ModelVariantActions, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Reason != null && { Reason: input.Reason }),
   };
 };
 
@@ -21956,6 +25281,16 @@ const serializeAws_json1_1TensorBoardOutputConfig = (input: TensorBoardOutputCon
   };
 };
 
+const serializeAws_json1_1TimeSeriesForecastingSettings = (
+  input: TimeSeriesForecastingSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AmazonForecastRoleArn != null && { AmazonForecastRoleArn: input.AmazonForecastRoleArn }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_json1_1TrafficPattern = (input: TrafficPattern, context: __SerdeContext): any => {
   return {
     ...(input.Phases != null && { Phases: serializeAws_json1_1Phases(input.Phases, context) }),
@@ -21974,16 +25309,44 @@ const serializeAws_json1_1TrafficRoutingConfig = (input: TrafficRoutingConfig, c
   };
 };
 
+const serializeAws_json1_1TrainingContainerArguments = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1TrainingContainerEntrypoint = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1TrainingEnvironmentMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
+};
+
+const serializeAws_json1_1TrainingImageConfig = (input: TrainingImageConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.TrainingRepositoryAccessMode != null && {
+      TrainingRepositoryAccessMode: input.TrainingRepositoryAccessMode,
+    }),
+    ...(input.TrainingRepositoryAuthConfig != null && {
+      TrainingRepositoryAuthConfig: serializeAws_json1_1TrainingRepositoryAuthConfig(
+        input.TrainingRepositoryAuthConfig,
+        context
+      ),
+    }),
+  };
 };
 
 const serializeAws_json1_1TrainingInstanceTypes = (
@@ -22015,6 +25378,17 @@ const serializeAws_json1_1TrainingJobDefinition = (input: TrainingJobDefinition,
       StoppingCondition: serializeAws_json1_1StoppingCondition(input.StoppingCondition, context),
     }),
     ...(input.TrainingInputMode != null && { TrainingInputMode: input.TrainingInputMode }),
+  };
+};
+
+const serializeAws_json1_1TrainingRepositoryAuthConfig = (
+  input: TrainingRepositoryAuthConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TrainingRepositoryCredentialsProviderArn != null && {
+      TrainingRepositoryCredentialsProviderArn: input.TrainingRepositoryCredentialsProviderArn,
+    }),
   };
 };
 
@@ -22065,10 +25439,8 @@ const serializeAws_json1_1TransformEnvironmentMap = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22151,10 +25523,8 @@ const serializeAws_json1_1TrialComponentArtifacts = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1TrialComponentArtifact(value, context),
-    };
+    acc[key] = serializeAws_json1_1TrialComponentArtifact(value, context);
+    return acc;
   }, {});
 };
 
@@ -22166,10 +25536,8 @@ const serializeAws_json1_1TrialComponentParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1TrialComponentParameterValue(value, context),
-    };
+    acc[key] = serializeAws_json1_1TrialComponentParameterValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -22196,6 +25564,15 @@ const serializeAws_json1_1TuningJobCompletionCriteria = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.BestObjectiveNotImproving != null && {
+      BestObjectiveNotImproving: serializeAws_json1_1BestObjectiveNotImproving(
+        input.BestObjectiveNotImproving,
+        context
+      ),
+    }),
+    ...(input.ConvergenceDetected != null && {
+      ConvergenceDetected: serializeAws_json1_1ConvergenceDetected(input.ConvergenceDetected, context),
+    }),
     ...(input.TargetObjectiveMetricValue != null && {
       TargetObjectiveMetricValue: __serializeFloat(input.TargetObjectiveMetricValue),
     }),
@@ -22301,6 +25678,10 @@ const serializeAws_json1_1UpdateDevicesRequest = (input: UpdateDevicesRequest, c
 
 const serializeAws_json1_1UpdateDomainRequest = (input: UpdateDomainRequest, context: __SerdeContext): any => {
   return {
+    ...(input.AppSecurityGroupManagement != null && { AppSecurityGroupManagement: input.AppSecurityGroupManagement }),
+    ...(input.DefaultSpaceSettings != null && {
+      DefaultSpaceSettings: serializeAws_json1_1DefaultSpaceSettings(input.DefaultSpaceSettings, context),
+    }),
     ...(input.DefaultUserSettings != null && {
       DefaultUserSettings: serializeAws_json1_1UserSettings(input.DefaultUserSettings, context),
     }),
@@ -22381,6 +25762,17 @@ const serializeAws_json1_1UpdateFeatureMetadataRequest = (
   };
 };
 
+const serializeAws_json1_1UpdateHubRequest = (input: UpdateHubRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HubDescription != null && { HubDescription: input.HubDescription }),
+    ...(input.HubDisplayName != null && { HubDisplayName: input.HubDisplayName }),
+    ...(input.HubName != null && { HubName: input.HubName }),
+    ...(input.HubSearchKeywords != null && {
+      HubSearchKeywords: serializeAws_json1_1HubSearchKeywordList(input.HubSearchKeywords, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1UpdateImageRequest = (input: UpdateImageRequest, context: __SerdeContext): any => {
   return {
     ...(input.DeleteProperties != null && {
@@ -22390,6 +25782,60 @@ const serializeAws_json1_1UpdateImageRequest = (input: UpdateImageRequest, conte
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateImageVersionRequest = (
+  input: UpdateImageVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Alias != null && { Alias: input.Alias }),
+    ...(input.AliasesToAdd != null && {
+      AliasesToAdd: serializeAws_json1_1SageMakerImageVersionAliases(input.AliasesToAdd, context),
+    }),
+    ...(input.AliasesToDelete != null && {
+      AliasesToDelete: serializeAws_json1_1SageMakerImageVersionAliases(input.AliasesToDelete, context),
+    }),
+    ...(input.Horovod != null && { Horovod: input.Horovod }),
+    ...(input.ImageName != null && { ImageName: input.ImageName }),
+    ...(input.JobType != null && { JobType: input.JobType }),
+    ...(input.MLFramework != null && { MLFramework: input.MLFramework }),
+    ...(input.Processor != null && { Processor: input.Processor }),
+    ...(input.ProgrammingLang != null && { ProgrammingLang: input.ProgrammingLang }),
+    ...(input.ReleaseNotes != null && { ReleaseNotes: input.ReleaseNotes }),
+    ...(input.VendorGuidance != null && { VendorGuidance: input.VendorGuidance }),
+    ...(input.Version != null && { Version: input.Version }),
+  };
+};
+
+const serializeAws_json1_1UpdateInferenceExperimentRequest = (
+  input: UpdateInferenceExperimentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataStorageConfig != null && {
+      DataStorageConfig: serializeAws_json1_1InferenceExperimentDataStorageConfig(input.DataStorageConfig, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.ModelVariants != null && {
+      ModelVariants: serializeAws_json1_1ModelVariantConfigList(input.ModelVariants, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Schedule != null && {
+      Schedule: serializeAws_json1_1InferenceExperimentSchedule(input.Schedule, context),
+    }),
+    ...(input.ShadowModeConfig != null && {
+      ShadowModeConfig: serializeAws_json1_1ShadowModeConfig(input.ShadowModeConfig, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1UpdateModelCardRequest = (input: UpdateModelCardRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.ModelCardName != null && { ModelCardName: input.ModelCardName }),
+    ...(input.ModelCardStatus != null && { ModelCardStatus: input.ModelCardStatus }),
   };
 };
 
@@ -22413,6 +25859,18 @@ const serializeAws_json1_1UpdateModelPackageInput = (input: UpdateModelPackageIn
     }),
     ...(input.ModelApprovalStatus != null && { ModelApprovalStatus: input.ModelApprovalStatus }),
     ...(input.ModelPackageArn != null && { ModelPackageArn: input.ModelPackageArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateMonitoringAlertRequest = (
+  input: UpdateMonitoringAlertRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatapointsToAlert != null && { DatapointsToAlert: input.DatapointsToAlert }),
+    ...(input.EvaluationPeriod != null && { EvaluationPeriod: input.EvaluationPeriod }),
+    ...(input.MonitoringAlertName != null && { MonitoringAlertName: input.MonitoringAlertName }),
+    ...(input.MonitoringScheduleName != null && { MonitoringScheduleName: input.MonitoringScheduleName }),
   };
 };
 
@@ -22538,6 +25996,16 @@ const serializeAws_json1_1UpdateProjectInput = (input: UpdateProjectInput, conte
   };
 };
 
+const serializeAws_json1_1UpdateSpaceRequest = (input: UpdateSpaceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpaceName != null && { SpaceName: input.SpaceName }),
+    ...(input.SpaceSettings != null && {
+      SpaceSettings: serializeAws_json1_1SpaceSettings(input.SpaceSettings, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1UpdateTrainingJobRequest = (
   input: UpdateTrainingJobRequest,
   context: __SerdeContext
@@ -22551,6 +26019,9 @@ const serializeAws_json1_1UpdateTrainingJobRequest = (
         input.ProfilerRuleConfigurations,
         context
       ),
+    }),
+    ...(input.ResourceConfig != null && {
+      ResourceConfig: serializeAws_json1_1ResourceConfigForUpdate(input.ResourceConfig, context),
     }),
     ...(input.TrainingJobName != null && { TrainingJobName: input.TrainingJobName }),
   };
@@ -22644,6 +26115,9 @@ const serializeAws_json1_1USD = (input: USD, context: __SerdeContext): any => {
 
 const serializeAws_json1_1UserSettings = (input: UserSettings, context: __SerdeContext): any => {
   return {
+    ...(input.CanvasAppSettings != null && {
+      CanvasAppSettings: serializeAws_json1_1CanvasAppSettings(input.CanvasAppSettings, context),
+    }),
     ...(input.ExecutionRole != null && { ExecutionRole: input.ExecutionRole }),
     ...(input.JupyterServerAppSettings != null && {
       JupyterServerAppSettings: serializeAws_json1_1JupyterServerAppSettings(input.JupyterServerAppSettings, context),
@@ -22880,12 +26354,24 @@ const deserializeAws_json1_1AlarmList = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_1AlgorithmSpecification = (output: any, context: __SerdeContext): AlgorithmSpecification => {
   return {
     AlgorithmName: __expectString(output.AlgorithmName),
+    ContainerArguments:
+      output.ContainerArguments != null
+        ? deserializeAws_json1_1TrainingContainerArguments(output.ContainerArguments, context)
+        : undefined,
+    ContainerEntrypoint:
+      output.ContainerEntrypoint != null
+        ? deserializeAws_json1_1TrainingContainerEntrypoint(output.ContainerEntrypoint, context)
+        : undefined,
     EnableSageMakerMetricsTimeSeries: __expectBoolean(output.EnableSageMakerMetricsTimeSeries),
     MetricDefinitions:
       output.MetricDefinitions != null
         ? deserializeAws_json1_1MetricDefinitionList(output.MetricDefinitions, context)
         : undefined,
     TrainingImage: __expectString(output.TrainingImage),
+    TrainingImageConfig:
+      output.TrainingImageConfig != null
+        ? deserializeAws_json1_1TrainingImageConfig(output.TrainingImageConfig, context)
+        : undefined,
     TrainingInputMode: __expectString(output.TrainingInputMode),
   } as any;
 };
@@ -23011,6 +26497,7 @@ const deserializeAws_json1_1AppDetails = (output: any, context: __SerdeContext):
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DomainId: __expectString(output.DomainId),
+    SpaceName: __expectString(output.SpaceName),
     Status: __expectString(output.Status),
     UserProfileName: __expectString(output.UserProfileName),
   } as any;
@@ -23242,6 +26729,42 @@ const deserializeAws_json1_1AttributeNames = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_json1_1AutoMLAlgorithmConfig = (output: any, context: __SerdeContext): AutoMLAlgorithmConfig => {
+  return {
+    AutoMLAlgorithms:
+      output.AutoMLAlgorithms != null
+        ? deserializeAws_json1_1AutoMLAlgorithms(output.AutoMLAlgorithms, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AutoMLAlgorithms = (output: any, context: __SerdeContext): (AutoMLAlgorithm | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1AutoMLAlgorithmsConfig = (
+  output: any,
+  context: __SerdeContext
+): AutoMLAlgorithmConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AutoMLAlgorithmConfig(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1AutoMLCandidate = (output: any, context: __SerdeContext): AutoMLCandidate => {
   return {
     CandidateName: __expectString(output.CandidateName),
@@ -23280,6 +26803,10 @@ const deserializeAws_json1_1AutoMLCandidateGenerationConfig = (
   context: __SerdeContext
 ): AutoMLCandidateGenerationConfig => {
   return {
+    AlgorithmsConfig:
+      output.AlgorithmsConfig != null
+        ? deserializeAws_json1_1AutoMLAlgorithmsConfig(output.AlgorithmsConfig, context)
+        : undefined,
     FeatureSpecificationS3Uri: __expectString(output.FeatureSpecificationS3Uri),
   } as any;
 };
@@ -23399,6 +26926,7 @@ const deserializeAws_json1_1AutoMLJobConfig = (output: any, context: __SerdeCont
       output.DataSplitConfig != null
         ? deserializeAws_json1_1AutoMLDataSplitConfig(output.DataSplitConfig, context)
         : undefined,
+    Mode: __expectString(output.Mode),
     SecurityConfig:
       output.SecurityConfig != null
         ? deserializeAws_json1_1AutoMLSecurityConfig(output.SecurityConfig, context)
@@ -23409,6 +26937,12 @@ const deserializeAws_json1_1AutoMLJobConfig = (output: any, context: __SerdeCont
 const deserializeAws_json1_1AutoMLJobObjective = (output: any, context: __SerdeContext): AutoMLJobObjective => {
   return {
     MetricName: __expectString(output.MetricName),
+  } as any;
+};
+
+const deserializeAws_json1_1AutoMLJobStepMetadata = (output: any, context: __SerdeContext): AutoMLJobStepMetadata => {
+  return {
+    Arn: __expectString(output.Arn),
   } as any;
 };
 
@@ -23500,6 +27034,14 @@ const deserializeAws_json1_1AutoRollbackConfig = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1BatchDataCaptureConfig = (output: any, context: __SerdeContext): BatchDataCaptureConfig => {
+  return {
+    DestinationS3Uri: __expectString(output.DestinationS3Uri),
+    GenerateInferenceId: __expectBoolean(output.GenerateInferenceId),
+    KmsKeyId: __expectString(output.KmsKeyId),
+  } as any;
+};
+
 const deserializeAws_json1_1BatchDescribeModelPackageError = (
   output: any,
   context: __SerdeContext
@@ -23519,10 +27061,8 @@ const deserializeAws_json1_1BatchDescribeModelPackageErrorMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1BatchDescribeModelPackageError(value, context),
-      };
+      acc[key] = deserializeAws_json1_1BatchDescribeModelPackageError(value, context);
+      return acc;
     },
     {}
   );
@@ -23563,6 +27103,34 @@ const deserializeAws_json1_1BatchDescribeModelPackageSummary = (
     ModelPackageGroupName: __expectString(output.ModelPackageGroupName),
     ModelPackageStatus: __expectString(output.ModelPackageStatus),
     ModelPackageVersion: __expectInt32(output.ModelPackageVersion),
+  } as any;
+};
+
+const deserializeAws_json1_1BatchTransformInput = (output: any, context: __SerdeContext): BatchTransformInput => {
+  return {
+    DataCapturedDestinationS3Uri: __expectString(output.DataCapturedDestinationS3Uri),
+    DatasetFormat:
+      output.DatasetFormat != null
+        ? deserializeAws_json1_1MonitoringDatasetFormat(output.DatasetFormat, context)
+        : undefined,
+    EndTimeOffset: __expectString(output.EndTimeOffset),
+    FeaturesAttribute: __expectString(output.FeaturesAttribute),
+    InferenceAttribute: __expectString(output.InferenceAttribute),
+    LocalPath: __expectString(output.LocalPath),
+    ProbabilityAttribute: __expectString(output.ProbabilityAttribute),
+    ProbabilityThresholdAttribute: __limitedParseDouble(output.ProbabilityThresholdAttribute),
+    S3DataDistributionType: __expectString(output.S3DataDistributionType),
+    S3InputMode: __expectString(output.S3InputMode),
+    StartTimeOffset: __expectString(output.StartTimeOffset),
+  } as any;
+};
+
+const deserializeAws_json1_1BestObjectiveNotImproving = (
+  output: any,
+  context: __SerdeContext
+): BestObjectiveNotImproving => {
+  return {
+    MaxNumberOfTrainingJobsNotImproving: __expectInt32(output.MaxNumberOfTrainingJobsNotImproving),
   } as any;
 };
 
@@ -23641,6 +27209,15 @@ const deserializeAws_json1_1CandidateSteps = (output: any, context: __SerdeConte
       return deserializeAws_json1_1AutoMLCandidateStep(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1CanvasAppSettings = (output: any, context: __SerdeContext): CanvasAppSettings => {
+  return {
+    TimeSeriesForecastingSettings:
+      output.TimeSeriesForecastingSettings != null
+        ? deserializeAws_json1_1TimeSeriesForecastingSettings(output.TimeSeriesForecastingSettings, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1CapacitySize = (output: any, context: __SerdeContext): CapacitySize => {
@@ -23830,6 +27407,128 @@ const deserializeAws_json1_1ClarifyCheckStepMetadata = (
   } as any;
 };
 
+const deserializeAws_json1_1ClarifyExplainerConfig = (output: any, context: __SerdeContext): ClarifyExplainerConfig => {
+  return {
+    EnableExplanations: __expectString(output.EnableExplanations),
+    InferenceConfig:
+      output.InferenceConfig != null
+        ? deserializeAws_json1_1ClarifyInferenceConfig(output.InferenceConfig, context)
+        : undefined,
+    ShapConfig:
+      output.ShapConfig != null ? deserializeAws_json1_1ClarifyShapConfig(output.ShapConfig, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ClarifyFeatureHeaders = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ClarifyFeatureTypes = (
+  output: any,
+  context: __SerdeContext
+): (ClarifyFeatureType | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ClarifyInferenceConfig = (output: any, context: __SerdeContext): ClarifyInferenceConfig => {
+  return {
+    ContentTemplate: __expectString(output.ContentTemplate),
+    FeatureHeaders:
+      output.FeatureHeaders != null
+        ? deserializeAws_json1_1ClarifyFeatureHeaders(output.FeatureHeaders, context)
+        : undefined,
+    FeatureTypes:
+      output.FeatureTypes != null ? deserializeAws_json1_1ClarifyFeatureTypes(output.FeatureTypes, context) : undefined,
+    FeaturesAttribute: __expectString(output.FeaturesAttribute),
+    LabelAttribute: __expectString(output.LabelAttribute),
+    LabelHeaders:
+      output.LabelHeaders != null ? deserializeAws_json1_1ClarifyLabelHeaders(output.LabelHeaders, context) : undefined,
+    LabelIndex: __expectInt32(output.LabelIndex),
+    MaxPayloadInMB: __expectInt32(output.MaxPayloadInMB),
+    MaxRecordCount: __expectInt32(output.MaxRecordCount),
+    ProbabilityAttribute: __expectString(output.ProbabilityAttribute),
+    ProbabilityIndex: __expectInt32(output.ProbabilityIndex),
+  } as any;
+};
+
+const deserializeAws_json1_1ClarifyLabelHeaders = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ClarifyShapBaselineConfig = (
+  output: any,
+  context: __SerdeContext
+): ClarifyShapBaselineConfig => {
+  return {
+    MimeType: __expectString(output.MimeType),
+    ShapBaseline: __expectString(output.ShapBaseline),
+    ShapBaselineUri: __expectString(output.ShapBaselineUri),
+  } as any;
+};
+
+const deserializeAws_json1_1ClarifyShapConfig = (output: any, context: __SerdeContext): ClarifyShapConfig => {
+  return {
+    NumberOfSamples: __expectInt32(output.NumberOfSamples),
+    Seed: __expectInt32(output.Seed),
+    ShapBaselineConfig:
+      output.ShapBaselineConfig != null
+        ? deserializeAws_json1_1ClarifyShapBaselineConfig(output.ShapBaselineConfig, context)
+        : undefined,
+    TextConfig:
+      output.TextConfig != null ? deserializeAws_json1_1ClarifyTextConfig(output.TextConfig, context) : undefined,
+    UseLogit: __expectBoolean(output.UseLogit),
+  } as any;
+};
+
+const deserializeAws_json1_1ClarifyTextConfig = (output: any, context: __SerdeContext): ClarifyTextConfig => {
+  return {
+    Granularity: __expectString(output.Granularity),
+    Language: __expectString(output.Language),
+  } as any;
+};
+
+const deserializeAws_json1_1CodeRepositories = (output: any, context: __SerdeContext): CodeRepository[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CodeRepository(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1CodeRepository = (output: any, context: __SerdeContext): CodeRepository => {
+  return {
+    RepositoryUrl: __expectString(output.RepositoryUrl),
+  } as any;
+};
+
 const deserializeAws_json1_1CodeRepositorySummary = (output: any, context: __SerdeContext): CodeRepositorySummary => {
   return {
     CodeRepositoryArn: __expectString(output.CodeRepositoryArn),
@@ -23912,10 +27611,8 @@ const deserializeAws_json1_1CollectionParameters = (output: any, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -24142,6 +27839,12 @@ const deserializeAws_json1_1ContinuousParameterRangeSpecification = (
   } as any;
 };
 
+const deserializeAws_json1_1ConvergenceDetected = (output: any, context: __SerdeContext): ConvergenceDetected => {
+  return {
+    CompleteOnConvergence: __expectString(output.CompleteOnConvergence),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateActionResponse = (output: any, context: __SerdeContext): CreateActionResponse => {
   return {
     ActionArn: __expectString(output.ActionArn),
@@ -24275,6 +27978,12 @@ const deserializeAws_json1_1CreateFlowDefinitionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateHubResponse = (output: any, context: __SerdeContext): CreateHubResponse => {
+  return {
+    HubArn: __expectString(output.HubArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateHumanTaskUiResponse = (
   output: any,
   context: __SerdeContext
@@ -24308,6 +28017,15 @@ const deserializeAws_json1_1CreateImageVersionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateInferenceExperimentResponse => {
+  return {
+    InferenceExperimentArn: __expectString(output.InferenceExperimentArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateInferenceRecommendationsJobResponse = (
   output: any,
   context: __SerdeContext
@@ -24332,6 +28050,24 @@ const deserializeAws_json1_1CreateModelBiasJobDefinitionResponse = (
 ): CreateModelBiasJobDefinitionResponse => {
   return {
     JobDefinitionArn: __expectString(output.JobDefinitionArn),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateModelCardExportJobResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateModelCardExportJobResponse => {
+  return {
+    ModelCardExportJobArn: __expectString(output.ModelCardExportJobArn),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateModelCardResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateModelCardResponse => {
+  return {
+    ModelCardArn: __expectString(output.ModelCardArn),
   } as any;
 };
 
@@ -24444,6 +28180,12 @@ const deserializeAws_json1_1CreateProjectOutput = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1CreateSpaceResponse = (output: any, context: __SerdeContext): CreateSpaceResponse => {
+  return {
+    SpaceArn: __expectString(output.SpaceArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateStudioLifecycleConfigResponse = (
   output: any,
   context: __SerdeContext
@@ -24527,10 +28269,8 @@ const deserializeAws_json1_1CustomerMetadataMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -24642,6 +28382,10 @@ const deserializeAws_json1_1DataQualityBaselineConfig = (
 
 const deserializeAws_json1_1DataQualityJobInput = (output: any, context: __SerdeContext): DataQualityJobInput => {
   return {
+    BatchTransformInput:
+      output.BatchTransformInput != null
+        ? deserializeAws_json1_1BatchTransformInput(output.BatchTransformInput, context)
+        : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
   } as any;
@@ -24746,6 +28490,24 @@ const deserializeAws_json1_1DebugRuleEvaluationStatuses = (
   return retVal;
 };
 
+const deserializeAws_json1_1DefaultSpaceSettings = (output: any, context: __SerdeContext): DefaultSpaceSettings => {
+  return {
+    ExecutionRole: __expectString(output.ExecutionRole),
+    JupyterServerAppSettings:
+      output.JupyterServerAppSettings != null
+        ? deserializeAws_json1_1JupyterServerAppSettings(output.JupyterServerAppSettings, context)
+        : undefined,
+    KernelGatewayAppSettings:
+      output.KernelGatewayAppSettings != null
+        ? deserializeAws_json1_1KernelGatewayAppSettings(output.KernelGatewayAppSettings, context)
+        : undefined,
+    SecurityGroups:
+      output.SecurityGroups != null
+        ? deserializeAws_json1_1SecurityGroupIds(output.SecurityGroups, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteActionResponse = (output: any, context: __SerdeContext): DeleteActionResponse => {
   return {
     ActionArn: __expectString(output.ActionArn),
@@ -24806,6 +28568,15 @@ const deserializeAws_json1_1DeleteImageVersionResponse = (
   context: __SerdeContext
 ): DeleteImageVersionResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DeleteInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteInferenceExperimentResponse => {
+  return {
+    InferenceExperimentArn: __expectString(output.InferenceExperimentArn),
+  } as any;
 };
 
 const deserializeAws_json1_1DeletePipelineResponse = (output: any, context: __SerdeContext): DeletePipelineResponse => {
@@ -25024,6 +28795,7 @@ const deserializeAws_json1_1DescribeAppResponse = (output: any, context: __Serde
         : undefined,
     ResourceSpec:
       output.ResourceSpec != null ? deserializeAws_json1_1ResourceSpec(output.ResourceSpec, context) : undefined,
+    SpaceName: __expectString(output.SpaceName),
     Status: __expectString(output.Status),
     UserProfileName: __expectString(output.UserProfileName),
   } as any;
@@ -25308,6 +29080,10 @@ const deserializeAws_json1_1DescribeDomainResponse = (output: any, context: __Se
       output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
+    DefaultSpaceSettings:
+      output.DefaultSpaceSettings != null
+        ? deserializeAws_json1_1DefaultSpaceSettings(output.DefaultSpaceSettings, context)
+        : undefined,
     DefaultUserSettings:
       output.DefaultUserSettings != null
         ? deserializeAws_json1_1UserSettings(output.DefaultUserSettings, context)
@@ -25415,10 +29191,18 @@ const deserializeAws_json1_1DescribeEndpointConfigOutput = (
         : undefined,
     EndpointConfigArn: __expectString(output.EndpointConfigArn),
     EndpointConfigName: __expectString(output.EndpointConfigName),
+    ExplainerConfig:
+      output.ExplainerConfig != null
+        ? deserializeAws_json1_1ExplainerConfig(output.ExplainerConfig, context)
+        : undefined,
     KmsKeyId: __expectString(output.KmsKeyId),
     ProductionVariants:
       output.ProductionVariants != null
         ? deserializeAws_json1_1ProductionVariantList(output.ProductionVariants, context)
+        : undefined,
+    ShadowProductionVariants:
+      output.ShadowProductionVariants != null
+        ? deserializeAws_json1_1ProductionVariantList(output.ShadowProductionVariants, context)
         : undefined,
   } as any;
 };
@@ -25441,6 +29225,10 @@ const deserializeAws_json1_1DescribeEndpointOutput = (output: any, context: __Se
     EndpointConfigName: __expectString(output.EndpointConfigName),
     EndpointName: __expectString(output.EndpointName),
     EndpointStatus: __expectString(output.EndpointStatus),
+    ExplainerConfig:
+      output.ExplainerConfig != null
+        ? deserializeAws_json1_1ExplainerConfig(output.ExplainerConfig, context)
+        : undefined,
     FailureReason: __expectString(output.FailureReason),
     LastDeploymentConfig:
       output.LastDeploymentConfig != null
@@ -25457,6 +29245,10 @@ const deserializeAws_json1_1DescribeEndpointOutput = (output: any, context: __Se
     ProductionVariants:
       output.ProductionVariants != null
         ? deserializeAws_json1_1ProductionVariantSummaryList(output.ProductionVariants, context)
+        : undefined,
+    ShadowProductionVariants:
+      output.ShadowProductionVariants != null
+        ? deserializeAws_json1_1ProductionVariantSummaryList(output.ShadowProductionVariants, context)
         : undefined,
   } as any;
 };
@@ -25587,6 +29379,66 @@ const deserializeAws_json1_1DescribeFlowDefinitionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeHubContentResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeHubContentResponse => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DocumentSchemaVersion: __expectString(output.DocumentSchemaVersion),
+    FailureReason: __expectString(output.FailureReason),
+    HubArn: __expectString(output.HubArn),
+    HubContentArn: __expectString(output.HubContentArn),
+    HubContentDependencies:
+      output.HubContentDependencies != null
+        ? deserializeAws_json1_1HubContentDependencyList(output.HubContentDependencies, context)
+        : undefined,
+    HubContentDescription: __expectString(output.HubContentDescription),
+    HubContentDisplayName: __expectString(output.HubContentDisplayName),
+    HubContentDocument: __expectString(output.HubContentDocument),
+    HubContentMarkdown: __expectString(output.HubContentMarkdown),
+    HubContentName: __expectString(output.HubContentName),
+    HubContentSearchKeywords:
+      output.HubContentSearchKeywords != null
+        ? deserializeAws_json1_1HubContentSearchKeywordList(output.HubContentSearchKeywords, context)
+        : undefined,
+    HubContentStatus: __expectString(output.HubContentStatus),
+    HubContentType: __expectString(output.HubContentType),
+    HubContentVersion: __expectString(output.HubContentVersion),
+    HubName: __expectString(output.HubName),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeHubResponse = (output: any, context: __SerdeContext): DescribeHubResponse => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    HubArn: __expectString(output.HubArn),
+    HubDescription: __expectString(output.HubDescription),
+    HubDisplayName: __expectString(output.HubDisplayName),
+    HubName: __expectString(output.HubName),
+    HubSearchKeywords:
+      output.HubSearchKeywords != null
+        ? deserializeAws_json1_1HubSearchKeywordList(output.HubSearchKeywords, context)
+        : undefined,
+    HubStatus: __expectString(output.HubStatus),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    S3StorageConfig:
+      output.S3StorageConfig != null
+        ? deserializeAws_json1_1HubS3StorageConfig(output.S3StorageConfig, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeHumanTaskUiResponse = (
   output: any,
   context: __SerdeContext
@@ -25612,6 +29464,10 @@ const deserializeAws_json1_1DescribeHyperParameterTuningJobResponse = (
     BestTrainingJob:
       output.BestTrainingJob != null
         ? deserializeAws_json1_1HyperParameterTrainingJobSummary(output.BestTrainingJob, context)
+        : undefined,
+    ConsumedResources:
+      output.ConsumedResources != null
+        ? deserializeAws_json1_1HyperParameterTuningJobConsumedResources(output.ConsumedResources, context)
         : undefined,
     CreationTime:
       output.CreationTime != null
@@ -25653,6 +29509,10 @@ const deserializeAws_json1_1DescribeHyperParameterTuningJobResponse = (
       output.TrainingJobStatusCounters != null
         ? deserializeAws_json1_1TrainingJobStatusCounters(output.TrainingJobStatusCounters, context)
         : undefined,
+    TuningJobCompletionDetails:
+      output.TuningJobCompletionDetails != null
+        ? deserializeAws_json1_1HyperParameterTuningJobCompletionDetails(output.TuningJobCompletionDetails, context)
+        : undefined,
     WarmStartConfig:
       output.WarmStartConfig != null
         ? deserializeAws_json1_1HyperParameterTuningJobWarmStartConfig(output.WarmStartConfig, context)
@@ -25692,14 +29552,67 @@ const deserializeAws_json1_1DescribeImageVersionResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
+    Horovod: __expectBoolean(output.Horovod),
     ImageArn: __expectString(output.ImageArn),
     ImageVersionArn: __expectString(output.ImageVersionArn),
     ImageVersionStatus: __expectString(output.ImageVersionStatus),
+    JobType: __expectString(output.JobType),
     LastModifiedTime:
       output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    MLFramework: __expectString(output.MLFramework),
+    Processor: __expectString(output.Processor),
+    ProgrammingLang: __expectString(output.ProgrammingLang),
+    ReleaseNotes: __expectString(output.ReleaseNotes),
+    VendorGuidance: __expectString(output.VendorGuidance),
     Version: __expectInt32(output.Version),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeInferenceExperimentResponse => {
+  return {
+    Arn: __expectString(output.Arn),
+    CompletionTime:
+      output.CompletionTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
+        : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataStorageConfig:
+      output.DataStorageConfig != null
+        ? deserializeAws_json1_1InferenceExperimentDataStorageConfig(output.DataStorageConfig, context)
+        : undefined,
+    Description: __expectString(output.Description),
+    EndpointMetadata:
+      output.EndpointMetadata != null
+        ? deserializeAws_json1_1EndpointMetadata(output.EndpointMetadata, context)
+        : undefined,
+    KmsKey: __expectString(output.KmsKey),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelVariants:
+      output.ModelVariants != null
+        ? deserializeAws_json1_1ModelVariantConfigSummaryList(output.ModelVariants, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    RoleArn: __expectString(output.RoleArn),
+    Schedule:
+      output.Schedule != null ? deserializeAws_json1_1InferenceExperimentSchedule(output.Schedule, context) : undefined,
+    ShadowModeConfig:
+      output.ShadowModeConfig != null
+        ? deserializeAws_json1_1ShadowModeConfig(output.ShadowModeConfig, context)
+        : undefined,
+    Status: __expectString(output.Status),
+    StatusReason: __expectString(output.StatusReason),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -25715,6 +29628,10 @@ const deserializeAws_json1_1DescribeInferenceRecommendationsJobResponse = (
     CreationTime:
       output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    EndpointPerformances:
+      output.EndpointPerformances != null
+        ? deserializeAws_json1_1EndpointPerformances(output.EndpointPerformances, context)
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     InferenceRecommendations:
@@ -25853,6 +29770,63 @@ const deserializeAws_json1_1DescribeModelBiasJobDefinitionResponse = (
     StoppingCondition:
       output.StoppingCondition != null
         ? deserializeAws_json1_1MonitoringStoppingCondition(output.StoppingCondition, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeModelCardExportJobResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeModelCardExportJobResponse => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    ExportArtifacts:
+      output.ExportArtifacts != null
+        ? deserializeAws_json1_1ModelCardExportArtifacts(output.ExportArtifacts, context)
+        : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    LastModifiedAt:
+      output.LastModifiedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedAt)))
+        : undefined,
+    ModelCardExportJobArn: __expectString(output.ModelCardExportJobArn),
+    ModelCardExportJobName: __expectString(output.ModelCardExportJobName),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+    OutputConfig:
+      output.OutputConfig != null
+        ? deserializeAws_json1_1ModelCardExportOutputConfig(output.OutputConfig, context)
+        : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeModelCardResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeModelCardResponse => {
+  return {
+    Content: __expectString(output.Content),
+    CreatedBy: output.CreatedBy != null ? deserializeAws_json1_1UserContext(output.CreatedBy, context) : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy != null ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context) : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelCardArn: __expectString(output.ModelCardArn),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardProcessingStatus: __expectString(output.ModelCardProcessingStatus),
+    ModelCardStatus: __expectString(output.ModelCardStatus),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+    SecurityConfig:
+      output.SecurityConfig != null
+        ? deserializeAws_json1_1ModelCardSecurityConfig(output.SecurityConfig, context)
         : undefined,
   } as any;
 };
@@ -26327,6 +30301,27 @@ const deserializeAws_json1_1DescribeProjectOutput = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1DescribeSpaceResponse = (output: any, context: __SerdeContext): DescribeSpaceResponse => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DomainId: __expectString(output.DomainId),
+    FailureReason: __expectString(output.FailureReason),
+    HomeEfsFileSystemUid: __expectString(output.HomeEfsFileSystemUid),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    SpaceArn: __expectString(output.SpaceArn),
+    SpaceName: __expectString(output.SpaceName),
+    SpaceSettings:
+      output.SpaceSettings != null ? deserializeAws_json1_1SpaceSettings(output.SpaceSettings, context) : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeStudioLifecycleConfigResponse = (
   output: any,
   context: __SerdeContext
@@ -26468,6 +30463,8 @@ const deserializeAws_json1_1DescribeTrainingJobResponse = (
     TrainingTimeInSeconds: __expectInt32(output.TrainingTimeInSeconds),
     TuningJobArn: __expectString(output.TuningJobArn),
     VpcConfig: output.VpcConfig != null ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context) : undefined,
+    WarmPoolStatus:
+      output.WarmPoolStatus != null ? deserializeAws_json1_1WarmPoolStatus(output.WarmPoolStatus, context) : undefined,
   } as any;
 };
 
@@ -26481,6 +30478,10 @@ const deserializeAws_json1_1DescribeTransformJobResponse = (
     CreationTime:
       output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataCaptureConfig:
+      output.DataCaptureConfig != null
+        ? deserializeAws_json1_1BatchDataCaptureConfig(output.DataCaptureConfig, context)
         : undefined,
     DataProcessing:
       output.DataProcessing != null ? deserializeAws_json1_1DataProcessing(output.DataProcessing, context) : undefined,
@@ -26564,6 +30565,7 @@ const deserializeAws_json1_1DescribeTrialComponentResponse = (
         ? deserializeAws_json1_1TrialComponentParameters(output.Parameters, context)
         : undefined,
     Source: output.Source != null ? deserializeAws_json1_1TrialComponentSource(output.Source, context) : undefined,
+    Sources: output.Sources != null ? deserializeAws_json1_1TrialComponentSources(output.Sources, context) : undefined,
     StartTime:
       output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
     Status: output.Status != null ? deserializeAws_json1_1TrialComponentStatus(output.Status, context) : undefined,
@@ -26827,6 +30829,7 @@ const deserializeAws_json1_1DomainSecurityGroupIds = (output: any, context: __Se
 
 const deserializeAws_json1_1DomainSettings = (output: any, context: __SerdeContext): DomainSettings => {
   return {
+    ExecutionRoleIdentityConfig: __expectString(output.ExecutionRoleIdentityConfig),
     RStudioServerProDomainSettings:
       output.RStudioServerProDomainSettings != null
         ? deserializeAws_json1_1RStudioServerProDomainSettings(output.RStudioServerProDomainSettings, context)
@@ -27172,6 +31175,10 @@ const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): E
       output.ProductionVariants != null
         ? deserializeAws_json1_1ProductionVariantSummaryList(output.ProductionVariants, context)
         : undefined,
+    ShadowProductionVariants:
+      output.ShadowProductionVariants != null
+        ? deserializeAws_json1_1ProductionVariantSummaryList(output.ShadowProductionVariants, context)
+        : undefined,
     Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
@@ -27200,6 +31207,12 @@ const deserializeAws_json1_1EndpointConfigSummaryList = (
       return deserializeAws_json1_1EndpointConfigSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1EndpointInfo = (output: any, context: __SerdeContext): EndpointInfo => {
+  return {
+    EndpointName: __expectString(output.EndpointName),
+  } as any;
 };
 
 const deserializeAws_json1_1EndpointInput = (output: any, context: __SerdeContext): EndpointInput => {
@@ -27246,6 +31259,15 @@ const deserializeAws_json1_1EndpointInputConfigurations = (
   return retVal;
 };
 
+const deserializeAws_json1_1EndpointMetadata = (output: any, context: __SerdeContext): EndpointMetadata => {
+  return {
+    EndpointConfigName: __expectString(output.EndpointConfigName),
+    EndpointName: __expectString(output.EndpointName),
+    EndpointStatus: __expectString(output.EndpointStatus),
+    FailureReason: __expectString(output.FailureReason),
+  } as any;
+};
+
 const deserializeAws_json1_1EndpointOutputConfiguration = (
   output: any,
   context: __SerdeContext
@@ -27256,6 +31278,38 @@ const deserializeAws_json1_1EndpointOutputConfiguration = (
     InstanceType: __expectString(output.InstanceType),
     VariantName: __expectString(output.VariantName),
   } as any;
+};
+
+const deserializeAws_json1_1EndpointPerformance = (output: any, context: __SerdeContext): EndpointPerformance => {
+  return {
+    EndpointInfo:
+      output.EndpointInfo != null ? deserializeAws_json1_1EndpointInfo(output.EndpointInfo, context) : undefined,
+    Metrics: output.Metrics != null ? deserializeAws_json1_1InferenceMetrics(output.Metrics, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EndpointPerformances = (output: any, context: __SerdeContext): EndpointPerformance[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EndpointPerformance(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1Endpoints = (output: any, context: __SerdeContext): EndpointInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EndpointInfo(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1EndpointSummary = (output: any, context: __SerdeContext): EndpointSummary => {
@@ -27291,10 +31345,8 @@ const deserializeAws_json1_1EnvironmentMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -27355,6 +31407,7 @@ const deserializeAws_json1_1Experiment = (output: any, context: __SerdeContext):
 const deserializeAws_json1_1ExperimentConfig = (output: any, context: __SerdeContext): ExperimentConfig => {
   return {
     ExperimentName: __expectString(output.ExperimentName),
+    RunName: __expectString(output.RunName),
     TrialComponentDisplayName: __expectString(output.TrialComponentDisplayName),
     TrialName: __expectString(output.TrialName),
   } as any;
@@ -27402,6 +31455,15 @@ const deserializeAws_json1_1ExperimentSummary = (output: any, context: __SerdeCo
 const deserializeAws_json1_1Explainability = (output: any, context: __SerdeContext): Explainability => {
   return {
     Report: output.Report != null ? deserializeAws_json1_1MetricsSource(output.Report, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ExplainerConfig = (output: any, context: __SerdeContext): ExplainerConfig => {
+  return {
+    ClarifyExplainerConfig:
+      output.ClarifyExplainerConfig != null
+        ? deserializeAws_json1_1ClarifyExplainerConfig(output.ClarifyExplainerConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -27570,6 +31632,7 @@ const deserializeAws_json1_1FinalAutoMLJobObjectiveMetric = (
 ): FinalAutoMLJobObjectiveMetric => {
   return {
     MetricName: __expectString(output.MetricName),
+    StandardMetricName: __expectString(output.StandardMetricName),
     Type: __expectString(output.Type),
     Value: __limitedParseFloat32(output.Value),
   } as any;
@@ -27736,11 +31799,128 @@ const deserializeAws_json1_1HookParameters = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
+};
+
+const deserializeAws_json1_1HubContentDependency = (output: any, context: __SerdeContext): HubContentDependency => {
+  return {
+    DependencyCopyPath: __expectString(output.DependencyCopyPath),
+    DependencyOriginPath: __expectString(output.DependencyOriginPath),
+  } as any;
+};
+
+const deserializeAws_json1_1HubContentDependencyList = (
+  output: any,
+  context: __SerdeContext
+): HubContentDependency[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HubContentDependency(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1HubContentInfo = (output: any, context: __SerdeContext): HubContentInfo => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DocumentSchemaVersion: __expectString(output.DocumentSchemaVersion),
+    HubContentArn: __expectString(output.HubContentArn),
+    HubContentDescription: __expectString(output.HubContentDescription),
+    HubContentDisplayName: __expectString(output.HubContentDisplayName),
+    HubContentName: __expectString(output.HubContentName),
+    HubContentSearchKeywords:
+      output.HubContentSearchKeywords != null
+        ? deserializeAws_json1_1HubContentSearchKeywordList(output.HubContentSearchKeywords, context)
+        : undefined,
+    HubContentStatus: __expectString(output.HubContentStatus),
+    HubContentType: __expectString(output.HubContentType),
+    HubContentVersion: __expectString(output.HubContentVersion),
+  } as any;
+};
+
+const deserializeAws_json1_1HubContentInfoList = (output: any, context: __SerdeContext): HubContentInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HubContentInfo(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1HubContentSearchKeywordList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1HubInfo = (output: any, context: __SerdeContext): HubInfo => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    HubArn: __expectString(output.HubArn),
+    HubDescription: __expectString(output.HubDescription),
+    HubDisplayName: __expectString(output.HubDisplayName),
+    HubName: __expectString(output.HubName),
+    HubSearchKeywords:
+      output.HubSearchKeywords != null
+        ? deserializeAws_json1_1HubSearchKeywordList(output.HubSearchKeywords, context)
+        : undefined,
+    HubStatus: __expectString(output.HubStatus),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1HubInfoList = (output: any, context: __SerdeContext): HubInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HubInfo(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1HubS3StorageConfig = (output: any, context: __SerdeContext): HubS3StorageConfig => {
+  return {
+    S3OutputPath: __expectString(output.S3OutputPath),
+  } as any;
+};
+
+const deserializeAws_json1_1HubSearchKeywordList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1HumanLoopActivationConditionsConfig = (
@@ -27840,6 +32020,16 @@ const deserializeAws_json1_1HumanTaskUiSummary = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1HyperbandStrategyConfig = (
+  output: any,
+  context: __SerdeContext
+): HyperbandStrategyConfig => {
+  return {
+    MaxResource: __expectInt32(output.MaxResource),
+    MinResource: __expectInt32(output.MinResource),
+  } as any;
+};
+
 const deserializeAws_json1_1HyperParameterAlgorithmSpecification = (
   output: any,
   context: __SerdeContext
@@ -27860,10 +32050,8 @@ const deserializeAws_json1_1HyperParameters = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -27914,9 +32102,17 @@ const deserializeAws_json1_1HyperParameterTrainingJobDefinition = (
     EnableInterContainerTrafficEncryption: __expectBoolean(output.EnableInterContainerTrafficEncryption),
     EnableManagedSpotTraining: __expectBoolean(output.EnableManagedSpotTraining),
     EnableNetworkIsolation: __expectBoolean(output.EnableNetworkIsolation),
+    Environment:
+      output.Environment != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobEnvironmentMap(output.Environment, context)
+        : undefined,
     HyperParameterRanges:
       output.HyperParameterRanges != null
         ? deserializeAws_json1_1ParameterRanges(output.HyperParameterRanges, context)
+        : undefined,
+    HyperParameterTuningResourceConfig:
+      output.HyperParameterTuningResourceConfig != null
+        ? deserializeAws_json1_1HyperParameterTuningResourceConfig(output.HyperParameterTuningResourceConfig, context)
         : undefined,
     InputDataConfig:
       output.InputDataConfig != null
@@ -27960,6 +32156,19 @@ const deserializeAws_json1_1HyperParameterTrainingJobDefinitions = (
       return deserializeAws_json1_1HyperParameterTrainingJobDefinition(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1HyperParameterTrainingJobEnvironmentMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1HyperParameterTrainingJobSummaries = (
@@ -28015,6 +32224,45 @@ const deserializeAws_json1_1HyperParameterTrainingJobSummary = (
   } as any;
 };
 
+const deserializeAws_json1_1HyperParameterTuningInstanceConfig = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningInstanceConfig => {
+  return {
+    InstanceCount: __expectInt32(output.InstanceCount),
+    InstanceType: __expectString(output.InstanceType),
+    VolumeSizeInGB: __expectInt32(output.VolumeSizeInGB),
+  } as any;
+};
+
+const deserializeAws_json1_1HyperParameterTuningInstanceConfigs = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningInstanceConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HyperParameterTuningInstanceConfig(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1HyperParameterTuningJobCompletionDetails = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningJobCompletionDetails => {
+  return {
+    ConvergenceDetectedTime:
+      output.ConvergenceDetectedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConvergenceDetectedTime)))
+        : undefined,
+    NumberOfTrainingJobsObjectiveNotImproving: __expectInt32(output.NumberOfTrainingJobsObjectiveNotImproving),
+  } as any;
+};
+
 const deserializeAws_json1_1HyperParameterTuningJobConfig = (
   output: any,
   context: __SerdeContext
@@ -28028,14 +32276,28 @@ const deserializeAws_json1_1HyperParameterTuningJobConfig = (
       output.ParameterRanges != null
         ? deserializeAws_json1_1ParameterRanges(output.ParameterRanges, context)
         : undefined,
+    RandomSeed: __expectInt32(output.RandomSeed),
     ResourceLimits:
       output.ResourceLimits != null ? deserializeAws_json1_1ResourceLimits(output.ResourceLimits, context) : undefined,
     Strategy: __expectString(output.Strategy),
+    StrategyConfig:
+      output.StrategyConfig != null
+        ? deserializeAws_json1_1HyperParameterTuningJobStrategyConfig(output.StrategyConfig, context)
+        : undefined,
     TrainingJobEarlyStoppingType: __expectString(output.TrainingJobEarlyStoppingType),
     TuningJobCompletionCriteria:
       output.TuningJobCompletionCriteria != null
         ? deserializeAws_json1_1TuningJobCompletionCriteria(output.TuningJobCompletionCriteria, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1HyperParameterTuningJobConsumedResources = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningJobConsumedResources => {
+  return {
+    RuntimeInSeconds: __expectInt32(output.RuntimeInSeconds),
   } as any;
 };
 
@@ -28062,6 +32324,83 @@ const deserializeAws_json1_1HyperParameterTuningJobObjectives = (
       return deserializeAws_json1_1HyperParameterTuningJobObjective(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1HyperParameterTuningJobSearchEntity = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningJobSearchEntity => {
+  return {
+    BestTrainingJob:
+      output.BestTrainingJob != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobSummary(output.BestTrainingJob, context)
+        : undefined,
+    ConsumedResources:
+      output.ConsumedResources != null
+        ? deserializeAws_json1_1HyperParameterTuningJobConsumedResources(output.ConsumedResources, context)
+        : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    HyperParameterTuningEndTime:
+      output.HyperParameterTuningEndTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.HyperParameterTuningEndTime)))
+        : undefined,
+    HyperParameterTuningJobArn: __expectString(output.HyperParameterTuningJobArn),
+    HyperParameterTuningJobConfig:
+      output.HyperParameterTuningJobConfig != null
+        ? deserializeAws_json1_1HyperParameterTuningJobConfig(output.HyperParameterTuningJobConfig, context)
+        : undefined,
+    HyperParameterTuningJobName: __expectString(output.HyperParameterTuningJobName),
+    HyperParameterTuningJobStatus: __expectString(output.HyperParameterTuningJobStatus),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ObjectiveStatusCounters:
+      output.ObjectiveStatusCounters != null
+        ? deserializeAws_json1_1ObjectiveStatusCounters(output.ObjectiveStatusCounters, context)
+        : undefined,
+    OverallBestTrainingJob:
+      output.OverallBestTrainingJob != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobSummary(output.OverallBestTrainingJob, context)
+        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    TrainingJobDefinition:
+      output.TrainingJobDefinition != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobDefinition(output.TrainingJobDefinition, context)
+        : undefined,
+    TrainingJobDefinitions:
+      output.TrainingJobDefinitions != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobDefinitions(output.TrainingJobDefinitions, context)
+        : undefined,
+    TrainingJobStatusCounters:
+      output.TrainingJobStatusCounters != null
+        ? deserializeAws_json1_1TrainingJobStatusCounters(output.TrainingJobStatusCounters, context)
+        : undefined,
+    TuningJobCompletionDetails:
+      output.TuningJobCompletionDetails != null
+        ? deserializeAws_json1_1HyperParameterTuningJobCompletionDetails(output.TuningJobCompletionDetails, context)
+        : undefined,
+    WarmStartConfig:
+      output.WarmStartConfig != null
+        ? deserializeAws_json1_1HyperParameterTuningJobWarmStartConfig(output.WarmStartConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1HyperParameterTuningJobStrategyConfig = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningJobStrategyConfig => {
+  return {
+    HyperbandStrategyConfig:
+      output.HyperbandStrategyConfig != null
+        ? deserializeAws_json1_1HyperbandStrategyConfig(output.HyperbandStrategyConfig, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1HyperParameterTuningJobSummaries = (
@@ -28123,6 +32462,23 @@ const deserializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
         ? deserializeAws_json1_1ParentHyperParameterTuningJobs(output.ParentHyperParameterTuningJobs, context)
         : undefined,
     WarmStartType: __expectString(output.WarmStartType),
+  } as any;
+};
+
+const deserializeAws_json1_1HyperParameterTuningResourceConfig = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningResourceConfig => {
+  return {
+    AllocationStrategy: __expectString(output.AllocationStrategy),
+    InstanceConfigs:
+      output.InstanceConfigs != null
+        ? deserializeAws_json1_1HyperParameterTuningInstanceConfigs(output.InstanceConfigs, context)
+        : undefined,
+    InstanceCount: __expectInt32(output.InstanceCount),
+    InstanceType: __expectString(output.InstanceType),
+    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
+    VolumeSizeInGB: __expectInt32(output.VolumeSizeInGB),
   } as any;
 };
 
@@ -28197,12 +32553,98 @@ const deserializeAws_json1_1ImageVersions = (output: any, context: __SerdeContex
   return retVal;
 };
 
+const deserializeAws_json1_1ImportHubContentResponse = (
+  output: any,
+  context: __SerdeContext
+): ImportHubContentResponse => {
+  return {
+    HubArn: __expectString(output.HubArn),
+    HubContentArn: __expectString(output.HubContentArn),
+  } as any;
+};
+
 const deserializeAws_json1_1InferenceExecutionConfig = (
   output: any,
   context: __SerdeContext
 ): InferenceExecutionConfig => {
   return {
     Mode: __expectString(output.Mode),
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceExperimentDataStorageConfig = (
+  output: any,
+  context: __SerdeContext
+): InferenceExperimentDataStorageConfig => {
+  return {
+    ContentType:
+      output.ContentType != null
+        ? deserializeAws_json1_1CaptureContentTypeHeader(output.ContentType, context)
+        : undefined,
+    Destination: __expectString(output.Destination),
+    KmsKey: __expectString(output.KmsKey),
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceExperimentList = (
+  output: any,
+  context: __SerdeContext
+): InferenceExperimentSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InferenceExperimentSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1InferenceExperimentSchedule = (
+  output: any,
+  context: __SerdeContext
+): InferenceExperimentSchedule => {
+  return {
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceExperimentSummary = (
+  output: any,
+  context: __SerdeContext
+): InferenceExperimentSummary => {
+  return {
+    CompletionTime:
+      output.CompletionTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
+        : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    Description: __expectString(output.Description),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    RoleArn: __expectString(output.RoleArn),
+    Schedule:
+      output.Schedule != null ? deserializeAws_json1_1InferenceExperimentSchedule(output.Schedule, context) : undefined,
+    Status: __expectString(output.Status),
+    StatusReason: __expectString(output.StatusReason),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceMetrics = (output: any, context: __SerdeContext): InferenceMetrics => {
+  return {
+    MaxInvocations: __expectInt32(output.MaxInvocations),
+    ModelLatency: __expectInt32(output.ModelLatency),
   } as any;
 };
 
@@ -28220,6 +32662,7 @@ const deserializeAws_json1_1InferenceRecommendation = (
       output.ModelConfiguration != null
         ? deserializeAws_json1_1ModelConfiguration(output.ModelConfiguration, context)
         : undefined,
+    RecommendationId: __expectString(output.RecommendationId),
   } as any;
 };
 
@@ -28276,6 +32719,36 @@ const deserializeAws_json1_1InferenceRecommendationsJobs = (
         return null as any;
       }
       return deserializeAws_json1_1InferenceRecommendationsJob(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1InferenceRecommendationsJobStep = (
+  output: any,
+  context: __SerdeContext
+): InferenceRecommendationsJobStep => {
+  return {
+    InferenceBenchmark:
+      output.InferenceBenchmark != null
+        ? deserializeAws_json1_1RecommendationJobInferenceBenchmark(output.InferenceBenchmark, context)
+        : undefined,
+    JobName: __expectString(output.JobName),
+    Status: __expectString(output.Status),
+    StepType: __expectString(output.StepType),
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceRecommendationsJobSteps = (
+  output: any,
+  context: __SerdeContext
+): InferenceRecommendationsJobStep[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InferenceRecommendationsJobStep(entry, context);
     });
   return retVal;
 };
@@ -28430,6 +32903,10 @@ const deserializeAws_json1_1JupyterServerAppSettings = (
   context: __SerdeContext
 ): JupyterServerAppSettings => {
   return {
+    CodeRepositories:
+      output.CodeRepositories != null
+        ? deserializeAws_json1_1CodeRepositories(output.CodeRepositories, context)
+        : undefined,
     DefaultResourceSpec:
       output.DefaultResourceSpec != null
         ? deserializeAws_json1_1ResourceSpec(output.DefaultResourceSpec, context)
@@ -28733,10 +33210,8 @@ const deserializeAws_json1_1LineageEntityParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -28785,6 +33260,16 @@ const deserializeAws_json1_1ListAlgorithmsOutput = (output: any, context: __Serd
         ? deserializeAws_json1_1AlgorithmSummaryList(output.AlgorithmSummaryList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListAliasesResponse = (output: any, context: __SerdeContext): ListAliasesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    SageMakerImageVersionAliases:
+      output.SageMakerImageVersionAliases != null
+        ? deserializeAws_json1_1SageMakerImageVersionAliases(output.SageMakerImageVersionAliases, context)
+        : undefined,
   } as any;
 };
 
@@ -29017,6 +33502,40 @@ const deserializeAws_json1_1ListFlowDefinitionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListHubContentsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListHubContentsResponse => {
+  return {
+    HubContentSummaries:
+      output.HubContentSummaries != null
+        ? deserializeAws_json1_1HubContentInfoList(output.HubContentSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListHubContentVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListHubContentVersionsResponse => {
+  return {
+    HubContentSummaries:
+      output.HubContentSummaries != null
+        ? deserializeAws_json1_1HubContentInfoList(output.HubContentSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListHubsResponse = (output: any, context: __SerdeContext): ListHubsResponse => {
+  return {
+    HubSummaries:
+      output.HubSummaries != null ? deserializeAws_json1_1HubInfoList(output.HubSummaries, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListHumanTaskUisResponse = (
   output: any,
   context: __SerdeContext
@@ -29061,6 +33580,19 @@ const deserializeAws_json1_1ListImageVersionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListInferenceExperimentsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListInferenceExperimentsResponse => {
+  return {
+    InferenceExperiments:
+      output.InferenceExperiments != null
+        ? deserializeAws_json1_1InferenceExperimentList(output.InferenceExperiments, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListInferenceRecommendationsJobsResponse = (
   output: any,
   context: __SerdeContext
@@ -29071,6 +33603,17 @@ const deserializeAws_json1_1ListInferenceRecommendationsJobsResponse = (
         ? deserializeAws_json1_1InferenceRecommendationsJobs(output.InferenceRecommendationsJobs, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListInferenceRecommendationsJobStepsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListInferenceRecommendationsJobStepsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Steps:
+      output.Steps != null ? deserializeAws_json1_1InferenceRecommendationsJobSteps(output.Steps, context) : undefined,
   } as any;
 };
 
@@ -29121,6 +33664,42 @@ const deserializeAws_json1_1ListModelBiasJobDefinitionsResponse = (
     JobDefinitionSummaries:
       output.JobDefinitionSummaries != null
         ? deserializeAws_json1_1MonitoringJobDefinitionSummaryList(output.JobDefinitionSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListModelCardExportJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListModelCardExportJobsResponse => {
+  return {
+    ModelCardExportJobSummaries:
+      output.ModelCardExportJobSummaries != null
+        ? deserializeAws_json1_1ModelCardExportJobSummaryList(output.ModelCardExportJobSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListModelCardsResponse = (output: any, context: __SerdeContext): ListModelCardsResponse => {
+  return {
+    ModelCardSummaries:
+      output.ModelCardSummaries != null
+        ? deserializeAws_json1_1ModelCardSummaryList(output.ModelCardSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListModelCardVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListModelCardVersionsResponse => {
+  return {
+    ModelCardVersionSummaryList:
+      output.ModelCardVersionSummaryList != null
+        ? deserializeAws_json1_1ModelCardVersionSummaryList(output.ModelCardVersionSummaryList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
@@ -29194,6 +33773,32 @@ const deserializeAws_json1_1ListModelQualityJobDefinitionsResponse = (
 const deserializeAws_json1_1ListModelsOutput = (output: any, context: __SerdeContext): ListModelsOutput => {
   return {
     Models: output.Models != null ? deserializeAws_json1_1ModelSummaryList(output.Models, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListMonitoringAlertHistoryResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMonitoringAlertHistoryResponse => {
+  return {
+    MonitoringAlertHistory:
+      output.MonitoringAlertHistory != null
+        ? deserializeAws_json1_1MonitoringAlertHistoryList(output.MonitoringAlertHistory, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListMonitoringAlertsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMonitoringAlertsResponse => {
+  return {
+    MonitoringAlertSummaries:
+      output.MonitoringAlertSummaries != null
+        ? deserializeAws_json1_1MonitoringAlertSummaryList(output.MonitoringAlertSummaries, context)
+        : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -29322,6 +33927,13 @@ const deserializeAws_json1_1ListProjectsOutput = (output: any, context: __SerdeC
       output.ProjectSummaryList != null
         ? deserializeAws_json1_1ProjectSummaryList(output.ProjectSummaryList, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListSpacesResponse = (output: any, context: __SerdeContext): ListSpacesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Spaces: output.Spaces != null ? deserializeAws_json1_1SpaceList(output.Spaces, context) : undefined,
   } as any;
 };
 
@@ -29547,6 +34159,31 @@ const deserializeAws_json1_1MetricsSource = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_1Model = (output: any, context: __SerdeContext): Model => {
+  return {
+    Containers:
+      output.Containers != null ? deserializeAws_json1_1ContainerDefinitionList(output.Containers, context) : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    EnableNetworkIsolation: __expectBoolean(output.EnableNetworkIsolation),
+    ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
+    InferenceExecutionConfig:
+      output.InferenceExecutionConfig != null
+        ? deserializeAws_json1_1InferenceExecutionConfig(output.InferenceExecutionConfig, context)
+        : undefined,
+    ModelArn: __expectString(output.ModelArn),
+    ModelName: __expectString(output.ModelName),
+    PrimaryContainer:
+      output.PrimaryContainer != null
+        ? deserializeAws_json1_1ContainerDefinition(output.PrimaryContainer, context)
+        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    VpcConfig: output.VpcConfig != null ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ModelArtifacts = (output: any, context: __SerdeContext): ModelArtifacts => {
   return {
     S3ModelArtifacts: __expectString(output.S3ModelArtifacts),
@@ -29582,6 +34219,10 @@ const deserializeAws_json1_1ModelBiasBaselineConfig = (
 
 const deserializeAws_json1_1ModelBiasJobInput = (output: any, context: __SerdeContext): ModelBiasJobInput => {
   return {
+    BatchTransformInput:
+      output.BatchTransformInput != null
+        ? deserializeAws_json1_1BatchTransformInput(output.BatchTransformInput, context)
+        : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
     GroundTruthS3Input:
@@ -29589,6 +34230,158 @@ const deserializeAws_json1_1ModelBiasJobInput = (output: any, context: __SerdeCo
         ? deserializeAws_json1_1MonitoringGroundTruthS3Input(output.GroundTruthS3Input, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ModelCard = (output: any, context: __SerdeContext): ModelCard => {
+  return {
+    Content: __expectString(output.Content),
+    CreatedBy: output.CreatedBy != null ? deserializeAws_json1_1UserContext(output.CreatedBy, context) : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy != null ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context) : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelCardArn: __expectString(output.ModelCardArn),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardStatus: __expectString(output.ModelCardStatus),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+    ModelId: __expectString(output.ModelId),
+    RiskRating: __expectString(output.RiskRating),
+    SecurityConfig:
+      output.SecurityConfig != null
+        ? deserializeAws_json1_1ModelCardSecurityConfig(output.SecurityConfig, context)
+        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardExportArtifacts = (
+  output: any,
+  context: __SerdeContext
+): ModelCardExportArtifacts => {
+  return {
+    S3ExportArtifacts: __expectString(output.S3ExportArtifacts),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardExportJobSummary = (
+  output: any,
+  context: __SerdeContext
+): ModelCardExportJobSummary => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    LastModifiedAt:
+      output.LastModifiedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedAt)))
+        : undefined,
+    ModelCardExportJobArn: __expectString(output.ModelCardExportJobArn),
+    ModelCardExportJobName: __expectString(output.ModelCardExportJobName),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardExportJobSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ModelCardExportJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelCardExportJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ModelCardExportOutputConfig = (
+  output: any,
+  context: __SerdeContext
+): ModelCardExportOutputConfig => {
+  return {
+    S3OutputPath: __expectString(output.S3OutputPath),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardSecurityConfig = (
+  output: any,
+  context: __SerdeContext
+): ModelCardSecurityConfig => {
+  return {
+    KmsKeyId: __expectString(output.KmsKeyId),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardSummary = (output: any, context: __SerdeContext): ModelCardSummary => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelCardArn: __expectString(output.ModelCardArn),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardStatus: __expectString(output.ModelCardStatus),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardSummaryList = (output: any, context: __SerdeContext): ModelCardSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelCardSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ModelCardVersionSummary = (
+  output: any,
+  context: __SerdeContext
+): ModelCardVersionSummary => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelCardArn: __expectString(output.ModelCardArn),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardStatus: __expectString(output.ModelCardStatus),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelCardVersionSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ModelCardVersionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelCardVersionSummary(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ModelClientConfig = (output: any, context: __SerdeContext): ModelClientConfig => {
@@ -29600,12 +34393,150 @@ const deserializeAws_json1_1ModelClientConfig = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ModelConfiguration = (output: any, context: __SerdeContext): ModelConfiguration => {
   return {
+    CompilationJobName: __expectString(output.CompilationJobName),
     EnvironmentParameters:
       output.EnvironmentParameters != null
         ? deserializeAws_json1_1EnvironmentParameters(output.EnvironmentParameters, context)
         : undefined,
     InferenceSpecificationName: __expectString(output.InferenceSpecificationName),
   } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardEndpoint = (output: any, context: __SerdeContext): ModelDashboardEndpoint => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    EndpointArn: __expectString(output.EndpointArn),
+    EndpointName: __expectString(output.EndpointName),
+    EndpointStatus: __expectString(output.EndpointStatus),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardEndpoints = (
+  output: any,
+  context: __SerdeContext
+): ModelDashboardEndpoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelDashboardEndpoint(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ModelDashboardIndicatorAction = (
+  output: any,
+  context: __SerdeContext
+): ModelDashboardIndicatorAction => {
+  return {
+    Enabled: __expectBoolean(output.Enabled),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardModel = (output: any, context: __SerdeContext): ModelDashboardModel => {
+  return {
+    Endpoints:
+      output.Endpoints != null ? deserializeAws_json1_1ModelDashboardEndpoints(output.Endpoints, context) : undefined,
+    LastBatchTransformJob:
+      output.LastBatchTransformJob != null
+        ? deserializeAws_json1_1TransformJob(output.LastBatchTransformJob, context)
+        : undefined,
+    Model: output.Model != null ? deserializeAws_json1_1Model(output.Model, context) : undefined,
+    ModelCard:
+      output.ModelCard != null ? deserializeAws_json1_1ModelDashboardModelCard(output.ModelCard, context) : undefined,
+    MonitoringSchedules:
+      output.MonitoringSchedules != null
+        ? deserializeAws_json1_1ModelDashboardMonitoringSchedules(output.MonitoringSchedules, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardModelCard = (
+  output: any,
+  context: __SerdeContext
+): ModelDashboardModelCard => {
+  return {
+    CreatedBy: output.CreatedBy != null ? deserializeAws_json1_1UserContext(output.CreatedBy, context) : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy != null ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context) : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelCardArn: __expectString(output.ModelCardArn),
+    ModelCardName: __expectString(output.ModelCardName),
+    ModelCardStatus: __expectString(output.ModelCardStatus),
+    ModelCardVersion: __expectInt32(output.ModelCardVersion),
+    ModelId: __expectString(output.ModelId),
+    RiskRating: __expectString(output.RiskRating),
+    SecurityConfig:
+      output.SecurityConfig != null
+        ? deserializeAws_json1_1ModelCardSecurityConfig(output.SecurityConfig, context)
+        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardMonitoringSchedule = (
+  output: any,
+  context: __SerdeContext
+): ModelDashboardMonitoringSchedule => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    EndpointName: __expectString(output.EndpointName),
+    FailureReason: __expectString(output.FailureReason),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    LastMonitoringExecutionSummary:
+      output.LastMonitoringExecutionSummary != null
+        ? deserializeAws_json1_1MonitoringExecutionSummary(output.LastMonitoringExecutionSummary, context)
+        : undefined,
+    MonitoringAlertSummaries:
+      output.MonitoringAlertSummaries != null
+        ? deserializeAws_json1_1MonitoringAlertSummaryList(output.MonitoringAlertSummaries, context)
+        : undefined,
+    MonitoringScheduleArn: __expectString(output.MonitoringScheduleArn),
+    MonitoringScheduleConfig:
+      output.MonitoringScheduleConfig != null
+        ? deserializeAws_json1_1MonitoringScheduleConfig(output.MonitoringScheduleConfig, context)
+        : undefined,
+    MonitoringScheduleName: __expectString(output.MonitoringScheduleName),
+    MonitoringScheduleStatus: __expectString(output.MonitoringScheduleStatus),
+    MonitoringType: __expectString(output.MonitoringType),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDashboardMonitoringSchedules = (
+  output: any,
+  context: __SerdeContext
+): ModelDashboardMonitoringSchedule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelDashboardMonitoringSchedule(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ModelDataQuality = (output: any, context: __SerdeContext): ModelDataQuality => {
@@ -29667,8 +34598,25 @@ const deserializeAws_json1_1ModelExplainabilityJobInput = (
   context: __SerdeContext
 ): ModelExplainabilityJobInput => {
   return {
+    BatchTransformInput:
+      output.BatchTransformInput != null
+        ? deserializeAws_json1_1BatchTransformInput(output.BatchTransformInput, context)
+        : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelInfrastructureConfig = (
+  output: any,
+  context: __SerdeContext
+): ModelInfrastructureConfig => {
+  return {
+    InfrastructureType: __expectString(output.InfrastructureType),
+    RealTimeInferenceConfig:
+      output.RealTimeInferenceConfig != null
+        ? deserializeAws_json1_1RealTimeInferenceConfig(output.RealTimeInferenceConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -29927,10 +34875,8 @@ const deserializeAws_json1_1ModelPackageSummaries = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1BatchDescribeModelPackageSummary(value, context),
-      };
+      acc[key] = deserializeAws_json1_1BatchDescribeModelPackageSummary(value, context);
+      return acc;
     },
     {}
   );
@@ -30052,6 +34998,10 @@ const deserializeAws_json1_1ModelQualityBaselineConfig = (
 
 const deserializeAws_json1_1ModelQualityJobInput = (output: any, context: __SerdeContext): ModelQualityJobInput => {
   return {
+    BatchTransformInput:
+      output.BatchTransformInput != null
+        ? deserializeAws_json1_1BatchTransformInput(output.BatchTransformInput, context)
+        : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
     GroundTruthS3Input:
@@ -30086,6 +35036,108 @@ const deserializeAws_json1_1ModelSummaryList = (output: any, context: __SerdeCon
         return null as any;
       }
       return deserializeAws_json1_1ModelSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ModelVariantConfigSummary = (
+  output: any,
+  context: __SerdeContext
+): ModelVariantConfigSummary => {
+  return {
+    InfrastructureConfig:
+      output.InfrastructureConfig != null
+        ? deserializeAws_json1_1ModelInfrastructureConfig(output.InfrastructureConfig, context)
+        : undefined,
+    ModelName: __expectString(output.ModelName),
+    Status: __expectString(output.Status),
+    VariantName: __expectString(output.VariantName),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelVariantConfigSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ModelVariantConfigSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelVariantConfigSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1MonitoringAlertActions = (output: any, context: __SerdeContext): MonitoringAlertActions => {
+  return {
+    ModelDashboardIndicator:
+      output.ModelDashboardIndicator != null
+        ? deserializeAws_json1_1ModelDashboardIndicatorAction(output.ModelDashboardIndicator, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MonitoringAlertHistoryList = (
+  output: any,
+  context: __SerdeContext
+): MonitoringAlertHistorySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MonitoringAlertHistorySummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1MonitoringAlertHistorySummary = (
+  output: any,
+  context: __SerdeContext
+): MonitoringAlertHistorySummary => {
+  return {
+    AlertStatus: __expectString(output.AlertStatus),
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    MonitoringAlertName: __expectString(output.MonitoringAlertName),
+    MonitoringScheduleName: __expectString(output.MonitoringScheduleName),
+  } as any;
+};
+
+const deserializeAws_json1_1MonitoringAlertSummary = (output: any, context: __SerdeContext): MonitoringAlertSummary => {
+  return {
+    Actions: output.Actions != null ? deserializeAws_json1_1MonitoringAlertActions(output.Actions, context) : undefined,
+    AlertStatus: __expectString(output.AlertStatus),
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DatapointsToAlert: __expectInt32(output.DatapointsToAlert),
+    EvaluationPeriod: __expectInt32(output.EvaluationPeriod),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    MonitoringAlertName: __expectString(output.MonitoringAlertName),
+  } as any;
+};
+
+const deserializeAws_json1_1MonitoringAlertSummaryList = (
+  output: any,
+  context: __SerdeContext
+): MonitoringAlertSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MonitoringAlertSummary(entry, context);
     });
   return retVal;
 };
@@ -30159,6 +35211,29 @@ const deserializeAws_json1_1MonitoringContainerArguments = (output: any, context
   return retVal;
 };
 
+const deserializeAws_json1_1MonitoringCsvDatasetFormat = (
+  output: any,
+  context: __SerdeContext
+): MonitoringCsvDatasetFormat => {
+  return {
+    Header: __expectBoolean(output.Header),
+  } as any;
+};
+
+const deserializeAws_json1_1MonitoringDatasetFormat = (
+  output: any,
+  context: __SerdeContext
+): MonitoringDatasetFormat => {
+  return {
+    Csv: output.Csv != null ? deserializeAws_json1_1MonitoringCsvDatasetFormat(output.Csv, context) : undefined,
+    Json: output.Json != null ? deserializeAws_json1_1MonitoringJsonDatasetFormat(output.Json, context) : undefined,
+    Parquet:
+      output.Parquet != null
+        ? deserializeAws_json1_1MonitoringParquetDatasetFormat(output.Parquet, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1MonitoringEnvironmentMap = (
   output: any,
   context: __SerdeContext
@@ -30167,10 +35242,8 @@ const deserializeAws_json1_1MonitoringEnvironmentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -30227,6 +35300,10 @@ const deserializeAws_json1_1MonitoringGroundTruthS3Input = (
 
 const deserializeAws_json1_1MonitoringInput = (output: any, context: __SerdeContext): MonitoringInput => {
   return {
+    BatchTransformInput:
+      output.BatchTransformInput != null
+        ? deserializeAws_json1_1BatchTransformInput(output.BatchTransformInput, context)
+        : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
   } as any;
@@ -30313,6 +35390,15 @@ const deserializeAws_json1_1MonitoringJobDefinitionSummaryList = (
   return retVal;
 };
 
+const deserializeAws_json1_1MonitoringJsonDatasetFormat = (
+  output: any,
+  context: __SerdeContext
+): MonitoringJsonDatasetFormat => {
+  return {
+    Line: __expectBoolean(output.Line),
+  } as any;
+};
+
 const deserializeAws_json1_1MonitoringNetworkConfig = (
   output: any,
   context: __SerdeContext
@@ -30350,6 +35436,13 @@ const deserializeAws_json1_1MonitoringOutputs = (output: any, context: __SerdeCo
       return deserializeAws_json1_1MonitoringOutput(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1MonitoringParquetDatasetFormat = (
+  output: any,
+  context: __SerdeContext
+): MonitoringParquetDatasetFormat => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1MonitoringResources = (output: any, context: __SerdeContext): MonitoringResources => {
@@ -30673,6 +35766,7 @@ const deserializeAws_json1_1OfflineStoreConfig = (output: any, context: __SerdeC
       output.S3StorageConfig != null
         ? deserializeAws_json1_1S3StorageConfig(output.S3StorageConfig, context)
         : undefined,
+    TableFormat: __expectString(output.TableFormat),
   } as any;
 };
 
@@ -30890,6 +35984,10 @@ const deserializeAws_json1_1PendingDeploymentSummary = (
       output.ProductionVariants != null
         ? deserializeAws_json1_1PendingProductionVariantSummaryList(output.ProductionVariants, context)
         : undefined,
+    ShadowProductionVariants:
+      output.ShadowProductionVariants != null
+        ? deserializeAws_json1_1PendingProductionVariantSummaryList(output.ShadowProductionVariants, context)
+        : undefined,
     StartTime:
       output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
   } as any;
@@ -31065,6 +36163,8 @@ const deserializeAws_json1_1PipelineExecutionStepMetadata = (
   context: __SerdeContext
 ): PipelineExecutionStepMetadata => {
   return {
+    AutoMLJob:
+      output.AutoMLJob != null ? deserializeAws_json1_1AutoMLJobStepMetadata(output.AutoMLJob, context) : undefined,
     Callback:
       output.Callback != null ? deserializeAws_json1_1CallbackStepMetadata(output.Callback, context) : undefined,
     ClarifyCheck:
@@ -31196,10 +36296,8 @@ const deserializeAws_json1_1ProcessingEnvironmentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -31411,6 +36509,7 @@ const deserializeAws_json1_1ProcessingStoppingCondition = (
 const deserializeAws_json1_1ProductionVariant = (output: any, context: __SerdeContext): ProductionVariant => {
   return {
     AcceleratorType: __expectString(output.AcceleratorType),
+    ContainerStartupHealthCheckTimeoutInSeconds: __expectInt32(output.ContainerStartupHealthCheckTimeoutInSeconds),
     CoreDumpConfig:
       output.CoreDumpConfig != null
         ? deserializeAws_json1_1ProductionVariantCoreDumpConfig(output.CoreDumpConfig, context)
@@ -31418,12 +36517,14 @@ const deserializeAws_json1_1ProductionVariant = (output: any, context: __SerdeCo
     InitialInstanceCount: __expectInt32(output.InitialInstanceCount),
     InitialVariantWeight: __limitedParseFloat32(output.InitialVariantWeight),
     InstanceType: __expectString(output.InstanceType),
+    ModelDataDownloadTimeoutInSeconds: __expectInt32(output.ModelDataDownloadTimeoutInSeconds),
     ModelName: __expectString(output.ModelName),
     ServerlessConfig:
       output.ServerlessConfig != null
         ? deserializeAws_json1_1ProductionVariantServerlessConfig(output.ServerlessConfig, context)
         : undefined,
     VariantName: __expectString(output.VariantName),
+    VolumeSizeInGB: __expectInt32(output.VolumeSizeInGB),
   } as any;
 };
 
@@ -31542,6 +36643,7 @@ const deserializeAws_json1_1ProductListings = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ProfilerConfig = (output: any, context: __SerdeContext): ProfilerConfig => {
   return {
+    DisableProfiler: __expectBoolean(output.DisableProfiler),
     ProfilingIntervalInMilliseconds: __expectLong(output.ProfilingIntervalInMilliseconds),
     ProfilingParameters:
       output.ProfilingParameters != null
@@ -31618,10 +36720,8 @@ const deserializeAws_json1_1ProfilingParameters = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -31771,6 +36871,16 @@ const deserializeAws_json1_1QueryLineageResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1RealTimeInferenceConfig = (
+  output: any,
+  context: __SerdeContext
+): RealTimeInferenceConfig => {
+  return {
+    InstanceCount: __expectInt32(output.InstanceCount),
+    InstanceType: __expectString(output.InstanceType),
+  } as any;
+};
+
 const deserializeAws_json1_1RealtimeInferenceInstanceTypes = (
   output: any,
   context: __SerdeContext
@@ -31786,16 +36896,62 @@ const deserializeAws_json1_1RealtimeInferenceInstanceTypes = (
   return retVal;
 };
 
+const deserializeAws_json1_1RecommendationJobContainerConfig = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobContainerConfig => {
+  return {
+    DataInputConfig: __expectString(output.DataInputConfig),
+    Domain: __expectString(output.Domain),
+    Framework: __expectString(output.Framework),
+    FrameworkVersion: __expectString(output.FrameworkVersion),
+    NearestModelName: __expectString(output.NearestModelName),
+    PayloadConfig:
+      output.PayloadConfig != null
+        ? deserializeAws_json1_1RecommendationJobPayloadConfig(output.PayloadConfig, context)
+        : undefined,
+    SupportedInstanceTypes:
+      output.SupportedInstanceTypes != null
+        ? deserializeAws_json1_1RecommendationJobSupportedInstanceTypes(output.SupportedInstanceTypes, context)
+        : undefined,
+    Task: __expectString(output.Task),
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationJobInferenceBenchmark = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobInferenceBenchmark => {
+  return {
+    EndpointConfiguration:
+      output.EndpointConfiguration != null
+        ? deserializeAws_json1_1EndpointOutputConfiguration(output.EndpointConfiguration, context)
+        : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    Metrics: output.Metrics != null ? deserializeAws_json1_1RecommendationMetrics(output.Metrics, context) : undefined,
+    ModelConfiguration:
+      output.ModelConfiguration != null
+        ? deserializeAws_json1_1ModelConfiguration(output.ModelConfiguration, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RecommendationJobInputConfig = (
   output: any,
   context: __SerdeContext
 ): RecommendationJobInputConfig => {
   return {
+    ContainerConfig:
+      output.ContainerConfig != null
+        ? deserializeAws_json1_1RecommendationJobContainerConfig(output.ContainerConfig, context)
+        : undefined,
     EndpointConfigurations:
       output.EndpointConfigurations != null
         ? deserializeAws_json1_1EndpointInputConfigurations(output.EndpointConfigurations, context)
         : undefined,
+    Endpoints: output.Endpoints != null ? deserializeAws_json1_1Endpoints(output.Endpoints, context) : undefined,
     JobDurationInSeconds: __expectInt32(output.JobDurationInSeconds),
+    ModelName: __expectString(output.ModelName),
     ModelPackageVersionArn: __expectString(output.ModelPackageVersionArn),
     ResourceLimit:
       output.ResourceLimit != null
@@ -31804,6 +36960,23 @@ const deserializeAws_json1_1RecommendationJobInputConfig = (
     TrafficPattern:
       output.TrafficPattern != null ? deserializeAws_json1_1TrafficPattern(output.TrafficPattern, context) : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
+    VpcConfig:
+      output.VpcConfig != null
+        ? deserializeAws_json1_1RecommendationJobVpcConfig(output.VpcConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationJobPayloadConfig = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobPayloadConfig => {
+  return {
+    SamplePayloadUrl: __expectString(output.SamplePayloadUrl),
+    SupportedContentTypes:
+      output.SupportedContentTypes != null
+        ? deserializeAws_json1_1RecommendationJobSupportedContentTypes(output.SupportedContentTypes, context)
+        : undefined,
   } as any;
 };
 
@@ -31830,11 +37003,81 @@ const deserializeAws_json1_1RecommendationJobStoppingConditions = (
   } as any;
 };
 
+const deserializeAws_json1_1RecommendationJobSupportedContentTypes = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RecommendationJobSupportedInstanceTypes = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RecommendationJobVpcConfig = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobVpcConfig => {
+  return {
+    SecurityGroupIds:
+      output.SecurityGroupIds != null
+        ? deserializeAws_json1_1RecommendationJobVpcSecurityGroupIds(output.SecurityGroupIds, context)
+        : undefined,
+    Subnets:
+      output.Subnets != null ? deserializeAws_json1_1RecommendationJobVpcSubnets(output.Subnets, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationJobVpcSecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RecommendationJobVpcSubnets = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1RecommendationMetrics = (output: any, context: __SerdeContext): RecommendationMetrics => {
   return {
     CostPerHour: __limitedParseFloat32(output.CostPerHour),
     CostPerInference: __limitedParseFloat32(output.CostPerInference),
+    CpuUtilization: __limitedParseFloat32(output.CpuUtilization),
     MaxInvocations: __expectInt32(output.MaxInvocations),
+    MemoryUtilization: __limitedParseFloat32(output.MemoryUtilization),
     ModelLatency: __expectInt32(output.ModelLatency),
   } as any;
 };
@@ -31920,6 +37163,7 @@ const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeConte
     InstanceGroups:
       output.InstanceGroups != null ? deserializeAws_json1_1InstanceGroups(output.InstanceGroups, context) : undefined,
     InstanceType: __expectString(output.InstanceType),
+    KeepAlivePeriodInSeconds: __expectInt32(output.KeepAlivePeriodInSeconds),
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VolumeSizeInGB: __expectInt32(output.VolumeSizeInGB),
   } as any;
@@ -31941,6 +37185,7 @@ const deserializeAws_json1_1ResourceLimits = (output: any, context: __SerdeConte
   return {
     MaxNumberOfTrainingJobs: __expectInt32(output.MaxNumberOfTrainingJobs),
     MaxParallelTrainingJobs: __expectInt32(output.MaxParallelTrainingJobs),
+    MaxRuntimeInSeconds: __expectInt32(output.MaxRuntimeInSeconds),
   } as any;
 };
 
@@ -32027,10 +37272,8 @@ const deserializeAws_json1_1RuleParameters = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -32056,6 +37299,18 @@ const deserializeAws_json1_1S3StorageConfig = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1SageMakerImageVersionAliases = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ScheduleConfig = (output: any, context: __SerdeContext): ScheduleConfig => {
   return {
     ScheduleExpression: __expectString(output.ScheduleExpression),
@@ -32072,6 +37327,12 @@ const deserializeAws_json1_1SearchRecord = (output: any, context: __SerdeContext
       output.FeatureMetadata != null
         ? deserializeAws_json1_1FeatureMetadata(output.FeatureMetadata, context)
         : undefined,
+    HyperParameterTuningJob:
+      output.HyperParameterTuningJob != null
+        ? deserializeAws_json1_1HyperParameterTuningJobSearchEntity(output.HyperParameterTuningJob, context)
+        : undefined,
+    Model: output.Model != null ? deserializeAws_json1_1ModelDashboardModel(output.Model, context) : undefined,
+    ModelCard: output.ModelCard != null ? deserializeAws_json1_1ModelCard(output.ModelCard, context) : undefined,
     ModelPackage:
       output.ModelPackage != null ? deserializeAws_json1_1ModelPackage(output.ModelPackage, context) : undefined,
     ModelPackageGroup:
@@ -32195,6 +37456,41 @@ const deserializeAws_json1_1ServiceCatalogProvisioningDetails = (
   } as any;
 };
 
+const deserializeAws_json1_1ShadowModeConfig = (output: any, context: __SerdeContext): ShadowModeConfig => {
+  return {
+    ShadowModelVariants:
+      output.ShadowModelVariants != null
+        ? deserializeAws_json1_1ShadowModelVariantConfigList(output.ShadowModelVariants, context)
+        : undefined,
+    SourceModelVariantName: __expectString(output.SourceModelVariantName),
+  } as any;
+};
+
+const deserializeAws_json1_1ShadowModelVariantConfig = (
+  output: any,
+  context: __SerdeContext
+): ShadowModelVariantConfig => {
+  return {
+    SamplingPercentage: __expectInt32(output.SamplingPercentage),
+    ShadowModelVariantName: __expectString(output.ShadowModelVariantName),
+  } as any;
+};
+
+const deserializeAws_json1_1ShadowModelVariantConfigList = (
+  output: any,
+  context: __SerdeContext
+): ShadowModelVariantConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ShadowModelVariantConfig(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1SharingSettings = (output: any, context: __SerdeContext): SharingSettings => {
   return {
     NotebookOutputOption: __expectString(output.NotebookOutputOption),
@@ -32246,12 +37542,71 @@ const deserializeAws_json1_1SourceIpConfig = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1SpaceDetails = (output: any, context: __SerdeContext): SpaceDetails => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DomainId: __expectString(output.DomainId),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    SpaceName: __expectString(output.SpaceName),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1SpaceList = (output: any, context: __SerdeContext): SpaceDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SpaceDetails(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1SpaceSettings = (output: any, context: __SerdeContext): SpaceSettings => {
+  return {
+    JupyterServerAppSettings:
+      output.JupyterServerAppSettings != null
+        ? deserializeAws_json1_1JupyterServerAppSettings(output.JupyterServerAppSettings, context)
+        : undefined,
+    KernelGatewayAppSettings:
+      output.KernelGatewayAppSettings != null
+        ? deserializeAws_json1_1KernelGatewayAppSettings(output.KernelGatewayAppSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StartInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): StartInferenceExperimentResponse => {
+  return {
+    InferenceExperimentArn: __expectString(output.InferenceExperimentArn),
+  } as any;
+};
+
 const deserializeAws_json1_1StartPipelineExecutionResponse = (
   output: any,
   context: __SerdeContext
 ): StartPipelineExecutionResponse => {
   return {
     PipelineExecutionArn: __expectString(output.PipelineExecutionArn),
+  } as any;
+};
+
+const deserializeAws_json1_1StopInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): StopInferenceExperimentResponse => {
+  return {
+    InferenceExperimentArn: __expectString(output.InferenceExperimentArn),
   } as any;
 };
 
@@ -32397,6 +37752,16 @@ const deserializeAws_json1_1TensorBoardOutputConfig = (
   } as any;
 };
 
+const deserializeAws_json1_1TimeSeriesForecastingSettings = (
+  output: any,
+  context: __SerdeContext
+): TimeSeriesForecastingSettings => {
+  return {
+    AmazonForecastRoleArn: __expectString(output.AmazonForecastRoleArn),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_json1_1TrafficPattern = (output: any, context: __SerdeContext): TrafficPattern => {
   return {
     Phases: output.Phases != null ? deserializeAws_json1_1Phases(output.Phases, context) : undefined,
@@ -32414,16 +37779,48 @@ const deserializeAws_json1_1TrafficRoutingConfig = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1TrainingContainerArguments = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1TrainingContainerEntrypoint = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1TrainingEnvironmentMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
+};
+
+const deserializeAws_json1_1TrainingImageConfig = (output: any, context: __SerdeContext): TrainingImageConfig => {
+  return {
+    TrainingRepositoryAccessMode: __expectString(output.TrainingRepositoryAccessMode),
+    TrainingRepositoryAuthConfig:
+      output.TrainingRepositoryAuthConfig != null
+        ? deserializeAws_json1_1TrainingRepositoryAuthConfig(output.TrainingRepositoryAuthConfig, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1TrainingInstanceTypes = (
@@ -32615,6 +38012,17 @@ const deserializeAws_json1_1TrainingJobSummary = (output: any, context: __SerdeC
     TrainingJobArn: __expectString(output.TrainingJobArn),
     TrainingJobName: __expectString(output.TrainingJobName),
     TrainingJobStatus: __expectString(output.TrainingJobStatus),
+    WarmPoolStatus:
+      output.WarmPoolStatus != null ? deserializeAws_json1_1WarmPoolStatus(output.WarmPoolStatus, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TrainingRepositoryAuthConfig = (
+  output: any,
+  context: __SerdeContext
+): TrainingRepositoryAuthConfig => {
+  return {
+    TrainingRepositoryCredentialsProviderArn: __expectString(output.TrainingRepositoryCredentialsProviderArn),
   } as any;
 };
 
@@ -32663,10 +38071,8 @@ const deserializeAws_json1_1TransformEnvironmentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -32901,6 +38307,7 @@ const deserializeAws_json1_1TrialComponent = (output: any, context: __SerdeConte
         ? deserializeAws_json1_1TrialComponentParameters(output.Parameters, context)
         : undefined,
     Parents: output.Parents != null ? deserializeAws_json1_1Parents(output.Parents, context) : undefined,
+    RunName: __expectString(output.RunName),
     Source: output.Source != null ? deserializeAws_json1_1TrialComponentSource(output.Source, context) : undefined,
     SourceDetail:
       output.SourceDetail != null
@@ -32930,10 +38337,8 @@ const deserializeAws_json1_1TrialComponentArtifacts = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1TrialComponentArtifact(value, context),
-    };
+    acc[key] = deserializeAws_json1_1TrialComponentArtifact(value, context);
+    return acc;
   }, {});
 };
 
@@ -32979,10 +38384,8 @@ const deserializeAws_json1_1TrialComponentParameters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1TrialComponentParameterValue(__expectUnion(value), context),
-      };
+      acc[key] = deserializeAws_json1_1TrialComponentParameterValue(__expectUnion(value), context);
+      return acc;
     },
     {}
   );
@@ -33055,6 +38458,18 @@ const deserializeAws_json1_1TrialComponentSourceDetail = (
     TransformJob:
       output.TransformJob != null ? deserializeAws_json1_1TransformJob(output.TransformJob, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1TrialComponentSources = (output: any, context: __SerdeContext): TrialComponentSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TrialComponentSource(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1TrialComponentStatus = (output: any, context: __SerdeContext): TrialComponentStatus => {
@@ -33149,6 +38564,14 @@ const deserializeAws_json1_1TuningJobCompletionCriteria = (
   context: __SerdeContext
 ): TuningJobCompletionCriteria => {
   return {
+    BestObjectiveNotImproving:
+      output.BestObjectiveNotImproving != null
+        ? deserializeAws_json1_1BestObjectiveNotImproving(output.BestObjectiveNotImproving, context)
+        : undefined,
+    ConvergenceDetected:
+      output.ConvergenceDetected != null
+        ? deserializeAws_json1_1ConvergenceDetected(output.ConvergenceDetected, context)
+        : undefined,
     TargetObjectiveMetricValue: __limitedParseFloat32(output.TargetObjectiveMetricValue),
   } as any;
 };
@@ -33248,9 +38671,42 @@ const deserializeAws_json1_1UpdateFeatureGroupResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1UpdateHubResponse = (output: any, context: __SerdeContext): UpdateHubResponse => {
+  return {
+    HubArn: __expectString(output.HubArn),
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateImageResponse = (output: any, context: __SerdeContext): UpdateImageResponse => {
   return {
     ImageArn: __expectString(output.ImageArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateImageVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateImageVersionResponse => {
+  return {
+    ImageVersionArn: __expectString(output.ImageVersionArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateInferenceExperimentResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateInferenceExperimentResponse => {
+  return {
+    InferenceExperimentArn: __expectString(output.InferenceExperimentArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateModelCardResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateModelCardResponse => {
+  return {
+    ModelCardArn: __expectString(output.ModelCardArn),
   } as any;
 };
 
@@ -33260,6 +38716,16 @@ const deserializeAws_json1_1UpdateModelPackageOutput = (
 ): UpdateModelPackageOutput => {
   return {
     ModelPackageArn: __expectString(output.ModelPackageArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateMonitoringAlertResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateMonitoringAlertResponse => {
+  return {
+    MonitoringAlertName: __expectString(output.MonitoringAlertName),
+    MonitoringScheduleArn: __expectString(output.MonitoringScheduleArn),
   } as any;
 };
 
@@ -33304,6 +38770,12 @@ const deserializeAws_json1_1UpdatePipelineResponse = (output: any, context: __Se
 const deserializeAws_json1_1UpdateProjectOutput = (output: any, context: __SerdeContext): UpdateProjectOutput => {
   return {
     ProjectArn: __expectString(output.ProjectArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateSpaceResponse = (output: any, context: __SerdeContext): UpdateSpaceResponse => {
+  return {
+    SpaceArn: __expectString(output.SpaceArn),
   } as any;
 };
 
@@ -33401,6 +38873,10 @@ const deserializeAws_json1_1UserProfileList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1UserSettings = (output: any, context: __SerdeContext): UserSettings => {
   return {
+    CanvasAppSettings:
+      output.CanvasAppSettings != null
+        ? deserializeAws_json1_1CanvasAppSettings(output.CanvasAppSettings, context)
+        : undefined,
     ExecutionRole: __expectString(output.ExecutionRole),
     JupyterServerAppSettings:
       output.JupyterServerAppSettings != null
@@ -33473,6 +38949,14 @@ const deserializeAws_json1_1VpcSecurityGroupIds = (output: any, context: __Serde
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1WarmPoolStatus = (output: any, context: __SerdeContext): WarmPoolStatus => {
+  return {
+    ResourceRetainedBillableTimeInSeconds: __expectInt32(output.ResourceRetainedBillableTimeInSeconds),
+    ReusedByJob: __expectString(output.ReusedByJob),
+    Status: __expectString(output.Status),
+  } as any;
 };
 
 const deserializeAws_json1_1Workforce = (output: any, context: __SerdeContext): Workforce => {
@@ -33594,7 +39078,8 @@ const deserializeAws_json1_1Workteams = (output: any, context: __SerdeContext): 
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -33644,6 +39129,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -33654,6 +39145,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

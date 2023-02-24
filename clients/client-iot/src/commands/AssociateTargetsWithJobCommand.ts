@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,19 +30,19 @@ export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWi
 
 /**
  * <p>Associates a group with a continuous job. The following criteria must be met: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>The job must have been created with the <code>targetSelection</code> field set to
+ *                <p>The job must have been created with the <code>targetSelection</code> field set to
  *                     "CONTINUOUS".</p>
  *             </li>
  *             <li>
- *                 <p>The job status must currently be "IN_PROGRESS".</p>
+ *                <p>The job status must currently be "IN_PROGRESS".</p>
  *             </li>
  *             <li>
- *                 <p>The total number of targets associated with a job must not exceed 100.</p>
+ *                <p>The total number of targets associated with a job must not exceed 100.</p>
  *             </li>
  *          </ul>
- *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateTargetsWithJob</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateTargetsWithJob</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +66,15 @@ export class AssociateTargetsWithJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AssociateTargetsWithJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +90,9 @@ export class AssociateTargetsWithJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateTargetsWithJobCommandInput, AssociateTargetsWithJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateTargetsWithJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

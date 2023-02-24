@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
@@ -56,8 +56,6 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *             Upload</a>.</p>
  *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *          Permissions</a>.</p>
- *
- *
  *          <p>
  *             <code>CompleteMultipartUpload</code> has the following special errors:</p>
  *          <ul>
@@ -116,7 +114,6 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p>The following operations are related to <code>CompleteMultipartUpload</code>:</p>
  *          <ul>
  *             <li>
@@ -168,6 +165,21 @@ export class CompleteMultipartUploadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CompleteMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,9 +195,11 @@ export class CompleteMultipartUploadCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CompleteMultipartUploadCommandInput, CompleteMultipartUploadCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CompleteMultipartUploadCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getThrow200ExceptionsPlugin(configuration));
     this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

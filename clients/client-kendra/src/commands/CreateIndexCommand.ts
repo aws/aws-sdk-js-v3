@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,18 +29,16 @@ export interface CreateIndexCommandInput extends CreateIndexRequest {}
 export interface CreateIndexCommandOutput extends CreateIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Kendra index. Index creation is an asynchronous
- *       API. To determine if index creation has completed, check the
- *         <code>Status</code> field returned from a call to
- *         <code>DescribeIndex</code>. The <code>Status</code> field is set to
- *         <code>ACTIVE</code> when the index is ready to use.</p>
+ * <p>Creates an Amazon Kendra index. Index creation is an asynchronous API. To determine
+ *       if index creation has completed, check the <code>Status</code> field returned from a call to
+ *         <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code> when
+ *       the index is ready to use.</p>
  *          <p>Once the index is active you can index your documents using the
- *         <code>BatchPutDocument</code> API or using one of the supported
- *       data sources.</p>
- *          <p>For an example of creating an index and data source using the Python SDK,
- *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
- *         started with Python SDK</a>. For an example of creating an index and data
- *       source using the Java SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java SDK</a>.</p>
+ *         <code>BatchPutDocument</code> API or using one of the supported data sources.</p>
+ *          <p>For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting started with Python
+ *         SDK</a>. For an example of creating an index and data source using the Java SDK, see
+ *         <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java
+ *         SDK</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +62,15 @@ export class CreateIndexCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +86,7 @@ export class CreateIndexCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateIndexCommandInput, CreateIndexCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateIndexCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

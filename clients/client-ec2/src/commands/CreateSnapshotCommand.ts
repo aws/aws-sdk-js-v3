@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   CreateSnapshotRequestFilterSensitiveLog,
   Snapshot,
   SnapshotFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { deserializeAws_ec2CreateSnapshotCommand, serializeAws_ec2CreateSnapshotCommand } from "../protocols/Aws_ec2";
 
 export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
@@ -28,13 +29,10 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * <p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for
  *   	backups, to make copies of EBS volumes, and to save data before shutting down an
  *   	instance.</p>
- *
- *
  *          <p>You can create snapshots of volumes in a Region and volumes on an Outpost. If you
  *     	create a snapshot of a volume in a Region, the snapshot must be stored in the same
  *     	Region as the volume. If you create a snapshot of a volume on an Outpost, the snapshot
  *     	can be stored on the same Outpost as the volume, or in the Region for that Outpost.</p>
- *
  *          <p>When a snapshot is created, any Amazon Web Services Marketplace product codes that are associated with the
  *       source volume are propagated to the snapshot.</p>
  *          <p>You can take a snapshot of an attached volume that is in use. However, snapshots only
@@ -76,6 +74,15 @@ export class CreateSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,6 +98,9 @@ export class CreateSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateSnapshotCommandInput, CreateSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

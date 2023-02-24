@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,6 +30,10 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
 
 /**
  * <p>Checks out the specified license.</p>
+ *          <note>
+ *             <p>If the account that created the license is the same that is performing the check out, you must
+ *             specify the account as the beneficiary.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +57,15 @@ export class CheckoutLicenseCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CheckoutLicenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +81,9 @@ export class CheckoutLicenseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CheckoutLicenseCommandInput, CheckoutLicenseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CheckoutLicenseCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

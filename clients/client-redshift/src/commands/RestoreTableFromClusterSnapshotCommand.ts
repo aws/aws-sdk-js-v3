@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,7 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  * <p>Creates a new table from a table in an Amazon Redshift cluster snapshot. You must
  *             create the new table within the Amazon Redshift cluster that the snapshot was taken
  *             from.</p>
- *         <p>You cannot use <code>RestoreTableFromClusterSnapshot</code> to restore a table with
+ *          <p>You cannot use <code>RestoreTableFromClusterSnapshot</code> to restore a table with
  *             the same name as an existing table in an Amazon Redshift cluster. That is, you cannot
  *             overwrite an existing table in a cluster with a restored table. If you want to replace
  *             your original table with a new, restored table, then rename or drop your original table
@@ -42,6 +43,8 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  *                 <code>NewTableName</code> parameter value in the call to
  *                 <code>RestoreTableFromClusterSnapshot</code>. This way, you can replace the original
  *             table with the table created from the snapshot.</p>
+ *          <p>You can't use this operation to restore tables with
+ *             <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved sort keys</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +68,15 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RestoreTableFromClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +92,9 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RestoreTableFromClusterSnapshotCommandInput, RestoreTableFromClusterSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RestoreTableFromClusterSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

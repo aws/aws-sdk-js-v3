@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,32 +31,14 @@ export interface DescribeGameSessionPlacementCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information, including current status, about a game session placement request. </p>
- *          <p>To get game session placement details, specify the placement ID.</p>
- *          <p>This operation is not designed to be continually called to track game session status.
- *         This practice can cause you to exceed your API limit, which results in errors. Instead,
- *         you must configure configure an
- *         Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or queues. Continuously polling
- *         with <code>DescribeGameSessionPlacement</code> should only be used for games in development with
- *         low game session usage.
- *     </p>
- *
- *          <p>If successful, a <a>GameSessionPlacement</a> object is returned.</p>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameSession</a> |
- *                     <a>DescribeGameSessions</a> |
- *                     <a>DescribeGameSessionDetails</a> |
- *                     <a>SearchGameSessions</a> |
- *                     <a>UpdateGameSession</a> |
- *                     <a>GetGameSessionLogUrl</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
- *                     <a>StopGameSessionPlacement</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ * <p>Retrieves information, including current status, about a game session placement
+ *             request. </p>
+ *         <p>To get game session placement details, specify the placement ID.</p>
+ *         <p>This operation is not designed to be continually called to track game session status.
+ *             This practice can cause you to exceed your API limit, which results in errors. Instead,
+ *             you must configure configure an Amazon Simple Notification Service (SNS) topic to receive notifications from
+ *             FlexMatch or queues. Continuously polling with <code>DescribeGameSessionPlacement</code>
+ *             should only be used for games in development with low game session usage. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +62,15 @@ export class DescribeGameSessionPlacementCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeGameSessionPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,6 +86,9 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeGameSessionPlacementCommandInput, DescribeGameSessionPlacementCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeGameSessionPlacementCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

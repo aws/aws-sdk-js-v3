@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
@@ -121,7 +121,6 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                false</p>
  *             </li>
  *          </ul>
- *
  *          <p>If both the <code>x-amz-copy-source-if-none-match</code> and
  *             <code>x-amz-copy-source-if-modified-since</code> headers are present in the request and
  *          evaluate as follows, Amazon S3 returns the <code>412 Precondition Failed</code> response
@@ -137,7 +136,6 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                true</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>All headers with the <code>x-amz-</code> prefix, including
  *                <code>x-amz-copy-source</code>, must be signed.</p>
@@ -240,6 +238,21 @@ export class CopyObjectCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CopyObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -255,9 +268,9 @@ export class CopyObjectCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CopyObjectCommandInput, CopyObjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CopyObjectCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getThrow200ExceptionsPlugin(configuration));
     this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,10 @@ export interface RestoreEventDataStoreCommandInput extends RestoreEventDataStore
 export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Restores a deleted event data store specified by <code>EventDataStore</code>, which accepts an event data store ARN.
- *          You can only restore a deleted event data store within the seven-day wait period after deletion. Restoring an event data store
- *          can take several minutes, depending on the size of the event data store.</p>
+ * <p>Restores a deleted event data store specified by <code>EventDataStore</code>, which
+ *          accepts an event data store ARN. You can only restore a deleted event data store within the
+ *          seven-day wait period after deletion. Restoring an event data store can take several
+ *          minutes, depending on the size of the event data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +56,15 @@ export class RestoreEventDataStoreCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RestoreEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +80,9 @@ export class RestoreEventDataStoreCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RestoreEventDataStoreCommandInput, RestoreEventDataStoreCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RestoreEventDataStoreCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

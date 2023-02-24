@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,9 +32,8 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * <p>Creates a multiplayer game session for players in a specific fleet location. This
  *             operation prompts an available server process to start a game session and retrieves
  *             connection information for the new game session. As an alternative, consider using the
- *             GameLift game session placement feature with </p>
- *         <p>with <a>StartGameSessionPlacement</a>, which uses FleetIQ algorithms and
- *             queues to optimize the placement process.</p>
+ *             GameLift game session placement feature with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> , which uses FleetIQ algorithms and queues to
+ *             optimize the placement process.</p>
  *         <p>When creating a game session, you specify exactly where you want to place it and
  *             provide a set of game session configuration settings. The fleet must be in
  *                 <code>ACTIVE</code> status before a game session can be created in it. </p>
@@ -54,32 +54,20 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  *             configuration and status. When the status is <code>ACTIVE</code>, game session
  *             connection information is provided and player sessions can be created for the game
  *             session. By default, newly created game sessions are open to new players. You can
- *             restrict new player access by using <a>UpdateGameSession</a> to change the
- *             game session's player session creation policy.</p>
+ *             restrict new player access by using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> to change the game session's player session creation
+ *             policy.</p>
  *         <p>Game session logs are retained for all active game sessions for 14 days. To access the
- *             logs, call <a>GetGameSessionLogUrl</a> to download the log files.</p>
+ *             logs, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html">GetGameSessionLogUrl</a> to download the log files.</p>
  *         <p>
  *             <i>Available in Amazon GameLift Local.</i>
  *          </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a game session</a>
  *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameSession</a> |
- *                     <a>DescribeGameSessions</a> |
- *                     <a>DescribeGameSessionDetails</a> |
- *                     <a>SearchGameSessions</a> |
- *                     <a>UpdateGameSession</a> |
- *                     <a>GetGameSessionLogUrl</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
- *                     <a>StopGameSessionPlacement</a> |
+ *          <p>
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -105,6 +93,15 @@ export class CreateGameSessionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateGameSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +117,9 @@ export class CreateGameSessionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateGameSessionCommandInput, CreateGameSessionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateGameSessionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

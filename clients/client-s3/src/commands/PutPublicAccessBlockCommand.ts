@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -29,7 +29,6 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  *          To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code>
  *          permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
  *          Policy</a>.</p>
- *
  *          <important>
  *             <p>When Amazon S3 evaluates the <code>PublicAccessBlock</code> configuration for a bucket or
  *             an object, it checks the <code>PublicAccessBlock</code> configuration for both the
@@ -38,12 +37,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  *             the account, Amazon S3 uses the most restrictive combination of the bucket-level and
  *             account-level settings.</p>
  *          </important>
- *
- *
  *          <p>For more information about when Amazon S3 considers a bucket or an object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a>.</p>
- *
- *
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>
@@ -93,6 +87,21 @@ export class PutPublicAccessBlockCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutPublicAccessBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,7 +117,9 @@ export class PutPublicAccessBlockCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutPublicAccessBlockCommandInput, PutPublicAccessBlockCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutPublicAccessBlockCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
 /**
  * <p>Describes the specified users. You can describe all users or filter the results
  *             (for example, by status or organization).</p>
- *         <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there
+ *          <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there
  *             are more results, the response includes a marker that you can use to request the next
  *             set of results.</p>
  * @example
@@ -56,6 +57,15 @@ export class DescribeUsersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,7 @@ export class DescribeUsersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeUsersCommandInput, DescribeUsersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeUsersCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,15 +31,15 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
 /**
  * <p>Use this request to set the default settings for sending SMS messages and receiving
  *             daily SMS usage reports.</p>
- *         <p>You can override some of these settings for a single message when you use the
+ *          <p>You can override some of these settings for a single message when you use the
  *                 <code>Publish</code> action with the <code>MessageAttributes.entry.N</code>
  *             parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a>
  *             in the <i>Amazon SNS Developer Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p>To use this operation, you must grant the Amazon SNS service principal
  *                     (<code>sns.amazonaws.com</code>) permission to perform the
  *                     <code>s3:ListBucket</code> action. </p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +63,15 @@ export class SetSMSAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SetSMSAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +87,9 @@ export class SetSMSAttributesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SetSMSAttributesCommandInput, SetSMSAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SetSMSAttributesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

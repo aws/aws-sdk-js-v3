@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -37,25 +38,25 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
  *                 <code>GetServiceLastAccessedDetailsWithEntities</code>. This operation retrieves the
  *             status of your report job and a list of entities that could have used group or policy
  *             permissions to access the specified service.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Group</b> – For a group report, this
  *                     operation returns a list of users in the group that could have used the group’s
  *                     policies in an attempt to access the service.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Policy</b> – For a policy report, this
  *                     operation returns a list of entities (users or roles) that could have used the
  *                     policy in an attempt to access the service.</p>
  *             </li>
  *          </ul>
- *         <p>You can also use this operation for user or role reports to retrieve details about
+ *          <p>You can also use this operation for user or role reports to retrieve details about
  *             those entities.</p>
- *         <p>If the operation fails, the <code>GetServiceLastAccessedDetailsWithEntities</code>
+ *          <p>If the operation fails, the <code>GetServiceLastAccessedDetailsWithEntities</code>
  *             operation returns the reason that it failed.</p>
- *         <p>By default, the list of associated entities is sorted by date, with the most recent
+ *          <p>By default, the list of associated entities is sorted by date, with the most recent
  *             access listed first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +81,15 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetServiceLastAccessedDetailsWithEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,6 +108,12 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     GetServiceLastAccessedDetailsWithEntitiesCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        GetServiceLastAccessedDetailsWithEntitiesCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

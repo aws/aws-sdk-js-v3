@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,12 +33,12 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
 /**
  * <p>Returns the projected utilization metrics of Amazon EC2 instance
  *             recommendations.</p>
- *         <note>
+ *          <note>
  *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
  *                 utilization metrics returned when you run this action. Additionally, the
  *                     <code>Memory</code> metric is returned only for resources that have the unified
  *                     CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,15 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetEC2RecommendationProjectedMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetEC2RecommendationProjectedMetricsCommandInput, GetEC2RecommendationProjectedMetricsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetEC2RecommendationProjectedMetricsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

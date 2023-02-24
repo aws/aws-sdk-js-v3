@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyVpcTenancyRequestFilterSensitiveLog,
   ModifyVpcTenancyResult,
   ModifyVpcTenancyResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpcTenancyCommand,
   serializeAws_ec2ModifyVpcTenancyCommand,
@@ -31,10 +32,10 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  * <p>Modifies the instance tenancy attribute of the specified VPC. You can change the
  *             instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the
  *             instance tenancy attribute to <code>dedicated</code>.</p>
- *         <p>After you modify the tenancy of the VPC, any new instances that you launch into the
+ *          <p>After you modify the tenancy of the VPC, any new instances that you launch into the
  *             VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch.
  *             The tenancy of any existing instances in the VPC is not affected.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
  * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +60,15 @@ export class ModifyVpcTenancyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyVpcTenancyCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class ModifyVpcTenancyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyVpcTenancyCommandInput, ModifyVpcTenancyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyVpcTenancyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

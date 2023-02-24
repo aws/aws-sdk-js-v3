@@ -4,21 +4,21 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SSOServiceException as __BaseException } from "./SSOServiceException";
 
 /**
- * <p>Provides information about your Amazon Web Services account.</p>
+ * <p>Provides information about your AWS account.</p>
  */
 export interface AccountInfo {
   /**
-   * <p>The identifier of the Amazon Web Services account that is assigned to the user.</p>
+   * <p>The identifier of the AWS account that is assigned to the user.</p>
    */
   accountId?: string;
 
   /**
-   * <p>The display name of the Amazon Web Services account that is assigned to the user.</p>
+   * <p>The display name of the AWS account that is assigned to the user.</p>
    */
   accountName?: string;
 
   /**
-   * <p>The email address of the Amazon Web Services account that is assigned to the user.</p>
+   * <p>The email address of the AWS account that is assigned to the user.</p>
    */
   emailAddress?: string;
 }
@@ -30,13 +30,13 @@ export interface GetRoleCredentialsRequest {
   roleName: string | undefined;
 
   /**
-   * <p>The identifier for the Amazon Web Services account that is assigned to the user.</p>
+   * <p>The identifier for the AWS account that is assigned to the user.</p>
    */
   accountId: string | undefined;
 
   /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-   *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>Amazon Web Services SSO OIDC API Reference Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
    */
   accessToken: string | undefined;
 }
@@ -47,20 +47,20 @@ export interface GetRoleCredentialsRequest {
 export interface RoleCredentials {
   /**
    * <p>The identifier used for the temporary security credentials. For more information, see
-   *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to Amazon Web Services Resources</a> in the
-   *         <i>Amazon Web Services IAM User Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
+   *         <i>AWS IAM User Guide</i>.</p>
    */
   accessKeyId?: string;
 
   /**
-   * <p>The key that is used to sign the request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to Amazon Web Services Resources</a> in the
-   *         <i>Amazon Web Services IAM User Guide</i>.</p>
+   * <p>The key that is used to sign the request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
+   *         <i>AWS IAM User Guide</i>.</p>
    */
   secretAccessKey?: string;
 
   /**
-   * <p>The token used for temporary credentials. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to Amazon Web Services Resources</a> in the
-   *         <i>Amazon Web Services IAM User Guide</i>.</p>
+   * <p>The token used for temporary credentials. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
+   *         <i>AWS IAM User Guide</i>.</p>
    */
   sessionToken?: string;
 
@@ -169,12 +169,12 @@ export interface ListAccountRolesRequest {
 
   /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-   *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>Amazon Web Services SSO OIDC API Reference Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
    */
   accessToken: string | undefined;
 
   /**
-   * <p>The identifier for the Amazon Web Services account that is assigned to the user.</p>
+   * <p>The identifier for the AWS account that is assigned to the user.</p>
    */
   accountId: string | undefined;
 }
@@ -189,7 +189,7 @@ export interface RoleInfo {
   roleName?: string;
 
   /**
-   * <p>The identifier of the Amazon Web Services account assigned to the user.</p>
+   * <p>The identifier of the AWS account assigned to the user.</p>
    */
   accountId?: string;
 }
@@ -221,7 +221,7 @@ export interface ListAccountsRequest {
 
   /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-   *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>Amazon Web Services SSO OIDC API Reference Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
    */
   accessToken: string | undefined;
 }
@@ -242,7 +242,7 @@ export interface ListAccountsResponse {
 export interface LogoutRequest {
   /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-   *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>Amazon Web Services SSO OIDC API Reference Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
    */
   accessToken: string | undefined;
 }

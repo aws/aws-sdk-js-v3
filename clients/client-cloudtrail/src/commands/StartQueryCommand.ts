@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,9 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
 
 /**
  * <p>Starts a CloudTrail Lake query. The required <code>QueryStatement</code>
- *          parameter provides your SQL query, enclosed in single quotation marks.</p>
+ *          parameter provides your SQL query, enclosed in single quotation marks. Use the optional
+ *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
+ *          bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +56,15 @@ export class StartQueryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +80,7 @@ export class StartQueryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartQueryCommandInput, StartQueryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StartQueryCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

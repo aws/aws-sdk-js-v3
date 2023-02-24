@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,6 @@ export interface EnableRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables the specified rule. If the rule does not exist, the operation fails.</p>
- *
  *          <p>When you enable a rule, incoming events might not immediately start matching to a newly
  *       enabled rule. Allow a short period of time for changes to take effect.</p>
  * @example
@@ -50,6 +50,15 @@ export class EnableRuleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EnableRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +74,7 @@ export class EnableRuleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableRuleCommandInput, EnableRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, EnableRuleCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

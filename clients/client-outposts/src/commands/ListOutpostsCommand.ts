@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,10 @@ export interface ListOutpostsCommandInput extends ListOutpostsInput {}
 export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Outposts for your Amazon Web Services account. Add filters to your request to return
- *       a more specific list of results. Use filters to match an Outpost lifecycle status,
- *       Availability Zone (<code>us-east-1a</code>), and AZ ID (<code>use1-az1</code>). </p>
- *
- *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only
- *       results that match all of the specified filters.</p>
+ * <p>Lists the Outposts for your Amazon Web Services account.</p>
+ *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
+ *  all of the specified filters. For a filter where you can specify multiple values, the results include
+ *  items that match any of the values that you specify for the filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +56,15 @@ export class ListOutpostsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListOutpostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +80,7 @@ export class ListOutpostsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListOutpostsCommandInput, ListOutpostsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListOutpostsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

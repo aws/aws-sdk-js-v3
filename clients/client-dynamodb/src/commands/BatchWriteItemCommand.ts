@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,8 +37,10 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *             for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming Rules and Data Types</a>.</p>
  *         <note>
  *             <p>
- *                 <code>BatchWriteItem</code> cannot update items. To update items, use the
- *                     <code>UpdateItem</code> action.</p>
+ *                 <code>BatchWriteItem</code> cannot update items. If you perform a <code>BatchWriteItem</code>
+ *                 operation on an existing item, that item's values will be overwritten by the
+ *                 operation and it will appear like it was updated. To update items, we recommend you
+ *                 use the <code>UpdateItem</code> action.</p>
  *         </note>
  *         <p>The individual <code>PutItem</code> and <code>DeleteItem</code> operations specified
  *             in <code>BatchWriteItem</code> are atomic; however <code>BatchWriteItem</code> as a
@@ -132,6 +135,15 @@ export class BatchWriteItemCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchWriteItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,6 +159,9 @@ export class BatchWriteItemCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchWriteItemCommandInput, BatchWriteItemCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchWriteItemCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

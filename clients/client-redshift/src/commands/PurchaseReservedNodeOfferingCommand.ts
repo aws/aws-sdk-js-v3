@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,7 +36,7 @@ export interface PurchaseReservedNodeOfferingCommandOutput
  *                 <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved
  *             node offerings. You can call this API by providing a specific reserved node offering and
  *             the number of nodes you want to reserve. </p>
- *         <p>
+ *          <p>
  * For more information about reserved node offerings, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved Nodes</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -62,6 +63,15 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PurchaseReservedNodeOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +87,9 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PurchaseReservedNodeOfferingCommandInput, PurchaseReservedNodeOfferingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PurchaseReservedNodeOfferingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

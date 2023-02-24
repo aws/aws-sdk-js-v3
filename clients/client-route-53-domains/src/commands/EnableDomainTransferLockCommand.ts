@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,11 @@ export interface EnableDomainTransferLockCommandInput extends EnableDomainTransf
 export interface EnableDomainTransferLockCommandOutput extends EnableDomainTransferLockResponse, __MetadataBearer {}
 
 /**
- * <p>This operation sets the transfer lock on the domain (specifically the <code>clientTransferProhibited</code> status)
- * 			to prevent domain transfers. Successful submission returns an operation ID that you can use to track the progress and
- * 			completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.</p>
+ * <p>This operation sets the transfer lock on the domain (specifically the
+ * 				<code>clientTransferProhibited</code> status) to prevent domain transfers.
+ * 			Successful submission returns an operation ID that you can use to track the progress and
+ * 			completion of the action. If the request is not completed successfully, the domain
+ * 			registrant will be notified by email.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +57,15 @@ export class EnableDomainTransferLockCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: EnableDomainTransferLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +81,9 @@ export class EnableDomainTransferLockCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableDomainTransferLockCommandInput, EnableDomainTransferLockCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableDomainTransferLockCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

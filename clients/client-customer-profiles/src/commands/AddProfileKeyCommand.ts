@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface AddProfileKeyCommandInput extends AddProfileKeyRequest {}
 export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a new key value with a specific profile, such as a Contact Trace Record (CTR)
+ * <p>Associates a new key value with a specific profile, such as a Contact Record
  *          ContactId.</p>
  *          <p>A profile object can have a single unique key and any number of additional keys that can
  *          be used to identify the profile that it belongs to.</p>
@@ -55,6 +56,15 @@ export class AddProfileKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AddProfileKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,7 @@ export class AddProfileKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddProfileKeyCommandInput, AddProfileKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AddProfileKeyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

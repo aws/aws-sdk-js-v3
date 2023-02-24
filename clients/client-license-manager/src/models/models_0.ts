@@ -594,7 +594,7 @@ export interface CreateGrantRequest {
   LicenseArn: string | undefined;
 
   /**
-   * <p>The grant principals.</p>
+   * <p>The grant principals. This value should be specified as an Amazon Resource Name (ARN).</p>
    */
   Principals: string[] | undefined;
 
@@ -1150,12 +1150,13 @@ export interface CreateLicenseConversionTaskForResourceRequest {
 
   /**
    * <p>Information that identifies the license type you are converting from.
-   *          For the structure of the source license, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli">Convert a license type using the AWS CLI</a> in the <i>License Manager User Guide</i>.</p>
+   *
+   *          For the structure of the source license, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli">Convert a license type using the Amazon Web Services CLI</a> in the <i>License Manager User Guide</i>.</p>
    */
   SourceLicenseContext: LicenseConversionContext | undefined;
 
   /**
-   * <p>Information that identifies the license type you are converting to. For the structure of the destination license, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli">Convert a license type using the AWS CLI</a> in the <i>License Manager User Guide</i>.</p>
+   * <p>Information that identifies the license type you are converting to. For the structure of the destination license, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli">Convert a license type using the Amazon Web Services CLI</a> in the <i>License Manager User Guide</i>.</p>
    */
   DestinationLicenseContext: LicenseConversionContext | undefined;
 }
@@ -2774,6 +2775,52 @@ export interface ListReceivedGrantsResponse {
   NextToken?: string;
 }
 
+export interface ListReceivedGrantsForOrganizationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the received license.</p>
+   */
+  LicenseArn: string | undefined;
+
+  /**
+   * <p>Filters to scope the results. The following filters are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ParentArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GranteePrincipalArn</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListReceivedGrantsForOrganizationResponse {
+  /**
+   * <p>Lists the grants the organization has received.</p>
+   */
+  Grants?: Grant[];
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListReceivedLicensesRequest {
   /**
    * <p>Amazon Resource Names (ARNs) of the licenses.</p>
@@ -2937,6 +2984,47 @@ export interface GrantedLicense {
 export interface ListReceivedLicensesResponse {
   /**
    * <p>Received license details.</p>
+   */
+  Licenses?: GrantedLicense[];
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListReceivedLicensesForOrganizationRequest {
+  /**
+   * <p>Filters to scope the results. The following filters are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Beneficiary</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ProductSKU</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListReceivedLicensesForOrganizationResponse {
+  /**
+   * <p>Lists the licenses the organization has received.</p>
    */
   Licenses?: GrantedLicense[];
 
@@ -4277,6 +4365,24 @@ export const ListReceivedGrantsResponseFilterSensitiveLog = (obj: ListReceivedGr
 /**
  * @internal
  */
+export const ListReceivedGrantsForOrganizationRequestFilterSensitiveLog = (
+  obj: ListReceivedGrantsForOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceivedGrantsForOrganizationResponseFilterSensitiveLog = (
+  obj: ListReceivedGrantsForOrganizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListReceivedLicensesRequestFilterSensitiveLog = (obj: ListReceivedLicensesRequest): any => ({
   ...obj,
 });
@@ -4299,6 +4405,24 @@ export const GrantedLicenseFilterSensitiveLog = (obj: GrantedLicense): any => ({
  * @internal
  */
 export const ListReceivedLicensesResponseFilterSensitiveLog = (obj: ListReceivedLicensesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceivedLicensesForOrganizationRequestFilterSensitiveLog = (
+  obj: ListReceivedLicensesForOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceivedLicensesForOrganizationResponseFilterSensitiveLog = (
+  obj: ListReceivedLicensesForOrganizationResponse
+): any => ({
   ...obj,
 });
 

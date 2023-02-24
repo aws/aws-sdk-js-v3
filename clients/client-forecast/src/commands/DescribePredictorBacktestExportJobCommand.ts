@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,27 +32,27 @@ export interface DescribePredictorBacktestExportJobCommandOutput
 
 /**
  * <p>Describes a predictor backtest export job created using the <a>CreatePredictorBacktestExportJob</a> operation.</p>
- *         <p>In addition to listing the properties provided by the user in the
+ *          <p>In addition to listing the properties provided by the user in the
  *                 <code>CreatePredictorBacktestExportJob</code> request, this operation lists the
  *             following properties:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <code>CreationTime</code>
- *                 </p>
+ *                <p>
+ *                   <code>CreationTime</code>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <code>LastModificationTime</code>
- *                 </p>
+ *                <p>
+ *                   <code>LastModificationTime</code>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <code>Status</code>
- *                 </p>
+ *                <p>
+ *                   <code>Status</code>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>Message</code> (if an error occurred)</p>
  *             </li>
  *          </ul>
@@ -78,6 +79,15 @@ export class DescribePredictorBacktestExportJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribePredictorBacktestExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,6 +103,9 @@ export class DescribePredictorBacktestExportJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribePredictorBacktestExportJobCommandInput, DescribePredictorBacktestExportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribePredictorBacktestExportJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

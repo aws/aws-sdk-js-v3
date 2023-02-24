@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,6 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
 
 /**
  * <p>Removes the specified inbound (ingress) rules from a security group.</p>
- *
  *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
  *            rule properties, the values that you specify (for example, ports) must match the existing rule's
  *            values exactly. Each rule has a protocol, from and to ports, and source (CIDR range,
@@ -40,11 +40,9 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  *          <p>[EC2-Classic, default VPC] If the values you specify do not match the existing rule's values, no error is
  *            returned, and the output describes the security group rules that were not revoked.</p>
  *          <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p>
- *
  *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
- *
  *          <note>
- *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +67,15 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RevokeSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +91,9 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RevokeSecurityGroupIngressCommandInput, RevokeSecurityGroupIngressCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RevokeSecurityGroupIngressCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

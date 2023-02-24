@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,9 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
 
 /**
  * <p>Creates an Amazon EKS add-on.</p>
- *         <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management
- *             of common operational software for Amazon EKS clusters. Amazon EKS
- *             add-ons require clusters running version 1.18 or later because Amazon EKS
- *             add-ons rely on the Server-side Apply Kubernetes feature, which is only available in
- *             Kubernetes 1.18 and later. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
- *             the <i>Amazon EKS User Guide</i>.</p>
+ *          <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management
+ *             of common operational software for Amazon EKS clusters. For more information,
+ *             see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +56,15 @@ export class CreateAddonCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAddonCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +80,7 @@ export class CreateAddonCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAddonCommandInput, CreateAddonCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateAddonCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

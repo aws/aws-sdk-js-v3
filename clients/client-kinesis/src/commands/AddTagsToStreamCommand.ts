@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,9 +26,13 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds or updates tags for the specified Kinesis data stream. You can assign up to 50
  *             tags to a data stream.</p>
- *         <p>If tags have already been assigned to the stream, <code>AddTagsToStream</code>
+ *          <note>
+ *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+ *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *          </note>
+ *          <p>If tags have already been assigned to the stream, <code>AddTagsToStream</code>
  *             overwrites any existing tags that correspond to the specified tag keys.</p>
- *         <p>
+ *          <p>
  *             <a>AddTagsToStream</a> has a limit of five transactions per second per
  *             account.</p>
  * @example
@@ -53,6 +58,17 @@ export class AddTagsToStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AddTagsToStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +84,9 @@ export class AddTagsToStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddTagsToStreamCommandInput, AddTagsToStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AddTagsToStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

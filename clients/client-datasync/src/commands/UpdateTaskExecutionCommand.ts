@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,6 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * <p>Updates execution of a task.</p>
  *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
  *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
- *
  *          <note>
  *             <p>The only <code>Option</code> that can be modified by <code>UpdateTaskExecution</code>
  *         is <code>
@@ -61,6 +61,15 @@ export class UpdateTaskExecutionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateTaskExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +85,9 @@ export class UpdateTaskExecutionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateTaskExecutionCommandInput, UpdateTaskExecutionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateTaskExecutionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

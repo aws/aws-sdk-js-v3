@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,19 +37,19 @@ export interface GetOrganizationsAccessReportCommandOutput
  *             </code>
  *             operation. This operation retrieves the status of your report job and the report
  *             contents.</p>
- *         <p>Depending on the parameters that you passed when you generated the report, the data
+ *          <p>Depending on the parameters that you passed when you generated the report, the data
  *             returned could include different information. For details, see <a>GenerateOrganizationsAccessReport</a>.</p>
- *         <p>To call this operation, you must be signed in to the management account in your
+ *          <p>To call this operation, you must be signed in to the management account in your
  *             organization. SCPs must be enabled for your organization root. You must have permissions
  *             to perform this operation. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining permissions using
  *                 service last accessed data</a> in the
  *             <i>IAM User Guide</i>.</p>
- *         <p>For each service that principals in an account (root users, IAM users, or IAM
+ *          <p>For each service that principals in an account (root users, IAM users, or IAM
  *             roles) could access using SCPs, the operation returns details about the most recent
  *             access attempt. If there was no attempt, the service is listed without details about the
  *             most recent attempt to access the service. If the operation fails, it returns the reason
  *             that it failed.</p>
- *         <p>By default, the list is sorted by service namespace.</p>
+ *          <p>By default, the list is sorted by service namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +73,15 @@ export class GetOrganizationsAccessReportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetOrganizationsAccessReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +97,9 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetOrganizationsAccessReportCommandInput, GetOrganizationsAccessReportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetOrganizationsAccessReportCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

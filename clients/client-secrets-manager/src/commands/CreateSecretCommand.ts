@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,6 +35,9 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *       includes the connection information to access a database or other service, which Secrets Manager
  *       doesn't encrypt. A secret in Secrets Manager consists of both the protected secret data and the
  *       important information needed to manage the secret.</p>
+ *          <p>For secrets that use <i>managed rotation</i>, you need to create the secret through the managing service. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets managed by other Amazon Web Services services</a>.
+ *
+ *     </p>
  *          <p>For information about creating a secret in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html">Create a secret</a>.</p>
  *          <p>To create a secret, you can provide the secret value to be encrypted in either the
  *       <code>SecretString</code> parameter or the <code>SecretBinary</code> parameter, but not both.
@@ -52,6 +56,7 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API, then
  *       you can't use <code>aws/secretsmanager</code> to encrypt the secret, and you must create
  *       and use a customer managed KMS key. </p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except <code>SecretBinary</code> or <code>SecretString</code> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:CreateSecret</code>. If you
@@ -83,6 +88,15 @@ export class CreateSecretCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,6 +112,7 @@ export class CreateSecretCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateSecretCommandInput, CreateSecretCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateSecretCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -42,9 +43,9 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  *          extension in your account and region for testing.</p>
  *          <p>To perform testing, CloudFormation assumes the execution role specified when
  *          the type was registered. For more information, see <a href="AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
- *          <p>Once you've initiated testing on an extension using <code>TestType</code>, you can use
- *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a> to monitor the current test status and test
- *          status description for the extension.</p>
+ *          <p>Once you've initiated testing on an extension using <code>TestType</code>, you can pass
+ *          the returned <code>TypeVersionArn</code> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a> to monitor the current test status and test status description for
+ *          the extension.</p>
  *          <p>An extension must have a test status of <code>PASSED</code> before it can be published.
  *          For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html">Publishing extensions to make them available for public use</a>
  *          in the <i>CloudFormation CLI User Guide</i>.</p>
@@ -71,6 +72,15 @@ export class TestTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TestTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +96,7 @@ export class TestTypeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TestTypeCommandInput, TestTypeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TestTypeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

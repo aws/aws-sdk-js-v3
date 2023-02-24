@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,13 +32,13 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * <p>Attaches a service configuration to the specified group. This occurs asynchronously,
  *             and can take time to complete. You can use <a>GetGroupConfiguration</a> to
  *             check the status of the update.</p>
- *         <p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:PutGroupConfiguration</code>
  *                </p>
  *             </li>
@@ -65,6 +66,15 @@ export class PutGroupConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutGroupConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +90,9 @@ export class PutGroupConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutGroupConfigurationCommandInput, PutGroupConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutGroupConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

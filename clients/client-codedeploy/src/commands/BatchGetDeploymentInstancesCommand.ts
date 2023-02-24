@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,7 +36,7 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  *                 instead. </p>
  *         </note>
  *         <p> Returns an array of one or more instances associated with a deployment. This method
- *             works with EC2/On-premises and AWS Lambda compute platforms. The newer
+ *             works with EC2/On-premises and Lambda compute platforms. The newer
  *                 <code>BatchGetDeploymentTargets</code> works with all compute platforms. The maximum
  *             number of instances that can be returned is 25.</p>
  * @example
@@ -61,6 +62,15 @@ export class BatchGetDeploymentInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: BatchGetDeploymentInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +86,9 @@ export class BatchGetDeploymentInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchGetDeploymentInstancesCommandInput, BatchGetDeploymentInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchGetDeploymentInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

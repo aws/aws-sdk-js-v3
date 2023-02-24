@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -32,11 +33,11 @@ export interface DeleteReusableDelegationSetCommandOutput
 
 /**
  * <p>Deletes a reusable delegation set.</p>
- * 		       <important>
- * 			         <p>You can delete a reusable delegation set only if it isn't associated with any
+ *          <important>
+ *             <p>You can delete a reusable delegation set only if it isn't associated with any
  * 				hosted zones.</p>
- * 		       </important>
- * 		       <p>To verify that the reusable delegation set is not associated with any hosted zones,
+ *          </important>
+ *          <p>To verify that the reusable delegation set is not associated with any hosted zones,
  * 			submit a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html">GetReusableDelegationSet</a> request and specify the ID of the reusable
  * 			delegation set that you want to delete.</p>
  * @example
@@ -62,6 +63,15 @@ export class DeleteReusableDelegationSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteReusableDelegationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +87,9 @@ export class DeleteReusableDelegationSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteReusableDelegationSetCommandInput, DeleteReusableDelegationSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteReusableDelegationSetCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

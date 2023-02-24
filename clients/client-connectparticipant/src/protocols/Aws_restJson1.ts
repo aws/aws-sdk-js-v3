@@ -44,6 +44,8 @@ import {
   ConnectionType,
   InternalServerException,
   Item,
+  MessageMetadata,
+  Receipt,
   ServiceQuotaExceededException,
   StartPosition,
   ThrottlingException,
@@ -296,7 +298,7 @@ const deserializeAws_restJson1CompleteAttachmentUploadCommandError = async (
 ): Promise<CompleteAttachmentUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -355,7 +357,7 @@ const deserializeAws_restJson1CreateParticipantConnectionCommandError = async (
 ): Promise<CreateParticipantConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -402,7 +404,7 @@ const deserializeAws_restJson1DisconnectParticipantCommandError = async (
 ): Promise<DisconnectParticipantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -455,7 +457,7 @@ const deserializeAws_restJson1GetAttachmentCommandError = async (
 ): Promise<GetAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -511,7 +513,7 @@ const deserializeAws_restJson1GetTranscriptCommandError = async (
 ): Promise<GetTranscriptCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -564,7 +566,7 @@ const deserializeAws_restJson1SendEventCommandError = async (
 ): Promise<SendEventCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -617,7 +619,7 @@ const deserializeAws_restJson1SendMessageCommandError = async (
 ): Promise<SendMessageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -670,7 +672,7 @@ const deserializeAws_restJson1StartAttachmentUploadCommandError = async (
 ): Promise<StartAttachmentUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -854,14 +856,47 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
     AbsoluteTime: __expectString(output.AbsoluteTime),
     Attachments:
       output.Attachments != null ? deserializeAws_restJson1Attachments(output.Attachments, context) : undefined,
+    ContactId: __expectString(output.ContactId),
     Content: __expectString(output.Content),
     ContentType: __expectString(output.ContentType),
     DisplayName: __expectString(output.DisplayName),
     Id: __expectString(output.Id),
+    MessageMetadata:
+      output.MessageMetadata != null
+        ? deserializeAws_restJson1MessageMetadata(output.MessageMetadata, context)
+        : undefined,
     ParticipantId: __expectString(output.ParticipantId),
     ParticipantRole: __expectString(output.ParticipantRole),
+    RelatedContactId: __expectString(output.RelatedContactId),
     Type: __expectString(output.Type),
   } as any;
+};
+
+const deserializeAws_restJson1MessageMetadata = (output: any, context: __SerdeContext): MessageMetadata => {
+  return {
+    MessageId: __expectString(output.MessageId),
+    Receipts: output.Receipts != null ? deserializeAws_restJson1Receipts(output.Receipts, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Receipt = (output: any, context: __SerdeContext): Receipt => {
+  return {
+    DeliveredTimestamp: __expectString(output.DeliveredTimestamp),
+    ReadTimestamp: __expectString(output.ReadTimestamp),
+    RecipientParticipantId: __expectString(output.RecipientParticipantId),
+  } as any;
+};
+
+const deserializeAws_restJson1Receipts = (output: any, context: __SerdeContext): Receipt[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Receipt(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Item[] => {
@@ -895,10 +930,8 @@ const deserializeAws_restJson1UploadMetadataSignedHeaders = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -911,7 +944,8 @@ const deserializeAws_restJson1Websocket = (output: any, context: __SerdeContext)
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -943,6 +977,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -953,6 +993,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

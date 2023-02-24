@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,9 +27,9 @@ export interface DeleteMedicalTranscriptionJobCommandInput extends DeleteMedical
 export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a medical transcription job. To use this operation, specify the name of the job you
- *             want to delete using <code>MedicalTranscriptionJobName</code>. Job names are case
- *             sensitive.</p>
+ * <p>Deletes a medical transcription job. To use this operation, specify the name of the
+ *             job you want to delete using <code>MedicalTranscriptionJobName</code>. Job names are
+ *             case sensitive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +53,15 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteMedicalTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,9 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteMedicalTranscriptionJobCommandInput, DeleteMedicalTranscriptionJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteMedicalTranscriptionJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

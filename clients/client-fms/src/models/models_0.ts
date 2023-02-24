@@ -237,6 +237,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 export enum ThirdPartyFirewall {
+  FORTIGATE_CLOUD_NATIVE_FIREWALL = "FORTIGATE_CLOUD_NATIVE_FIREWALL",
   PALO_ALTO_NETWORKS_CLOUD_NGFW = "PALO_ALTO_NETWORKS_CLOUD_NGFW",
 }
 
@@ -314,6 +315,78 @@ export interface AwsEc2InstanceViolation {
   AwsEc2NetworkInterfaceViolations?: AwsEc2NetworkInterfaceViolation[];
 }
 
+export interface BatchAssociateResourceRequest {
+  /**
+   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   */
+  ResourceSetIdentifier: string | undefined;
+
+  /**
+   * <p>The uniform resource identifiers (URIs) of resources that should be associated to the resource set. The URIs must be Amazon Resource Names (ARNs).</p>
+   */
+  Items: string[] | undefined;
+}
+
+export enum FailedItemReason {
+  NotValidAccountId = "NOT_VALID_ACCOUNT_ID",
+  NotValidArn = "NOT_VALID_ARN",
+  NotValidPartition = "NOT_VALID_PARTITION",
+  NotValidRegion = "NOT_VALID_REGION",
+  NotValidResourceType = "NOT_VALID_RESOURCE_TYPE",
+  NotValidService = "NOT_VALID_SERVICE",
+}
+
+/**
+ * <p>Details of a resource that failed when trying to update it's association to a resource set.</p>
+ */
+export interface FailedItem {
+  /**
+   * <p>The univeral resource indicator (URI) of the resource that failed.</p>
+   */
+  URI?: string;
+
+  /**
+   * <p>The reason the resource's association could not be updated.</p>
+   */
+  Reason?: FailedItemReason | string;
+}
+
+export interface BatchAssociateResourceResponse {
+  /**
+   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   */
+  ResourceSetIdentifier: string | undefined;
+
+  /**
+   * <p>The resources that failed to associate to the resource set.</p>
+   */
+  FailedItems: FailedItem[] | undefined;
+}
+
+export interface BatchDisassociateResourceRequest {
+  /**
+   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   */
+  ResourceSetIdentifier: string | undefined;
+
+  /**
+   * <p>The uniform resource identifiers (URI) of resources that should be disassociated from the resource set. The URIs must be Amazon Resource Names (ARNs).</p>
+   */
+  Items: string[] | undefined;
+}
+
+export interface BatchDisassociateResourceResponse {
+  /**
+   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   */
+  ResourceSetIdentifier: string | undefined;
+
+  /**
+   * <p>The resources that failed to disassociate from the resource set.</p>
+   */
+  FailedItems: FailedItem[] | undefined;
+}
+
 export interface DeleteAppsListRequest {
   /**
    * <p>The ID of the applications list that you want to delete. You can retrieve this ID from
@@ -372,6 +445,13 @@ export interface DeleteProtocolsListRequest {
    *       <code>PutProtocolsList</code>, <code>ListProtocolsLists</code>, and <code>GetProtocolsLost</code>.</p>
    */
   ListId: string | undefined;
+}
+
+export interface DeleteResourceSetRequest {
+  /**
+   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   */
+  Identifier: string | undefined;
 }
 
 export interface DisassociateAdminAccountRequest {}
@@ -655,6 +735,7 @@ export interface PolicyOption {
 
 export enum SecurityServiceType {
   DNS_FIREWALL = "DNS_FIREWALL",
+  IMPORT_NETWORK_FIREWALL = "IMPORT_NETWORK_FIREWALL",
   NETWORK_FIREWALL = "NETWORK_FIREWALL",
   SECURITY_GROUPS_COMMON = "SECURITY_GROUPS_COMMON",
   SECURITY_GROUPS_CONTENT_AUDIT = "SECURITY_GROUPS_CONTENT_AUDIT",
@@ -779,58 +860,6 @@ export interface SecurityServicePolicyData {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Specification for <code>SHIELD_ADVANCED</code> for Amazon CloudFront distributions </p>
-   *                <p>
-   *                   <code>"{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\":
-   *                  {\"automaticResponseStatus\":\"ENABLED|IGNORED|DISABLED\",
-   *                  \"automaticResponseAction\":\"BLOCK|COUNT\"},
-   *                  \"overrideCustomerWebaclClassic\":true|false}"</code>
-   *                </p>
-   *                <p>For example:
-   *                  <code>"{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\":
-   *                  {\"automaticResponseStatus\":\"ENABLED\",
-   *                  \"automaticResponseAction\":\"COUNT\"}}"</code>
-   *                </p>
-   *                <p>The default value for <code>automaticResponseStatus</code> is
-   *                  <code>IGNORED</code>. The value for <code>automaticResponseAction</code> is only
-   *               required when <code>automaticResponseStatus</code> is set to <code>ENABLED</code>.
-   *               The default value for <code>overrideCustomerWebaclClassic</code> is
-   *                  <code>false</code>.</p>
-   *                <p>For other resource types that you can protect with a Shield Advanced policy, this
-   *                  <code>ManagedServiceData</code> configuration is an empty string.</p>
-   *             </li>
-   *             <li>
-   *                <p>Example: <code>WAFV2</code>
-   *                </p>
-   *                <p>
-   *                   <code>"{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[{\"ruleGroupArn\":null,\"overrideAction\":{\"type\":\"NONE\"},\"managedRuleGroupIdentifier\":{\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesAmazonIpReputationList\"},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[{\"name\":\"NoUserAgent_HEADER\"}]}],\"postProcessRuleGroups\":[],\"defaultAction\":{\"type\":\"ALLOW\"},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"},{\"redactedFieldType\":\"Method\"}]}}"</code>
-   *                </p>
-   *                <p>In the <code>loggingConfiguration</code>, you can specify one
-   *                  <code>logDestinationConfigs</code>, you can optionally provide up to 20
-   *                  <code>redactedFields</code>, and the <code>RedactedFieldType</code> must be one of
-   *                  <code>URI</code>, <code>QUERY_STRING</code>, <code>HEADER</code>, or
-   *                  <code>METHOD</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Example: <code>WAF Classic</code>
-   *                </p>
-   *                <p>
-   *                   <code>"{\"type\": \"WAF\", \"ruleGroups\":
-   *                  [{\"id\":\"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\":
-   *                  \"COUNT\"}}], \"defaultAction\": {\"type\": \"BLOCK\"}}"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Example: <code>WAFV2</code> -  Firewall Manager support for WAF managed rule group versioning
-   *           </p>
-   *                <p>
-   *                   <code>"{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[{\"ruleGroupArn\":null,\"overrideAction\":{\"type\":\"NONE\"},\"managedRuleGroupIdentifier\":{\"versionEnabled\":true,\"version\":\"Version_2.0\",\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesCommonRuleSet\"},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[{\"name\":\"NoUserAgent_HEADER\"}]}],\"postProcessRuleGroups\":[],\"defaultAction\":{\"type\":\"ALLOW\"},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"},{\"redactedFieldType\":\"Method\"}]}}"</code>
-   *                </p>
-   *                <p>
-   *             To use a specific version of a WAF managed rule group in your Firewall Manager policy, you must set <code>versionEnabled</code> to <code>true</code>, and set <code>version</code> to the version you'd like to use. If you don't set <code>versionEnabled</code> to <code>true</code>, or if you omit <code>versionEnabled</code>, then Firewall Manager uses the default version of the WAF managed rule group.
-   *           </p>
-   *             </li>
-   *             <li>
    *                <p>Example: <code>SECURITY_GROUPS_COMMON</code>
    *                </p>
    *                <p>
@@ -878,6 +907,58 @@ export interface SecurityServicePolicyData {
    *                </p>
    *                <p>
    *                   <code>"{\"type\":\"SECURITY_GROUPS_USAGE_AUDIT\",\"deleteUnusedSecurityGroups\":true,\"coalesceRedundantSecurityGroups\":true}"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Specification for <code>SHIELD_ADVANCED</code> for Amazon CloudFront distributions </p>
+   *                <p>
+   *                   <code>"{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\":
+   *                  {\"automaticResponseStatus\":\"ENABLED|IGNORED|DISABLED\",
+   *                  \"automaticResponseAction\":\"BLOCK|COUNT\"},
+   *                  \"overrideCustomerWebaclClassic\":true|false}"</code>
+   *                </p>
+   *                <p>For example:
+   *                  <code>"{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\":
+   *                  {\"automaticResponseStatus\":\"ENABLED\",
+   *                  \"automaticResponseAction\":\"COUNT\"}}"</code>
+   *                </p>
+   *                <p>The default value for <code>automaticResponseStatus</code> is
+   *                  <code>IGNORED</code>. The value for <code>automaticResponseAction</code> is only
+   *               required when <code>automaticResponseStatus</code> is set to <code>ENABLED</code>.
+   *               The default value for <code>overrideCustomerWebaclClassic</code> is
+   *                  <code>false</code>.</p>
+   *                <p>For other resource types that you can protect with a Shield Advanced policy, this
+   *                  <code>ManagedServiceData</code> configuration is an empty string.</p>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>WAFV2</code>
+   *                </p>
+   *                <p>
+   *                   <code>"{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[{\"ruleGroupArn\":null,\"overrideAction\":{\"type\":\"NONE\"},\"managedRuleGroupIdentifier\":{\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesAmazonIpReputationList\"},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[{\"name\":\"NoUserAgent_HEADER\"}]}],\"postProcessRuleGroups\":[],\"defaultAction\":{\"type\":\"ALLOW\"},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"},{\"redactedFieldType\":\"Method\"}]}}"</code>
+   *                </p>
+   *                <p>In the <code>loggingConfiguration</code>, you can specify one
+   *                  <code>logDestinationConfigs</code>, you can optionally provide up to 20
+   *                  <code>redactedFields</code>, and the <code>RedactedFieldType</code> must be one of
+   *                  <code>URI</code>, <code>QUERY_STRING</code>, <code>HEADER</code>, or
+   *                  <code>METHOD</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>WAFV2</code> -  Firewall Manager support for WAF managed rule group versioning
+   *           </p>
+   *                <p>
+   *                   <code>"{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[{\"ruleGroupArn\":null,\"overrideAction\":{\"type\":\"NONE\"},\"managedRuleGroupIdentifier\":{\"versionEnabled\":true,\"version\":\"Version_2.0\",\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesCommonRuleSet\"},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[{\"name\":\"NoUserAgent_HEADER\"}]}],\"postProcessRuleGroups\":[],\"defaultAction\":{\"type\":\"ALLOW\"},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"},{\"redactedFieldType\":\"Method\"}]}}"</code>
+   *                </p>
+   *                <p>
+   *             To use a specific version of a WAF managed rule group in your Firewall Manager policy, you must set <code>versionEnabled</code> to <code>true</code>, and set <code>version</code> to the version you'd like to use. If you don't set <code>versionEnabled</code> to <code>true</code>, or if you omit <code>versionEnabled</code>, then Firewall Manager uses the default version of the WAF managed rule group.
+   *           </p>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>WAF Classic</code>
+   *                </p>
+   *                <p>
+   *                   <code>"{\"type\": \"WAF\", \"ruleGroups\":
+   *                  [{\"id\":\"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\":
+   *                  \"COUNT\"}}], \"defaultAction\": {\"type\": \"BLOCK\"}}"</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1015,6 +1096,16 @@ export interface Policy {
    *          </ul>
    */
   ExcludeMap?: Record<string, string[]>;
+
+  /**
+   * <p>The unique identifiers of the resource sets used by the policy.</p>
+   */
+  ResourceSetIds?: string[];
+
+  /**
+   * <p>The definition of the Network Firewall firewall policy.</p>
+   */
+  PolicyDescription?: string;
 }
 
 export interface GetPolicyResponse {
@@ -1204,6 +1295,65 @@ export interface GetProtocolsListResponse {
    * <p>The Amazon Resource Name (ARN) of the specified protocols list.</p>
    */
   ProtocolsListArn?: string;
+}
+
+export interface GetResourceSetRequest {
+  /**
+   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * <p>A set of resources to include in a policy.</p>
+ */
+export interface ResourceSet {
+  /**
+   * <p>A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The descriptive name of the resource set. You can't change the name of a resource set after you create it.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the resource set.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>An optional token that you can use for optimistic locking. Firewall Manager returns a token to your requests that access the resource set. The token marks the state of the resource set resource at the time of the request. Update tokens are not allowed when creating a resource set. After creation, each subsequent update call to the resource set requires the update token.
+   * </p>
+   *          <p>To make an unconditional change to the resource set, omit the token in your update request. Without the token, Firewall Manager performs your updates regardless of whether the resource set has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the resource set, provide the token in your update request. Firewall Manager uses the token to ensure that the resource set hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the resource set again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   */
+  UpdateToken?: string;
+
+  /**
+   * <p>Determines the resources that can be associated to the resource set. Depending on
+   *          your setting for max results and the number of resource sets, a single call might not
+   *          return the full list.</p>
+   */
+  ResourceTypeList: string[] | undefined;
+
+  /**
+   * <p>The last time that the resource set was changed.</p>
+   */
+  LastUpdateTime?: Date;
+}
+
+export interface GetResourceSetResponse {
+  /**
+   * <p>Information about the specified resource set.</p>
+   */
+  ResourceSet: ResourceSet | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource set.</p>
+   */
+  ResourceSetArn: string | undefined;
 }
 
 export interface GetThirdPartyFirewallAssociationStatusRequest {
@@ -1931,6 +2081,20 @@ export interface StatefulEngineOptions {
   RuleOrder?: RuleOrder | string;
 }
 
+export enum NetworkFirewallOverrideAction {
+  DROP_TO_ALERT = "DROP_TO_ALERT",
+}
+
+/**
+ * <p>The setting that allows the policy owner to change the behavior of the rule group within a policy.</p>
+ */
+export interface NetworkFirewallStatefulRuleGroupOverride {
+  /**
+   * <p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to managed rule groups.</p>
+   */
+  Action?: NetworkFirewallOverrideAction | string;
+}
+
 /**
  * <p>Network Firewall stateful rule group, used in a <a>NetworkFirewallPolicyDescription</a>. </p>
  */
@@ -1959,6 +2123,11 @@ export interface StatefulRuleGroup {
    * </p>
    */
   Priority?: number;
+
+  /**
+   * <p>The action that allows the policy owner to override the behavior of the rule group within a policy.</p>
+   */
+  Override?: NetworkFirewallStatefulRuleGroupOverride;
 }
 
 /**
@@ -2895,6 +3064,71 @@ export interface ListComplianceStatusResponse {
   NextToken?: string;
 }
 
+export interface ListDiscoveredResourcesRequest {
+  /**
+   * <p>The Amazon Web Services account IDs to discover resources in. Only one account is supported per request. The account must be a member of your organization.</p>
+   */
+  MemberAccountIds: string[] | undefined;
+
+  /**
+   * <p>The type of resources to discover.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
+   *           objects are available, in the response, Firewall Manager provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A resource in the organization that's available to be associated with a Firewall Manager resource set.</p>
+ */
+export interface DiscoveredResource {
+  /**
+   * <p>The universal resource identifier (URI) of the discovered resource.</p>
+   */
+  URI?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the discovered resource.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The type of the discovered resource.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The name of the discovered resource.</p>
+   */
+  Name?: string;
+}
+
+export interface ListDiscoveredResourcesResponse {
+  /**
+   * <p>Details of the resources that were discovered.</p>
+   */
+  Items?: DiscoveredResource[];
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListMemberAccountsRequest {
   /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more account IDs than the
@@ -3083,6 +3317,111 @@ export interface ListProtocolsListsResponse {
   NextToken?: string;
 }
 
+export interface ListResourceSetResourcesRequest {
+  /**
+   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
+   *           objects are available, in the response, Firewall Manager provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Details of a resource that is associated to an Firewall Manager resource set.</p>
+ */
+export interface Resource {
+  /**
+   * <p>The resource's universal resource indicator (URI).</p>
+   */
+  URI: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that the associated resource belongs to.</p>
+   */
+  AccountId?: string;
+}
+
+export interface ListResourceSetResourcesResponse {
+  /**
+   * <p>An array of the associated resources' uniform resource identifiers (URI).</p>
+   */
+  Items: Resource[] | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListResourceSetsRequest {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
+   *           objects are available, in the response, Firewall Manager provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Summarizes the resource sets used in a policy.</p>
+ */
+export interface ResourceSetSummary {
+  /**
+   * <p>A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The descriptive name of the resource set. You can't change the name of a resource set after you create it.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the resource set.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The last time that the resource set was changed.</p>
+   */
+  LastUpdateTime?: Date;
+}
+
+export interface ListResourceSetsResponse {
+  /**
+   * <p>An array of <code>ResourceSetSummary</code> objects.</p>
+   */
+  ResourceSets?: ResourceSetSummary[];
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
@@ -3237,6 +3576,34 @@ export interface PutProtocolsListResponse {
   ProtocolsListArn?: string;
 }
 
+export interface PutResourceSetRequest {
+  /**
+   * <p>Details about the resource set to be created or updated.></p>
+   */
+  ResourceSet: ResourceSet | undefined;
+
+  /**
+   * <p>Retrieves the tags associated with the specified resource set. Tags are key:value pairs that
+   *          you can use to categorize and manage your resources, for purposes like billing. For
+   *          example, you might set the tag key to "customer" and the value to the customer name or ID.
+   *          You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a
+   *          resource.</p>
+   */
+  TagList?: Tag[];
+}
+
+export interface PutResourceSetResponse {
+  /**
+   * <p>Details about the resource set.</p>
+   */
+  ResourceSet: ResourceSet | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource set.</p>
+   */
+  ResourceSetArn: string | undefined;
+}
+
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
@@ -3333,6 +3700,41 @@ export const AwsEc2InstanceViolationFilterSensitiveLog = (obj: AwsEc2InstanceVio
 /**
  * @internal
  */
+export const BatchAssociateResourceRequestFilterSensitiveLog = (obj: BatchAssociateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedItemFilterSensitiveLog = (obj: FailedItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateResourceResponseFilterSensitiveLog = (obj: BatchAssociateResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateResourceRequestFilterSensitiveLog = (obj: BatchDisassociateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateResourceResponseFilterSensitiveLog = (obj: BatchDisassociateResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteAppsListRequestFilterSensitiveLog = (obj: DeleteAppsListRequest): any => ({
   ...obj,
 });
@@ -3355,6 +3757,13 @@ export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest):
  * @internal
  */
 export const DeleteProtocolsListRequestFilterSensitiveLog = (obj: DeleteProtocolsListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceSetRequestFilterSensitiveLog = (obj: DeleteResourceSetRequest): any => ({
   ...obj,
 });
 
@@ -3547,6 +3956,27 @@ export const GetProtocolsListResponseFilterSensitiveLog = (obj: GetProtocolsList
 /**
  * @internal
  */
+export const GetResourceSetRequestFilterSensitiveLog = (obj: GetResourceSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceSetFilterSensitiveLog = (obj: ResourceSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceSetResponseFilterSensitiveLog = (obj: GetResourceSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetThirdPartyFirewallAssociationStatusRequestFilterSensitiveLog = (
   obj: GetThirdPartyFirewallAssociationStatusRequest
 ): any => ({
@@ -3726,6 +4156,15 @@ export const NetworkFirewallMissingSubnetViolationFilterSensitiveLog = (
  * @internal
  */
 export const StatefulEngineOptionsFilterSensitiveLog = (obj: StatefulEngineOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallStatefulRuleGroupOverrideFilterSensitiveLog = (
+  obj: NetworkFirewallStatefulRuleGroupOverride
+): any => ({
   ...obj,
 });
 
@@ -3967,6 +4406,27 @@ export const ListComplianceStatusResponseFilterSensitiveLog = (obj: ListComplian
 /**
  * @internal
  */
+export const ListDiscoveredResourcesRequestFilterSensitiveLog = (obj: ListDiscoveredResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiscoveredResourceFilterSensitiveLog = (obj: DiscoveredResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDiscoveredResourcesResponseFilterSensitiveLog = (obj: ListDiscoveredResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListMemberAccountsRequestFilterSensitiveLog = (obj: ListMemberAccountsRequest): any => ({
   ...obj,
 });
@@ -4017,6 +4477,48 @@ export const ProtocolsListDataSummaryFilterSensitiveLog = (obj: ProtocolsListDat
  * @internal
  */
 export const ListProtocolsListsResponseFilterSensitiveLog = (obj: ListProtocolsListsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceSetResourcesRequestFilterSensitiveLog = (obj: ListResourceSetResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceSetResourcesResponseFilterSensitiveLog = (obj: ListResourceSetResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceSetsRequestFilterSensitiveLog = (obj: ListResourceSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceSetSummaryFilterSensitiveLog = (obj: ResourceSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceSetsResponseFilterSensitiveLog = (obj: ListResourceSetsResponse): any => ({
   ...obj,
 });
 
@@ -4105,6 +4607,20 @@ export const PutProtocolsListRequestFilterSensitiveLog = (obj: PutProtocolsListR
  * @internal
  */
 export const PutProtocolsListResponseFilterSensitiveLog = (obj: PutProtocolsListResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourceSetRequestFilterSensitiveLog = (obj: PutResourceSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourceSetResponseFilterSensitiveLog = (obj: PutResourceSetResponse): any => ({
   ...obj,
 });
 

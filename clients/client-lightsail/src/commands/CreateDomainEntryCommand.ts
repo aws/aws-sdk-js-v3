@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,9 +32,6 @@ export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult,
  * <p>Creates one of the following domain name system (DNS) records in a domain DNS zone:
  *       Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority
  *       (SOA), service locator (SRV), or text (TXT).</p>
- *
- *
- *
  *          <p>The <code>create domain entry</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by <code>domain name</code>. For more
  *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -60,6 +58,15 @@ export class CreateDomainEntryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDomainEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +82,9 @@ export class CreateDomainEntryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDomainEntryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

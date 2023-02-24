@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,8 @@ export interface GetStreamingDistributionCommandInput extends GetStreamingDistri
 export interface GetStreamingDistributionCommandOutput extends GetStreamingDistributionResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
+ * <p>Gets information about a specified RTMP distribution, including the distribution
+ * 			configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +54,15 @@ export class GetStreamingDistributionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetStreamingDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +78,9 @@ export class GetStreamingDistributionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetStreamingDistributionCommandInput, GetStreamingDistributionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetStreamingDistributionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

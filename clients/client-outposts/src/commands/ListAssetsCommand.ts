@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,11 +29,10 @@ export interface ListAssetsCommandInput extends ListAssetsInput {}
 export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Lists the hardware assets in an Outpost. If you are using Dedicated Hosts on
- *       Amazon Web Services Outposts, you can filter your request by host ID to return a list of hardware
- *       assets that allocate resources for Dedicated Hosts.
- *     </p>
+ * <p>Lists the hardware assets for the specified Outpost.</p>
+ *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
+ *  all of the specified filters. For a filter where you can specify multiple values, the results include
+ *  items that match any of the values that you specify for the filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +56,15 @@ export class ListAssetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +80,7 @@ export class ListAssetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAssetsCommandInput, ListAssetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListAssetsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

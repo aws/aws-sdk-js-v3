@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,6 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
  *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag restrictions</a> in the
  *         <i>Billing and Cost Management User Guide</i>.</p>
- *
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
  *       action.</p>
  * @example
@@ -59,6 +59,15 @@ export class DeleteTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +83,7 @@ export class DeleteTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteTagsCommandInput, DeleteTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

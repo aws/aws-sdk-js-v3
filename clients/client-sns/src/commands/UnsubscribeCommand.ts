@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -21,12 +22,17 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a subscription. If the subscription requires authentication for deletion, only
- *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature
- *             is required. If the <code>Unsubscribe</code> call does not require authentication and
- *             the requester is not the subscription owner, a final cancellation message is delivered
- *             to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the
- *                 <code>Unsubscribe</code> request was unintended.</p>
- *         <p>This action is throttled at 100 transactions per second (TPS).</p>
+ *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services
+ *             signature is required. If the <code>Unsubscribe</code> call does not require
+ *             authentication and the requester is not the subscription owner, a final cancellation
+ *             message is delivered to the endpoint, so that the endpoint owner can easily resubscribe
+ *             to the topic if the <code>Unsubscribe</code> request was unintended.</p>
+ *          <note>
+ *             <p>Amazon SQS queue subscriptions require authentication for deletion. Only the owner of
+ *                 the subscription, or the owner of the topic can unsubscribe using the required Amazon Web Services
+ *                 signature.</p>
+ *          </note>
+ *          <p>This action is throttled at 100 transactions per second (TPS).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +56,15 @@ export class UnsubscribeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UnsubscribeCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +80,7 @@ export class UnsubscribeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UnsubscribeCommandInput, UnsubscribeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UnsubscribeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

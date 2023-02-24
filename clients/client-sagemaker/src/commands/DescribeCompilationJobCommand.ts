@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   DescribeCompilationJobRequestFilterSensitiveLog,
   DescribeCompilationJobResponse,
   DescribeCompilationJobResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeCompilationJobCommand,
   serializeAws_json1_1DescribeCompilationJobCommand,
@@ -29,7 +30,7 @@ export interface DescribeCompilationJobCommandOutput extends DescribeCompilation
 
 /**
  * <p>Returns information about a model compilation job.</p>
- *         <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
+ *          <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
  *             information about multiple model compilation jobs, use <a>ListCompilationJobs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +55,15 @@ export class DescribeCompilationJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeCompilationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class DescribeCompilationJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeCompilationJobCommandInput, DescribeCompilationJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeCompilationJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,21 +29,18 @@ export interface CreateAgentCommandInput extends CreateAgentRequest {}
 export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Activates an DataSync agent that you have deployed on your host. The activation
- *       process associates your agent with your account. In the activation process, you specify
- *       information such as the Amazon Web Services Region that you want to activate the agent in. You activate the
- *       agent in the Amazon Web Services Region where your target locations (in Amazon S3 or Amazon EFS) reside. Your
- *       tasks are created in this Amazon Web Services Region.</p>
+ * <p>Activates an DataSync agent that you have deployed in your storage
+ *       environment. The activation process associates your agent with your account. In the activation
+ *       process, you specify information such as the Amazon Web Services Region that you want to
+ *       activate the agent in. You activate the agent in the Amazon Web Services Region where your
+ *       target locations (in Amazon S3 or Amazon EFS) reside. Your tasks are created in this Amazon Web Services Region.</p>
  *          <p>You can activate the agent in a VPC (virtual private cloud) or provide the agent access to
  *       a VPC endpoint so you can run tasks without going over the public internet.</p>
  *          <p>You can use an agent for more than one location. If a task uses multiple agents, all of
  *       them need to have status AVAILABLE for the task to run. If you use multiple agents for a
  *       source location, the status of all the agents must be AVAILABLE for the task to run. </p>
- *
- *
  *          <p>Agents are automatically updated by Amazon Web Services on a regular basis, using a mechanism that
  *       ensures minimal interruption to your tasks.</p>
- *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +64,15 @@ export class CreateAgentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +88,7 @@ export class CreateAgentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAgentCommandInput, CreateAgentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateAgentCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -38,10 +39,7 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       public key within KMS, you benefit from the authentication, authorization, and logging that
  *       are part of every KMS operation. You also reduce of risk of encrypting data that cannot be
  *       decrypted. These features are not effective outside of KMS.</p>
- *          <p>To verify a signature outside of KMS with an SM2 public key (China Regions only), you must
- *       specify the distinguishing ID. By default, KMS uses <code>1234567812345678</code> as the
- *       distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification
- *       with SM2 key pairs</a>.</p>
+ *
  *          <p>To help you use the public key safely outside of KMS, <code>GetPublicKey</code> returns
  *       important information about the public key in the response, including:</p>
  *          <ul>
@@ -66,6 +64,10 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       public key from being used with an encryption algorithm that is not supported by KMS. You
  *       can also avoid errors, such as using the wrong signing algorithm in a verification
  *       operation.</p>
+ *          <p>To verify a signature outside of KMS with an SM2 public key (China Regions only), you must
+ *       specify the distinguishing ID. By default, KMS uses <code>1234567812345678</code> as the
+ *       distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification
+ *         with SM2 key pairs</a>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
@@ -101,6 +103,15 @@ export class GetPublicKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +127,7 @@ export class GetPublicKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPublicKeyCommandInput, GetPublicKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetPublicKeyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

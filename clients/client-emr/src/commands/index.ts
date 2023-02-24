@@ -19,6 +19,7 @@ export * from "./DescribeStepCommand";
 export * from "./DescribeStudioCommand";
 export * from "./GetAutoTerminationPolicyCommand";
 export * from "./GetBlockPublicAccessConfigurationCommand";
+export * from "./GetClusterSessionCredentialsCommand";
 export * from "./GetManagedScalingPolicyCommand";
 export * from "./GetStudioSessionMappingCommand";
 export * from "./ListBootstrapActionsCommand";

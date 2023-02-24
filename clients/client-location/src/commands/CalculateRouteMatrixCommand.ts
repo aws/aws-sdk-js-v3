@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -39,30 +40,30 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *             X, A to Y, B to X, and B to Y (in that order). The number of results returned (and
  *             routes calculated) will be the number of <code>DeparturePositions</code> times the
  *             number of <code>DestinationPositions</code>.</p>
- *         <note>
+ *          <note>
  *             <p>Your account is charged for each route calculated, not the number of
  *                 requests.</p>
- *         </note>
- *         <p>Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
+ *          </note>
+ *          <p>Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
  *                 route calculator resource</a>.</p>
- *         <p>By default, a request that doesn't specify a departure time uses the best time of day
+ *          <p>By default, a request that doesn't specify a departure time uses the best time of day
  *             to travel with the best traffic conditions when calculating routes.</p>
- *         <p>Additional options include:</p>
- *         <ul>
+ *          <p>Additional options include:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html"> Specifying a
  *                         departure time</a> using either <code>DepartureTime</code> or
  *                         <code>DepartNow</code>. This calculates routes based on predictive traffic
  *                     data at the given time. </p>
- *                 <note>
- *                     <p>You can't specify both <code>DepartureTime</code> and
+ *                <note>
+ *                   <p>You can't specify both <code>DepartureTime</code> and
  *                             <code>DepartNow</code> in a single request. Specifying both parameters
  *                         returns a validation error.</p>
- *                 </note>
+ *                </note>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel
  *                         mode</a> using TravelMode sets the transportation mode used to calculate
  *                     the routes. This also lets you specify additional route preferences in
@@ -93,6 +94,15 @@ export class CalculateRouteMatrixCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CalculateRouteMatrixCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,6 +118,9 @@ export class CalculateRouteMatrixCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CalculateRouteMatrixCommandInput, CalculateRouteMatrixCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CalculateRouteMatrixCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,8 +24,8 @@ export interface PutMetricFilterCommandInput extends PutMetricFilterRequest {}
 export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates or updates a metric filter and associates it with the specified log group.
- *       Metric filters allow you to configure rules to extract metric data from log events ingested
+ * <p>Creates or updates a metric filter and associates it with the specified log group. With
+ *       metric filters, you can configure rules to extract metric data from log events ingested
  *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
  *          <p>The maximum number of metric filters that can be associated with a log group is
  *       100.</p>
@@ -37,9 +38,9 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *       found for
  *       a dimension is treated as a separate metric and accrues charges as a separate custom metric.
  *     </p>
- *             <p>To help prevent accidental high charges, Amazon disables a metric filter
- *         if it generates 1000 different name/value pairs for the dimensions that you
- *         have specified within a certain amount of time.</p>
+ *             <p>CloudWatch Logs disables a metric filter if it generates 1,000 different name/value pairs for
+ *         your specified dimensions within a certain amount of time. This helps to prevent accidental
+ *         high charges.</p>
  *             <p>You can also set up a billing alarm to alert you if your charges are higher than
  *         expected. For more information,
  *         see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html">
@@ -69,6 +70,15 @@ export class PutMetricFilterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutMetricFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +94,9 @@ export class PutMetricFilterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutMetricFilterCommandInput, PutMetricFilterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutMetricFilterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

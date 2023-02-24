@@ -1,12 +1,14 @@
+import { toEndpointV1 } from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
-  Credentials,
+  AwsCredentialIdentity,
+  ChecksumConstructor,
   Endpoint,
+  HandlerExecutionContext,
   HashConstructor,
   InitializeHandler,
   InitializeHandlerArguments,
-  InitializeHandlerOptions,
   InitializeHandlerOutput,
   InitializeMiddleware,
   MemoizedProvider,
@@ -14,14 +16,16 @@ import {
   Pluggable,
   Provider,
   RegionInfoProvider,
+  RelativeMiddlewareOptions,
+  SerializeHandlerOptions,
 } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
 interface PreviouslyResolved {
-  credentials: MemoizedProvider<Credentials>;
-  endpoint: Provider<Endpoint>;
+  credentials: MemoizedProvider<AwsCredentialIdentity>;
+  endpoint?: Provider<Endpoint>;
   region: Provider<string>;
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
   signingEscapePath: boolean;
   regionInfoProvider?: RegionInfoProvider;
 }
@@ -30,12 +34,16 @@ const version = "2016-11-15";
 
 //an initialize middleware to add PresignUrl to input
 export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
-  return <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>
+  return <Output extends MetadataBearer>(
+      next: InitializeHandler<any, Output>,
+      context: HandlerExecutionContext
+    ): InitializeHandler<any, Output> =>
     async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
       const { input } = args;
       if (!input.PresignedUrl) {
         const region = await options.region();
-        const resolvedEndpoint = await options.endpoint();
+        const resolvedEndpoint =
+          typeof options.endpoint === "function" ? await options.endpoint() : toEndpointV1(context.endpointV2!);
 
         if (typeof options.regionInfoProvider === "function") {
           const regionInfo = await options.regionInfoProvider(input.SourceRegion);
@@ -83,11 +91,13 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
     };
 }
 
-export const copySnapshotPresignedUrlMiddlewareOptions: InitializeHandlerOptions = {
-  step: "initialize",
+export const copySnapshotPresignedUrlMiddlewareOptions: SerializeHandlerOptions & RelativeMiddlewareOptions = {
+  step: "serialize",
   tags: ["CROSS_REGION_PRESIGNED_URL"],
   name: "crossRegionPresignedUrlMiddleware",
   override: true,
+  relation: "after",
+  toMiddleware: "endpointV2Middleware",
 };
 
 export const getCopySnapshotPresignedUrlPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({

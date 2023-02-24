@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,6 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
 /**
  * <p>Returns information about the Snow Family service limit for your account, and also the
  *       number of Snow devices your account has in use.</p>
- *
  *          <p>The default service limit for the number of Snow devices that you can have at one time
  *       is 1. If you want to increase your service limit, contact Amazon Web Services Support.</p>
  * @example
@@ -56,6 +56,15 @@ export class GetSnowballUsageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetSnowballUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +80,9 @@ export class GetSnowballUsageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetSnowballUsageCommandInput, GetSnowballUsageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetSnowballUsageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

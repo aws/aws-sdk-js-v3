@@ -214,21 +214,21 @@ export interface UnprocessedPreparedStatementName {
   ErrorCode?: string;
 
   /**
-   * <p>The error message containing the reason why the prepared statement could not be returned.
-   *             The following error messages are possible:</p>
-   *         <ul>
+   * <p>The error message containing the reason why the prepared statement could not be
+   *             returned. The following error messages are possible:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>INVALID_INPUT</code> - The name of the prepared statement that was
    *                     provided is not valid (for example, the name is too long).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATEMENT_NOT_FOUND</code> - A prepared statement with the name provided
    *                     could not be found.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>UNAUTHORIZED</code> - The requester does not have permission to access
    *                     the workgroup that contains the prepared statement.</p>
    *             </li>
@@ -244,7 +244,8 @@ export interface BatchGetPreparedStatementOutput {
   PreparedStatements?: PreparedStatement[];
 
   /**
-   * <p>A list of one or more prepared statements that were requested but could not be returned.</p>
+   * <p>A list of one or more prepared statements that were requested but could not be
+   *             returned.</p>
    */
   UnprocessedPreparedStatementNames?: UnprocessedPreparedStatementName[];
 }
@@ -260,7 +261,8 @@ export interface BatchGetQueryExecutionInput {
 }
 
 /**
- * <p>The Athena engine version for running queries.</p>
+ * <p>The Athena engine version for running queries, or the PySpark engine
+ *             version for running sessions.</p>
  */
 export interface EngineVersion {
   /**
@@ -312,7 +314,7 @@ export interface EncryptionConfiguration {
    * <p>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE_S3</code>), server-side encryption with KMS-managed keys
    *                 (<code>SSE_KMS</code>), or client-side encryption with KMS-managed keys
    *                 (<code>CSE_KMS</code>) is used.</p>
-   *         <p>If a query runs in a workgroup and the workgroup overrides client-side settings, then
+   *          <p>If a query runs in a workgroup and the workgroup overrides client-side settings, then
    *             the workgroup's setting for encryption is used. It specifies whether query results must
    *             be encrypted, for all queries that run in this workgroup. </p>
    */
@@ -359,7 +361,7 @@ export interface ResultConfiguration {
    *                 <code>ExpectedBucketOwner</code>
    *             Amazon Web Services account ID does not match the actual owner of the Amazon S3
    *             bucket, the call fails with a permissions error.</p>
-   *         <p>This is a client-side setting. If workgroup settings override client-side settings,
+   *          <p>This is a client-side setting. If workgroup settings override client-side settings,
    *             then the query uses the <code>ExpectedBucketOwner</code> setting that is specified for
    *             the workgroup, and also uses the location for storing query results specified in the
    *             workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>
@@ -378,10 +380,45 @@ export interface ResultConfiguration {
   AclConfiguration?: AclConfiguration;
 }
 
+/**
+ * <p>Specifies whether previous query results are reused, and if so, their maximum age.</p>
+ */
+export interface ResultReuseByAgeConfiguration {
+  /**
+   * <p>True if previous query results can be reused when the query is run; otherwise, false. The default is false.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>Specifies, in minutes, the maximum age of a previous query result that Athena should consider for reuse. The default is 60.</p>
+   */
+  MaxAgeInMinutes?: number;
+}
+
+/**
+ * <p>Specifies the query result reuse behavior for the query.</p>
+ */
+export interface ResultReuseConfiguration {
+  /**
+   * <p>Specifies whether previous query results are reused, and if so, their maximum age.</p>
+   */
+  ResultReuseByAgeConfiguration?: ResultReuseByAgeConfiguration;
+}
+
 export enum StatementType {
   DDL = "DDL",
   DML = "DML",
   UTILITY = "UTILITY",
+}
+
+/**
+ * <p>Contains information about whether the result of a previous query was reused.</p>
+ */
+export interface ResultReuseInformation {
+  /**
+   * <p>True if a previous query result was reused; false if the result was generated from a new run of the query.</p>
+   */
+  ReusedPreviousResult: boolean | undefined;
 }
 
 /**
@@ -435,6 +472,11 @@ export interface QueryExecutionStatistics {
    *             query results after the query engine finished running the query.</p>
    */
   ServiceProcessingTimeInMillis?: number;
+
+  /**
+   * <p>Contains information about whether previous query results were reused for the query.</p>
+   */
+  ResultReuseInformation?: ResultReuseInformation;
 }
 
 /**
@@ -449,11 +491,11 @@ export interface AthenaError {
   /**
    * <p>An integer value that specifies the category of a query failure error. The following
    *             list shows the category for each integer value.</p>
-   *         <p>
+   *          <p>
    *             <b>1</b> - System</p>
-   *         <p>
+   *          <p>
    *             <b>2</b> - User</p>
-   *         <p>
+   *          <p>
    *             <b>3</b> - Other</p>
    */
   ErrorCategory?: number;
@@ -497,11 +539,11 @@ export interface QueryExecutionStatus {
    *                 <code>FAILED</code> indicates that the query experienced an error and did not
    *             complete processing. <code>CANCELLED</code> indicates that a user input interrupted
    *             query execution.</p>
-   *         <note>
+   *          <note>
    *             <p>Athena automatically retries your queries in cases of certain
    *                 transient errors. As a result, you may see the query state transition from
    *                     <code>RUNNING</code> or <code>FAILED</code> to <code>QUEUED</code>. </p>
-   *         </note>
+   *          </note>
    */
   State?: QueryExecutionState | string;
 
@@ -559,6 +601,11 @@ export interface QueryExecution {
   ResultConfiguration?: ResultConfiguration;
 
   /**
+   * <p>Specifies the query result reuse behavior that was used for the query.</p>
+   */
+  ResultReuseConfiguration?: ResultReuseConfiguration;
+
+  /**
    * <p>The database in which the query execution occurred.</p>
    */
   QueryExecutionContext?: QueryExecutionContext;
@@ -586,7 +633,8 @@ export interface QueryExecution {
   EngineVersion?: EngineVersion;
 
   /**
-   * <p>A list of values for the parameters in a query. The values are applied sequentially to the parameters in the query in the order in which the parameters occur.</p>
+   * <p>A list of values for the parameters in a query. The values are applied sequentially to
+   *             the parameters in the query in the order in which the parameters occur.</p>
    */
   ExecutionParameters?: string[];
 }
@@ -683,69 +731,69 @@ export interface CreateDataCatalogInput {
   /**
    * <p>Specifies the Lambda function or functions to use for creating the data
    *             catalog. This is a mapping whose values depend on the catalog type. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
+   *                <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
    *                         <code>metadata-function</code> parameter is required. <code>The
    *                         sdk-version</code> parameter is optional and defaults to the currently
    *                     supported version.</p>
-   *                 <p>
+   *                <p>
    *                   <code>metadata-function=<i>lambda_arn</i>,
    *                             sdk-version=<i>version_number</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
+   *                <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
    *                     of required parameters, but not both.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>If you have one Lambda function that processes metadata
+   *                      <p>If you have one Lambda function that processes metadata
    *                             and another for reading the actual data, use the following syntax. Both
    *                             parameters are required.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>metadata-function=<i>lambda_arn</i>,
    *                                     record-function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p> If you have a composite Lambda function that processes
+   *                      <p> If you have a composite Lambda function that processes
    *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
+   *                <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
    *                             <code>
    *                      <i>catalog_id</i>
    *                   </code> is the account ID of the
    *                         Amazon Web Services account to which the Glue Data Catalog
    *                     belongs.</p>
-   *                 <p>
+   *                <p>
    *                   <code>catalog-id=<i>catalog_id</i>
    *                   </code>
    *                </p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>The <code>GLUE</code> data catalog type also applies to the default
+   *                      <p>The <code>GLUE</code> data catalog type also applies to the default
    *                                 <code>AwsDataCatalog</code> that already exists in your account, of
    *                             which you can have only one and cannot modify.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Queries that specify a Glue Data Catalog other than the default
+   *                      <p>Queries that specify a Glue Data Catalog other than the default
    *                                 <code>AwsDataCatalog</code> must be run on Athena engine
    *                             version 2.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>In Regions where Athena engine version 2 is not available,
+   *                      <p>In Regions where Athena engine version 2 is not available,
    *                             creating new Glue data catalogs results in an
    *                                 <code>INVALID_INPUT</code> error.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
@@ -786,12 +834,12 @@ export interface CreateNamedQueryInput {
    *             idempotent (executes only once). If another <code>CreateNamedQuery</code> request is
    *             received, the same response is returned and another query is not created. If a parameter
    *             has changed, for example, the <code>QueryString</code>, an error is returned.</p>
-   *         <important>
+   *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
    *                 not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
    *                 this token or the action will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 
@@ -806,6 +854,69 @@ export interface CreateNamedQueryOutput {
    * <p>The unique ID of the query.</p>
    */
   NamedQueryId?: string;
+}
+
+export interface CreateNotebookInput {
+  /**
+   * <p>The name of the Spark enabled workgroup in which the notebook will be created.</p>
+   */
+  WorkGroup: string | undefined;
+
+  /**
+   * <p>The name of the <code>ipynb</code> file to be created in the Spark workgroup, without
+   *             the <code>.ipynb</code> extension.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure the request to create the notebook is
+   *             idempotent (executes only once).</p>
+   *          <important>
+   *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
+   *                 the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not
+   *                 using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
+   *                 this token or the action will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+}
+
+export interface CreateNotebookOutput {
+  /**
+   * <p>A unique identifier for the notebook.</p>
+   */
+  NotebookId?: string;
+}
+
+export enum ThrottleReason {
+  CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED",
+}
+
+/**
+ * <p>Indicates that the request was throttled.</p>
+ */
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The reason for the query throttling, for example, when it exceeds the concurrent query
+   *             limit.</p>
+   */
+  Reason?: ThrottleReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 export interface CreatePreparedStatementInput {
@@ -831,6 +942,67 @@ export interface CreatePreparedStatementInput {
 }
 
 export interface CreatePreparedStatementOutput {}
+
+export interface CreatePresignedNotebookUrlRequest {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId: string | undefined;
+}
+
+export interface CreatePresignedNotebookUrlResponse {
+  /**
+   * <p>The URL of the notebook. The URL includes the authentication token and notebook file
+   *             name and points directly to the opened notebook.</p>
+   */
+  NotebookUrl: string | undefined;
+
+  /**
+   * <p>The authentication token for the notebook.</p>
+   */
+  AuthToken: string | undefined;
+
+  /**
+   * <p>The UTC epoch time when the authentication token expires.</p>
+   */
+  AuthTokenExpirationTime: number | undefined;
+}
+
+/**
+ * <p>A resource, such as a workgroup, was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The name of the Amazon resource.</p>
+   */
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
+}
+
+/**
+ * <p>Specifies the KMS key that is used to encrypt the user's data stores in Athena.</p>
+ */
+export interface CustomerContentEncryptionConfiguration {
+  /**
+   * <p>The KMS key that is used to encrypt the user's data stores in Athena.</p>
+   */
+  KmsKey: string | undefined;
+}
 
 /**
  * <p>The configuration of the workgroup, which includes the location in Amazon S3
@@ -887,6 +1059,21 @@ export interface WorkGroupConfiguration {
    *             regardless of this setting.</p>
    */
   EngineVersion?: EngineVersion;
+
+  /**
+   * <p>Specifies a user defined JSON string that is passed to the notebook engine.</p>
+   */
+  AdditionalConfiguration?: string;
+
+  /**
+   * <p>Role used in a notebook session for accessing the user's resources.</p>
+   */
+  ExecutionRole?: string;
+
+  /**
+   * <p>Specifies the KMS key that is used to encrypt the user's data stores in Athena.</p>
+   */
+  CustomerContentEncryptionConfiguration?: CustomerContentEncryptionConfiguration;
 }
 
 export interface CreateWorkGroupInput {
@@ -896,12 +1083,11 @@ export interface CreateWorkGroupInput {
   Name: string | undefined;
 
   /**
-   * <p>The configuration for the workgroup, which includes the location in Amazon S3
-   *             where query results are stored, the encryption configuration, if any, used for
-   *             encrypting query results, whether the Amazon CloudWatch Metrics are enabled for the
-   *             workgroup, the limit for the amount of bytes scanned (cutoff) per query, if it is
-   *             specified, and whether workgroup's settings (specified with
-   *                 <code>EnforceWorkGroupConfiguration</code>) in the
+   * <p>Contains configuration information for creating an Athena SQL workgroup,
+   *             which includes the location in Amazon S3 where query results are stored, the
+   *             encryption configuration, if any, used for encrypting query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, the limit for the amount of
+   *             bytes scanned (cutoff) per query, if it is specified, and whether workgroup's settings
+   *             (specified with <code>EnforceWorkGroupConfiguration</code>) in the
    *                 <code>WorkGroupConfiguration</code> override client-side settings. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
    */
   Configuration?: WorkGroupConfiguration;
@@ -937,6 +1123,15 @@ export interface DeleteNamedQueryInput {
 
 export interface DeleteNamedQueryOutput {}
 
+export interface DeleteNotebookInput {
+  /**
+   * <p>The ID of the notebook to delete.</p>
+   */
+  NotebookId: string | undefined;
+}
+
+export interface DeleteNotebookOutput {}
+
 export interface DeletePreparedStatementInput {
   /**
    * <p>The name of the prepared statement to delete.</p>
@@ -950,32 +1145,6 @@ export interface DeletePreparedStatementInput {
 }
 
 export interface DeletePreparedStatementOutput {}
-
-/**
- * <p>A resource, such as a workgroup, was not found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The name of the Amazon resource.</p>
-   */
-  ResourceName?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
 
 export interface DeleteWorkGroupInput {
   /**
@@ -991,6 +1160,241 @@ export interface DeleteWorkGroupInput {
 }
 
 export interface DeleteWorkGroupOutput {}
+
+export interface ExportNotebookInput {
+  /**
+   * <p>The ID of the notebook to export.</p>
+   */
+  NotebookId: string | undefined;
+}
+
+export enum NotebookType {
+  IPYNB = "IPYNB",
+}
+
+/**
+ * <p>Contains metadata for notebook, including the notebook name, ID, workgroup, and time
+ *             created.</p>
+ */
+export interface NotebookMetadata {
+  /**
+   * <p>The notebook ID.</p>
+   */
+  NotebookId?: string;
+
+  /**
+   * <p>The name of the notebook.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The name of the Spark enabled workgroup to which the notebook belongs.</p>
+   */
+  WorkGroup?: string;
+
+  /**
+   * <p>The time when the notebook was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The type of notebook. Currently, the only valid type is <code>IPYNB</code>.</p>
+   */
+  Type?: NotebookType | string;
+
+  /**
+   * <p>The time when the notebook was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export interface ExportNotebookOutput {
+  /**
+   * <p>The notebook metadata, including notebook ID, notebook name, and workgroup
+   *             name.</p>
+   */
+  NotebookMetadata?: NotebookMetadata;
+
+  /**
+   * <p>The content of the exported notebook.</p>
+   */
+  Payload?: string;
+}
+
+export interface GetCalculationExecutionRequest {
+  /**
+   * <p>The calculation execution UUID.</p>
+   */
+  CalculationExecutionId: string | undefined;
+}
+
+/**
+ * <p>Contains information about an application-specific calculation result.</p>
+ */
+export interface CalculationResult {
+  /**
+   * <p>The Amazon S3 location of the <code>stdout</code> file for the calculation.</p>
+   */
+  StdOutS3Uri?: string;
+
+  /**
+   * <p>The Amazon S3 location of the <code>stderr</code> error messages file for the
+   *             calculation.</p>
+   */
+  StdErrorS3Uri?: string;
+
+  /**
+   * <p>The Amazon S3 location of the folder for the calculation results.</p>
+   */
+  ResultS3Uri?: string;
+
+  /**
+   * <p>The data format of the calculation result.</p>
+   */
+  ResultType?: string;
+}
+
+/**
+ * <p>Contains statistics for a notebook calculation.</p>
+ */
+export interface CalculationStatistics {
+  /**
+   * <p>The data processing unit execution time in milliseconds for the calculation.</p>
+   */
+  DpuExecutionInMillis?: number;
+
+  /**
+   * <p>The progress of the calculation.</p>
+   */
+  Progress?: string;
+}
+
+export enum CalculationExecutionState {
+  CANCELED = "CANCELED",
+  CANCELING = "CANCELING",
+  COMPLETED = "COMPLETED",
+  CREATED = "CREATED",
+  CREATING = "CREATING",
+  FAILED = "FAILED",
+  QUEUED = "QUEUED",
+  RUNNING = "RUNNING",
+}
+
+/**
+ * <p>Contains information about the status of a notebook calculation.</p>
+ */
+export interface CalculationStatus {
+  /**
+   * <p>The date and time the calculation was submitted for processing.</p>
+   */
+  SubmissionDateTime?: Date;
+
+  /**
+   * <p>The date and time the calculation completed processing.</p>
+   */
+  CompletionDateTime?: Date;
+
+  /**
+   * <p>The state of the calculation execution. A description of each state follows.</p>
+   *          <p>
+   *             <code>CREATING</code> - The calculation is in the process of being created.</p>
+   *          <p>
+   *             <code>CREATED</code> - The calculation has been created and is ready to run.</p>
+   *          <p>
+   *             <code>QUEUED</code> - The calculation has been queued for processing.</p>
+   *          <p>
+   *             <code>RUNNING</code> - The calculation is running.</p>
+   *          <p>
+   *             <code>CANCELING</code> - A request to cancel the calculation has been received and the
+   *             system is working to stop it.</p>
+   *          <p>
+   *             <code>CANCELED</code> - The calculation is no longer running as the result of a cancel
+   *             request.</p>
+   *          <p>
+   *             <code>COMPLETED</code> - The calculation has completed without error.</p>
+   *          <p>
+   *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
+   */
+  State?: CalculationExecutionState | string;
+
+  /**
+   * <p>The reason for the calculation state change (for example, the calculation was canceled
+   *             because the session was terminated).</p>
+   */
+  StateChangeReason?: string;
+}
+
+export interface GetCalculationExecutionResponse {
+  /**
+   * <p>The calculation execution UUID.</p>
+   */
+  CalculationExecutionId?: string;
+
+  /**
+   * <p>The session ID that the calculation ran in.</p>
+   */
+  SessionId?: string;
+
+  /**
+   * <p>The description of the calculation execution.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon S3 location in which calculation results are stored.</p>
+   */
+  WorkingDirectory?: string;
+
+  /**
+   * <p>Contains information about the status of the calculation.</p>
+   */
+  Status?: CalculationStatus;
+
+  /**
+   * <p>Contains information about the data processing unit (DPU) execution time and progress.
+   *             This field is populated only when statistics are available.</p>
+   */
+  Statistics?: CalculationStatistics;
+
+  /**
+   * <p>Contains result information. This field is populated only if the calculation is
+   *             completed.</p>
+   */
+  Result?: CalculationResult;
+}
+
+export interface GetCalculationExecutionCodeRequest {
+  /**
+   * <p>The calculation execution UUID.</p>
+   */
+  CalculationExecutionId: string | undefined;
+}
+
+export interface GetCalculationExecutionCodeResponse {
+  /**
+   * <p>A pre-signed URL to the code that executed the calculation.</p>
+   */
+  CodeBlock?: string;
+}
+
+export interface GetCalculationExecutionStatusRequest {
+  /**
+   * <p>The calculation execution UUID.</p>
+   */
+  CalculationExecutionId: string | undefined;
+}
+
+export interface GetCalculationExecutionStatusResponse {
+  /**
+   * <p>Contains information about the calculation execution status.</p>
+   */
+  Status?: CalculationStatus;
+
+  /**
+   * <p>Contains information about the DPU execution time and progress.</p>
+   */
+  Statistics?: CalculationStatistics;
+}
 
 export interface GetDatabaseInput {
   /**
@@ -1090,64 +1494,64 @@ export interface DataCatalog {
   /**
    * <p>Specifies the Lambda function or functions to use for the data catalog.
    *             This is a mapping whose values depend on the catalog type. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
+   *                <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
    *                         <code>metadata-function</code> parameter is required. <code>The
    *                         sdk-version</code> parameter is optional and defaults to the currently
    *                     supported version.</p>
-   *                 <p>
+   *                <p>
    *                   <code>metadata-function=<i>lambda_arn</i>,
    *                             sdk-version=<i>version_number</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
+   *                <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
    *                     of required parameters, but not both.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>If you have one Lambda function that processes metadata
+   *                      <p>If you have one Lambda function that processes metadata
    *                             and another for reading the actual data, use the following syntax. Both
    *                             parameters are required.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>metadata-function=<i>lambda_arn</i>,
    *                                     record-function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p> If you have a composite Lambda function that processes
+   *                      <p> If you have a composite Lambda function that processes
    *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
+   *                <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
    *                             <code>
    *                      <i>catalog_id</i>
    *                   </code> is the account ID of the
    *                         Amazon Web Services account to which the Glue catalog
    *                     belongs.</p>
-   *                 <p>
+   *                <p>
    *                   <code>catalog-id=<i>catalog_id</i>
    *                   </code>
    *                </p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>The <code>GLUE</code> data catalog type also applies to the default
+   *                      <p>The <code>GLUE</code> data catalog type also applies to the default
    *                                 <code>AwsDataCatalog</code> that already exists in your account, of
    *                             which you can have only one and cannot modify.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Queries that specify a Glue Data Catalog other than the default
+   *                      <p>Queries that specify a Glue Data Catalog other than the default
    *                                 <code>AwsDataCatalog</code> must be run on Athena engine
    *                             version 2.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
@@ -1175,6 +1579,20 @@ export interface GetNamedQueryOutput {
    * <p>Information about the query.</p>
    */
   NamedQuery?: NamedQuery;
+}
+
+export interface GetNotebookMetadataInput {
+  /**
+   * <p>The ID of the notebook whose metadata is to be retrieved.</p>
+   */
+  NotebookId: string | undefined;
+}
+
+export interface GetNotebookMetadataOutput {
+  /**
+   * <p>The metadata that is returned for the specified notebook ID.</p>
+   */
+  NotebookMetadata?: NotebookMetadata;
 }
 
 export interface GetPreparedStatementInput {
@@ -1368,8 +1786,8 @@ export interface GetQueryRuntimeStatisticsInput {
 }
 
 /**
- * <p>Statistics such as input rows and bytes read by the query, rows and bytes output by the query,
- *             and the number of rows written by the query.</p>
+ * <p>Statistics such as input rows and bytes read by the query, rows and bytes output by
+ *             the query, and the number of rows written by the query.</p>
  */
 export interface QueryRuntimeStatisticsRows {
   /**
@@ -1394,8 +1812,8 @@ export interface QueryRuntimeStatisticsRows {
 }
 
 /**
- * <p>Timeline statistics such as query queue time, planning time, execution time, service processing
- *             time, and total execution time.</p>
+ * <p>Timeline statistics such as query queue time, planning time, execution time, service
+ *             processing time, and total execution time.</p>
  */
 export interface QueryRuntimeStatisticsTimeline {
   /**
@@ -1428,6 +1846,217 @@ export interface QueryRuntimeStatisticsTimeline {
    * <p>The number of milliseconds that Athena took to run the query.</p>
    */
   TotalExecutionTimeInMillis?: number;
+}
+
+export interface GetSessionRequest {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId: string | undefined;
+}
+
+/**
+ * <p>Contains data processing unit (DPU) configuration settings and parameter mappings for
+ *             a notebook engine.</p>
+ */
+export interface EngineConfiguration {
+  /**
+   * <p>The number of DPUs to use for the coordinator. A coordinator is a special executor
+   *             that orchestrates processing work and manages other executors in a notebook
+   *             session.</p>
+   */
+  CoordinatorDpuSize?: number;
+
+  /**
+   * <p>The maximum number of DPUs that can run concurrently.</p>
+   */
+  MaxConcurrentDpus: number | undefined;
+
+  /**
+   * <p>The default number of DPUs to use for executors. An executor is the smallest unit of
+   *             compute that a notebook session can request from Athena.</p>
+   */
+  DefaultExecutorDpuSize?: number;
+
+  /**
+   * <p>Contains additional notebook engine <code>MAP<string, string></code> parameter
+   *             mappings in the form of key-value pairs. To specify an Amazon S3 URI that the
+   *             Jupyter server will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a> field, and then add a key named
+   *                 <code>NotebookFileURI</code> to <code>AdditionalConfigs</code> that has value of the
+   *                 Amazon S3 URI.</p>
+   */
+  AdditionalConfigs?: Record<string, string>;
+}
+
+/**
+ * <p>Contains session configuration information.</p>
+ */
+export interface SessionConfiguration {
+  /**
+   * <p>The ARN of the execution role used for the session.</p>
+   */
+  ExecutionRole?: string;
+
+  /**
+   * <p>The Amazon S3 location that stores information for the notebook.</p>
+   */
+  WorkingDirectory?: string;
+
+  /**
+   * <p>The idle timeout in seconds for the session.</p>
+   */
+  IdleTimeoutSeconds?: number;
+
+  /**
+   * <p>If query results are encrypted in Amazon S3, indicates the encryption option
+   *             used (for example, <code>SSE_KMS</code> or <code>CSE_KMS</code>) and key
+   *             information.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+}
+
+/**
+ * <p>Contains statistics for a notebook session.</p>
+ */
+export interface SessionStatistics {
+  /**
+   * <p>The data processing unit execution time for a session in milliseconds.</p>
+   */
+  DpuExecutionInMillis?: number;
+}
+
+export enum SessionState {
+  BUSY = "BUSY",
+  CREATED = "CREATED",
+  CREATING = "CREATING",
+  DEGRADED = "DEGRADED",
+  FAILED = "FAILED",
+  IDLE = "IDLE",
+  TERMINATED = "TERMINATED",
+  TERMINATING = "TERMINATING",
+}
+
+/**
+ * <p>Contains information about the status of a notebook session.</p>
+ */
+export interface SessionStatus {
+  /**
+   * <p>The date and time that the session started.</p>
+   */
+  StartDateTime?: Date;
+
+  /**
+   * <p>The most recent date and time that the session was modified.</p>
+   */
+  LastModifiedDateTime?: Date;
+
+  /**
+   * <p>The date and time that the session ended.</p>
+   */
+  EndDateTime?: Date;
+
+  /**
+   * <p>The date and time starting at which the session became idle. Can be empty if the
+   *             session is not currently idle.</p>
+   */
+  IdleSinceDateTime?: Date;
+
+  /**
+   * <p>The state of the session. A description of each state follows.</p>
+   *          <p>
+   *             <code>CREATING</code> - The session is being started, including acquiring
+   *             resources.</p>
+   *          <p>
+   *             <code>CREATED</code> - The session has been started.</p>
+   *          <p>
+   *             <code>IDLE</code> - The session is able to accept a calculation.</p>
+   *          <p>
+   *             <code>BUSY</code> - The session is processing another task and is unable to accept a
+   *             calculation.</p>
+   *          <p>
+   *             <code>TERMINATING</code> - The session is in the process of shutting down.</p>
+   *          <p>
+   *             <code>TERMINATED</code> - The session and its resources are no longer running.</p>
+   *          <p>
+   *             <code>DEGRADED</code> - The session has no healthy coordinators.</p>
+   *          <p>
+   *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
+   *             running.</p>
+   */
+  State?: SessionState | string;
+
+  /**
+   * <p>The reason for the session state change (for example, canceled because the session was
+   *             terminated).</p>
+   */
+  StateChangeReason?: string;
+}
+
+export interface GetSessionResponse {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId?: string;
+
+  /**
+   * <p>The session description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The workgroup to which the session belongs.</p>
+   */
+  WorkGroup?: string;
+
+  /**
+   * <p>The engine version used by the session (for example, <code>PySpark engine version
+   *                 3</code>). You can get a list of engine versions by calling <a>ListEngineVersions</a>.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>Contains engine configuration information like DPU usage.</p>
+   */
+  EngineConfiguration?: EngineConfiguration;
+
+  /**
+   * <p>The notebook version.</p>
+   */
+  NotebookVersion?: string;
+
+  /**
+   * <p>Contains the workgroup configuration information used by the session.</p>
+   */
+  SessionConfiguration?: SessionConfiguration;
+
+  /**
+   * <p>Contains information about the status of the session.</p>
+   */
+  Status?: SessionStatus;
+
+  /**
+   * <p>Contains the DPU execution time.</p>
+   */
+  Statistics?: SessionStatistics;
+}
+
+export interface GetSessionStatusRequest {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId: string | undefined;
+}
+
+export interface GetSessionStatusResponse {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId?: string;
+
+  /**
+   * <p>Contains information about the status of the session.</p>
+   */
+  Status?: SessionStatus;
 }
 
 export interface GetTableMetadataInput {
@@ -1578,6 +2207,168 @@ export interface GetWorkGroupOutput {
   WorkGroup?: WorkGroup;
 }
 
+export interface ImportNotebookInput {
+  /**
+   * <p>The name of the Spark enabled workgroup to import the notebook to.</p>
+   */
+  WorkGroup: string | undefined;
+
+  /**
+   * <p>The name of the notebook to import.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The notebook content to be imported.</p>
+   */
+  Payload: string | undefined;
+
+  /**
+   * <p>The notebook content type. Currently, the only valid type is
+   *             <code>IPYNB</code>.</p>
+   */
+  Type: NotebookType | string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure the request to import the notebook is
+   *             idempotent (executes only once).</p>
+   *          <important>
+   *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
+   *                 the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not
+   *                 using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
+   *                 this token or the action will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+}
+
+export interface ImportNotebookOutput {
+  /**
+   * <p>The ID of the notebook to import.</p>
+   */
+  NotebookId?: string;
+}
+
+export interface ListApplicationDPUSizesInput {
+  /**
+   * <p>Specifies the maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Contains the application runtime IDs and their supported DPU sizes.</p>
+ */
+export interface ApplicationDPUSizes {
+  /**
+   * <p>The name of the supported application runtime (for example, <code>Jupyter
+   *             1.0</code>).</p>
+   */
+  ApplicationRuntimeId?: string;
+
+  /**
+   * <p>A list of the supported DPU sizes that the application runtime supports.</p>
+   */
+  SupportedDPUSizes?: number[];
+}
+
+export interface ListApplicationDPUSizesOutput {
+  /**
+   * <p>A list of the supported DPU sizes that the application runtime supports.</p>
+   */
+  ApplicationDPUSizes?: ApplicationDPUSizes[];
+
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListCalculationExecutionsRequest {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>A filter for a specific calculation execution state. A description of each state
+   *             follows.</p>
+   *          <p>
+   *             <code>CREATING</code> - The calculation is in the process of being created.</p>
+   *          <p>
+   *             <code>CREATED</code> - The calculation has been created and is ready to run.</p>
+   *          <p>
+   *             <code>QUEUED</code> - The calculation has been queued for processing.</p>
+   *          <p>
+   *             <code>RUNNING</code> - The calculation is running.</p>
+   *          <p>
+   *             <code>CANCELING</code> - A request to cancel the calculation has been received and the
+   *             system is working to stop it.</p>
+   *          <p>
+   *             <code>CANCELED</code> - The calculation is no longer running as the result of a cancel
+   *             request.</p>
+   *          <p>
+   *             <code>COMPLETED</code> - The calculation has completed without error.</p>
+   *          <p>
+   *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
+   */
+  StateFilter?: CalculationExecutionState | string;
+
+  /**
+   * <p>The maximum number of calculation executions to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Summary information for a notebook calculation.</p>
+ */
+export interface CalculationSummary {
+  /**
+   * <p>The calculation execution UUID.</p>
+   */
+  CalculationExecutionId?: string;
+
+  /**
+   * <p>A description of the calculation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Contains information about the status of the calculation.</p>
+   */
+  Status?: CalculationStatus;
+}
+
+export interface ListCalculationExecutionsResponse {
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of <a>CalculationSummary</a> objects.</p>
+   */
+  Calculations?: CalculationSummary[];
+}
+
 export interface ListDatabasesInput {
   /**
    * <p>The name of the data catalog that contains the databases to return.</p>
@@ -1684,6 +2475,128 @@ export interface ListEngineVersionsOutput {
   NextToken?: string;
 }
 
+export enum ExecutorState {
+  CREATED = "CREATED",
+  CREATING = "CREATING",
+  FAILED = "FAILED",
+  REGISTERED = "REGISTERED",
+  TERMINATED = "TERMINATED",
+  TERMINATING = "TERMINATING",
+}
+
+export interface ListExecutorsRequest {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>A filter for a specific executor state. A description of each state follows.</p>
+   *          <p>
+   *             <code>CREATING</code> - The executor is being started, including acquiring
+   *             resources.</p>
+   *          <p>
+   *             <code>CREATED</code> - The executor has been started.</p>
+   *          <p>
+   *             <code>REGISTERED</code> - The executor has been registered.</p>
+   *          <p>
+   *             <code>TERMINATING</code> - The executor is in the process of shutting down.</p>
+   *          <p>
+   *             <code>TERMINATED</code> - The executor is no longer running.</p>
+   *          <p>
+   *             <code>FAILED</code> - Due to a failure, the executor is no longer running.</p>
+   */
+  ExecutorStateFilter?: ExecutorState | string;
+
+  /**
+   * <p>The maximum number of executors to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+}
+
+export enum ExecutorType {
+  COORDINATOR = "COORDINATOR",
+  GATEWAY = "GATEWAY",
+  WORKER = "WORKER",
+}
+
+/**
+ * <p>Contains summary information about an executor.</p>
+ */
+export interface ExecutorsSummary {
+  /**
+   * <p>The UUID of the executor.</p>
+   */
+  ExecutorId: string | undefined;
+
+  /**
+   * <p>The type of executor used for the application (<code>COORDINATOR</code>,
+   *                 <code>GATEWAY</code>, or <code>WORKER</code>).</p>
+   */
+  ExecutorType?: ExecutorType | string;
+
+  /**
+   * <p>The date and time that the executor started.</p>
+   */
+  StartDateTime?: number;
+
+  /**
+   * <p>The date and time that the executor was terminated.</p>
+   */
+  TerminationDateTime?: number;
+
+  /**
+   * <p>The processing state of the executor. A description of each state follows.</p>
+   *          <p>
+   *             <code>CREATING</code> - The executor is being started, including acquiring
+   *             resources.</p>
+   *          <p>
+   *             <code>CREATED</code> - The executor has been started.</p>
+   *          <p>
+   *             <code>REGISTERED</code> - The executor has been registered.</p>
+   *          <p>
+   *             <code>TERMINATING</code> - The executor is in the process of shutting down.</p>
+   *          <p>
+   *             <code>TERMINATED</code> - The executor is no longer running.</p>
+   *          <p>
+   *             <code>FAILED</code> - Due to a failure, the executor is no longer running.</p>
+   */
+  ExecutorState?: ExecutorState | string;
+
+  /**
+   * <p>The smallest unit of compute that a session can request from Athena. Size
+   *             is measured in data processing unit (DPU) values, a relative measure of processing
+   *             power.</p>
+   */
+  ExecutorSize?: number;
+}
+
+export interface ListExecutorsResponse {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Contains summary information about the executor.</p>
+   */
+  ExecutorsSummary?: ExecutorsSummary[];
+}
+
 export interface ListNamedQueriesInput {
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -1710,6 +2623,101 @@ export interface ListNamedQueriesOutput {
    * <p>The list of unique query IDs.</p>
    */
   NamedQueryIds?: string[];
+
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A string for searching notebook names.</p>
+ */
+export interface FilterDefinition {
+  /**
+   * <p>The name of the notebook to search for.</p>
+   */
+  Name?: string;
+}
+
+export interface ListNotebookMetadataInput {
+  /**
+   * <p>Search filter string.</p>
+   */
+  Filters?: FilterDefinition;
+
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specifies the maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The name of the Spark enabled workgroup to retrieve notebook metadata for.</p>
+   */
+  WorkGroup: string | undefined;
+}
+
+export interface ListNotebookMetadataOutput {
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The list of notebook metadata for the specified workgroup.</p>
+   */
+  NotebookMetadataList?: NotebookMetadata[];
+}
+
+export interface ListNotebookSessionsRequest {
+  /**
+   * <p>The ID of the notebook to list sessions for.</p>
+   */
+  NotebookId: string | undefined;
+
+  /**
+   * <p>The maximum number of notebook sessions to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Contains the notebook session ID and notebook session creation time.</p>
+ */
+export interface NotebookSessionSummary {
+  /**
+   * <p>The notebook session ID.</p>
+   */
+  SessionId?: string;
+
+  /**
+   * <p>The time when the notebook session was created.</p>
+   */
+  CreationTime?: Date;
+}
+
+export interface ListNotebookSessionsResponse {
+  /**
+   * <p>A list of the sessions belonging to the notebook.</p>
+   */
+  NotebookSessionsList: NotebookSessionSummary[] | undefined;
 
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -1798,6 +2806,94 @@ export interface ListQueryExecutionsOutput {
    * <p>A token to be used by the next request if this request is truncated.</p>
    */
   NextToken?: string;
+}
+
+export interface ListSessionsRequest {
+  /**
+   * <p>The workgroup to which the session belongs.</p>
+   */
+  WorkGroup: string | undefined;
+
+  /**
+   * <p>A filter for a specific session state. A description of each state follows.</p>
+   *          <p>
+   *             <code>CREATING</code> - The session is being started, including acquiring
+   *             resources.</p>
+   *          <p>
+   *             <code>CREATED</code> - The session has been started.</p>
+   *          <p>
+   *             <code>IDLE</code> - The session is able to accept a calculation.</p>
+   *          <p>
+   *             <code>BUSY</code> - The session is processing another task and is unable to accept a
+   *             calculation.</p>
+   *          <p>
+   *             <code>TERMINATING</code> - The session is in the process of shutting down.</p>
+   *          <p>
+   *             <code>TERMINATED</code> - The session and its resources are no longer running.</p>
+   *          <p>
+   *             <code>DEGRADED</code> - The session has no healthy coordinators.</p>
+   *          <p>
+   *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
+   *             running.</p>
+   */
+  StateFilter?: SessionState | string;
+
+  /**
+   * <p>The maximum number of sessions to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Contains summary information about a notebook session.</p>
+ */
+export interface SessionSummary {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId?: string;
+
+  /**
+   * <p>The session description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The engine version used by the session (for example, <code>PySpark engine version
+   *                 3</code>).</p>
+   */
+  EngineVersion?: EngineVersion;
+
+  /**
+   * <p>The notebook version.</p>
+   */
+  NotebookVersion?: string;
+
+  /**
+   * <p>Contains information about the session status.</p>
+   */
+  Status?: SessionStatus;
+}
+
+export interface ListSessionsResponse {
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of sessions.</p>
+   */
+  Sessions?: SessionSummary[];
 }
 
 export interface ListTableMetadataInput {
@@ -1938,6 +3034,84 @@ export interface ListWorkGroupsOutput {
   NextToken?: string;
 }
 
+/**
+ * <p>Contains configuration information for the calculation.</p>
+ */
+export interface CalculationConfiguration {
+  /**
+   * <p>A string that contains the code for the calculation.</p>
+   */
+  CodeBlock?: string;
+}
+
+export interface StartCalculationExecutionRequest {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>A description of the calculation.</p>
+   */
+  Description?: string;
+
+  /**
+   * @deprecated
+   *
+   * <p>Contains configuration information for the calculation.</p>
+   */
+  CalculationConfiguration?: CalculationConfiguration;
+
+  /**
+   * <p>A string that contains the code of the calculation.</p>
+   */
+  CodeBlock?: string;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure the request to create the calculation is
+   *             idempotent (executes only once). If another
+   *                 <code>StartCalculationExecutionRequest</code> is received, the same response is
+   *             returned and another calculation is not created. If a parameter has changed, an error is
+   *             returned.</p>
+   *          <important>
+   *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
+   *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
+   *                 not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
+   *                 this token or the action will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+}
+
+export interface StartCalculationExecutionResponse {
+  /**
+   * <p>The calculation execution UUID.</p>
+   */
+  CalculationExecutionId?: string;
+
+  /**
+   * <p>
+   *             <code>CREATING</code> - The calculation is in the process of being created.</p>
+   *          <p>
+   *             <code>CREATED</code> - The calculation has been created and is ready to run.</p>
+   *          <p>
+   *             <code>QUEUED</code> - The calculation has been queued for processing.</p>
+   *          <p>
+   *             <code>RUNNING</code> - The calculation is running.</p>
+   *          <p>
+   *             <code>CANCELING</code> - A request to cancel the calculation has been received and the
+   *             system is working to stop it.</p>
+   *          <p>
+   *             <code>CANCELED</code> - The calculation is no longer running as the result of a cancel
+   *             request.</p>
+   *          <p>
+   *             <code>COMPLETED</code> - The calculation has completed without error.</p>
+   *          <p>
+   *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
+   */
+  State?: CalculationExecutionState | string;
+}
+
 export interface StartQueryExecutionInput {
   /**
    * <p>The SQL query statements to be executed.</p>
@@ -1949,12 +3123,12 @@ export interface StartQueryExecutionInput {
    *             idempotent (executes only once). If another <code>StartQueryExecution</code> request is
    *             received, the same response is returned and another query is not created. If a parameter
    *             has changed, for example, the <code>QueryString</code>, an error is returned.</p>
-   *         <important>
+   *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
    *                 not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
    *                 this token or the action will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 
@@ -1977,9 +3151,15 @@ export interface StartQueryExecutionInput {
   WorkGroup?: string;
 
   /**
-   * <p>A list of values for the parameters in a query. The values are applied sequentially to the parameters in the query in the order in which the parameters occur.</p>
+   * <p>A list of values for the parameters in a query. The values are applied sequentially to
+   *             the parameters in the query in the order in which the parameters occur.</p>
    */
   ExecutionParameters?: string[];
+
+  /**
+   * <p>Specifies the query result reuse behavior for the query.</p>
+   */
+  ResultReuseConfiguration?: ResultReuseConfiguration;
 }
 
 export interface StartQueryExecutionOutput {
@@ -1989,35 +3169,131 @@ export interface StartQueryExecutionOutput {
   QueryExecutionId?: string;
 }
 
-export enum ThrottleReason {
-  CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED",
-}
-
 /**
- * <p>Indicates that the request was throttled.</p>
+ * <p>The specified session already exists.</p>
  */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+export class SessionAlreadyExistsException extends __BaseException {
+  readonly name: "SessionAlreadyExistsException" = "SessionAlreadyExistsException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * <p>The reason for the query throttling, for example, when it exceeds the concurrent query
-   *             limit.</p>
-   */
-  Reason?: ThrottleReason | string;
-  /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<SessionAlreadyExistsException, __BaseException>) {
     super({
-      name: "TooManyRequestsException",
+      name: "SessionAlreadyExistsException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    Object.setPrototypeOf(this, SessionAlreadyExistsException.prototype);
     this.Message = opts.Message;
-    this.Reason = opts.Reason;
   }
+}
+
+export interface StartSessionRequest {
+  /**
+   * <p>The session description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The workgroup to which the session belongs.</p>
+   */
+  WorkGroup: string | undefined;
+
+  /**
+   * <p>Contains engine data processing unit (DPU) configuration settings and parameter
+   *             mappings.</p>
+   */
+  EngineConfiguration: EngineConfiguration | undefined;
+
+  /**
+   * <p>The notebook version. This value is required only when requesting that a notebook
+   *             server be started for the session. The only valid notebook version is
+   *                 <code>Jupyter1.0</code>.</p>
+   */
+  NotebookVersion?: string;
+
+  /**
+   * <p>The idle timeout in minutes for the session.</p>
+   */
+  SessionIdleTimeoutInMinutes?: number;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure the request to create the session is
+   *             idempotent (executes only once). If another <code>StartSessionRequest</code> is
+   *             received, the same response is returned and another session is not created. If a
+   *             parameter has changed, an error is returned.</p>
+   *          <important>
+   *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
+   *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
+   *                 not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
+   *                 this token or the action will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+}
+
+export interface StartSessionResponse {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId?: string;
+
+  /**
+   * <p>The state of the session. A description of each state follows.</p>
+   *          <p>
+   *             <code>CREATING</code> - The session is being started, including acquiring
+   *             resources.</p>
+   *          <p>
+   *             <code>CREATED</code> - The session has been started.</p>
+   *          <p>
+   *             <code>IDLE</code> - The session is able to accept a calculation.</p>
+   *          <p>
+   *             <code>BUSY</code> - The session is processing another task and is unable to accept a
+   *             calculation.</p>
+   *          <p>
+   *             <code>TERMINATING</code> - The session is in the process of shutting down.</p>
+   *          <p>
+   *             <code>TERMINATED</code> - The session and its resources are no longer running.</p>
+   *          <p>
+   *             <code>DEGRADED</code> - The session has no healthy coordinators.</p>
+   *          <p>
+   *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
+   *             running.</p>
+   */
+  State?: SessionState | string;
+}
+
+export interface StopCalculationExecutionRequest {
+  /**
+   * <p>The calculation execution UUID.</p>
+   */
+  CalculationExecutionId: string | undefined;
+}
+
+export interface StopCalculationExecutionResponse {
+  /**
+   * <p>
+   *             <code>CREATING</code> - The calculation is in the process of being created.</p>
+   *          <p>
+   *             <code>CREATED</code> - The calculation has been created and is ready to run.</p>
+   *          <p>
+   *             <code>QUEUED</code> - The calculation has been queued for processing.</p>
+   *          <p>
+   *             <code>RUNNING</code> - The calculation is running.</p>
+   *          <p>
+   *             <code>CANCELING</code> - A request to cancel the calculation has been received and the
+   *             system is working to stop it.</p>
+   *          <p>
+   *             <code>CANCELED</code> - The calculation is no longer running as the result of a cancel
+   *             request.</p>
+   *          <p>
+   *             <code>COMPLETED</code> - The calculation has completed without error.</p>
+   *          <p>
+   *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
+   */
+  State?: CalculationExecutionState | string;
 }
 
 export interface StopQueryExecutionInput {
@@ -2043,6 +3319,39 @@ export interface TagResourceInput {
 }
 
 export interface TagResourceOutput {}
+
+export interface TerminateSessionRequest {
+  /**
+   * <p>The session ID.</p>
+   */
+  SessionId: string | undefined;
+}
+
+export interface TerminateSessionResponse {
+  /**
+   * <p>The state of the session. A description of each state follows.</p>
+   *          <p>
+   *             <code>CREATING</code> - The session is being started, including acquiring
+   *             resources.</p>
+   *          <p>
+   *             <code>CREATED</code> - The session has been started.</p>
+   *          <p>
+   *             <code>IDLE</code> - The session is able to accept a calculation.</p>
+   *          <p>
+   *             <code>BUSY</code> - The session is processing another task and is unable to accept a
+   *             calculation.</p>
+   *          <p>
+   *             <code>TERMINATING</code> - The session is in the process of shutting down.</p>
+   *          <p>
+   *             <code>TERMINATED</code> - The session and its resources are no longer running.</p>
+   *          <p>
+   *             <code>DEGRADED</code> - The session has no healthy coordinators.</p>
+   *          <p>
+   *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
+   *             running.</p>
+   */
+  State?: SessionState | string;
+}
 
 export interface UntagResourceInput {
   /**
@@ -2083,40 +3392,40 @@ export interface UpdateDataCatalogInput {
   /**
    * <p>Specifies the Lambda function or functions to use for updating the data
    *             catalog. This is a mapping whose values depend on the catalog type. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
+   *                <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
    *                         <code>metadata-function</code> parameter is required. <code>The
    *                         sdk-version</code> parameter is optional and defaults to the currently
    *                     supported version.</p>
-   *                 <p>
+   *                <p>
    *                   <code>metadata-function=<i>lambda_arn</i>,
    *                             sdk-version=<i>version_number</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
+   *                <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
    *                     of required parameters, but not both.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>If you have one Lambda function that processes metadata
+   *                      <p>If you have one Lambda function that processes metadata
    *                             and another for reading the actual data, use the following syntax. Both
    *                             parameters are required.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>metadata-function=<i>lambda_arn</i>,
    *                                     record-function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p> If you have a composite Lambda function that processes
+   *                      <p> If you have a composite Lambda function that processes
    *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
@@ -2149,6 +3458,69 @@ export interface UpdateNamedQueryInput {
 }
 
 export interface UpdateNamedQueryOutput {}
+
+export interface UpdateNotebookInput {
+  /**
+   * <p>The ID of the notebook to update.</p>
+   */
+  NotebookId: string | undefined;
+
+  /**
+   * <p>The updated content for the notebook.</p>
+   */
+  Payload: string | undefined;
+
+  /**
+   * <p>The notebook content type. Currently, the only valid type is
+   *             <code>IPYNB</code>.</p>
+   */
+  Type: NotebookType | string | undefined;
+
+  /**
+   * <p>The ID of the session in which the notebook will be updated.</p>
+   */
+  SessionId?: string;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure the request to create the notebook is
+   *             idempotent (executes only once).</p>
+   *          <important>
+   *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
+   *                 the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not
+   *                 using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
+   *                 this token or the action will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+}
+
+export interface UpdateNotebookOutput {}
+
+export interface UpdateNotebookMetadataInput {
+  /**
+   * <p>The ID of the notebook to update the metadata for.</p>
+   */
+  NotebookId: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure the request to create the notebook is
+   *             idempotent (executes only once).</p>
+   *          <important>
+   *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
+   *                 the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not
+   *                 using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
+   *                 this token or the action will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The name to update the notebook to.</p>
+   */
+  Name: string | undefined;
+}
+
+export interface UpdateNotebookMetadataOutput {}
 
 export interface UpdatePreparedStatementInput {
   /**
@@ -2226,8 +3598,7 @@ export interface ResultConfigurationUpdates {
    *                 <code>ExpectedBucketOwner</code>
    *             Amazon Web Services account ID does not match the actual owner of the Amazon S3
    *             bucket, the call fails with a permissions error.</p>
-   *
-   *         <p>If workgroup settings override client-side settings, then the query uses the
+   *          <p>If workgroup settings override client-side settings, then the query uses the
    *                 <code>ExpectedBucketOwner</code> setting that is specified for the workgroup, and
    *             also uses the location for storing query results specified in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
    */
@@ -2316,6 +3687,26 @@ export interface WorkGroupConfigurationUpdates {
    *             workgroup run on the preview engine regardless of this setting.</p>
    */
   EngineVersion?: EngineVersion;
+
+  /**
+   * <p>Removes content encryption configuration for a workgroup.</p>
+   */
+  RemoveCustomerContentEncryptionConfiguration?: boolean;
+
+  /**
+   * <p>Contains a user defined string in JSON format for a Spark-enabled workgroup.</p>
+   */
+  AdditionalConfiguration?: string;
+
+  /**
+   * <p>Contains the ARN of the execution role for the workgroup</p>
+   */
+  ExecutionRole?: string;
+
+  /**
+   * <p>Specifies the KMS key that is used to encrypt the user's data stores in Athena.</p>
+   */
+  CustomerContentEncryptionConfiguration?: CustomerContentEncryptionConfiguration;
 }
 
 export interface UpdateWorkGroupInput {
@@ -2330,7 +3721,7 @@ export interface UpdateWorkGroupInput {
   Description?: string;
 
   /**
-   * <p>The workgroup configuration that will be updated for the given workgroup.</p>
+   * <p>Contains configuration updates for an Athena SQL workgroup.</p>
    */
   ConfigurationUpdates?: WorkGroupConfigurationUpdates;
 
@@ -2347,8 +3738,8 @@ export interface UpdateWorkGroupOutput {}
  */
 export interface QueryStagePlanNode {
   /**
-   * <p>Name of the query stage plan that describes the operation this stage is performing as part of
-   *             query execution.</p>
+   * <p>Name of the query stage plan that describes the operation this stage is performing as
+   *             part of query execution.</p>
    */
   Name?: string;
 
@@ -2358,7 +3749,8 @@ export interface QueryStagePlanNode {
   Identifier?: string;
 
   /**
-   * <p>Stage plan information such as name, identifier, sub plans, and remote sources of child plan nodes/</p>
+   * <p>Stage plan information such as name, identifier, sub plans, and remote sources of
+   *             child plan nodes/</p>
    */
   Children?: QueryStagePlanNode[];
 
@@ -2369,8 +3761,8 @@ export interface QueryStagePlanNode {
 }
 
 /**
- * <p>Stage statistics such as input and output rows and bytes, execution time and stage state. This
- *             information also includes substages and the query stage plan.</p>
+ * <p>Stage statistics such as input and output rows and bytes, execution time and stage
+ *             state. This information also includes substages and the query stage plan.</p>
  */
 export interface QueryStage {
   /**
@@ -2420,25 +3812,25 @@ export interface QueryStage {
 }
 
 /**
- * <p>The query execution timeline, statistics on input and output rows and bytes, and the different
- *             query stages that form the query execution plan.</p>
+ * <p>The query execution timeline, statistics on input and output rows and bytes, and the
+ *             different query stages that form the query execution plan.</p>
  */
 export interface QueryRuntimeStatistics {
   /**
-   * <p>Timeline statistics such as query queue time, planning time, execution time, service processing
-   *             time, and total execution time.</p>
+   * <p>Timeline statistics such as query queue time, planning time, execution time, service
+   *             processing time, and total execution time.</p>
    */
   Timeline?: QueryRuntimeStatisticsTimeline;
 
   /**
-   * <p>Statistics such as input rows and bytes read by the query, rows and bytes output by the query,
-   *             and the number of rows written by the query.</p>
+   * <p>Statistics such as input rows and bytes read by the query, rows and bytes output by
+   *             the query, and the number of rows written by the query.</p>
    */
   Rows?: QueryRuntimeStatisticsRows;
 
   /**
-   * <p>Stage statistics such as input and output rows and bytes, execution time, and stage state. This
-   *             information also includes substages and the query stage plan.</p>
+   * <p>Stage statistics such as input and output rows and bytes, execution time, and stage
+   *             state. This information also includes substages and the query stage plan.</p>
    */
   OutputStage?: QueryStage;
 }
@@ -2551,6 +3943,27 @@ export const ResultConfigurationFilterSensitiveLog = (obj: ResultConfiguration):
 /**
  * @internal
  */
+export const ResultReuseByAgeConfigurationFilterSensitiveLog = (obj: ResultReuseByAgeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultReuseConfigurationFilterSensitiveLog = (obj: ResultReuseConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultReuseInformationFilterSensitiveLog = (obj: ResultReuseInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const QueryExecutionStatisticsFilterSensitiveLog = (obj: QueryExecutionStatistics): any => ({
   ...obj,
 });
@@ -2628,6 +4041,20 @@ export const CreateNamedQueryOutputFilterSensitiveLog = (obj: CreateNamedQueryOu
 /**
  * @internal
  */
+export const CreateNotebookInputFilterSensitiveLog = (obj: CreateNotebookInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNotebookOutputFilterSensitiveLog = (obj: CreateNotebookOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreatePreparedStatementInputFilterSensitiveLog = (obj: CreatePreparedStatementInput): any => ({
   ...obj,
 });
@@ -2636,6 +4063,29 @@ export const CreatePreparedStatementInputFilterSensitiveLog = (obj: CreatePrepar
  * @internal
  */
 export const CreatePreparedStatementOutputFilterSensitiveLog = (obj: CreatePreparedStatementOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePresignedNotebookUrlRequestFilterSensitiveLog = (obj: CreatePresignedNotebookUrlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePresignedNotebookUrlResponseFilterSensitiveLog = (obj: CreatePresignedNotebookUrlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerContentEncryptionConfigurationFilterSensitiveLog = (
+  obj: CustomerContentEncryptionConfiguration
+): any => ({
   ...obj,
 });
 
@@ -2691,6 +4141,20 @@ export const DeleteNamedQueryOutputFilterSensitiveLog = (obj: DeleteNamedQueryOu
 /**
  * @internal
  */
+export const DeleteNotebookInputFilterSensitiveLog = (obj: DeleteNotebookInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNotebookOutputFilterSensitiveLog = (obj: DeleteNotebookOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeletePreparedStatementInputFilterSensitiveLog = (obj: DeletePreparedStatementInput): any => ({
   ...obj,
 });
@@ -2713,6 +4177,96 @@ export const DeleteWorkGroupInputFilterSensitiveLog = (obj: DeleteWorkGroupInput
  * @internal
  */
 export const DeleteWorkGroupOutputFilterSensitiveLog = (obj: DeleteWorkGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportNotebookInputFilterSensitiveLog = (obj: ExportNotebookInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotebookMetadataFilterSensitiveLog = (obj: NotebookMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportNotebookOutputFilterSensitiveLog = (obj: ExportNotebookOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCalculationExecutionRequestFilterSensitiveLog = (obj: GetCalculationExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculationResultFilterSensitiveLog = (obj: CalculationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculationStatisticsFilterSensitiveLog = (obj: CalculationStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculationStatusFilterSensitiveLog = (obj: CalculationStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCalculationExecutionResponseFilterSensitiveLog = (obj: GetCalculationExecutionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCalculationExecutionCodeRequestFilterSensitiveLog = (obj: GetCalculationExecutionCodeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCalculationExecutionCodeResponseFilterSensitiveLog = (
+  obj: GetCalculationExecutionCodeResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCalculationExecutionStatusRequestFilterSensitiveLog = (
+  obj: GetCalculationExecutionStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCalculationExecutionStatusResponseFilterSensitiveLog = (
+  obj: GetCalculationExecutionStatusResponse
+): any => ({
   ...obj,
 });
 
@@ -2769,6 +4323,20 @@ export const GetNamedQueryInputFilterSensitiveLog = (obj: GetNamedQueryInput): a
  * @internal
  */
 export const GetNamedQueryOutputFilterSensitiveLog = (obj: GetNamedQueryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNotebookMetadataInputFilterSensitiveLog = (obj: GetNotebookMetadataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNotebookMetadataOutputFilterSensitiveLog = (obj: GetNotebookMetadataOutput): any => ({
   ...obj,
 });
 
@@ -2873,6 +4441,62 @@ export const QueryRuntimeStatisticsTimelineFilterSensitiveLog = (obj: QueryRunti
 /**
  * @internal
  */
+export const GetSessionRequestFilterSensitiveLog = (obj: GetSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EngineConfigurationFilterSensitiveLog = (obj: EngineConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionConfigurationFilterSensitiveLog = (obj: SessionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionStatisticsFilterSensitiveLog = (obj: SessionStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionStatusFilterSensitiveLog = (obj: SessionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSessionResponseFilterSensitiveLog = (obj: GetSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSessionStatusRequestFilterSensitiveLog = (obj: GetSessionStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSessionStatusResponseFilterSensitiveLog = (obj: GetSessionStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetTableMetadataInputFilterSensitiveLog = (obj: GetTableMetadataInput): any => ({
   ...obj,
 });
@@ -2916,6 +4540,62 @@ export const WorkGroupFilterSensitiveLog = (obj: WorkGroup): any => ({
  * @internal
  */
 export const GetWorkGroupOutputFilterSensitiveLog = (obj: GetWorkGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportNotebookInputFilterSensitiveLog = (obj: ImportNotebookInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportNotebookOutputFilterSensitiveLog = (obj: ImportNotebookOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationDPUSizesInputFilterSensitiveLog = (obj: ListApplicationDPUSizesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationDPUSizesFilterSensitiveLog = (obj: ApplicationDPUSizes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationDPUSizesOutputFilterSensitiveLog = (obj: ListApplicationDPUSizesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCalculationExecutionsRequestFilterSensitiveLog = (obj: ListCalculationExecutionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculationSummaryFilterSensitiveLog = (obj: CalculationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCalculationExecutionsResponseFilterSensitiveLog = (obj: ListCalculationExecutionsResponse): any => ({
   ...obj,
 });
 
@@ -2971,6 +4651,27 @@ export const ListEngineVersionsOutputFilterSensitiveLog = (obj: ListEngineVersio
 /**
  * @internal
  */
+export const ListExecutorsRequestFilterSensitiveLog = (obj: ListExecutorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutorsSummaryFilterSensitiveLog = (obj: ExecutorsSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExecutorsResponseFilterSensitiveLog = (obj: ListExecutorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListNamedQueriesInputFilterSensitiveLog = (obj: ListNamedQueriesInput): any => ({
   ...obj,
 });
@@ -2979,6 +4680,48 @@ export const ListNamedQueriesInputFilterSensitiveLog = (obj: ListNamedQueriesInp
  * @internal
  */
 export const ListNamedQueriesOutputFilterSensitiveLog = (obj: ListNamedQueriesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterDefinitionFilterSensitiveLog = (obj: FilterDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotebookMetadataInputFilterSensitiveLog = (obj: ListNotebookMetadataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotebookMetadataOutputFilterSensitiveLog = (obj: ListNotebookMetadataOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotebookSessionsRequestFilterSensitiveLog = (obj: ListNotebookSessionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotebookSessionSummaryFilterSensitiveLog = (obj: NotebookSessionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotebookSessionsResponseFilterSensitiveLog = (obj: ListNotebookSessionsResponse): any => ({
   ...obj,
 });
 
@@ -3014,6 +4757,27 @@ export const ListQueryExecutionsInputFilterSensitiveLog = (obj: ListQueryExecuti
  * @internal
  */
 export const ListQueryExecutionsOutputFilterSensitiveLog = (obj: ListQueryExecutionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSessionsRequestFilterSensitiveLog = (obj: ListSessionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionSummaryFilterSensitiveLog = (obj: SessionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSessionsResponseFilterSensitiveLog = (obj: ListSessionsResponse): any => ({
   ...obj,
 });
 
@@ -3069,6 +4833,27 @@ export const ListWorkGroupsOutputFilterSensitiveLog = (obj: ListWorkGroupsOutput
 /**
  * @internal
  */
+export const CalculationConfigurationFilterSensitiveLog = (obj: CalculationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCalculationExecutionRequestFilterSensitiveLog = (obj: StartCalculationExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCalculationExecutionResponseFilterSensitiveLog = (obj: StartCalculationExecutionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const StartQueryExecutionInputFilterSensitiveLog = (obj: StartQueryExecutionInput): any => ({
   ...obj,
 });
@@ -3077,6 +4862,34 @@ export const StartQueryExecutionInputFilterSensitiveLog = (obj: StartQueryExecut
  * @internal
  */
 export const StartQueryExecutionOutputFilterSensitiveLog = (obj: StartQueryExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSessionRequestFilterSensitiveLog = (obj: StartSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSessionResponseFilterSensitiveLog = (obj: StartSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopCalculationExecutionRequestFilterSensitiveLog = (obj: StopCalculationExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopCalculationExecutionResponseFilterSensitiveLog = (obj: StopCalculationExecutionResponse): any => ({
   ...obj,
 });
 
@@ -3105,6 +4918,20 @@ export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any =
  * @internal
  */
 export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateSessionRequestFilterSensitiveLog = (obj: TerminateSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateSessionResponseFilterSensitiveLog = (obj: TerminateSessionResponse): any => ({
   ...obj,
 });
 
@@ -3147,6 +4974,34 @@ export const UpdateNamedQueryInputFilterSensitiveLog = (obj: UpdateNamedQueryInp
  * @internal
  */
 export const UpdateNamedQueryOutputFilterSensitiveLog = (obj: UpdateNamedQueryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotebookInputFilterSensitiveLog = (obj: UpdateNotebookInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotebookOutputFilterSensitiveLog = (obj: UpdateNotebookOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotebookMetadataInputFilterSensitiveLog = (obj: UpdateNotebookMetadataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotebookMetadataOutputFilterSensitiveLog = (obj: UpdateNotebookMetadataOutput): any => ({
   ...obj,
 });
 

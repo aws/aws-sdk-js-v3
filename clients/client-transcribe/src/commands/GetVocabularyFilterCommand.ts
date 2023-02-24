@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,12 +30,7 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
 
 /**
  * <p>Provides information about the specified custom vocabulary filter.</p>
- *         <p>To view the status of the specified vocabulary filter, check the <code>VocabularyState</code>
- *             field. If the status is <code>READY</code>, your vocabulary is available to use. If the status is
- *             <code>FAILED</code>, <code>FailureReason</code> provides details on why your vocabulary
- *             filter failed.</p>
- *         <p>To get a list of your custom vocabulary filters, use the
- *              operation.</p>
+ *          <p>To get a list of your custom vocabulary filters, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +54,15 @@ export class GetVocabularyFilterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +78,9 @@ export class GetVocabularyFilterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetVocabularyFilterCommandInput, GetVocabularyFilterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetVocabularyFilterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

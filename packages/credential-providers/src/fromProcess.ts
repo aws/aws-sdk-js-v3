@@ -1,5 +1,5 @@
 import { fromProcess as _fromProcess, FromProcessInit as _FromProcessInit } from "@aws-sdk/credential-provider-process";
-import { CredentialProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 export interface FromProcessInit extends _FromProcessInit {}
 
@@ -26,4 +26,4 @@ export interface FromProcessInit extends _FromProcessInit {}
  * });
  * ```
  */
-export const fromProcess = (init?: FromProcessInit): CredentialProvider => _fromProcess(init);
+export const fromProcess = (init?: FromProcessInit): AwsCredentialIdentityProvider => _fromProcess(init);

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,24 +30,28 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
 
 /**
  * <p>Returns the optimization findings for an account.</p>
- *         <p>It returns the number of:</p>
- *         <ul>
+ *          <p>It returns the number of:</p>
+ *          <ul>
  *             <li>
- *                 <p>Amazon EC2 instances in an account that are
+ *                <p>Amazon EC2 instances in an account that are
  *                         <code>Underprovisioned</code>, <code>Overprovisioned</code>, or
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
- *                 <p>Auto Scaling groups in an account that are <code>NotOptimized</code>, or
+ *                <p>Auto Scaling groups in an account that are <code>NotOptimized</code>, or
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
- *                 <p>Amazon EBS volumes in an account that are <code>NotOptimized</code>,
+ *                <p>Amazon EBS volumes in an account that are <code>NotOptimized</code>,
  *                     or <code>Optimized</code>.</p>
  *             </li>
  *             <li>
- *                 <p>Lambda functions in an account that are <code>NotOptimized</code>,
+ *                <p>Lambda functions in an account that are <code>NotOptimized</code>,
  *                     or <code>Optimized</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon ECS services in an account that are <code>Underprovisioned</code>,
+ *                     <code>Overprovisioned</code>, or <code>Optimized</code>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -72,6 +77,15 @@ export class GetRecommendationSummariesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetRecommendationSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +101,9 @@ export class GetRecommendationSummariesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRecommendationSummariesCommandInput, GetRecommendationSummariesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetRecommendationSummariesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,18 +30,13 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
 
 /**
  * <p>Registers the resource as managed by the Data Catalog.</p>
- *
  *          <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
- *
  *          <p>The following request registers a new location and gives Lake Formation permission to use the service-linked role to access that location.</p>
- *
  *          <p>
  *             <code>ResourceArn = arn:aws:s3:::my-bucket
  * UseServiceLinkedRole = true</code>
  *          </p>
- *
- * 	        <p>If <code>UseServiceLinkedRole</code> is not set to true, you must provide or set the <code>RoleArn</code>:</p>
- *
+ *          <p>If <code>UseServiceLinkedRole</code> is not set to true, you must provide or set the <code>RoleArn</code>:</p>
  *          <p>
  *             <code>arn:aws:iam::12345:role/my-data-access-role</code>
  *          </p>
@@ -67,6 +63,15 @@ export class RegisterResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: RegisterResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +87,9 @@ export class RegisterResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterResourceCommandInput, RegisterResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterResourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -32,7 +32,9 @@ export interface CompleteAttachmentUploadRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 
@@ -156,13 +158,14 @@ export enum ConnectionType {
 
 export interface CreateParticipantConnectionRequest {
   /**
-   * <p>Type of connection information required.</p>
+   * <p>Type of connection information required. This can be omitted if
+   *                 <code>ConnectParticipant</code> is <code>true</code>.</p>
    */
-  Type: (ConnectionType | string)[] | undefined;
+  Type?: (ConnectionType | string)[];
 
   /**
    * <p>This is a header parameter.</p>
-   *         <p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
+   *          <p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
    *             API response.</p>
    */
   ParticipantToken: string | undefined;
@@ -185,7 +188,7 @@ export interface ConnectionCredentials {
 
   /**
    * <p>The expiration of the token.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   Expiry?: string;
@@ -202,7 +205,7 @@ export interface Websocket {
 
   /**
    * <p>The URL expiration timestamp in ISO date format.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   ConnectionExpiry?: string;
@@ -224,7 +227,9 @@ export interface CreateParticipantConnectionResponse {
 export interface DisconnectParticipantRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 
@@ -283,7 +288,7 @@ export interface StartPosition {
 
   /**
    * <p>The time in ISO format where to start.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
@@ -345,7 +350,7 @@ export enum ArtifactStatus {
  */
 export interface AttachmentItem {
   /**
-   * <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   ContentType?: string;
 
@@ -365,6 +370,41 @@ export interface AttachmentItem {
   Status?: ArtifactStatus | string;
 }
 
+/**
+ * <p>The receipt for the message delivered to the recipient.</p>
+ */
+export interface Receipt {
+  /**
+   * <p>The time when the message was delivered to the recipient.</p>
+   */
+  DeliveredTimestamp?: string;
+
+  /**
+   * <p>The time when the message was read by the recipient.</p>
+   */
+  ReadTimestamp?: string;
+
+  /**
+   * <p>The identifier of the recipient of the message. </p>
+   */
+  RecipientParticipantId?: string;
+}
+
+/**
+ * <p>Contains metadata related to a message.</p>
+ */
+export interface MessageMetadata {
+  /**
+   * <p>The identifier of the message that contains the metadata information. </p>
+   */
+  MessageId?: string;
+
+  /**
+   * <p>The list of receipt information for a message for different recipients.</p>
+   */
+  Receipts?: Receipt[];
+}
+
 export enum ParticipantRole {
   AGENT = "AGENT",
   CUSTOMER = "CUSTOMER",
@@ -377,6 +417,8 @@ export enum ChatItemType {
   CONNECTION_ACK = "CONNECTION_ACK",
   EVENT = "EVENT",
   MESSAGE = "MESSAGE",
+  MESSAGE_DELIVERED = "MESSAGE_DELIVERED",
+  MESSAGE_READ = "MESSAGE_READ",
   PARTICIPANT_JOINED = "PARTICIPANT_JOINED",
   PARTICIPANT_LEFT = "PARTICIPANT_LEFT",
   TRANSFER_FAILED = "TRANSFER_FAILED",
@@ -390,7 +432,7 @@ export enum ChatItemType {
 export interface Item {
   /**
    * <p>The time when the message or event was sent.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
@@ -434,6 +476,26 @@ export interface Item {
    * <p>Provides information about the attachments.</p>
    */
   Attachments?: AttachmentItem[];
+
+  /**
+   * <p>The metadata related to the message. Currently this supports only information related
+   *             to message receipts.</p>
+   */
+  MessageMetadata?: MessageMetadata;
+
+  /**
+   * <p>The contactId on which the transcript item was originally sent. This field is only
+   *             populated for persistent chats when the transcript item is from the past chat session.
+   *             For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent
+   *             chat</a>.</p>
+   */
+  RelatedContactId?: string;
+
+  /**
+   * <p>The contactId on which the transcript item was originally sent. This field is
+   *             populated only when the transcript item is from the current chat session.</p>
+   */
+  ContactId?: string;
 }
 
 export interface GetTranscriptResponse {
@@ -457,27 +519,35 @@ export interface GetTranscriptResponse {
 export interface SendEventRequest {
   /**
    * <p>The content type of the request. Supported types are:</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>application/vnd.amazonaws.connect.event.typing</p>
+   *                <p>application/vnd.amazonaws.connect.event.typing</p>
    *             </li>
    *             <li>
-   *                 <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>
+   *                <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.amazonaws.connect.event.message.delivered</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.amazonaws.connect.event.message.read</p>
    *             </li>
    *          </ul>
    */
   ContentType: string | undefined;
 
   /**
-   * <p>The content of the event to be sent (for example, message text). This is not yet
-   *             supported.</p>
+   * <p>The content of the event to be sent (for example, message text). For content related
+   *             to message receipts, this is supported in the form of a JSON string.</p>
+   *          <p>Sample Content: "{\"messageId\":\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\"}"</p>
    */
   Content?: string;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 
@@ -495,7 +565,7 @@ export interface SendEventResponse {
 
   /**
    * <p>The time when the event was sent.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
@@ -503,18 +573,31 @@ export interface SendEventResponse {
 
 export interface SendMessageRequest {
   /**
-   * <p>The type of the content. Supported types are text/plain.</p>
+   * <p>The type of the content. Supported types are <code>text/plain</code>,
+   *                 <code>text/markdown</code>, and <code>application/json</code>.</p>
    */
   ContentType: string | undefined;
 
   /**
-   * <p>The content of the message.</p>
+   * <p>The content of the message. </p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>text/plain</code> and <code>text/markdown</code>, the Length
+   *                     Constraints are Minimum of 1, Maximum of 1024. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>application/json</code>, the Length Constraints are Minimum of 1,
+   *                     Maximum of 12000. </p>
+   *             </li>
+   *          </ul>
    */
   Content: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 
@@ -532,7 +615,7 @@ export interface SendMessageResponse {
 
   /**
    * <p>The time when the message was sent.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
@@ -540,7 +623,7 @@ export interface SendMessageResponse {
 
 export interface StartAttachmentUploadRequest {
   /**
-   * <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   ContentType: string | undefined;
 
@@ -555,7 +638,10 @@ export interface StartAttachmentUploadRequest {
   AttachmentName: string | undefined;
 
   /**
-   * <p>A unique case sensitive identifier to support idempotency of request.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 
@@ -688,6 +774,20 @@ export const GetTranscriptRequestFilterSensitiveLog = (obj: GetTranscriptRequest
  * @internal
  */
 export const AttachmentItemFilterSensitiveLog = (obj: AttachmentItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReceiptFilterSensitiveLog = (obj: Receipt): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageMetadataFilterSensitiveLog = (obj: MessageMetadata): any => ({
   ...obj,
 });
 

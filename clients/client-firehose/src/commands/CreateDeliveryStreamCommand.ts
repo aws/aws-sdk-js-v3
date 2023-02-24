@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,8 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
 /**
  * <p>Creates a Kinesis Data Firehose delivery stream.</p>
  *
- *          <p>By default, you can create up to 50 delivery streams per AWS Region.</p>
+ *          <p>By default, you can create up to 50 delivery streams per Amazon Web Services
+ *          Region.</p>
  *          <p>This is an asynchronous operation that immediately returns. The initial status of the
  *          delivery stream is <code>CREATING</code>. After the delivery stream is created, its status
  *          is <code>ACTIVE</code> and it now accepts data. If the delivery stream creation fails, the
@@ -120,6 +122,15 @@ export class CreateDeliveryStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +146,9 @@ export class CreateDeliveryStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDeliveryStreamCommandInput, CreateDeliveryStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDeliveryStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,8 +35,8 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
  *          <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the
  *       environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're
  *       responsible for cleaning up provisioned resources that remain without an environment connection.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
- *         connections</a> in the <i>Proton Administrator guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
+ *         connections</a> in the <i>Proton User guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,15 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +84,9 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteEnvironmentAccountConnectionCommandInput, DeleteEnvironmentAccountConnectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteEnvironmentAccountConnectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

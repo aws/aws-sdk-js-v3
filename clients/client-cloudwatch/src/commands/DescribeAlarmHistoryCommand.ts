@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,8 +31,8 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
 /**
  * <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.
  * 			If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned.</p>
- * 		       <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
- * 		       <p>To use this operation and return information about a composite alarm, you must be signed on with
+ *          <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
+ *          <p>To use this operation and return information about a composite alarm, you must be signed on with
  * 			the <code>cloudwatch:DescribeAlarmHistory</code> permission that is scoped to <code>*</code>. You can't return information
  * 			about composite alarms if your <code>cloudwatch:DescribeAlarmHistory</code> permission has a narrower scope.</p>
  * @example
@@ -57,6 +58,15 @@ export class DescribeAlarmHistoryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeAlarmHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class DescribeAlarmHistoryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAlarmHistoryCommandInput, DescribeAlarmHistoryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAlarmHistoryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,14 +28,14 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
 
 /**
  * <p>Updates a block list used for query suggestions for an index.</p>
- *         <p>Updates to a block list might not take effect right away. Amazon Kendra
+ *          <p>Updates to a block list might not take effect right away. Amazon Kendra
  *             needs to refresh the entire suggestions list to apply any updates to the
  *             block list. Other changes not related to the block list apply immediately.</p>
- *         <p>If a block list is updating, then you need to wait for the first update to
+ *          <p>If a block list is updating, then you need to wait for the first update to
  *             finish before submitting another update.</p>
- *         <p>Amazon Kendra supports partial updates, so you only need to provide the fields
+ *          <p>Amazon Kendra supports partial updates, so you only need to provide the fields
  *             you want to update.</p>
- *         <p>
+ *          <p>
  *             <code>UpdateQuerySuggestionsBlockList</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
@@ -60,6 +61,15 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateQuerySuggestionsBlockListCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateQuerySuggestionsBlockListCommandInput, UpdateQuerySuggestionsBlockListCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateQuerySuggestionsBlockListCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

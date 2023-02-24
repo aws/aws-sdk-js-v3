@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -34,24 +35,27 @@ export interface StartStreamTranscriptionCommandInput extends StartStreamTranscr
 export interface StartStreamTranscriptionCommandOutput extends StartStreamTranscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe and the transcription
- *       results are streamed to your application.</p>
- *          <p>The following are encoded as HTTP/2 headers:</p>
+ * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
+ *       Amazon Transcribe and the transcription results are streamed to your application.</p>
+ *          <p>The following parameters are required:</p>
  *          <ul>
  *             <li>
- *                <p>x-amzn-transcribe-language-code</p>
+ *                <p>
+ *                   <code>language-code</code> or <code>identify-language</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>x-amzn-transcribe-media-encoding</p>
+ *                <p>
+ *                   <code>media-encoding</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>x-amzn-transcribe-sample-rate</p>
- *             </li>
- *             <li>
- *                <p>x-amzn-transcribe-session-id</p>
+ *                <p>
+ *                   <code>sample-rate</code>
+ *                </p>
  *             </li>
  *          </ul>
- *          <p>See the <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/#TranscribeStreamingService.StartStreamTranscription"> SDK for Go API Reference</a> for more detail.</p>
+ *          <p>For more information on streaming with Amazon Transcribe, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +79,15 @@ export class StartStreamTranscriptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartStreamTranscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,6 +103,9 @@ export class StartStreamTranscriptionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartStreamTranscriptionCommandInput, StartStreamTranscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartStreamTranscriptionCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getEventStreamPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

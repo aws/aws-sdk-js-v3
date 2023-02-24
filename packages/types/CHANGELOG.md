@@ -3,6 +3,301 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
+
+**Note:** Version bump only for package @aws-sdk/types
+
+
+
+
+
+# [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
+
+**Note:** Version bump only for package @aws-sdk/types
+
+
+
+
+
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+
+### Features
+
+* **util-dns:** add DNS interfaces and initial implementations ([#4386](https://github.com/aws/aws-sdk-js-v3/issues/4386)) ([2b5c0c5](https://github.com/aws/aws-sdk-js-v3/commit/2b5c0c5fd8df71191675de5fa1d1f9ec64ec7bd9))
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+
+### Bug Fixes
+
+* **types:** declare Blob type without requiring dom ([#4408](https://github.com/aws/aws-sdk-js-v3/issues/4408)) ([0b943b5](https://github.com/aws/aws-sdk-js-v3/commit/0b943b5c9e93bd8098cfd82899559bdde4208c27))
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+
+### Features
+
+* **types:** add request and response interfaces ([#4389](https://github.com/aws/aws-sdk-js-v3/issues/4389)) ([6b1be0b](https://github.com/aws/aws-sdk-js-v3/commit/6b1be0b6f00a4dfdfe091ae7e2c74a9256d98edb))
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+
+### Features
+
+* **middleware-api-key:** add new auth middleware ([#4012](https://github.com/aws/aws-sdk-js-v3/issues/4012)) ([bdf7a59](https://github.com/aws/aws-sdk-js-v3/commit/bdf7a59d0df8a236ece3942a243e17b228013c27))
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+
+### Features
+
+* **checksum:** replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/issues/4346)) ([172b4f3](https://github.com/aws/aws-sdk-js-v3/commit/172b4f3475370b386271750436004706b36bc056))
+
+
+
+
+
+# [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
+
+
+### Bug Fixes
+
+* **types:** add missing `tslib` dependency to `types` ([#4128](https://github.com/aws/aws-sdk-js-v3/issues/4128)) ([5dab646](https://github.com/aws/aws-sdk-js-v3/commit/5dab6461affef3539c2fea61fc1217d528981cdd))
+
+
+
+
+
+# [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** fix use of log filters in conjunction with DynamDBDocumentClient ([#4249](https://github.com/aws/aws-sdk-js-v3/issues/4249)) ([1534f62](https://github.com/aws/aws-sdk-js-v3/commit/1534f62bc3ca27a4007c2bde2f6bed18c4ee02a6))
+
+
+
+
+
+# [3.222.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.221.0...v3.222.0) (2022-12-01)
+
+
+### Features
+
+* **types:** add checksum interface ([#4216](https://github.com/aws/aws-sdk-js-v3/issues/4216)) ([89598b6](https://github.com/aws/aws-sdk-js-v3/commit/89598b6c44d4733d8b0329946516fcde3a2c3997))
+* **utl-retry:** add util-retry package and its types ([#4224](https://github.com/aws/aws-sdk-js-v3/issues/4224)) ([a2579b7](https://github.com/aws/aws-sdk-js-v3/commit/a2579b770d929ad038cafed565028608a20dd911))
+
+
+
+
+
+# [3.215.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.214.0...v3.215.0) (2022-11-21)
+
+
+### Features
+
+* **types:** update identity types ([#4189](https://github.com/aws/aws-sdk-js-v3/issues/4189)) ([aa73203](https://github.com/aws/aws-sdk-js-v3/commit/aa73203585d4b13367bd482c41fb48053bb9e628))
+
+
+
+
+
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+**Note:** Version bump only for package @aws-sdk/types
+
+
+
+
+
+# [3.208.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.207.0...v3.208.0) (2022-11-10)
+
+**Note:** Version bump only for package @aws-sdk/types
+
+
+
+
+
+# [3.201.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.200.0...v3.201.0) (2022-11-01)
+
+
+### Features
+
+* end support for Node.js 12.x ([#4123](https://github.com/aws/aws-sdk-js-v3/issues/4123)) ([83f913e](https://github.com/aws/aws-sdk-js-v3/commit/83f913ec2ac3878d8726c6964f585550dc5caf3e))
+
+
+
+
+
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+
+### Bug Fixes
+
+* **types:** extends check of generic in WithSdkStreamMixin ([#4119](https://github.com/aws/aws-sdk-js-v3/issues/4119)) ([299d245](https://github.com/aws/aws-sdk-js-v3/commit/299d245f63a69324bb973e28be79c055359c4d69))
+
+
+
+
+
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+
+### Bug Fixes
+
+* **types:** make logger.trace an optional function ([#4110](https://github.com/aws/aws-sdk-js-v3/issues/4110)) ([7d95b34](https://github.com/aws/aws-sdk-js-v3/commit/7d95b34dd2d1f3e480db0000cabd97f2299cda24))
+
+
+
+
+
+# [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
+
+
+### Bug Fixes
+
+* **types:** expand custom endpoint type ([#4097](https://github.com/aws/aws-sdk-js-v3/issues/4097)) ([3620ce4](https://github.com/aws/aws-sdk-js-v3/commit/3620ce4162435b9688823162281140f40365b14c))
+
+
+
+
+
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+
+### Bug Fixes
+
+* **endpoint:** join authScheme signingRegionSet values instead of taking first only ([#4056](https://github.com/aws/aws-sdk-js-v3/issues/4056)) ([751245a](https://github.com/aws/aws-sdk-js-v3/commit/751245afc26dbedcc477be3bc2f830e18d765e1d))
+* **endpoint:** test fixes for s3-control related to endpoints 2.0 ([#4065](https://github.com/aws/aws-sdk-js-v3/issues/4065)) ([25af672](https://github.com/aws/aws-sdk-js-v3/commit/25af672e313406dcc331e154c385fc325b93a4a2))
+
+
+
+
+
+# [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
+
+
+### Bug Fixes
+
+* **endpoint:** e2e test fixes for endpoints 2.0 all services ([#4044](https://github.com/aws/aws-sdk-js-v3/issues/4044)) ([b53f5bd](https://github.com/aws/aws-sdk-js-v3/commit/b53f5bdd2bb4f0d1bab208ef2cd8f67d56291934))
+
+
+
+
+
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+
+### Features
+
+* **clients:** support util functions to consume response streams ([#3977](https://github.com/aws/aws-sdk-js-v3/issues/3977)) ([ad99b66](https://github.com/aws/aws-sdk-js-v3/commit/ad99b66944b6fe1ce83082c1a33193dff033cfaf))
+
+
+
+
+
+# [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
+
+**Note:** Version bump only for package @aws-sdk/types
+
+
+
+
+
+# [3.183.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.182.0...v3.183.0) (2022-10-03)
+
+**Note:** Version bump only for package @aws-sdk/types
+
+
+
+
+
+# [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
+
+
+### Features
+
+* **endpoint:** endpoints 2.0 existing package changes ([#3947](https://github.com/aws/aws-sdk-js-v3/issues/3947)) ([df99fc3](https://github.com/aws/aws-sdk-js-v3/commit/df99fc33a43982e1c59000721a535f6fe77a3c23))
+
+
+
+
+
+# [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
+
+
+### Features
+
+* **endpoint:** util-endpoints and middleware-endpoint for endpoints 2.0 ([#3932](https://github.com/aws/aws-sdk-js-v3/issues/3932)) ([e81b7d0](https://github.com/aws/aws-sdk-js-v3/commit/e81b7d0920a74843a2a34857f41b0d6d93abc465))
+
+
+
+
+
+# [3.170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.169.0...v3.170.0) (2022-09-13)
+
+**Note:** Version bump only for package @aws-sdk/types
+
+
+
+
+
+# [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
+
+**Note:** Version bump only for package @aws-sdk/types
+
+
+
+
+
+# [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
+
+
+### Bug Fixes
+
+* **types:** declare ReadableStream type without requiring dom ([#3889](https://github.com/aws/aws-sdk-js-v3/issues/3889)) ([061b5f5](https://github.com/aws/aws-sdk-js-v3/commit/061b5f5812278930207b5c50c0c9f61a26a987ad))
+
+
+
+
+
+# [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
+
+**Note:** Version bump only for package @aws-sdk/types
+
+
+
+
+
+# [3.159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.158.0...v3.159.0) (2022-08-26)
+
+
+### Features
+
+* **token-providers:** add token based authentication ([#3883](https://github.com/aws/aws-sdk-js-v3/issues/3883)) ([9f31345](https://github.com/aws/aws-sdk-js-v3/commit/9f313451a31b9bc317c277d6ab86e1d328066ad8))
+* **util-endpoints:** add ruleSet standard library ([#3880](https://github.com/aws/aws-sdk-js-v3/issues/3880)) ([4ffc67b](https://github.com/aws/aws-sdk-js-v3/commit/4ffc67b6f9c8349f93ccf91b9b3aa17d6a22b06e))
+
+
+
+
+
 # [3.127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.126.0...v3.127.0) (2022-07-11)
 
 

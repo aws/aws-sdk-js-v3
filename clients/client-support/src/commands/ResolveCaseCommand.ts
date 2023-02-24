@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,20 +31,20 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
 /**
  * <p>Resolves a support case. This operation takes a <code>caseId</code> and returns the
  *             initial and final state of the case.</p>
- *         <note>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
  *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +68,15 @@ export class ResolveCaseCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ResolveCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +92,7 @@ export class ResolveCaseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ResolveCaseCommandInput, ResolveCaseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ResolveCaseCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

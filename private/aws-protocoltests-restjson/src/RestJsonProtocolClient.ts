@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   Hash as __Hash,
@@ -41,6 +43,7 @@ import {
   Provider as __Provider,
   Provider,
   RegionInfoProvider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
   StreamCollector as __StreamCollector,
   StreamHasher as __StreamHasher,
   UrlParser as __UrlParser,
@@ -60,6 +63,7 @@ import {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
+import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
 import {
   DocumentTypeAsPayloadCommandInput,
   DocumentTypeAsPayloadCommandOutput,
@@ -130,6 +134,7 @@ import {
 } from "./commands/InputAndOutputWithHeadersCommand";
 import { JsonBlobsCommandInput, JsonBlobsCommandOutput } from "./commands/JsonBlobsCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import { JsonIntEnumsCommandInput, JsonIntEnumsCommandOutput } from "./commands/JsonIntEnumsCommand";
 import { JsonListsCommandInput, JsonListsCommandOutput } from "./commands/JsonListsCommand";
 import { JsonMapsCommandInput, JsonMapsCommandOutput } from "./commands/JsonMapsCommand";
 import { JsonTimestampsCommandInput, JsonTimestampsCommandOutput } from "./commands/JsonTimestampsCommand";
@@ -175,7 +180,6 @@ import {
   MalformedRequestBodyCommandInput,
   MalformedRequestBodyCommandOutput,
 } from "./commands/MalformedRequestBodyCommand";
-import { MalformedSetCommandInput, MalformedSetCommandOutput } from "./commands/MalformedSetCommand";
 import { MalformedShortCommandInput, MalformedShortCommandOutput } from "./commands/MalformedShortCommand";
 import { MalformedStringCommandInput, MalformedStringCommandOutput } from "./commands/MalformedStringCommand";
 import {
@@ -244,6 +248,10 @@ import {
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
 import { PostPlayerActionCommandInput, PostPlayerActionCommandOutput } from "./commands/PostPlayerActionCommand";
 import {
+  PostUnionWithJsonNameCommandInput,
+  PostUnionWithJsonNameCommandOutput,
+} from "./commands/PostUnionWithJsonNameCommand";
+import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
@@ -284,6 +292,7 @@ export type ServiceInputTypes =
   | AllQueryStringTypesCommandInput
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
+  | DatetimeOffsetsCommandInput
   | DocumentTypeAsPayloadCommandInput
   | DocumentTypeCommandInput
   | EmptyInputAndEmptyOutputCommandInput
@@ -309,6 +318,7 @@ export type ServiceInputTypes =
   | InputAndOutputWithHeadersCommandInput
   | JsonBlobsCommandInput
   | JsonEnumsCommandInput
+  | JsonIntEnumsCommandInput
   | JsonListsCommandInput
   | JsonMapsCommandInput
   | JsonTimestampsCommandInput
@@ -330,7 +340,6 @@ export type ServiceInputTypes =
   | MalformedLongCommandInput
   | MalformedMapCommandInput
   | MalformedRequestBodyCommandInput
-  | MalformedSetCommandInput
   | MalformedShortCommandInput
   | MalformedStringCommandInput
   | MalformedTimestampBodyDateTimeCommandInput
@@ -353,6 +362,7 @@ export type ServiceInputTypes =
   | NullAndEmptyHeadersServerCommandInput
   | OmitsNullSerializesEmptyStringCommandInput
   | PostPlayerActionCommandInput
+  | PostUnionWithJsonNameCommandInput
   | QueryIdempotencyTokenAutoFillCommandInput
   | QueryParamsAsStringListMapCommandInput
   | QueryPrecedenceCommandInput
@@ -372,6 +382,7 @@ export type ServiceOutputTypes =
   | AllQueryStringTypesCommandOutput
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
+  | DatetimeOffsetsCommandOutput
   | DocumentTypeAsPayloadCommandOutput
   | DocumentTypeCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
@@ -397,6 +408,7 @@ export type ServiceOutputTypes =
   | InputAndOutputWithHeadersCommandOutput
   | JsonBlobsCommandOutput
   | JsonEnumsCommandOutput
+  | JsonIntEnumsCommandOutput
   | JsonListsCommandOutput
   | JsonMapsCommandOutput
   | JsonTimestampsCommandOutput
@@ -418,7 +430,6 @@ export type ServiceOutputTypes =
   | MalformedLongCommandOutput
   | MalformedMapCommandOutput
   | MalformedRequestBodyCommandOutput
-  | MalformedSetCommandOutput
   | MalformedShortCommandOutput
   | MalformedStringCommandOutput
   | MalformedTimestampBodyDateTimeCommandOutput
@@ -441,6 +452,7 @@ export type ServiceOutputTypes =
   | NullAndEmptyHeadersServerCommandOutput
   | OmitsNullSerializesEmptyStringCommandOutput
   | PostPlayerActionCommandOutput
+  | PostUnionWithJsonNameCommandOutput
   | QueryIdempotencyTokenAutoFillCommandOutput
   | QueryParamsAsStringListMapCommandOutput
   | QueryPrecedenceCommandOutput
@@ -463,11 +475,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -524,6 +536,34 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Fetch related hostname, signing name or signing region with given region.
+   * @internal
+   */
+  regionInfoProvider?: RegionInfoProvider;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -539,34 +579,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
-   */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
    * A function that, given a hash constructor and a stream, calculates the
    * hash of the streamed value.
    * @internal
@@ -574,16 +586,22 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __checksum} interface
    * that computes MD5 hashes.
    * @internal
    */
-  md5?: __HashConstructor;
+  md5?: __ChecksumConstructor | __HashConstructor;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
+
+  /**
+   * The internal function that inject utilities to runtime-specific stream to help users consume the data
+   * @internal
+   */
+  sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
 type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

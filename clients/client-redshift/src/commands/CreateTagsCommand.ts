@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -21,9 +22,9 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds tags to a cluster.</p>
- *         <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
+ *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
  *             resource, you will receive an error and the attempt will fail.</p>
- *         <p>If you specify a key that already exists for the resource, the value for that key
+ *          <p>If you specify a key that already exists for the resource, the value for that key
  *             will be updated with the new value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +49,15 @@ export class CreateTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +73,7 @@ export class CreateTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateTagsCommandInput, CreateTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -27,6 +27,12 @@ export enum FooEnum {
   ZERO = "0",
 }
 
+export enum IntegerEnum {
+  A = 1,
+  B = 2,
+  C = 3,
+}
+
 export interface AllQueryStringTypesInput {
   queryString?: string;
   queryStringList?: string[];
@@ -46,6 +52,8 @@ export interface AllQueryStringTypesInput {
   queryTimestampList?: Date[];
   queryEnum?: FooEnum | string;
   queryEnumList?: (FooEnum | string)[];
+  queryIntegerEnum?: IntegerEnum | number;
+  queryIntegerEnumList?: (IntegerEnum | number)[];
   queryParamsMapOfStringList?: Record<string, string[]>;
 }
 
@@ -114,6 +122,17 @@ export interface ConstantQueryStringInput {
  * @internal
  */
 export const ConstantQueryStringInputFilterSensitiveLog = (obj: ConstantQueryStringInput): any => ({
+  ...obj,
+});
+
+export interface DatetimeOffsetsOutput {
+  datetime?: Date;
+}
+
+/**
+ * @internal
+ */
+export const DatetimeOffsetsOutputFilterSensitiveLog = (obj: DatetimeOffsetsOutput): any => ({
   ...obj,
 });
 
@@ -473,6 +492,8 @@ export interface InputAndOutputWithHeadersIO {
   headerTimestampList?: Date[];
   headerEnum?: FooEnum | string;
   headerEnumList?: (FooEnum | string)[];
+  headerIntegerEnum?: IntegerEnum | number;
+  headerIntegerEnumList?: (IntegerEnum | number)[];
 }
 
 /**
@@ -509,6 +530,22 @@ export const JsonEnumsInputOutputFilterSensitiveLog = (obj: JsonEnumsInputOutput
   ...obj,
 });
 
+export interface JsonIntEnumsInputOutput {
+  integerEnum1?: IntegerEnum | number;
+  integerEnum2?: IntegerEnum | number;
+  integerEnum3?: IntegerEnum | number;
+  integerEnumList?: (IntegerEnum | number)[];
+  integerEnumSet?: (IntegerEnum | number)[];
+  integerEnumMap?: Record<string, IntegerEnum | number>;
+}
+
+/**
+ * @internal
+ */
+export const JsonIntEnumsInputOutputFilterSensitiveLog = (obj: JsonIntEnumsInputOutput): any => ({
+  ...obj,
+});
+
 export interface StructureListMember {
   a?: string;
   b?: string;
@@ -529,6 +566,7 @@ export interface JsonListsInputOutput {
   booleanList?: boolean[];
   timestampList?: Date[];
   enumList?: (FooEnum | string)[];
+  intEnumList?: (IntegerEnum | number)[];
   /**
    * A list of lists of strings.
    */
@@ -567,8 +605,11 @@ export const JsonMapsInputOutputFilterSensitiveLog = (obj: JsonMapsInputOutput):
 export interface JsonTimestampsInputOutput {
   normal?: Date;
   dateTime?: Date;
+  dateTimeOnTarget?: Date;
   epochSeconds?: Date;
+  epochSecondsOnTarget?: Date;
   httpDate?: Date;
+  httpDateOnTarget?: Date;
 }
 
 /**
@@ -824,15 +865,15 @@ export const UnionInputOutputFilterSensitiveLog = (obj: UnionInputOutput): any =
   ...(obj.contents && { contents: MyUnionFilterSensitiveLog(obj.contents) }),
 });
 
-export interface MalformedAcceptWithGenericStringInput {
-  payload?: Uint8Array;
+export interface MalformedAcceptWithGenericStringOutput {
+  payload?: string;
 }
 
 /**
  * @internal
  */
-export const MalformedAcceptWithGenericStringInputFilterSensitiveLog = (
-  obj: MalformedAcceptWithGenericStringInput
+export const MalformedAcceptWithGenericStringOutputFilterSensitiveLog = (
+  obj: MalformedAcceptWithGenericStringOutput
 ): any => ({
   ...obj,
 });
@@ -1000,18 +1041,6 @@ export interface MalformedRequestBodyInput {
  * @internal
  */
 export const MalformedRequestBodyInputFilterSensitiveLog = (obj: MalformedRequestBodyInput): any => ({
-  ...obj,
-});
-
-export interface MalformedSetInput {
-  set?: string[];
-  blobSet?: Uint8Array[];
-}
-
-/**
- * @internal
- */
-export const MalformedSetInputFilterSensitiveLog = (obj: MalformedSetInput): any => ({
   ...obj,
 });
 
@@ -1374,6 +1403,89 @@ export interface PostPlayerActionOutput {
 export const PostPlayerActionOutputFilterSensitiveLog = (obj: PostPlayerActionOutput): any => ({
   ...obj,
   ...(obj.action && { action: PlayerActionFilterSensitiveLog(obj.action) }),
+});
+
+export type UnionWithJsonName =
+  | UnionWithJsonName.BarMember
+  | UnionWithJsonName.BazMember
+  | UnionWithJsonName.FooMember
+  | UnionWithJsonName.$UnknownMember;
+
+export namespace UnionWithJsonName {
+  export interface FooMember {
+    foo: string;
+    bar?: never;
+    baz?: never;
+    $unknown?: never;
+  }
+
+  export interface BarMember {
+    foo?: never;
+    bar: string;
+    baz?: never;
+    $unknown?: never;
+  }
+
+  export interface BazMember {
+    foo?: never;
+    bar?: never;
+    baz: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    foo?: never;
+    bar?: never;
+    baz?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    foo: (value: string) => T;
+    bar: (value: string) => T;
+    baz: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UnionWithJsonName, visitor: Visitor<T>): T => {
+    if (value.foo !== undefined) return visitor.foo(value.foo);
+    if (value.bar !== undefined) return visitor.bar(value.bar);
+    if (value.baz !== undefined) return visitor.baz(value.baz);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+/**
+ * @internal
+ */
+export const UnionWithJsonNameFilterSensitiveLog = (obj: UnionWithJsonName): any => {
+  if (obj.foo !== undefined) return { foo: obj.foo };
+  if (obj.bar !== undefined) return { bar: obj.bar };
+  if (obj.baz !== undefined) return { baz: obj.baz };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+export interface PostUnionWithJsonNameInput {
+  value?: UnionWithJsonName;
+}
+
+/**
+ * @internal
+ */
+export const PostUnionWithJsonNameInputFilterSensitiveLog = (obj: PostUnionWithJsonNameInput): any => ({
+  ...obj,
+  ...(obj.value && { value: UnionWithJsonNameFilterSensitiveLog(obj.value) }),
+});
+
+export interface PostUnionWithJsonNameOutput {
+  value: UnionWithJsonName | undefined;
+}
+
+/**
+ * @internal
+ */
+export const PostUnionWithJsonNameOutputFilterSensitiveLog = (obj: PostUnionWithJsonNameOutput): any => ({
+  ...obj,
+  ...(obj.value && { value: UnionWithJsonNameFilterSensitiveLog(obj.value) }),
 });
 
 export interface QueryIdempotencyTokenAutoFillInput {

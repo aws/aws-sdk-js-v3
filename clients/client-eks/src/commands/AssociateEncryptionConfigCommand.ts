@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
 
 /**
  * <p>Associate encryption configuration to an existing cluster.</p>
- *         <p>You can use this API to enable encryption on existing clusters which do not have
+ *          <p>You can use this API to enable encryption on existing clusters which do not have
  *             encryption already enabled. This allows you to implement a defense-in-depth security
  *             strategy without migrating applications to new Amazon EKS clusters.</p>
  * @example
@@ -55,6 +56,15 @@ export class AssociateEncryptionConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AssociateEncryptionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class AssociateEncryptionConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateEncryptionConfigCommandInput, AssociateEncryptionConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateEncryptionConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

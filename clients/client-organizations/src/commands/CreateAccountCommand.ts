@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -36,8 +37,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *             account. To check the status of the request, do one of the following:</p>
  *         <ul>
  *             <li>
- *                 <p>Use the <code>Id</code> member of the <code>CreateAccountStatus</code>
- *                     response element from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a> operation.</p>
+ *                 <p>Use the <code>Id</code> value of the <code>CreateAccountStatus</code> response
+ *                     element from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a> operation.</p>
  *             </li>
  *             <li>
  *                 <p>Check the CloudTrail log for the <code>CreateAccountResult</code> event. For
@@ -126,6 +127,15 @@ export class CreateAccountCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,7 @@ export class CreateAccountCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAccountCommandInput, CreateAccountCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateAccountCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

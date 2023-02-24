@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,9 +30,9 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
 
 /**
  * <p>Gets a real-time log configuration.</p>
- * 		       <p>To get a real-time log configuration, you can provide the configuration’s name or its Amazon
- * 			Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the
- * 			name to identify the real-time log configuration to get.</p>
+ *          <p>To get a real-time log configuration, you can provide the configuration's name or its
+ * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
+ * 			uses the name to identify the real-time log configuration to get.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,15 @@ export class GetRealtimeLogConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,9 @@ export class GetRealtimeLogConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRealtimeLogConfigCommandInput, GetRealtimeLogConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetRealtimeLogConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

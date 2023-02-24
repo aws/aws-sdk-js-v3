@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,9 +25,9 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
- *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not
- *             delete model artifacts, inference code, or the IAM role that you specified when
- *             creating the model. </p>
+ *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not delete
+ *             model artifacts, inference code, or the IAM role that you specified when creating the
+ *             model. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +51,15 @@ export class DeleteModelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +75,7 @@ export class DeleteModelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteModelCommandInput, DeleteModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteModelCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

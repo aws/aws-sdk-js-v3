@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,15 +34,14 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
  *       a plaintext public key and a copy of the private key that is encrypted under the symmetric
  *       encryption KMS key you specify. Unlike <a>GenerateDataKeyPair</a>, this operation
- *       does not return a plaintext private key. The bytes in the keys are random; they are not related to the caller
- *       or to the KMS key that is used to encrypt the private key. </p>
+ *       does not return a plaintext private key. The bytes in the keys are random; they are not
+ *       related to the caller or to the KMS key that is used to encrypt the private key. </p>
  *          <p>You can use the public key that <code>GenerateDataKeyPairWithoutPlaintext</code> returns
  *       to encrypt data or verify a signature outside of KMS. Then, store the encrypted private key
  *       with the data. When you are ready to decrypt data or sign a message, you can use the <a>Decrypt</a> operation to decrypt the encrypted private key.</p>
  *          <p>To generate a data key pair, you must specify a symmetric encryption KMS key to encrypt
  *       the private key in a data key pair. You cannot use an asymmetric KMS key or a KMS key in a
- *       custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a>
- *       operation. </p>
+ *       custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation. </p>
  *          <p>Use the <code>KeyPairSpec</code> parameter to choose an RSA or Elliptic Curve (ECC) data
  *       key pair. In China Regions, you can also choose an SM2 data key pair. KMS recommends that you
  *       use ECC key pairs for signing, and use RSA and SM2 key pairs for either encryption or signing, but not
@@ -60,8 +60,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account
- *         use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
+ *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
  *
  *          <p>
@@ -120,6 +119,15 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GenerateDataKeyPairWithoutPlaintextCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +143,9 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GenerateDataKeyPairWithoutPlaintextCommandInput, GenerateDataKeyPairWithoutPlaintextCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GenerateDataKeyPairWithoutPlaintextCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

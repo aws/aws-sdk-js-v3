@@ -33,6 +33,10 @@ import {
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "../commands/CreateServiceCommand";
 import { CreateVpcConnectorCommandInput, CreateVpcConnectorCommandOutput } from "../commands/CreateVpcConnectorCommand";
 import {
+  CreateVpcIngressConnectionCommandInput,
+  CreateVpcIngressConnectionCommandOutput,
+} from "../commands/CreateVpcIngressConnectionCommand";
+import {
   DeleteAutoScalingConfigurationCommandInput,
   DeleteAutoScalingConfigurationCommandOutput,
 } from "../commands/DeleteAutoScalingConfigurationCommand";
@@ -43,6 +47,10 @@ import {
 } from "../commands/DeleteObservabilityConfigurationCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "../commands/DeleteServiceCommand";
 import { DeleteVpcConnectorCommandInput, DeleteVpcConnectorCommandOutput } from "../commands/DeleteVpcConnectorCommand";
+import {
+  DeleteVpcIngressConnectionCommandInput,
+  DeleteVpcIngressConnectionCommandOutput,
+} from "../commands/DeleteVpcIngressConnectionCommand";
 import {
   DescribeAutoScalingConfigurationCommandInput,
   DescribeAutoScalingConfigurationCommandOutput,
@@ -60,6 +68,10 @@ import {
   DescribeVpcConnectorCommandInput,
   DescribeVpcConnectorCommandOutput,
 } from "../commands/DescribeVpcConnectorCommand";
+import {
+  DescribeVpcIngressConnectionCommandInput,
+  DescribeVpcIngressConnectionCommandOutput,
+} from "../commands/DescribeVpcIngressConnectionCommand";
 import {
   DisassociateCustomDomainCommandInput,
   DisassociateCustomDomainCommandOutput,
@@ -80,12 +92,20 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ListVpcConnectorsCommandInput, ListVpcConnectorsCommandOutput } from "../commands/ListVpcConnectorsCommand";
+import {
+  ListVpcIngressConnectionsCommandInput,
+  ListVpcIngressConnectionsCommandOutput,
+} from "../commands/ListVpcIngressConnectionsCommand";
 import { PauseServiceCommandInput, PauseServiceCommandOutput } from "../commands/PauseServiceCommand";
 import { ResumeServiceCommandInput, ResumeServiceCommandOutput } from "../commands/ResumeServiceCommand";
 import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "../commands/StartDeploymentCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "../commands/UpdateServiceCommand";
+import {
+  UpdateVpcIngressConnectionCommandInput,
+  UpdateVpcIngressConnectionCommandOutput,
+} from "../commands/UpdateVpcIngressConnectionCommand";
 import { AppRunnerServiceException as __BaseException } from "../models/AppRunnerServiceException";
 import {
   AssociateCustomDomainRequest,
@@ -109,6 +129,8 @@ import {
   CreateServiceResponse,
   CreateVpcConnectorRequest,
   CreateVpcConnectorResponse,
+  CreateVpcIngressConnectionRequest,
+  CreateVpcIngressConnectionResponse,
   CustomDomain,
   DeleteAutoScalingConfigurationRequest,
   DeleteAutoScalingConfigurationResponse,
@@ -120,6 +142,8 @@ import {
   DeleteServiceResponse,
   DeleteVpcConnectorRequest,
   DeleteVpcConnectorResponse,
+  DeleteVpcIngressConnectionRequest,
+  DeleteVpcIngressConnectionResponse,
   DescribeAutoScalingConfigurationRequest,
   DescribeAutoScalingConfigurationResponse,
   DescribeCustomDomainsRequest,
@@ -130,6 +154,8 @@ import {
   DescribeServiceResponse,
   DescribeVpcConnectorRequest,
   DescribeVpcConnectorResponse,
+  DescribeVpcIngressConnectionRequest,
+  DescribeVpcIngressConnectionResponse,
   DisassociateCustomDomainRequest,
   DisassociateCustomDomainResponse,
   EgressConfiguration,
@@ -137,6 +163,8 @@ import {
   HealthCheckConfiguration,
   ImageConfiguration,
   ImageRepository,
+  IngressConfiguration,
+  IngressVpcConfiguration,
   InstanceConfiguration,
   InternalServiceErrorException,
   InvalidRequestException,
@@ -155,6 +183,9 @@ import {
   ListTagsForResourceResponse,
   ListVpcConnectorsRequest,
   ListVpcConnectorsResponse,
+  ListVpcIngressConnectionsFilter,
+  ListVpcIngressConnectionsRequest,
+  ListVpcIngressConnectionsResponse,
   NetworkConfiguration,
   ObservabilityConfiguration,
   ObservabilityConfigurationSummary,
@@ -180,7 +211,12 @@ import {
   UntagResourceResponse,
   UpdateServiceRequest,
   UpdateServiceResponse,
+  UpdateVpcIngressConnectionRequest,
+  UpdateVpcIngressConnectionResponse,
   VpcConnector,
+  VpcDNSTarget,
+  VpcIngressConnection,
+  VpcIngressConnectionSummary,
 } from "../models/models_0";
 
 export const serializeAws_json1_0AssociateCustomDomainCommand = async (
@@ -261,6 +297,19 @@ export const serializeAws_json1_0CreateVpcConnectorCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0CreateVpcIngressConnectionCommand = async (
+  input: CreateVpcIngressConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.CreateVpcIngressConnection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateVpcIngressConnectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DeleteAutoScalingConfigurationCommand = async (
   input: DeleteAutoScalingConfigurationCommandInput,
   context: __SerdeContext
@@ -326,6 +375,19 @@ export const serializeAws_json1_0DeleteVpcConnectorCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DeleteVpcIngressConnectionCommand = async (
+  input: DeleteVpcIngressConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.DeleteVpcIngressConnection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DeleteVpcIngressConnectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DescribeAutoScalingConfigurationCommand = async (
   input: DescribeAutoScalingConfigurationCommandInput,
   context: __SerdeContext
@@ -388,6 +450,19 @@ export const serializeAws_json1_0DescribeVpcConnectorCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeVpcConnectorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DescribeVpcIngressConnectionCommand = async (
+  input: DescribeVpcIngressConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.DescribeVpcIngressConnection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeVpcIngressConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -495,6 +570,19 @@ export const serializeAws_json1_0ListVpcConnectorsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0ListVpcIngressConnectionsCommand = async (
+  input: ListVpcIngressConnectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.ListVpcIngressConnections",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListVpcIngressConnectionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0PauseServiceCommand = async (
   input: PauseServiceCommandInput,
   context: __SerdeContext
@@ -573,6 +661,19 @@ export const serializeAws_json1_0UpdateServiceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0UpdateVpcIngressConnectionCommand = async (
+  input: UpdateVpcIngressConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.UpdateVpcIngressConnection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateVpcIngressConnectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const deserializeAws_json1_0AssociateCustomDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -596,7 +697,7 @@ const deserializeAws_json1_0AssociateCustomDomainCommandError = async (
 ): Promise<AssociateCustomDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -643,7 +744,7 @@ const deserializeAws_json1_0CreateAutoScalingConfigurationCommandError = async (
 ): Promise<CreateAutoScalingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -690,7 +791,7 @@ const deserializeAws_json1_0CreateConnectionCommandError = async (
 ): Promise<CreateConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -737,7 +838,7 @@ const deserializeAws_json1_0CreateObservabilityConfigurationCommandError = async
 ): Promise<CreateObservabilityConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -784,7 +885,7 @@ const deserializeAws_json1_0CreateServiceCommandError = async (
 ): Promise<CreateServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -831,7 +932,7 @@ const deserializeAws_json1_0CreateVpcConnectorCommandError = async (
 ): Promise<CreateVpcConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -841,6 +942,56 @@ const deserializeAws_json1_0CreateVpcConnectorCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
       throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.apprunner#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0CreateVpcIngressConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcIngressConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateVpcIngressConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateVpcIngressConnectionResponse(data, context);
+  const response: CreateVpcIngressConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateVpcIngressConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcIngressConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "InvalidStateException":
+    case "com.amazonaws.apprunner#InvalidStateException":
+      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.apprunner#ServiceQuotaExceededException":
       throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
@@ -878,7 +1029,7 @@ const deserializeAws_json1_0DeleteAutoScalingConfigurationCommandError = async (
 ): Promise<DeleteAutoScalingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -925,7 +1076,7 @@ const deserializeAws_json1_0DeleteConnectionCommandError = async (
 ): Promise<DeleteConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -972,7 +1123,7 @@ const deserializeAws_json1_0DeleteObservabilityConfigurationCommandError = async
 ): Promise<DeleteObservabilityConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1019,7 +1170,7 @@ const deserializeAws_json1_0DeleteServiceCommandError = async (
 ): Promise<DeleteServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1069,7 +1220,7 @@ const deserializeAws_json1_0DeleteVpcConnectorCommandError = async (
 ): Promise<DeleteVpcConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1079,6 +1230,56 @@ const deserializeAws_json1_0DeleteVpcConnectorCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
       throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.apprunner#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DeleteVpcIngressConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcIngressConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DeleteVpcIngressConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DeleteVpcIngressConnectionResponse(data, context);
+  const response: DeleteVpcIngressConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DeleteVpcIngressConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcIngressConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "InvalidStateException":
+    case "com.amazonaws.apprunner#InvalidStateException":
+      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1116,7 +1317,7 @@ const deserializeAws_json1_0DescribeAutoScalingConfigurationCommandError = async
 ): Promise<DescribeAutoScalingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1163,7 +1364,7 @@ const deserializeAws_json1_0DescribeCustomDomainsCommandError = async (
 ): Promise<DescribeCustomDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1210,7 +1411,7 @@ const deserializeAws_json1_0DescribeObservabilityConfigurationCommandError = asy
 ): Promise<DescribeObservabilityConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1257,7 +1458,7 @@ const deserializeAws_json1_0DescribeServiceCommandError = async (
 ): Promise<DescribeServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1304,7 +1505,54 @@ const deserializeAws_json1_0DescribeVpcConnectorCommandError = async (
 ): Promise<DescribeVpcConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.apprunner#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DescribeVpcIngressConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcIngressConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeVpcIngressConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeVpcIngressConnectionResponse(data, context);
+  const response: DescribeVpcIngressConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeVpcIngressConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcIngressConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1351,7 +1599,7 @@ const deserializeAws_json1_0DisassociateCustomDomainCommandError = async (
 ): Promise<DisassociateCustomDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1401,7 +1649,7 @@ const deserializeAws_json1_0ListAutoScalingConfigurationsCommandError = async (
 ): Promise<ListAutoScalingConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1445,7 +1693,7 @@ const deserializeAws_json1_0ListConnectionsCommandError = async (
 ): Promise<ListConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1489,7 +1737,7 @@ const deserializeAws_json1_0ListObservabilityConfigurationsCommandError = async 
 ): Promise<ListObservabilityConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1533,7 +1781,7 @@ const deserializeAws_json1_0ListOperationsCommandError = async (
 ): Promise<ListOperationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1580,7 +1828,7 @@ const deserializeAws_json1_0ListServicesCommandError = async (
 ): Promise<ListServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1624,7 +1872,7 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1674,7 +1922,51 @@ const deserializeAws_json1_0ListVpcConnectorsCommandError = async (
 ): Promise<ListVpcConnectorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0ListVpcIngressConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcIngressConnectionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListVpcIngressConnectionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListVpcIngressConnectionsResponse(data, context);
+  const response: ListVpcIngressConnectionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListVpcIngressConnectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcIngressConnectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1718,7 +2010,7 @@ const deserializeAws_json1_0PauseServiceCommandError = async (
 ): Promise<PauseServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1768,7 +2060,7 @@ const deserializeAws_json1_0ResumeServiceCommandError = async (
 ): Promise<ResumeServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1818,7 +2110,7 @@ const deserializeAws_json1_0StartDeploymentCommandError = async (
 ): Promise<StartDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1865,7 +2157,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1915,7 +2207,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1965,7 +2257,57 @@ const deserializeAws_json1_0UpdateServiceCommandError = async (
 ): Promise<UpdateServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "InvalidStateException":
+    case "com.amazonaws.apprunner#InvalidStateException":
+      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.apprunner#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0UpdateVpcIngressConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVpcIngressConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateVpcIngressConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UpdateVpcIngressConnectionResponse(data, context);
+  const response: UpdateVpcIngressConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateVpcIngressConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVpcIngressConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2092,6 +2434,12 @@ const serializeAws_json1_0CodeConfigurationValues = (input: CodeConfigurationVal
     ...(input.BuildCommand != null && { BuildCommand: input.BuildCommand }),
     ...(input.Port != null && { Port: input.Port }),
     ...(input.Runtime != null && { Runtime: input.Runtime }),
+    ...(input.RuntimeEnvironmentSecrets != null && {
+      RuntimeEnvironmentSecrets: serializeAws_json1_0RuntimeEnvironmentSecrets(
+        input.RuntimeEnvironmentSecrets,
+        context
+      ),
+    }),
     ...(input.RuntimeEnvironmentVariables != null && {
       RuntimeEnvironmentVariables: serializeAws_json1_0RuntimeEnvironmentVariables(
         input.RuntimeEnvironmentVariables,
@@ -2197,6 +2545,20 @@ const serializeAws_json1_0CreateVpcConnectorRequest = (
   };
 };
 
+const serializeAws_json1_0CreateVpcIngressConnectionRequest = (
+  input: CreateVpcIngressConnectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IngressVpcConfiguration != null && {
+      IngressVpcConfiguration: serializeAws_json1_0IngressVpcConfiguration(input.IngressVpcConfiguration, context),
+    }),
+    ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.VpcIngressConnectionName != null && { VpcIngressConnectionName: input.VpcIngressConnectionName }),
+  };
+};
+
 const serializeAws_json1_0DeleteAutoScalingConfigurationRequest = (
   input: DeleteAutoScalingConfigurationRequest,
   context: __SerdeContext
@@ -2237,6 +2599,15 @@ const serializeAws_json1_0DeleteVpcConnectorRequest = (
 ): any => {
   return {
     ...(input.VpcConnectorArn != null && { VpcConnectorArn: input.VpcConnectorArn }),
+  };
+};
+
+const serializeAws_json1_0DeleteVpcIngressConnectionRequest = (
+  input: DeleteVpcIngressConnectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.VpcIngressConnectionArn != null && { VpcIngressConnectionArn: input.VpcIngressConnectionArn }),
   };
 };
 
@@ -2288,6 +2659,15 @@ const serializeAws_json1_0DescribeVpcConnectorRequest = (
   };
 };
 
+const serializeAws_json1_0DescribeVpcIngressConnectionRequest = (
+  input: DescribeVpcIngressConnectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.VpcIngressConnectionArn != null && { VpcIngressConnectionArn: input.VpcIngressConnectionArn }),
+  };
+};
+
 const serializeAws_json1_0DisassociateCustomDomainRequest = (
   input: DisassociateCustomDomainRequest,
   context: __SerdeContext
@@ -2328,6 +2708,12 @@ const serializeAws_json1_0HealthCheckConfiguration = (
 const serializeAws_json1_0ImageConfiguration = (input: ImageConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Port != null && { Port: input.Port }),
+    ...(input.RuntimeEnvironmentSecrets != null && {
+      RuntimeEnvironmentSecrets: serializeAws_json1_0RuntimeEnvironmentSecrets(
+        input.RuntimeEnvironmentSecrets,
+        context
+      ),
+    }),
     ...(input.RuntimeEnvironmentVariables != null && {
       RuntimeEnvironmentVariables: serializeAws_json1_0RuntimeEnvironmentVariables(
         input.RuntimeEnvironmentVariables,
@@ -2345,6 +2731,19 @@ const serializeAws_json1_0ImageRepository = (input: ImageRepository, context: __
     }),
     ...(input.ImageIdentifier != null && { ImageIdentifier: input.ImageIdentifier }),
     ...(input.ImageRepositoryType != null && { ImageRepositoryType: input.ImageRepositoryType }),
+  };
+};
+
+const serializeAws_json1_0IngressConfiguration = (input: IngressConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.IsPubliclyAccessible != null && { IsPubliclyAccessible: input.IsPubliclyAccessible }),
+  };
+};
+
+const serializeAws_json1_0IngressVpcConfiguration = (input: IngressVpcConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.VpcEndpointId != null && { VpcEndpointId: input.VpcEndpointId }),
+    ...(input.VpcId != null && { VpcId: input.VpcId }),
   };
 };
 
@@ -2426,10 +2825,34 @@ const serializeAws_json1_0ListVpcConnectorsRequest = (
   };
 };
 
+const serializeAws_json1_0ListVpcIngressConnectionsFilter = (
+  input: ListVpcIngressConnectionsFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
+    ...(input.VpcEndpointId != null && { VpcEndpointId: input.VpcEndpointId }),
+  };
+};
+
+const serializeAws_json1_0ListVpcIngressConnectionsRequest = (
+  input: ListVpcIngressConnectionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filter != null && { Filter: serializeAws_json1_0ListVpcIngressConnectionsFilter(input.Filter, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_0NetworkConfiguration = (input: NetworkConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.EgressConfiguration != null && {
       EgressConfiguration: serializeAws_json1_0EgressConfiguration(input.EgressConfiguration, context),
+    }),
+    ...(input.IngressConfiguration != null && {
+      IngressConfiguration: serializeAws_json1_0IngressConfiguration(input.IngressConfiguration, context),
     }),
   };
 };
@@ -2446,6 +2869,16 @@ const serializeAws_json1_0ResumeServiceRequest = (input: ResumeServiceRequest, c
   };
 };
 
+const serializeAws_json1_0RuntimeEnvironmentSecrets = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
 const serializeAws_json1_0RuntimeEnvironmentVariables = (
   input: Record<string, string>,
   context: __SerdeContext
@@ -2454,10 +2887,8 @@ const serializeAws_json1_0RuntimeEnvironmentVariables = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2582,6 +3013,18 @@ const serializeAws_json1_0UpdateServiceRequest = (input: UpdateServiceRequest, c
   };
 };
 
+const serializeAws_json1_0UpdateVpcIngressConnectionRequest = (
+  input: UpdateVpcIngressConnectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IngressVpcConfiguration != null && {
+      IngressVpcConfiguration: serializeAws_json1_0IngressVpcConfiguration(input.IngressVpcConfiguration, context),
+    }),
+    ...(input.VpcIngressConnectionArn != null && { VpcIngressConnectionArn: input.VpcIngressConnectionArn }),
+  };
+};
+
 const deserializeAws_json1_0AssociateCustomDomainResponse = (
   output: any,
   context: __SerdeContext
@@ -2591,6 +3034,8 @@ const deserializeAws_json1_0AssociateCustomDomainResponse = (
       output.CustomDomain != null ? deserializeAws_json1_0CustomDomain(output.CustomDomain, context) : undefined,
     DNSTarget: __expectString(output.DNSTarget),
     ServiceArn: __expectString(output.ServiceArn),
+    VpcDNSTargets:
+      output.VpcDNSTargets != null ? deserializeAws_json1_0VpcDNSTargetList(output.VpcDNSTargets, context) : undefined,
   } as any;
 };
 
@@ -2695,6 +3140,10 @@ const deserializeAws_json1_0CodeConfigurationValues = (
     BuildCommand: __expectString(output.BuildCommand),
     Port: __expectString(output.Port),
     Runtime: __expectString(output.Runtime),
+    RuntimeEnvironmentSecrets:
+      output.RuntimeEnvironmentSecrets != null
+        ? deserializeAws_json1_0RuntimeEnvironmentSecrets(output.RuntimeEnvironmentSecrets, context)
+        : undefined,
     RuntimeEnvironmentVariables:
       output.RuntimeEnvironmentVariables != null
         ? deserializeAws_json1_0RuntimeEnvironmentVariables(output.RuntimeEnvironmentVariables, context)
@@ -2801,6 +3250,18 @@ const deserializeAws_json1_0CreateVpcConnectorResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0CreateVpcIngressConnectionResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateVpcIngressConnectionResponse => {
+  return {
+    VpcIngressConnection:
+      output.VpcIngressConnection != null
+        ? deserializeAws_json1_0VpcIngressConnection(output.VpcIngressConnection, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0CustomDomain = (output: any, context: __SerdeContext): CustomDomain => {
   return {
     CertificateValidationRecords:
@@ -2875,6 +3336,18 @@ const deserializeAws_json1_0DeleteVpcConnectorResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0DeleteVpcIngressConnectionResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteVpcIngressConnectionResponse => {
+  return {
+    VpcIngressConnection:
+      output.VpcIngressConnection != null
+        ? deserializeAws_json1_0VpcIngressConnection(output.VpcIngressConnection, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DescribeAutoScalingConfigurationResponse = (
   output: any,
   context: __SerdeContext
@@ -2897,6 +3370,8 @@ const deserializeAws_json1_0DescribeCustomDomainsResponse = (
     DNSTarget: __expectString(output.DNSTarget),
     NextToken: __expectString(output.NextToken),
     ServiceArn: __expectString(output.ServiceArn),
+    VpcDNSTargets:
+      output.VpcDNSTargets != null ? deserializeAws_json1_0VpcDNSTargetList(output.VpcDNSTargets, context) : undefined,
   } as any;
 };
 
@@ -2931,6 +3406,18 @@ const deserializeAws_json1_0DescribeVpcConnectorResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0DescribeVpcIngressConnectionResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeVpcIngressConnectionResponse => {
+  return {
+    VpcIngressConnection:
+      output.VpcIngressConnection != null
+        ? deserializeAws_json1_0VpcIngressConnection(output.VpcIngressConnection, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DisassociateCustomDomainResponse = (
   output: any,
   context: __SerdeContext
@@ -2940,6 +3427,8 @@ const deserializeAws_json1_0DisassociateCustomDomainResponse = (
       output.CustomDomain != null ? deserializeAws_json1_0CustomDomain(output.CustomDomain, context) : undefined,
     DNSTarget: __expectString(output.DNSTarget),
     ServiceArn: __expectString(output.ServiceArn),
+    VpcDNSTargets:
+      output.VpcDNSTargets != null ? deserializeAws_json1_0VpcDNSTargetList(output.VpcDNSTargets, context) : undefined,
   } as any;
 };
 
@@ -2976,6 +3465,10 @@ const deserializeAws_json1_0HealthCheckConfiguration = (
 const deserializeAws_json1_0ImageConfiguration = (output: any, context: __SerdeContext): ImageConfiguration => {
   return {
     Port: __expectString(output.Port),
+    RuntimeEnvironmentSecrets:
+      output.RuntimeEnvironmentSecrets != null
+        ? deserializeAws_json1_0RuntimeEnvironmentSecrets(output.RuntimeEnvironmentSecrets, context)
+        : undefined,
     RuntimeEnvironmentVariables:
       output.RuntimeEnvironmentVariables != null
         ? deserializeAws_json1_0RuntimeEnvironmentVariables(output.RuntimeEnvironmentVariables, context)
@@ -2992,6 +3485,22 @@ const deserializeAws_json1_0ImageRepository = (output: any, context: __SerdeCont
         : undefined,
     ImageIdentifier: __expectString(output.ImageIdentifier),
     ImageRepositoryType: __expectString(output.ImageRepositoryType),
+  } as any;
+};
+
+const deserializeAws_json1_0IngressConfiguration = (output: any, context: __SerdeContext): IngressConfiguration => {
+  return {
+    IsPubliclyAccessible: __expectBoolean(output.IsPubliclyAccessible),
+  } as any;
+};
+
+const deserializeAws_json1_0IngressVpcConfiguration = (
+  output: any,
+  context: __SerdeContext
+): IngressVpcConfiguration => {
+  return {
+    VpcEndpointId: __expectString(output.VpcEndpointId),
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 
@@ -3109,11 +3618,28 @@ const deserializeAws_json1_0ListVpcConnectorsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0ListVpcIngressConnectionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListVpcIngressConnectionsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    VpcIngressConnectionSummaryList:
+      output.VpcIngressConnectionSummaryList != null
+        ? deserializeAws_json1_0VpcIngressConnectionSummaryList(output.VpcIngressConnectionSummaryList, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0NetworkConfiguration = (output: any, context: __SerdeContext): NetworkConfiguration => {
   return {
     EgressConfiguration:
       output.EgressConfiguration != null
         ? deserializeAws_json1_0EgressConfiguration(output.EgressConfiguration, context)
+        : undefined,
+    IngressConfiguration:
+      output.IngressConfiguration != null
+        ? deserializeAws_json1_0IngressConfiguration(output.IngressConfiguration, context)
         : undefined,
   } as any;
 };
@@ -3215,6 +3741,19 @@ const deserializeAws_json1_0ResumeServiceResponse = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_0RuntimeEnvironmentSecrets = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
+};
+
 const deserializeAws_json1_0RuntimeEnvironmentVariables = (
   output: any,
   context: __SerdeContext
@@ -3223,10 +3762,8 @@ const deserializeAws_json1_0RuntimeEnvironmentVariables = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3403,6 +3940,18 @@ const deserializeAws_json1_0UpdateServiceResponse = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_0UpdateVpcIngressConnectionResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateVpcIngressConnectionResponse => {
+  return {
+    VpcIngressConnection:
+      output.VpcIngressConnection != null
+        ? deserializeAws_json1_0VpcIngressConnection(output.VpcIngressConnection, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0VpcConnector = (output: any, context: __SerdeContext): VpcConnector => {
   return {
     CreatedAt:
@@ -3431,9 +3980,74 @@ const deserializeAws_json1_0VpcConnectors = (output: any, context: __SerdeContex
   return retVal;
 };
 
+const deserializeAws_json1_0VpcDNSTarget = (output: any, context: __SerdeContext): VpcDNSTarget => {
+  return {
+    DomainName: __expectString(output.DomainName),
+    VpcId: __expectString(output.VpcId),
+    VpcIngressConnectionArn: __expectString(output.VpcIngressConnectionArn),
+  } as any;
+};
+
+const deserializeAws_json1_0VpcDNSTargetList = (output: any, context: __SerdeContext): VpcDNSTarget[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0VpcDNSTarget(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0VpcIngressConnection = (output: any, context: __SerdeContext): VpcIngressConnection => {
+  return {
+    AccountId: __expectString(output.AccountId),
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    DeletedAt:
+      output.DeletedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt))) : undefined,
+    DomainName: __expectString(output.DomainName),
+    IngressVpcConfiguration:
+      output.IngressVpcConfiguration != null
+        ? deserializeAws_json1_0IngressVpcConfiguration(output.IngressVpcConfiguration, context)
+        : undefined,
+    ServiceArn: __expectString(output.ServiceArn),
+    Status: __expectString(output.Status),
+    VpcIngressConnectionArn: __expectString(output.VpcIngressConnectionArn),
+    VpcIngressConnectionName: __expectString(output.VpcIngressConnectionName),
+  } as any;
+};
+
+const deserializeAws_json1_0VpcIngressConnectionSummary = (
+  output: any,
+  context: __SerdeContext
+): VpcIngressConnectionSummary => {
+  return {
+    ServiceArn: __expectString(output.ServiceArn),
+    VpcIngressConnectionArn: __expectString(output.VpcIngressConnectionArn),
+  } as any;
+};
+
+const deserializeAws_json1_0VpcIngressConnectionSummaryList = (
+  output: any,
+  context: __SerdeContext
+): VpcIngressConnectionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0VpcIngressConnectionSummary(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -3483,6 +4097,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -3493,6 +4113,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

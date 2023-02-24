@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -49,7 +50,6 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  *                <code>instant</code> fleets.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete an EC2
  *          Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -75,6 +75,15 @@ export class DeleteFleetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,6 +99,7 @@ export class DeleteFleetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteFleetsCommandInput, DeleteFleetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteFleetsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

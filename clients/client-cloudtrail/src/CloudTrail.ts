@@ -5,17 +5,37 @@ import { CloudTrailClient } from "./CloudTrailClient";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { CancelQueryCommand, CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import {
+  CreateChannelCommand,
+  CreateChannelCommandInput,
+  CreateChannelCommandOutput,
+} from "./commands/CreateChannelCommand";
+import {
   CreateEventDataStoreCommand,
   CreateEventDataStoreCommandInput,
   CreateEventDataStoreCommandOutput,
 } from "./commands/CreateEventDataStoreCommand";
 import { CreateTrailCommand, CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand";
 import {
+  DeleteChannelCommand,
+  DeleteChannelCommandInput,
+  DeleteChannelCommandOutput,
+} from "./commands/DeleteChannelCommand";
+import {
   DeleteEventDataStoreCommand,
   DeleteEventDataStoreCommandInput,
   DeleteEventDataStoreCommandOutput,
 } from "./commands/DeleteEventDataStoreCommand";
+import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import { DeleteTrailCommand, DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
+import {
+  DeregisterOrganizationDelegatedAdminCommand,
+  DeregisterOrganizationDelegatedAdminCommandInput,
+  DeregisterOrganizationDelegatedAdminCommandOutput,
+} from "./commands/DeregisterOrganizationDelegatedAdminCommand";
 import {
   DescribeQueryCommand,
   DescribeQueryCommandInput,
@@ -26,6 +46,7 @@ import {
   DescribeTrailsCommandInput,
   DescribeTrailsCommandOutput,
 } from "./commands/DescribeTrailsCommand";
+import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import {
   GetEventDataStoreCommand,
   GetEventDataStoreCommandInput,
@@ -36,6 +57,7 @@ import {
   GetEventSelectorsCommandInput,
   GetEventSelectorsCommandOutput,
 } from "./commands/GetEventSelectorsCommand";
+import { GetImportCommand, GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
 import {
   GetInsightSelectorsCommand,
   GetInsightSelectorsCommandInput,
@@ -46,6 +68,11 @@ import {
   GetQueryResultsCommandInput,
   GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
+import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import { GetTrailCommand, GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand";
 import {
   GetTrailStatusCommand,
@@ -53,10 +80,21 @@ import {
   GetTrailStatusCommandOutput,
 } from "./commands/GetTrailStatusCommand";
 import {
+  ListChannelsCommand,
+  ListChannelsCommandInput,
+  ListChannelsCommandOutput,
+} from "./commands/ListChannelsCommand";
+import {
   ListEventDataStoresCommand,
   ListEventDataStoresCommandInput,
   ListEventDataStoresCommandOutput,
 } from "./commands/ListEventDataStoresCommand";
+import {
+  ListImportFailuresCommand,
+  ListImportFailuresCommandInput,
+  ListImportFailuresCommandOutput,
+} from "./commands/ListImportFailuresCommand";
+import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListPublicKeysCommand,
   ListPublicKeysCommandInput,
@@ -80,19 +118,36 @@ import {
   PutInsightSelectorsCommandInput,
   PutInsightSelectorsCommandOutput,
 } from "./commands/PutInsightSelectorsCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import {
+  RegisterOrganizationDelegatedAdminCommand,
+  RegisterOrganizationDelegatedAdminCommandInput,
+  RegisterOrganizationDelegatedAdminCommandOutput,
+} from "./commands/RegisterOrganizationDelegatedAdminCommand";
 import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   RestoreEventDataStoreCommand,
   RestoreEventDataStoreCommandInput,
   RestoreEventDataStoreCommandOutput,
 } from "./commands/RestoreEventDataStoreCommand";
+import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import {
   StartLoggingCommand,
   StartLoggingCommandInput,
   StartLoggingCommandOutput,
 } from "./commands/StartLoggingCommand";
 import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
+import { StopImportCommand, StopImportCommandInput, StopImportCommandOutput } from "./commands/StopImportCommand";
 import { StopLoggingCommand, StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
+import {
+  UpdateChannelCommand,
+  UpdateChannelCommandInput,
+  UpdateChannelCommandOutput,
+} from "./commands/UpdateChannelCommand";
 import {
   UpdateEventDataStoreCommand,
   UpdateEventDataStoreCommandInput,
@@ -102,33 +157,31 @@ import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput }
 
 /**
  * <fullname>CloudTrail</fullname>
- *          <p>This is the CloudTrail API Reference. It provides descriptions of actions, data types, common parameters, and common errors for CloudTrail.</p>
- *          <p>CloudTrail is a web service that records Amazon Web Services API calls for your Amazon Web Services account and delivers log files to an Amazon S3 bucket.
- *          The recorded information includes the identity of the user, the start time of the Amazon Web Services API call, the source IP address, the request parameters, and the response elements returned by the service.</p>
- *
+ *          <p>This is the CloudTrail API Reference. It provides descriptions of actions, data
+ *          types, common parameters, and common errors for CloudTrail.</p>
+ *          <p>CloudTrail is a web service that records Amazon Web Services API calls for your
+ *             Amazon Web Services account and delivers log files to an Amazon S3 bucket. The
+ *          recorded information includes the identity of the user, the start time of the Amazon Web Services API call, the source IP address, the request parameters, and the response
+ *          elements returned by the service.</p>
  *          <note>
- *             <p>As an alternative to the API,
- *             you can use one of the Amazon Web Services SDKs, which consist of libraries and sample code for various
- *          programming languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs
- *          provide programmatic access to CloudTrail. For example, the SDKs
- *          handle cryptographically signing requests, managing errors, and retrying requests
- *          automatically. For more information about the Amazon Web Services SDKs, including how to download and install
- *             them, see <a href="http://aws.amazon.com/tools/">Tools to Build on Amazon Web Services</a>.</p>
+ *             <p>As an alternative to the API, you can use one of the Amazon Web Services SDKs, which
+ *             consist of libraries and sample code for various programming languages and platforms
+ *             (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide programmatic access to CloudTrail. For example, the SDKs handle cryptographically signing requests,
+ *             managing errors, and retrying requests automatically. For more information about the
+ *                Amazon Web Services SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools to Build on Amazon Web Services</a>.</p>
  *          </note>
- *          <p>See the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html">CloudTrail User
- *          Guide</a> for information about the data that is included with each Amazon Web Services API call listed in the log files.</p>
+ *          <p>See the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html">CloudTrail
+ *             User Guide</a> for information about the data that is included with each Amazon Web Services API call listed in the log files.</p>
  */
 export class CloudTrail extends CloudTrailClient {
   /**
-   * <p>Adds one or more tags to a trail or event data store, up to a limit of 50. Overwrites an
-   *          existing tag's value when a new value is specified for an existing tag key.
-   *          Tag key names must be unique for a trail; you cannot have two keys with the same name but
-   *          different values.
-   *           If you specify a key without a value, the tag will be created with the specified key and a
-   *           value of null.
-   *           You can tag a trail or event data store that applies to all Amazon Web Services Regions
-   *          only from the Region in which the trail or event data store was created (also known as its
-   *          home region).</p>
+   * <p>Adds one or more tags to a trail, event data store, or channel, up to a limit of 50. Overwrites an
+   *          existing tag's value when a new value is specified for an existing tag key. Tag key names
+   *          must be unique; you cannot have two keys with the same name but different
+   *          values. If you specify a key without a value, the tag will be created with the specified
+   *          key and a value of null. You can tag a trail or event data store that applies to all
+   *             Amazon Web Services Regions only from the Region in which the trail or event data store
+   *          was created (also known as its home region).</p>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
   public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
@@ -154,9 +207,12 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Cancels a query if the query is not in a terminated state, such as <code>CANCELLED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>FINISHED</code>. You must specify an ARN value for <code>EventDataStore</code>.
-   *          The ID of the query that you want to cancel is also required. When you run <code>CancelQuery</code>, the query status might
-   *          show as <code>CANCELLED</code> even if the operation is not yet finished.</p>
+   * <p>Cancels a query if the query is not in a terminated state, such as
+   *             <code>CANCELLED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
+   *             <code>FINISHED</code>. You must specify an ARN value for <code>EventDataStore</code>.
+   *          The ID of the query that you want to cancel is also required. When you run
+   *             <code>CancelQuery</code>, the query status might show as <code>CANCELLED</code> even if
+   *          the operation is not yet finished.</p>
    */
   public cancelQuery(args: CancelQueryCommandInput, options?: __HttpHandlerOptions): Promise<CancelQueryCommandOutput>;
   public cancelQuery(args: CancelQueryCommandInput, cb: (err: any, data?: CancelQueryCommandOutput) => void): void;
@@ -171,6 +227,40 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: CancelQueryCommandOutput) => void
   ): Promise<CancelQueryCommandOutput> | void {
     const command = new CancelQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a channel for CloudTrail to ingest events from a partner or external source.
+   *          After you create a channel, a CloudTrail Lake event data store can log events
+   *       from the partner or source that you specify.</p>
+   */
+  public createChannel(
+    args: CreateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelCommandOutput>;
+  public createChannel(
+    args: CreateChannelCommandInput,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+  public createChannel(
+    args: CreateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+  public createChannel(
+    args: CreateChannelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
+    cb?: (err: any, data?: CreateChannelCommandOutput) => void
+  ): Promise<CreateChannelCommandOutput> | void {
+    const command = new CreateChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -241,13 +331,48 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an event data store ARN.
-   *          After you run <code>DeleteEventDataStore</code>, the event data store enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait period of
-   *          seven days. <code>TerminationProtectionEnabled</code> must be set to <code>False</code> on the event data store; this
-   *          operation cannot work if <code>TerminationProtectionEnabled</code> is <code>True</code>.</p>
-   *          <p>After you run <code>DeleteEventDataStore</code> on an event data store, you cannot run <code>ListQueries</code>,
-   *          <code>DescribeQuery</code>, or <code>GetQueryResults</code> on queries that are using an event data store in a
-   *          <code>PENDING_DELETION</code> state. An event data store in the <code>PENDING_DELETION</code> state does not incur costs.</p>
+   * <p>Deletes a channel.</p>
+   */
+  public deleteChannel(
+    args: DeleteChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelCommandOutput>;
+  public deleteChannel(
+    args: DeleteChannelCommandInput,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+  public deleteChannel(
+    args: DeleteChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+  public deleteChannel(
+    args: DeleteChannelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): Promise<DeleteChannelCommandOutput> | void {
+    const command = new DeleteChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an
+   *          event data store ARN. After you run <code>DeleteEventDataStore</code>, the event data store
+   *          enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait
+   *          period of seven days. <code>TerminationProtectionEnabled</code> must be set to
+   *             <code>False</code> on the event data store; this operation cannot work if
+   *             <code>TerminationProtectionEnabled</code> is <code>True</code>.</p>
+   *          <p>After you run <code>DeleteEventDataStore</code> on an event data store, you cannot run
+   *             <code>ListQueries</code>, <code>DescribeQuery</code>, or <code>GetQueryResults</code> on
+   *          queries that are using an event data store in a <code>PENDING_DELETION</code> state. An
+   *          event data store in the <code>PENDING_DELETION</code> state does not incur costs.</p>
    */
   public deleteEventDataStore(
     args: DeleteEventDataStoreCommandInput,
@@ -268,6 +393,40 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: DeleteEventDataStoreCommandOutput) => void
   ): Promise<DeleteEventDataStoreCommandOutput> | void {
     const command = new DeleteEventDataStoreCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Deletes the resource-based policy attached to the CloudTrail channel.
+   *       </p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -307,8 +466,42 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Returns metadata about a query, including query run time in milliseconds, number of events scanned and matched, and query
-   *          status. You must specify an ARN for <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
+   * <p>Removes CloudTrail delegated administrator permissions from a member account in
+   *          an organization.</p>
+   */
+  public deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterOrganizationDelegatedAdminCommandOutput>;
+  public deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    cb: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+  public deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+  public deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
+  ): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> | void {
+    const command = new DeregisterOrganizationDelegatedAdminCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns metadata about a query, including query run time in milliseconds, number of
+   *          events scanned and matched, and query status. You must specify an ARN for
+   *             <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
    */
   public describeQuery(
     args: DescribeQueryCommandInput,
@@ -340,7 +533,8 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Retrieves settings for one or more trails associated with the current region for your account.</p>
+   * <p>Retrieves settings for one or more trails associated with the current region for your
+   *          account.</p>
    */
   public describeTrails(
     args: DescribeTrailsCommandInput,
@@ -372,7 +566,35 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Returns information about an event data store specified as either an ARN or the ID portion of the ARN.</p>
+   * <p> Returns information about a specific channel.
+   *       </p>
+   */
+  public getChannel(args: GetChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelCommandOutput>;
+  public getChannel(args: GetChannelCommandInput, cb: (err: any, data?: GetChannelCommandOutput) => void): void;
+  public getChannel(
+    args: GetChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelCommandOutput) => void
+  ): void;
+  public getChannel(
+    args: GetChannelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelCommandOutput) => void),
+    cb?: (err: any, data?: GetChannelCommandOutput) => void
+  ): Promise<GetChannelCommandOutput> | void {
+    const command = new GetChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about an event data store specified as either an ARN or the ID
+   *          portion of the ARN.</p>
    */
   public getEventDataStore(
     args: GetEventDataStoreCommandInput,
@@ -404,23 +626,35 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Describes the settings for the event selectors that you configured for your trail.
-   *          The information returned for your event selectors includes the following:</p>
+   * <p>Describes the settings for the event selectors that you configured for your trail. The
+   *          information returned for your event selectors includes the following:</p>
    *          <ul>
    *             <li>
-   *                <p>If your event selector includes read-only events, write-only events, or
-   *             all events. This applies to both management events and data events.</p>
+   *                <p>If your event selector includes read-only events, write-only events, or all
+   *                events. This applies to both management events and data events.</p>
    *             </li>
    *             <li>
    *                <p>If your event selector includes management events.</p>
    *             </li>
    *             <li>
-   *                <p>If your event selector includes data events, the resources on which you are logging data
-   *                events.</p>
+   *                <p>If your event selector includes data events, the resources on which you are
+   *                logging data events.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging Data and Management Events for Trails
-   *       </a> in the <i>CloudTrail User Guide</i>.</p>
+   *          <p>For more information about logging management and data events, see the following topics
+   *          in the <i>CloudTrail User Guide</i>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails </a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails </a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getEventSelectors(
     args: GetEventSelectorsCommandInput,
@@ -452,13 +686,39 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Describes the settings for the Insights event selectors that you configured for your trail. <code>GetInsightSelectors</code> shows
-   *          if CloudTrail Insights event logging is enabled on the trail, and if it is, which insight types are enabled.
-   *          If you run <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled, the operation throws the exception
-   *          <code>InsightNotEnabledException</code>
+   * <p> Returns information about a specific import. </p>
+   */
+  public getImport(args: GetImportCommandInput, options?: __HttpHandlerOptions): Promise<GetImportCommandOutput>;
+  public getImport(args: GetImportCommandInput, cb: (err: any, data?: GetImportCommandOutput) => void): void;
+  public getImport(
+    args: GetImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImportCommandOutput) => void
+  ): void;
+  public getImport(
+    args: GetImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportCommandOutput) => void),
+    cb?: (err: any, data?: GetImportCommandOutput) => void
+  ): Promise<GetImportCommandOutput> | void {
+    const command = new GetImportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the settings for the Insights event selectors that you configured for your
+   *          trail. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
+   *          is enabled on the trail, and if it is, which insight types are enabled. If you run
+   *             <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled,
+   *          the operation throws the exception <code>InsightNotEnabledException</code>
    *          </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights Events for Trails
-   *       </a> in the <i>CloudTrail User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights Events for Trails </a> in the <i>CloudTrail User Guide</i>.</p>
    */
   public getInsightSelectors(
     args: GetInsightSelectorsCommandInput,
@@ -490,8 +750,9 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value returned by the <code>StartQuery</code>
-   *          operation, and an ARN for <code>EventDataStore</code>.</p>
+   * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
+   *          returned by the <code>StartQuery</code> operation, and an ARN for
+   *             <code>EventDataStore</code>.</p>
    */
   public getQueryResults(
     args: GetQueryResultsCommandInput,
@@ -512,6 +773,40 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: GetQueryResultsCommandOutput) => void
   ): Promise<GetQueryResultsCommandOutput> | void {
     const command = new GetQueryResultsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Retrieves the JSON text of the resource-based policy document attached to the CloudTrail channel.
+   *       </p>
+   */
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): Promise<GetResourcePolicyCommandOutput> | void {
+    const command = new GetResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -549,7 +844,11 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Returns a JSON-formatted list of information about the specified trail. Fields include information on delivery errors, Amazon SNS and Amazon S3 errors, and start and stop logging times for each trail. This operation returns trail status from a single region. To return trail status from all regions, you must call the operation on each region.</p>
+   * <p>Returns a JSON-formatted list of information about the specified trail. Fields include
+   *          information on delivery errors, Amazon SNS and Amazon S3 errors, and start
+   *          and stop logging times for each trail. This operation returns trail status from a single
+   *          region. To return trail status from all regions, you must call the operation on each
+   *          region.</p>
    */
   public getTrailStatus(
     args: GetTrailStatusCommandInput,
@@ -581,7 +880,38 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Returns information about all event data stores in the account, in the current region.</p>
+   * <p> Lists the channels in the current account, and their source names.
+   *       </p>
+   */
+  public listChannels(
+    args: ListChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsCommandOutput>;
+  public listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  public listChannels(
+    args: ListChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+  public listChannels(
+    args: ListChannelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelsCommandOutput) => void
+  ): Promise<ListChannelsCommandOutput> | void {
+    const command = new ListChannelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about all event data stores in the account, in the current
+   *          region.</p>
    */
   public listEventDataStores(
     args: ListEventDataStoresCommandInput,
@@ -613,11 +943,73 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.</p>
+   * <p> Returns a list of failures for the specified import. </p>
+   */
+  public listImportFailures(
+    args: ListImportFailuresCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImportFailuresCommandOutput>;
+  public listImportFailures(
+    args: ListImportFailuresCommandInput,
+    cb: (err: any, data?: ListImportFailuresCommandOutput) => void
+  ): void;
+  public listImportFailures(
+    args: ListImportFailuresCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportFailuresCommandOutput) => void
+  ): void;
+  public listImportFailures(
+    args: ListImportFailuresCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportFailuresCommandOutput) => void),
+    cb?: (err: any, data?: ListImportFailuresCommandOutput) => void
+  ): Promise<ListImportFailuresCommandOutput> | void {
+    const command = new ListImportFailuresCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Returns information on all imports, or a select set of imports by
+   *             <code>ImportStatus</code> or <code>Destination</code>. </p>
+   */
+  public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
+  public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportsCommandOutput) => void),
+    cb?: (err: any, data?: ListImportsCommandOutput) => void
+  ): Promise<ListImportsCommandOutput> | void {
+    const command = new ListImportsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns all public keys whose private keys were used to sign the digest files within the
+   *          specified time range. The public key is needed to validate digest files that were signed
+   *          with its corresponding private key.</p>
    *          <note>
-   *             <p>CloudTrail uses different private and public key pairs per region. Each digest file is signed with a private key
-   *             unique to its region. When you validate a digest file from a specific region, you must look in the same region for its
-   *             corresponding public key.</p>
+   *             <p>CloudTrail uses different private and public key pairs per region. Each digest
+   *             file is signed with a private key unique to its region. When you validate a digest file
+   *             from a specific region, you must look in the same region for its corresponding public
+   *             key.</p>
    *          </note>
    */
   public listPublicKeys(
@@ -650,11 +1042,13 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Returns a list of queries and query statuses for the past seven days. You must specify an ARN value for
-   *          <code>EventDataStore</code>. Optionally, to shorten the list of results, you can specify a time range,
-   *          formatted as timestamps, by adding <code>StartTime</code> and <code>EndTime</code> parameters, and a
-   *          <code>QueryStatus</code> value. Valid values for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
-   *          <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code>.</p>
+   * <p>Returns a list of queries and query statuses for the past seven days. You must specify
+   *          an ARN value for <code>EventDataStore</code>. Optionally, to shorten the list of results,
+   *          you can specify a time range, formatted as timestamps, by adding <code>StartTime</code> and
+   *             <code>EndTime</code> parameters, and a <code>QueryStatus</code> value. Valid values for
+   *             <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
+   *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
+   *             <code>CANCELLED</code>.</p>
    */
   public listQueries(args: ListQueriesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueriesCommandOutput>;
   public listQueries(args: ListQueriesCommandInput, cb: (err: any, data?: ListQueriesCommandOutput) => void): void;
@@ -680,7 +1074,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Lists the tags for the trail or event data store in the current region.</p>
+   * <p>Lists the tags for the trail, event data store, or channel in the current region.</p>
    */
   public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
   public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
@@ -732,9 +1126,9 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management events</a> or
-   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events">CloudTrail Insights events</a> that are captured by CloudTrail.
-   *          You can look up events that occurred in a region within the last 90 days. Lookup supports the following attributes for management events:</p>
+   * <p>Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management events</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events">CloudTrail Insights events</a> that are captured by CloudTrail.
+   *          You can look up events that occurred in a region within the last 90 days. Lookup supports
+   *          the following attributes for management events:</p>
    *          <ul>
    *             <li>
    *                <p>Amazon Web Services access key</p>
@@ -777,8 +1171,8 @@ export class CloudTrail extends CloudTrailClient {
    *          maximum of 50 possible. The response includes a token that you can use to get the next page
    *          of results.</p>
    *          <important>
-   *             <p>The rate of lookup requests is limited to two per second, per account, per region. If this
-   *             limit is exceeded, a throttling error occurs.</p>
+   *             <p>The rate of lookup requests is limited to two per second, per account, per region. If
+   *             this limit is exceeded, a throttling error occurs.</p>
    *          </important>
    */
   public lookupEvents(
@@ -808,51 +1202,49 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Configures an event selector or advanced event selectors for your trail.
-   *          Use event selectors or advanced event selectors to specify management and data event settings for your trail. By
-   *          default, trails created without specific event selectors are configured to log all read and
-   *          write management events, and no data events.</p>
-   *          <p>When an event occurs in your account, CloudTrail
-   *          evaluates the event selectors or advanced event selectors in all trails. For each trail, if the event matches
-   *          any event selector, the trail processes and logs the event. If the event doesn't match any event
+   * <p>Configures an event selector or advanced event selectors for your trail. Use event
+   *          selectors or advanced event selectors to specify management and data event settings for
+   *          your trail. By default, trails created without specific event selectors are configured to
+   *          log all read and write management events, and no data events.</p>
+   *          <p>When an event occurs in your account, CloudTrail evaluates the event selectors or
+   *          advanced event selectors in all trails. For each trail, if the event matches any event
+   *          selector, the trail processes and logs the event. If the event doesn't match any event
    *          selector, the trail doesn't log the event.</p>
    *          <p>Example</p>
    *          <ol>
    *             <li>
-   *                <p>You create an event selector for a trail and specify that you want
-   *                write-only events.</p>
+   *                <p>You create an event selector for a trail and specify that you want write-only
+   *                events.</p>
    *             </li>
    *             <li>
-   *                <p>The EC2 <code>GetConsoleOutput</code> and <code>RunInstances</code> API
-   *                operations occur in your account.</p>
+   *                <p>The EC2 <code>GetConsoleOutput</code> and <code>RunInstances</code> API operations
+   *                occur in your account.</p>
    *             </li>
    *             <li>
-   *                <p>CloudTrail evaluates whether the events match your event
-   *                selectors.</p>
+   *                <p>CloudTrail evaluates whether the events match your event selectors.</p>
    *             </li>
    *             <li>
-   *                <p>The <code>RunInstances</code> is a write-only event and it matches your
-   *                event selector. The trail logs the event.</p>
+   *                <p>The <code>RunInstances</code> is a write-only event and it matches your event
+   *                selector. The trail logs the event.</p>
    *             </li>
    *             <li>
-   *                <p>The <code>GetConsoleOutput</code> is a read-only event that doesn't
-   *                match your event selector. The trail doesn't log the event.
-   *          </p>
+   *                <p>The <code>GetConsoleOutput</code> is a read-only event that doesn't match your
+   *                event selector. The trail doesn't log the event. </p>
    *             </li>
    *          </ol>
-   *          <p>The <code>PutEventSelectors</code> operation must be called from the region in which
-   *          the trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception is
+   *          <p>The <code>PutEventSelectors</code> operation must be called from the region in which the
+   *          trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception is
    *          thrown.</p>
-   *          <p>You can configure up to five event selectors for each trail. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging data and management events for trails
-   *       </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a>
-   *          in the <i>CloudTrail User Guide</i>.</p>
-   *          <p>You can add advanced event selectors, and conditions for your advanced
-   *          event selectors, up to a maximum of 500 values for all conditions and selectors on a trail.
-   *          You can use either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If you apply <code>AdvancedEventSelectors</code>
-   *          to a trail, any existing <code>EventSelectors</code> are overwritten. For more information about
-   *          advanced event selectors, see
-   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
-   *             data events for trails</a> in the <i>CloudTrail User Guide</i>.</p>
+   *          <p>You can configure up to five event selectors for each trail. For more information, see
+   *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails </a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+   *             data events for trails </a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a> in the <i>CloudTrail User
+   *          Guide</i>.</p>
+   *          <p>You can add advanced event selectors, and conditions for your advanced event selectors,
+   *          up to a maximum of 500 values for all conditions and selectors on a trail. You can use
+   *          either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If
+   *          you apply <code>AdvancedEventSelectors</code> to a trail, any existing
+   *             <code>EventSelectors</code> are overwritten. For more information about advanced event
+   *          selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails</a> in the <i>CloudTrail User Guide</i>.</p>
    */
   public putEventSelectors(
     args: PutEventSelectorsCommandInput,
@@ -884,10 +1276,11 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Lets you enable Insights event logging by specifying the Insights
-   *          selectors that you want to enable on an existing trail. You also use
-   *          <code>PutInsightSelectors</code> to turn off Insights event logging, by passing an empty list of insight types.
-   *          The valid Insights event types in this release are <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code>.</p>
+   * <p>Lets you enable Insights event logging by specifying the Insights selectors that you
+   *          want to enable on an existing trail. You also use <code>PutInsightSelectors</code> to turn
+   *          off Insights event logging, by passing an empty list of insight types. The valid Insights
+   *          event types in this release are <code>ApiErrorRateInsight</code> and
+   *             <code>ApiCallRateInsight</code>.</p>
    */
   public putInsightSelectors(
     args: PutInsightSelectorsCommandInput,
@@ -919,7 +1312,76 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Removes the specified tags from a trail or event data store.</p>
+   * <p>
+   *          Attaches a resource-based permission policy to a CloudTrail channel that is used for an integration with an event source outside of Amazon Web Services. For more information about resource-based policies, see
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html">CloudTrail resource-based policy examples</a>
+   *          in the <i>CloudTrail User Guide</i>.
+   *       </p>
+   */
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): Promise<PutResourcePolicyCommandOutput> | void {
+    const command = new PutResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Registers an organization’s member account as the CloudTrail delegated
+   *          administrator.</p>
+   */
+  public registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterOrganizationDelegatedAdminCommandOutput>;
+  public registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    cb: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+  public registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+  public registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void),
+    cb?: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
+  ): Promise<RegisterOrganizationDelegatedAdminCommandOutput> | void {
+    const command = new RegisterOrganizationDelegatedAdminCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the specified tags from a trail, event data store, or channel.</p>
    */
   public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
   public removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
@@ -945,9 +1407,10 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Restores a deleted event data store specified by <code>EventDataStore</code>, which accepts an event data store ARN.
-   *          You can only restore a deleted event data store within the seven-day wait period after deletion. Restoring an event data store
-   *          can take several minutes, depending on the size of the event data store.</p>
+   * <p>Restores a deleted event data store specified by <code>EventDataStore</code>, which
+   *          accepts an event data store ARN. You can only restore a deleted event data store within the
+   *          seven-day wait period after deletion. Restoring an event data store can take several
+   *          minutes, depending on the size of the event data store.</p>
    */
   public restoreEventDataStore(
     args: RestoreEventDataStoreCommandInput,
@@ -979,7 +1442,52 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail. For a trail that is enabled in all regions, this operation must be called from the region in which the trail was created. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.</p>
+   * <p> Starts an import of logged trail events from a source S3 bucket to a destination event
+   *          data store. By default, CloudTrail only imports events contained in the S3 bucket's
+   *                <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services
+   *          services. If you want to import CloudTrail events contained in another prefix, you
+   *          must include the prefix in the <code>S3LocationUri</code>. For more considerations about
+   *          importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations</a>. </p>
+   *          <p> When you start a new import, the <code>Destinations</code> and
+   *             <code>ImportSource</code> parameters are required. Before starting a new import, disable
+   *          any access control lists (ACLs) attached to the source S3 bucket. For more information
+   *          about disabling ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of
+   *             objects and disabling ACLs for your bucket</a>. </p>
+   *          <p> When you retry an import, the <code>ImportID</code> parameter is required. </p>
+   *          <note>
+   *             <p> If the destination event data store is for an organization, you must use the
+   *             management account to import trail events. You cannot use the delegated administrator
+   *             account for the organization. </p>
+   *          </note>
+   */
+  public startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
+  public startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;
+  public startImport(
+    args: StartImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartImportCommandOutput) => void
+  ): void;
+  public startImport(
+    args: StartImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImportCommandOutput) => void),
+    cb?: (err: any, data?: StartImportCommandOutput) => void
+  ): Promise<StartImportCommandOutput> | void {
+    const command = new StartImportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail.
+   *          For a trail that is enabled in all regions, this operation must be called from the region
+   *          in which the trail was created. This operation cannot be called on the shadow trails
+   *          (replicated trails in other regions) of a trail that is enabled in all regions.</p>
    */
   public startLogging(
     args: StartLoggingCommandInput,
@@ -1009,7 +1517,9 @@ export class CloudTrail extends CloudTrailClient {
 
   /**
    * <p>Starts a CloudTrail Lake query. The required <code>QueryStatement</code>
-   *          parameter provides your SQL query, enclosed in single quotation marks.</p>
+   *          parameter provides your SQL query, enclosed in single quotation marks. Use the optional
+   *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
+   *          bucket.</p>
    */
   public startQuery(args: StartQueryCommandInput, options?: __HttpHandlerOptions): Promise<StartQueryCommandOutput>;
   public startQuery(args: StartQueryCommandInput, cb: (err: any, data?: StartQueryCommandOutput) => void): void;
@@ -1035,13 +1545,39 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the specified trail.
-   *          Under most circumstances, there is no need to use this action. You can update a trail
-   *          without stopping it first. This action is the only way to stop recording. For a trail
-   *          enabled in all regions, this operation must be called from the region in which the trail
-   *          was created, or an <code>InvalidHomeRegionException</code> will occur. This operation
-   *          cannot be called on the shadow trails (replicated trails in other regions) of a trail
-   *          enabled in all regions.</p>
+   * <p> Stops a specified import. </p>
+   */
+  public stopImport(args: StopImportCommandInput, options?: __HttpHandlerOptions): Promise<StopImportCommandOutput>;
+  public stopImport(args: StopImportCommandInput, cb: (err: any, data?: StopImportCommandOutput) => void): void;
+  public stopImport(
+    args: StopImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopImportCommandOutput) => void
+  ): void;
+  public stopImport(
+    args: StopImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopImportCommandOutput) => void),
+    cb?: (err: any, data?: StopImportCommandOutput) => void
+  ): Promise<StopImportCommandOutput> | void {
+    const command = new StopImportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the
+   *          specified trail. Under most circumstances, there is no need to use this action. You can
+   *          update a trail without stopping it first. This action is the only way to stop recording.
+   *          For a trail enabled in all regions, this operation must be called from the region in which
+   *          the trail was created, or an <code>InvalidHomeRegionException</code> will occur. This
+   *          operation cannot be called on the shadow trails (replicated trails in other regions) of a
+   *          trail enabled in all regions.</p>
    */
   public stopLogging(args: StopLoggingCommandInput, options?: __HttpHandlerOptions): Promise<StopLoggingCommandOutput>;
   public stopLogging(args: StopLoggingCommandInput, cb: (err: any, data?: StopLoggingCommandOutput) => void): void;
@@ -1067,12 +1603,49 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or the ID portion of the ARN.
-   *          Other parameters are optional, but at least one optional parameter must be specified, or CloudTrail throws an error.
-   *          <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and 2555.
-   *          By default, <code>TerminationProtection</code> is enabled. <code>AdvancedEventSelectors</code> includes or excludes management
-   *          and data events in your event data store; for more information about <code>AdvancedEventSelectors</code>, see
-   *          <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>.</p>
+   * <p>Updates a channel specified by a required channel ARN or UUID.</p>
+   */
+  public updateChannel(
+    args: UpdateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelCommandOutput>;
+  public updateChannel(
+    args: UpdateChannelCommandInput,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+  public updateChannel(
+    args: UpdateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+  public updateChannel(
+    args: UpdateChannelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
+    cb?: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): Promise<UpdateChannelCommandOutput> | void {
+    const command = new UpdateChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or
+   *          the ID portion of the ARN. Other parameters are optional, but at least one optional
+   *          parameter must be specified, or CloudTrail throws an error.
+   *             <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and
+   *          2557. By default, <code>TerminationProtection</code> is enabled.</p>
+   *          <p>For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code>
+   *          includes or excludes management and data events in your event data store. For more
+   *          information about <code>AdvancedEventSelectors</code>, see <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>. </p>
+   *          <p> For event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events,
+   *             <code>AdvancedEventSelectors</code> includes events of that type in your event data
+   *          store.</p>
    */
   public updateEventDataStore(
     args: UpdateEventDataStoreCommandInput,
@@ -1104,12 +1677,12 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Updates trail settings that control what events you are logging, and how to handle log files. Changes to a trail do not require
-   *          stopping the CloudTrail service. Use this action to designate an existing bucket for log
-   *          delivery. If the existing bucket has previously been a target for CloudTrail log files,
-   *          an IAM policy exists for the bucket. <code>UpdateTrail</code> must be called from the
-   *          region in which the trail was created; otherwise, an
-   *             <code>InvalidHomeRegionException</code> is thrown.</p>
+   * <p>Updates trail settings that control what events you are logging, and how to handle log
+   *          files. Changes to a trail do not require stopping the CloudTrail service. Use this
+   *          action to designate an existing bucket for log delivery. If the existing bucket has
+   *          previously been a target for CloudTrail log files, an IAM policy
+   *          exists for the bucket. <code>UpdateTrail</code> must be called from the region in which the
+   *          trail was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.</p>
    */
   public updateTrail(args: UpdateTrailCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTrailCommandOutput>;
   public updateTrail(args: UpdateTrailCommandInput, cb: (err: any, data?: UpdateTrailCommandOutput) => void): void;

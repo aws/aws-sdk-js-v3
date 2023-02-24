@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,9 +31,7 @@ export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSes
 /**
  * <p>Retrieves additional game session properties, including the game session protection
  *             policy in force, a set of one or more game sessions in a specific fleet location. You
- *             can optionally filter the results by current game session status. Alternatively, use
- *                 <a>SearchGameSessions</a> to request a set of active game sessions that
- *             are filtered by certain criteria. To retrieve all game session properties, use <a>DescribeGameSessions</a>. </p>
+ *             can optionally filter the results by current game session status.</p>
  *         <p>This operation can be used in the following ways: </p>
  *         <ul>
  *             <li>
@@ -49,32 +48,20 @@ export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSes
  *             </li>
  *             <li>
  *                 <p>To retrieve details for a specific game session, provide the game session ID.
- *                     This approach looks for the game session ID in all fleets that reside in the Amazon Web Services
- *                     Region defined in the request.</p>
+ *                     This approach looks for the game session ID in all fleets that reside in the
+ *                     Amazon Web Services Region defined in the request.</p>
  *             </li>
  *          </ul>
  *         <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
  *         <p>If successful, a <code>GameSessionDetail</code> object is returned for each game
  *             session that matches the request.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find">Find a game session</a>
  *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameSession</a> |
- *                     <a>DescribeGameSessions</a> |
- *                     <a>DescribeGameSessionDetails</a> |
- *                     <a>SearchGameSessions</a> |
- *                     <a>UpdateGameSession</a> |
- *                     <a>GetGameSessionLogUrl</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
- *                     <a>StopGameSessionPlacement</a> |
+ *          <p>
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -100,6 +87,15 @@ export class DescribeGameSessionDetailsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeGameSessionDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,6 +111,9 @@ export class DescribeGameSessionDetailsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeGameSessionDetailsCommandInput, DescribeGameSessionDetailsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeGameSessionDetailsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

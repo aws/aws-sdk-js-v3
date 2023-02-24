@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,18 +30,21 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
 
 /**
  * <p>
- *             <code>AnalyzeExpense</code> synchronously analyzes an input document for financially related relationships between text.</p>
- *          <p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows.</p>
+ *             <code>AnalyzeExpense</code> synchronously analyzes an input document for financially
+ *          related relationships between text.</p>
+ *          <p>Information is returned as <code>ExpenseDocuments</code> and seperated as
+ *          follows:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <code>LineItemGroups</code>- A data set containing <code>LineItems</code> which
- *          store information about the lines of text, such as an item purchased and its price on a receipt.</p>
+ *                store information about the lines of text, such as an item purchased and its price on
+ *                a receipt.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>SummaryFields</code>- Contains all other information a receipt, such as header information
- *          or the vendors name.</p>
+ *                   <code>SummaryFields</code>- Contains all other information a receipt, such as
+ *                header information or the vendors name.</p>
  *             </li>
  *          </ul>
  * @example
@@ -66,6 +70,15 @@ export class AnalyzeExpenseCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: AnalyzeExpenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +94,9 @@ export class AnalyzeExpenseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AnalyzeExpenseCommandInput, AnalyzeExpenseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AnalyzeExpenseCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

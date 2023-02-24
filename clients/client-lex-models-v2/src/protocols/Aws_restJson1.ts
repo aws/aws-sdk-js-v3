@@ -23,6 +23,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import {
+  BatchCreateCustomVocabularyItemCommandInput,
+  BatchCreateCustomVocabularyItemCommandOutput,
+} from "../commands/BatchCreateCustomVocabularyItemCommand";
+import {
+  BatchDeleteCustomVocabularyItemCommandInput,
+  BatchDeleteCustomVocabularyItemCommandOutput,
+} from "../commands/BatchDeleteCustomVocabularyItemCommand";
+import {
+  BatchUpdateCustomVocabularyItemCommandInput,
+  BatchUpdateCustomVocabularyItemCommandOutput,
+} from "../commands/BatchUpdateCustomVocabularyItemCommand";
 import { BuildBotLocaleCommandInput, BuildBotLocaleCommandOutput } from "../commands/BuildBotLocaleCommand";
 import { CreateBotAliasCommandInput, CreateBotAliasCommandOutput } from "../commands/CreateBotAliasCommand";
 import { CreateBotCommandInput, CreateBotCommandOutput } from "../commands/CreateBotCommand";
@@ -101,6 +113,10 @@ import {
   ListBuiltInSlotTypesCommandInput,
   ListBuiltInSlotTypesCommandOutput,
 } from "../commands/ListBuiltInSlotTypesCommand";
+import {
+  ListCustomVocabularyItemsCommandInput,
+  ListCustomVocabularyItemsCommandOutput,
+} from "../commands/ListCustomVocabularyItemsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
 import { ListIntentsCommandInput, ListIntentsCommandOutput } from "../commands/ListIntentsCommand";
@@ -123,6 +139,10 @@ import {
   StartBotRecommendationCommandOutput,
 } from "../commands/StartBotRecommendationCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
+import {
+  StopBotRecommendationCommandInput,
+  StopBotRecommendationCommandOutput,
+} from "../commands/StopBotRecommendationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateBotAliasCommandInput, UpdateBotAliasCommandOutput } from "../commands/UpdateBotAliasCommand";
@@ -146,10 +166,13 @@ import {
   AggregatedUtterancesFilter,
   AggregatedUtterancesSortBy,
   AggregatedUtterancesSummary,
+  AllowedInputTypes,
   AssociatedTranscript,
   AssociatedTranscriptFilter,
+  AudioAndDTMFInputSpecification,
   AudioLogDestination,
   AudioLogSetting,
+  AudioSpecification,
   BotAliasHistoryEvent,
   BotAliasLocaleSettings,
   BotAliasSummary,
@@ -162,6 +185,7 @@ import {
   BotLocaleImportSpecification,
   BotLocaleSortBy,
   BotLocaleSummary,
+  BotMember,
   BotRecommendationResults,
   BotRecommendationResultStatistics,
   BotRecommendationSummary,
@@ -177,21 +201,28 @@ import {
   Button,
   CloudWatchLogGroupLogDestination,
   CodeHookSpecification,
+  CompositeSlotTypeSetting,
+  Condition,
   ConflictException,
   ConversationLogSettings,
   CustomPayload,
+  CustomVocabularyEntryId,
   CustomVocabularyExportSpecification,
   CustomVocabularyImportSpecification,
+  CustomVocabularyItem,
   DataPrivacy,
   DateRangeFilter,
+  DialogAction,
   DialogCodeHookSettings,
+  DTMFSpecification,
+  ElicitationCodeHookInvocationSetting,
   EncryptionSetting,
   ExportFilter,
   ExportResourceSpecification,
   ExportSortBy,
   ExportSummary,
   ExternalSourceSetting,
-  FulfillmentCodeHookSettings,
+  FailedCustomVocabularyItem,
   FulfillmentStartResponseSpecification,
   FulfillmentUpdateResponseSpecification,
   FulfillmentUpdatesSpecification,
@@ -203,8 +234,6 @@ import {
   ImportSortBy,
   ImportSummary,
   InputContext,
-  IntentClosingSetting,
-  IntentConfirmationSetting,
   IntentFilter,
   IntentSortBy,
   IntentStatistics,
@@ -216,13 +245,16 @@ import {
   Message,
   MessageGroup,
   MultipleValuesSetting,
+  NewCustomVocabularyItem,
   ObfuscationSetting,
   OutputContext,
+  ParentBotNetwork,
   PathFormat,
   PlainTextMessage,
-  PostFulfillmentStatusSpecification,
   PreconditionFailedException,
   Principal,
+  PromptAttempt,
+  PromptAttemptSpecification,
   PromptSpecification,
   RecommendedIntentSummary,
   RelativeAggregationDuration,
@@ -245,11 +277,16 @@ import {
   SlotTypeStatistics,
   SlotTypeSummary,
   SlotTypeValue,
-  SlotValueElicitationSetting,
+  SlotValue,
   SlotValueRegexFilter,
   SlotValueSelectionSetting,
+  Specifications,
   SSMLMessage,
   StillWaitingResponseSpecification,
+  SubSlotSetting,
+  SubSlotTypeComposition,
+  SubSlotValueElicitationSetting,
+  TextInputSpecification,
   TextLogDestination,
   TextLogSetting,
   ThrottlingException,
@@ -260,6 +297,125 @@ import {
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "../models/models_0";
+import {
+  ConditionalBranch,
+  ConditionalSpecification,
+  DefaultConditionalBranch,
+  DialogCodeHookInvocationSetting,
+  DialogState,
+  FulfillmentCodeHookSettings,
+  InitialResponseSetting,
+  IntentClosingSetting,
+  IntentConfirmationSetting,
+  IntentOverride,
+  PostDialogCodeHookInvocationSpecification,
+  PostFulfillmentStatusSpecification,
+  SlotCaptureSetting,
+  SlotValueElicitationSetting,
+  SlotValueOverride,
+} from "../models/models_1";
+
+export const serializeAws_restJson1BatchCreateCustomVocabularyItemCommand = async (
+  input: BatchCreateCustomVocabularyItemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchcreate";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.customVocabularyItemList != null && {
+      customVocabularyItemList: serializeAws_restJson1CreateCustomVocabularyItemsList(
+        input.customVocabularyItemList,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchDeleteCustomVocabularyItemCommand = async (
+  input: BatchDeleteCustomVocabularyItemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchdelete";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.customVocabularyItemList != null && {
+      customVocabularyItemList: serializeAws_restJson1DeleteCustomVocabularyItemsList(
+        input.customVocabularyItemList,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchUpdateCustomVocabularyItemCommand = async (
+  input: BatchUpdateCustomVocabularyItemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchupdate";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.customVocabularyItemList != null && {
+      customVocabularyItemList: serializeAws_restJson1UpdateCustomVocabularyItemsList(
+        input.customVocabularyItemList,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1BuildBotLocaleCommand = async (
   input: BuildBotLocaleCommandInput,
@@ -296,8 +452,10 @@ export const serializeAws_restJson1CreateBotCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots";
   let body: any;
   body = JSON.stringify({
+    ...(input.botMembers != null && { botMembers: serializeAws_restJson1BotMembers(input.botMembers, context) }),
     ...(input.botName != null && { botName: input.botName }),
     ...(input.botTags != null && { botTags: serializeAws_restJson1TagMap(input.botTags, context) }),
+    ...(input.botType != null && { botType: input.botType }),
     ...(input.dataPrivacy != null && { dataPrivacy: serializeAws_restJson1DataPrivacy(input.dataPrivacy, context) }),
     ...(input.description != null && { description: input.description }),
     ...(input.idleSessionTTLInSeconds != null && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
@@ -475,6 +633,9 @@ export const serializeAws_restJson1CreateIntentCommand = async (
     ...(input.fulfillmentCodeHook != null && {
       fulfillmentCodeHook: serializeAws_restJson1FulfillmentCodeHookSettings(input.fulfillmentCodeHook, context),
     }),
+    ...(input.initialResponseSetting != null && {
+      initialResponseSetting: serializeAws_restJson1InitialResponseSetting(input.initialResponseSetting, context),
+    }),
     ...(input.inputContexts != null && {
       inputContexts: serializeAws_restJson1InputContextsList(input.inputContexts, context),
     }),
@@ -595,6 +756,9 @@ export const serializeAws_restJson1CreateSlotCommand = async (
     }),
     ...(input.slotName != null && { slotName: input.slotName }),
     ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
+    ...(input.subSlotSetting != null && {
+      subSlotSetting: serializeAws_restJson1SubSlotSetting(input.subSlotSetting, context),
+    }),
     ...(input.valueElicitationSetting != null && {
       valueElicitationSetting: serializeAws_restJson1SlotValueElicitationSetting(
         input.valueElicitationSetting,
@@ -629,6 +793,9 @@ export const serializeAws_restJson1CreateSlotTypeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.compositeSlotTypeSetting != null && {
+      compositeSlotTypeSetting: serializeAws_restJson1CompositeSlotTypeSetting(input.compositeSlotTypeSetting, context),
+    }),
     ...(input.description != null && { description: input.description }),
     ...(input.externalSourceSetting != null && {
       externalSourceSetting: serializeAws_restJson1ExternalSourceSetting(input.externalSourceSetting, context),
@@ -1522,6 +1689,36 @@ export const serializeAws_restJson1ListBuiltInSlotTypesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListCustomVocabularyItemsCommand = async (
+  input: ListCustomVocabularyItemsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListExportsCommand = async (
   input: ListExportsCommandInput,
   context: __SerdeContext
@@ -1842,6 +2039,38 @@ export const serializeAws_restJson1StartImportCommand = async (
   });
 };
 
+export const serializeAws_restJson1StopBotRecommendationCommand = async (
+  input: StopBotRecommendationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/stopbotrecommendation";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "botRecommendationId",
+    () => input.botRecommendationId!,
+    "{botRecommendationId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -1876,7 +2105,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceARN}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceARN", () => input.resourceARN!, "{resourceARN}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1903,7 +2135,9 @@ export const serializeAws_restJson1UpdateBotCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.botMembers != null && { botMembers: serializeAws_restJson1BotMembers(input.botMembers, context) }),
     ...(input.botName != null && { botName: input.botName }),
+    ...(input.botType != null && { botType: input.botType }),
     ...(input.dataPrivacy != null && { dataPrivacy: serializeAws_restJson1DataPrivacy(input.dataPrivacy, context) }),
     ...(input.description != null && { description: input.description }),
     ...(input.idleSessionTTLInSeconds != null && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
@@ -2084,6 +2318,9 @@ export const serializeAws_restJson1UpdateIntentCommand = async (
     ...(input.fulfillmentCodeHook != null && {
       fulfillmentCodeHook: serializeAws_restJson1FulfillmentCodeHookSettings(input.fulfillmentCodeHook, context),
     }),
+    ...(input.initialResponseSetting != null && {
+      initialResponseSetting: serializeAws_restJson1InitialResponseSetting(input.initialResponseSetting, context),
+    }),
     ...(input.inputContexts != null && {
       inputContexts: serializeAws_restJson1InputContextsList(input.inputContexts, context),
     }),
@@ -2178,6 +2415,9 @@ export const serializeAws_restJson1UpdateSlotCommand = async (
     }),
     ...(input.slotName != null && { slotName: input.slotName }),
     ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
+    ...(input.subSlotSetting != null && {
+      subSlotSetting: serializeAws_restJson1SubSlotSetting(input.subSlotSetting, context),
+    }),
     ...(input.valueElicitationSetting != null && {
       valueElicitationSetting: serializeAws_restJson1SlotValueElicitationSetting(
         input.valueElicitationSetting,
@@ -2213,6 +2453,9 @@ export const serializeAws_restJson1UpdateSlotTypeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.compositeSlotTypeSetting != null && {
+      compositeSlotTypeSetting: serializeAws_restJson1CompositeSlotTypeSetting(input.compositeSlotTypeSetting, context),
+    }),
     ...(input.description != null && { description: input.description }),
     ...(input.externalSourceSetting != null && {
       externalSourceSetting: serializeAws_restJson1ExternalSourceSetting(input.externalSourceSetting, context),
@@ -2235,6 +2478,201 @@ export const serializeAws_restJson1UpdateSlotTypeCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1BatchCreateCustomVocabularyItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchCreateCustomVocabularyItemCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchCreateCustomVocabularyItemCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId != null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion != null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.errors != null) {
+    contents.errors = deserializeAws_restJson1FailedCustomVocabularyItems(data.errors, context);
+  }
+  if (data.localeId != null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  if (data.resources != null) {
+    contents.resources = deserializeAws_restJson1CustomVocabularyItems(data.resources, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchCreateCustomVocabularyItemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchCreateCustomVocabularyItemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteCustomVocabularyItemCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId != null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion != null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.errors != null) {
+    contents.errors = deserializeAws_restJson1FailedCustomVocabularyItems(data.errors, context);
+  }
+  if (data.localeId != null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  if (data.resources != null) {
+    contents.resources = deserializeAws_restJson1CustomVocabularyItems(data.resources, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteCustomVocabularyItemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateCustomVocabularyItemCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId != null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion != null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.errors != null) {
+    contents.errors = deserializeAws_restJson1FailedCustomVocabularyItems(data.errors, context);
+  }
+  if (data.localeId != null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  if (data.resources != null) {
+    contents.resources = deserializeAws_restJson1CustomVocabularyItems(data.resources, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateCustomVocabularyItemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_restJson1BuildBotLocaleCommand = async (
@@ -2274,7 +2712,7 @@ const deserializeAws_restJson1BuildBotLocaleCommandError = async (
 ): Promise<BuildBotLocaleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2321,6 +2759,9 @@ export const deserializeAws_restJson1CreateBotCommand = async (
   if (data.botId != null) {
     contents.botId = __expectString(data.botId);
   }
+  if (data.botMembers != null) {
+    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
+  }
   if (data.botName != null) {
     contents.botName = __expectString(data.botName);
   }
@@ -2329,6 +2770,9 @@ export const deserializeAws_restJson1CreateBotCommand = async (
   }
   if (data.botTags != null) {
     contents.botTags = deserializeAws_restJson1TagMap(data.botTags, context);
+  }
+  if (data.botType != null) {
+    contents.botType = __expectString(data.botType);
   }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
@@ -2357,7 +2801,7 @@ const deserializeAws_restJson1CreateBotCommandError = async (
 ): Promise<CreateBotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2452,7 +2896,7 @@ const deserializeAws_restJson1CreateBotAliasCommandError = async (
 ): Promise<CreateBotAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2532,7 +2976,7 @@ const deserializeAws_restJson1CreateBotLocaleCommandError = async (
 ): Promise<CreateBotLocaleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2606,7 +3050,7 @@ const deserializeAws_restJson1CreateBotVersionCommandError = async (
 ): Promise<CreateBotVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2677,7 +3121,7 @@ const deserializeAws_restJson1CreateExportCommandError = async (
 ): Promise<CreateExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2742,6 +3186,12 @@ export const deserializeAws_restJson1CreateIntentCommand = async (
       context
     );
   }
+  if (data.initialResponseSetting != null) {
+    contents.initialResponseSetting = deserializeAws_restJson1InitialResponseSetting(
+      data.initialResponseSetting,
+      context
+    );
+  }
   if (data.inputContexts != null) {
     contents.inputContexts = deserializeAws_restJson1InputContextsList(data.inputContexts, context);
   }
@@ -2784,7 +3234,7 @@ const deserializeAws_restJson1CreateIntentCommandError = async (
 ): Promise<CreateIntentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2843,7 +3293,7 @@ const deserializeAws_restJson1CreateResourcePolicyCommandError = async (
 ): Promise<CreateResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2902,7 +3352,7 @@ const deserializeAws_restJson1CreateResourcePolicyStatementCommandError = async 
 ): Promise<CreateResourcePolicyStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2982,6 +3432,9 @@ export const deserializeAws_restJson1CreateSlotCommand = async (
   if (data.slotTypeId != null) {
     contents.slotTypeId = __expectString(data.slotTypeId);
   }
+  if (data.subSlotSetting != null) {
+    contents.subSlotSetting = deserializeAws_restJson1SubSlotSetting(data.subSlotSetting, context);
+  }
   if (data.valueElicitationSetting != null) {
     contents.valueElicitationSetting = deserializeAws_restJson1SlotValueElicitationSetting(
       data.valueElicitationSetting,
@@ -2997,7 +3450,7 @@ const deserializeAws_restJson1CreateSlotCommandError = async (
 ): Promise<CreateSlotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3047,6 +3500,12 @@ export const deserializeAws_restJson1CreateSlotTypeCommand = async (
   if (data.botVersion != null) {
     contents.botVersion = __expectString(data.botVersion);
   }
+  if (data.compositeSlotTypeSetting != null) {
+    contents.compositeSlotTypeSetting = deserializeAws_restJson1CompositeSlotTypeSetting(
+      data.compositeSlotTypeSetting,
+      context
+    );
+  }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
@@ -3086,7 +3545,7 @@ const deserializeAws_restJson1CreateSlotTypeCommandError = async (
 ): Promise<CreateSlotTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3145,7 +3604,7 @@ const deserializeAws_restJson1CreateUploadUrlCommandError = async (
 ): Promise<CreateUploadUrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3201,7 +3660,7 @@ const deserializeAws_restJson1DeleteBotCommandError = async (
 ): Promise<DeleteBotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3263,7 +3722,7 @@ const deserializeAws_restJson1DeleteBotAliasCommandError = async (
 ): Promise<DeleteBotAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3328,7 +3787,7 @@ const deserializeAws_restJson1DeleteBotLocaleCommandError = async (
 ): Promise<DeleteBotLocaleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3390,7 +3849,7 @@ const deserializeAws_restJson1DeleteBotVersionCommandError = async (
 ): Promise<DeleteBotVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3455,7 +3914,7 @@ const deserializeAws_restJson1DeleteCustomVocabularyCommandError = async (
 ): Promise<DeleteCustomVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3514,7 +3973,7 @@ const deserializeAws_restJson1DeleteExportCommandError = async (
 ): Promise<DeleteExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3570,7 +4029,7 @@ const deserializeAws_restJson1DeleteImportCommandError = async (
 ): Promise<DeleteImportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3620,7 +4079,7 @@ const deserializeAws_restJson1DeleteIntentCommandError = async (
 ): Promise<DeleteIntentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3679,7 +4138,7 @@ const deserializeAws_restJson1DeleteResourcePolicyCommandError = async (
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3732,7 +4191,7 @@ const deserializeAws_restJson1DeleteResourcePolicyStatementCommandError = async 
 ): Promise<DeleteResourcePolicyStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3779,7 +4238,7 @@ const deserializeAws_restJson1DeleteSlotCommandError = async (
 ): Promise<DeleteSlotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3832,7 +4291,7 @@ const deserializeAws_restJson1DeleteSlotTypeCommandError = async (
 ): Promise<DeleteSlotTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3885,7 +4344,7 @@ const deserializeAws_restJson1DeleteUtterancesCommandError = async (
 ): Promise<DeleteUtterancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3923,11 +4382,17 @@ export const deserializeAws_restJson1DescribeBotCommand = async (
   if (data.botId != null) {
     contents.botId = __expectString(data.botId);
   }
+  if (data.botMembers != null) {
+    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
+  }
   if (data.botName != null) {
     contents.botName = __expectString(data.botName);
   }
   if (data.botStatus != null) {
     contents.botStatus = __expectString(data.botStatus);
+  }
+  if (data.botType != null) {
+    contents.botType = __expectString(data.botType);
   }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
@@ -3937,6 +4402,9 @@ export const deserializeAws_restJson1DescribeBotCommand = async (
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
+  }
+  if (data.failureReasons != null) {
+    contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
   }
   if (data.idleSessionTTLInSeconds != null) {
     contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
@@ -3956,7 +4424,7 @@ const deserializeAws_restJson1DescribeBotCommandError = async (
 ): Promise<DescribeBotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4039,6 +4507,9 @@ export const deserializeAws_restJson1DescribeBotAliasCommand = async (
   if (data.lastUpdatedDateTime != null) {
     contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
+  if (data.parentBotNetworks != null) {
+    contents.parentBotNetworks = deserializeAws_restJson1ParentBotNetworks(data.parentBotNetworks, context);
+  }
   if (data.sentimentAnalysisSettings != null) {
     contents.sentimentAnalysisSettings = deserializeAws_restJson1SentimentAnalysisSettings(
       data.sentimentAnalysisSettings,
@@ -4054,7 +4525,7 @@ const deserializeAws_restJson1DescribeBotAliasCommandError = async (
 ): Promise<DescribeBotAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4157,7 +4628,7 @@ const deserializeAws_restJson1DescribeBotLocaleCommandError = async (
 ): Promise<DescribeBotLocaleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4246,7 +4717,7 @@ const deserializeAws_restJson1DescribeBotRecommendationCommandError = async (
 ): Promise<DescribeBotRecommendationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4287,11 +4758,17 @@ export const deserializeAws_restJson1DescribeBotVersionCommand = async (
   if (data.botId != null) {
     contents.botId = __expectString(data.botId);
   }
+  if (data.botMembers != null) {
+    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
+  }
   if (data.botName != null) {
     contents.botName = __expectString(data.botName);
   }
   if (data.botStatus != null) {
     contents.botStatus = __expectString(data.botStatus);
+  }
+  if (data.botType != null) {
+    contents.botType = __expectString(data.botType);
   }
   if (data.botVersion != null) {
     contents.botVersion = __expectString(data.botVersion);
@@ -4311,6 +4788,9 @@ export const deserializeAws_restJson1DescribeBotVersionCommand = async (
   if (data.idleSessionTTLInSeconds != null) {
     contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
   }
+  if (data.parentBotNetworks != null) {
+    contents.parentBotNetworks = deserializeAws_restJson1ParentBotNetworks(data.parentBotNetworks, context);
+  }
   if (data.roleArn != null) {
     contents.roleArn = __expectString(data.roleArn);
   }
@@ -4323,7 +4803,7 @@ const deserializeAws_restJson1DescribeBotVersionCommandError = async (
 ): Promise<DescribeBotVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4391,7 +4871,7 @@ const deserializeAws_restJson1DescribeCustomVocabularyMetadataCommandError = asy
 ): Promise<DescribeCustomVocabularyMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4468,7 +4948,7 @@ const deserializeAws_restJson1DescribeExportCommandError = async (
 ): Promise<DescribeExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4545,7 +5025,7 @@ const deserializeAws_restJson1DescribeImportCommandError = async (
 ): Promise<DescribeImportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4604,6 +5084,12 @@ export const deserializeAws_restJson1DescribeIntentCommand = async (
       context
     );
   }
+  if (data.initialResponseSetting != null) {
+    contents.initialResponseSetting = deserializeAws_restJson1InitialResponseSetting(
+      data.initialResponseSetting,
+      context
+    );
+  }
   if (data.inputContexts != null) {
     contents.inputContexts = deserializeAws_restJson1InputContextsList(data.inputContexts, context);
   }
@@ -4652,7 +5138,7 @@ const deserializeAws_restJson1DescribeIntentCommandError = async (
 ): Promise<DescribeIntentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4711,7 +5197,7 @@ const deserializeAws_restJson1DescribeResourcePolicyCommandError = async (
 ): Promise<DescribeResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4782,6 +5268,9 @@ export const deserializeAws_restJson1DescribeSlotCommand = async (
   if (data.slotTypeId != null) {
     contents.slotTypeId = __expectString(data.slotTypeId);
   }
+  if (data.subSlotSetting != null) {
+    contents.subSlotSetting = deserializeAws_restJson1SubSlotSetting(data.subSlotSetting, context);
+  }
   if (data.valueElicitationSetting != null) {
     contents.valueElicitationSetting = deserializeAws_restJson1SlotValueElicitationSetting(
       data.valueElicitationSetting,
@@ -4797,7 +5286,7 @@ const deserializeAws_restJson1DescribeSlotCommandError = async (
 ): Promise<DescribeSlotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4844,6 +5333,12 @@ export const deserializeAws_restJson1DescribeSlotTypeCommand = async (
   if (data.botVersion != null) {
     contents.botVersion = __expectString(data.botVersion);
   }
+  if (data.compositeSlotTypeSetting != null) {
+    contents.compositeSlotTypeSetting = deserializeAws_restJson1CompositeSlotTypeSetting(
+      data.compositeSlotTypeSetting,
+      context
+    );
+  }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
@@ -4886,7 +5381,7 @@ const deserializeAws_restJson1DescribeSlotTypeCommandError = async (
 ): Promise<DescribeSlotTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4978,7 +5473,7 @@ const deserializeAws_restJson1ListAggregatedUtterancesCommandError = async (
 ): Promise<ListAggregatedUtterancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5034,7 +5529,7 @@ const deserializeAws_restJson1ListBotAliasesCommandError = async (
 ): Promise<ListBotAliasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5093,7 +5588,7 @@ const deserializeAws_restJson1ListBotLocalesCommandError = async (
 ): Promise<ListBotLocalesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5158,7 +5653,7 @@ const deserializeAws_restJson1ListBotRecommendationsCommandError = async (
 ): Promise<ListBotRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5211,7 +5706,7 @@ const deserializeAws_restJson1ListBotsCommandError = async (
 ): Promise<ListBotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5267,7 +5762,7 @@ const deserializeAws_restJson1ListBotVersionsCommandError = async (
 ): Promise<ListBotVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5326,7 +5821,7 @@ const deserializeAws_restJson1ListBuiltInIntentsCommandError = async (
 ): Promise<ListBuiltInIntentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5385,13 +5880,78 @@ const deserializeAws_restJson1ListBuiltInSlotTypesCommandError = async (
 ): Promise<ListBuiltInSlotTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListCustomVocabularyItemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomVocabularyItemsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListCustomVocabularyItemsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId != null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion != null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.customVocabularyItems != null) {
+    contents.customVocabularyItems = deserializeAws_restJson1CustomVocabularyItems(data.customVocabularyItems, context);
+  }
+  if (data.localeId != null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListCustomVocabularyItemsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomVocabularyItemsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
@@ -5447,7 +6007,7 @@ const deserializeAws_restJson1ListExportsCommandError = async (
 ): Promise<ListExportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5506,7 +6066,7 @@ const deserializeAws_restJson1ListImportsCommandError = async (
 ): Promise<ListImportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5565,7 +6125,7 @@ const deserializeAws_restJson1ListIntentsCommandError = async (
 ): Promise<ListIntentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5630,7 +6190,7 @@ const deserializeAws_restJson1ListRecommendedIntentsCommandError = async (
 ): Promise<ListRecommendedIntentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5698,7 +6258,7 @@ const deserializeAws_restJson1ListSlotsCommandError = async (
 ): Promise<ListSlotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5760,7 +6320,7 @@ const deserializeAws_restJson1ListSlotTypesCommandError = async (
 ): Promise<ListSlotTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5810,7 +6370,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5881,7 +6441,7 @@ const deserializeAws_restJson1SearchAssociatedTranscriptsCommandError = async (
 ): Promise<SearchAssociatedTranscriptsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5958,7 +6518,7 @@ const deserializeAws_restJson1StartBotRecommendationCommandError = async (
 ): Promise<StartBotRecommendationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6032,7 +6592,7 @@ const deserializeAws_restJson1StartImportCommandError = async (
 ): Promise<StartImportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6042,6 +6602,77 @@ const deserializeAws_restJson1StartImportCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StopBotRecommendationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopBotRecommendationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StopBotRecommendationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId != null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botRecommendationId != null) {
+    contents.botRecommendationId = __expectString(data.botRecommendationId);
+  }
+  if (data.botRecommendationStatus != null) {
+    contents.botRecommendationStatus = __expectString(data.botRecommendationStatus);
+  }
+  if (data.botVersion != null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.localeId != null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StopBotRecommendationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopBotRecommendationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "PreconditionFailedException":
+    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
+      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -6085,7 +6716,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6132,7 +6763,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6173,11 +6804,17 @@ export const deserializeAws_restJson1UpdateBotCommand = async (
   if (data.botId != null) {
     contents.botId = __expectString(data.botId);
   }
+  if (data.botMembers != null) {
+    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
+  }
   if (data.botName != null) {
     contents.botName = __expectString(data.botName);
   }
   if (data.botStatus != null) {
     contents.botStatus = __expectString(data.botStatus);
+  }
+  if (data.botType != null) {
+    contents.botType = __expectString(data.botType);
   }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
@@ -6206,7 +6843,7 @@ const deserializeAws_restJson1UpdateBotCommandError = async (
 ): Promise<UpdateBotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6301,7 +6938,7 @@ const deserializeAws_restJson1UpdateBotAliasCommandError = async (
 ): Promise<UpdateBotAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6390,7 +7027,7 @@ const deserializeAws_restJson1UpdateBotLocaleCommandError = async (
 ): Promise<UpdateBotLocaleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6473,7 +7110,7 @@ const deserializeAws_restJson1UpdateBotRecommendationCommandError = async (
 ): Promise<UpdateBotRecommendationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6550,7 +7187,7 @@ const deserializeAws_restJson1UpdateExportCommandError = async (
 ): Promise<UpdateExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6615,6 +7252,12 @@ export const deserializeAws_restJson1UpdateIntentCommand = async (
       context
     );
   }
+  if (data.initialResponseSetting != null) {
+    contents.initialResponseSetting = deserializeAws_restJson1InitialResponseSetting(
+      data.initialResponseSetting,
+      context
+    );
+  }
   if (data.inputContexts != null) {
     contents.inputContexts = deserializeAws_restJson1InputContextsList(data.inputContexts, context);
   }
@@ -6663,7 +7306,7 @@ const deserializeAws_restJson1UpdateIntentCommandError = async (
 ): Promise<UpdateIntentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6722,7 +7365,7 @@ const deserializeAws_restJson1UpdateResourcePolicyCommandError = async (
 ): Promise<UpdateResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6802,6 +7445,9 @@ export const deserializeAws_restJson1UpdateSlotCommand = async (
   if (data.slotTypeId != null) {
     contents.slotTypeId = __expectString(data.slotTypeId);
   }
+  if (data.subSlotSetting != null) {
+    contents.subSlotSetting = deserializeAws_restJson1SubSlotSetting(data.subSlotSetting, context);
+  }
   if (data.valueElicitationSetting != null) {
     contents.valueElicitationSetting = deserializeAws_restJson1SlotValueElicitationSetting(
       data.valueElicitationSetting,
@@ -6817,7 +7463,7 @@ const deserializeAws_restJson1UpdateSlotCommandError = async (
 ): Promise<UpdateSlotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6867,6 +7513,12 @@ export const deserializeAws_restJson1UpdateSlotTypeCommand = async (
   if (data.botVersion != null) {
     contents.botVersion = __expectString(data.botVersion);
   }
+  if (data.compositeSlotTypeSetting != null) {
+    contents.compositeSlotTypeSetting = deserializeAws_restJson1CompositeSlotTypeSetting(
+      data.compositeSlotTypeSetting,
+      context
+    );
+  }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
@@ -6909,7 +7561,7 @@ const deserializeAws_restJson1UpdateSlotTypeCommandError = async (
 ): Promise<UpdateSlotTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7101,6 +7753,13 @@ const serializeAws_restJson1AggregatedUtterancesSortBy = (
   };
 };
 
+const serializeAws_restJson1AllowedInputTypes = (input: AllowedInputTypes, context: __SerdeContext): any => {
+  return {
+    ...(input.allowAudioInput != null && { allowAudioInput: input.allowAudioInput }),
+    ...(input.allowDTMFInput != null && { allowDTMFInput: input.allowDTMFInput }),
+  };
+};
+
 const serializeAws_restJson1AssociatedTranscriptFilter = (
   input: AssociatedTranscriptFilter,
   context: __SerdeContext
@@ -7120,6 +7779,21 @@ const serializeAws_restJson1AssociatedTranscriptFilters = (
     .map((entry) => {
       return serializeAws_restJson1AssociatedTranscriptFilter(entry, context);
     });
+};
+
+const serializeAws_restJson1AudioAndDTMFInputSpecification = (
+  input: AudioAndDTMFInputSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.audioSpecification != null && {
+      audioSpecification: serializeAws_restJson1AudioSpecification(input.audioSpecification, context),
+    }),
+    ...(input.dtmfSpecification != null && {
+      dtmfSpecification: serializeAws_restJson1DTMFSpecification(input.dtmfSpecification, context),
+    }),
+    ...(input.startTimeoutMs != null && { startTimeoutMs: input.startTimeoutMs }),
+  };
 };
 
 const serializeAws_restJson1AudioLogDestination = (input: AudioLogDestination, context: __SerdeContext): any => {
@@ -7145,6 +7819,13 @@ const serializeAws_restJson1AudioLogSettingsList = (input: AudioLogSetting[], co
     });
 };
 
+const serializeAws_restJson1AudioSpecification = (input: AudioSpecification, context: __SerdeContext): any => {
+  return {
+    ...(input.endTimeoutMs != null && { endTimeoutMs: input.endTimeoutMs }),
+    ...(input.maxLengthMs != null && { maxLengthMs: input.maxLengthMs }),
+  };
+};
+
 const serializeAws_restJson1BotAliasLocaleSettings = (input: BotAliasLocaleSettings, context: __SerdeContext): any => {
   return {
     ...(input.codeHookSpecification != null && {
@@ -7162,10 +7843,8 @@ const serializeAws_restJson1BotAliasLocaleSettingsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1BotAliasLocaleSettings(value, context),
-    };
+    acc[key] = serializeAws_restJson1BotAliasLocaleSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -7256,6 +7935,24 @@ const serializeAws_restJson1BotLocaleSortBy = (input: BotLocaleSortBy, context: 
   };
 };
 
+const serializeAws_restJson1BotMember = (input: BotMember, context: __SerdeContext): any => {
+  return {
+    ...(input.botMemberAliasId != null && { botMemberAliasId: input.botMemberAliasId }),
+    ...(input.botMemberAliasName != null && { botMemberAliasName: input.botMemberAliasName }),
+    ...(input.botMemberId != null && { botMemberId: input.botMemberId }),
+    ...(input.botMemberName != null && { botMemberName: input.botMemberName }),
+    ...(input.botMemberVersion != null && { botMemberVersion: input.botMemberVersion }),
+  };
+};
+
+const serializeAws_restJson1BotMembers = (input: BotMember[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1BotMember(entry, context);
+    });
+};
+
 const serializeAws_restJson1BotSortBy = (input: BotSortBy, context: __SerdeContext): any => {
   return {
     ...(input.attribute != null && { attribute: input.attribute }),
@@ -7280,10 +7977,8 @@ const serializeAws_restJson1BotVersionLocaleSpecification = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1BotVersionLocaleDetails(value, context),
-    };
+    acc[key] = serializeAws_restJson1BotVersionLocaleDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -7341,15 +8036,60 @@ const serializeAws_restJson1CodeHookSpecification = (input: CodeHookSpecificatio
   };
 };
 
+const serializeAws_restJson1CompositeSlotTypeSetting = (
+  input: CompositeSlotTypeSetting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.subSlots != null && { subSlots: serializeAws_restJson1SubSlotTypeList(input.subSlots, context) }),
+  };
+};
+
+const serializeAws_restJson1Condition = (input: Condition, context: __SerdeContext): any => {
+  return {
+    ...(input.expressionString != null && { expressionString: input.expressionString }),
+  };
+};
+
+const serializeAws_restJson1ConditionalBranch = (input: ConditionalBranch, context: __SerdeContext): any => {
+  return {
+    ...(input.condition != null && { condition: serializeAws_restJson1Condition(input.condition, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.nextStep != null && { nextStep: serializeAws_restJson1DialogState(input.nextStep, context) }),
+    ...(input.response != null && { response: serializeAws_restJson1ResponseSpecification(input.response, context) }),
+  };
+};
+
+const serializeAws_restJson1ConditionalBranches = (input: ConditionalBranch[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ConditionalBranch(entry, context);
+    });
+};
+
+const serializeAws_restJson1ConditionalSpecification = (
+  input: ConditionalSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.active != null && { active: input.active }),
+    ...(input.conditionalBranches != null && {
+      conditionalBranches: serializeAws_restJson1ConditionalBranches(input.conditionalBranches, context),
+    }),
+    ...(input.defaultBranch != null && {
+      defaultBranch: serializeAws_restJson1DefaultConditionalBranch(input.defaultBranch, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1ConditionKeyValueMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7361,10 +8101,8 @@ const serializeAws_restJson1ConditionMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ConditionKeyValueMap(value, context),
-    };
+    acc[key] = serializeAws_restJson1ConditionKeyValueMap(value, context);
+    return acc;
   }, {});
 };
 
@@ -7382,9 +8120,29 @@ const serializeAws_restJson1ConversationLogSettings = (
   };
 };
 
+const serializeAws_restJson1CreateCustomVocabularyItemsList = (
+  input: NewCustomVocabularyItem[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1NewCustomVocabularyItem(entry, context);
+    });
+};
+
 const serializeAws_restJson1CustomPayload = (input: CustomPayload, context: __SerdeContext): any => {
   return {
     ...(input.value != null && { value: input.value }),
+  };
+};
+
+const serializeAws_restJson1CustomVocabularyEntryId = (
+  input: CustomVocabularyEntryId,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.itemId != null && { itemId: input.itemId }),
   };
 };
 
@@ -7410,6 +8168,15 @@ const serializeAws_restJson1CustomVocabularyImportSpecification = (
   };
 };
 
+const serializeAws_restJson1CustomVocabularyItem = (input: CustomVocabularyItem, context: __SerdeContext): any => {
+  return {
+    ...(input.displayAs != null && { displayAs: input.displayAs }),
+    ...(input.itemId != null && { itemId: input.itemId }),
+    ...(input.phrase != null && { phrase: input.phrase }),
+    ...(input.weight != null && { weight: input.weight }),
+  };
+};
+
 const serializeAws_restJson1DataPrivacy = (input: DataPrivacy, context: __SerdeContext): any => {
   return {
     ...(input.childDirected != null && { childDirected: input.childDirected }),
@@ -7423,9 +8190,86 @@ const serializeAws_restJson1DateRangeFilter = (input: DateRangeFilter, context: 
   };
 };
 
+const serializeAws_restJson1DefaultConditionalBranch = (
+  input: DefaultConditionalBranch,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.nextStep != null && { nextStep: serializeAws_restJson1DialogState(input.nextStep, context) }),
+    ...(input.response != null && { response: serializeAws_restJson1ResponseSpecification(input.response, context) }),
+  };
+};
+
+const serializeAws_restJson1DeleteCustomVocabularyItemsList = (
+  input: CustomVocabularyEntryId[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1CustomVocabularyEntryId(entry, context);
+    });
+};
+
+const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
+  return {
+    ...(input.slotToElicit != null && { slotToElicit: input.slotToElicit }),
+    ...(input.suppressNextMessage != null && { suppressNextMessage: input.suppressNextMessage }),
+    ...(input.type != null && { type: input.type }),
+  };
+};
+
+const serializeAws_restJson1DialogCodeHookInvocationSetting = (
+  input: DialogCodeHookInvocationSetting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.active != null && { active: input.active }),
+    ...(input.enableCodeHookInvocation != null && { enableCodeHookInvocation: input.enableCodeHookInvocation }),
+    ...(input.invocationLabel != null && { invocationLabel: input.invocationLabel }),
+    ...(input.postCodeHookSpecification != null && {
+      postCodeHookSpecification: serializeAws_restJson1PostDialogCodeHookInvocationSpecification(
+        input.postCodeHookSpecification,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_restJson1DialogCodeHookSettings = (input: DialogCodeHookSettings, context: __SerdeContext): any => {
   return {
     ...(input.enabled != null && { enabled: input.enabled }),
+  };
+};
+
+const serializeAws_restJson1DialogState = (input: DialogState, context: __SerdeContext): any => {
+  return {
+    ...(input.dialogAction != null && {
+      dialogAction: serializeAws_restJson1DialogAction(input.dialogAction, context),
+    }),
+    ...(input.intent != null && { intent: serializeAws_restJson1IntentOverride(input.intent, context) }),
+    ...(input.sessionAttributes != null && {
+      sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DTMFSpecification = (input: DTMFSpecification, context: __SerdeContext): any => {
+  return {
+    ...(input.deletionCharacter != null && { deletionCharacter: input.deletionCharacter }),
+    ...(input.endCharacter != null && { endCharacter: input.endCharacter }),
+    ...(input.endTimeoutMs != null && { endTimeoutMs: input.endTimeoutMs }),
+    ...(input.maxLength != null && { maxLength: input.maxLength }),
+  };
+};
+
+const serializeAws_restJson1ElicitationCodeHookInvocationSetting = (
+  input: ElicitationCodeHookInvocationSetting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.enableCodeHookInvocation != null && { enableCodeHookInvocation: input.enableCodeHookInvocation }),
+    ...(input.invocationLabel != null && { invocationLabel: input.invocationLabel }),
   };
 };
 
@@ -7506,6 +8350,7 @@ const serializeAws_restJson1FulfillmentCodeHookSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.active != null && { active: input.active }),
     ...(input.enabled != null && { enabled: input.enabled }),
     ...(input.fulfillmentUpdatesSpecification != null && {
       fulfillmentUpdatesSpecification: serializeAws_restJson1FulfillmentUpdatesSpecification(
@@ -7633,6 +8478,21 @@ const serializeAws_restJson1ImportSortBy = (input: ImportSortBy, context: __Serd
   };
 };
 
+const serializeAws_restJson1InitialResponseSetting = (input: InitialResponseSetting, context: __SerdeContext): any => {
+  return {
+    ...(input.codeHook != null && {
+      codeHook: serializeAws_restJson1DialogCodeHookInvocationSetting(input.codeHook, context),
+    }),
+    ...(input.conditional != null && {
+      conditional: serializeAws_restJson1ConditionalSpecification(input.conditional, context),
+    }),
+    ...(input.initialResponse != null && {
+      initialResponse: serializeAws_restJson1ResponseSpecification(input.initialResponse, context),
+    }),
+    ...(input.nextStep != null && { nextStep: serializeAws_restJson1DialogState(input.nextStep, context) }),
+  };
+};
+
 const serializeAws_restJson1InputContext = (input: InputContext, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
@@ -7653,6 +8513,10 @@ const serializeAws_restJson1IntentClosingSetting = (input: IntentClosingSetting,
     ...(input.closingResponse != null && {
       closingResponse: serializeAws_restJson1ResponseSpecification(input.closingResponse, context),
     }),
+    ...(input.conditional != null && {
+      conditional: serializeAws_restJson1ConditionalSpecification(input.conditional, context),
+    }),
+    ...(input.nextStep != null && { nextStep: serializeAws_restJson1DialogState(input.nextStep, context) }),
   };
 };
 
@@ -7662,8 +8526,41 @@ const serializeAws_restJson1IntentConfirmationSetting = (
 ): any => {
   return {
     ...(input.active != null && { active: input.active }),
+    ...(input.codeHook != null && {
+      codeHook: serializeAws_restJson1DialogCodeHookInvocationSetting(input.codeHook, context),
+    }),
+    ...(input.confirmationConditional != null && {
+      confirmationConditional: serializeAws_restJson1ConditionalSpecification(input.confirmationConditional, context),
+    }),
+    ...(input.confirmationNextStep != null && {
+      confirmationNextStep: serializeAws_restJson1DialogState(input.confirmationNextStep, context),
+    }),
+    ...(input.confirmationResponse != null && {
+      confirmationResponse: serializeAws_restJson1ResponseSpecification(input.confirmationResponse, context),
+    }),
+    ...(input.declinationConditional != null && {
+      declinationConditional: serializeAws_restJson1ConditionalSpecification(input.declinationConditional, context),
+    }),
+    ...(input.declinationNextStep != null && {
+      declinationNextStep: serializeAws_restJson1DialogState(input.declinationNextStep, context),
+    }),
     ...(input.declinationResponse != null && {
       declinationResponse: serializeAws_restJson1ResponseSpecification(input.declinationResponse, context),
+    }),
+    ...(input.elicitationCodeHook != null && {
+      elicitationCodeHook: serializeAws_restJson1ElicitationCodeHookInvocationSetting(
+        input.elicitationCodeHook,
+        context
+      ),
+    }),
+    ...(input.failureConditional != null && {
+      failureConditional: serializeAws_restJson1ConditionalSpecification(input.failureConditional, context),
+    }),
+    ...(input.failureNextStep != null && {
+      failureNextStep: serializeAws_restJson1DialogState(input.failureNextStep, context),
+    }),
+    ...(input.failureResponse != null && {
+      failureResponse: serializeAws_restJson1ResponseSpecification(input.failureResponse, context),
     }),
     ...(input.promptSpecification != null && {
       promptSpecification: serializeAws_restJson1PromptSpecification(input.promptSpecification, context),
@@ -7685,6 +8582,13 @@ const serializeAws_restJson1IntentFilters = (input: IntentFilter[], context: __S
     .map((entry) => {
       return serializeAws_restJson1IntentFilter(entry, context);
     });
+};
+
+const serializeAws_restJson1IntentOverride = (input: IntentOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.slots != null && { slots: serializeAws_restJson1SlotValueOverrideMap(input.slots, context) }),
+  };
 };
 
 const serializeAws_restJson1IntentSortBy = (input: IntentSortBy, context: __SerdeContext): any => {
@@ -7763,6 +8667,17 @@ const serializeAws_restJson1MultipleValuesSetting = (input: MultipleValuesSettin
   };
 };
 
+const serializeAws_restJson1NewCustomVocabularyItem = (
+  input: NewCustomVocabularyItem,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.displayAs != null && { displayAs: input.displayAs }),
+    ...(input.phrase != null && { phrase: input.phrase }),
+    ...(input.weight != null && { weight: input.weight }),
+  };
+};
+
 const serializeAws_restJson1ObfuscationSetting = (input: ObfuscationSetting, context: __SerdeContext): any => {
   return {
     ...(input.obfuscationSettingType != null && { obfuscationSettingType: input.obfuscationSettingType }),
@@ -7815,16 +8730,69 @@ const serializeAws_restJson1PlainTextMessage = (input: PlainTextMessage, context
   };
 };
 
+const serializeAws_restJson1PostDialogCodeHookInvocationSpecification = (
+  input: PostDialogCodeHookInvocationSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.failureConditional != null && {
+      failureConditional: serializeAws_restJson1ConditionalSpecification(input.failureConditional, context),
+    }),
+    ...(input.failureNextStep != null && {
+      failureNextStep: serializeAws_restJson1DialogState(input.failureNextStep, context),
+    }),
+    ...(input.failureResponse != null && {
+      failureResponse: serializeAws_restJson1ResponseSpecification(input.failureResponse, context),
+    }),
+    ...(input.successConditional != null && {
+      successConditional: serializeAws_restJson1ConditionalSpecification(input.successConditional, context),
+    }),
+    ...(input.successNextStep != null && {
+      successNextStep: serializeAws_restJson1DialogState(input.successNextStep, context),
+    }),
+    ...(input.successResponse != null && {
+      successResponse: serializeAws_restJson1ResponseSpecification(input.successResponse, context),
+    }),
+    ...(input.timeoutConditional != null && {
+      timeoutConditional: serializeAws_restJson1ConditionalSpecification(input.timeoutConditional, context),
+    }),
+    ...(input.timeoutNextStep != null && {
+      timeoutNextStep: serializeAws_restJson1DialogState(input.timeoutNextStep, context),
+    }),
+    ...(input.timeoutResponse != null && {
+      timeoutResponse: serializeAws_restJson1ResponseSpecification(input.timeoutResponse, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1PostFulfillmentStatusSpecification = (
   input: PostFulfillmentStatusSpecification,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.failureConditional != null && {
+      failureConditional: serializeAws_restJson1ConditionalSpecification(input.failureConditional, context),
+    }),
+    ...(input.failureNextStep != null && {
+      failureNextStep: serializeAws_restJson1DialogState(input.failureNextStep, context),
+    }),
     ...(input.failureResponse != null && {
       failureResponse: serializeAws_restJson1ResponseSpecification(input.failureResponse, context),
     }),
+    ...(input.successConditional != null && {
+      successConditional: serializeAws_restJson1ConditionalSpecification(input.successConditional, context),
+    }),
+    ...(input.successNextStep != null && {
+      successNextStep: serializeAws_restJson1DialogState(input.successNextStep, context),
+    }),
     ...(input.successResponse != null && {
       successResponse: serializeAws_restJson1ResponseSpecification(input.successResponse, context),
+    }),
+    ...(input.timeoutConditional != null && {
+      timeoutConditional: serializeAws_restJson1ConditionalSpecification(input.timeoutConditional, context),
+    }),
+    ...(input.timeoutNextStep != null && {
+      timeoutNextStep: serializeAws_restJson1DialogState(input.timeoutNextStep, context),
     }),
     ...(input.timeoutResponse != null && {
       timeoutResponse: serializeAws_restJson1ResponseSpecification(input.timeoutResponse, context),
@@ -7847,6 +8815,40 @@ const serializeAws_restJson1PrincipalList = (input: Principal[], context: __Serd
     });
 };
 
+const serializeAws_restJson1PromptAttemptSpecification = (
+  input: PromptAttemptSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.allowInterrupt != null && { allowInterrupt: input.allowInterrupt }),
+    ...(input.allowedInputTypes != null && {
+      allowedInputTypes: serializeAws_restJson1AllowedInputTypes(input.allowedInputTypes, context),
+    }),
+    ...(input.audioAndDTMFInputSpecification != null && {
+      audioAndDTMFInputSpecification: serializeAws_restJson1AudioAndDTMFInputSpecification(
+        input.audioAndDTMFInputSpecification,
+        context
+      ),
+    }),
+    ...(input.textInputSpecification != null && {
+      textInputSpecification: serializeAws_restJson1TextInputSpecification(input.textInputSpecification, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1PromptAttemptsSpecificationMap = (
+  input: Record<string, PromptAttemptSpecification>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [PromptAttempt | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1PromptAttemptSpecification(value, context);
+    return acc;
+  }, {});
+};
+
 const serializeAws_restJson1PromptSpecification = (input: PromptSpecification, context: __SerdeContext): any => {
   return {
     ...(input.allowInterrupt != null && { allowInterrupt: input.allowInterrupt }),
@@ -7855,6 +8857,12 @@ const serializeAws_restJson1PromptSpecification = (input: PromptSpecification, c
       messageGroups: serializeAws_restJson1MessageGroupsList(input.messageGroups, context),
     }),
     ...(input.messageSelectionStrategy != null && { messageSelectionStrategy: input.messageSelectionStrategy }),
+    ...(input.promptAttemptsSpecification != null && {
+      promptAttemptsSpecification: serializeAws_restJson1PromptAttemptsSpecificationMap(
+        input.promptAttemptsSpecification,
+        context
+      ),
+    }),
   };
 };
 
@@ -7926,6 +8934,38 @@ const serializeAws_restJson1SentimentAnalysisSettings = (
 ): any => {
   return {
     ...(input.detectSentiment != null && { detectSentiment: input.detectSentiment }),
+  };
+};
+
+const serializeAws_restJson1SlotCaptureSetting = (input: SlotCaptureSetting, context: __SerdeContext): any => {
+  return {
+    ...(input.captureConditional != null && {
+      captureConditional: serializeAws_restJson1ConditionalSpecification(input.captureConditional, context),
+    }),
+    ...(input.captureNextStep != null && {
+      captureNextStep: serializeAws_restJson1DialogState(input.captureNextStep, context),
+    }),
+    ...(input.captureResponse != null && {
+      captureResponse: serializeAws_restJson1ResponseSpecification(input.captureResponse, context),
+    }),
+    ...(input.codeHook != null && {
+      codeHook: serializeAws_restJson1DialogCodeHookInvocationSetting(input.codeHook, context),
+    }),
+    ...(input.elicitationCodeHook != null && {
+      elicitationCodeHook: serializeAws_restJson1ElicitationCodeHookInvocationSetting(
+        input.elicitationCodeHook,
+        context
+      ),
+    }),
+    ...(input.failureConditional != null && {
+      failureConditional: serializeAws_restJson1ConditionalSpecification(input.failureConditional, context),
+    }),
+    ...(input.failureNextStep != null && {
+      failureNextStep: serializeAws_restJson1DialogState(input.failureNextStep, context),
+    }),
+    ...(input.failureResponse != null && {
+      failureResponse: serializeAws_restJson1ResponseSpecification(input.failureResponse, context),
+    }),
   };
 };
 
@@ -8030,6 +9070,12 @@ const serializeAws_restJson1SlotTypeValues = (input: SlotTypeValue[], context: _
     });
 };
 
+const serializeAws_restJson1SlotValue = (input: SlotValue, context: __SerdeContext): any => {
+  return {
+    ...(input.interpretedValue != null && { interpretedValue: input.interpretedValue }),
+  };
+};
+
 const serializeAws_restJson1SlotValueElicitationSetting = (
   input: SlotValueElicitationSetting,
   context: __SerdeContext
@@ -8047,6 +9093,9 @@ const serializeAws_restJson1SlotValueElicitationSetting = (
     ...(input.sampleUtterances != null && {
       sampleUtterances: serializeAws_restJson1SampleUtterancesList(input.sampleUtterances, context),
     }),
+    ...(input.slotCaptureSetting != null && {
+      slotCaptureSetting: serializeAws_restJson1SlotCaptureSetting(input.slotCaptureSetting, context),
+    }),
     ...(input.slotConstraint != null && { slotConstraint: input.slotConstraint }),
     ...(input.waitAndContinueSpecification != null && {
       waitAndContinueSpecification: serializeAws_restJson1WaitAndContinueSpecification(
@@ -8057,10 +9106,39 @@ const serializeAws_restJson1SlotValueElicitationSetting = (
   };
 };
 
+const serializeAws_restJson1SlotValueOverride = (input: SlotValueOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.shape != null && { shape: input.shape }),
+    ...(input.value != null && { value: serializeAws_restJson1SlotValue(input.value, context) }),
+    ...(input.values != null && { values: serializeAws_restJson1SlotValues(input.values, context) }),
+  };
+};
+
+const serializeAws_restJson1SlotValueOverrideMap = (
+  input: Record<string, SlotValueOverride>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1SlotValueOverride(value, context);
+    return acc;
+  }, {});
+};
+
 const serializeAws_restJson1SlotValueRegexFilter = (input: SlotValueRegexFilter, context: __SerdeContext): any => {
   return {
     ...(input.pattern != null && { pattern: input.pattern }),
   };
+};
+
+const serializeAws_restJson1SlotValues = (input: SlotValueOverride[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SlotValueOverride(entry, context);
+    });
 };
 
 const serializeAws_restJson1SlotValueSelectionSetting = (
@@ -8078,6 +9156,18 @@ const serializeAws_restJson1SlotValueSelectionSetting = (
       regexFilter: serializeAws_restJson1SlotValueRegexFilter(input.regexFilter, context),
     }),
     ...(input.resolutionStrategy != null && { resolutionStrategy: input.resolutionStrategy }),
+  };
+};
+
+const serializeAws_restJson1Specifications = (input: Specifications, context: __SerdeContext): any => {
+  return {
+    ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
+    ...(input.valueElicitationSetting != null && {
+      valueElicitationSetting: serializeAws_restJson1SubSlotValueElicitationSetting(
+        input.valueElicitationSetting,
+        context
+      ),
+    }),
   };
 };
 
@@ -8101,6 +9191,79 @@ const serializeAws_restJson1StillWaitingResponseSpecification = (
   };
 };
 
+const serializeAws_restJson1StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
+const serializeAws_restJson1SubSlotSetting = (input: SubSlotSetting, context: __SerdeContext): any => {
+  return {
+    ...(input.expression != null && { expression: input.expression }),
+    ...(input.slotSpecifications != null && {
+      slotSpecifications: serializeAws_restJson1SubSlotSpecificationMap(input.slotSpecifications, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SubSlotSpecificationMap = (
+  input: Record<string, Specifications>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1Specifications(value, context);
+    return acc;
+  }, {});
+};
+
+const serializeAws_restJson1SubSlotTypeComposition = (input: SubSlotTypeComposition, context: __SerdeContext): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
+  };
+};
+
+const serializeAws_restJson1SubSlotTypeList = (input: SubSlotTypeComposition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SubSlotTypeComposition(entry, context);
+    });
+};
+
+const serializeAws_restJson1SubSlotValueElicitationSetting = (
+  input: SubSlotValueElicitationSetting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.defaultValueSpecification != null && {
+      defaultValueSpecification: serializeAws_restJson1SlotDefaultValueSpecification(
+        input.defaultValueSpecification,
+        context
+      ),
+    }),
+    ...(input.promptSpecification != null && {
+      promptSpecification: serializeAws_restJson1PromptSpecification(input.promptSpecification, context),
+    }),
+    ...(input.sampleUtterances != null && {
+      sampleUtterances: serializeAws_restJson1SampleUtterancesList(input.sampleUtterances, context),
+    }),
+    ...(input.waitAndContinueSpecification != null && {
+      waitAndContinueSpecification: serializeAws_restJson1WaitAndContinueSpecification(
+        input.waitAndContinueSpecification,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_restJson1SynonymList = (input: SampleValue[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -8114,11 +9277,15 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
+};
+
+const serializeAws_restJson1TextInputSpecification = (input: TextInputSpecification, context: __SerdeContext): any => {
+  return {
+    ...(input.startTimeoutMs != null && { startTimeoutMs: input.startTimeoutMs }),
+  };
 };
 
 const serializeAws_restJson1TextLogDestination = (input: TextLogDestination, context: __SerdeContext): any => {
@@ -8163,6 +9330,17 @@ const serializeAws_restJson1TranscriptSourceSetting = (
       s3BucketTranscriptSource: serializeAws_restJson1S3BucketTranscriptSource(input.s3BucketTranscriptSource, context),
     }),
   };
+};
+
+const serializeAws_restJson1UpdateCustomVocabularyItemsList = (
+  input: CustomVocabularyItem[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1CustomVocabularyItem(entry, context);
+    });
 };
 
 const serializeAws_restJson1UtteranceAggregationDuration = (
@@ -8251,6 +9429,13 @@ const deserializeAws_restJson1AggregatedUtterancesSummaryList = (
   return retVal;
 };
 
+const deserializeAws_restJson1AllowedInputTypes = (output: any, context: __SerdeContext): AllowedInputTypes => {
+  return {
+    allowAudioInput: __expectBoolean(output.allowAudioInput),
+    allowDTMFInput: __expectBoolean(output.allowDTMFInput),
+  } as any;
+};
+
 const deserializeAws_restJson1AssociatedTranscript = (output: any, context: __SerdeContext): AssociatedTranscript => {
   return {
     transcript: __expectString(output.transcript),
@@ -8270,6 +9455,23 @@ const deserializeAws_restJson1AssociatedTranscriptList = (
       return deserializeAws_restJson1AssociatedTranscript(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AudioAndDTMFInputSpecification = (
+  output: any,
+  context: __SerdeContext
+): AudioAndDTMFInputSpecification => {
+  return {
+    audioSpecification:
+      output.audioSpecification != null
+        ? deserializeAws_restJson1AudioSpecification(output.audioSpecification, context)
+        : undefined,
+    dtmfSpecification:
+      output.dtmfSpecification != null
+        ? deserializeAws_restJson1DTMFSpecification(output.dtmfSpecification, context)
+        : undefined,
+    startTimeoutMs: __expectInt32(output.startTimeoutMs),
+  } as any;
 };
 
 const deserializeAws_restJson1AudioLogDestination = (output: any, context: __SerdeContext): AudioLogDestination => {
@@ -8297,6 +9499,13 @@ const deserializeAws_restJson1AudioLogSettingsList = (output: any, context: __Se
       return deserializeAws_restJson1AudioLogSetting(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AudioSpecification = (output: any, context: __SerdeContext): AudioSpecification => {
+  return {
+    endTimeoutMs: __expectInt32(output.endTimeoutMs),
+    maxLengthMs: __expectInt32(output.maxLengthMs),
+  } as any;
 };
 
 const deserializeAws_restJson1BotAliasHistoryEvent = (output: any, context: __SerdeContext): BotAliasHistoryEvent => {
@@ -8345,10 +9554,8 @@ const deserializeAws_restJson1BotAliasLocaleSettingsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1BotAliasLocaleSettings(value, context),
-    };
+    acc[key] = deserializeAws_restJson1BotAliasLocaleSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -8485,6 +9692,28 @@ const deserializeAws_restJson1BotLocaleSummaryList = (output: any, context: __Se
   return retVal;
 };
 
+const deserializeAws_restJson1BotMember = (output: any, context: __SerdeContext): BotMember => {
+  return {
+    botMemberAliasId: __expectString(output.botMemberAliasId),
+    botMemberAliasName: __expectString(output.botMemberAliasName),
+    botMemberId: __expectString(output.botMemberId),
+    botMemberName: __expectString(output.botMemberName),
+    botMemberVersion: __expectString(output.botMemberVersion),
+  } as any;
+};
+
+const deserializeAws_restJson1BotMembers = (output: any, context: __SerdeContext): BotMember[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BotMember(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1BotRecommendationResults = (
   output: any,
   context: __SerdeContext
@@ -8548,6 +9777,7 @@ const deserializeAws_restJson1BotSummary = (output: any, context: __SerdeContext
     botId: __expectString(output.botId),
     botName: __expectString(output.botName),
     botStatus: __expectString(output.botStatus),
+    botType: __expectString(output.botType),
     description: __expectString(output.description),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime != null
@@ -8586,10 +9816,8 @@ const deserializeAws_restJson1BotVersionLocaleSpecification = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1BotVersionLocaleDetails(value, context),
-    };
+    acc[key] = deserializeAws_restJson1BotVersionLocaleDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -8703,6 +9931,60 @@ const deserializeAws_restJson1CodeHookSpecification = (output: any, context: __S
   } as any;
 };
 
+const deserializeAws_restJson1CompositeSlotTypeSetting = (
+  output: any,
+  context: __SerdeContext
+): CompositeSlotTypeSetting => {
+  return {
+    subSlots: output.subSlots != null ? deserializeAws_restJson1SubSlotTypeList(output.subSlots, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext): Condition => {
+  return {
+    expressionString: __expectString(output.expressionString),
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionalBranch = (output: any, context: __SerdeContext): ConditionalBranch => {
+  return {
+    condition: output.condition != null ? deserializeAws_restJson1Condition(output.condition, context) : undefined,
+    name: __expectString(output.name),
+    nextStep: output.nextStep != null ? deserializeAws_restJson1DialogState(output.nextStep, context) : undefined,
+    response:
+      output.response != null ? deserializeAws_restJson1ResponseSpecification(output.response, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionalBranches = (output: any, context: __SerdeContext): ConditionalBranch[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ConditionalBranch(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ConditionalSpecification = (
+  output: any,
+  context: __SerdeContext
+): ConditionalSpecification => {
+  return {
+    active: __expectBoolean(output.active),
+    conditionalBranches:
+      output.conditionalBranches != null
+        ? deserializeAws_restJson1ConditionalBranches(output.conditionalBranches, context)
+        : undefined,
+    defaultBranch:
+      output.defaultBranch != null
+        ? deserializeAws_restJson1DefaultConditionalBranch(output.defaultBranch, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ConversationLogSettings = (
   output: any,
   context: __SerdeContext
@@ -8747,6 +10029,30 @@ const deserializeAws_restJson1CustomVocabularyImportSpecification = (
   } as any;
 };
 
+const deserializeAws_restJson1CustomVocabularyItem = (output: any, context: __SerdeContext): CustomVocabularyItem => {
+  return {
+    displayAs: __expectString(output.displayAs),
+    itemId: __expectString(output.itemId),
+    phrase: __expectString(output.phrase),
+    weight: __expectInt32(output.weight),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomVocabularyItems = (
+  output: any,
+  context: __SerdeContext
+): CustomVocabularyItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CustomVocabularyItem(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1DataPrivacy = (output: any, context: __SerdeContext): DataPrivacy => {
   return {
     childDirected: __expectBoolean(output.childDirected),
@@ -8766,12 +10072,77 @@ const deserializeAws_restJson1DateRangeFilter = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1DefaultConditionalBranch = (
+  output: any,
+  context: __SerdeContext
+): DefaultConditionalBranch => {
+  return {
+    nextStep: output.nextStep != null ? deserializeAws_restJson1DialogState(output.nextStep, context) : undefined,
+    response:
+      output.response != null ? deserializeAws_restJson1ResponseSpecification(output.response, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeContext): DialogAction => {
+  return {
+    slotToElicit: __expectString(output.slotToElicit),
+    suppressNextMessage: __expectBoolean(output.suppressNextMessage),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1DialogCodeHookInvocationSetting = (
+  output: any,
+  context: __SerdeContext
+): DialogCodeHookInvocationSetting => {
+  return {
+    active: __expectBoolean(output.active),
+    enableCodeHookInvocation: __expectBoolean(output.enableCodeHookInvocation),
+    invocationLabel: __expectString(output.invocationLabel),
+    postCodeHookSpecification:
+      output.postCodeHookSpecification != null
+        ? deserializeAws_restJson1PostDialogCodeHookInvocationSpecification(output.postCodeHookSpecification, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1DialogCodeHookSettings = (
   output: any,
   context: __SerdeContext
 ): DialogCodeHookSettings => {
   return {
     enabled: __expectBoolean(output.enabled),
+  } as any;
+};
+
+const deserializeAws_restJson1DialogState = (output: any, context: __SerdeContext): DialogState => {
+  return {
+    dialogAction:
+      output.dialogAction != null ? deserializeAws_restJson1DialogAction(output.dialogAction, context) : undefined,
+    intent: output.intent != null ? deserializeAws_restJson1IntentOverride(output.intent, context) : undefined,
+    sessionAttributes:
+      output.sessionAttributes != null
+        ? deserializeAws_restJson1StringMap(output.sessionAttributes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DTMFSpecification = (output: any, context: __SerdeContext): DTMFSpecification => {
+  return {
+    deletionCharacter: __expectString(output.deletionCharacter),
+    endCharacter: __expectString(output.endCharacter),
+    endTimeoutMs: __expectInt32(output.endTimeoutMs),
+    maxLength: __expectInt32(output.maxLength),
+  } as any;
+};
+
+const deserializeAws_restJson1ElicitationCodeHookInvocationSetting = (
+  output: any,
+  context: __SerdeContext
+): ElicitationCodeHookInvocationSetting => {
+  return {
+    enableCodeHookInvocation: __expectBoolean(output.enableCodeHookInvocation),
+    invocationLabel: __expectString(output.invocationLabel),
   } as any;
 };
 
@@ -8847,6 +10218,32 @@ const deserializeAws_restJson1ExternalSourceSetting = (output: any, context: __S
   } as any;
 };
 
+const deserializeAws_restJson1FailedCustomVocabularyItem = (
+  output: any,
+  context: __SerdeContext
+): FailedCustomVocabularyItem => {
+  return {
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+    itemId: __expectString(output.itemId),
+  } as any;
+};
+
+const deserializeAws_restJson1FailedCustomVocabularyItems = (
+  output: any,
+  context: __SerdeContext
+): FailedCustomVocabularyItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FailedCustomVocabularyItem(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1FailureReasons = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -8864,6 +10261,7 @@ const deserializeAws_restJson1FulfillmentCodeHookSettings = (
   context: __SerdeContext
 ): FulfillmentCodeHookSettings => {
   return {
+    active: __expectBoolean(output.active),
     enabled: __expectBoolean(output.enabled),
     fulfillmentUpdatesSpecification:
       output.fulfillmentUpdatesSpecification != null
@@ -9002,6 +10400,27 @@ const deserializeAws_restJson1ImportSummaryList = (output: any, context: __Serde
   return retVal;
 };
 
+const deserializeAws_restJson1InitialResponseSetting = (
+  output: any,
+  context: __SerdeContext
+): InitialResponseSetting => {
+  return {
+    codeHook:
+      output.codeHook != null
+        ? deserializeAws_restJson1DialogCodeHookInvocationSetting(output.codeHook, context)
+        : undefined,
+    conditional:
+      output.conditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.conditional, context)
+        : undefined,
+    initialResponse:
+      output.initialResponse != null
+        ? deserializeAws_restJson1ResponseSpecification(output.initialResponse, context)
+        : undefined,
+    nextStep: output.nextStep != null ? deserializeAws_restJson1DialogState(output.nextStep, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1InputContext = (output: any, context: __SerdeContext): InputContext => {
   return {
     name: __expectString(output.name),
@@ -9027,6 +10446,11 @@ const deserializeAws_restJson1IntentClosingSetting = (output: any, context: __Se
       output.closingResponse != null
         ? deserializeAws_restJson1ResponseSpecification(output.closingResponse, context)
         : undefined,
+    conditional:
+      output.conditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.conditional, context)
+        : undefined,
+    nextStep: output.nextStep != null ? deserializeAws_restJson1DialogState(output.nextStep, context) : undefined,
   } as any;
 };
 
@@ -9036,14 +10460,59 @@ const deserializeAws_restJson1IntentConfirmationSetting = (
 ): IntentConfirmationSetting => {
   return {
     active: __expectBoolean(output.active),
+    codeHook:
+      output.codeHook != null
+        ? deserializeAws_restJson1DialogCodeHookInvocationSetting(output.codeHook, context)
+        : undefined,
+    confirmationConditional:
+      output.confirmationConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.confirmationConditional, context)
+        : undefined,
+    confirmationNextStep:
+      output.confirmationNextStep != null
+        ? deserializeAws_restJson1DialogState(output.confirmationNextStep, context)
+        : undefined,
+    confirmationResponse:
+      output.confirmationResponse != null
+        ? deserializeAws_restJson1ResponseSpecification(output.confirmationResponse, context)
+        : undefined,
+    declinationConditional:
+      output.declinationConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.declinationConditional, context)
+        : undefined,
+    declinationNextStep:
+      output.declinationNextStep != null
+        ? deserializeAws_restJson1DialogState(output.declinationNextStep, context)
+        : undefined,
     declinationResponse:
       output.declinationResponse != null
         ? deserializeAws_restJson1ResponseSpecification(output.declinationResponse, context)
+        : undefined,
+    elicitationCodeHook:
+      output.elicitationCodeHook != null
+        ? deserializeAws_restJson1ElicitationCodeHookInvocationSetting(output.elicitationCodeHook, context)
+        : undefined,
+    failureConditional:
+      output.failureConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.failureConditional, context)
+        : undefined,
+    failureNextStep:
+      output.failureNextStep != null ? deserializeAws_restJson1DialogState(output.failureNextStep, context) : undefined,
+    failureResponse:
+      output.failureResponse != null
+        ? deserializeAws_restJson1ResponseSpecification(output.failureResponse, context)
         : undefined,
     promptSpecification:
       output.promptSpecification != null
         ? deserializeAws_restJson1PromptSpecification(output.promptSpecification, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1IntentOverride = (output: any, context: __SerdeContext): IntentOverride => {
+  return {
+    name: __expectString(output.name),
+    slots: output.slots != null ? deserializeAws_restJson1SlotValueOverrideMap(output.slots, context) : undefined,
   } as any;
 };
 
@@ -9203,6 +10672,25 @@ const deserializeAws_restJson1OutputContextsList = (output: any, context: __Serd
   return retVal;
 };
 
+const deserializeAws_restJson1ParentBotNetwork = (output: any, context: __SerdeContext): ParentBotNetwork => {
+  return {
+    botId: __expectString(output.botId),
+    botVersion: __expectString(output.botVersion),
+  } as any;
+};
+
+const deserializeAws_restJson1ParentBotNetworks = (output: any, context: __SerdeContext): ParentBotNetwork[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ParentBotNetwork(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1PathFormat = (output: any, context: __SerdeContext): PathFormat => {
   return {
     objectPrefixes:
@@ -9218,24 +10706,117 @@ const deserializeAws_restJson1PlainTextMessage = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1PostFulfillmentStatusSpecification = (
+const deserializeAws_restJson1PostDialogCodeHookInvocationSpecification = (
   output: any,
   context: __SerdeContext
-): PostFulfillmentStatusSpecification => {
+): PostDialogCodeHookInvocationSpecification => {
   return {
+    failureConditional:
+      output.failureConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.failureConditional, context)
+        : undefined,
+    failureNextStep:
+      output.failureNextStep != null ? deserializeAws_restJson1DialogState(output.failureNextStep, context) : undefined,
     failureResponse:
       output.failureResponse != null
         ? deserializeAws_restJson1ResponseSpecification(output.failureResponse, context)
         : undefined,
+    successConditional:
+      output.successConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.successConditional, context)
+        : undefined,
+    successNextStep:
+      output.successNextStep != null ? deserializeAws_restJson1DialogState(output.successNextStep, context) : undefined,
     successResponse:
       output.successResponse != null
         ? deserializeAws_restJson1ResponseSpecification(output.successResponse, context)
         : undefined,
+    timeoutConditional:
+      output.timeoutConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.timeoutConditional, context)
+        : undefined,
+    timeoutNextStep:
+      output.timeoutNextStep != null ? deserializeAws_restJson1DialogState(output.timeoutNextStep, context) : undefined,
     timeoutResponse:
       output.timeoutResponse != null
         ? deserializeAws_restJson1ResponseSpecification(output.timeoutResponse, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1PostFulfillmentStatusSpecification = (
+  output: any,
+  context: __SerdeContext
+): PostFulfillmentStatusSpecification => {
+  return {
+    failureConditional:
+      output.failureConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.failureConditional, context)
+        : undefined,
+    failureNextStep:
+      output.failureNextStep != null ? deserializeAws_restJson1DialogState(output.failureNextStep, context) : undefined,
+    failureResponse:
+      output.failureResponse != null
+        ? deserializeAws_restJson1ResponseSpecification(output.failureResponse, context)
+        : undefined,
+    successConditional:
+      output.successConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.successConditional, context)
+        : undefined,
+    successNextStep:
+      output.successNextStep != null ? deserializeAws_restJson1DialogState(output.successNextStep, context) : undefined,
+    successResponse:
+      output.successResponse != null
+        ? deserializeAws_restJson1ResponseSpecification(output.successResponse, context)
+        : undefined,
+    timeoutConditional:
+      output.timeoutConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.timeoutConditional, context)
+        : undefined,
+    timeoutNextStep:
+      output.timeoutNextStep != null ? deserializeAws_restJson1DialogState(output.timeoutNextStep, context) : undefined,
+    timeoutResponse:
+      output.timeoutResponse != null
+        ? deserializeAws_restJson1ResponseSpecification(output.timeoutResponse, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PromptAttemptSpecification = (
+  output: any,
+  context: __SerdeContext
+): PromptAttemptSpecification => {
+  return {
+    allowInterrupt: __expectBoolean(output.allowInterrupt),
+    allowedInputTypes:
+      output.allowedInputTypes != null
+        ? deserializeAws_restJson1AllowedInputTypes(output.allowedInputTypes, context)
+        : undefined,
+    audioAndDTMFInputSpecification:
+      output.audioAndDTMFInputSpecification != null
+        ? deserializeAws_restJson1AudioAndDTMFInputSpecification(output.audioAndDTMFInputSpecification, context)
+        : undefined,
+    textInputSpecification:
+      output.textInputSpecification != null
+        ? deserializeAws_restJson1TextInputSpecification(output.textInputSpecification, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PromptAttemptsSpecificationMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, PromptAttemptSpecification> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, PromptAttemptSpecification>, [key, value]: [PromptAttempt | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = deserializeAws_restJson1PromptAttemptSpecification(value, context);
+      return acc;
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1PromptSpecification = (output: any, context: __SerdeContext): PromptSpecification => {
@@ -9247,6 +10828,10 @@ const deserializeAws_restJson1PromptSpecification = (output: any, context: __Ser
         ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
         : undefined,
     messageSelectionStrategy: __expectString(output.messageSelectionStrategy),
+    promptAttemptsSpecification:
+      output.promptAttemptsSpecification != null
+        ? deserializeAws_restJson1PromptAttemptsSpecificationMap(output.promptAttemptsSpecification, context)
+        : undefined,
   } as any;
 };
 
@@ -9365,6 +10950,39 @@ const deserializeAws_restJson1SentimentAnalysisSettings = (
 ): SentimentAnalysisSettings => {
   return {
     detectSentiment: __expectBoolean(output.detectSentiment),
+  } as any;
+};
+
+const deserializeAws_restJson1SlotCaptureSetting = (output: any, context: __SerdeContext): SlotCaptureSetting => {
+  return {
+    captureConditional:
+      output.captureConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.captureConditional, context)
+        : undefined,
+    captureNextStep:
+      output.captureNextStep != null ? deserializeAws_restJson1DialogState(output.captureNextStep, context) : undefined,
+    captureResponse:
+      output.captureResponse != null
+        ? deserializeAws_restJson1ResponseSpecification(output.captureResponse, context)
+        : undefined,
+    codeHook:
+      output.codeHook != null
+        ? deserializeAws_restJson1DialogCodeHookInvocationSetting(output.codeHook, context)
+        : undefined,
+    elicitationCodeHook:
+      output.elicitationCodeHook != null
+        ? deserializeAws_restJson1ElicitationCodeHookInvocationSetting(output.elicitationCodeHook, context)
+        : undefined,
+    failureConditional:
+      output.failureConditional != null
+        ? deserializeAws_restJson1ConditionalSpecification(output.failureConditional, context)
+        : undefined,
+    failureNextStep:
+      output.failureNextStep != null ? deserializeAws_restJson1DialogState(output.failureNextStep, context) : undefined,
+    failureResponse:
+      output.failureResponse != null
+        ? deserializeAws_restJson1ResponseSpecification(output.failureResponse, context)
+        : undefined,
   } as any;
 };
 
@@ -9499,6 +11117,12 @@ const deserializeAws_restJson1SlotTypeValues = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_restJson1SlotValue = (output: any, context: __SerdeContext): SlotValue => {
+  return {
+    interpretedValue: __expectString(output.interpretedValue),
+  } as any;
+};
+
 const deserializeAws_restJson1SlotValueElicitationSetting = (
   output: any,
   context: __SerdeContext
@@ -9516,6 +11140,10 @@ const deserializeAws_restJson1SlotValueElicitationSetting = (
       output.sampleUtterances != null
         ? deserializeAws_restJson1SampleUtterancesList(output.sampleUtterances, context)
         : undefined,
+    slotCaptureSetting:
+      output.slotCaptureSetting != null
+        ? deserializeAws_restJson1SlotCaptureSetting(output.slotCaptureSetting, context)
+        : undefined,
     slotConstraint: __expectString(output.slotConstraint),
     waitAndContinueSpecification:
       output.waitAndContinueSpecification != null
@@ -9524,10 +11152,43 @@ const deserializeAws_restJson1SlotValueElicitationSetting = (
   } as any;
 };
 
+const deserializeAws_restJson1SlotValueOverride = (output: any, context: __SerdeContext): SlotValueOverride => {
+  return {
+    shape: __expectString(output.shape),
+    value: output.value != null ? deserializeAws_restJson1SlotValue(output.value, context) : undefined,
+    values: output.values != null ? deserializeAws_restJson1SlotValues(output.values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SlotValueOverrideMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, SlotValueOverride> => {
+  return Object.entries(output).reduce((acc: Record<string, SlotValueOverride>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = deserializeAws_restJson1SlotValueOverride(value, context);
+    return acc;
+  }, {});
+};
+
 const deserializeAws_restJson1SlotValueRegexFilter = (output: any, context: __SerdeContext): SlotValueRegexFilter => {
   return {
     pattern: __expectString(output.pattern),
   } as any;
+};
+
+const deserializeAws_restJson1SlotValues = (output: any, context: __SerdeContext): SlotValueOverride[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SlotValueOverride(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1SlotValueSelectionSetting = (
@@ -9544,6 +11205,16 @@ const deserializeAws_restJson1SlotValueSelectionSetting = (
         ? deserializeAws_restJson1SlotValueRegexFilter(output.regexFilter, context)
         : undefined,
     resolutionStrategy: __expectString(output.resolutionStrategy),
+  } as any;
+};
+
+const deserializeAws_restJson1Specifications = (output: any, context: __SerdeContext): Specifications => {
+  return {
+    slotTypeId: __expectString(output.slotTypeId),
+    valueElicitationSetting:
+      output.valueElicitationSetting != null
+        ? deserializeAws_restJson1SubSlotValueElicitationSetting(output.valueElicitationSetting, context)
+        : undefined,
   } as any;
 };
 
@@ -9568,6 +11239,85 @@ const deserializeAws_restJson1StillWaitingResponseSpecification = (
   } as any;
 };
 
+const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
+};
+
+const deserializeAws_restJson1SubSlotSetting = (output: any, context: __SerdeContext): SubSlotSetting => {
+  return {
+    expression: __expectString(output.expression),
+    slotSpecifications:
+      output.slotSpecifications != null
+        ? deserializeAws_restJson1SubSlotSpecificationMap(output.slotSpecifications, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SubSlotSpecificationMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, Specifications> => {
+  return Object.entries(output).reduce((acc: Record<string, Specifications>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = deserializeAws_restJson1Specifications(value, context);
+    return acc;
+  }, {});
+};
+
+const deserializeAws_restJson1SubSlotTypeComposition = (
+  output: any,
+  context: __SerdeContext
+): SubSlotTypeComposition => {
+  return {
+    name: __expectString(output.name),
+    slotTypeId: __expectString(output.slotTypeId),
+  } as any;
+};
+
+const deserializeAws_restJson1SubSlotTypeList = (output: any, context: __SerdeContext): SubSlotTypeComposition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SubSlotTypeComposition(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SubSlotValueElicitationSetting = (
+  output: any,
+  context: __SerdeContext
+): SubSlotValueElicitationSetting => {
+  return {
+    defaultValueSpecification:
+      output.defaultValueSpecification != null
+        ? deserializeAws_restJson1SlotDefaultValueSpecification(output.defaultValueSpecification, context)
+        : undefined,
+    promptSpecification:
+      output.promptSpecification != null
+        ? deserializeAws_restJson1PromptSpecification(output.promptSpecification, context)
+        : undefined,
+    sampleUtterances:
+      output.sampleUtterances != null
+        ? deserializeAws_restJson1SampleUtterancesList(output.sampleUtterances, context)
+        : undefined,
+    waitAndContinueSpecification:
+      output.waitAndContinueSpecification != null
+        ? deserializeAws_restJson1WaitAndContinueSpecification(output.waitAndContinueSpecification, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1SynonymList = (output: any, context: __SerdeContext): SampleValue[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -9585,11 +11335,18 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
+};
+
+const deserializeAws_restJson1TextInputSpecification = (
+  output: any,
+  context: __SerdeContext
+): TextInputSpecification => {
+  return {
+    startTimeoutMs: __expectInt32(output.startTimeoutMs),
+  } as any;
 };
 
 const deserializeAws_restJson1TextLogDestination = (output: any, context: __SerdeContext): TextLogDestination => {
@@ -9684,7 +11441,8 @@ const deserializeAws_restJson1WaitAndContinueSpecification = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -9716,6 +11474,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -9726,6 +11490,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

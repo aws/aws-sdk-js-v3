@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * <p>Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
  *             exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a
  *             file system backup. </p>
- *         <p>The <code>DeleteSnapshot</code> operation returns instantly. The snapshot appears with
+ *          <p>The <code>DeleteSnapshot</code> operation returns instantly. The snapshot appears with
  *             the lifecycle status of <code>DELETING</code> until the deletion is complete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +57,15 @@ export class DeleteSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DeleteSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteSnapshotCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

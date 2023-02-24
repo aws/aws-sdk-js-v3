@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   CreateAnalysisRequestFilterSensitiveLog,
   CreateAnalysisResponse,
   CreateAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateAnalysisCommand,
   serializeAws_restJson1CreateAnalysisCommand,
@@ -28,7 +29,7 @@ export interface CreateAnalysisCommandInput extends CreateAnalysisRequest {}
 export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an analysis in Amazon QuickSight.</p>
+ * <p>Creates an analysis in Amazon QuickSight.  Analyses can be created either from a template or from an <code>AnalysisDefinition</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +53,15 @@ export class CreateAnalysisCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +77,9 @@ export class CreateAnalysisCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAnalysisCommandInput, CreateAnalysisCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateAnalysisCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

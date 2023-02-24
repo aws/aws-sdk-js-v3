@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -32,7 +33,7 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * <p>Retrieves a list of the public and private hosted zones that are associated with the
  * 			current Amazon Web Services account. The response includes a <code>HostedZones</code>
  * 			child element for each hosted zone.</p>
- * 		       <p>Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of
+ *          <p>Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of
  * 			hosted zones, you can use the <code>maxitems</code> parameter to list them in groups of
  * 			up to 100.</p>
  * @example
@@ -58,6 +59,15 @@ export class ListHostedZonesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListHostedZonesCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,9 @@ export class ListHostedZonesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListHostedZonesCommandInput, ListHostedZonesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListHostedZonesCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

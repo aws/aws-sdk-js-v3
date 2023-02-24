@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,13 +30,11 @@ export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResul
 
 /**
  * <p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p>
- *
  *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
- *       bucket. You can update a bucket's bundle only one time within a monthly AWS billing cycle. To
- *       determine if you can update a bucket's bundle, use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a> action. The
+ *       bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services
+ *       billing cycle. To determine if you can update a bucket's bundle, use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a> action. The
  *         <code>ableToUpdateBundle</code> parameter in the response will indicate whether you can
  *       currently update a bucket's bundle.</p>
- *
  *          <p>Update a bucket's bundle if it's consistently going over its storage space or data
  *       transfer quota, or if a bucket's usage is consistently in the lower range of its storage space
  *       or data transfer quota. Due to the unpredictable usage fluctuations that a bucket might
@@ -66,6 +65,15 @@ export class UpdateBucketBundleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateBucketBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +89,9 @@ export class UpdateBucketBundleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateBucketBundleCommandInput, UpdateBucketBundleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateBucketBundleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

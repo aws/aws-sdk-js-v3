@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,18 +30,18 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
 
 /**
  * <p>Initiates the failover process for an Aurora global database (<a>GlobalCluster</a>).</p>
- *         <p>A failover for an Aurora global database promotes one of secondary read-only DB clusters to be
+ *          <p>A failover for an Aurora global database promotes one of secondary read-only DB clusters to be
  *        the primary DB cluster and demotes the primary DB cluster to being a secondary (read-only) DB cluster. In other words,
  *      the role of the current primary DB cluster and the selected (target) DB cluster are switched. The selected
  *      secondary DB cluster assumes full read/write capabilities for the Aurora global database.</p>
- *         <p>For more information about failing over an Amazon Aurora global database, see
+ *          <p>For more information about failing over an Amazon Aurora global database, see
  *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover">Managed planned failover for Amazon Aurora global
  *         databases</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p>This action applies to <a>GlobalCluster</a> (Aurora global databases) only. Use this action only on
  *        healthy Aurora global databases with running Aurora DB clusters and no Region-wide outages, to test disaster recovery scenarios or to
  *         reconfigure your Aurora global database topology.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +65,15 @@ export class FailoverGlobalClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: FailoverGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +89,9 @@ export class FailoverGlobalClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<FailoverGlobalClusterCommandInput, FailoverGlobalClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, FailoverGlobalClusterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

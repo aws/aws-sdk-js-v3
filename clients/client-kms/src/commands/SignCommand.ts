@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,8 +28,8 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
 /**
  * <p>Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital
  *         signature</a> for a message or message digest by using the private key in an asymmetric
- *       signing KMS key. To verify the signature, use the <a>Verify</a> operation, or use the
- *       public key in the same asymmetric KMS key outside of KMS. For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       signing KMS key. To verify the signature, use the <a>Verify</a> operation, or use
+ *       the public key in the same asymmetric KMS key outside of KMS. For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>Digital signatures are generated and verified by using asymmetric key pair, such as an RSA
  *       or ECC pair that is represented by an asymmetric KMS key. The key owner (or an authorized
  *       user) uses their private key to sign a message. Anyone with the public key can verify that the
@@ -58,16 +59,18 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *         information is required to verify the signature.</p>
  *          </important>
  *          <note>
- *             <p>Best practices recommend that you limit the time during which any signature is effective. This deters an attack where the actor uses a signed
- *         message to establish validity repeatedly or long after the message is superseded. Signatures do not include a timestamp, but you can include a timestamp in the signed message
- *         to help you detect when its time to refresh the signature. </p>
+ *             <p>Best practices recommend that you limit the time during which any signature is
+ *         effective. This deters an attack where the actor uses a signed message to establish validity
+ *         repeatedly or long after the message is superseded. Signatures do not include a timestamp,
+ *         but you can include a timestamp in the signed message to help you detect when its time to
+ *         refresh the signature. </p>
  *          </note>
  *          <p>To verify the signature that this operation generates, use the <a>Verify</a>
  *       operation. Or use the <a>GetPublicKey</a> operation to download the public key and
  *       then use the public key to verify the signature outside of KMS. </p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *         <p>
+ *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
  *
@@ -95,6 +98,15 @@ export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, K
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SignCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +122,7 @@ export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, K
     options?: __HttpHandlerOptions
   ): Handler<SignCommandInput, SignCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, SignCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

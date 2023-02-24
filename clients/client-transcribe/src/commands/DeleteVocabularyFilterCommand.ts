@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,9 +24,9 @@ export interface DeleteVocabularyFilterCommandInput extends DeleteVocabularyFilt
 export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a vocabulary filter. To use this operation, specify the name of the vocabulary filter
- *             you want to delete using <code>VocabularyFilterName</code>. Vocabulary filter names are
- *             case sensitive.</p>
+ * <p>Deletes a custom vocabulary filter. To use this operation, specify the name of the
+ *             custom vocabulary filter you want to delete using <code>VocabularyFilterName</code>.
+ *             Custom vocabulary filter names are case sensitive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +50,15 @@ export class DeleteVocabularyFilterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +74,9 @@ export class DeleteVocabularyFilterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteVocabularyFilterCommandInput, DeleteVocabularyFilterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteVocabularyFilterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

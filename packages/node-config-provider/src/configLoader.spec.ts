@@ -25,7 +25,8 @@ describe("loadConfig", () => {
     (fromSharedConfigFiles as jest.Mock).mockReturnValueOnce(mockFromSharedConfigFilesReturn);
     const mockFromStatic = "mockFromStatic";
     (fromStatic as jest.Mock).mockReturnValueOnce(mockFromStatic);
-    const envVarSelector = (env: NodeJS.ProcessEnv) => env["AWS_CONFIG_FOO"];
+    // Using Record<string, string | undefined> instead of NodeJS.ProcessEnv, in order to not get type errors in non node environments
+    const envVarSelector = (env: Record<string, string | undefined>) => env["AWS_CONFIG_FOO"];
     const configKey = (profile: Profile) => profile["aws_config_foo"];
     const defaultValue = "foo-value";
     loadConfig(

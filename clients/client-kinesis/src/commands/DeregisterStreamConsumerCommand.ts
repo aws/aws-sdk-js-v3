@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  *                 <a>ListStreamConsumers</a> operation to get a list of the descriptions of
  *             all the consumers that are currently registered with a given data stream. The
  *             description of a consumer contains its name and ARN.</p>
- *         <p>This operation has a limit of five transactions per second per stream.</p>
+ *          <p>This operation has a limit of five transactions per second per stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,18 @@ export class DeregisterStreamConsumerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeregisterStreamConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +82,9 @@ export class DeregisterStreamConsumerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeregisterStreamConsumerCommandInput, DeregisterStreamConsumerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeregisterStreamConsumerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

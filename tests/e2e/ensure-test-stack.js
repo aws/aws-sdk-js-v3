@@ -7,6 +7,7 @@ const {
   waitUntilStackUpdateComplete,
   waitUntilStackCreateComplete,
   DescribeChangeSetCommand,
+  DeleteChangeSetCommand,
 } = require("../../clients/client-cloudformation");
 
 /**
@@ -51,6 +52,14 @@ exports.ensureTestStack = async (client, stackName, templateBody) => {
       })
     );
     if (Status === "FAILED" && StatusReason.includes("The submitted information didn't contain changes")) {
+      await client
+        .send(
+          new DeleteChangeSetCommand({
+            StackName: stackName,
+            ChangeSetName: Id,
+          })
+        )
+        .catch(() => {}); // ignored
       return;
     }
     throw e;

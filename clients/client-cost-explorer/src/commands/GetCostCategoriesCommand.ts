@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,8 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
 /**
  * <p>Retrieves an array of Cost Category names and values incurred cost.</p>
  *          <note>
- *             <p>If some Cost Category names and values are not associated with any cost, they will not be returned by this API.</p>
+ *             <p>If some Cost Category names and values are not associated with any cost, they will not
+ *         be returned by this API.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +57,15 @@ export class GetCostCategoriesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetCostCategoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +81,9 @@ export class GetCostCategoriesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetCostCategoriesCommandInput, GetCostCategoriesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetCostCategoriesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

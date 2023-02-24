@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,14 +29,17 @@ export interface ListAgentsCommandInput extends ListAgentsRequest {}
 export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of agents owned by an Amazon Web Services account in the Amazon Web Services Region specified in the
- *       request. The returned list is ordered by agent Amazon Resource Name (ARN).</p>
- *          <p>By default, this operation returns a maximum of 100 agents. This operation supports
- *       pagination that enables you to optionally reduce the number of agents returned in a
- *       response.</p>
- *          <p>If you have more agents than are returned in a response (that is, the response returns
- *       only a truncated list of your agents), the response contains a marker that you can specify in
- *       your next request to fetch the next page of agents.</p>
+ * <p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p>
+ *          <p>With pagination, you can reduce the number of agents returned in a response. If you get
+ *       a truncated list of agents in a response, the response contains a marker that you can specify
+ *       in your next request to fetch the next page of agents.</p>
+ *          <p>
+ *             <code>ListAgents</code> is eventually consistent. This means the result of running the
+ *       operation might not reflect that you just created or deleted an agent. For example, if you
+ *       create an agent with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html">CreateAgent</a> and then
+ *       immediately run <code>ListAgents</code>, that agent might not show up in the list right away.
+ *       In situations like this, you can always confirm whether an agent has been created (or deleted)
+ *       by using <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html">DescribeAgent</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +63,15 @@ export class ListAgentsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListAgentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +87,7 @@ export class ListAgentsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAgentsCommandInput, ListAgentsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListAgentsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

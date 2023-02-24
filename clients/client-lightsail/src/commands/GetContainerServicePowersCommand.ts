@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,6 @@ export interface GetContainerServicePowersCommandOutput extends GetContainerServ
 /**
  * <p>Returns the list of powers that can be specified for your Amazon Lightsail container
  *       services.</p>
- *
  *          <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the
  *       container service.</p>
  * @example
@@ -56,6 +56,15 @@ export class GetContainerServicePowersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetContainerServicePowersCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +80,9 @@ export class GetContainerServicePowersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetContainerServicePowersCommandInput, GetContainerServicePowersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetContainerServicePowersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

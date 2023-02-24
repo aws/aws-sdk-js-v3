@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,18 +32,12 @@ export interface DeleteVpcPeeringAuthorizationCommandOutput
 
 /**
  * <p>Cancels a pending VPC peering authorization for the specified VPC. If you need to
- *             delete an existing VPC peering connection, call <a>DeleteVpcPeeringConnection</a>. </p>
- *         <p>
+ *             delete an existing VPC peering connection, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteVpcPeeringConnection.html">DeleteVpcPeeringConnection</a>.</p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateVpcPeeringAuthorization</a> |
- *                     <a>DescribeVpcPeeringAuthorizations</a> |
- *                     <a>DeleteVpcPeeringAuthorization</a> |
- *                     <a>CreateVpcPeeringConnection</a> |
- *                     <a>DescribeVpcPeeringConnections</a> |
- *                     <a>DeleteVpcPeeringConnection</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +62,15 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteVpcPeeringAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +86,9 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteVpcPeeringAuthorizationCommandInput, DeleteVpcPeeringAuthorizationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteVpcPeeringAuthorizationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -436,7 +436,7 @@ const deserializeAws_json1_1CancelRotateSecretCommandError = async (
 ): Promise<CancelRotateSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -486,7 +486,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
 ): Promise<CreateSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -554,7 +554,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -604,7 +604,7 @@ const deserializeAws_json1_1DeleteSecretCommandError = async (
 ): Promise<DeleteSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -654,7 +654,7 @@ const deserializeAws_json1_1DescribeSecretCommandError = async (
 ): Promise<DescribeSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -701,7 +701,7 @@ const deserializeAws_json1_1GetRandomPasswordCommandError = async (
 ): Promise<GetRandomPasswordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -748,7 +748,7 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
 ): Promise<GetResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -798,7 +798,7 @@ const deserializeAws_json1_1GetSecretValueCommandError = async (
 ): Promise<GetSecretValueCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -851,7 +851,7 @@ const deserializeAws_json1_1ListSecretsCommandError = async (
 ): Promise<ListSecretsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -898,7 +898,7 @@ const deserializeAws_json1_1ListSecretVersionIdsCommandError = async (
 ): Promise<ListSecretVersionIdsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -948,7 +948,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
 ): Promise<PutResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1004,7 +1004,7 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
 ): Promise<PutSecretValueCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1066,7 +1066,7 @@ const deserializeAws_json1_1RemoveRegionsFromReplicationCommandError = async (
 ): Promise<RemoveRegionsFromReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1116,7 +1116,7 @@ const deserializeAws_json1_1ReplicateSecretToRegionsCommandError = async (
 ): Promise<ReplicateSecretToRegionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1166,7 +1166,7 @@ const deserializeAws_json1_1RestoreSecretCommandError = async (
 ): Promise<RestoreSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1216,7 +1216,7 @@ const deserializeAws_json1_1RotateSecretCommandError = async (
 ): Promise<RotateSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1266,7 +1266,7 @@ const deserializeAws_json1_1StopReplicationToReplicaCommandError = async (
 ): Promise<StopReplicationToReplicaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1313,7 +1313,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1360,7 +1360,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1410,7 +1410,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
 ): Promise<UpdateSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1478,7 +1478,7 @@ const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
 ): Promise<UpdateSecretVersionStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1531,7 +1531,7 @@ const deserializeAws_json1_1ValidateResourcePolicyCommandError = async (
 ): Promise<ValidateResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1834,6 +1834,7 @@ const serializeAws_json1_1GetSecretValueRequest = (input: GetSecretValueRequest,
 const serializeAws_json1_1ListSecretsRequest = (input: ListSecretsRequest, context: __SerdeContext): any => {
   return {
     ...(input.Filters != null && { Filters: serializeAws_json1_1FiltersListType(input.Filters, context) }),
+    ...(input.IncludePlannedDeletion != null && { IncludePlannedDeletion: input.IncludePlannedDeletion }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
@@ -2106,6 +2107,10 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRotatedDate)))
         : undefined,
     Name: __expectString(output.Name),
+    NextRotationDate:
+      output.NextRotationDate != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextRotationDate)))
+        : undefined,
     OwningService: __expectString(output.OwningService),
     PrimaryRegion: __expectString(output.PrimaryRegion),
     ReplicationStatus:
@@ -2407,6 +2412,10 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRotatedDate)))
         : undefined,
     Name: __expectString(output.Name),
+    NextRotationDate:
+      output.NextRotationDate != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextRotationDate)))
+        : undefined,
     OwningService: __expectString(output.OwningService),
     PrimaryRegion: __expectString(output.PrimaryRegion),
     RotationEnabled: __expectBoolean(output.RotationEnabled),
@@ -2490,10 +2499,8 @@ const deserializeAws_json1_1SecretVersionsToStagesMapType = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1SecretVersionStagesType(value, context),
-    };
+    acc[key] = deserializeAws_json1_1SecretVersionStagesType(value, context);
+    return acc;
   }, {});
 };
 
@@ -2577,7 +2584,8 @@ const deserializeAws_json1_1ValidationErrorsType = (output: any, context: __Serd
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
@@ -2627,6 +2635,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
@@ -2637,6 +2651,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
     }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];

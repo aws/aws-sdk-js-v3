@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,6 +31,10 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
 /**
  * <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of
  *             five transactions per second per account.</p>
+ *          <note>
+ *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+ *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +58,17 @@ export class ListTagsForStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListTagsForStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +84,9 @@ export class ListTagsForStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTagsForStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

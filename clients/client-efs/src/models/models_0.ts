@@ -193,7 +193,7 @@ export interface AccessPointDescription {
   RootDirectory?: RootDirectory;
 
   /**
-   * <p>Identified the Amazon Web Services account that owns the access point resource.</p>
+   * <p>Identifies the Amazon Web Services account that owns the access point resource.</p>
    */
   OwnerId?: string;
 
@@ -549,7 +549,8 @@ export class InternalServerError extends __BaseException {
 
 /**
  * <p>Returned when the <code>CreateAccessPoint</code> API action is called too quickly and
- *             the number of Access Points in the account is nearing the limit of 120.</p>
+ *             the number of Access Points on the file system is nearing the
+ *             <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region">limit of 120</a>.</p>
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -590,6 +591,7 @@ export enum PerformanceMode {
 
 export enum ThroughputMode {
   BURSTING = "bursting",
+  ELASTIC = "elastic",
   PROVISIONED = "provisioned",
 }
 
@@ -653,24 +655,25 @@ export interface CreateFileSystemRequest {
   KmsKeyId?: string;
 
   /**
-   * <p>Specifies the throughput mode for the file system, either <code>bursting</code> or
-   *         <code>provisioned</code>. If you set <code>ThroughputMode</code> to
-   *       <code>provisioned</code>, you must also set a value for
+   * <p>Specifies the throughput mode for the file system. The mode can be <code>bursting</code>,
+   *         <code>provisioned</code>, or <code>elastic</code>. If you set <code>ThroughputMode</code> to
+   *         <code>provisioned</code>, you must also set a value for
    *         <code>ProvisionedThroughputInMibps</code>. After you create the file system, you can
    *       decrease your file system's throughput in Provisioned Throughput mode or change between
-   *       the throughput modes, as long as it’s been more than 24 hours since the last decrease or
-   *       throughput mode change. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying throughput with
-   *         provisioned mode</a> in the <i>Amazon EFS User Guide</i>. </p>
+   *       the throughput modes, with certain time restrictions. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying
+   *         throughput with provisioned mode</a> in the <i>Amazon EFS User
+   *         Guide</i>. </p>
    *          <p>Default is <code>bursting</code>.</p>
    */
   ThroughputMode?: ThroughputMode | string;
 
   /**
-   * <p>The throughput, measured in MiB/s, that you want to provision for a file system that
-   *       you're creating. Valid values are 1-1024. Required if <code>ThroughputMode</code> is set
-   *       to <code>provisioned</code>. The upper limit for throughput is 1024 MiB/s. To increase this
-   *       limit, contact Amazon Web Services Support. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas that you can increase</a>
-   *       in the <i>Amazon EFS User Guide</i>.</p>
+   * <p>The throughput, measured in
+   *       MiB/s,
+   *       that you want to provision for a file system that you're creating. Valid values are
+   *       1-1024. Required if <code>ThroughputMode</code> is set to <code>provisioned</code>. The upper
+   *       limit for throughput is 1024 MiB/s. To increase this limit, contact Amazon Web Services Support. For
+   *       more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas that you can increase</a> in the <i>Amazon EFS User Guide</i>.</p>
    */
   ProvisionedThroughputInMibps?: number;
 
@@ -788,8 +791,7 @@ export interface FileSystemSize {
  */
 export interface FileSystemDescription {
   /**
-   * <p>The Amazon Web Services account that created the file system. If the file system was created by an IAM
-   *       user, the parent account to which the user belongs is the owner.</p>
+   * <p>The Amazon Web Services account that created the file system.</p>
    */
   OwnerId: string | undefined;
 
@@ -1974,6 +1976,7 @@ export interface DescribeLifecycleConfigurationRequest {
 
 export enum TransitionToIARules {
   AFTER_14_DAYS = "AFTER_14_DAYS",
+  AFTER_1_DAY = "AFTER_1_DAY",
   AFTER_30_DAYS = "AFTER_30_DAYS",
   AFTER_60_DAYS = "AFTER_60_DAYS",
   AFTER_7_DAYS = "AFTER_7_DAYS",

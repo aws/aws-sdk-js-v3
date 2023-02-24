@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeSlotRequest,
-  DescribeSlotRequestFilterSensitiveLog,
-  DescribeSlotResponse,
-  DescribeSlotResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSlotRequest, DescribeSlotRequestFilterSensitiveLog } from "../models/models_0";
+import { DescribeSlotResponse, DescribeSlotResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeSlotCommand,
   serializeAws_restJson1DescribeSlotCommand,
@@ -52,6 +49,15 @@ export class DescribeSlotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeSlotCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +73,7 @@ export class DescribeSlotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeSlotCommandInput, DescribeSlotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeSlotCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

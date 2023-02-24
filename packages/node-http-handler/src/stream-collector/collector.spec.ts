@@ -1,7 +1,7 @@
 import { Collector } from "./collector";
 
 describe("Collector", () => {
-  const writePromise = (collector: Collector, chunk: any, encoding?: string): Promise<void> => {
+  const writePromise = (collector: Collector, chunk: any, encoding: BufferEncoding = "utf-8"): Promise<void> => {
     return new Promise((resolve, reject) => {
       collector.write(chunk, encoding, (err) => {
         if (err) {

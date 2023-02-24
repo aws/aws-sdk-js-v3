@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,10 +29,11 @@ export interface PutInsightSelectorsCommandInput extends PutInsightSelectorsRequ
 export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Lets you enable Insights event logging by specifying the Insights
- *          selectors that you want to enable on an existing trail. You also use
- *          <code>PutInsightSelectors</code> to turn off Insights event logging, by passing an empty list of insight types.
- *          The valid Insights event types in this release are <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code>.</p>
+ * <p>Lets you enable Insights event logging by specifying the Insights selectors that you
+ *          want to enable on an existing trail. You also use <code>PutInsightSelectors</code> to turn
+ *          off Insights event logging, by passing an empty list of insight types. The valid Insights
+ *          event types in this release are <code>ApiErrorRateInsight</code> and
+ *             <code>ApiCallRateInsight</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +57,15 @@ export class PutInsightSelectorsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutInsightSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +81,9 @@ export class PutInsightSelectorsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutInsightSelectorsCommandInput, PutInsightSelectorsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutInsightSelectorsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

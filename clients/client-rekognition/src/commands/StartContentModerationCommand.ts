@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,10 +36,9 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *         returns a job identifier (<code>JobId</code>) which you use to get the results of the analysis.
  *         When content analysis is finished, Amazon Rekognition Video publishes a completion status
  *         to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.</p>
- *         <p>To get the results of the content analysis, first check that the status value published to the Amazon SNS
+ *          <p>To get the results of the content analysis, first check that the status value published to the Amazon SNS
  *         topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a> and pass the job identifier
  *         (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p>
- *
  *          <p>For more information, see Moderating content in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +63,15 @@ export class StartContentModerationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartContentModerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +87,9 @@ export class StartContentModerationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartContentModerationCommandInput, StartContentModerationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartContentModerationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

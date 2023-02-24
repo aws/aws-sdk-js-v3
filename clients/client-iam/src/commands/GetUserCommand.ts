@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,7 +28,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
 /**
  * <p>Retrieves information about the specified IAM user, including the user's creation
  *             date, path, unique ID, and ARN.</p>
- *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
+ *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID used to sign the request to this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +49,15 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +73,7 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
     options?: __HttpHandlerOptions
   ): Handler<GetUserCommandInput, GetUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetUserCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

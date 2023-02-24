@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -21,12 +22,12 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the name and/or the path of the specified IAM group.</p>
- *         <important>
+ *          <important>
  *             <p> You should understand the implications of changing a group's path or name. For
  *                 more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming users and
  *                     groups</a> in the <i>IAM User Guide</i>.</p>
- *         </important>
- *         <note>
+ *          </important>
+ *          <note>
  *             <p>The person making the request (the principal), must have permission to change the
  *                 role group with the old name and the new name. For example, to change the group
  *                 named <code>Managers</code> to <code>MGRs</code>, the principal must have a policy
@@ -34,7 +35,7 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  *                 the <code>Managers</code> group, but not the <code>MGRs</code> group, then the
  *                 update fails. For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a>.
  *             </p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export class UpdateGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +83,7 @@ export class UpdateGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateGroupCommandInput, UpdateGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateGroupCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

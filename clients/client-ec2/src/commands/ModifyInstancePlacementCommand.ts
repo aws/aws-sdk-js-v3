@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ModifyInstancePlacementRequestFilterSensitiveLog,
   ModifyInstancePlacementResult,
   ModifyInstancePlacementResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyInstancePlacementCommand,
   serializeAws_ec2ModifyInstancePlacementCommand,
@@ -30,29 +31,29 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
 /**
  * <p>Modifies the placement attributes for a specified instance. You can do the
  *             following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Modify the affinity between an instance and a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
+ *                <p>Modify the affinity between an instance and a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
  *                         Host</a>. When affinity is set to <code>host</code> and the instance is
  *                     not associated with a specific Dedicated Host, the next time the instance is
  *                     launched, it is automatically associated with the host on which it lands. If the
  *                     instance is restarted or rebooted, this relationship persists.</p>
  *             </li>
  *             <li>
- *                 <p>Change the Dedicated Host with which an instance is associated.</p>
+ *                <p>Change the Dedicated Host with which an instance is associated.</p>
  *             </li>
  *             <li>
- *                 <p>Change the instance tenancy of an instance.</p>
+ *                <p>Change the instance tenancy of an instance.</p>
  *             </li>
  *             <li>
- *                 <p>Move an instance to or from a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement
+ *                <p>Move an instance to or from a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement
  *                     group</a>.</p>
  *             </li>
  *          </ul>
- *         <p>At least one attribute for affinity, host ID, tenancy, or placement group name must
- *             be specified in the request. Affinity and tenancy can be modified in the same
+ *          <p>At least one attribute for affinity, host ID, tenancy, or placement group name must be
+ *             specified in the request. Affinity and tenancy can be modified in the same
  *             request.</p>
- *         <p>To modify the host ID, tenancy, placement group, or partition for an instance, the
+ *          <p>To modify the host ID, tenancy, placement group, or partition for an instance, the
  *             instance must be in the <code>stopped</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +78,15 @@ export class ModifyInstancePlacementCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ModifyInstancePlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +102,9 @@ export class ModifyInstancePlacementCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyInstancePlacementCommandInput, ModifyInstancePlacementCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyInstancePlacementCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

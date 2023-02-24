@@ -1,3 +1,5 @@
+import { AuthScheme, HttpAuthDefinition } from "./auth";
+import { EndpointV2 } from "./endpoint";
 import { Logger } from "./logger";
 import { UserAgent } from "./util";
 
@@ -354,6 +356,13 @@ export interface MiddlewareStack<Input extends object, Output extends object> ex
   ): MiddlewareStack<InputType, OutputType>;
 
   /**
+   * Returns a list of the current order of middleware in the stack.
+   * This does not execute the middleware functions, nor does it
+   * provide a reference to the stack itself.
+   */
+  identify(): string[];
+
+  /**
    * Builds a single handler function from zero or more middleware classes and
    * a core handler. The core handler is meant to send command objects to AWS
    * services and return promises that will resolve with the operation result
@@ -386,6 +395,31 @@ export interface HandlerExecutionContext {
    * config in clients.
    */
   userAgent?: UserAgent;
+
+  /**
+   * Resolved by the endpointMiddleware function of @aws-sdk/middleware-endpoint
+   * in the serialization stage.
+   */
+  endpointV2?: EndpointV2;
+
+  /**
+   * Set at the same time as endpointV2.
+   */
+  authSchemes?: AuthScheme[];
+
+  /**
+   * The current auth configuration that has been set by any auth middleware and
+   * that will prevent from being set more than once.
+   */
+  currentAuthConfig?: HttpAuthDefinition;
+
+  /**
+   * Used by DynamoDbDocumentClient.
+   */
+  dynamoDbDocumentClientOptions?: Partial<{
+    overrideInputFilterSensitiveLog(...args: any[]): string | void;
+    overrideOutputFilterSensitiveLog(...args: any[]): string | void;
+  }>;
 
   [key: string]: any;
 }

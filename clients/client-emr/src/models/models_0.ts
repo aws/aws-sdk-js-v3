@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import { EMRServiceException as __BaseException } from "./EMRServiceException";
 
@@ -17,12 +17,13 @@ export enum InstanceFleetType {
 }
 
 /**
- * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
- *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
+ * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
+ *          that are requested for the EBS volume attached to an EC2 instance in the cluster.</p>
  */
 export interface VolumeSpecification {
   /**
-   * <p>The volume type. Volume types supported are gp2, io1, and standard.</p>
+   * <p>The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and
+   *          standard.</p>
    */
   VolumeType: string | undefined;
 
@@ -38,7 +39,8 @@ export interface VolumeSpecification {
   SizeInGB: number | undefined;
 
   /**
-   * <p>The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.</p>
+   * <p>The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number
+   *          from 125 - 1000 and is valid only for gp3 volumes.</p>
    */
   Throughput?: number;
 }
@@ -49,8 +51,8 @@ export interface VolumeSpecification {
  */
 export interface EbsBlockDeviceConfig {
   /**
-   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
-   *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
+   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
+   *          that are requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
   VolumeSpecification: VolumeSpecification | undefined;
 
@@ -162,7 +164,10 @@ export enum SpotProvisioningAllocationStrategy {
   CAPACITY_OPTIMIZED = "capacity-optimized",
 }
 
-export type SpotProvisioningTimeoutAction = "SWITCH_TO_ON_DEMAND" | "TERMINATE_CLUSTER";
+export enum SpotProvisioningTimeoutAction {
+  SWITCH_TO_ON_DEMAND = "SWITCH_TO_ON_DEMAND",
+  TERMINATE_CLUSTER = "TERMINATE_CLUSTER",
+}
 
 /**
  * <p>The launch specification for Spot Instances in the instance fleet, which determines the
@@ -181,7 +186,7 @@ export type SpotProvisioningTimeoutAction = "SWITCH_TO_ON_DEMAND" | "TERMINATE_C
  */
 export interface SpotProvisioningSpecification {
   /**
-   * <p>The spot provisioning timeout period in minutes. If Spot Instances are not provisioned
+   * <p>The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned
    *          within this time period, the <code>TimeOutAction</code> is taken. Minimum value is 5 and
    *          maximum value is 1440. The timeout applies only during initial provisioning, when the
    *          cluster is first created.</p>
@@ -228,13 +233,13 @@ export interface SpotProvisioningSpecification {
  *          duration, provisioning timeout behavior, and allocation strategy.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
- *             4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot Instance allocation
+ *             4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot instance allocation
  *             strategies are available in Amazon EMR version 5.12.1 and later.</p>
  *          </note>
  */
 export interface InstanceFleetProvisioningSpecifications {
   /**
-   * <p>The launch specification for Spot Instances in the fleet, which determines the defined
+   * <p>The launch specification for Spot instances in the fleet, which determines the defined
    *          duration, provisioning timeout behavior, and allocation strategy.</p>
    */
   SpotSpecification?: SpotProvisioningSpecification;
@@ -249,6 +254,55 @@ export interface InstanceFleetProvisioningSpecifications {
    *          </note>
    */
   OnDemandSpecification?: OnDemandProvisioningSpecification;
+}
+
+/**
+ * <p>The resize specification for On-Demand Instances in the instance fleet, which contains
+ *          the resize timeout period. </p>
+ */
+export interface OnDemandResizingSpecification {
+  /**
+   * <p>On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within
+   *          this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value
+   *          is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance
+   *          Fleet. The resize could be triggered by Amazon EMR Managed Scaling
+   *          or by the customer (via Amazon EMR Console, Amazon EMR CLI
+   *          modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>
+   */
+  TimeoutDurationMinutes: number | undefined;
+}
+
+/**
+ * <p>The resize specification for Spot Instances in the instance fleet, which contains the
+ *          resize timeout period. </p>
+ */
+export interface SpotResizingSpecification {
+  /**
+   * <p>Spot resize timeout in minutes. If Spot Instances are not provisioned within this time,
+   *          the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes
+   *          and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows
+   *          on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling
+   *          or by the customer (via Amazon EMR Console, Amazon EMR CLI
+   *          modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>
+   */
+  TimeoutDurationMinutes: number | undefined;
+}
+
+/**
+ * <p>The resize specification for On-Demand and Spot Instances in the fleet.</p>
+ */
+export interface InstanceFleetResizingSpecifications {
+  /**
+   * <p>The resize specification for Spot Instances in the instance fleet, which contains the
+   *          resize timeout period. </p>
+   */
+  SpotResizeSpecification?: SpotResizingSpecification;
+
+  /**
+   * <p>The resize specification for On-Demand Instances in the instance fleet, which contains
+   *          the resize timeout period. </p>
+   */
+  OnDemandResizeSpecification?: OnDemandResizingSpecification;
 }
 
 export interface AddInstanceFleetOutput {
@@ -599,7 +653,11 @@ export interface AutoScalingPolicy {
   Rules: ScalingRule[] | undefined;
 }
 
-export type InstanceRoleType = "CORE" | "MASTER" | "TASK";
+export enum InstanceRoleType {
+  CORE = "CORE",
+  MASTER = "MASTER",
+  TASK = "TASK",
+}
 
 /**
  * <p>Output from an AddInstanceGroups call.</p>
@@ -1021,7 +1079,10 @@ export interface BootstrapActionDetail {
   BootstrapActionConfig?: BootstrapActionConfig;
 }
 
-export type StepCancellationOption = "SEND_INTERRUPT" | "TERMINATE_PROCESS";
+export enum StepCancellationOption {
+  SEND_INTERRUPT = "SEND_INTERRUPT",
+  TERMINATE_PROCESS = "TERMINATE_PROCESS",
+}
 
 /**
  * <p>The input argument to the <a>CancelSteps</a> operation.</p>
@@ -1472,7 +1533,7 @@ export interface CreateStudioInput {
   Description?: string;
 
   /**
-   * <p>Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO.</p>
+   * <p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>
    */
   AuthMode: AuthMode | string | undefined;
 
@@ -1498,7 +1559,7 @@ export interface CreateStudioInput {
 
   /**
    * <p>The IAM user role that users and groups assume when logged in to an Amazon EMR
-   *          Studio. Only specify a <code>UserRole</code> when you use Amazon Web Services SSO
+   *          Studio. Only specify a <code>UserRole</code> when you use IAM Identity Center
    *          authentication. The permissions attached to the <code>UserRole</code> can be scoped down
    *          for each user or group using session policies.</p>
    */
@@ -1574,15 +1635,15 @@ export interface CreateStudioSessionMappingInput {
   StudioId: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO
-   *          Identity Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The globally unique identifier (GUID) of the user or group from the IAM Identity Center
+   *          Identity Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified, but not both.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified, but not both.</p>
    */
@@ -1601,6 +1662,51 @@ export interface CreateStudioSessionMappingInput {
    *             Role with Session Policies</a>.</p>
    */
   SessionPolicyArn: string | undefined;
+}
+
+/**
+ * <p>The username and password that you use to connect to cluster endpoints.</p>
+ */
+export interface UsernamePassword {
+  /**
+   * <p>The username associated with the temporary credentials that you use to connect to cluster endpoints.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>The password associated with the temporary credentials that you use to connect to cluster endpoints.</p>
+   */
+  Password?: string;
+}
+
+/**
+ * <p>The credentials that you can use to connect to cluster endpoints. Credentials consist of a username and a password.</p>
+ */
+export type Credentials = Credentials.UsernamePasswordMember | Credentials.$UnknownMember;
+
+export namespace Credentials {
+  /**
+   * <p>The username and password that you use to connect to cluster endpoints.</p>
+   */
+  export interface UsernamePasswordMember {
+    UsernamePassword: UsernamePassword;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    UsernamePassword?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    UsernamePassword: (value: UsernamePassword) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Credentials, visitor: Visitor<T>): T => {
+    if (value.UsernamePassword !== undefined) return visitor.UsernamePassword(value.UsernamePassword);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 export interface DeleteSecurityConfigurationInput {
@@ -1626,7 +1732,7 @@ export interface DeleteStudioSessionMappingInput {
   StudioId: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified.</p>
    */
@@ -1634,7 +1740,7 @@ export interface DeleteStudioSessionMappingInput {
 
   /**
    * <p>The name of the user name or group to remove from the Amazon EMR Studio. For
-   *          more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Store API Reference</i>.
+   *          more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
    */
   IdentityName?: string;
@@ -1930,14 +2036,15 @@ export interface JobFlowInstancesDetail {
   HadoopVersion?: string;
 }
 
-export type StepExecutionState =
-  | "CANCELLED"
-  | "COMPLETED"
-  | "CONTINUE"
-  | "FAILED"
-  | "INTERRUPTED"
-  | "PENDING"
-  | "RUNNING";
+export enum StepExecutionState {
+  CANCELLED = "CANCELLED",
+  COMPLETED = "COMPLETED",
+  CONTINUE = "CONTINUE",
+  FAILED = "FAILED",
+  INTERRUPTED = "INTERRUPTED",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING",
+}
 
 /**
  * <p>The execution state of a step.</p>
@@ -2322,9 +2429,11 @@ export interface SimplifiedApplication {
  */
 export interface OSRelease {
   /**
-   * <p>The Amazon Linux release specified for a cluster in the RunJobFlow request. The format is as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">
+   * <p>The Amazon Linux release specified for a cluster in the RunJobFlow request. The format
+   *          is as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">
    *                <i>Amazon Linux 2 Release Notes</i>
-   *             </a>. For example, 2.0.20220218.1.</p>
+   *             </a>. For example,
+   *          2.0.20220218.1.</p>
    */
   Label?: string;
 }
@@ -2350,7 +2459,8 @@ export interface DescribeReleaseLabelOutput {
   /**
    * <p>The list of available Amazon Linux release versions for an Amazon EMR release.
    *          Contains a Label field that is formatted as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html">
-   *                <i>Amazon Linux 2 Release Notes</i>
+   *                <i>Amazon Linux 2 Release
+   *                Notes</i>
    *             </a>. For example, <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">2.0.20220218.1</a>.</p>
    */
   AvailableOSReleases?: OSRelease[];
@@ -2460,7 +2570,9 @@ export enum StepState {
   RUNNING = "RUNNING",
 }
 
-export type StepStateChangeReasonCode = "NONE";
+export enum StepStateChangeReasonCode {
+  NONE = "NONE",
+}
 
 /**
  * <p>The details of the step state change reason.</p>
@@ -2621,7 +2733,7 @@ export interface Studio {
   Description?: string;
 
   /**
-   * <p>Specifies whether the Amazon EMR Studio authenticates users using IAM or Amazon Web Services SSO.</p>
+   * <p>Specifies whether the Amazon EMR Studio authenticates users using IAM or IAM Identity Center.</p>
    */
   AuthMode?: AuthMode | string;
 
@@ -2707,8 +2819,8 @@ export interface DescribeStudioOutput {
  */
 export interface EbsBlockDevice {
   /**
-   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
-   *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
+   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
+   *          that are requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
   VolumeSpecification?: VolumeSpecification;
 
@@ -2751,6 +2863,32 @@ export interface GetAutoTerminationPolicyOutput {
 
 export interface GetBlockPublicAccessConfigurationInput {}
 
+export interface GetClusterSessionCredentialsInput {
+  /**
+   * <p>The unique identifier of the cluster.</p>
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the runtime role for interactive workload submission on the cluster.
+   *          The runtime role can be a cross-account IAM role. The runtime role ARN is a combination of account ID, role name,
+   *          and role type using the following format: <code>arn:partition:service:region:account:resource</code>.</p>
+   */
+  ExecutionRoleArn: string | undefined;
+}
+
+export interface GetClusterSessionCredentialsOutput {
+  /**
+   * <p>The credentials that you can use to connect to cluster endpoints that support username and password authentication.</p>
+   */
+  Credentials?: Credentials;
+
+  /**
+   * <p>The time when the credentials that are returned by the <code>GetClusterSessionCredentials</code> API expire.</p>
+   */
+  ExpiresAt?: Date;
+}
+
 export interface GetManagedScalingPolicyInput {
   /**
    * <p>Specifies the ID of the cluster for which the managed scaling policy will be fetched.
@@ -2790,14 +2928,14 @@ export interface GetStudioSessionMappingInput {
 
   /**
    * <p>The globally unique identifier (GUID) of the user or group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API
+   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group to fetch. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The name of the user or group to fetch. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified.</p>
    */
@@ -2825,7 +2963,7 @@ export interface SessionMappingDetail {
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>.</p>
    */
   IdentityName?: string;
@@ -3775,7 +3913,7 @@ export interface StudioSummary {
   Url?: string;
 
   /**
-   * <p>Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO.</p>
+   * <p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>
    */
   AuthMode?: AuthMode | string;
 
@@ -3826,13 +3964,13 @@ export interface SessionMappingSummary {
   StudioId?: string;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO
+   * <p>The globally unique identifier (GUID) of the user or group from the IAM Identity Center
    *          Identity Store.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>.</p>
    */
   IdentityName?: string;
@@ -3915,6 +4053,11 @@ export interface InstanceFleetModifyConfig {
    *             <a>InstanceFleetConfig$TargetSpotCapacity</a>.</p>
    */
   TargetSpotCapacity?: number;
+
+  /**
+   * <p>The resize specification for the instance fleet.</p>
+   */
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
 }
 
 export interface ModifyInstanceFleetInput {
@@ -4247,14 +4390,14 @@ export interface UpdateStudioSessionMappingInput {
 
   /**
    * <p>The globally unique identifier (GUID) of the user or group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API
+   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group to update. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
+   * <p>The name of the user or group to update. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
    *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
    *          be specified.</p>
    */
@@ -4545,7 +4688,9 @@ export interface Cluster {
   PlacementGroups?: PlacementGroupConfig[];
 
   /**
-   * <p>The Amazon Linux release specified in a cluster launch RunJobFlow request. If no Amazon Linux release was specified, the default Amazon Linux release is shown in the response.</p>
+   * <p>The Amazon Linux release specified in a cluster launch RunJobFlow request. If no Amazon
+   *          Linux release was specified, the default Amazon Linux release is shown in the
+   *          response.</p>
    */
   OSReleaseLabel?: string;
 }
@@ -4945,6 +5090,11 @@ export interface InstanceFleet {
    * <p>Describes the launch specification for an instance fleet. </p>
    */
   LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
+
+  /**
+   * <p>The resize specification for the instance fleet.</p>
+   */
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
 }
 
 /**
@@ -5018,6 +5168,11 @@ export interface InstanceFleetConfig {
    * <p>The launch specification for the instance fleet.</p>
    */
   LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
+
+  /**
+   * <p>The resize specification for the instance fleet.</p>
+   */
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
 }
 
 /**
@@ -5471,7 +5626,8 @@ export interface RunJobFlowInput {
 
   /**
    * <p>The IAM role that Amazon EMR assumes in order to access Amazon Web Services
-   *          resources on your behalf.</p>
+   *          resources on your behalf. If you've created a custom service role path, you must specify it
+   *          for the service role when you launch your cluster.</p>
    */
   ServiceRole?: string;
 
@@ -5569,7 +5725,9 @@ export interface RunJobFlowInput {
   AutoTerminationPolicy?: AutoTerminationPolicy;
 
   /**
-   * <p>Specifies a particular Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If a release is not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.</p>
+   * <p>Specifies a particular Amazon Linux release for all nodes in a cluster launch RunJobFlow
+   *          request. If a release is not specified, Amazon EMR uses the latest validated Amazon
+   *          Linux release for cluster launch.</p>
    */
   OSReleaseLabel?: string;
 }
@@ -5621,6 +5779,29 @@ export const SpotProvisioningSpecificationFilterSensitiveLog = (obj: SpotProvisi
  */
 export const InstanceFleetProvisioningSpecificationsFilterSensitiveLog = (
   obj: InstanceFleetProvisioningSpecifications
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnDemandResizingSpecificationFilterSensitiveLog = (obj: OnDemandResizingSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpotResizingSpecificationFilterSensitiveLog = (obj: SpotResizingSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceFleetResizingSpecificationsFilterSensitiveLog = (
+  obj: InstanceFleetResizingSpecifications
 ): any => ({
   ...obj,
 });
@@ -5945,6 +6126,21 @@ export const CreateStudioSessionMappingInputFilterSensitiveLog = (obj: CreateStu
 /**
  * @internal
  */
+export const UsernamePasswordFilterSensitiveLog = (obj: UsernamePassword): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CredentialsFilterSensitiveLog = (obj: Credentials): any => {
+  if (obj.UsernamePassword !== undefined) return { UsernamePassword: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const DeleteSecurityConfigurationInputFilterSensitiveLog = (obj: DeleteSecurityConfigurationInput): any => ({
   ...obj,
 });
@@ -6224,6 +6420,21 @@ export const GetBlockPublicAccessConfigurationInputFilterSensitiveLog = (
   obj: GetBlockPublicAccessConfigurationInput
 ): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetClusterSessionCredentialsInputFilterSensitiveLog = (obj: GetClusterSessionCredentialsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetClusterSessionCredentialsOutputFilterSensitiveLog = (obj: GetClusterSessionCredentialsOutput): any => ({
+  ...obj,
+  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
 });
 
 /**

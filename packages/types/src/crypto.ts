@@ -4,6 +4,8 @@ export type SourceData = string | ArrayBuffer | ArrayBufferView;
  * An object that provides a hash of data provided in chunks to `update`. The
  * hash may be performed incrementally as chunks are received or all at once
  * when the hash is finalized, depending on the underlying implementation.
+ *
+ * @deprecated use {@link Checksum}
  */
 export interface Hash {
   /**
@@ -27,6 +29,8 @@ export interface Hash {
  * A constructor for a hash that may be used to calculate an HMAC. Implementing
  * classes should not directly hold the provided key in memory beyond the
  * lexical scope of the constructor.
+ *
+ * @deprecated use {@link ChecksumConstructor}
  */
 export interface HashConstructor {
   new (secret?: SourceData): Hash;

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
 
 /**
  * <p>Retrieves the specified SSH public key, including metadata about the key.</p>
- *         <p>The SSH public key retrieved by this operation is used only for authenticating the
+ *          <p>The SSH public key retrieved by this operation is used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
  *             to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for SSH
  *                 connections</a> in the <i>CodeCommit User Guide</i>.</p>
@@ -56,6 +57,15 @@ export class GetSSHPublicKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class GetSSHPublicKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetSSHPublicKeyCommandInput, GetSSHPublicKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetSSHPublicKeyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

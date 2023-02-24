@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,8 +30,8 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
 
 /**
  * <p>Transfers contacts from one agent or queue to another agent or queue at any point after a
- *    contact is created. You can transfer a contact to another queue by providing the contact flow
- *    which orchestrates the contact to the destination queue. This gives you more control over contact
+ *    contact is created. You can transfer a contact to another queue by providing the flow which
+ *    orchestrates the contact to the destination queue. This gives you more control over contact
  *    handling and helps you adhere to the service level agreement (SLA) guaranteed to your
  *    customers.</p>
  *          <p>Note the following requirements:</p>
@@ -42,8 +43,8 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  *                <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p>
  *             </li>
  *             <li>
- *                <p>The following contact flow types are supported: Inbound contact flow, Transfer to agent
- *      flow, and Transfer to queue flow.</p>
+ *                <p>The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer
+ *      to queue flow.</p>
  *             </li>
  *             <li>
  *                <p>The <code>TransferContact</code> API can be called only on active contacts.</p>
@@ -75,6 +76,15 @@ export class TransferContactCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: TransferContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,6 +100,9 @@ export class TransferContactCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TransferContactCommandInput, TransferContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, TransferContactCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

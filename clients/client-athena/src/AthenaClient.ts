@@ -1,13 +1,7 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -32,22 +26,24 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -64,21 +60,44 @@ import {
 } from "./commands/BatchGetQueryExecutionCommand";
 import { CreateDataCatalogCommandInput, CreateDataCatalogCommandOutput } from "./commands/CreateDataCatalogCommand";
 import { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "./commands/CreateNamedQueryCommand";
+import { CreateNotebookCommandInput, CreateNotebookCommandOutput } from "./commands/CreateNotebookCommand";
 import {
   CreatePreparedStatementCommandInput,
   CreatePreparedStatementCommandOutput,
 } from "./commands/CreatePreparedStatementCommand";
+import {
+  CreatePresignedNotebookUrlCommandInput,
+  CreatePresignedNotebookUrlCommandOutput,
+} from "./commands/CreatePresignedNotebookUrlCommand";
 import { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "./commands/CreateWorkGroupCommand";
 import { DeleteDataCatalogCommandInput, DeleteDataCatalogCommandOutput } from "./commands/DeleteDataCatalogCommand";
 import { DeleteNamedQueryCommandInput, DeleteNamedQueryCommandOutput } from "./commands/DeleteNamedQueryCommand";
+import { DeleteNotebookCommandInput, DeleteNotebookCommandOutput } from "./commands/DeleteNotebookCommand";
 import {
   DeletePreparedStatementCommandInput,
   DeletePreparedStatementCommandOutput,
 } from "./commands/DeletePreparedStatementCommand";
 import { DeleteWorkGroupCommandInput, DeleteWorkGroupCommandOutput } from "./commands/DeleteWorkGroupCommand";
+import { ExportNotebookCommandInput, ExportNotebookCommandOutput } from "./commands/ExportNotebookCommand";
+import {
+  GetCalculationExecutionCodeCommandInput,
+  GetCalculationExecutionCodeCommandOutput,
+} from "./commands/GetCalculationExecutionCodeCommand";
+import {
+  GetCalculationExecutionCommandInput,
+  GetCalculationExecutionCommandOutput,
+} from "./commands/GetCalculationExecutionCommand";
+import {
+  GetCalculationExecutionStatusCommandInput,
+  GetCalculationExecutionStatusCommandOutput,
+} from "./commands/GetCalculationExecutionStatusCommand";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import { GetDataCatalogCommandInput, GetDataCatalogCommandOutput } from "./commands/GetDataCatalogCommand";
 import { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "./commands/GetNamedQueryCommand";
+import {
+  GetNotebookMetadataCommandInput,
+  GetNotebookMetadataCommandOutput,
+} from "./commands/GetNotebookMetadataCommand";
 import {
   GetPreparedStatementCommandInput,
   GetPreparedStatementCommandOutput,
@@ -89,12 +108,32 @@ import {
   GetQueryRuntimeStatisticsCommandInput,
   GetQueryRuntimeStatisticsCommandOutput,
 } from "./commands/GetQueryRuntimeStatisticsCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { GetSessionStatusCommandInput, GetSessionStatusCommandOutput } from "./commands/GetSessionStatusCommand";
 import { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "./commands/GetTableMetadataCommand";
 import { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand";
+import { ImportNotebookCommandInput, ImportNotebookCommandOutput } from "./commands/ImportNotebookCommand";
+import {
+  ListApplicationDPUSizesCommandInput,
+  ListApplicationDPUSizesCommandOutput,
+} from "./commands/ListApplicationDPUSizesCommand";
+import {
+  ListCalculationExecutionsCommandInput,
+  ListCalculationExecutionsCommandOutput,
+} from "./commands/ListCalculationExecutionsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
 import { ListDataCatalogsCommandInput, ListDataCatalogsCommandOutput } from "./commands/ListDataCatalogsCommand";
 import { ListEngineVersionsCommandInput, ListEngineVersionsCommandOutput } from "./commands/ListEngineVersionsCommand";
+import { ListExecutorsCommandInput, ListExecutorsCommandOutput } from "./commands/ListExecutorsCommand";
 import { ListNamedQueriesCommandInput, ListNamedQueriesCommandOutput } from "./commands/ListNamedQueriesCommand";
+import {
+  ListNotebookMetadataCommandInput,
+  ListNotebookMetadataCommandOutput,
+} from "./commands/ListNotebookMetadataCommand";
+import {
+  ListNotebookSessionsCommandInput,
+  ListNotebookSessionsCommandOutput,
+} from "./commands/ListNotebookSessionsCommand";
 import {
   ListPreparedStatementsCommandInput,
   ListPreparedStatementsCommandOutput,
@@ -103,6 +142,7 @@ import {
   ListQueryExecutionsCommandInput,
   ListQueryExecutionsCommandOutput,
 } from "./commands/ListQueryExecutionsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import { ListTableMetadataCommandInput, ListTableMetadataCommandOutput } from "./commands/ListTableMetadataCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -110,19 +150,40 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput } from "./commands/ListWorkGroupsCommand";
 import {
+  StartCalculationExecutionCommandInput,
+  StartCalculationExecutionCommandOutput,
+} from "./commands/StartCalculationExecutionCommand";
+import {
   StartQueryExecutionCommandInput,
   StartQueryExecutionCommandOutput,
 } from "./commands/StartQueryExecutionCommand";
+import { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
+import {
+  StopCalculationExecutionCommandInput,
+  StopCalculationExecutionCommandOutput,
+} from "./commands/StopCalculationExecutionCommand";
 import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from "./commands/StopQueryExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "./commands/UpdateDataCatalogCommand";
 import { UpdateNamedQueryCommandInput, UpdateNamedQueryCommandOutput } from "./commands/UpdateNamedQueryCommand";
+import { UpdateNotebookCommandInput, UpdateNotebookCommandOutput } from "./commands/UpdateNotebookCommand";
+import {
+  UpdateNotebookMetadataCommandInput,
+  UpdateNotebookMetadataCommandOutput,
+} from "./commands/UpdateNotebookMetadataCommand";
 import {
   UpdatePreparedStatementCommandInput,
   UpdatePreparedStatementCommandOutput,
 } from "./commands/UpdatePreparedStatementCommand";
 import { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "./commands/UpdateWorkGroupCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -131,36 +192,59 @@ export type ServiceInputTypes =
   | BatchGetQueryExecutionCommandInput
   | CreateDataCatalogCommandInput
   | CreateNamedQueryCommandInput
+  | CreateNotebookCommandInput
   | CreatePreparedStatementCommandInput
+  | CreatePresignedNotebookUrlCommandInput
   | CreateWorkGroupCommandInput
   | DeleteDataCatalogCommandInput
   | DeleteNamedQueryCommandInput
+  | DeleteNotebookCommandInput
   | DeletePreparedStatementCommandInput
   | DeleteWorkGroupCommandInput
+  | ExportNotebookCommandInput
+  | GetCalculationExecutionCodeCommandInput
+  | GetCalculationExecutionCommandInput
+  | GetCalculationExecutionStatusCommandInput
   | GetDataCatalogCommandInput
   | GetDatabaseCommandInput
   | GetNamedQueryCommandInput
+  | GetNotebookMetadataCommandInput
   | GetPreparedStatementCommandInput
   | GetQueryExecutionCommandInput
   | GetQueryResultsCommandInput
   | GetQueryRuntimeStatisticsCommandInput
+  | GetSessionCommandInput
+  | GetSessionStatusCommandInput
   | GetTableMetadataCommandInput
   | GetWorkGroupCommandInput
+  | ImportNotebookCommandInput
+  | ListApplicationDPUSizesCommandInput
+  | ListCalculationExecutionsCommandInput
   | ListDataCatalogsCommandInput
   | ListDatabasesCommandInput
   | ListEngineVersionsCommandInput
+  | ListExecutorsCommandInput
   | ListNamedQueriesCommandInput
+  | ListNotebookMetadataCommandInput
+  | ListNotebookSessionsCommandInput
   | ListPreparedStatementsCommandInput
   | ListQueryExecutionsCommandInput
+  | ListSessionsCommandInput
   | ListTableMetadataCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkGroupsCommandInput
+  | StartCalculationExecutionCommandInput
   | StartQueryExecutionCommandInput
+  | StartSessionCommandInput
+  | StopCalculationExecutionCommandInput
   | StopQueryExecutionCommandInput
   | TagResourceCommandInput
+  | TerminateSessionCommandInput
   | UntagResourceCommandInput
   | UpdateDataCatalogCommandInput
   | UpdateNamedQueryCommandInput
+  | UpdateNotebookCommandInput
+  | UpdateNotebookMetadataCommandInput
   | UpdatePreparedStatementCommandInput
   | UpdateWorkGroupCommandInput;
 
@@ -170,36 +254,59 @@ export type ServiceOutputTypes =
   | BatchGetQueryExecutionCommandOutput
   | CreateDataCatalogCommandOutput
   | CreateNamedQueryCommandOutput
+  | CreateNotebookCommandOutput
   | CreatePreparedStatementCommandOutput
+  | CreatePresignedNotebookUrlCommandOutput
   | CreateWorkGroupCommandOutput
   | DeleteDataCatalogCommandOutput
   | DeleteNamedQueryCommandOutput
+  | DeleteNotebookCommandOutput
   | DeletePreparedStatementCommandOutput
   | DeleteWorkGroupCommandOutput
+  | ExportNotebookCommandOutput
+  | GetCalculationExecutionCodeCommandOutput
+  | GetCalculationExecutionCommandOutput
+  | GetCalculationExecutionStatusCommandOutput
   | GetDataCatalogCommandOutput
   | GetDatabaseCommandOutput
   | GetNamedQueryCommandOutput
+  | GetNotebookMetadataCommandOutput
   | GetPreparedStatementCommandOutput
   | GetQueryExecutionCommandOutput
   | GetQueryResultsCommandOutput
   | GetQueryRuntimeStatisticsCommandOutput
+  | GetSessionCommandOutput
+  | GetSessionStatusCommandOutput
   | GetTableMetadataCommandOutput
   | GetWorkGroupCommandOutput
+  | ImportNotebookCommandOutput
+  | ListApplicationDPUSizesCommandOutput
+  | ListCalculationExecutionsCommandOutput
   | ListDataCatalogsCommandOutput
   | ListDatabasesCommandOutput
   | ListEngineVersionsCommandOutput
+  | ListExecutorsCommandOutput
   | ListNamedQueriesCommandOutput
+  | ListNotebookMetadataCommandOutput
+  | ListNotebookSessionsCommandOutput
   | ListPreparedStatementsCommandOutput
   | ListQueryExecutionsCommandOutput
+  | ListSessionsCommandOutput
   | ListTableMetadataCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkGroupsCommandOutput
+  | StartCalculationExecutionCommandOutput
   | StartQueryExecutionCommandOutput
+  | StartSessionCommandOutput
+  | StopCalculationExecutionCommandOutput
   | StopQueryExecutionCommandOutput
   | TagResourceCommandOutput
+  | TerminateSessionCommandOutput
   | UntagResourceCommandOutput
   | UpdateDataCatalogCommandOutput
   | UpdateNamedQueryCommandOutput
+  | UpdateNotebookCommandOutput
+  | UpdateNotebookMetadataCommandOutput
   | UpdatePreparedStatementCommandOutput
   | UpdateWorkGroupCommandOutput;
 
@@ -210,11 +317,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -271,6 +378,39 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -286,58 +426,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
 type AthenaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of AthenaClient class constructor that set the region, credentials and other options.
  */
@@ -346,11 +448,12 @@ export interface AthenaClientConfig extends AthenaClientConfigType {}
 type AthenaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of AthenaClient class. This is resolved and normalized from the {@link AthenaClientConfig | constructor configuration interface}.
  */
@@ -364,11 +467,11 @@ export interface AthenaClientResolvedConfig extends AthenaClientResolvedConfigTy
  *             in parallel—so results are fast, even with large datasets and complex queries. For more
  *             information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon Athena</a> in the <i>Amazon Athena User
  *                 Guide</i>.</p>
- *         <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the
+ *          <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the
  *             driver or later with the Amazon Athena API. Earlier version drivers do not
  *             support the API. For more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing
  *                     Amazon Athena with JDBC</a>.</p>
- *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
  *                 Code Samples</a> in the <i>Amazon Athena User
  *             Guide</i>.</p>
  */
@@ -385,14 +488,15 @@ export class AthenaClient extends __Client<
 
   constructor(configuration: AthenaClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

@@ -538,7 +538,6 @@ export interface ContinuousExportDescription {
   /**
    * <p>Contains information about any errors that have occurred. This data type can have the
    *       following values:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>ACCESS_DENIED - You don’t have permission to start Data Exploration in Amazon
@@ -860,7 +859,6 @@ export enum ImportTaskFilterName {
 /**
  * <p>A name-values pair of elements you can use to filter the results when querying your import
  *       tasks. Currently, wildcards are not supported for filters.</p>
- *
  *          <note>
  *             <p>When filtering by import status, all other filter values are ignored.</p>
  *          </note>
@@ -996,10 +994,8 @@ export interface ImportTask {
    *       file of failed records. You can use these two files to quickly identify records that failed,
    *       why they failed, and correct those records. Afterward, you can upload the corrected file to
    *       your Amazon S3 bucket and create another import task request.</p>
-   *
    *          <p>This field also includes authorization information so you can confirm the authenticity of
    *       the compressed archive before you download it.</p>
-   *
    *          <p>If some records failed to be imported we recommend that you correct the records in the
    *       failed entries file and then imports that failed entries file. This prevents you from having
    *       to correct and update the larger original file and attempt importing it again.</p>
@@ -1633,7 +1629,6 @@ export interface StartImportTaskRequest {
    * <p>Optional. A unique token that you can provide to prevent the same import request from
    *       occurring more than once. If you don't provide a token, a token is automatically
    *       generated.</p>
-   *
    *          <p>Sending more than one <code>StartImportTask</code> request with the same client request
    *       token will return information about the original import task with that client request
    *       token.</p>
@@ -1649,7 +1644,6 @@ export interface StartImportTaskRequest {
 
   /**
    * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
-   *
    *          <note>
    *             <p>If you're using the Amazon Web Services CLI, this URL is structured as follows:
    *           <code>s3://BucketName/ImportFileName.CSV</code>

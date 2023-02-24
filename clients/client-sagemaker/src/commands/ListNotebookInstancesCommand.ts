@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,7 +18,7 @@ import {
   ListNotebookInstancesInputFilterSensitiveLog,
   ListNotebookInstancesOutput,
   ListNotebookInstancesOutputFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListNotebookInstancesCommand,
   serializeAws_json1_1ListNotebookInstancesCommand,
@@ -28,8 +29,8 @@ export interface ListNotebookInstancesCommandInput extends ListNotebookInstances
 export interface ListNotebookInstancesCommandOutput extends ListNotebookInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the SageMaker notebook instances in the requester's account in an Amazon Web Services
- *             Region. </p>
+ * <p>Returns a list of the SageMaker notebook instances in the requester's account in an
+ *                 Amazon Web Services Region. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,15 @@ export class ListNotebookInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListNotebookInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class ListNotebookInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListNotebookInstancesCommandInput, ListNotebookInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListNotebookInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
 /**
  * <p>Retrieves the alarms for the specified metric. To
  * 			filter the results, specify a statistic, period, or unit.</p>
- * 		       <p>This operation retrieves only standard alarms that are based on
+ *          <p>This operation retrieves only standard alarms that are based on
  * 		the specified metric. It does not return alarms based on math expressions that
  * 		use the specified metric, or composite alarms that use the specified metric.</p>
  * @example
@@ -56,6 +57,15 @@ export class DescribeAlarmsForMetricCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeAlarmsForMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DescribeAlarmsForMetricCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAlarmsForMetricCommandInput, DescribeAlarmsForMetricCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAlarmsForMetricCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

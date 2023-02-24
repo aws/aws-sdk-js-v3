@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,12 +24,9 @@ export interface PutAccountConfigurationCommandInput extends PutAccountConfigura
 export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or modifies
- *       account-level configurations in ACM.
- *       </p>
- *          <p>The
- *       supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies the
- *       number of days prior to certificate expiration when ACM starts generating
+ * <p>Adds or modifies account-level configurations in ACM. </p>
+ *          <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies
+ *       the number of days prior to certificate expiration when ACM starts generating
  *         <code>EventBridge</code> events. ACM sends one event per day per certificate until the
  *       certificate expires. By default, accounts receive events starting 45 days before certificate
  *       expiration.</p>
@@ -55,6 +53,15 @@ export class PutAccountConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutAccountConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +77,9 @@ export class PutAccountConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutAccountConfigurationCommandInput, PutAccountConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutAccountConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -17,6 +17,11 @@ import {
   CreateDataflowEndpointGroupCommandOutput,
 } from "./commands/CreateDataflowEndpointGroupCommand";
 import {
+  CreateEphemerisCommand,
+  CreateEphemerisCommandInput,
+  CreateEphemerisCommandOutput,
+} from "./commands/CreateEphemerisCommand";
+import {
   CreateMissionProfileCommand,
   CreateMissionProfileCommandInput,
   CreateMissionProfileCommandOutput,
@@ -32,6 +37,11 @@ import {
   DeleteDataflowEndpointGroupCommandOutput,
 } from "./commands/DeleteDataflowEndpointGroupCommand";
 import {
+  DeleteEphemerisCommand,
+  DeleteEphemerisCommandInput,
+  DeleteEphemerisCommandOutput,
+} from "./commands/DeleteEphemerisCommand";
+import {
   DeleteMissionProfileCommand,
   DeleteMissionProfileCommandInput,
   DeleteMissionProfileCommandOutput,
@@ -41,6 +51,16 @@ import {
   DescribeContactCommandInput,
   DescribeContactCommandOutput,
 } from "./commands/DescribeContactCommand";
+import {
+  DescribeEphemerisCommand,
+  DescribeEphemerisCommandInput,
+  DescribeEphemerisCommandOutput,
+} from "./commands/DescribeEphemerisCommand";
+import {
+  GetAgentConfigurationCommand,
+  GetAgentConfigurationCommandInput,
+  GetAgentConfigurationCommandOutput,
+} from "./commands/GetAgentConfigurationCommand";
 import { GetConfigCommand, GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommand,
@@ -74,6 +94,11 @@ import {
   ListDataflowEndpointGroupsCommandOutput,
 } from "./commands/ListDataflowEndpointGroupsCommand";
 import {
+  ListEphemeridesCommand,
+  ListEphemeridesCommandInput,
+  ListEphemeridesCommandOutput,
+} from "./commands/ListEphemeridesCommand";
+import {
   ListGroundStationsCommand,
   ListGroundStationsCommandInput,
   ListGroundStationsCommandOutput,
@@ -94,6 +119,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  RegisterAgentCommand,
+  RegisterAgentCommandInput,
+  RegisterAgentCommandOutput,
+} from "./commands/RegisterAgentCommand";
+import {
   ReserveContactCommand,
   ReserveContactCommandInput,
   ReserveContactCommandOutput,
@@ -105,10 +135,20 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAgentStatusCommand,
+  UpdateAgentStatusCommandInput,
+  UpdateAgentStatusCommandOutput,
+} from "./commands/UpdateAgentStatusCommand";
+import {
   UpdateConfigCommand,
   UpdateConfigCommandInput,
   UpdateConfigCommandOutput,
 } from "./commands/UpdateConfigCommand";
+import {
+  UpdateEphemerisCommand,
+  UpdateEphemerisCommandInput,
+  UpdateEphemerisCommandOutput,
+} from "./commands/UpdateEphemerisCommand";
 import {
   UpdateMissionProfileCommand,
   UpdateMissionProfileCommandInput,
@@ -222,6 +262,38 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * <p>Creates an Ephemeris with the specified <code>EphemerisData</code>.</p>
+   */
+  public createEphemeris(
+    args: CreateEphemerisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEphemerisCommandOutput>;
+  public createEphemeris(
+    args: CreateEphemerisCommandInput,
+    cb: (err: any, data?: CreateEphemerisCommandOutput) => void
+  ): void;
+  public createEphemeris(
+    args: CreateEphemerisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEphemerisCommandOutput) => void
+  ): void;
+  public createEphemeris(
+    args: CreateEphemerisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEphemerisCommandOutput) => void),
+    cb?: (err: any, data?: CreateEphemerisCommandOutput) => void
+  ): Promise<CreateEphemerisCommandOutput> | void {
+    const command = new CreateEphemerisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a mission profile.</p>
    *          <p>
    *             <code>dataflowEdges</code> is a list of lists of strings. Each lower level list of strings
@@ -318,6 +390,38 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * <p>Deletes an ephemeris</p>
+   */
+  public deleteEphemeris(
+    args: DeleteEphemerisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEphemerisCommandOutput>;
+  public deleteEphemeris(
+    args: DeleteEphemerisCommandInput,
+    cb: (err: any, data?: DeleteEphemerisCommandOutput) => void
+  ): void;
+  public deleteEphemeris(
+    args: DeleteEphemerisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEphemerisCommandOutput) => void
+  ): void;
+  public deleteEphemeris(
+    args: DeleteEphemerisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEphemerisCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEphemerisCommandOutput) => void
+  ): Promise<DeleteEphemerisCommandOutput> | void {
+    const command = new DeleteEphemerisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a mission profile.</p>
    */
   public deleteMissionProfile(
@@ -371,6 +475,70 @@ export class GroundStation extends GroundStationClient {
     cb?: (err: any, data?: DescribeContactCommandOutput) => void
   ): Promise<DescribeContactCommandOutput> | void {
     const command = new DescribeContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an existing ephemeris.</p>
+   */
+  public describeEphemeris(
+    args: DescribeEphemerisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEphemerisCommandOutput>;
+  public describeEphemeris(
+    args: DescribeEphemerisCommandInput,
+    cb: (err: any, data?: DescribeEphemerisCommandOutput) => void
+  ): void;
+  public describeEphemeris(
+    args: DescribeEphemerisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEphemerisCommandOutput) => void
+  ): void;
+  public describeEphemeris(
+    args: DescribeEphemerisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEphemerisCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEphemerisCommandOutput) => void
+  ): Promise<DescribeEphemerisCommandOutput> | void {
+    const command = new DescribeEphemerisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the latest configuration information for a registered agent.</p>
+   */
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgentConfigurationCommandOutput>;
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    cb: (err: any, data?: GetAgentConfigurationCommandOutput) => void
+  ): void;
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgentConfigurationCommandOutput) => void
+  ): void;
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAgentConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetAgentConfigurationCommandOutput) => void
+  ): Promise<GetAgentConfigurationCommandOutput> | void {
+    const command = new GetAgentConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -624,6 +792,38 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * <p>List existing ephemerides.</p>
+   */
+  public listEphemerides(
+    args: ListEphemeridesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEphemeridesCommandOutput>;
+  public listEphemerides(
+    args: ListEphemeridesCommandInput,
+    cb: (err: any, data?: ListEphemeridesCommandOutput) => void
+  ): void;
+  public listEphemerides(
+    args: ListEphemeridesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEphemeridesCommandOutput) => void
+  ): void;
+  public listEphemerides(
+    args: ListEphemeridesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEphemeridesCommandOutput) => void),
+    cb?: (err: any, data?: ListEphemeridesCommandOutput) => void
+  ): Promise<ListEphemeridesCommandOutput> | void {
+    const command = new ListEphemeridesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of ground stations. </p>
    */
   public listGroundStations(
@@ -752,6 +952,38 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * <p>Registers a new agent with AWS Groundstation.</p>
+   */
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterAgentCommandOutput>;
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    cb: (err: any, data?: RegisterAgentCommandOutput) => void
+  ): void;
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterAgentCommandOutput) => void
+  ): void;
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterAgentCommandOutput) => void),
+    cb?: (err: any, data?: RegisterAgentCommandOutput) => void
+  ): Promise<RegisterAgentCommandOutput> | void {
+    const command = new RegisterAgentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Reserves a contact using specified parameters.</p>
    */
   public reserveContact(
@@ -842,6 +1074,38 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * <p>Update the status of the agent.</p>
+   */
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentStatusCommandOutput>;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    cb: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): void;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): void;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAgentStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): Promise<UpdateAgentStatusCommandOutput> | void {
+    const command = new UpdateAgentStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the <code>Config</code> used when scheduling contacts.</p>
    *          <p>Updating a <code>Config</code> will not update the execution parameters
    *          for existing future contacts scheduled with this <code>Config</code>.</p>
@@ -862,6 +1126,38 @@ export class GroundStation extends GroundStationClient {
     cb?: (err: any, data?: UpdateConfigCommandOutput) => void
   ): Promise<UpdateConfigCommandOutput> | void {
     const command = new UpdateConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing ephemeris</p>
+   */
+  public updateEphemeris(
+    args: UpdateEphemerisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEphemerisCommandOutput>;
+  public updateEphemeris(
+    args: UpdateEphemerisCommandInput,
+    cb: (err: any, data?: UpdateEphemerisCommandOutput) => void
+  ): void;
+  public updateEphemeris(
+    args: UpdateEphemerisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEphemerisCommandOutput) => void
+  ): void;
+  public updateEphemeris(
+    args: UpdateEphemerisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEphemerisCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEphemerisCommandOutput) => void
+  ): Promise<UpdateEphemerisCommandOutput> | void {
+    const command = new UpdateEphemerisCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

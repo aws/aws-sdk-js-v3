@@ -117,6 +117,11 @@ import {
   DeleteResourceDataSyncCommandOutput,
 } from "./commands/DeleteResourceDataSyncCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeregisterManagedInstanceCommand,
   DeregisterManagedInstanceCommandInput,
   DeregisterManagedInstanceCommandOutput,
@@ -409,6 +414,11 @@ import {
   GetPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/GetPatchBaselineForPatchGroupCommand";
 import {
+  GetResourcePoliciesCommand,
+  GetResourcePoliciesCommandInput,
+  GetResourcePoliciesCommandOutput,
+} from "./commands/GetResourcePoliciesCommand";
+import {
   GetServiceSettingCommand,
   GetServiceSettingCommandInput,
   GetServiceSettingCommandOutput,
@@ -518,6 +528,11 @@ import {
   PutParameterCommandInput,
   PutParameterCommandOutput,
 } from "./commands/PutParameterCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   RegisterDefaultPatchBaselineCommand,
   RegisterDefaultPatchBaselineCommandInput,
@@ -667,32 +682,40 @@ import {
 import { SSMClient } from "./SSMClient";
 
 /**
- * <p>Amazon Web Services Systems Manager is a collection of capabilities to help you manage your applications and
- *    infrastructure running in the Amazon Web Services Cloud;. Systems Manager simplifies application and resource management,
- *    shortens the time to detect and resolve operational problems, and helps you manage your Amazon Web Services
- *    resources securely at scale.</p>
- *          <p>This reference is intended to be used with the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/">Amazon Web Services Systems Manager User Guide</a>.</p>
- *          <p>To get started, verify prerequisites. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting up
- *     Amazon Web Services Systems Manager</a>.</p>
+ * <p>Amazon Web Services Systems Manager is the operations hub for your Amazon Web Services applications and resources and a secure
+ *    end-to-end management solution for hybrid cloud environments that enables safe and secure
+ *    operations at scale.</p>
+ *          <p>This reference is intended to be used with the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/">Amazon Web Services Systems Manager User Guide</a>. To get started, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting up Amazon Web Services Systems Manager</a>.</p>
  *          <p class="title">
  *             <b>Related resources</b>
  *          </p>
  *          <ul>
  *             <li>
- *                <p>For information about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API requests</a>. </p>
+ *                <p>For information about each of the capabilities that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/what-is-systems-manager.html#systems-manager-capabilities">Systems Manager capabilities</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *             </li>
  *             <li>
- *                <p>For information about other API operations you can perform on EC2 instances, see the
- *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>.</p>
+ *                <p>For details about predefined runbooks for Automation, a capability of Amazon Web Services Systems Manager, see the
+ *        <i>
+ *                      <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html">Systems Manager Automation runbook reference</a>
+ *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For information about AppConfig, a capability of Systems Manager, see the <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/">AppConfig User Guide</a> and the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/">AppConfig API
- *      Reference</a>.</p>
+ *                <p>For information about AppConfig, a capability of Systems Manager, see the <i>
+ *                      <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/">AppConfig User Guide</a>
+ *                   </i>
+ *      and the <i>
+ *                      <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/">AppConfig
+ *        API Reference</a>
+ *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For information about Incident Manager, a capability of Systems Manager, see the <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/">Incident Manager User Guide</a>
- *      and the <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/">Incident Manager API
- *       Reference</a>.</p>
+ *                <p>For information about Incident Manager, a capability of Systems Manager, see the <i>
+ *                      <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/">Systems Manager Incident Manager User
+ *        Guide</a>
+ *                   </i> and the <i>
+ *                      <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/">Systems Manager Incident Manager API
+ *      Reference</a>
+ *                   </i>.</p>
  *             </li>
  *          </ul>
  */
@@ -1554,6 +1577,41 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: DeleteResourceDataSyncCommandOutput) => void
   ): Promise<DeleteResourceDataSyncCommandOutput> | void {
     const command = new DeleteResourceDataSyncCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a Systems Manager resource policy. A resource policy helps you to define the IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources. Currently,
+   *     <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies. The
+   *    resource policy for <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact with
+   *    OpsCenter operational work items (OpsItems).</p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3661,6 +3719,38 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * <p>Returns an array of the <code>Policy</code> object.</p>
+   */
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePoliciesCommandOutput>;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): void;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): void;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePoliciesCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): Promise<GetResourcePoliciesCommandOutput> | void {
+    const command = new GetResourcePoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>
    *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
    *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -4309,9 +4399,9 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
-   *    privately, you must specify the Amazon Web Services user account IDs for those people who can use the
-   *    document. If you share a document publicly, you must specify <i>All</i> as the
-   *    account ID.</p>
+   *    privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
+   *    you share a document publicly, you must specify <i>All</i> as the account
+   *    ID.</p>
    */
   public modifyDocumentPermission(
     args: ModifyDocumentPermissionCommandInput,
@@ -4479,6 +4569,42 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: PutParameterCommandOutput) => void
   ): Promise<PutParameterCommandOutput> | void {
     const command = new PutParameterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates a Systems Manager resource policy. A resource policy helps you to define the
+   *     IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources.
+   *    Currently, <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies.
+   *    The resource policy for <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact
+   *    with OpsCenter operational work items (OpsItems).</p>
+   */
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): Promise<PutResourcePolicyCommandOutput> | void {
+    const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5038,13 +5164,12 @@ export class SSM extends SSMClient {
    *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you
    *    call the <a>DescribeAssociation</a> API operation and make a note of all optional
    *    parameters required for your <code>UpdateAssociation</code> call.</p>
-   *
-   *          <p>In order to call this API operation, your Identity and Access Management (IAM) user
-   *    account, group, or role must be configured with permission to call the <a>DescribeAssociation</a> API operation. If you don't have permission to call
-   *     <code>DescribeAssociation</code>, then you receive the following error: <code>An error occurred
-   *     (AccessDeniedException) when calling the UpdateAssociation operation: User: <user_arn>
-   *     isn't authorized to perform: ssm:DescribeAssociation on resource:
-   *    <resource_arn></code>
+   *          <p>In order to call this API operation, a user, group, or role must be granted permission to
+   *    call the <a>DescribeAssociation</a> API operation. If you don't have permission to
+   *    call <code>DescribeAssociation</code>, then you receive the following error: <code>An error
+   *     occurred (AccessDeniedException) when calling the UpdateAssociation operation: User:
+   *     <user_arn> isn't authorized to perform: ssm:DescribeAssociation on resource:
+   *     <resource_arn></code>
    *          </p>
    *          <important>
    *             <p>When you update an association, the association immediately runs against the specified
@@ -5263,7 +5388,6 @@ export class SSM extends SSMClient {
   /**
    * <p>Modifies the target of an existing maintenance window. You
    *    can change the following:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>Name</p>

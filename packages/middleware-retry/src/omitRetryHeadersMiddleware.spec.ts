@@ -1,7 +1,7 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { FinalizeHandlerArguments, MiddlewareStack } from "@aws-sdk/types";
+import { INVOCATION_ID_HEADER, REQUEST_HEADER } from "@aws-sdk/util-retry";
 
-import { INVOCATION_ID_HEADER, REQUEST_HEADER } from "./constants";
 import {
   getOmitRetryHeadersPlugin,
   omitRetryHeadersMiddleware,

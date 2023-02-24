@@ -2,16 +2,13 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
+  AlarmConfiguration,
+  AlarmStateInformation,
   AssociationComplianceSeverity,
-  AssociationDescription,
-  AssociationDescriptionFilterSensitiveLog,
   AssociationOverview,
-  AssociationStatus,
   AssociationSyncCompliance,
-  AttachmentsSource,
   AutomationExecutionStatus,
   AutomationSubtype,
-  DocumentDescription,
   DocumentFormat,
   DocumentHashType,
   DocumentPermissionType,
@@ -29,10 +26,9 @@ import {
   MetadataValue,
   OperatingSystem,
   OpsItemDataValue,
+  OpsItemFilterKey,
+  OpsItemFilterOperator,
   OpsItemNotification,
-  OpsItemStatus,
-  ParameterInlinePolicy,
-  ParameterStringFilter,
   PatchAction,
   PatchComplianceLevel,
   PatchFilterGroup,
@@ -54,6 +50,363 @@ import {
   TargetLocation,
 } from "./models_0";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * <p>Describes an OpsItem filter.</p>
+ */
+export interface OpsItemFilter {
+  /**
+   * <p>The name of the filter.</p>
+   */
+  Key: OpsItemFilterKey | string | undefined;
+
+  /**
+   * <p>The filter value.</p>
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>The operator used by the filter call.</p>
+   */
+  Operator: OpsItemFilterOperator | string | undefined;
+}
+
+export interface DescribeOpsItemsRequest {
+  /**
+   * <p>One or more filters to limit the response.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key: CreatedTime</p>
+   *                <p>Operations: GreaterThan, LessThan</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: LastModifiedBy</p>
+   *                <p>Operations: Contains, Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: LastModifiedTime</p>
+   *                <p>Operations: GreaterThan, LessThan</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: Priority</p>
+   *                <p>Operations: Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: Source</p>
+   *                <p>Operations: Contains, Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: Status</p>
+   *                <p>Operations: Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: Title*</p>
+   *                <p>Operations: Equals,Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: OperationalData**</p>
+   *                <p>Operations: Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: OperationalDataKey</p>
+   *                <p>Operations: Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: OperationalDataValue</p>
+   *                <p>Operations: Equals, Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: OpsItemId</p>
+   *                <p>Operations: Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: ResourceId</p>
+   *                <p>Operations: Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>Key: AutomationId</p>
+   *                <p>Operations: Equals</p>
+   *             </li>
+   *          </ul>
+   *          <p>*The Equals operator for Title matches the first 100 characters. If you specify more than
+   *    100 characters, they system returns an error that the filter value exceeds the length
+   *    limit.</p>
+   *          <p>**If you filter the response by using the OperationalData operator, specify a key-value pair
+   *    by using the following JSON format: {"key":"key_name","value":"a_value"}</p>
+   */
+  OpsItemFilters?: OpsItemFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export enum OpsItemStatus {
+  APPROVED = "Approved",
+  CANCELLED = "Cancelled",
+  CANCELLING = "Cancelling",
+  CHANGE_CALENDAR_OVERRIDE_APPROVED = "ChangeCalendarOverrideApproved",
+  CHANGE_CALENDAR_OVERRIDE_REJECTED = "ChangeCalendarOverrideRejected",
+  CLOSED = "Closed",
+  COMPLETED_WITH_FAILURE = "CompletedWithFailure",
+  COMPLETED_WITH_SUCCESS = "CompletedWithSuccess",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  OPEN = "Open",
+  PENDING = "Pending",
+  PENDING_APPROVAL = "PendingApproval",
+  PENDING_CHANGE_CALENDAR_OVERRIDE = "PendingChangeCalendarOverride",
+  REJECTED = "Rejected",
+  RESOLVED = "Resolved",
+  RUNBOOK_IN_PROGRESS = "RunbookInProgress",
+  SCHEDULED = "Scheduled",
+  TIMED_OUT = "TimedOut",
+}
+
+/**
+ * <p>A count of OpsItems.</p>
+ */
+export interface OpsItemSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM entity that created the
+   *    OpsItem.</p>
+   */
+  CreatedBy?: string;
+
+  /**
+   * <p>The date and time the OpsItem was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM entity that created the
+   *    OpsItem.</p>
+   */
+  LastModifiedBy?: string;
+
+  /**
+   * <p>The date and time the OpsItem was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The impacted Amazon Web Services resource.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
+   *     <code>Resolved</code>.</p>
+   */
+  Status?: OpsItemStatus | string;
+
+  /**
+   * <p>The ID of the OpsItem.</p>
+   */
+  OpsItemId?: string;
+
+  /**
+   * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>Operational data is custom data that provides useful reference details about the OpsItem.
+   *   </p>
+   */
+  OperationalData?: Record<string, OpsItemDataValue>;
+
+  /**
+   * <p>A list of OpsItems by category.</p>
+   */
+  Category?: string;
+
+  /**
+   * <p>A list of OpsItems by severity.</p>
+   */
+  Severity?: string;
+
+  /**
+   * <p>The type of OpsItem. Systems Manager supports the following types of OpsItems:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/issue</code>
+   *                </p>
+   *                <p>This type of OpsItem is used for default OpsItems created by OpsCenter. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/changerequest</code>
+   *                </p>
+   *                <p>This type of OpsItem is used by Change Manager for reviewing and approving or rejecting change
+   *      requests. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/insights</code>
+   *                </p>
+   *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
+   *      OpsItems. </p>
+   *             </li>
+   *          </ul>
+   */
+  OpsItemType?: string;
+
+  /**
+   * <p>The time a runbook workflow started. Currently reported only for the OpsItem type
+   *     <code>/aws/changerequest</code>.</p>
+   */
+  ActualStartTime?: Date;
+
+  /**
+   * <p>The time a runbook workflow ended. Currently reported only for the OpsItem type
+   *     <code>/aws/changerequest</code>.</p>
+   */
+  ActualEndTime?: Date;
+
+  /**
+   * <p>The time specified in a change request for a runbook workflow to start. Currently supported
+   *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
+   */
+  PlannedStartTime?: Date;
+
+  /**
+   * <p>The time specified in a change request for a runbook workflow to end. Currently supported
+   *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
+   */
+  PlannedEndTime?: Date;
+}
+
+export interface DescribeOpsItemsResponse {
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *    results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of OpsItems.</p>
+   */
+  OpsItemSummaries?: OpsItemSummary[];
+}
+
+export enum ParametersFilterKey {
+  KEY_ID = "KeyId",
+  NAME = "Name",
+  TYPE = "Type",
+}
+
+/**
+ * <p>This data type is deprecated. Instead, use <a>ParameterStringFilter</a>.</p>
+ */
+export interface ParametersFilter {
+  /**
+   * <p>The name of the filter.</p>
+   */
+  Key: ParametersFilterKey | string | undefined;
+
+  /**
+   * <p>The filter values.</p>
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>One or more filters. Use a filter to return a more specific list of results.</p>
+ */
+export interface ParameterStringFilter {
+  /**
+   * <p>The name of the filter.</p>
+   *          <p>The <code>ParameterStringFilter</code> object is used by the <a>DescribeParameters</a> and <a>GetParametersByPath</a> API operations.
+   *    However, not all of the pattern values listed for <code>Key</code> can be used with both
+   *    operations.</p>
+   *          <p>For <code>DescribeParameters</code>, all of the listed patterns are valid except
+   *     <code>Label</code>.</p>
+   *          <p>For <code>GetParametersByPath</code>, the following patterns listed for <code>Key</code>
+   *    aren't valid: <code>tag</code>, <code>DataType</code>, <code>Name</code>, <code>Path</code>, and
+   *     <code>Tier</code>.</p>
+   *          <p>For examples of Amazon Web Services CLI commands demonstrating valid parameter filter constructions, see
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html">Searching for Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>For all filters used with <a>DescribeParameters</a>, valid options include
+   *     <code>Equals</code> and <code>BeginsWith</code>. The <code>Name</code> filter additionally
+   *    supports the <code>Contains</code> option. (Exception: For filters using the key
+   *     <code>Path</code>, valid options include <code>Recursive</code> and
+   *    <code>OneLevel</code>.)</p>
+   *          <p>For filters used with <a>GetParametersByPath</a>, valid options include
+   *     <code>Equals</code> and <code>BeginsWith</code>. (Exception: For filters using
+   *     <code>Label</code> as the Key name, the only valid option is <code>Equals</code>.)</p>
+   */
+  Option?: string;
+
+  /**
+   * <p>The value you want to search for.</p>
+   */
+  Values?: string[];
+}
+
+export interface DescribeParametersRequest {
+  /**
+   * <p>This data type is deprecated. Instead, use <code>ParameterFilters</code>.</p>
+   */
+  Filters?: ParametersFilter[];
+
+  /**
+   * <p>Filters to limit the request results.</p>
+   */
+  ParameterFilters?: ParameterStringFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>One or more policies assigned to a parameter.</p>
+ */
+export interface ParameterInlinePolicy {
+  /**
+   * <p>The JSON text of the policy.</p>
+   */
+  PolicyText?: string;
+
+  /**
+   * <p>The type of policy. Parameter Store, a capability of Amazon Web Services Systems Manager, supports the following
+   *    policy types: Expiration, ExpirationNotification, and NoChangeNotification. </p>
+   */
+  PolicyType?: string;
+
+  /**
+   * <p>The status of the policy. Policies report the following statuses: Pending (the policy hasn't
+   *    been enforced or applied yet), Finished (the policy was applied), Failed (the policy wasn't
+   *    applied), or InProgress (the policy is being applied now). </p>
+   */
+  PolicyStatus?: string;
+}
 
 export enum ParameterTier {
   ADVANCED = "Advanced",
@@ -513,8 +866,7 @@ export interface SessionFilter {
    *                <p>Target: Specify a managed node to which session connections have been made.</p>
    *             </li>
    *             <li>
-   *                <p>Owner: Specify an Amazon Web Services user account to see a list of sessions started by that
-   *      user.</p>
+   *                <p>Owner: Specify an Amazon Web Services user to see a list of sessions started by that user.</p>
    *             </li>
    *             <li>
    *                <p>Status: Specify a valid session status to see a list of all sessions with that status.
@@ -637,7 +989,7 @@ export interface Session {
   DocumentName?: string;
 
   /**
-   * <p>The ID of the Amazon Web Services user account that started the session.</p>
+   * <p>The ID of the Amazon Web Services user that started the session.</p>
    */
   Owner?: string;
 
@@ -892,6 +1244,16 @@ export interface AutomationExecution {
    *    multi-Region and multi-account Automation execution.</p>
    */
   ProgressCounters?: ProgressCounters;
+
+  /**
+   * <p>The details for the CloudWatch alarm applied to your automation.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarm that was invoked by the automation.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 
   /**
    * <p>The subtype of the Automation operation. Currently, the only supported value is
@@ -2112,6 +2474,17 @@ export interface GetMaintenanceWindowExecutionTaskResult {
    * <p>The time the task execution completed.</p>
    */
   EndTime?: Date;
+
+  /**
+   * <p>The details for the CloudWatch alarm you applied to your maintenance window
+   *    task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarms that were invoked by the maintenance window task.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface GetMaintenanceWindowExecutionTaskInvocationRequest {
@@ -2225,7 +2598,6 @@ export interface MaintenanceWindowAutomationParameters {
    *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
    *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
    *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *
    *             <p>
    *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
    *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
@@ -2247,7 +2619,6 @@ export interface MaintenanceWindowAutomationParameters {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
@@ -2337,7 +2708,6 @@ export interface NotificationConfig {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
@@ -2430,7 +2800,6 @@ export interface MaintenanceWindowRunCommandParameters {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
@@ -2588,6 +2957,12 @@ export interface GetMaintenanceWindowTaskResult {
    *     <code>CancelCommand</code> operation.</p>
    */
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+
+  /**
+   * <p>The details for the CloudWatch alarm you applied to your maintenance window
+   *    task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface GetOpsItemRequest {
@@ -2595,6 +2970,11 @@ export interface GetOpsItemRequest {
    * <p>The ID of the OpsItem that you want to get.</p>
    */
   OpsItemId: string | undefined;
+
+  /**
+   * <p>The OpsItem Amazon Resource Name (ARN).</p>
+   */
+  OpsItemArn?: string;
 }
 
 /**
@@ -2619,8 +2999,29 @@ export interface OpsItem {
   CreatedBy?: string;
 
   /**
-   * <p>The type of OpsItem. Currently, the only valid values are <code>/aws/changerequest</code>
-   *    and <code>/aws/issue</code>.</p>
+   * <p>The type of OpsItem. Systems Manager supports the following types of OpsItems:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/issue</code>
+   *                </p>
+   *                <p>This type of OpsItem is used for default OpsItems created by OpsCenter. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/changerequest</code>
+   *                </p>
+   *                <p>This type of OpsItem is used by Change Manager for reviewing and approving or rejecting change
+   *      requests. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/insights</code>
+   *                </p>
+   *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
+   *      OpsItems. </p>
+   *             </li>
+   *          </ul>
    */
   OpsItemType?: string;
 
@@ -2746,6 +3147,11 @@ export interface OpsItem {
    *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
    */
   PlannedEndTime?: Date;
+
+  /**
+   * <p>The OpsItem Amazon Resource Name (ARN).</p>
+   */
+  OpsItemArn?: string;
 }
 
 export interface GetOpsItemResponse {
@@ -3333,6 +3739,67 @@ export interface GetPatchBaselineForPatchGroupResult {
   OperatingSystem?: OperatingSystem | string;
 }
 
+export interface GetResourcePoliciesRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource to which the policies are attached.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>A resource policy helps you to define the IAM entity (for example, an
+ *    Amazon Web Services account) that can manage your Systems Manager resources. Currently, <code>OpsItemGroup</code> is the
+ *    only resource that supports Systems Manager resource policies. The resource policy for
+ *     <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact with OpsCenter operational
+ *    work items (OpsItems).</p>
+ */
+export interface GetResourcePoliciesResponseEntry {
+  /**
+   * <p>A policy ID.</p>
+   */
+  PolicyId?: string;
+
+  /**
+   * <p>ID of the current policy version. The hash helps to prevent a situation where multiple users
+   *    attempt to overwrite a policy. You must provide this hash when updating or deleting a
+   *    policy.</p>
+   */
+  PolicyHash?: string;
+
+  /**
+   * <p>A resource policy helps you to define the IAM entity (for example, an
+   *    Amazon Web Services account) that can manage your Systems Manager resources. Currently, <code>OpsItemGroup</code> is the
+   *    only resource that supports Systems Manager resource policies. The resource policy for
+   *     <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact with OpsCenter operational
+   *    work items (OpsItems).</p>
+   */
+  Policy?: string;
+}
+
+export interface GetResourcePoliciesResponse {
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *    results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of the <code>Policy</code> object.</p>
+   */
+  Policies?: GetResourcePoliciesResponseEntry[];
+}
+
 /**
  * <p>The request body of the GetServiceSetting API operation.</p>
  */
@@ -3340,6 +3807,11 @@ export interface GetServiceSettingRequest {
   /**
    * <p>The ID of the service setting to get. The setting ID can be one of the following.</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
+   *                </p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>/ssm/automation/customer-script-log-destination</code>
@@ -3610,7 +4082,6 @@ export interface Association {
    * <p>The version of the document used in the association. If you change a document version for a
    *    State Manager association, Systems Manager immediately runs the association unless you previously specifed
    *    the <code>apply-only-at-cron-interval</code> parameter.</p>
-   *
    *          <important>
    *             <p>State Manager doesn't support running associations that use a new version of a document if
    *     that document is shared from another account. State Manager always runs the <code>default</code>
@@ -4640,6 +5111,16 @@ export interface Command {
    * <p>The <code>TimeoutSeconds</code> value specified for a command.</p>
    */
   TimeoutSeconds?: number;
+
+  /**
+   * <p>The details for the CloudWatch alarm applied to your command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarm that was invoked by the command.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface ListCommandsResult {
@@ -5298,7 +5779,7 @@ export interface DocumentIdentifier {
   DisplayName?: string;
 
   /**
-   * <p>The Amazon Web Services user account that created the document.</p>
+   * <p>The Amazon Web Services user that created the document.</p>
    */
   Owner?: string;
 
@@ -6103,9 +6584,12 @@ export interface ListTagsForResourceResult {
 }
 
 /**
- * <p>The document can't be shared with more Amazon Web Services user accounts. You can share a document
- *    with a maximum of 20 accounts. You can publicly share up to five documents. If you need to
- *    increase this limit, contact Amazon Web Services Support.</p>
+ * <p>The document can't be shared with more Amazon Web Services accounts. You can specify a maximum of 20
+ *    accounts per API operation to share a private document.</p>
+ *          <p>By default, you can share a private document with a maximum of 1,000 accounts and publicly
+ *    share up to five documents.</p>
+ *          <p>If you need to increase the quota for privately or publicly shared Systems Manager documents, contact
+ *    Amazon Web Services Support.</p>
  */
 export class DocumentPermissionLimit extends __BaseException {
   readonly name: "DocumentPermissionLimit" = "DocumentPermissionLimit";
@@ -6138,16 +6622,16 @@ export interface ModifyDocumentPermissionRequest {
   PermissionType: DocumentPermissionType | string | undefined;
 
   /**
-   * <p>The Amazon Web Services user accounts that should have access to the document. The account IDs can
-   *    either be a group of account IDs or <i>All</i>.</p>
+   * <p>The Amazon Web Services users that should have access to the document. The account IDs can either be a
+   *    group of account IDs or <i>All</i>.</p>
    */
   AccountIdsToAdd?: string[];
 
   /**
-   * <p>The Amazon Web Services user accounts that should no longer have access to the document. The Amazon Web Services
-   *    user account can either be a group of account IDs or <i>All</i>. This action has a
-   *    higher priority than <i>AccountIdsToAdd</i>. If you specify an account ID to add
-   *    and the same ID to remove, the system removes access to the document.</p>
+   * <p>The Amazon Web Services users that should no longer have access to the document. The Amazon Web Services user
+   *    can either be a group of account IDs or <i>All</i>. This action has a higher
+   *    priority than <i>AccountIdsToAdd</i>. If you specify an ID to add and the same ID
+   *    to remove, the system removes access to the document.</p>
    */
   AccountIdsToRemove?: string[];
 
@@ -6854,16 +7338,10 @@ export interface PutParameterRequest {
 
   /**
    * <p>The Key Management Service (KMS) ID that you want to use to encrypt a
-   *    parameter. Either the default KMS key automatically assigned to your Amazon Web Services account
-   *    or a custom key. Required for parameters that use the <code>SecureString</code>
-   *    data type.</p>
+   *    parameter. Use a custom key for better security. Required for parameters that use the <code>SecureString</code> data type.</p>
    *          <p>If you don't specify a key ID, the system uses the default key associated with your
-   *    Amazon Web Services account.</p>
+   *    Amazon Web Services account which is not as secure as using a custom key.</p>
    *          <ul>
-   *             <li>
-   *                <p>To use your default KMS key, choose the <code>SecureString</code> data type, and do <i>not</i> specify the <code>Key ID</code> when you create the parameter. The system automatically populates
-   *       <code>Key ID</code> with your default KMS key.</p>
-   *             </li>
    *             <li>
    *                <p>To use a custom KMS key, choose the <code>SecureString</code>
    *      data type with the <code>Key ID</code> parameter.</p>
@@ -7020,8 +7498,21 @@ export interface PutParameterRequest {
    *          <p>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
    *    Amazon Web Services Systems Manager validates the parameter value is in the required format, such as
    *     <code>ami-12345abcdeEXAMPLE</code>, and that the specified AMI is available in your
-   *    Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native parameter support
-   *     for Amazon Machine Image (AMI) IDs</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    Amazon Web Services account.</p>
+   *          <note>
+   *             <p>If the action is successful, the service sends back an HTTP 200 response which indicates a
+   *     successful <code>PutParameter</code> call for all cases except for data type
+   *      <code>aws:ec2:image</code>. If you call <code>PutParameter</code> with
+   *      <code>aws:ec2:image</code> data type, a successful HTTP 200 response does not guarantee that
+   *     your parameter was successfully created or updated. The <code>aws:ec2:image</code> value is
+   *     validated asynchronously, and the <code>PutParameter</code> call returns before the validation
+   *     is complete. If you submit an invalid AMI value, the PutParameter operation will return success,
+   *     but the asynchronous validation will fail and the parameter will not be created or updated. To
+   *     monitor whether your <code>aws:ec2:image</code> parameters are created successfully,  see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-cwe.html">Setting
+   *      up notifications or trigger actions based on Parameter Store events</a>.  For more
+   *     information about  AMI format validation , see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native parameter
+   *      support for Amazon Machine Image (AMI) IDs</a>. </p>
+   *          </note>
    */
   DataType?: string;
 }
@@ -7058,6 +7549,70 @@ export class UnsupportedParameterType extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, UnsupportedParameterType.prototype);
+  }
+}
+
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource to which you want to attach a policy.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>A policy you want to associate with a resource.</p>
+   */
+  Policy: string | undefined;
+
+  /**
+   * <p>The policy ID.</p>
+   */
+  PolicyId?: string;
+
+  /**
+   * <p>ID of the current policy version. The hash helps to prevent a situation where multiple users
+   *    attempt to overwrite a policy. You must provide this hash when updating or deleting a
+   *    policy.</p>
+   */
+  PolicyHash?: string;
+}
+
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The policy ID. To update a policy, you must specify <code>PolicyId</code> and
+   *     <code>PolicyHash</code>.</p>
+   */
+  PolicyId?: string;
+
+  /**
+   * <p>ID of the current policy version.</p>
+   */
+  PolicyHash?: string;
+}
+
+/**
+ * <p>The <a>PutResourcePolicy</a> API action enforces two limits. A policy can't be
+ *    greater than 1024 bytes in size. And only one policy can be attached to
+ *    <code>OpsItemGroup</code>. Verify these limits and try again.</p>
+ */
+export class ResourcePolicyLimitExceededException extends __BaseException {
+  readonly name: "ResourcePolicyLimitExceededException" = "ResourcePolicyLimitExceededException";
+  readonly $fault: "client" = "client";
+  Limit?: number;
+  LimitType?: string;
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourcePolicyLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourcePolicyLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourcePolicyLimitExceededException.prototype);
+    this.Limit = opts.Limit;
+    this.LimitType = opts.LimitType;
+    this.Message = opts.Message;
   }
 }
 
@@ -7137,7 +7692,6 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
    *          <p>
    *             <code>Key=tag-key,Values=<my-tag-key-1>,<my-tag-key-2></code>
    *          </p>
-   *
    *          <p>
    *             <b>Example 4</b>: Use resource group names</p>
    *          <p>
@@ -7155,7 +7709,6 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
    *                <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code>
    *             </p>
    *          </note>
-   *
    *          <p>For more information about these examples formats, including the best use case for each one,
    *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register
    *     targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
@@ -7381,6 +7934,11 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *          </ul>
    */
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+
+  /**
+   * <p>The CloudWatch alarm you want to apply to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface RegisterTaskWithMaintenanceWindowResult {
@@ -7797,6 +8355,9 @@ export interface SendCommandRequest {
   /**
    * <p>The ARN of the Identity and Access Management (IAM) service role to use to publish
    *     Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.</p>
+   *          <p>This role must provide the <code>sns:Publish</code> permission for your notification topic.
+   *    For information about creating and using this service role, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in the
+   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   ServiceRoleArn?: string;
 
@@ -7810,6 +8371,11 @@ export interface SendCommandRequest {
    *    capability of Amazon Web Services Systems Manager.</p>
    */
   CloudWatchOutputConfig?: CloudWatchOutputConfig;
+
+  /**
+   * <p>The CloudWatch alarm you want to apply to your command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface SendCommandResult {
@@ -8039,6 +8605,11 @@ export interface StartAutomationExecutionRequest {
    *          </note>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The CloudWatch alarm you want to apply to your automation.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface StartAutomationExecutionResult {
@@ -8210,8 +8781,9 @@ export interface StartSessionResponse {
   SessionId?: string;
 
   /**
-   * <p>An encrypted token value containing session and caller information. Used to authenticate the
-   *    connection to the managed node.</p>
+   * <p>An encrypted token value containing session and caller information. This token is used to
+   *    authenticate the connection to the managed node, and is valid only long enough to ensure the
+   *    connection is successful. Never share your session's token.</p>
    */
   TokenValue?: string;
 
@@ -8364,443 +8936,60 @@ export class AssociationVersionLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The update isn't valid.</p>
+ * @internal
  */
-export class InvalidUpdate extends __BaseException {
-  readonly name: "InvalidUpdate" = "InvalidUpdate";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidUpdate, __BaseException>) {
-    super({
-      name: "InvalidUpdate",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidUpdate.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-export interface UpdateAssociationRequest {
-  /**
-   * <p>The ID of the association you want to update. </p>
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>The parameters you want to update for the association. If you create a parameter using
-   *    Parameter Store, a capability of Amazon Web Services Systems Manager, you can reference the parameter using
-   *     <code>{{ssm:parameter-name}}</code>.</p>
-   */
-  Parameters?: Record<string, string[]>;
-
-  /**
-   * <p>The document version you want update for the association. </p>
-   *          <important>
-   *             <p>State Manager doesn't support running associations that use a new version of a document if
-   *     that document is shared from another account. State Manager always runs the <code>default</code>
-   *     version of a document if shared from another account, even though the Systems Manager console shows that a
-   *     new version was processed. If you want to run an association using a new version of a document
-   *     shared form another account, you must set the document version to <code>default</code>.</p>
-   *          </important>
-   */
-  DocumentVersion?: string;
-
-  /**
-   * <p>The cron expression used to schedule the association that you want to update.</p>
-   */
-  ScheduleExpression?: string;
-
-  /**
-   * <p>An S3 bucket where you want to store the results of this request.</p>
-   */
-  OutputLocation?: InstanceAssociationOutputLocation;
-
-  /**
-   * <p>The name of the SSM Command document or Automation runbook that contains the configuration
-   *    information for the managed node.</p>
-   *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
-   *    shared with you from another account.</p>
-   *          <p>For Systems Manager document (SSM document) that are shared with you from other Amazon Web Services accounts, you
-   *    must specify the complete SSM document ARN, in the following format:</p>
-   *          <p>
-   *             <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
-   *             </code>
-   *          </p>
-   *          <p>For example:</p>
-   *          <p>
-   *             <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code>
-   *          </p>
-   *          <p>For Amazon Web Services-predefined documents and SSM documents you created in your account, you only need
-   *    to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code> or
-   *     <code>My-Document</code>.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The targets of the association.</p>
-   */
-  Targets?: Target[];
-
-  /**
-   * <p>The name of the association that you want to update.</p>
-   */
-  AssociationName?: string;
-
-  /**
-   * <p>This parameter is provided for concurrency control purposes. You must specify the latest
-   *    association version in the service. If you want to ensure that this request succeeds, either
-   *    specify <code>$LATEST</code>, or omit this parameter.</p>
-   */
-  AssociationVersion?: string;
-
-  /**
-   * <p>Choose the parameter that will define how your automation will branch out. This target is
-   *    required for associations that use an Automation runbook and target resources by using rate
-   *    controls. Automation is a capability of Amazon Web Services Systems Manager.</p>
-   */
-  AutomationTargetParameterName?: string;
-
-  /**
-   * <p>The number of errors that are allowed before the system stops sending requests to run the
-   *    association on additional targets. You can specify either an absolute number of errors, for
-   *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
-   *    the system stops sending requests when the fourth error is received. If you specify 0, then the
-   *    system stops sending requests after the first error is returned. If you run an association on 50
-   *    managed nodes and set <code>MaxError</code> to 10%, then the system stops sending the request
-   *    when the sixth error is received.</p>
-   *          <p>Executions that are already running an association when <code>MaxErrors</code> is reached
-   *    are allowed to complete, but some of these executions may fail as well. If you need to ensure
-   *    that there won't be more than max-errors failed executions, set <code>MaxConcurrency</code> to 1
-   *    so that executions proceed one at a time.</p>
-   */
-  MaxErrors?: string;
-
-  /**
-   * <p>The maximum number of targets allowed to run the association at the same time. You can
-   *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
-   *    value is 100%, which means all targets run the association at the same time.</p>
-   *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
-   *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new managed node will process its association within the limit
-   *    specified for <code>MaxConcurrency</code>.</p>
-   */
-  MaxConcurrency?: string;
-
-  /**
-   * <p>The severity level to assign to the association.</p>
-   */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
-
-  /**
-   * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
-   *     <code>MANUAL</code>. In <code>AUTO</code> mode, the system uses the status of the association
-   *    execution to determine the compliance status. If the association execution runs successfully,
-   *    then the association is <code>COMPLIANT</code>. If the association execution doesn't run
-   *    successfully, the association is <code>NON-COMPLIANT</code>.</p>
-   *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
-   *    for the <a>PutComplianceItems</a> API operation. In this case, compliance data isn't
-   *    managed by State Manager, a capability of Amazon Web Services Systems Manager. It is managed by your direct call to the
-   *     <a>PutComplianceItems</a> API operation.</p>
-   *          <p>By default, all associations use <code>AUTO</code> mode.</p>
-   */
-  SyncCompliance?: AssociationSyncCompliance | string;
-
-  /**
-   * <p>By default, when you update an association, the system runs it immediately after it is
-   *    updated and then according to the schedule you specified. Specify this option if you don't want
-   *    an association to run immediately after you update it. This parameter isn't supported for rate
-   *    expressions.</p>
-   *
-   *          <p>If you chose this option when you created an association and later you edit that association
-   *    or you make changes to the SSM document on which that association is based (by using the
-   *    Documents page in the console), State Manager applies the association at the next specified cron
-   *    interval. For example, if you chose the <code>Latest</code> version of an SSM document when you
-   *    created an association and you edit the association by choosing a different document version on
-   *    the Documents page, State Manager applies the association at the next specified cron interval if
-   *    you previously selected this option. If this option wasn't selected, State Manager immediately
-   *    runs the association.</p>
-   *          <p>You can reset this option. To do so, specify the <code>no-apply-only-at-cron-interval</code>
-   *    parameter when you update the association from the command line. This parameter forces the
-   *    association to run immediately after updating it and according to the interval specified.</p>
-   */
-  ApplyOnlyAtCronInterval?: boolean;
-
-  /**
-   * <p>The names or Amazon Resource Names (ARNs) of the Change Calendar type documents you want to
-   *    gate your associations under. The associations only run when that change calendar is open. For
-   *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">Amazon Web Services Systems Manager Change
-   *     Calendar</a>.</p>
-   */
-  CalendarNames?: string[];
-
-  /**
-   * <p>A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the
-   *    association. Use this action to update an association in multiple Regions and multiple
-   *    accounts.</p>
-   */
-  TargetLocations?: TargetLocation[];
-
-  /**
-   * <p>Number of days to wait after the scheduled day to run an association. For example, if you
-   *    specified a cron schedule of <code>cron(0 0 ? * THU#2 *)</code>, you could specify an offset of 3
-   *    to run the association each Sunday after the second Thursday of the month. For more information
-   *    about cron schedules for associations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html">Reference: Cron
-   *     and rate expressions for Systems Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
-   *          <note>
-   *             <p>To use offsets, you must specify the <code>ApplyOnlyAtCronInterval</code> parameter. This
-   *     option tells the system not to run an association immediately after you create it. </p>
-   *          </note>
-   */
-  ScheduleOffset?: number;
-
-  /**
-   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
-   *    can't be specified together.</p>
-   */
-  TargetMaps?: Record<string, string[]>[];
-}
-
-export interface UpdateAssociationResult {
-  /**
-   * <p>The description of the association that was updated.</p>
-   */
-  AssociationDescription?: AssociationDescription;
-}
+export const OpsItemFilterFilterSensitiveLog = (obj: OpsItemFilter): any => ({
+  ...obj,
+});
 
 /**
- * <p>The updated status is the same as the current status.</p>
+ * @internal
  */
-export class StatusUnchanged extends __BaseException {
-  readonly name: "StatusUnchanged" = "StatusUnchanged";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StatusUnchanged, __BaseException>) {
-    super({
-      name: "StatusUnchanged",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StatusUnchanged.prototype);
-  }
-}
-
-export interface UpdateAssociationStatusRequest {
-  /**
-   * <p>The name of the SSM document.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The managed node ID.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The association status.</p>
-   */
-  AssociationStatus: AssociationStatus | undefined;
-}
-
-export interface UpdateAssociationStatusResult {
-  /**
-   * <p>Information about the association.</p>
-   */
-  AssociationDescription?: AssociationDescription;
-}
+export const DescribeOpsItemsRequestFilterSensitiveLog = (obj: DescribeOpsItemsRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>The document has too many versions. Delete one or more document versions and try
- *    again.</p>
+ * @internal
  */
-export class DocumentVersionLimitExceeded extends __BaseException {
-  readonly name: "DocumentVersionLimitExceeded" = "DocumentVersionLimitExceeded";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DocumentVersionLimitExceeded, __BaseException>) {
-    super({
-      name: "DocumentVersionLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DocumentVersionLimitExceeded.prototype);
-    this.Message = opts.Message;
-  }
-}
+export const OpsItemSummaryFilterSensitiveLog = (obj: OpsItemSummary): any => ({
+  ...obj,
+});
 
 /**
- * <p>The content of the association document matches another document. Change the content of the
- *    document and try again.</p>
+ * @internal
  */
-export class DuplicateDocumentContent extends __BaseException {
-  readonly name: "DuplicateDocumentContent" = "DuplicateDocumentContent";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateDocumentContent, __BaseException>) {
-    super({
-      name: "DuplicateDocumentContent",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateDocumentContent.prototype);
-    this.Message = opts.Message;
-  }
-}
+export const DescribeOpsItemsResponseFilterSensitiveLog = (obj: DescribeOpsItemsResponse): any => ({
+  ...obj,
+});
 
 /**
- * <p>The version name has already been used in this document. Specify a different version name,
- *    and then try again.</p>
+ * @internal
  */
-export class DuplicateDocumentVersionName extends __BaseException {
-  readonly name: "DuplicateDocumentVersionName" = "DuplicateDocumentVersionName";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateDocumentVersionName, __BaseException>) {
-    super({
-      name: "DuplicateDocumentVersionName",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateDocumentVersionName.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-export interface UpdateDocumentRequest {
-  /**
-   * <p>A valid JSON or YAML string.</p>
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>A list of key-value pairs that describe attachments to a version of a document.</p>
-   */
-  Attachments?: AttachmentsSource[];
-
-  /**
-   * <p>The name of the SSM document that you want to update.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The friendly name of the SSM document that you want to update. This value can differ for
-   *    each version of the document. If you don't specify a value for this parameter in your request,
-   *    the existing value is applied to the new document version.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>An optional field specifying the version of the artifact you are updating with the document.
-   *    For example, "Release 12, Update 6". This value is unique across all versions of a document, and
-   *    can't be changed.</p>
-   */
-  VersionName?: string;
-
-  /**
-   * <p>The version of the document that you want to update. Currently, Systems Manager supports updating only
-   *    the latest version of the document. You can specify the version number of the latest version or
-   *    use the <code>$LATEST</code> variable.</p>
-   *          <note>
-   *             <p>If you change a document version for a State Manager association, Systems Manager immediately runs
-   *     the association unless you previously specifed the <code>apply-only-at-cron-interval</code>
-   *     parameter.</p>
-   *          </note>
-   */
-  DocumentVersion?: string;
-
-  /**
-   * <p>Specify the document format for the new document version. Systems Manager supports JSON and YAML
-   *    documents. JSON is the default format.</p>
-   */
-  DocumentFormat?: DocumentFormat | string;
-
-  /**
-   * <p>Specify a new target type for the document.</p>
-   */
-  TargetType?: string;
-}
-
-export interface UpdateDocumentResult {
-  /**
-   * <p>A description of the document that was updated.</p>
-   */
-  DocumentDescription?: DocumentDescription;
-}
-
-export interface UpdateDocumentDefaultVersionRequest {
-  /**
-   * <p>The name of a custom document that you want to set as the default version.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The version of a custom document that you want to set as the default version.</p>
-   */
-  DocumentVersion: string | undefined;
-}
+export const ParametersFilterFilterSensitiveLog = (obj: ParametersFilter): any => ({
+  ...obj,
+});
 
 /**
- * <p>A default version of a document.</p>
+ * @internal
  */
-export interface DocumentDefaultVersionDescription {
-  /**
-   * <p>The name of the document.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The default version of the document.</p>
-   */
-  DefaultVersion?: string;
-
-  /**
-   * <p>The default version of the artifact associated with the document.</p>
-   */
-  DefaultVersionName?: string;
-}
-
-export interface UpdateDocumentDefaultVersionResult {
-  /**
-   * <p>The description of a custom document that you want to set as the default version.</p>
-   */
-  Description?: DocumentDefaultVersionDescription;
-}
-
-export enum DocumentReviewAction {
-  Approve = "Approve",
-  Reject = "Reject",
-  SendForReview = "SendForReview",
-  UpdateReview = "UpdateReview",
-}
+export const ParameterStringFilterFilterSensitiveLog = (obj: ParameterStringFilter): any => ({
+  ...obj,
+});
 
 /**
- * <p>Information about a document approval review.</p>
+ * @internal
  */
-export interface DocumentReviews {
-  /**
-   * <p>The action to take on a document approval review request.</p>
-   */
-  Action: DocumentReviewAction | string | undefined;
+export const DescribeParametersRequestFilterSensitiveLog = (obj: DescribeParametersRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A comment entered by a user in your organization about the document review request.</p>
-   */
-  Comment?: DocumentReviewCommentSource[];
-}
+/**
+ * @internal
+ */
+export const ParameterInlinePolicyFilterSensitiveLog = (obj: ParameterInlinePolicy): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9478,6 +9667,27 @@ export const GetPatchBaselineForPatchGroupResultFilterSensitiveLog = (
 /**
  * @internal
  */
+export const GetResourcePoliciesRequestFilterSensitiveLog = (obj: GetResourcePoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePoliciesResponseEntryFilterSensitiveLog = (obj: GetResourcePoliciesResponseEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePoliciesResponseFilterSensitiveLog = (obj: GetResourcePoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetServiceSettingRequestFilterSensitiveLog = (obj: GetServiceSettingRequest): any => ({
   ...obj,
 });
@@ -10037,6 +10247,20 @@ export const PutParameterResultFilterSensitiveLog = (obj: PutParameterResult): a
 /**
  * @internal
  */
+export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RegisterDefaultPatchBaselineRequestFilterSensitiveLog = (
   obj: RegisterDefaultPatchBaselineRequest
 ): any => ({
@@ -10278,84 +10502,5 @@ export const UnlabelParameterVersionRequestFilterSensitiveLog = (obj: UnlabelPar
  * @internal
  */
 export const UnlabelParameterVersionResultFilterSensitiveLog = (obj: UnlabelParameterVersionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssociationRequestFilterSensitiveLog = (obj: UpdateAssociationRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAssociationResultFilterSensitiveLog = (obj: UpdateAssociationResult): any => ({
-  ...obj,
-  ...(obj.AssociationDescription && {
-    AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateAssociationStatusRequestFilterSensitiveLog = (obj: UpdateAssociationStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssociationStatusResultFilterSensitiveLog = (obj: UpdateAssociationStatusResult): any => ({
-  ...obj,
-  ...(obj.AssociationDescription && {
-    AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentRequestFilterSensitiveLog = (obj: UpdateDocumentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentResultFilterSensitiveLog = (obj: UpdateDocumentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentDefaultVersionRequestFilterSensitiveLog = (
-  obj: UpdateDocumentDefaultVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentDefaultVersionDescriptionFilterSensitiveLog = (obj: DocumentDefaultVersionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentDefaultVersionResultFilterSensitiveLog = (obj: UpdateDocumentDefaultVersionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentReviewsFilterSensitiveLog = (obj: DocumentReviews): any => ({
   ...obj,
 });

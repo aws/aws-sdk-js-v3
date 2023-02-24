@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface DeleteDomainCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Used to delete a domain.
- *      If you onboarded with IAM mode, you will need to delete your domain to onboard again using SSO.
+ *       If you onboarded with IAM mode, you will need to delete your domain to onboard again using IAM Identity Center.
  *      Use with caution. All of the members of the domain will lose access to their EFS volume,
  *      including data, notebooks, and other artifacts.
  *    </p>
@@ -51,6 +52,15 @@ export class DeleteDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +76,7 @@ export class DeleteDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDomainCommandInput, DeleteDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteDomainCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -21,19 +22,19 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the locally stored SSO tokens from the client-side cache and sends an API call to
- *       the Amazon Web Services SSO service to invalidate the corresponding server-side Amazon Web Services SSO sign in
+ *       the IAM Identity Center service to invalidate the corresponding server-side IAM Identity Center sign in
  *       session.</p>
  *
  *          <note>
- *             <p>If a user uses Amazon Web Services SSO to access the AWS CLI, the user’s Amazon Web Services SSO sign in session is
- *         used to obtain an IAM session, as specified in the corresponding Amazon Web Services SSO permission set.
- *         More specifically, Amazon Web Services SSO assumes an IAM role in the target account on behalf of the user,
- *         and the corresponding temporary Amazon Web Services credentials are returned to the client.</p>
+ *             <p>If a user uses IAM Identity Center to access the AWS CLI, the user’s IAM Identity Center sign in session is
+ *         used to obtain an IAM session, as specified in the corresponding IAM Identity Center permission set.
+ *         More specifically, IAM Identity Center assumes an IAM role in the target account on behalf of the user,
+ *         and the corresponding temporary AWS credentials are returned to the client.</p>
  *
- *             <p>After user logout, any existing IAM role sessions that were created by using Amazon Web Services SSO
+ *             <p>After user logout, any existing IAM role sessions that were created by using IAM Identity Center
  *         permission sets continue based on the duration configured in the permission set.
  *         For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/authconcept.html">User
- *           authentications</a> in the <i>Amazon Web Services SSO User
+ *           authentications</a> in the <i>IAM Identity Center User
  *         Guide</i>.</p>
  *          </note>
  * @example
@@ -55,6 +56,15 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: LogoutCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +80,7 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
     options?: __HttpHandlerOptions
   ): Handler<LogoutCommandInput, LogoutCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, LogoutCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

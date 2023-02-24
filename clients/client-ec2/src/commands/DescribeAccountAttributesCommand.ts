@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   DescribeAccountAttributesRequestFilterSensitiveLog,
   DescribeAccountAttributesResult,
   DescribeAccountAttributesResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeAccountAttributesCommand,
   serializeAws_ec2DescribeAccountAttributesCommand,
@@ -42,7 +43,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *             </li>
  *             <li>
  *                <p>
- *                     <code>max-instances</code>: This attribute is no longer supported. The returned
+ *                   <code>max-instances</code>: This attribute is no longer supported. The returned
  *                     value does not reflect your actual vCPU limit for running On-Demand Instances.
  *                     For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits">On-Demand Instance Limits</a> in the
  *                         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -64,7 +65,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *             </li>
  *          </ul>
  *          <note>
- *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +90,15 @@ export class DescribeAccountAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DescribeAccountAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,6 +114,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAccountAttributesCommandInput, DescribeAccountAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAccountAttributesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

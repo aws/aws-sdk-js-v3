@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSessionEmbedUrlRequest,
-  GetSessionEmbedUrlRequestFilterSensitiveLog,
-  GetSessionEmbedUrlResponse,
-  GetSessionEmbedUrlResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetSessionEmbedUrlRequest, GetSessionEmbedUrlRequestFilterSensitiveLog } from "../models/models_2";
+import { GetSessionEmbedUrlResponse, GetSessionEmbedUrlResponseFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_restJson1GetSessionEmbedUrlCommand,
   serializeAws_restJson1GetSessionEmbedUrlCommand,
@@ -42,14 +39,14 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  *             API operation to add a new user with a custom permission profile attached. For more
  *             information, see the following sections in the <i>Amazon QuickSight User
  *             Guide</i>:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedding Analytics</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a>
  *                </p>
  *             </li>
@@ -77,6 +74,15 @@ export class GetSessionEmbedUrlCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GetSessionEmbedUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +98,9 @@ export class GetSessionEmbedUrlCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetSessionEmbedUrlCommandInput, GetSessionEmbedUrlCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetSessionEmbedUrlCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
